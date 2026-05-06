@@ -1,0 +1,69 @@
+---
+import type { GetStaticPaths } from 'astro';
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const posts = await getCollection('blog');
+  const tagSet = new Set<string>();
+  posts.forEach((post) => post.data.tags.forEach((tag) => tagSet.add(tag)));
+
+  return Array.from(tagSet).map((tag) => ({
+    params: { tag: tag.toLowerCase().replace(/\s+/g, '-') },
+    props: { tag },
+  }));
+};
+
+const { tag } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+const allPosts = await getCollection('blog');
+const posts = allPosts
+  .filter((post) =>
+    post.data.tags.some((t) => t.toLowerCase().replace(/\s+/g, '-') === Astro.params.tag)
+  )
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .map((post) => ({
+    ...post,
+    slug: post.id.replace(/\/index\.mdx?$/, '').replace(/\.mdx?$/, ''),
+  }));
+---
+
+<BaseLayout title={`Posts tagged "${tag}" | Agentic Thinking`}>
+  <h1 class="text-3xl font-bold tracking-tight text-neutral-900 mb-2">
+    Posts tagged &ldquo;{tag}&rdquo;
+  </h1>
+  <p class="text-neutral-500 mb-8">{posts.length} post{posts.length !== 1 ? 's' : ''}</p>
+
+  <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    {posts.map((post) => (
+      <article class="rounded-xl border border-neutral-200 p-5 transition hover:-translate-y-1 hover:shadow-lg">
+        <p class="text-xs font-semibold uppercase tracking-wide text-neutral-500">
+          {post.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
+        </p>
+        <h2 class="mt-2 text-lg font-semibold">
+          <a class="text-indigo-600 hover:text-indigo-700" href={`${base}/${post.slug}/`}>
+            {post.data.title}
+          </a>
+        </h2>
+        {post.data.excerpt && (
+          <p class="mt-2 text-sm text-neutral-600 line-clamp-3">{post.data.excerpt}</p>
+        )}
+        <div class="mt-4 flex flex-wrap gap-2">
+          {post.data.tags.map((t) => (
+            <a
+              href={`${base}/tag/${t.toLowerCase().replace(/\s+/g, '-')}/`}
+              class={`rounded-full px-3 py-1 text-xs font-medium transition-colors ${
+                t.toLowerCase().replace(/\s+/g, '-') === Astro.params.tag
+                  ? 'bg-indigo-100 text-indigo-700'
+                  : 'bg-neutral-100 text-neutral-600 hover:bg-neutral-200'
+              }`}
+            >
+              {t}
+            </a>
+          ))}
+        </div>
+      </article>
+    ))}
+  </div>
+</BaseLayout>

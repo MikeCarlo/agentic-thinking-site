@@ -1,0 +1,44 @@
+---
+title: "What Is an AI Agent?"
+date: 2025-05-07
+author: "Mike Carlo"
+tags: ["agents", "AI", "fundamentals"]
+excerpt: "A concise explainer on what AI agents are, how they differ from traditional LLM usage, and why the distinction matters."
+---
+
+## Defining an AI Agent
+
+An **AI agent** is a system that uses a language model (or other AI model) as its core reasoning engine to autonomously take actions in pursuit of a goal. Unlike a simple chatbot that responds to a single prompt, an agent:
+
+1. **Perceives** its environment (reads files, queries APIs, observes tool outputs)
+2. **Plans** a sequence of steps to achieve a goal
+3. **Acts** by invoking tools or other systems
+4. **Reflects** on results and adjusts its plan
+
+## Agents vs. Pipelines
+
+The key distinction between an agent and a static pipeline is **dynamic decision-making**. A pipeline executes the same steps every time. An agent decides at runtime which steps to take based on what it observes.
+
+```python
+# Static pipeline — always the same steps
+def pipeline(query):
+    results = search(query)
+    summary = summarize(results)
+    return summary
+
+# Agent — decides steps dynamically
+def agent(goal):
+    while not done(goal):
+        action = llm.plan_next_action(goal, history)
+        result = execute(action)
+        history.append(result)
+    return history
+```
+
+## Why It Matters
+
+As tasks become more complex and open-ended, static pipelines break down. Agents offer a more flexible and capable alternative — at the cost of predictability and control. Understanding that tradeoff is fundamental to building reliable agentic systems.
+
+## What's Next
+
+In future posts, we'll explore specific agent frameworks, patterns for reliable tool use, and strategies for evaluating and testing agents in production.
