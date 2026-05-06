@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>agentic_thinking — cli-native conversations on agent systems</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script>
+    // Tweak defaults + early-apply (avoids flicker)
+    const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+      "hero": "pixel",
+      "accent": "green",
+      "tone": "cool",
+      "font": "mono",
+      "density": "comfy",
+      "theme": "dark",
+      "scanlines": "on"
+    }/*EDITMODE-END*/;
+    (function(){
+      const r = document.documentElement;
+      Object.entries(TWEAK_DEFAULTS).forEach(([k,v]) => r.dataset[k] = v);
+    })();
+  </script>
+</head>
+<body>
+  <div id="root"></div>
+
+  <!-- React + Babel (pinned) -->
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+  <!-- Data + components -->
+  <script src="data.js?v=2"></script>
+  <script type="text/babel" src="components.jsx?v=2"></script>
+  <script type="text/babel" src="pages.jsx"></script>
+  <script type="text/babel" src="episode.jsx?v=3"></script>
+  <script type="text/babel" src="tweaks.jsx"></script>
+
+  <!-- App -->
+  <script type="text/babel">
+    const { useState, useEffect, useCallback } = React;
+
+    function App() {
+      const route = useHashRoute();
+      const [cliOpen, setCliOpen] = useState(false);
+      const [showToast, toastNode] = useToast();
+      const [tweakOn, setTweakOn] = useState(false);
+      const [tweakMini, setTweakMini] = useState(true);
+      const [tweaks, setTweaks] = useState(() => ({ ...TWEAK_DEFAULTS }));
+
+      // Apply tweaks to DOM whenever they change
+      useEffect(() => { applyTweaksToDom(tweaks); }, [tweaks]);
+
+      // Edit-mode protocol
+      useEffect(() => {
+        const onMsg = (e) => {
+          if (!e.data || typeof e.data !== "object") return;
+          if (e.data.type === "__activate_edit_mode")   setTweakOn(true);
+          if (e.data.type === "__deactivate_edit_mode") setTweakOn(false);
+        };
+        window.addEventListener("message", onMsg);
+        window.parent?.postMessage({ type: "__edit_mode_available" }, "*");
+        return () => window.removeEventListener("message", onMsg);
+      }, []);
+
+      // Global keyboard shortcuts
+      useEffect(() => {
+        const onKey = (e) => {
+          const tag = e.target?.tagName;
+          const typing = tag === "INPUT" || tag === "TEXTAREA";
+          if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
+            e.preventDefault(); setCliOpen((v) => !v); return;
+          }
+          if (!typing && e.key === "/") { e.preventDefault(); setCliOpen(true); return; }
+          if (!typing && e.key.toLowerCase() === "g" && !e.metaKey && !e.ctrlKey) {
+            // prefix: g+h = home, g+a = archive, g+s = subscribe, g+o = hosts
+            const onNext = (ev) => {
+              if (ev.key === "h") go("/");
+              else if (ev.key === "a") go("/archive");
+              else if (ev.key === "s") go("/subscribe");
+              else if (ev.key === "o") go("/about");
+              window.removeEventListener("keydown", onNext, true);
+            };
+            window.addEventListener("keydown", onNext, true);
+            setTimeout(() => window.removeEventListener("keydown", onNext, true), 1200);
+          }
+          if (!typing && e.key.toLowerCase() === "t" && e.shiftKey) {
+            const r = document.documentElement;
+            const next = r.dataset.theme === "light" ? "dark" : "light";
+            setTweaks((tw) => ({ ...tw, theme: next }));
+            window.parent?.postMessage({ type: "__edit_mode_set_keys", edits: { theme: next } }, "*");
+            showToast(`theme → ${next}`);
+          }
+        };
+        window.addEventListener("keydown", onKey);
+        return () => window.removeEventListener("keydown", onKey);
+      }, [showToast]);
+
+      let page = null;
+      if (route.name === "home")      page = <HomePage />;
+      else if (route.name === "archive")  page = <ArchivePage />;
+      else if (route.name === "about")    page = <AboutPage />;
+      else if (route.name === "subscribe") page = <SubscribePage />;
+      else if (route.name === "episode")  page = <EpisodePage slug={route.slug} />;
+
+      return (
+        <div className="shell">
+          <TopNav route={route} />
+          {page}
+          <Foot />
+          <CLIPalette open={cliOpen} onClose={() => setCliOpen(false)} onToast={showToast} />
+          {toastNode}
+
+          {tweakOn && !tweakMini && (
+            <TweaksPanel tweaks={tweaks} setTweaks={setTweaks} onClose={() => setTweakMini(true)} />
+          )}
+          {tweakOn && tweakMini && (
+            <button className="tweaks-fab" onClick={() => setTweakMini(false)}>[ tweaks ]</button>
+          )}
+        </div>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+  </script>
+</body>
+</html>
