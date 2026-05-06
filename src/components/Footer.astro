@@ -1,0 +1,35 @@
+---
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+const links = [
+  { label: 'Posts', href: `${base}/posts/` },
+  { label: 'About', href: `${base}/about/` },
+];
+---
+
+<footer class="bg-gradient-to-r from-indigo-600 to-violet-600 text-white">
+  <div class="mx-auto w-full max-w-4xl px-6 py-10">
+    <div class="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
+      <div>
+        <p class="text-lg font-bold">Agentic Thinking</p>
+        <p class="mt-1 text-sm text-white/80">
+          Thoughts on AI agents, autonomous systems, and agentic workflows.
+        </p>
+      </div>
+      <nav>
+        <ul class="flex flex-col gap-2 text-sm">
+          {links.map((link) => (
+            <li>
+              <a class="text-white/90 hover:text-white hover:underline" href={link.href}>
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </div>
+    <div class="mt-8 border-t border-white/20 pt-6 text-xs text-white/70">
+      <p>&copy; {new Date().getFullYear()} Agentic Thinking. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
