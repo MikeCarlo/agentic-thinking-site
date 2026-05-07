@@ -6,12 +6,12 @@
 
 1. Install dependencies:
    ```bash
-   npm install
+   yarn install
    ```
 
 2. Start the dev server:
    ```bash
-   npm run dev
+   yarn dev
    ```
 
 3. Open [http://localhost:4321/agentic-thinking-site/](http://localhost:4321/agentic-thinking-site/) in your browser.
@@ -20,5 +20,5 @@
 
 | Command | Description |
 |---------|-------------|
-| `npm run build` | Build the site to `dist/` |
-| `npm run preview` | Preview the production build locally |
+| `yarn build` | Build the site to `dist/` |
+| `yarn preview` | Preview the production build locally |
