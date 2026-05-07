@@ -2,7 +2,7 @@
 
 ## Running Locally
 
-**Prerequisites:** Node.js 20+
+**Prerequisites:** Node.js 24+
 
 1. Install dependencies:
    ```bash
@@ -60,7 +60,7 @@ This site is configured to deploy to GitHub Pages at `https://mikecarlo.github.i
          - name: Install Node.js
            uses: actions/setup-node@v4
            with:
-             node-version: '20'
+             node-version: '24'
          
          - name: Install dependencies
            run: yarn install
