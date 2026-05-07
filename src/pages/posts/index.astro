@@ -22,7 +22,7 @@ const posts = (await getCollection('blog'))
           {post.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
         </p>
         <h2 class="mt-2 text-lg font-semibold">
-          <a class="text-indigo-600 hover:text-indigo-700" href={`${base}/${post.slug}/`}>
+          <a class="text-indigo-600 hover:text-indigo-700" href={`${base}/blog/${post.slug}/`}>
             {post.data.title}
           </a>
         </h2>
