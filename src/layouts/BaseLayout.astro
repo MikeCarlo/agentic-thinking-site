@@ -30,26 +30,22 @@ const allEpisodes = (await getCollection('episodes'))
 ---
 
 <!doctype html>
-<html lang="en" data-theme="dark" data-scanlines="on" data-accent="green" data-tone="cool" data-font="mono" data-density="comfy" data-hero="pixel">
+<html lang="en" data-theme="dark" data-scanlines="on" data-font="mono" data-hero="pixel" data-accent="green" data-tone="cool" data-density="comfy">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <title>{title}</title>
     <link rel="icon" type="image/svg+xml" href={`${base}/favicon.svg`} />
-    <!-- Restore theme from localStorage before paint to avoid flash -->
+    <!-- Restore user accent/tone/density preferences before paint -->
     <script is:inline>
       (function() {
         try {
           var t = JSON.parse(localStorage.getItem('at_tweaks') || '{}');
           var r = document.documentElement;
-          if (t.theme) r.dataset.theme = t.theme;
           if (t.accent) r.dataset.accent = t.accent;
           if (t.tone) r.dataset.tone = t.tone;
-          if (t.font) r.dataset.font = t.font;
           if (t.density) r.dataset.density = t.density;
-          if (t.scanlines) r.dataset.scanlines = t.scanlines;
-          if (t.hero) r.dataset.hero = t.hero;
         } catch(e) {}
       })();
     </script>

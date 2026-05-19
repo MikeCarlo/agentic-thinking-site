@@ -48,16 +48,17 @@ export default function CLIPalette({ episodes, base }: Props) {
   const [idx, setIdx] = useState(0);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  // Global keyboard shortcut
+  // Global keyboard shortcut — capture phase so we beat the browser's Ctrl+K (address bar search)
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
         e.preventDefault();
+        e.stopPropagation();
         setOpen((o) => !o);
       }
     };
-    window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
+    window.addEventListener('keydown', onKey, { capture: true });
+    return () => window.removeEventListener('keydown', onKey, { capture: true });
   }, []);
 
   useEffect(() => {
@@ -82,14 +83,8 @@ export default function CLIPalette({ episodes, base }: Props) {
       if (latest) navigate(`/episodes/${latest.slug}/`);
       setOpen(false);
     }},
-    { group: 'cmd', k: 'theme toggle', h: 'dark / light', run: () => {
-      const r = document.documentElement;
-      r.dataset.theme = r.dataset.theme === 'light' ? 'dark' : 'light';
-      try { 
-        const stored = JSON.parse(localStorage.getItem('at_tweaks') || '{}');
-        stored.theme = r.dataset.theme;
-        localStorage.setItem('at_tweaks', JSON.stringify(stored));
-      } catch {}
+    { group: 'cmd', k: 'open tweaks', h: 'accent · tone · density', run: () => {
+      window.dispatchEvent(new CustomEvent('at:tweaks:open'));
       setOpen(false);
     }},
     { group: 'cmd', k: 'copy rss', h: '/feed.xml to clipboard', run: () => {
