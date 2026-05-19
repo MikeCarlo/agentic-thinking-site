@@ -4,6 +4,7 @@ import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
+import react from '@astrojs/react';
 
 const site = process.env.SITE || 'https://mikecarlo.github.io/agentic-thinking-site';
 const base = process.env.BASE_PATH || '/agentic-thinking-site';
@@ -20,6 +21,6 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
-  integrations: [mdx(), sitemap()],
+  integrations: [react(), mdx(), sitemap()],
   compressHTML: true,
 });

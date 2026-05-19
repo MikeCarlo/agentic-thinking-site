@@ -1,0 +1,19 @@
+---
+interface Props {
+  path: string;
+  status?: string;
+  bodyClass?: string;
+}
+
+const { path, status = 'active', bodyClass = '' } = Astro.props;
+---
+
+<section class="win">
+  <div class="win__bar">
+    <span class="win__title"><b>{path}</b></span>
+    {status && <span class="win__status">{status}</span>}
+  </div>
+  <div class={`win__body ${bodyClass}`}>
+    <slot />
+  </div>
+</section>

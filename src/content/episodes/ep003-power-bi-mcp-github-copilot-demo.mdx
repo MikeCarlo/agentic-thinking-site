@@ -1,0 +1,50 @@
+---
+title: "Power BI + MCP + GitHub Copilot Demo"
+episodeNumber: 3
+date: "2025-05-12"
+youtubeId: "c-vlxZ7RCt0"
+duration: "42:15"
+blurb: "A live demo episode showing the integration of Power BI with Model Context Protocol (MCP) and GitHub Copilot. Mathias and Mike demonstrate how MCP servers can bridge the gap between AI coding assistants and BI tooling."
+tags: ["Power BI", "MCP", "GitHub Copilot", "demo", "integration"]
+guest: ""
+guestRole: ""
+chapters:
+  - { t: 0, label: "intro — why MCP matters for BI" }
+  - { t: 105, label: "what is Model Context Protocol?" }
+  - { t: 330, label: "setting up the MCP server" }
+  - { t: 600, label: "connecting GitHub Copilot" }
+  - { t: 900, label: "live demo: querying a Power BI model" }
+  - { t: 1380, label: "writing DAX through Copilot + MCP" }
+  - { t: 1800, label: "DevOps implications" }
+  - { t: 2200, label: "what's next for this stack" }
+transcript:
+  - { t: 0, s: "host_b", text: "Welcome to Agentic Thinking, episode three. I'm Mathias Thierbach, and today is a demo episode." }
+  - { t: 7, s: "host_a", text: "I'm Mike Carlo. We're going to show you something we've been building that connects three worlds: Power BI, Model Context Protocol, and GitHub Copilot." }
+  - { t: 18, s: "host_b", text: "MCP — Model Context Protocol — is something I've been deeply excited about. It's a standard for how AI models can interact with external tools and data sources." }
+  - { t: 32, s: "host_a", text: "And the key insight is: once you have an MCP server that speaks Power BI, any AI tool that supports MCP can work with your BI environment." }
+  - { t: 46, s: "host_b", text: "GitHub Copilot being the most obvious one. Imagine writing DAX, modifying your data model, or debugging measures — all from your IDE, with the AI understanding your actual model." }
+  - { t: 62, s: "host_a", text: "Not a generic AI that hallucinates table names. An AI that knows your specific columns, relationships, and measures." }
+  - { t: 76, s: "host_b", text: "Let me share my screen and show how we set this up. First, the MCP server. It's a lightweight Node process that connects to your Power BI workspace." }
+  - { t: 92, s: "host_a", text: "And it exposes your model metadata — tables, columns, measures, relationships — as MCP resources that Copilot can query." }
+  - { t: 108, s: "host_b", text: "The beautiful thing is this follows the same DevOps patterns we advocate. The MCP server reads from your TMDL source files, so it's always in sync with your version-controlled model." }
+  - { t: 126, s: "host_a", text: "Let's see it in action. I'm going to ask Copilot to write a time intelligence measure, and watch how it uses the MCP server to understand my date table structure." }
+---
+
+## Summary
+
+A live demo episode showing the integration of Power BI with Model Context Protocol (MCP) and GitHub Copilot. Mathias and Mike demonstrate how MCP servers can bridge the gap between AI coding assistants and BI tooling, enabling context-aware AI development workflows.
+
+## Key Takeaways
+
+- ▸ MCP provides a standard protocol for AI tools to access external data sources
+- ▸ An MCP server for Power BI exposes model metadata (tables, columns, measures, relationships)
+- ▸ GitHub Copilot + MCP = context-aware DAX generation (no hallucinated table names)
+- ▸ The MCP server reads from TMDL source files, staying in sync with version control
+- ▸ This pattern works with any MCP-compatible AI tool, not just Copilot
+
+## Links
+
+- ▸ [Model Context Protocol](https://modelcontextprotocol.io)
+- ▸ [GitHub Copilot](https://github.com/features/copilot)
+- ▸ [pbi-tools](https://pbi.tools)
+- ▸ [TMDL Overview](https://learn.microsoft.com/en-us/analysis-services/tmdl/tmdl-overview)

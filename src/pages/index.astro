@@ -1,58 +1,143 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Win from '../components/Win.astro';
 import { getCollection } from 'astro:content';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
-const posts = (await getCollection('blog'))
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
-  .map((post) => ({
-    ...post,
-    slug: post.id.replace(/\/index\.mdx?$/, '').replace(/\.mdx?$/, ''),
+const episodes = (await getCollection('episodes'))
+  .sort((a, b) => b.data.episodeNumber - a.data.episodeNumber)
+  .map((ep) => ({
+    ...ep,
+    slug: ep.id.replace(/\/index\.mdx?$/, '').replace(/\.mdx?$/, ''),
   }));
+
+const topEpisodes = episodes.slice(0, 4);
+const latest = episodes[0];
 ---
 
-<BaseLayout title="Agentic Thinking" fullWidth={true}>
-  <section class="mb-12 text-center">
-    <h1 class="text-4xl font-bold tracking-tight text-neutral-900">
-      Agentic Thinking
-    </h1>
-    <p class="mt-4 text-lg text-neutral-600">
-      Thoughts on AI agents, autonomous systems, and the future of agentic workflows.
-    </p>
-  </section>
-
-  <section class="max-w-4xl mx-auto">
-    <h2 class="text-xl font-semibold mb-6">Recent Posts</h2>
-    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      {posts.map((post) => (
-        <article class="rounded-xl border border-neutral-200 p-5 transition hover:-translate-y-1 hover:shadow-lg">
-          <p class="text-xs font-semibold uppercase tracking-wide text-neutral-500">
-            {post.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
-          </p>
-          <h3 class="mt-2 text-lg font-semibold">
-            <a class="text-indigo-600 hover:text-indigo-700" href={`${base}/blog/${post.slug}/`}>
-              {post.data.title}
-            </a>
-          </h3>
-          {post.data.excerpt && (
-            <p class="mt-2 text-sm text-neutral-600 line-clamp-3">{post.data.excerpt}</p>
+<BaseLayout title="Agentic Thinking">
+  <!-- HERO -->
+  <div class="hero">
+    <div class="win hero__title-win">
+      <div class="win__bar">
+        <span class="win__title"><b>hero.render</b></span>
+        <span class="win__status">active</span>
+      </div>
+      <div class="hero__title-body">
+        <div>
+          <div class="kicker">CLI · EP {String(latest?.data.episodeNumber || 1).padStart(2, '0')} live</div>
+          <div class="hero__logo">
+            <span>AGENTIC</span>
+            <span>THINK<em>ING</em></span>
+          </div>
+        </div>
+        <div class="hero__cta-row">
+          {latest && (
+            <a class="btn btn--primary" href={`${base}/episodes/${latest.slug}/`}>listen_to_latest()</a>
           )}
-          {post.data.tags?.length ? (
-            <div class="mt-4 flex flex-wrap gap-2">
-              {post.data.tags.map((tag) => (
-                <span class="rounded-full bg-neutral-100 px-3 py-1 text-xs font-medium text-neutral-600">
-                  {tag}
-                </span>
-              ))}
-            </div>
-          ) : null}
-        </article>
-      ))}
+          <a class="btn" href={`${base}/episodes/`}>browse_episode_index</a>
+        </div>
+      </div>
     </div>
 
-    {posts.length === 0 && (
-      <p class="text-neutral-500">No posts yet. Check back soon!</p>
-    )}
-  </section>
+    <Win path="shell.about">
+      <h1 class="hero__title">agentic_thinking</h1>
+      <p class="hero__desc">
+        CLI-native conversations on agent systems — orchestration, memory, evals, and the unglamorous infra of running LLMs in anger.
+      </p>
+      <div class="hero__meta">
+        <span>$ status <b>streaming</b></span>
+        <span class="muted-sep">|</span>
+        <span>weekly</span>
+        <span class="muted-sep">|</span>
+        <span>long-form interviews</span>
+      </div>
+    </Win>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats">
+    <div class="stats__label">// now routing signal through the stack</div>
+    <div class="stat"><div class="stat__k">episodes shipped</div><div class="stat__v">0{episodes.length}</div></div>
+    <div class="stat"><div class="stat__k">avg runtime</div><div class="stat__v">48m</div></div>
+    <div class="stat"><div class="stat__k">topic coverage</div><div class="stat__v">LLMs++</div></div>
+  </div>
+
+  <!-- EPISODE QUEUE + INDEX -->
+  <div class="two-col">
+    <Win path="episode_queue.sh">
+      <div class="queue">
+        <div class="queue__line">$ fetch latest --topic agents</div>
+        {topEpisodes.map((e) => (
+          <div class="queue__line">
+            &rarr; Episode <b>{String(e.data.episodeNumber).padStart(2, '0')}</b>: <em>{e.data.title}</em>
+          </div>
+        ))}
+        <div class="queue__line">$ subscribe --channel youtube,spotify,apple</div>
+        <div class="queue__line queue__cursor">$ </div>
+      </div>
+    </Win>
+
+    <Win path="episode_index.log">
+      <div class="ep-list">
+        {topEpisodes.map((ep) => (
+          <a href={`${base}/episodes/${ep.slug}/`} class="ep-row">
+            <span class="ep-row__n">{String(ep.data.episodeNumber).padStart(2, '0')}</span>
+            <span>
+              <div class="ep-row__title">{ep.data.title}</div>
+              <div class="ep-row__meta">
+                {ep.data.duration}<span class="dot">·</span>
+                {ep.data.tags.slice(0, 3).join(', ')}
+              </div>
+            </span>
+            <span class="ep-row__play">play</span>
+          </a>
+        ))}
+      </div>
+      <div style="margin-top: 14px; font-family: var(--font-mono); font-size: 11px; color: var(--fg-mute);">
+        <span style="color: var(--accent);">+</span> archive available as transcript, code notes, and operator playbooks &nbsp;·&nbsp;
+        <a href={`${base}/episodes/`} style="color: var(--accent);">see_all_{episodes.length}_episodes →</a>
+      </div>
+    </Win>
+  </div>
+
+  <!-- SUBSCRIBE + LISTENER STATS -->
+  <div class="sub-grid" style="margin-bottom: 22px;">
+    <Win path="subscribe.prompt">
+      <h2 class="h2">Keep the terminal open.</h2>
+      <p style="color: var(--fg-dim); max-width: 42ch;">
+        Get new episodes, field notes, and CLI experiments in your inbox.
+      </p>
+      <div class="rss-row">
+        <span>rss://</span>
+        <code>agentic-thinking.dev/feed.xml</code>
+      </div>
+    </Win>
+
+    <Win path="listener.stats">
+      <ul class="ls-rows" style="padding: 0; margin: 0;">
+        <li>weekly drop: <b>Mondays</b></li>
+        <li>formats: video, transcript, show notes</li>
+        <li>audience: builders, architects, data engineers</li>
+        <li>platform: <b>YouTube / Power BI Tips</b></li>
+      </ul>
+    </Win>
+  </div>
+
+  <!-- HOSTS TEASER -->
+  <Win path="hosts.md">
+    <div class="hosts-teaser">
+      <div>
+        <h2 class="h2">Hosted by practitioners, builders, and MVPs working where AI meets data platforms.</h2>
+        <p style="color: var(--fg-dim); max-width: 52ch;">
+          The voice is practical: fewer buzzwords, more system diagrams, failure stories, and real implementation tradeoffs.
+        </p>
+      </div>
+      <div style="display: flex; gap: 10px; justify-content: flex-end; flex-wrap: wrap;">
+        <a class="chip chip--accent" href={`${base}/about/`} style="cursor: pointer; padding: 10px 16px; font-size: 12px;">[MIKE]</a>
+        <a class="chip chip--accent" href={`${base}/about/`} style="cursor: pointer; padding: 10px 16px; font-size: 12px;">[MATHIAS]</a>
+      </div>
+    </div>
+  </Win>
 </BaseLayout>

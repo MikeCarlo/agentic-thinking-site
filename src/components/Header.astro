@@ -1,68 +1,25 @@
 ---
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const path = Astro.url.pathname;
 
-const navItems = [
-  { label: 'posts', href: `${base}/posts/` },
-  { label: 'about', href: `${base}/about/` },
-];
+function isActive(route: string) {
+  if (route === '/') return path === base + '/' || path === base;
+  return path.startsWith(base + route);
+}
+
+const isHome = isActive('/') && !path.includes('/episodes') && !path.includes('/about') && !path.includes('/subscribe');
 ---
 
-<header class="bg-gradient-to-r from-indigo-600 to-violet-600 text-white">
-  <div class="mx-auto flex w-full max-w-4xl items-center justify-between px-6 py-5">
-    <a href={`${base}/`} class="text-xl font-bold tracking-tight hover:opacity-90">
-      Agentic Thinking
-    </a>
-
-    <!-- Desktop nav -->
-    <nav class="hidden items-center gap-6 text-sm font-medium uppercase tracking-wide md:flex">
-      {navItems.map((item) => (
-        <a class="hover:text-white/80" href={item.href}>{item.label}</a>
-      ))}
-    </nav>
-
-    <!-- Mobile hamburger button -->
-    <button
-      id="mobile-menu-btn"
-      class="flex h-10 w-10 items-center justify-center rounded-lg hover:bg-white/10 md:hidden"
-      aria-label="Toggle menu"
-      aria-expanded="false"
-    >
-      <svg id="menu-icon" class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-      </svg>
-      <svg id="close-icon" class="hidden h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-      </svg>
-    </button>
+<nav class="topnav">
+  <div class="topnav__brand">
+    <a href={`${base}/`}><b>AGENTIC_THINKING</b></a>
+    <span class="sep">›</span>
+    <span class="topnav__path">podcast/intelligence/agents</span>
   </div>
-
-  <!-- Mobile nav menu -->
-  <nav id="mobile-menu" class="hidden border-t border-white/20 px-6 py-4 md:hidden">
-    <ul class="flex flex-col gap-4">
-      {navItems.map((item) => (
-        <li>
-          <a
-            class="block text-sm font-medium uppercase tracking-wide hover:text-white/80"
-            href={item.href}
-          >
-            {item.label}
-          </a>
-        </li>
-      ))}
-    </ul>
-  </nav>
-</header>
-
-<script>
-  const menuBtn = document.getElementById('mobile-menu-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
-  const menuIcon = document.getElementById('menu-icon');
-  const closeIcon = document.getElementById('close-icon');
-
-  menuBtn?.addEventListener('click', () => {
-    const isOpen = mobileMenu?.classList.toggle('hidden');
-    menuIcon?.classList.toggle('hidden');
-    closeIcon?.classList.toggle('hidden');
-    menuBtn?.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
-  });
-</script>
+  <div class="topnav__nav">
+    <a href={`${base}/`} class={isHome ? 'active' : ''}>home</a>
+    <a href={`${base}/episodes/`} class={isActive('/episodes') ? 'active' : ''}>episodes</a>
+    <a href={`${base}/about/`} class={isActive('/about') ? 'active' : ''}>hosts</a>
+    <a href={`${base}/subscribe/`} class={isActive('/subscribe') ? 'active' : ''}>subscribe</a>
+  </div>
+</nav>

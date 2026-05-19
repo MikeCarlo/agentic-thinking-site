@@ -1,0 +1,131 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import EpisodePlayer from '../../components/EpisodePlayer.tsx';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const episodes = await getCollection('episodes');
+  return episodes.map((ep) => ({
+    params: { slug: ep.id.replace(/\/index\.mdx?$/, '').replace(/\.mdx?$/, '') },
+    props: { episode: ep },
+  }));
+}
+
+const { episode } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+const { Content } = await render(episode);
+
+// Render show notes to HTML string for the player component
+const showNotesHtml = await (async () => {
+  // We'll pass raw HTML via a hidden div trick
+  return '';
+})();
+
+const allEpisodes = (await getCollection('episodes'))
+  .sort((a, b) => b.data.episodeNumber - a.data.episodeNumber)
+  .map((ep) => ({
+    slug: ep.id.replace(/\/index\.mdx?$/, '').replace(/\.mdx?$/, ''),
+    episodeNumber: ep.data.episodeNumber,
+    title: ep.data.title,
+  }));
+
+const currentIdx = allEpisodes.findIndex((e) => e.episodeNumber === episode.data.episodeNumber);
+const prevEp = allEpisodes[currentIdx + 1];
+const nextEp = allEpisodes[currentIdx - 1];
+
+const fmtDate = (d: Date) => d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }).toLowerCase();
+const slug = episode.id.replace(/\/index\.mdx?$/, '').replace(/\.mdx?$/, '');
+---
+
+<BaseLayout title={`EP${String(episode.data.episodeNumber).padStart(2, '0')} · ${episode.data.title} — Agentic Thinking`}>
+  <div style="margin-bottom: 14px; font-family: var(--font-mono); font-size: 11.5px; color: var(--fg-mute);">
+    <a href={`${base}/episodes/`} style="color: var(--accent-2);">← episode_index</a>
+    <span class="muted-sep">·</span>
+    <span>$ cat episodes/ep{String(episode.data.episodeNumber).padStart(2, '0')}_{slug.replaceAll('-', '_')}.mdx</span>
+  </div>
+
+  <div class="ep-head">
+    <div class="ep-head__n">{String(episode.data.episodeNumber).padStart(2, '0')}</div>
+    <div>
+      <div class="ep-head__meta">
+        {fmtDate(episode.data.date)}  ·  {episode.data.duration} min
+        {episode.data.guest && (
+          <>  ·  guest: <span style="color: var(--accent);">{episode.data.guest}</span></>
+        )}
+        {episode.data.guestRole && (
+          <> · <span style="color: var(--fg-dim);">{episode.data.guestRole}</span></>
+        )}
+      </div>
+      <h1 class="ep-head__title">{episode.data.title}</h1>
+      <p class="ep-head__blurb">{episode.data.blurb}</p>
+      <div style="display: flex; gap: 6px; margin-top: 12px; flex-wrap: wrap;">
+        {episode.data.tags.map((tg: string) => <span class="chip">#{tg}</span>)}
+      </div>
+    </div>
+  </div>
+
+  <EpisodePlayer
+    client:load
+    episode={{
+      title: episode.data.title,
+      episodeNumber: episode.data.episodeNumber,
+      youtubeId: episode.data.youtubeId,
+      duration: episode.data.duration,
+      blurb: episode.data.blurb,
+      tags: episode.data.tags,
+      guest: episode.data.guest,
+      guestRole: episode.data.guestRole,
+      chapters: episode.data.chapters,
+      transcript: episode.data.transcript,
+    }}
+  />
+
+  <!-- Show notes rendered below on mobile, also available in notes tab -->
+  <div id="show-notes-content" style="display: none;">
+    <Content />
+  </div>
+
+  <!-- Episode navigation -->
+  <div style="height: 16px;"></div>
+  <div class="win">
+    <div class="win__bar">
+      <span class="win__title"><b>episode_nav</b></span>
+    </div>
+    <div class="win__body">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+        <div style={`opacity: ${prevEp ? 1 : 0.4}; pointer-events: ${prevEp ? 'auto' : 'none'};`}>
+          <div style="font-family: var(--font-mono); font-size: 11px; color: var(--fg-mute); margin-bottom: 6px;">← previous</div>
+          {prevEp ? (
+            <a href={`${base}/episodes/${prevEp.slug}/`} style="color: var(--fg);">
+              <div style="font-weight: 500;">EP{String(prevEp.episodeNumber).padStart(2, '0')} · {prevEp.title}</div>
+            </a>
+          ) : (
+            <div style="color: var(--fg-mute);">— first episode —</div>
+          )}
+        </div>
+        <div style={`text-align: right; opacity: ${nextEp ? 1 : 0.4}; pointer-events: ${nextEp ? 'auto' : 'none'};`}>
+          <div style="font-family: var(--font-mono); font-size: 11px; color: var(--fg-mute); margin-bottom: 6px;">next →</div>
+          {nextEp ? (
+            <a href={`${base}/episodes/${nextEp.slug}/`} style="color: var(--fg);">
+              <div style="font-weight: 500;">EP{String(nextEp.episodeNumber).padStart(2, '0')} · {nextEp.title}</div>
+            </a>
+          ) : (
+            <div style="color: var(--fg-mute);">— latest —</div>
+          )}
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<script>
+  // Pass rendered show notes HTML to the EpisodePlayer notes tab
+  document.addEventListener('DOMContentLoaded', () => {
+    const notesEl = document.getElementById('show-notes-content');
+    if (notesEl) {
+      const html = notesEl.innerHTML;
+      window.dispatchEvent(new CustomEvent('at:show-notes', { detail: { html } }));
+    }
+  });
+</script>

@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Win from '../components/Win.astro';
+---
+
+<BaseLayout title="Subscribe — Agentic Thinking">
+  <div style="margin-bottom: 22px;">
+    <div class="kicker">$ curl -o feed subscribe/</div>
+    <h1 class="h1">Subscribe</h1>
+    <p style="color: var(--fg-dim); margin-top: 10px; max-width: 60ch;">
+      Pick your pipe. We publish everywhere a reasonable person listens.
+    </p>
+  </div>
+
+  <div class="sub-grid">
+    <Win path="subscribe.newsletter">
+      <h2 class="h2">Stay connected</h2>
+      <p style="color: var(--fg-dim); max-width: 42ch;">
+        New episodes drop weekly. Subscribe to get notified on your platform of choice.
+      </p>
+      <div class="rss-row">
+        <span>rss://</span>
+        <code>agentic-thinking.dev/feed.xml</code>
+      </div>
+    </Win>
+
+    <Win path="subscribe.feed">
+      <h2 class="h2">Platforms</h2>
+      <ul class="ls-rows" style="padding: 0;">
+        <li><b>YouTube</b> — <a href="https://www.youtube.com/@PowerBITips" target="_blank" rel="noopener" style="color: var(--accent-2);">@PowerBITips</a></li>
+        <li><b>Apple Podcasts</b> — <span class="dim">coming soon</span></li>
+        <li><b>Spotify</b> — <span class="dim">coming soon</span></li>
+        <li><b>Overcast / Pocket Casts / Castro</b> — paste the rss url</li>
+      </ul>
+    </Win>
+  </div>
+</BaseLayout>

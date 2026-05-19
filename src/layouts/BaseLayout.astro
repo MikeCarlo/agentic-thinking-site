@@ -1,31 +1,68 @@
 ---
-import '../styles/global.css';
+import '../styles/terminal.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import CLIPalette from '../components/CLIPalette.tsx';
+import TweaksPanel from '../components/TweaksPanel.tsx';
+import { getCollection } from 'astro:content';
 
 const {
   title = 'Agentic Thinking',
-  description = 'Thoughts on AI agents, autonomous systems, and the future of agentic workflows.',
-  fullWidth = false,
+  description = 'CLI-native conversations on agent systems — orchestration, memory, evals, and the unglamorous infra of running LLMs in anger.',
 } = Astro.props;
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+// Gather episode metadata for the CLI palette search
+const allEpisodes = (await getCollection('episodes'))
+  .sort((a, b) => b.data.episodeNumber - a.data.episodeNumber)
+  .map((ep) => ({
+    slug: ep.id.replace(/\/index\.mdx?$/, '').replace(/\.mdx?$/, ''),
+    title: ep.data.title,
+    episodeNumber: ep.data.episodeNumber,
+    blurb: ep.data.blurb,
+    tags: ep.data.tags,
+    duration: ep.data.duration,
+    guest: ep.data.guest,
+    youtubeId: ep.data.youtubeId,
+    transcript: ep.data.transcript,
+  }));
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark" data-scanlines="on" data-accent="green" data-tone="cool" data-font="mono" data-density="comfy" data-hero="pixel">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <title>{title}</title>
     <link rel="icon" type="image/svg+xml" href={`${base}/favicon.svg`} />
+    <!-- Restore theme from localStorage before paint to avoid flash -->
+    <script is:inline>
+      (function() {
+        try {
+          var t = JSON.parse(localStorage.getItem('at_tweaks') || '{}');
+          var r = document.documentElement;
+          if (t.theme) r.dataset.theme = t.theme;
+          if (t.accent) r.dataset.accent = t.accent;
+          if (t.tone) r.dataset.tone = t.tone;
+          if (t.font) r.dataset.font = t.font;
+          if (t.density) r.dataset.density = t.density;
+          if (t.scanlines) r.dataset.scanlines = t.scanlines;
+          if (t.hero) r.dataset.hero = t.hero;
+        } catch(e) {}
+      })();
+    </script>
   </head>
-  <body class="bg-white text-neutral-900 min-h-screen flex flex-col">
-    <Header />
-    <main class={`mx-auto w-full px-6 py-10 flex-grow ${fullWidth ? '' : 'max-w-4xl'}`}>
-      <slot />
-    </main>
-    <Footer />
+  <body>
+    <div class="shell">
+      <Header />
+      <main>
+        <slot />
+      </main>
+      <Footer />
+    </div>
+    <CLIPalette client:load episodes={allEpisodes} base={base} />
+    <TweaksPanel client:load />
   </body>
 </html>

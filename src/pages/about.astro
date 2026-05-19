@@ -1,30 +1,70 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Win from '../components/Win.astro';
 ---
 
-<BaseLayout
-  title="About | Agentic Thinking"
-  description="About Agentic Thinking — a blog exploring AI agents and autonomous systems."
->
-  <div class="prose mx-auto">
-    <h1>About</h1>
-    <p>
-      <strong>Agentic Thinking</strong> is a blog exploring the rapidly evolving world of AI agents,
-      autonomous systems, and agentic workflows. We cover topics like multi-agent architectures,
-      tool-using LLMs, agent frameworks, and the practical realities of building and deploying agents.
-    </p>
-    <p>
-      Whether you're a developer building your first agent pipeline or an architect designing
-      enterprise-scale autonomous systems, there's something here for you.
-    </p>
-    <h2>Topics</h2>
-    <ul>
-      <li>AI agent frameworks and architectures</li>
-      <li>Autonomous workflow design</li>
-      <li>Tool use and function calling</li>
-      <li>Multi-agent coordination</li>
-      <li>Evaluation and safety for agents</li>
-      <li>Practical implementation guides</li>
-    </ul>
+<BaseLayout title="Hosts — Agentic Thinking">
+  <div style="margin-bottom: 22px;">
+    <div class="kicker">$ cat hosts.md</div>
+    <h1 class="h1">Hosts</h1>
   </div>
+
+  <Win path="show_manifesto.txt">
+    <p style="font-size: 15px; color: var(--fg-dim); max-width: 62ch; line-height: 1.6;">
+      Agentic Thinking is a working engineer's podcast about building with AI agents in production.
+      We talk about the real patterns: orchestration, memory, tool use, evaluation, and the unglamorous
+      infrastructure that makes autonomous systems reliable. No market forecasts. No vibes. Just architecture,
+      tradeoffs, and real implementations.
+    </p>
+    <div style="margin-top: 20px; font-family: var(--font-mono); font-size: 12px; color: var(--fg-mute);">
+      <div>▸ no vendor pitches. no hot takes on AGI. no funnels.</div>
+      <div>▸ show notes are full transcripts with timestamps.</div>
+      <div>▸ every demo is something we actually built and shipped.</div>
+    </div>
+  </Win>
+
+  <div style="height: 16px;"></div>
+
+  <Win path="hosts/">
+    <div class="hosts">
+      <div class="host-card">
+        <span class="host-card__tag">[host_a]</span>
+        <div class="host-card__name">Michael (Mike) Carlo</div>
+        <div class="host-card__role">AI-driven CEO @ Carlo Solutions LLC | Microsoft MVP — Power BI, Azure</div>
+        <div class="host-card__bio">
+          As the CEO of Carlo Solutions LLC, Mike provides data and analytics solutions helping businesses leverage Microsoft Azure and Power BI.
+          With 8+ years in business intelligence and data engineering, he is the owner and creator of PowerBI.tips — a platform offering tutorials,
+          tips, and tricks for learning Power BI. Recognized as a Microsoft MVP in Data Platform for his contributions to the Power BI ecosystem.
+        </div>
+        <div style="margin-top: 14px; font-family: var(--font-mono); font-size: 11px;">
+          <div style="color: var(--fg-mute);">
+            ▸ <a style="color: var(--accent-2);" href="https://www.linkedin.com/in/michaelcarlo/" target="_blank" rel="noopener">linkedin.com/in/michaelcarlo</a>
+          </div>
+          <div style="color: var(--fg-mute);">
+            ▸ <a style="color: var(--accent-2);" href="https://powerbi.tips" target="_blank" rel="noopener">powerbi.tips</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="host-card">
+        <span class="host-card__tag">[host_b]</span>
+        <div class="host-card__name">Mathias Thierbach</div>
+        <div class="host-card__role">Entrepreneur & Power BI Contributor | Microsoft Data Platform MVP | Fabric & Power BI DataOps | #TMDL</div>
+        <div class="host-card__bio">
+          A Microsoft Data Platform MVP and passionate DevOps evangelist dedicated to bringing modern engineering practices to data analytics.
+          Creator of pbi-tools — which pioneered source control and DevOps automation for Power BI. Inventor of TMDL (Tabular Model Definition Language).
+          Deeply interested in Agentic Development — leveraging AI as an active collaborator in building analytical systems using GitHub Copilot,
+          Claude Code, and MCP-based architectures.
+        </div>
+        <div style="margin-top: 14px; font-family: var(--font-mono); font-size: 11px;">
+          <div style="color: var(--fg-mute);">
+            ▸ <a style="color: var(--accent-2);" href="https://www.linkedin.com/in/mthierba/" target="_blank" rel="noopener">linkedin.com/in/mthierba</a>
+          </div>
+          <div style="color: var(--fg-mute);">
+            ▸ <a style="color: var(--accent-2);" href="https://pbi.tools" target="_blank" rel="noopener">pbi.tools</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </Win>
 </BaseLayout>
