@@ -138,10 +138,10 @@ export default function CLIPalette({ episodes, base }: Props) {
             label: <>ep{String(ep.episodeNumber).padStart(2, '0')} @ <span style={{ color: 'var(--accent)' }}>{fmtClock(row.t)}</span></>,
             sub: <>{row.s === 'host_a' ? 'mike: ' : row.s === 'host_b' ? 'mathias: ' : 'guest: '}{highlight(row.text, Q)}</>,
             run: () => {
+              // Store seek target before navigating — sessionStorage survives
+              // the full page reload so EpisodePlayer can read it in onReady.
+              sessionStorage.setItem('at_pending_seek', JSON.stringify({ t: row.t }));
               navigate(`/episodes/${ep.slug}/`);
-              setTimeout(() => {
-                window.dispatchEvent(new CustomEvent('at:seek', { detail: { t: row.t } }));
-              }, 500);
               setOpen(false);
             },
           });

@@ -100,6 +100,22 @@ export default function EpisodePlayer({ episode, showNotes }: Props) {
         enablejsapi: 1,
       },
       events: {
+        onReady: () => {
+          // If we arrived here from a CLIPalette transcript search, seek + play
+          const raw = sessionStorage.getItem('at_pending_seek');
+          if (raw) {
+            try {
+              const { t: seekT } = JSON.parse(raw);
+              sessionStorage.removeItem('at_pending_seek');
+              playerRef.current.seekTo(seekT, true);
+              playerRef.current.playVideo();
+              setT(seekT);
+              setPlaying(true);
+            } catch {
+              sessionStorage.removeItem('at_pending_seek');
+            }
+          }
+        },
         onStateChange: (event: any) => {
           if (event.data === window.YT.PlayerState.PLAYING) {
             setPlaying(true);
