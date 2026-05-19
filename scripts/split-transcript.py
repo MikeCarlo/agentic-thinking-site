@@ -19,6 +19,7 @@ Each line in an output file is formatted as:
 where SECONDS is the cue start time as a whole integer.
 """
 
+import html
 import re
 import sys
 import os
@@ -58,7 +59,12 @@ def extract_cues(vtt_path: str) -> list[tuple[int, str]]:
                 text_lines = lines[i + 1:]
                 text = ' '.join(t.strip() for t in text_lines if t.strip())
                 if text:
-                    cues.append((start_sec, text))
+                    # Decode HTML entities (&gt; → >, &amp; → &, etc.) and
+                    # strip YouTube speaker-change markers (>>) before writing
+                    text = html.unescape(text)
+                    text = re.sub(r'\s*>>\s*', ' ', text).strip()
+                    if text:
+                        cues.append((start_sec, text))
                 break
 
     # Sort by start time (VTT files are usually in order but just in case)
