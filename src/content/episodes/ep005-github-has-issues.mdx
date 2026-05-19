@@ -15,189 +15,240 @@ chapters:
   - { t: 2447, label: "power BI agentic plugins" }
   - { t: 2500, label: "wrap up" }
 transcript:
-  - { t: 14, text: "Hello and welcome back to Agentyc Thinking. We have some more demos for continue down this path. Last week, if I'll do a quick recap, we were working modeling server as an NPM package directly inside GitHub. And now we're" }
-  - { t: 33, text: "that. But before we get going, Matthias, welcome. Yes, hi. It's been another week welcome. Yes, hi. It's been another week in AI land, hasn't it? Even though it's been a week, it feels like a month. Mhm. Indeed. how are" }
-  - { t: 48, text: "I'm doing really well. There's a lot of new things happening. I am discovering new things happening. I am discovering things all the time, always learning new things. And I said we're I'm now just doing regular compression with my with" }
-  - { t: 65, text: "week? What's happening? What what things are you finding to be more advantage than not? Mhm. And one of the two observations mainly came out. One is our observations mainly came out. One is our team is continually spending more and" }
-  - { t: 76, text: "more time on the planning phases and building a proper phase one, phase two, building a proper phase one, phase two, phase three of what I want to build. The that thing may be, typically could be built out in phases. So doing a lot more" }
-  - { t: 89, text: "built out in phases. So doing a lot more work on the ideation phase is really work on the ideation phase is really helping improve our productivity with absolutely. And we've learned this from you, Matthias. So we've been taking your" }
-  - { t: 104, text: "observation. The other main observation is markdown is way better than any other is markdown is way better than any other documentation that we have. So from our documentation that we have. So from our standpoint, we really like making" }
-  - { t: 115, text: "markdown of everything. Mhm. and so Microsoft has a new Python library take any Excel document or Word document and and mark turn it into markdown. Mhm. and and mark turn it into markdown. Mhm. The token usage you get by not sending a" }
-  - { t: 130, text: "The token usage you get by not sending a Word doc versus a markdown file to an agent is phenomenal. It's a it's a pretty big jump on better like meaning pretty big jump on better like meaning if you send it images and and documents," }
-  - { t: 142, text: "if you send it images and and documents, it's a have much heavier token usage because it has to parse through the file and there's a lot of extra junk and code going down to just a markdown piece has actually been a really big advantage for" }
-  - { t: 156, text: "So recently I built a skill around using this new library called market down. this new library called market down. Yeah. And it runs the local Python Yeah. And it runs the local Python script on my computer in my repo and I" }
-  - { t: 168, text: "just say market down and then I give it the file path of the the document that I the file path of the the document that I want to turn into markdown. And it just does it. It just figures it out. So I built a skill around that Python script" }
-  - { t: 179, text: "built a skill around that Python script that runs and installs and then does all know if you're using that, Matthias, on your side, but I'm finding good value in using markdown. Well, actually I had a use case recently where I had to go" }
-  - { t: 193, text: "the other way. So I, , Mark it up. yes, totally agree, right? Everyone out there has to become very familiar and there has to become very familiar and very comfortable with markdown" }
-  - { t: 205, text: "nowadays. if you haven't been already, because that's just the way you communicate with agents. 100% agree. communicate with agents. 100% agree. and so I did that recently where I had" }
-  - { t: 218, text: "and so I did that recently where I had to produce a pretty hefty obviously I did all of that in markdown cuz it's just so much easier to version control and to send back and forth and and interact with your agents" }
-  - { t: 235, text: "forth and and interact with your agents on. But ultimately, I wanted to send on. But ultimately, I wanted to send it as a as a business document in in in Word. And so I then used a skill to take my markdown document and convert it" }
-  - { t: 247, text: "take my markdown document and convert it in into docx. And that turned out very in into docx. And that turned out very very nicely. Oh cool. Okay. very nicely. Oh cool. Okay. the the third attempt, ." }
-  - { t: 258, text: "Yeah. Thought was pretty good in in in in going on it and ultimately it figured out and I had a was very happy, iteration on that Word document later on. I actually went back to my markdown" }
-  - { t: 274, text: "on. I actually went back to my markdown sources, , did the iterations there and then had had it regenerate. So there we go. had it regenerate. So there we go. it's one of those things that we" }
-  - { t: 286, text: "wouldn't have thought, , a year ago we we'd be doing on a regular basis, there around like again, this is techniques, things that we're learning I've also internalized a little bit, Matthias, around what you've been doing" }
-  - { t: 303, text: "I've been building my own skills around what is a research what does research mean? how do I use research? How do I connect research to GitHub agents as connect research to GitHub agents as well as my open claw agents as well as" }
-  - { t: 313, text: "well as my open claw agents as well as my CLI. And if I find wherever I'm working, I I do a little thing where hey, I want to research this URL. I'll just give it the URL and say, go do this. And now I have some instructions" }
-  - { t: 327, text: "figure out what's going on there. What are the key insights that I care about? that to the agent and then the agent can take this article and say, here's where this article applies for your business. Mhm. How is it working for you? What" }
-  - { t: 356, text: "reference it later? Is this something I should give a a documentation to one of my clients because they're really interested in this topic and it would be useful to them. So it's it's being like another second brain, I" }
-  - { t: 366, text: "guess, a little bit to me. Where I'm finding much value in a repo with knowledge and document distillation from random web links or things I find from random web links or things I find on Twitter or videos and stuff like" }
-  - { t: 382, text: "that more cuz then it doesn't forget the information. Yeah, I that's something I and I'm sure in a future episode what what we can do some demos in that space. Love it. Cuz , I've been building a very extensive" }
-  - { t: 399, text: "GitHub markdown knowledge bases in Agentyc markdown knowledge bases in Agentyc ways over months now and with ways over months now and with hundreds and hundreds of iterations and" }
-  - { t: 413, text: "that's something which first of all you can build Agentycally, you can update Agentycally, but most importantly, and that's the ultimate purpose, you can use that's the ultimate purpose, you can use as input" }
-  - { t: 424, text: "to to educate your agents when when you give them a particular task, right? you give them a particular task, right? So that's ultimately what comes down to. right. Obviously we want to do demo today, but just in in terms of" }
-  - { t: 435, text: "today, but just in in terms of a couple of news items, I think we have" }
-  - { t: 437, text: "a couple of news items, I think we have to we we did talk about Opus 47 a lot to we we did talk about Opus 47 a lot last week. We did. Open AI and released Codex 55 this week" }
-  - { t: 457, text: "one or two days ago. So it's very very new, very fresh. But I've already been running some coding sessions on 55 so far. And There was one very unexpected disappointment." }
-  - { t: 473, text: "very unexpected disappointment. So basically I I I gave it a very very So basically I I I gave it a very very substantial spec, like multiple files of markdown, , something big," }
-  - { t: 483, text: "of markdown, , something big, but then to be tackled in a very fundamental architectural design choice which I had made and which was choice which I had made and which was also pretty clear in in the specs. And" }
-  - { t: 498, text: "also pretty clear in in the specs. And Codex totally ignored that. And so it's Codex totally ignored that. And so it's currently it's currently doing the the I did the second iteration where I've been very clear Mhm. Follow my" }
-  - { t: 512, text: "[laughter] yeah. So Yeah. Mhm. not not not not the greatest start, but hopefully it'll be a one-off. in any case, it it definitely did produce stuff that compiled and and was very" }
-  - { t: 531, text: "stuff that compiled and and was very close to almost completing the entire close to almost completing the entire thing which was meant to be multiple pretty crazy. it so before that, you and I," }
-  - { t: 547, text: "availability from my point of view is very limited still, right? So you you don't see you don't get 55 in in Co-pilot. I haven't seen it in Azure Co-pilot. I haven't seen it in Azure yet. I've tried" }
-  - { t: 560, text: "various times. Yes. but it is available at least to me at but it is available at least to me at this point in the Codex CLI. So that's this point in the Codex CLI. So that's how I'm currently using 55. Okay, good" }
-  - { t: 570, text: "Typically some of these bigger, more premier models come out and they are premier models come out and they are very limited to get access. It it kind fast as fast as the models can move at this point. So we'll see where that goes" }
-  - { t: 584, text: "maybe a quick follow-up from last week as well. , we we talked about as well. , we we talked about 47 being quite expensive and really What I've actually done, I've rolled back to 4.6 for all my work. Really?" }
-  - { t: 603, text: "and I'm very, very happy with that. and I think I alluded to that well last time we spoke. they don't make it super easy to do that in the in it super easy to do that in the in the Claude interface because 4.6 doesn't" }
-  - { t: 616, text: "the Claude interface because 4.6 doesn't show up anymore, but you can select it either in your settings.json or you select it using dash dash model when you select it using dash dash model when you invoke Claude. so it is available," }
-  - { t: 627, text: "invoke Claude. so it is available, they're just hiding it from you. they're just hiding it from you. For me, that was the right choice, you know? I'm getting super high quality at a reasonable cost." }
-  - { t: 640, text: "little bit last time. This is going to continually be the balance of how much continually be the balance of how much we want to spend on like you may occasionally use 4.7 for something very important or very difficult, right? Let" }
-  - { t: 652, text: "it really reason through things. But I think to your point, the majority of use the right price point. It gets things done when you need to get done. You can move forward with that. So with that though, there's also there's a lot of" }
-  - { t: 667, text: "tanking 4.6 performance so that way it 4.7 looks that much better in benchmarking in these things. And someone said, \"I had some data to prove engineer at Anthropic an update on the Claude code quality reports. So they" }
-  - { t: 685, text: "bugs, I believe, in the harness. I think that's what they were describing here. that they were doing a postmortem around that the reasoning postmortem around that the reasoning effort was changing in different spaces" }
-  - { t: 696, text: "reasoning less when it should have been reasoning more. and then what they're inside the model. So this is another article that Matthias you gave us here. I'll put that in the chat window as well. This is the April 23rd postmortem." }
-  - { t: 708, text: "well. This is the April 23rd postmortem. and they have made changes to their code as of April 20th and you should start seeing better performance that they've recently implemented. That just reminded me I'm just giving you" }
-  - { t: 722, text: "it's it's a particular GitHub issue which I think may well have been the which I think may well have been the origin of of that postmortem article origin of of that postmortem article you were just talking about." }
-  - { t: 733, text: "you were just talking about. it's a it's a GitHub issue that is very technical but somehow went quite viral. quite viral. it was initiated by a very senior" }
-  - { t: 746, text: "it was initiated by a very senior engineer at AMD who had done very, engineer at AMD who had done very, very extensive analysis of thousands of very extensive analysis of thousands of Claude sessions trying to prove that" }
-  - { t: 759, text: "their reasoning quality had degraded substantially. And quality had degraded substantially. And then there was some really good and then there was some really good and and and a very substantial" }
-  - { t: 770, text: "interaction with the Claude team on that issue. So anyone who wants to issue. So anyone who wants to look behind the scenes a little bit, that issue is very interesting read. although" }
-  - { t: 779, text: "is very interesting read. although it probably goes way beyond what most of Just be aware someone's looking at it, it's going to get better. other news item? Can we move over to show your desktop and we'll do demo now?" }
-  - { t: 799, text: "Claude life artifact was released, but that's definitely something we can good. Cuz that's a very interesting one to look at, particularly coming from a So yeah, let's let's just leave that here as a as a a tease. Full Tuesday." }
-  - { t: 819, text: "Yeah, correct. Awesome, I love it. All right, moving over to screen share here. Here we go, this is your desktop and we're going to go we're going to go where we're working off of right now. If you want to go see this repo, I'll make" }
-  - { t: 836, text: "Matthias is working on and this will be continually updated as we add more Absolutely. So this is all public, right? So available to anyone. okay, so last time we talked a little bit about" }
-  - { t: 850, text: "last time we talked a little bit about how to set this all up and how to kick a cloud agent session which is actually this one here." }
-  - { t: 861, text: "which is actually this one here. was quite simple see whether we could connect to our remote semantic model in in Fabric. And remote semantic model in in Fabric. And then I gave her" }
-  - { t: 875, text: "then I gave her a tiny prompt, \"Review model and propose a tiny prompt, \"Review model and propose suggestions.\" which Copilot responded suggestions.\" which Copilot responded to with a very, very substantial, as" }
-  - { t: 885, text: "to with a very, very substantial, as you can see, a list of things you can see, a list of things that can be improved. So that was that can be improved. So that was awesome in terms of cheap to do" }
-  - { t: 895, text: "awesome in terms of cheap to do big win. well, , we've got lots to do's now. so because I didn't want to sitting here" }
-  - { t: 908, text: "looking at the agent doing stuff, I prepared the agent doing stuff, I prepared something for today. So I created a new something for today. So I created a new session here from scratch as you can" }
-  - { t: 918, text: "session here from scratch as you can see an hour ago. everything we did last time and more. So I asked her to connect. I asked her to suggestions. And then I asked her to export those suggestions into a markdown" }
-  - { t: 934, text: "export those suggestions into a markdown file, right? So we talked markdown earlier. I also asked her to actually export the full model export the full model as tim doll into my repository." }
-  - { t: 947, text: "and so it's done that in 5 and 1/2 minutes. Not too bad, right? And took me minutes. Not too bad, right? And took me one premium request. So very, very cheap. and so we've seen that last time." }
-  - { t: 965, text: "then we have 10 items for key improvements. and it's also told me how it's exported 19 tim doll files into this exported 19 tim doll files into this particular folder. So what I wanted to" }
-  - { t: 979, text: "particular folder. So what I wanted to point out here, which is why I haven't first of all down here, you can expand and collapse the list of all added, deleted, or modified. So basically like a git diff." }
-  - { t: 996, text: "basically like a git diff. you can also click here to see that. you can also click here to see that. But most importantly, I can actually create a pull request directly out of this agent" }
-  - { t: 1008, text: "session. So this is how everything is quite naturally integrated in in quite naturally integrated in in GitHub land. and Can I ask a question here on this one cuz this is something I've been also" }
-  - { t: 1021, text: "You're you're creating a pull request, but this is like in draft mode couple places, right? You can see on the on the upper right hand corner it says not ready. Yeah. One. And then on the left-hand side you see it's actually has" }
-  - { t: 1040, text: "Yeah. And so maybe Matthias, could you speak a bit about like okay, you're you're doing from the agent session. We've left the agent session and now would be called. Can you maybe explain a bit more what that means that way people" }
-  - { t: 1056, text: "can understand, , the steps here from where we were to draft? from where we were to draft? Right. Okay. so first of all, the agent has automatically created a new branch, which in this case is called" }
-  - { t: 1069, text: "new branch, which in this case is called Copilot forward slash connect sales model and list tables. not not an ideal name because actually the the the the the key point here was the export and the suggestions, but" }
-  - { t: 1082, text: "the export and the suggestions, but there we go. I can live with that. and so that draft is now what we that draft is now what we have the pull request created for." }
-  - { t: 1099, text: "That branch is what the pull request is created for. the draft stage is a created for. the draft stage is a Co- It's it's a GitHub feature, let's say, where you can Well, it comes down to to your to your" }
-  - { t: 1117, text: "Well, it comes down to to your to your workflow and how you engage with within workflow and how you engage with within your engineering team, right? So you can \"I'm creating this pull request here, but I'm not quite ready yet for it to be" }
-  - { t: 1131, text: "Right? I don't want to share it with my reviewer or my line manager or my in the team. This is for for now, this is a private pull request because I this is a private pull request because I may well make further code changes. I" }
-  - { t: 1145, text: "may well review this and this and when I as as the originator think I'm for this pull request to go further, I then change the status from draft to" }
-  - { t: 1159, text: "then change the status from draft to ready, right? So and it's quite easy. If ready, right? So and it's quite easy. If you scroll down here, it says this pull request is work in progress. I've got a ready for review button here. And" }
-  - { t: 1170, text: "got a ready for review button here. And once I click that, I then have the green button which allows me to merge. And now it it also says ready to merge. And now it it also says ready to merge up here, right? So there we go." }
-  - { t: 1185, text: "Copilot creates a pull request for you, it will always be created in draft to go back down to the bottom section here, and this is something I was observing as well, this does not have any automatic GitHub actions attached to it. So, or if" }
-  - { t: 1201, text: "software, there may be some like a build step that you want to apply that a build step that you want to apply that would run some actions to do something. would run some actions to do something. While in draft mode, the actions aren't" }
-  - { t: 1211, text: "automatically kicked off. So, another advantage of draft that I saw as I was advantage of draft that I saw as I was working with it is you have to as a say it, we're ready to go. Agent can say, \"Okay, the draft is prepared.\" And" }
-  - { t: 1224, text: "say, \"Okay, the draft is prepared.\" And there's actually a separate box here, a little approval box that says, \"Hey, do you actually want me to run the branch for whatever app or other thing you're building?\" So, it also it also" }
-  - { t: 1236, text: "pauses some because actions cost real money cuz you're spinning up a runner to do real things. And so, one of the things I wanted to note here is it actually protects you against just running a lot of" }
-  - { t: 1252, text: "quickly, right? That's it it protects you there. Actually, that's a really continue from that. So, first of all, we we've got a button here which allows us where we started from, right? And so, you just talked about spending money and" }
-  - { t: 1271, text: "you just talked about spending money and cost. Yes. And we spent a fair amount of cost. Yes. And we spent a fair amount of time talking and explaining premium" }
-  - { t: 1279, text: "requests last time. Sure. so, the thing people need to understand when it Copilot in the cloud, there are actually two costs components. So, there is two costs components. So, there is premium request which is" }
-  - { t: 1292, text: "premium request which is what we discussed at length already, but those cloud agents run on GitHub actions infrastructure, which means those 5 and 1/2 minutes here, they would have consumed 5 and 1/2 minutes of my" }
-  - { t: 1306, text: "have consumed 5 and 1/2 minutes of my budget for GitHub actions. And that's budget for GitHub actions. And that's really [clears throat] really important, right? So, you actually have two" }
-  - { t: 1319, text: "counters. Sorry, I forgot the word now. you So, you've got you've got you've you So, you've got you've got you've got two different purses. Yes. Money comes out of for those cloud agents, and you have to" }
-  - { t: 1334, text: "be aware that you need sufficient budget for both that you need sufficient budget for both of them. Both in terms of Copilot premium requests, but also with respect to your GitHub actions minutes" }
-  - { t: 1344, text: "to your GitHub actions minutes allowance. Generally, that's not an issue because generally, you have thousands of those, but nonetheless, it can add up. Sure. Exactly. And then the other thing the" }
-  - { t: 1359, text: "other thing to say is so, GitHub Copilot is highly sandboxed, very seriously, and always lean towards seriously, and always lean towards being restrictive more so than not." }
-  - { t: 1374, text: "being restrictive more so than not. So, what you mentioned earlier is actually this bit here. Yes. By default, if if you have workflows" }
-  - { t: 1386, text: "if if you have workflows set up in your repo, which I don't have get there. But if you have workflows set up that are triggered automatically on pull requests, Mhm. right? By default," }
-  - { t: 1404, text: "Copilot authored pull requests do not trigger those workflows. And that's this particular setting here, right? By default, this is on, and it basically \"You need to expressly allow to run your workflows.\" If you turn this off, then" }
-  - { t: 1416, text: "workflows.\" If you turn this off, then it will just automatically run all of it requires your interaction there. And requires your interaction there. And your choice, right? , this can be" }
-  - { t: 1432, text: "You may well want to turn it off, but just wanted to make you aware of what the default is. Obviously, this is all about protecting when an agent does stuff on your behalf, you don't really know what may happen," }
-  - { t: 1446, text: "you don't really know what may happen, right? All sorts of stuff could suddenly end up in your repo. So, this is to ensure that you review before then the ensure that you review before then the code in your repo suddenly runs, which" }
-  - { t: 1460, text: "code in your repo suddenly runs, which is basically what happens when when when is basically what happens when when when you've got a triggered workflow. Okay, So, let's go back here." }
-  - { t: 1471, text: "let's go back here. We have this PR. So, first of all, we can go into files So, first of all, we can go into files changed to see everything that's been" }
-  - { t: 1489, text: "particularly interested in right now. This is our markdown document which basically explains the 10 items explains the 10 items which Copilot in conjunction with the" }
-  - { t: 1500, text: "MCP server actually not 10, 14, 15, 16. Oh my gosh. lot. yes, it's suddenly 18. yes, it's suddenly 18. 18 items" }
-  - { t: 1515, text: "which Copilot identified for improvement. The reason identified for improvement. The reason why I just got confused about the 18 is, and this is I think a really interesting point to" }
-  - { t: 1529, text: "If we go back to what happened last week, Mhm. and if we look at the agent week, Mhm. and if we look at the agent session we ran last week, session we ran last week, look at that, it actually found 10" }
-  - { t: 1539, text: "look at that, it actually found 10 Mhm. items to fix unless the counting is Mhm. items to fix unless the counting is somehow different here, right? And then also earlier on on on a different private clone of that same repo," }
-  - { t: 1555, text: "the same prompt, and I got 14 items identified. And now the one we're identified. And now the one we're currently using has 18. So, this is this Yeah. what we say it's non-deterministic, right? Exact same" }
-  - { t: 1574, text: "three separate times. with the exact same model, with the exact same agent That there's nothing wrong with that. If you think about it, , agents If you think about it, , agents AI agents are meant to" }
-  - { t: 1591, text: "emulate what people would do. And if you ask the same person Yeah. , ask the same person Yeah. , to to do the same job multiple times in in a row, they may also not do exactly" }
-  - { t: 1606, text: "if you ask me to review this model, like the same model three weeks in a row, I mean, I might find something I missed the first time. I might look at again, this is also where we would make we could do analysis off the offline" }
-  - { t: 1620, text: "times. We have three different piles of things we want to get done.\" There's common high priority items that are going to be consistent across all three observations. These little or lower end" }
-  - { t: 1631, text: "These little or lower end , fixes or identifiers might be would have a couple extra little things. It's a little bit like preference. Okay. It's a little bit like preference. Okay. All right, cool. So, let's move on a" }
-  - { t: 1646, text: "I thought we would move we would move down to the desktop and go into VS Code down to the desktop and go into VS Code today if that's okay. So, I've got this" }
-  - { t: 1655, text: "today if that's okay. So, I've got this exact same repo open here. As you can see, there are only two files because that's still the main branch. So, what Can you zoom in just a touch on this one if you don't mind? Maybe like bump it up" }
-  - { t: 1675, text: "Control plus, yeah. Or something like that. Yeah. everything big for our I know it's harder to work in as a user of it, but see on screen share. Okay, so I'm going to continue locally," }
-  - { t: 1690, text: "Okay, so I'm going to continue locally, and as you can see, going to switch to the branch. Well, but as Matias is doing that, I'm" }
-  - { t: 1701, text: "Well, but as Matias is doing that, I'm going to say Matias right here is using a a feature of VS Code called GitLens. GitLens allows you to see what GitLens. GitLens allows you to see what changes are made in repos by who, and" }
-  - { t: 1715, text: "the description as well if you want to use GitLens. It's actually a third-party extension. It's not a Yes. Sorry, it's not built in. a a must for anyone who works with Git, which pretty much everyone is nowadays." }
-  - { t: 1732, text: "which pretty much everyone is nowadays. This is so much better than the native Git features in VS Code. That's great. There we go. And this extension is comes with a freemium model, so you" }
-  - { t: 1743, text: "is comes with a freemium model, so you can use a large chunk of it for free. Right, cool. So, we've got a few more items now as you can see," }
-  - { t: 1759, text: "items now as you can see, including our semantic model. including our semantic model. and what I wanted to do is first of all," }
-  - { t: 1773, text: "so, here we've got our issues. So, I wanted to use an agent to actually wanted to use an agent to actually create GitHub issues individual GitHub issues for the stuff that's been identified here, right? So," }
-  - { t: 1789, text: "let's just see. Okay, so we're Right, so we've got let's let's use a filter here. So, some of Okay, why don't we say create an" }
-  - { t: 1804, text: "issue for anything where severity is medium or higher, right? Sure. All right, cool. so, I've got my chat All right, cool. so, I've got my chat window here." }
-  - { t: 1817, text: "I really like the autopilot feature. it's currently in preview, and it is it's currently in preview, and it is basically a a a nice mix between basically a a a nice mix between prompt me for everything versus going" }
-  - { t: 1829, text: "prompt me for everything versus going YOLO. So, autopilot YOLO. So, autopilot tries to do the right thing in terms of tries to do the right thing in terms of tool approvals. I really love it." }
-  - { t: 1839, text: "tool approvals. I really love it. cuz you are safer than going in YOLO, cuz you are safer than going in YOLO, and you don't get prompted all the time Okay. Okay, so looking at the" }
-  - { t: 1862, text: "document please identify all items for improvement with a severity with a severity of medium or higher." }
-  - { t: 1881, text: "of medium or higher. and create and create a new GitHub issue for each with a detailed explanation" }
-  - { t: 1903, text: "what to fix. There we go. I have a few typos in here. Generally, the models are pretty good at figuring the models are pretty good at figuring those out." }
-  - { t: 1915, text: "those out. and let's see what it does. and let's see what it does. so, it's basically it needs to read understand what medium or higher means. Mhm. it needs to be able to connect" }
-  - { t: 1934, text: "Mhm. it needs to be able to connect to GitHub using my credentials. It it needs to create the right description the right description so that each issue is self-contained" }
-  - { t: 1947, text: "so that each issue is self-contained and can later be picked and can later be picked can later be picked up by a coding agent for instance. Okay, right. So, one of the things I really like is" }
-  - { t: 1960, text: "So, one of the things I really like is how you've got this to-do item that how you've got this to-do item that is updated in real time. so, once the agent has figured out that it has multiple individual things to do," }
-  - { t: 1975, text: "it actually creates them as a to-do list, and you can see in real time to-do list, and you can see in real time how it's going through that. It's really really nice, particularly when you have longer-running sessions." }
-  - { t: 1992, text: "create something here. Would you do some iteration and and some something I've done a couple times is when I needed to go do some other action somewhere else, go do some other action somewhere else, right? , either take the" }
-  - { t: 2002, text: "information that's here in this markdown file and enhance it. So, , we have a section called severity, and we have like the suggestion that's applied here for this particular section. sometimes I'll do a bit more" }
-  - { t: 2013, text: "sometimes I'll do a bit more maturing of this one document. So, knowing that I'm going to create issues, right? I maybe would go back to the agent and say for all the items in this markdown file that have medium or high" }
-  - { t: 2030, text: "GitHub. And actually have it like write the information into the markdown file Right. so that way when you go to the next step, okay, great, you can here and go right to the issues. Do you find that's a pattern that you use? Do" }
-  - { t: 2047, text: "you do you go through a couple iterations on documents like this? iterations on documents like this? , the the what you're proposing has the big advantage that it would be kept" }
-  - { t: 2059, text: "in source control, right? Because it's obviously a file that's in your repo. So, you have nice version history for that. So, from that point of view, I chose something that is relatively quickly now, right? , obviously," }
-  - { t: 2072, text: ", Bigger projects require a bit more like rigor around these things. Yes. and we can also see this is using the and we can also see this is using the GitHub MCP server, which" }
-  - { t: 2085, text: "down here. That's our tool configuration. When we click on that, we which tools and MCP servers are available, and most importantly, which available, and most importantly, which ones are enabled. It's very good" }
-  - { t: 2096, text: "ones are enabled. It's very good practice to disable as much as possible practice to disable as much as possible because those tools because those tools clutter your context, and" }
-  - { t: 2107, text: "clutter your context, and they can basically they can basically take up a lot of let's call it mental take up a lot of let's call it mental space. , your context window." }
-  - { t: 2117, text: "space. , your context window. so, you want to be quite selective. so, you want to be quite selective. and as you can see, I've got GitHub" }
-  - { t: 2125, text: "enabled cuz clearly we need that for the task. I've got all the built-in and then I've got some of the GitHub pull request tools enabled, and everything else is disabled. and that's how you do it." }
-  - { t: 2137, text: "that's how you do it. and we can see even with that I actually have 88 selected. So, it is very extensive. It is is, right? so, definitely something to be aware of. all right," }
-  - { t: 2150, text: "something to be aware of. all right, so there we go. Look at this. we have seven GitHub issues now. And as you can see, not only do I have a very nice take summary table, I even have direct links. Oh, I love that. And so," }
-  - { t: 2165, text: "direct links. Oh, I love that. And so, look at that. obviously, it appears as if I did that because the my VS Code instance doesn't have its own identity. It's using my" }
-  - { t: 2180, text: "have its own identity. It's using my GitHub login. So, it then appears as if GitHub login. So, it then appears as if I did all that stuff, right? Now, makes you extra productive now to your organization." }
-  - { t: 2191, text: "right? So, you you you you may want to give your agents explicit identities and give your agents explicit identities and and then that way when you when you and then that way when you when you trace items, , through" }
-  - { t: 2205, text: "you can tell the difference. So, that's why I'm pointing it out. It's it's it's not always also, if you wanted to do some analytics with respect to, you do some analytics with respect to, , how am I using agents and how" }
-  - { t: 2217, text: "what percentage of my work is actually being done by agents now? And if they can't really do that so easily, right? That's what sets it apart. Definitely something to think about. all right, so we're not going to be able to go" }
-  - { t: 2233, text: "as you can see, this is actually substantially more than substantially more than Wow. Yeah. what the original document Wow. Yeah. what the original document had. So, basically, what what you" }
-  - { t: 2246, text: "alluded to earlier in terms of enhancing the the relatively small prompts we were given from the original Copilot session, this actually happened in any case, but it it happened on the fly, as you will, right? I didn't do it" }
-  - { t: 2261, text: "as an explicit step in between. and so, we can probably save that for next time, but I could go in now and click here and but I could go in now and click here and and automatically assign that to a" }
-  - { t: 2273, text: "and automatically assign that to a Copilot agent Copilot agent to pick up as yet another cloud session. But before we do that, we have to do a bit more configuration" }
-  - { t: 2285, text: "we have to do a bit more configuration here, making sure that the cloud agent then doesn't suddenly directly change instance, right? I I would want to make sure that any work that's happening" }
-  - { t: 2304, text: "in my repo, and not in my workspace model directly. And so, that's why I'm not clicking that button right now because we haven't told it yet that because we haven't told it yet that that's what we want. okay, cool." }
-  - { t: 2313, text: "that's what we want. okay, cool. There there's much more we we can do There there's much more we we can do here, and in particular, there are various skill plugins" }
-  - { t: 2325, text: "skill plugins from Microsoft, from Rui Romano in in from Microsoft, from Rui Romano in in particular, that will help us with particular, that will help us with further work when we're in this VS" }
-  - { t: 2335, text: "further work when we're in this VS Code environment, but I think we're Code environment, but I think we're going to have to leave that for another demo day. I agree. one thing I'll just want to" }
-  - { t: 2345, text: "call out here, Matthias, are you using the website Awesome Copilot? Have using the website Awesome Copilot? Have you seen Have you Yes, yeah, absolutely. you seen Have you Yes, yeah, absolutely. Yeah. So, the reason I bring this up is" }
-  - { t: 2355, text: "custom agents or things that are applied that you would apply to the repo here to have you enhance the agent experience. There's a whole bunch of Power BI developers, and like there's all these people are now starting to build these" }
-  - { t: 2374, text: "project, and we'll we'll probably talk about that later, but I do want to point out the website Awesome Copilot. I'll put it here in the description as well, Let let me do let me show one final thing which is directly related. So if I" }
-  - { t: 2392, text: "go into my VS Code settings and I filter on plugin I'm going to see first of all I've got chat plugins enabled. Secondly, I can set custom plugin locations. So for instance, I can" }
-  - { t: 2405, text: "plugin locations. So for instance, I can create a central folder on on on my local machine where plugins are local machine where plugins are provided but most importantly and this" }
-  - { t: 2417, text: "is the thing I wanted to show. We have We we can register plugin marketplaces and so I'm showing that because what you and so I'm showing that because what you just mentioned is actually predefined" }
-  - { t: 2431, text: "as a default marketplace which means if you default marketplace which means if you go into the plugin extension window that go into the plugin extension window that is part of VS Code. Anything that's" }
-  - { t: 2447, text: "Co-pilot plugins will automatically show up. Love this. The third one down here up. Love this. The third one down here Rui Romano / Power BI agentic plugins. I Rui Romano / Power BI agentic plugins. I added that one myself. Clearly that is" }
-  - { t: 2457, text: "not something which ships automatically with VS Code but that's the one where with VS Code but that's the one where next time we can explore what Rui has made available to us in terms of Power BI skills and plugins and what we" }
-  - { t: 2468, text: "Power BI skills and plugins and what we can do with those in conjunction with that particular project. Love this. Great great another good tie in to the link I just randomly threw in here as well. So these are what" }
-  - { t: 2482, text: "exploring. Matthias, thanks for the demo today. This has been really useful and series is just to continue furthering knowledge around agentic spaces. How do knowledge around agentic spaces. How do we use them? How do we continue to build" }
-  - { t: 2500, text: "Every week we're coming out with new insights or new information about how we pieces. So Matthias, thanks for the demo today. We really appreciate it. You can join us again next week on Tuesday at 10:30 roughly 10:30 we'll start around" }
-  - { t: 2514, text: "10:30 roughly 10:30 we'll start around that time 10:30 Central Standard Time to focus more of our attention around demos and live stream screen shares just demos and live stream screen shares just to really show you the clicks and how" }
-  - { t: 2531, text: "things work and and stitch together. Yeah, looking forward to it. Should be a lot of fun. Thanks everyone for joining and Thank you all. We'll talk to you soon. Okay, bye." }
-  - { t: 2543, text: "Agentic Thinker [music]" }
+  - { t: 14, text: "Hello and welcome back to Agentyc Thinking. We have some more demos for you today. We're very excited to" }
+  - { t: 18, text: "continue down this path. Last week, if I'll do a quick recap, we were working on using the F Microsoft Fabric MCP modeling server as an NPM package directly inside GitHub. And now we're going to go a little bit further with" }
+  - { t: 32, text: "that. But before we get going, Matthias, welcome. Yes, hi. It's been another week" }
+  - { t: 36, text: "in AI land, hasn't it? it's unbelievable. Even though it's been a week, it feels" }
+  - { t: 42, text: "like a month. Mhm. Indeed. how are" }
+  - { t: 45, text: "you doing? you doing? I'm doing really well. There's a lot of" }
+  - { t: 48, text: "new things happening. I am discovering things all the time, always learning new things. There's a was was talking with my engineer this week around just Agentyc building" }
+  - { t: 57, text: "things. And I said we're I'm now just doing regular compression with my with my team." }
+  - { t: 62, text: "my team. Decompress. What did you learn this" }
+  - { t: 63, text: "week? What's happening? What what things are you finding to be more advantage" }
+  - { t: 67, text: "than not? Mhm. And one of the two" }
+  - { t: 69, text: "observations mainly came out. One is our team is continually spending more and more time on the planning phases and building a proper phase one, phase two, phase three of what I want to build. The the idea, website, feature, whatever that thing may be, typically could be" }
+  - { t: 86, text: "built out in phases. So doing a lot more work on the ideation phase is really helping improve our productivity with working with agents. Totally agree," }
+  - { t: 96, text: "absolutely. And we've learned this from you, Matthias. So we've been taking your guidance and and trying to directly do" }
+  - { t: 101, text: "that as well. So that's been one observation. The other main observation is markdown is way better than any other" }
+  - { t: 107, text: "documentation that we have. So from our standpoint, we really like making markdown of everything. Mhm. and so Microsoft has a new Python library" }
+  - { t: 118, text: "called market down. And you Yeah. can take any Excel document or Word document" }
+  - { t: 122, text: "and and mark turn it into markdown. Mhm. The token usage you get by not sending a Word doc versus a markdown file to an" }
+  - { t: 133, text: "agent is phenomenal. It's a it's a pretty big jump on better like meaning if you send it images and and documents, it's a have much heavier token usage because it has to parse through the file and there's a lot of extra junk and code in there that doesn't need to have. So going down to just a markdown piece has actually been a really big advantage for" }
+  - { t: 152, text: "us as well. So recently I built a skill around using this new library called market down." }
+  - { t: 160, text: "Yeah. And it runs the local Python script on my computer in my repo and I just say market down and then I give it the file path of the the document that I want to turn into markdown. And it just" }
+  - { t: 173, text: "does it. It just figures it out. So I built a skill around that Python script that runs and installs and then does all" }
+  - { t: 180, text: "the things it needs to do. So I don't know if you're using that, Matthias, on your side, but I'm finding good value in using markdown. Well, actually I had a use case recently where I had to go" }
+  - { t: 190, text: "the other way. So I, Mark it up." }
+  - { t: 195, text: "Indeed. So Indeed. So yes, totally agree, right? Everyone out there has to become very familiar and very comfortable with markdown" }
+  - { t: 204, text: "nowadays. nowadays. if you haven't been already, because that's just the way you" }
+  - { t: 211, text: "communicate with agents. 100% agree. and so I did that recently where I had to produce a pretty hefty document, that went through" }
+  - { t: 224, text: "various review stages. obviously I did all of that in markdown cuz it's just so much easier to version control and to send back and forth and and interact with your agents on. But ultimately, I wanted to send it as a as a business document in in" }
+  - { t: 242, text: "in Word. And so I then used a skill to take my markdown document and convert it in into docx. And that turned out very" }
+  - { t: 251, text: "very nicely. Oh cool. Okay." }
+  - { t: 254, text: "the the third attempt, . Yeah." }
+  - { t: 258, text: "Yeah. Thought was pretty good in in in in keeping keeping going on it and ultimately it figured out and I had a was very happy, particularly when I had to do another iteration on that Word document later on. I actually went back to my markdown sources, did the iterations there and then had" }
+  - { t: 277, text: "had it regenerate. So there we go. it's one of those things that we wouldn't have thought, a year ago we we'd be doing on a regular basis," }
+  - { t: 288, text: "but Right. so so there was really good things there around like again, this is techniques, things that we're learning right away. I've also internalized a little bit, Matthias, around what you've been doing" }
+  - { t: 300, text: "around research. so I've been doing I've been building my own skills around what is a research what does research mean? how do I use research? How do I connect research to GitHub agents as well as my open claw agents as well as" }
+  - { t: 313, text: "my CLI. And if I find wherever I'm working, I I do a little thing where hey, I want to research this URL. I'll just give it the URL and say, go do" }
+  - { t: 321, text: "this. And now I have some instructions in my research skill that says, Mhm. well, go get the website page. Go" }
+  - { t: 326, text: "figure out what's going on there. What are the key insights that I care about? Oh, and by the way, reference that against another document I have, my" }
+  - { t: 333, text: "business. Like what do we do? What" }
+  - { t: 335, text: "software do we build? What how do we add value to our customers? I'm describing that to the agent and then the agent can take this article and say, here's where" }
+  - { t: 343, text: "this article applies for your business. Mhm. How is it working for you? What things like should I actually" }
+  - { t: 350, text: "incorporate this into my process? Do I just keep it on the side, maybe reference it later? Is this something I should give a a documentation to one of my clients because they're really interested in this topic and it would be" }
+  - { t: 361, text: "useful to them. So it's it's being like another second brain, I guess, a little bit to me. Where I'm finding much value in a repo with knowledge and document distillation from random web links or things I find on Twitter or videos and stuff like" }
+  - { t: 376, text: "that. So I'm also finding that to be extremely valuable and I'm pushing into that more cuz then it doesn't forget the information. Yeah, I that's something I have very strong feelings about and I'm sure in a future episode what" }
+  - { t: 389, text: "what we can do some demos in that space. Love it. Cuz I've been building a very extensive GitHub markdown knowledge bases in Agentyc ways over months now and with hundreds and hundreds of iterations and" }
+  - { t: 407, text: "commits to it. So And it does it all. You always go back and And then that's that's something which first of all you can build Agentycally, you can update Agentycally, but most importantly, and that's the ultimate purpose, you can use as input to to educate your agents when when" }
+  - { t: 424, text: "you give them a particular task, right? So that's ultimately what comes down to." }
+  - { t: 430, text: "Amazing. right. Obviously we want to do demo today, but just in in terms of a couple of news items, I think we have" }
+  - { t: 437, text: "a couple of news items, I think we have to we we did talk about Opus 47 a lot last week. We did. Open AI was busy coming in coming in and released Codex 55 this week just" }
+  - { t: 455, text: "just one or two days ago. So it's very very new, very fresh. But I've already been running" }
+  - { t: 461, text: "running some coding sessions on 55 so far. And There was one very unexpected disappointment. So basically I I I gave it a very very substantial spec, like multiple files multiple files of markdown, something big, but then to be tackled in" }
+  - { t: 485, text: "in in stages. and that was a very fundamental architectural design choice which I had made and which was also pretty clear in in the specs. And" }
+  - { t: 498, text: "Codex totally ignored that. And so it's currently it's currently doing the the first first I did the second iteration where I've been very clear Mhm. Follow my" }
+  - { t: 511, text: "Follow my pattern. yeah. So Yeah. Mhm. not not not the the not the greatest start, but hopefully" }
+  - { t: 520, text: "it'll be a one-off. in any case, it it definitely did produce stuff that compiled and and was very close to almost completing the entire thing which was meant to be multiple sprints, actually. So that was pretty" }
+  - { t: 539, text: "pretty crazy. it so before that, you and I, it's it's availability from my point of view is very limited still, right? So you you don't see you don't get 55 in in" }
+  - { t: 552, text: "Co-pilot. I haven't seen it in Azure yet. I've tried" }
+  - { t: 557, text: "various times. Yes. but it is available at least to me at" }
+  - { t: 563, text: "this point in the Codex CLI. So that's how I'm currently using 55. Okay, good" }
+  - { t: 568, text: "to know. to know. Typically some of these bigger, more premier models come out and they are" }
+  - { t: 573, text: "very limited to get access. It it kind of rolls out a little bit. The data centers haven't quite been able to move fast as fast as the models can move at" }
+  - { t: 579, text: "this point. So we'll see where that goes where where they take us. maybe a quick follow-up from last week" }
+  - { t: 584, text: "as well. we we talked about 47 being quite expensive and really token token hungry in terms of consumption. What I've actually done, I've rolled" }
+  - { t: 597, text: "back to 4.6 for all my work. Really?" }
+  - { t: 600, text: "yeah. Interesting. and I'm very, very happy with that. and I think I alluded to that well" }
+  - { t: 606, text: "last time we spoke. they don't make it super easy to do that in the in the Claude interface because 4.6 doesn't show up anymore, but you can select it either in your settings.json or you select it using dash dash model when you invoke Claude. so it is available," }
+  - { t: 627, text: "they're just hiding it from you. For me, that was the right choice, you know? I'm getting super high quality at" }
+  - { t: 635, text: "a reasonable cost. Fresh. Yep. This is I think going to continue We we talked about this a" }
+  - { t: 639, text: "little bit last time. This is going to continually be the balance of how much we want to spend on like you may every so often occasionally use 4.7 for something very important or very difficult, right? Let" }
+  - { t: 650, text: "it really reason through things. But I think to your point, the majority of use cases are 4.6 is good enough. It's at" }
+  - { t: 656, text: "the right price point. It gets things done when you need to get done. You can" }
+  - { t: 658, text: "move forward with that. So with that though, there's also there's a lot of reports news-wise around tanking 4.6 performance so that way it 4.7 looks that much better in benchmarking in these things. And someone said, \"I had some data to prove it.\" it.\" Micro Anthropic actually released engineer at Anthropic an update on the" }
+  - { t: 677, text: "Claude code quality reports. So they actually spoke to this initially and they found that there were some bugs, I believe, in the harness. I think" }
+  - { t: 685, text: "that's what they were describing here. that they were doing a postmortem around that the reasoning effort was changing in different spaces and so it was looking like it was reasoning less when it should have been reasoning more. and then what they're doing to change the reasoning effort" }
+  - { t: 700, text: "inside the model. So this is another article that Matthias you gave us here. I'll put that in the chat window as" }
+  - { t: 704, text: "well. This is the April 23rd postmortem. and they have made changes to their code as of April 20th and you should start seeing better performance moving forward with their changes" }
+  - { t: 715, text: "that they've recently implemented. That just reminded me I'm just giving you another link here. it's it's a particular GitHub issue which I think may well have been the origin of of that postmortem article" }
+  - { t: 730, text: "you were just talking about. it's a it's a GitHub issue that is very technical but somehow went quite viral. it was initiated by a very senior engineer at AMD who had done very, very extensive analysis of thousands of Claude sessions trying to prove that their reasoning" }
+  - { t: 759, text: "quality had degraded substantially. And then there was some really good and and and a very substantial interaction with the Claude team on that issue. So anyone who wants to look behind the scenes a little bit, that issue" }
+  - { t: 776, text: "that issue is very interesting read. although it probably goes way beyond what most of us us would understand or consume on a on a daily basis. Just be aware someone's looking at it," }
+  - { t: 786, text: "it's going to get better. That's the gist here. Awesome. All right, with that being said, any" }
+  - { t: 791, text: "other news item? Can we move over to show your desktop and we'll do demo now? well, well, Claude life artifact was released, but that's definitely something we can discuss" }
+  - { t: 802, text: "discuss at another point, right? Okay, sounds good. Cuz that's a very interesting one to look at, particularly coming from a" }
+  - { t: 807, text: "Power BI background. So yeah, let's let's just leave that here as a as a a tease. Full Tuesday." }
+  - { t: 817, text: "Yeah, correct. Awesome, I love it. All" }
+  - { t: 819, text: "right, moving over to screen share here. Here we go, this is your desktop and we're going to go we're going to go further down this Power BI modeling MCP. This is your GitHub repo. This is" }
+  - { t: 829, text: "where we're working off of right now. If you want to go see this repo, I'll make sure I put a link in the description as well in case you want to see what Matthias is working on and this will be continually updated as we add more information to it." }
+  - { t: 839, text: "Absolutely. So this is all public, right? So available to anyone. okay, so okay, so last time we talked a little bit about how to set this all up and how to kick off off a cloud agent session" }
+  - { t: 856, text: "which is actually this one here." }
+  - { t: 861, text: "which is actually this one here. was quite simple and initially we just did a simple check to see whether we could connect to our remote semantic model in in Fabric. And then I gave her a tiny prompt, \"Review model and propose suggestions.\" which Copilot responded to with a very, very substantial, as you can see, a list of things" }
+  - { t: 888, text: "that can be improved. So that was awesome in terms of cheap to do big win. well, we've got lots to do's" }
+  - { t: 899, text: "now. so so because I didn't want to sitting here looking at looking at the agent doing stuff, I prepared something for today. So I created a new session here from scratch as you can" }
+  - { t: 918, text: "see an hour ago. and I basically asked her to do everything we did last time and more. So" }
+  - { t: 925, text: "I asked her to connect. I asked her to do the review and to propose suggestions. And then I asked her to export those suggestions into a markdown" }
+  - { t: 934, text: "file, right? So we talked markdown earlier. I also asked her to actually export the full model" }
+  - { t: 942, text: "as tim doll into my repository. and so it's done that in 5 and 1/2 minutes. Not too bad, right? And took me" }
+  - { t: 954, text: "one premium request. So very, very cheap." }
+  - { t: 958, text: "cheap. and so we've seen that last time. then we have 10 items for key" }
+  - { t: 965, text: "improvements. improvements. and it's also told me how it's exported 19 tim doll files into this" }
+  - { t: 976, text: "particular folder. So what I wanted to point out here, which is why I haven't taken this any further, first of all down here, you can expand and collapse the list of all files files added, deleted, or modified. So" }
+  - { t: 993, text: "basically like a git diff. you can also click here to see that. But most importantly, I can actually create a pull request directly out of this agent" }
+  - { t: 1006, text: "session. So this is how everything is quite naturally integrated in in GitHub land. and Can I ask a question here on this one cuz this is something I've been also" }
+  - { t: 1018, text: "working through with right now? Yeah. You're you're creating a pull request, but this is like in draft mode" }
+  - { t: 1023, text: "right now, right? And so one thing I just want to highlight in the upper right-hand corner, well, couple places, right? You can see on the on the upper right hand corner it says" }
+  - { t: 1034, text: "not ready. Yeah. One. And then on the left-hand side you see it's actually has" }
+  - { t: 1036, text: "another little icon called draft. Yeah. And so maybe Matthias, could you speak a bit about like okay, you're" }
+  - { t: 1042, text: "you're doing from the agent session. We've left the agent session and now we're moving over to this draft of a of a pull request, I guess is what you this would be called. Can you maybe explain a bit more what that means that way people can understand, the steps here" }
+  - { t: 1056, text: "from where we were to draft? Right. Okay. so first of all, the agent has automatically created a new branch, which in this case is called Copilot forward slash connect sales" }
+  - { t: 1071, text: "model and list tables. not not an ideal name because actually the the the the the the the key point here was the export and the suggestions, but there we go. I can live with that. and so that draft is now what we" }
+  - { t: 1092, text: "have the pull request created for. That branch is what the pull request is created for. the draft stage is a Co- It's it's a GitHub a a feature, let's say, where you can Well, it comes down to to your to your workflow and how you engage with within" }
+  - { t: 1120, text: "your engineering team, right? So you can basically say, \"I'm creating this pull request here, but I'm not quite ready yet for it to be reviewed.\" Yes." }
+  - { t: 1129, text: "reviewed.\" Yes. Right? I don't want to share it with my reviewer or my line manager or my peer" }
+  - { t: 1135, text: "peer in the team. This is for for now, this is a private pull request because I may well make further code changes. I may well review this and when I as as the originator think I'm ready for this pull request to go further, I then change the status from draft to" }
+  - { t: 1159, text: "ready, right? So and it's quite easy. If you scroll down here, it says this" }
+  - { t: 1166, text: "pull request is work in progress. I've got a ready for review button here. And once I click that, I then have the green button which allows me to" }
+  - { t: 1174, text: "merge. And now it it also says ready to merge up here, right? So there we go. but but but sorry, when when when whenever Copilot creates a pull request for you, it will always be created in draft to" }
+  - { t: 1188, text: "begin. Yes. Another thing I want to point out if you go back down to the bottom section here, and this is something I was observing as well, this does not have any automatic" }
+  - { t: 1196, text: "GitHub actions attached to it. So, or if for example, if you're building software, there may be some like a build step that you want to apply that would run some actions to do something. While in draft mode, the actions aren't" }
+  - { t: 1209, text: "automatically kicked off. So, another advantage of draft that I saw as I was working with it is you have to as a user, the human in the loop, right?" }
+  - { t: 1218, text: "Agent can go build some code. Agent can say it, we're ready to go. Agent can say, \"Okay, the draft is prepared.\" And there's actually a separate box here, a little approval box that says, \"Hey, do you actually want me to run the actions to build this code on this branch for whatever app or other thing you're building?\" So, it also it also pauses some because actions cost real money cuz you're" }
+  - { t: 1239, text: "spinning up a runner to do real things. And so, one of the things I wanted to note here is it actually protects you against just running a lot of Copilot generated actions because you're just making lots of changes quickly, right? That's it it protects" }
+  - { t: 1252, text: "you there. Actually, that's a really good point. So, and let me just" }
+  - { t: 1258, text: "continue from that. So, first of all, we we've got a button here which allows us to go back to the original agent session. Love it." }
+  - { t: 1266, text: "where we started from, right? And so, you just talked about spending money and cost. Yes. And we spent a fair amount of time talking and explaining premium" }
+  - { t: 1276, text: "requests last time. Sure. so, the" }
+  - { t: 1279, text: "requests last time. Sure. so, the thing people need to understand when it comes to running Copilot in the cloud, there are actually" }
+  - { t: 1285, text: "two costs components. So, there is premium request which is what we discussed at length already, but also also those cloud agents run on GitHub actions infrastructure, which means those 5 and 1/2 minutes here, they would have consumed 5 and 1/2 minutes of my budget for GitHub actions. And that's really really important," }
+  - { t: 1310, text: "right? So, you actually have two bill counters. Sorry, I forgot the word now. you So, you've got you've got you've" }
+  - { t: 1325, text: "got two different purses. Yes. Money comes out of for those cloud agents, and you have to be aware be aware that you need sufficient budget for both" }
+  - { t: 1337, text: "of them. Both in terms of Copilot premium requests, but also with respect to your GitHub actions minutes allowance." }
+  - { t: 1345, text: "allowance. Generally, that's not an issue because generally, you have thousands of those, but nonetheless, it can add up. Sure." }
+  - { t: 1354, text: "Exactly. And then the other thing the other thing to say is so, GitHub Copilot is highly sandboxed, and and they take security very very seriously, and always lean towards being restrictive more so than not. So, what you mentioned" }
+  - { t: 1376, text: "earlier is actually this bit here. Yes." }
+  - { t: 1381, text: "Yes. By default, By default, if if you have workflows set up in your repo, which I don't have in this one yet, right? I'm sure we'll" }
+  - { t: 1391, text: "get there. But if you have workflows set up that are triggered automatically on pull requests, Mhm. right? By default, Copilot authored pull requests do not" }
+  - { t: 1404, text: "trigger those workflows. And that's this particular setting here, right? By default, this is on, and it basically says, says, \"You need to expressly allow to run your workflows.\" If you turn this off, then it will just automatically run all of them, but by default," }
+  - { t: 1422, text: "it requires your interaction there. And your choice, right? this can be" }
+  - { t: 1427, text: "turned on or off at the repo level. You may well want to turn it off, but just wanted to make you aware of what the default is. Obviously, this is all about protecting you, when an agent does stuff on your behalf, you don't really know what may happen," }
+  - { t: 1446, text: "right? All sorts of stuff could suddenly end up in your repo. So, this is to ensure that you review before then the code in your repo suddenly runs, which is basically what happens when when when" }
+  - { t: 1463, text: "you've got a triggered workflow. Okay, right." }
+  - { t: 1466, text: "right. So, So, let's go back here. We" }
+  - { t: 1473, text: "We have this PR. So, first of all, we can go into files changed to see everything that's been done." }
+  - { t: 1487, text: "And this one is the one we're particularly interested in right now. This is our markdown document which basically basically explains the 10 items which Copilot in conjunction with the MCP server MCP server actually not 10, 14, 15, 16. Oh my gosh." }
+  - { t: 1505, text: "18. 18. lot. lot. yes, it's suddenly 18. 18 items 18 items which Copilot" }
+  - { t: 1515, text: "which Copilot identified for improvement. The reason why I just got confused about the 18 is, and this is I think a really interesting point to make." }
+  - { t: 1527, text: "make. If we go back to what happened last week, Mhm. and if we look at the agent session we ran last week, look at that, it actually found 10" }
+  - { t: 1539, text: "Mhm. items to fix unless the counting is somehow different here, right? And then also earlier on on on a different private clone of that same repo, I ran I ran the same prompt, and I got 14 items" }
+  - { t: 1559, text: "identified. And now the one we're currently using has 18. So, this is this" }
+  - { t: 1565, text: "is non-deterministic. is non-deterministic. Yeah. what we say it's" }
+  - { t: 1568, text: "non-deterministic, right? Exact same prompt, prompt, run three separate times. with the exact same model, with the exact same agent can actually give you completely" }
+  - { t: 1578, text: "different outputs. different outputs. That there's nothing wrong with that. If you think about it, agents AI agents are meant to" }
+  - { t: 1589, text: "emulate what people would do. And if you ask the same person Yeah. to to do the same job multiple times in in a row, they may also not do exactly" }
+  - { t: 1602, text: "the same thing, right? So, exactly if you ask me to review this model, like the same model three weeks in a row, I mean, I might find something I missed the first time. I might look at something and again, this is also where we would make we could do analysis off the offline here of like, \"Okay, we ran it three" }
+  - { t: 1618, text: "times. We have three different piles of things we want to get done.\" There's probably some very evident and very common high priority items that are going to be consistent across all three observations." }
+  - { t: 1628, text: "observations. These little or lower end fixes or identifiers might be part of what you would normally have when you work with an employee. They" }
+  - { t: 1638, text: "would have a couple extra little things. It's a little bit like preference. Okay." }
+  - { t: 1642, text: "All right, cool. So, let's move on a little bit." }
+  - { t: 1645, text: "little bit. I thought I thought we would move down to the desktop and go into VS Code today if that's okay. So, I've got this" }
+  - { t: 1655, text: "exact same repo open here. As you can see, there are only two files because that's still the main branch. So, what I'm going to do is I'm going to Can you zoom in just a touch on this one" }
+  - { t: 1664, text: "if you don't mind? Maybe like bump it up control plus maybe one or two times." }
+  - { t: 1675, text: "Control plus, yeah. Or something like that. Yeah." }
+  - { t: 1681, text: "There we go. Better? Yeah, that's great. Just want to make sure you get everything big for our I know it's harder to work in as a user of it, but" }
+  - { t: 1686, text: "trying to make it easier for people to see on screen share. Okay, so I'm going to continue locally, and as you can see, I've got this branch which was created an hour ago. So, I'm" }
+  - { t: 1697, text: "going to switch to the branch. Well, but as Matias is doing that, I'm" }
+  - { t: 1701, text: "Well, but as Matias is doing that, I'm going to say Matias right here is using a a feature of VS Code called GitLens. GitLens allows you to see what changes are made in repos by who, and it's amazing. It's a really good program, and I'll put the link here in the description as well if you want to" }
+  - { t: 1715, text: "use GitLens. It's actually a third-party extension. It's not a" }
+  - { t: 1719, text: "Yes. Sorry, it's not built in." }
+  - { t: 1720, text: "My fault my fault. But it it is it is a must a a must for anyone who works with Git, which pretty much everyone is nowadays. This is so much better than" }
+  - { t: 1734, text: "the native Git features in VS Code. That's great. There we go. And this extension extension is comes with a freemium model, so you can use can use a large chunk of it" }
+  - { t: 1747, text: "for free. for free. so, so, not even trying to sell you anything" }
+  - { t: 1753, text: "here. here. Right, cool. So, we've got a few more items now as you can see," }
+  - { t: 1759, text: "including our semantic model. and and what I wanted to do is first of all, so, here we've got our issues. So, I wanted to use an agent to actually create GitHub issues individual GitHub issues for the stuff" }
+  - { t: 1784, text: "that's been identified here, right? So, let's just see. Okay, so we're Right, so we've got" }
+  - { t: 1798, text: "let's let's use a filter here. So, some of Okay, why don't we say create an issue for anything where severity is medium or higher, right? Sure." }
+  - { t: 1809, text: "All right, cool. so, I've got my chat window here." }
+  - { t: 1816, text: "window here. I really like the autopilot feature. it's currently in preview, and it is basically a a a nice mix between prompt me for everything versus going" }
+  - { t: 1829, text: "YOLO. So, autopilot tries to do the right thing in terms of tool approvals. I really love it. cuz you are safer than going in YOLO, and you don't get prompted all the time" }
+  - { t: 1844, text: "to give permissions. Okay. Okay. Okay, so looking at the sales sales model improvements model improvements document document please identify all items for improvement with a severity of medium or higher. and create a new GitHub issue for each with a with a detailed explanation of of what" }
+  - { t: 1903, text: "what to fix. There we go." }
+  - { t: 1906, text: "Okay. Okay. I have a few typos in here. Generally, the models are pretty good at figuring" }
+  - { t: 1912, text: "those out. and let's see what it does. so, it's basically it needs to read" }
+  - { t: 1921, text: "this. It needs to perform some filtering, semantic filtering, right? it needs to" }
+  - { t: 1929, text: "understand what medium or higher means. Mhm. it needs to be able to connect" }
+  - { t: 1934, text: "to GitHub using my credentials. It it needs to create the right description so that each issue is self-contained and can later be picked can later be picked up by a coding agent for instance. Okay, right. So, one of the things I really like is how you've got this to-do item that" }
+  - { t: 1965, text: "is updated in real time. so, once the agent has figured out that it has multiple individual things to do, it actually creates them as a to-do list, and you can see in real time how it's going through that. It's really really nice, particularly when you have" }
+  - { t: 1982, text: "longer-running sessions. longer-running sessions. it's a very cool" }
+  - { t: 1986, text: "UI feature. Now, Matthias, what you did here is you asked it to create something here. Would you do some iteration and and some something I've done a couple times is when I needed to go do some other action somewhere else," }
+  - { t: 1998, text: "right? either take the information that's here in this markdown file and enhance it. So, we have a section called severity, and we have like the suggestion that's applied" }
+  - { t: 2008, text: "here for this particular section. sometimes I'll do a bit more maturing of this one document. So, knowing that I'm going to create issues," }
+  - { t: 2017, text: "right? I maybe would go back to the agent and say for all the items in this markdown file that have medium or high severity Mhm. write up an issue description as if you would use it for" }
+  - { t: 2028, text: "GitHub. And actually have it like write the information into the markdown file or have it, enhance this file a bit more Right. so that way when you go to the next step, okay, great, you can read through it all holistically and" }
+  - { t: 2040, text: "say, okay, great, now make the issues. And again, just pick up the data from here and go right to the issues. Do you" }
+  - { t: 2044, text: "find that's a pattern that you use? Do you do you go through a couple iterations on documents like this? the the what you're proposing has the big advantage that it would be kept" }
+  - { t: 2057, text: "in source control, right? Because it's obviously a file that's in your repo. So, you have nice version history for" }
+  - { t: 2063, text: "that. So, from that point of view, I would definitely like it. I just chose something that is relatively" }
+  - { t: 2068, text: "quickly now, right? obviously, Bigger projects require a bit more like rigor around these things. Yes. and we can also see this is using the GitHub MCP server, which" }
+  - { t: 2083, text: "down here. That's our tool configuration. When we click on that, we see see which tools and MCP servers are available, and most importantly, which" }
+  - { t: 2093, text: "ones are enabled. It's very good practice to disable as much as possible because those tools clutter your context, and they can basically take up a lot of let's call it mental space. your context window." }
+  - { t: 2117, text: "so, you want to be quite selective. and as you can see, I've got GitHub" }
+  - { t: 2122, text: "and as you can see, I've got GitHub enabled cuz clearly we need that for the task. I've got all the built-in tools, tools, and then I've got some of the GitHub pull request tools enabled, and everything else is disabled. and" }
+  - { t: 2134, text: "that's how you do it. and we can see even with that selection, selection, I actually have 88 selected. So, it is" }
+  - { t: 2143, text: "very extensive. It is is, right? so, definitely" }
+  - { t: 2147, text: "something to be aware of. all right, so there we go. Look at this. we have" }
+  - { t: 2156, text: "seven GitHub issues now. And as you can see, not only do I have a very nice take summary table, I even have direct links. Oh, I love that. And so," }
+  - { t: 2165, text: "look at that. Awesome. so, this is issue number three. obviously, it appears as if I did that because because the my VS Code instance doesn't" }
+  - { t: 2178, text: "have its own identity. It's using my GitHub login. So, it then appears as if" }
+  - { t: 2183, text: "I did all that stuff, right? Now, makes you extra productive now to your organization. But it's also something to think about," }
+  - { t: 2190, text: "right? So, you you you you may want to give your agents explicit identities and and then that way when you when you trace items, through systems your GitHub org, for instance, you can you can tell the difference. So, that's" }
+  - { t: 2205, text: "why I'm pointing it out. It's it's it's not always also, if you wanted to do some analytics with respect to, you know, how am I using agents and how what percentage of my work is actually being done by agents now? And if they always work under your identity, you" }
+  - { t: 2220, text: "can't really do that so easily, right? That's what sets it apart. Definitely" }
+  - { t: 2224, text: "something to think about. all right, so we're not going to be able to go substantially further today, but as you can see, this is actually substantially more than Wow. Yeah. what the original document" }
+  - { t: 2242, text: "had. So, basically, what what you alluded to earlier in terms of enhancing the the relatively small prompts we were given from the original Copilot session, this actually happened in any case, but it it happened on the fly, as you will, right? I didn't do it" }
+  - { t: 2258, text: "as an explicit step in between. and so, I'm not going to do that right now. We we can probably save that for next time, but I could go in now and click here and and automatically assign that to a Copilot agent to pick up as yet another" }
+  - { t: 2280, text: "cloud session. But before we do that, we have to do a bit more configuration here, making sure that the cloud agent then doesn't suddenly directly change my the model in my workspace, for instance, right? I I would want to make sure that any work that's happening now is actually happening on the files in my repo, and not in my workspace" }
+  - { t: 2304, text: "model directly. And so, that's why I'm not clicking that button right now because we haven't told it yet that that's what we want. okay, cool. There there's much more we we can do here, and in particular, there are various skill plugins from Microsoft, from Rui Romano in in particular, that will help us with further work when we're in this VS Code environment, but I think we're going to have to" }
+  - { t: 2340, text: "leave that for another demo day. I agree. one thing I'll just want to call out here, Matthias, are you" }
+  - { t: 2345, text: "using the website Awesome Copilot? Have you seen Have you Yes, yeah, absolutely." }
+  - { t: 2351, text: "Yeah. So, the reason I bring this up is because you're saying about skills and custom agents or things that are applied that you would apply to the repo here to have you enhance the agent experience. There's a whole bunch of Power BI advanced modeling developers and DAX developers, and like there's all these people are now starting to build these common libraries of skills and custom agents that you can go They're just" }
+  - { t: 2371, text: "markdown files. You add them into your project, and we'll we'll probably talk about that later, but I do want to point out the website Awesome Copilot. I'll put it here in the description as well, just in in you want to check out the other experiences how you can get" }
+  - { t: 2383, text: "additional agents into your workflows. Let let me do let me show one final thing which is directly related. So if I go into my VS Code settings and I filter on plugin I'm going to see first of all I've got chat plugins" }
+  - { t: 2400, text: "enabled. Secondly, I can set custom plugin locations. So for instance, I can create a central folder on on on my local machine where plugins are provided but most importantly and this" }
+  - { t: 2415, text: "is the thing I wanted to show. We have We have We we can register plugin marketplaces and so I'm showing that because what you just mentioned is actually predefined as a as a default marketplace which means if you go into the plugin extension window that is part of VS Code. Anything that's published on Awesome Co-pilot or Co-pilot plugins will automatically show" }
+  - { t: 2447, text: "up. Love this. The third one down here" }
+  - { t: 2450, text: "Rui Romano / Power BI agentic plugins. I added that one myself. Clearly that is not something which ships automatically with VS Code but that's the one where next time we can explore what Rui has made available to us in terms of Power BI skills and plugins and what we can do with those in conjunction with that particular" }
+  - { t: 2472, text: "project. Love this. Great great another good tie in to the link I just randomly" }
+  - { t: 2477, text: "threw in here as well. So these are what we're going to need continue to be exploring. Matthias, thanks for the demo" }
+  - { t: 2482, text: "today. This has been really useful and very impactful to unpack what's going on here, how these demos are working and and the whole goal of this series is just to continue furthering knowledge around agentic spaces. How do" }
+  - { t: 2494, text: "we use them? How do we continue to build on them? And what are we learning?" }
+  - { t: 2498, text: "Everything's changing so quickly for us. Every week we're coming out with new insights or new information about how we can work better with these agentic pieces. So Matthias, thanks for the demo" }
+  - { t: 2506, text: "today. We really appreciate it. You can join us again next week on Tuesday at 10:30 roughly 10:30 we'll start around that time 10:30 Central Standard Time" }
+  - { t: 2516, text: "as well. So we're going to keep doing these things and we're going to be Tuesdays will be more focused around discussion, news, what's happening in the market and then Fridays we're going to focus more of our attention around demos and live stream screen shares just to really show you the clicks and how things work and and stitch together." }
+  - { t: 2531, text: "Yeah, looking forward to it. Should be a lot of fun. Thanks everyone for joining and" }
+  - { t: 2535, text: "watching. watching. Thank you all. We'll talk to you soon." }
+  - { t: 2538, text: "Okay, bye. Agentic Thinker" }
 
 ---
 
