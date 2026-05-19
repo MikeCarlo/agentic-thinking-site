@@ -13,11 +13,12 @@
  *   blurb: string           — Short description (1-2 sentences)
  *   tags: string[]          — Topic tags (e.g. ["AI", "Power BI", "agents"])
  *   chapters: array         — [{t: seconds, label: "chapter title"}, ...]
- *   transcript: array       — [{t: seconds, s: "host_a"|"host_b"|"guest", text: "..."}, ...]
+ *   transcript: array       — [{t: seconds, text: "..."}, ...] (s is optional — YouTube captions don't identify speakers)
  *
  * Optional frontmatter fields:
- *   guest: string           — Guest name
+ *   guest: string           — Guest name (detected from non-host LinkedIn URL in YouTube description)
  *   guestRole: string       — Guest role/title
+ *   guestLinkedIn: string   — Guest LinkedIn profile URL
  *
  * The MDX body becomes the "show notes" tab content (key takeaways, links, etc.)
  */
@@ -33,6 +34,7 @@ const episodes = defineCollection({
     duration: z.string(),
     guest: z.string().optional(),
     guestRole: z.string().optional(),
+    guestLinkedIn: z.string().optional(),
     tags: z.array(z.string()).default([]),
     blurb: z.string(),
     chapters: z.array(z.object({
@@ -41,7 +43,7 @@ const episodes = defineCollection({
     })).default([]),
     transcript: z.array(z.object({
       t: z.number(),
-      s: z.string(),
+      s: z.string().optional(),
       text: z.string(),
     })).default([]),
   })
