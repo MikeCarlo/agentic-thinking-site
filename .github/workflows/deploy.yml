@@ -35,6 +35,9 @@ jobs:
 
       - name: Build Astro site
         run: yarn build
+        env:
+          SITE: https://agenticthinking.show
+          BASE_PATH: /
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4
