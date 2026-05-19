@@ -17,253 +17,278 @@ chapters:
   - { t: 2908, label: "agentation.com — UI annotation for agents" }
   - { t: 2970, label: "wrap up" }
 transcript:
-  - { t: 13, text: "All right. Hello and welcome back to another Agentic Thinking podcast with Matias and Mike. Hello Matias. Welcome" }
-  - { t: 18, text: "again. again. Yes. Hi Mike. How are you? I'm enjoying this twice a week" }
-  - { t: 22, text: "conversation with you. If nothing else, it's just helping me get like out of my normal workflow. I'm pulling away. I'm I'm like unpacking what I've been doing," }
-  - { t: 30, text: "what I've been learning. I have another really smart AI person that I've been talking with." }
-  - { t: 38, text: "His name is Dan. A and he's started this habit with me on Fridays. He'll text me something. He'll say say this week I've learned and he tries to distill all of the things he's been work" }
-  - { t: 51, text: "like it's happening so fast. He's trying to distill all the little nuggets and pieces and things that you've been working on down to a single item. Like" }
-  - { t: 59, text: "what is a two or three sentence? What did you learn this week? Could be could be remedial, but like reflect on your week and and and drop in what you're doing like what did you" }
-  - { t: 71, text: "learn? learn? What are you working on? Like just something simple something simple around" }
-  - { t: 75, text: "that around agents. And I'm finding it extremely valuable because he's given me some really good nuggets that he's been learning and and pulling in. and he's really emphasized or re-emphasized my need to do better planning and more plan mode with my agents to build out" }
-  - { t: 89, text: "better requirements. You Matias as well have also been really pushing me to like do better at that additionally. So anyways, all this to say just like these conversations are like this" }
-  - { t: 101, text: "to me. It's helping me reflect and go back over what we're doing." }
-  - { t: 104, text: "Fantastic. Yeah. Fantastic. Yeah. You have any comments for any intros or" }
-  - { t: 109, text: "openers? I think you found some news here that we should unpack before our main topic today. not quite news I would say almost the" }
-  - { t: 117, text: "opposite of news. I've gone into history a little bit recently, sort of figuring out, how how did we how did we get to where we are today and I found a reference to a 2017 research paper, so nine years old now which is called attention is all you need. And we can we can share the link" }
-  - { t: 142, text: "to it. and I'm in absolutely no position to comment on this academically and not even going to try to. but it turns out if you look into things a little bit this one this single paper apparently was really really pivotal in terms of enabling everything around AI that we rely on" }
-  - { t: 164, text: "today. they introduced a concept of transformers which effectively helps massive parallelization of GPUs and ultimately leading to the the scale and performance that modern large language models rely on nowadays. you know everything up to that point was quite sequential with respect to going through and understanding text and so that didn't scale the hardware wouldn't have been able to keep up at all in terms of the the the volumes we would need for a very very good large" }
-  - { t: 209, text: "language model. So it turns out that this paper specifically actually changed the course of history you can almost say. So attention is all you need." }
-  - { t: 218, text: "There you go. Almost sounds like a cheesy song title but if if if anyone has some academic interest definitely something you should check out." }
-  - { t: 230, text: "out. And I think this this was like again very early days the neural networks was like this is when we're starting to like really explore what neural networks are. Andre Karpathy I think is how you say" }
-  - { t: 246, text: "his name. So he was the gentleman who was at was at I believe he was at Tesla or open AI in the early days with Elon building some AI things. moved over to Tesla, built a" }
-  - { t: 257, text: "whole bunch of vision and things there. Really deep diving on Transformers. So, I think like he was one of the there's a lot of people that regard him very highly on Twitter and on X I guess is X is appropriately the name now" }
-  - { t: 269, text: "now around what he's unpacking. And I every so often someone shares a little video and says you should watch this instead of watching Netflix for two hours. You should watch this video from Andre and see what he talks about for like" }
-  - { t: 282, text: "Transformers. And man, I was hanging with him for like the first 45 minutes and then he like went past my head." }
-  - { t: 290, text: "head. what he was discussing and again this is this is the concept here is he was doing some very simple math and and basically what he was describing in this video talk. It's a two-hour video talk that I and I got about halfway through it and I like really got was really into it and then my ADHD kicked" }
-  - { t: 307, text: "in. I did something else. I started" }
-  - { t: 308, text: "going to something else. but he was talking about talking about when we do large language models, we send some text into it, it the weights of the model just do things and we get the other side of the output. So on the other side you" }
-  - { t: 326, text: "get the answers that you're expecting. And what he was trying to do or he was mathematically walking through the transformers and saying different transformers have different weights and when you adjust something on the front side, how much of that upfront change in parameter or change in information in actually results in a different waiting and how does that waiting push the output differently one one direction or another. And so that's what he was unpacking was like this very simple math like he's doing like 2 plus 2 equals 3 and and now doing a division symbol and he was saying look we know what the answer is but then we can then work our math back" }
-  - { t: 367, text: "through. So one of the things I think he was discussing the paper that was kind of interesting to me was we can watch what's happening inside the neural network and start to understand how do the weights influence the outcomes and that's really what we're doing with these neural network things. And so" }
-  - { t: 384, text: "And so it's really interesting. Again, I'm not a PhD person. I I can't go deep with these topics, but I find these immensely fascinating as to like what people are discovering these like math that they're coming up with and like it's too compute intensive for us to look at the whole system like individually like every single node" }
-  - { t: 404, text: "because there's just too many of them. But in general, we can generalize and look at like what are the weights? How are weights being pushed on these" }
-  - { t: 410, text: "models? So really interesting stuff." }
-  - { t: 411, text: "These papers are phenomenal. There's people way smarter than I doing this work and here I am just sending a text box to or or sending a text string to an agent and getting all this code out of it. It's it's phenomenal what this is" }
-  - { t: 424, text: "doing this technology. what really puzzles me, totally from a position of ignorance obviously how when you when you chat with a large language model, when it doesn't produce code for you, but but text language, how it it only ever produces perfectly correct, valid English grammar, assuming we're talking English, right? which is obviously not something a human would" }
-  - { t: 454, text: "ever do, right? So it as as far as I can tell it never makes mistakes unless I just never spot them or so. Right. So it almost feels if you don't really know what's in the black box as if there is some a grammarly a process that checks all outputs and" }
-  - { t: 477, text: "and filters them before they get to you. But apparently that's not the case." }
-  - { t: 481, text: "Right. I I I had some discussions with Chad TPT about that at some point because I was just really curious and apparently you always get perfect grammar perfect outputs just because of the huge volume of training material those models have been built on and and because apparently they've been selected so well that the" }
-  - { t: 507, text: "they've been selected so well that the models have only ever seen valid English sentences. sentences. It's absolutely mindboggling." }
-  - { t: 513, text: "Wow, that's interesting. Yeah, definitely wasn't a study on what I've been talking about because my sentences are all messed up. All don't" }
-  - { t: 520, text: "make sense. So, so let's let's get into like so we talked a little bit about some some interesting things. Let's let's transition the topic" }
-  - { t: 527, text: "here. Let's go into move into a bit of our main topic here. And I think I want" }
-  - { t: 531, text: "to unpack Matias. We were just talking about before this episode. You're coming out of a deep thinking" }
-  - { t: 537, text: "session, right? you you you and you do this quite often and we talked about this a little bit with like the very episode one was like the mind palace like what does what does the mental model look like for when I think things agentically and I have been finding how I look at my work daytoday is greatly is greatly being reshaped being reshaped with the use of AI in what I do now also what I think is possible the level of reach I'm looking to grasp now is much higher than I would have three months ago. Like I'm much more aggressive on taking on bigger projects, more specific code detailed things knowing that I've got agentic support" }
-  - { t: 584, text: "behind me. So, so let's unpack some of this. Let's rethink what work is looking" }
-  - { t: 588, text: "like. What are you describe for me like before we got on this call, what were you doing? What what was like what was" }
-  - { t: 594, text: "really boggling your mind? And what are you changing from how you used to do work to what you're doing now with agents? Let's talk about that." }
-  - { t: 599, text: "Yeah, absolutely. I I think a lot is going on here. and let let's let's" }
-  - { t: 608, text: "talk about a myth first of all. you know, lots of people think or fear, you know, that all our jobs are going to go away because AI is going to do everything, right?" }
-  - { t: 619, text: "Yeah. My experience is quite the opposite to be fair. same in so I'm a hardcore coder right so I've spent most of my career writing code I have to say I have actually I have not wrote a single line of code for many many months now intentionally to some degree but also because I've just I'm just using different tools now right" }
-  - { t: 650, text: "and I'm writing more pros, right? I'm I'm writing more prompts, inputs, reviews, requirements. that's what all my keyboard time" }
-  - { t: 666, text: "is is spent on. and it also turns out that that well we we are substantially more capable in terms of what in conjunction with agents we can produce in terms of in terms of scale in terms of volume in particular." }
-  - { t: 697, text: "in particular. in in terms of depth, we we can we can write in in in in in in quotes in quotes in languages that we've never known about, right?" }
-  - { t: 712, text: "Yep. Agree. so that's that. but are we necessarily producing more let's say shippable things out out" }
-  - { t: 723, text: "of that per se? Not necessarily. Right. we just we've we've inherited new kinds of" }
-  - { t: 732, text: "problems, right? So, harvesting and and orchestrating and observing and steering agents turns out to be a very non-trivial problem. And that turns out to be one where we're still very early in terms of actually getting the right processes and procedures and tools" }
-  - { t: 753, text: "in place. And that's something you know we all have to do a lot of learning around it it may seem you get like you're getting a lot of stuff for free if you put a prompt into I don't know code or so and then it spits out some software that runs on your machine." }
-  - { t: 776, text: "sure. sure. Which is, exciting, particularly when when you don't necessarily have a have a coding" }
-  - { t: 783, text: "background. but, if you want to do this do this seriously, in in in a in a professional context, that's not really where things stop. If anything, that's" }
-  - { t: 796, text: "where they start, right? And so everything else that comes after that takes a lot of new thinking around what engineering harness do you need to put around this agentic system. and again I would say we're" }
-  - { t: 811, text: "very early on here. I would agree with this statement and I think I'm I'm relating a lot to what you're describing." }
-  - { t: 817, text: "you're describing. let me give you just let me give you a tangible example of something I'm physically working through right now. often I get a lot of phone calls about, wanting to do some" }
-  - { t: 826, text: "support or some work. I have, thankfully, I made a decision when I started my business in 2019 to go independent and do my own work. I I decided I can't stand working in Word" }
-  - { t: 840, text: "anymore. I'm done. The formatting is" }
-  - { t: 842, text: "just not helpful to me. I don't need it. In order for me to convey information from my business to a customer, I basically need markdown or or like that" }
-  - { t: 851, text: "landing page of like GitHub, right? If it has headers, it has bold, you can add images, most of the formatting pieces, and I don't really care. The the formatting isn't" }
-  - { t: 861, text: "formatting isn't Let me say it this way, Matis. If I gave you a Word document that was PDFed and I gave you a markdown file that was PDFed, does the formatting sway you in any way to buy my services?" }
-  - { t: 874, text: "Probably not. Probably not. I probably I probably would argue if I put a picture in there and it has a border around it or if it's centered or if it's less just you're probably less" }
-  - { t: 882, text: "interested in the format of my document. You're probably more interested in like the words on the page, the comments I'm producing for you. So thankfully I've been writing all of my re all of my statement of works in a single repo all" }
-  - { t: 897, text: "in markdown. in markdown. Here come agents," }
-  - { t: 900, text: "right? So now over the last two weeks I have been rethinking my entire process around what do I need to do to distill and get information and knowledge to my agent to help me rationally think through what is the statement of work?" }
-  - { t: 918, text: "What do I want to emphasize? What kind of work do you need? What examples are" }
-  - { t: 921, text: "are you going to build? What are the primary outcomes for this this engagement? Like it has all of my old" }
-  - { t: 927, text: "statement of works. The agent can see all of this stuff. So I'm now building" }
-  - { t: 931, text: "new skills. I'm now enhancing this documentation. So when you give me an email like whatever the end of your domain name is, I'm giving the domain name to my agent and say, \"Hey, this is" }
-  - { t: 943, text: "the new client. Go build me the basic information that I need. Go research" }
-  - { t: 947, text: "them on the internet. Go find them. Go actually go find their website and" }
-  - { t: 951, text: "research everything about them. What do they do? How do they do it? And oh by the way, since agent I've described to you what my business does and you already have a summary, I've already had to go through and summarize my other" }
-  - { t: 962, text: "statement of works. Like what do we do based on what I've sold review against our services against what they think they might need? How could I" }
-  - { t: 970, text: "find opportunities for them? And so I'm building a whole litany of skills around my very hyperspecific business and workflow that's not trivial. And I guess the point here of this and the reason the example is example is I would just do the process because that" }
-  - { t: 988, text: "would make that's what made sense to me. I now have to step out of that process and actually think is that the right way to do the process how would I document it? What is the right integration points between where I take my notes in loop" }
-  - { t: 1001, text: "between where I take my notes in loop where the teams meeting comes from? How can I automate the transcription and the summary documents from teams into my agent? Like how do I get it there? like there's all these other things that I'm like trying to like unpack and organize now and maybe that's an experience" }
-  - { t: 1017, text: "you're having. What are you finding? so one thing which is quite related here which I thought about recently is I'm finding it increasingly hard to select the the right skills and tools when creating a new dedicated" }
-  - { t: 1035, text: "agent. we've we've talked about this presumably, how the industry had a massive explosion of MCP servers last year and then end of last year, everyone switched to skills as as the new kid on the block and skills were pushed as solving lots of problems related with MCP servers. But if you look at plug-in marketplaces and skills" }
-  - { t: 1066, text: "repositories, it's insane. but particularly because they're so easy to make, right? It's just generally a" }
-  - { t: 1074, text: "natural language document. Like virtually anyone can can write a skill. so what I find very very challenging nowadays is how do you even how do you select given a particular problem you want to tackle how do you actually select high quality and useful skills it's increasingly hard and hard it becomes harder and harder I don't really have a solution for it yet but it does not seem like a great place to be from from my point of view unless you restrict yourself really heavily and say I only use I don't know three four or five particular sources slashmarketplaces and ignore everything else considered noise so I think that's definitely where we need some innovation and" }
-  - { t: 1135, text: "let let me I like this idea. May I propose a top an idea? Let me propose a thought" }
-  - { t: 1145, text: "and maybe maybe you do this already. Maybe I maybe I don't maybe I'm just learning this as we go here as we think through this one. So to your point, I" }
-  - { t: 1152, text: "also see the same reflection. Lots of skills every other day in my feeds. There's another whole look at this new" }
-  - { t: 1158, text: "skills repo for Claude. Look at this new thing I built. Like I built 70 custom" }
-  - { t: 1163, text: "agents all in a repo. Like pick what you want. Awesome. Co-pilot has a whole library of a bunch of things that just continue to grow and the community is" }
-  - { t: 1171, text: "getting big. Awesome. Love it. Super" }
-  - { t: 1173, text: "cool. cool. What I'm finding I'm doing now is I'm building skills and as I work with the skills, the skills usually do a lot of what I want, but as I refine my process and the skill, like we're" }
-  - { t: 1185, text: "evolving together a little bit. Like the skill does a lot of what I want right, it doesn't always get it 100% all the time. Or my process is shifting a little" }
-  - { t: 1194, text: "bit. I need to slightly tweak my skill. Are you finding or are you building a process where you're doing more retroactive skill review after you use it and having it refine itself or" }
-  - { t: 1207, text: "enhance based on your most recent run? Do you do this at all? I I'm me I'm doing this a little bit now and finding" }
-  - { t: 1215, text: "value from it. I don't know if you're if you're experimenting with this." }
-  - { t: 1218, text: "I'm tackling it a bit differently. so I I see this as a problem of volume and scale, right? And so when when when I have seemingly a thousand different skills available that all came to do the same thing, same thing, I as a human possibly cannot select" }
-  - { t: 1240, text: "which one is best. Sure. But my thinking would then kick in to say this is per this actually is the stuff I can hand to an agent," }
-  - { t: 1249, text: "right? So I'm I'm increasingly investing in second level agent infrastructures where I use agents to run experiments run experiments because they can do things in parallel. they can reason very well and all I need to do is to explain to them what the scenario is and what success means in terms of output and then an agent can assuming I've got AI credits available or or run it on my own hardware they can they they can just test out a hundred different versions of it and ultimately report back to me And so so that's that's" }
-  - { t: 1297, text: "where I'm at right now. I like this too. my my my natural response whenever I see a a a problem of scale is a human cannot tackle that basically or build testing and validation and you know problem statement is this success" }
-  - { t: 1318, text: "looks like that. Here's here's here's 60 differential equations. solve the solve the one that has the the the the maximize" }
-  - { t: 1327, text: "function, right? You're you're basically just doing a maximize function on lots of skills with defining a clearly defined goalpost. And and I think this is maybe the point around rethinking your work," }
-  - { t: 1340, text: "right? I think what you're describing here is actually exactly what I'm finding myself doing more often, which is rethinking what are the inputs and rethinking what does success look like? And I got to be honest, even in software development, people are not good at defining what does success look like for" }
-  - { t: 1359, text: "your software. What does a win look like? it's hard writing requirements, documents, and tasks and features because you really need to be" }
-  - { t: 1369, text: "specific at the end of the game. What does that look like? as you hand it back to your development team like you know when we're pre- aent world I had to be very specific around I want this this and this because they're going to put the nav menu in the wrong area and they're going to have to use the wrong colors and we're going to deviate from xyz things right we have to have standards in place to really be specific about this about this sounds like we're able to then to your point problem of scale but let the agents build verify and what we have to do is shift our work to think about what's the goal what's the output I've had a few really good successes I would say in that space" }
-  - { t: 1409, text: "recently. exactly around the definition of what's success and and what is a positive outcome. Right? So what what I find very challenging and hard today in in an agentic world is creating" }
-  - { t: 1432, text: "good test harnesses. it turns out, if you are able to define to not just define a PR and and requirements, but to actually give the the agent who's implementing your PR, a very specific ways for them to actually use and run the product they're producing, the feature they're producing, the the software they're producing. Yes. If if you enable them to actually use that it's incredible how much how how the quality of of what's coming out of it is" }
-  - { t: 1474, text: "shooting up. wi without that and this is the default place that you get for many coding agents today. you may well have a reviewer coding agent and it may well seem to be very thorough and it may well find lots" }
-  - { t: 1492, text: "of issues to address. But normally" }
-  - { t: 1495, text: "of issues to address. But normally those are hygiene things. Those are cosmetic" }
-  - { t: 1501, text: "things. Those are obvious typing or compiler things. it only gets you so far and and a reviewer that's not actually running your software may well pass something that if you then try to run it as as a human user you will immediately find well this thing doesn't do the right thing it's not working right yeah button makes sense but that that is definitely something which I've experienced recently where I've been able to actually produce very longunning agent sessions because the reviewer as it was able to run the software themselves was then able to give much more specific feedback" }
-  - { t: 1557, text: "and you had longer loops. and you had absolute certainty that at the end of the loop the thing that was produced actually produced the outcome. Now" }
-  - { t: 1568, text: "this is not trivial to define up front. Right? This is this goes substantially further than you writing a PR because you need to think about well what execution environment for instance do you need to provide you really need to think about do you need to provide login or or or give a way for your agent to to authenticate maybe on your behalf or to bypass it or something like that right it it actually this is actually where the the real hard engineering problems sit nowadays I would say compared to where we were a couple years ago where our engineering problems were about how do I write this function or how do I design this API in the best possible way right we no longer have that problem now but I really see it as as a test harness problem and that is harder or easier depending on, what" }
-  - { t: 1632, text: "software you're dealing with, right? If you have a CLI app, for instance, or or a REST API, it's obviously substantially easier to test that than, a mobile or a UI or or even like a a whole fabric solution, right? Which is one of the hardest things to test in in my" }
-  - { t: 1651, text: "opinion. but anyone who is worried that they may no longer have a reason to be employed as an engineer, there are probably more opportunities now than they have ever been. they're just going to be" }
-  - { t: 1670, text: "somehow different, right? And so I see a lot of opportunity around testing as I just explained but also around experimentation to figure out what's the right agent harness for me to use? What's the right model?" }
-  - { t: 1689, text: "What what are the right model settings? what's the right system prompt? It an agentic system has so many" }
-  - { t: 1698, text: "inputs in addition to your prompt. it's in insane the different it's it's like an infinite number of possibilities how you can configure a system. if you want to be particularly efficient, if you want to have particularly good outcomes, you have no way other than running experiments to figure out which one" }
-  - { t: 1720, text: "of those performs best. Th this is the same concept. I'm I'm going to bring this really back to PowerBI and" }
-  - { t: 1726, text: "Fabric. I think you made a note here on how hard it is to test these things. I" }
-  - { t: 1729, text: "really do want to push on this note. let's go pre-agent world and how I think about like some of these things. If I wanted to know something was more" }
-  - { t: 1740, text: "efficient than a different system. Let's say for I'm going to use a very simple example. I use this all the time on other podcasts and I've talked about" }
-  - { t: 1746, text: "this a lot. If I'm going to load data using data flows gen 2 and I'm going to load data using a notebook, right? Two" }
-  - { t: 1752, text: "different systems on how I build things. One's more business user focused and one is more notebook and code ccentric." }
-  - { t: 1760, text: "Okay. Okay. And when I look at those two, in order for me to really evaluate the performance of both of those, I've got to think of a a test to your point, a" }
-  - { t: 1769, text: "test, where does the data come from? How do I load it in? Let's run it through" }
-  - { t: 1773, text: "the CUS on the pipeline. Let's have an isolation environment. So, okay, I'm going to run this data flow three or" }
-  - { t: 1778, text: "four times. See how long it takes to do the the loading. Okay, let's do it again" }
-  - { t: 1783, text: "with now a fabric notebook. How long did that take? What did we get? Are the" }
-  - { t: 1787, text: "outputs the same? Yes or no? Right. So, this is something we would have to do" }
-  - { t: 1791, text: "one manually. And then two, I would wait a lot for not wait, but I would like be very intuitive when Microsoft would release new features. For example, the shoot, I forget" }
-  - { t: 1805, text: "the name of it. It's in the Spark Notebooks where you turn on the the new Veilocks engine. I know the names of the terms, the gluten and vex engine on" }
-  - { t: 1812, text: "top of the spark engine. It's like they're it's like they're equivalent to the data bricks hypers scaling or whatever they're doing on the on the SQL server. Anyways," }
-  - { t: 1824, text: "server. Anyways, when they come out with that feature, someone needs to go do, hey, I was loading this table and it took me two hours. I turned these things on and" }
-  - { t: 1832, text: "here's what it did differently. Like I would wait for someone else in the community or observe. Mim was one of the" }
-  - { t: 1838, text: "ones I like to follow from Australia. I think I think maybe he's from New Zealand or Australia, that region of the world. but he would write all these articles about it like, \"Hey, did you" }
-  - { t: 1848, text: "guys know about duck DB? You should check it out.\" Like it's super fast. That's all and he's doing all these" }
-  - { t: 1852, text: "benchmark things. And so I was eating that up because it was like he was doing the research that the community needed to figure out what was efficient or not. And now let me extrapolate a little bit" }
-  - { t: 1862, text: "forward now. Right. So the new feature landed in fabric. We needed to have multiple decision paths on what we could build. This is the same thing for what I see now for like data" }
-  - { t: 1874, text: "flows, copy job, mirroring. There's all these other features now of how you can move data from the in around in fabric. I want to evaluate how long it takes and" }
-  - { t: 1882, text: "how much to it cost me. Now with agents to your point here with fabric, it's hard. We can define here's the starting point, here's the ending point, here's the different potential routes you can" }
-  - { t: 1896, text: "get to to get from A to B. You can define some of that. And now you can just say agents, all right, you go build seven different workspaces and go build each architecture and run them three times, then come back automatically and" }
-  - { t: 1910, text: "tell me the results. That's this is is that's what I want, right? I want to be able to do that and and have verification like my process, my table, my SQL database, this is the most efficient way to run this process" }
-  - { t: 1928, text: "in fabric, right? With agents, we can build at scale to do more of these testing type things." }
-  - { t: 1935, text: "Yep. And ultimately, that's where you got to be, right? Yeah." }
-  - { t: 1939, text: "But this is your point. Your point is that to build systems that do that, that's where the challenge is right now. You can't you're not going to be able to go in and step into an agent be like, \"Okay, agent, test six things, go do it.\" It's not going to know like all the" }
-  - { t: 1954, text: "nuances of deploying and fabric. And so we we have to build tools. And I'm actually going to point out today Alex Powers has agentic task flow" }
-  - { t: 1965, text: "development, right? So he just built an agent that helps him use a large language model and helps you build the architecture and has a whole bunch of he's got thousands of lines, dare I say, of input information to the agent to help it just build an architecture point blank. That's not even doing the" }
-  - { t: 1984, text: "testing. That's not running data through it. That's not doing eval. That's just" }
-  - { t: 1988, text: "making the infrastructure." }
-  - { t: 1990, text: "making the infrastructure. It takes thought. You're going to have" }
-  - { t: 1991, text: "to think through these things. So this is I really love this point that you're defining here is the testing is really important for us. and again I think our our work is shifting right I'm" }
-  - { t: 2000, text: "not writing the Python scripts anymore. I'm going to agents and defining what I want it to build and then say you figure out the best way to build this thing. and and let's let's define the result of" }
-  - { t: 2011, text: "what I expect. What do what's your thoughts? What are" }
-  - { t: 2014, text: "your reactions? your reactions? Yeah, absolutely. this is" }
-  - { t: 2019, text: "what people should be getting into. those are the hard but really real and valid problems. non-trivial it takes a lot of effort and time and and persistence to to become" }
-  - { t: 2036, text: "good at this. another example is last week I think we talked a lot about how the freelance is over and how access to frontier coding models is getting more and more expensive very extensively so if you've relied on on on GitHub copilot in particular because they just changed their whole pricing model really radically. Yes. so there's a real incentive now and this is actually something I've invested into recently to do some broad experimentation around how can you produce high quality outputs with cheaper models with with either non-frontier versions of models or with alternative models that are substantially cheaper rather than you throwing every single even the most trivial problem at the most expensive" }
-  - { t: 2098, text: "model. Right? So, this is something which translates into like really significant dollar savings if you" }
-  - { t: 2106, text: "do it right. And so, it's a very worthwhile investment from my point of view. But again, it's also something you need to think about a lot in terms of how do you set up an" }
-  - { t: 2118, text: "experiment like that? how do you make it valid? and and reliable. this is ultimately" }
-  - { t: 2131, text: "building your own custom agents. there are lots and lots of Lego pieces and and available frameworks and whatnot nowadays. every day" }
-  - { t: 2144, text: "new ones are being added. so definitely the learning is not over." }
-  - { t: 2150, text: "Quite the opposite. Yeah. Yeah. I'm I'm more than ever convinced that the the aator the creator agent or agents to create create that what I don't know what that term is yet. Right?" }
-  - { t: 2164, text: "yet. Right? Agents should be building things that are deterministic," }
-  - { t: 2168, text: "are deterministic, right? You use the agents to build systems and repeatable processes." }
-  - { t: 2174, text: "Mhm. Like I I I get so much like if I think about the value I get of like throwing an agent at a random data model, throwing an agent at a random data table and saying go sift through this thing and figure it out like sometimes it works, right? Sometimes I get and sometimes it it I have to steer it a little bit and and but man, when I get it to right so let" }
-  - { t: 2193, text: "me give you some real examples. I have a lot of thumbnails that I use for YouTube videos. I'm I'm all in the video in the AI video space right now and I have three or four expressions of like ah you know the the home alone ah look or or angry and thinking or pensive" }
-  - { t: 2209, text: "or these different expressions. So I had all these images with backgrounds on them them and you could always go randomly through the internet and find a website that has a background remover like just I make it make this take this image take off the background make it a PNG save it to my computer. That's what you want to do. I said,\"I wonder if my agent could build me a tool that does this.\"" }
-  - { t: 2231, text: "So, I described what I want. I described the outcome. I need it to be this input." }
-  - { t: 2235, text: "I want to be that output. I don't care what model you pick. You go figure" }
-  - { t: 2239, text: "it out. You do the research on like what models need to be there. And then with a little bit of refining and tuning, it wrote me a Python script, Python 3, that" }
-  - { t: 2248, text: "runs on my machine locally. And then it ran it all in CPU initially. And it would take, I I did 80 images in a probably about 5 minutes, 10" }
-  - { t: 2257, text: "minutes. Wow. Impressive. Didn't pay a" }
-  - { t: 2260, text: "dime. Didn't have to go to Adobe. Didn't" }
-  - { t: 2262, text: "have to use Illustrator. Like zero effort. And then I said, \"Now document all the parameters.\" It was giving me like alpha settings for like front, foreground, background, like all the" }
-  - { t: 2271, text: "things that these models could do. I was impressed. And then I said, \"Well, wait" }
-  - { t: 2275, text: "a minute. Let's push oursel a bit here.\" And so, how about instead of me googling this, let's see if I can get it to run on my GPU. So now I have a GPU enabled background remover from five different models that can all be run with a command line and now any image I get backgrounds are gone like that no" }
-  - { t: 2295, text: "problem. It's automated. It's it it's a" }
-  - { t: 2297, text: "very simple process. And so thi it's like this stuff. It's like I need to be able to materialize the the" }
-  - { t: 2305, text: "problem down to the solution. Mhm. And now I'm building a lot of these micro tools micro tools that are starting to stitch together" }
-  - { t: 2313, text: "now. I'm solving very small problems which are part of a bigger problem that I can start stitching things together now. And this is this is what really" }
-  - { t: 2322, text: "gets me up in the morning honestly. But can I can I ask you does you being able to build those tools now? Does it" }
-  - { t: 2329, text: "mean you're less busy? No, it doesn't actually." }
-  - { t: 2332, text: "Right. Coming back to the original point." }
-  - { t: 2335, text: "point. Yes. Yes. Well, so instead of spending like, it probably could have taken like 15 minutes, go to a website, click a couple buttons, and maybe 20, like that would have been" }
-  - { t: 2343, text: "fine. fine. But I will argue the next time I need to remove background images, it's literally get images down, throw them in a folder," }
-  - { t: 2350, text: "hit run, done. The next part of my to your point, right?" }
-  - { t: 2357, text: "right? Let's Okay, I think you you you said this very early on in our conversation, which was like, is it production ready?" }
-  - { t: 2363, text: "Right. Is is it ready to go? Is it ready" }
-  - { t: 2365, text: "to land for real time? I'm not there yet. I'm not ready to land" }
-  - { t: 2370, text: "at real time. It's a lot of these like I I feel like I've I've proliferated the amount of work I've been able to do. I can accomplish so much more with these additional projects and and solutions" }
-  - { t: 2383, text: "I'm solving. I'm solving. But is it actually removing time from my" }
-  - { t: 2388, text: "schedule? I'm not sitting here just talking to my agent and eating bon bons and fruit all day. like this is not what" }
-  - { t: 2394, text: "I'm doing. I'm stressing more. I'm" }
-  - { t: 2396, text: "working more. I'm I'm talking to my phone in the evenings. I'm chatting with" }
-  - { t: 2400, text: "it on Telegram. I'm the volume of things I'm doing is increasing. I'm not getting less stuff." }
-  - { t: 2407, text: "It's just more cap. I would never have contemplated building these other little solutions until now." }
-  - { t: 2413, text: "Now that I can do them. So now I have instead of like three or four unsolved projects, I've got 15 or 20 unsolved projects now that are all really interesting in their own right, solving very specific needs, but not necessarily stitched together holistically yet. And so that's maybe my next move now is as I build these small, to your point, small little efforts of of solutioning, how do I start building these little Lego bricks of problem" }
-  - { t: 2442, text: "solving? How do I start weaving them together into a bigger set that I can just tell the agent here's what I want and it knows all the little micro tools that I've built to make things run well for me. So maybe that's where I'm" }
-  - { t: 2456, text: "starting to go now. I don't know. Are" }
-  - { t: 2457, text: "you experiencing this too? Do you have more side projects than ever? Like" }
-  - { t: 2460, text: "what's it look like for you? Absolutely. In the past, right? So pre-" }
-  - { t: 2464, text: "aents. the preent I think I think this is I think this is a shirt that we need to have that's like I was around pre- agents. Oh yeah, I certainly was. okay we we all have finite" }
-  - { t: 2481, text: "resources. We all have finite number of" }
-  - { t: 2483, text: "resources. We all have finite number of hours in a day, right? So in the past coming re reacting to the point you just made how did we cope with" }
-  - { t: 2491, text: "that? How did we preserve our time by basically saying no to many potential problems much more than we do now. Right. So this is one" }
-  - { t: 2501, text: "thing that's changed. That's true. Lots lots more things are being started now because it's certainly viable and" }
-  - { t: 2508, text: "possible, right? but the the thing I'm really struggling with is the agentic solution is almost certainly never going to get you to 100%. And then you end up with having a lot of parallel small projects that you started and you probably got to 80 or 90% of" }
-  - { t: 2533, text: "them. But the remaining 10 or 20% which then require your input in one way or another either to sign it off or to I don't know provide some credentials or to unblock something. Those actually compound quite" }
-  - { t: 2549, text: "significantly. And I've heard from many people that the the sum total of all those remaining 10% is very very significant nowadays and ends up making people much more busy than they've ever been when it originally appeared that Asians would take away all our workload. Right. so it's conundrum which certainly I'm" }
-  - { t: 2578, text: "experiencing. I'm not sure about you, but I've definitely heard similar stories from from other people I've talked to. Yeah, I'll I'll Yes, I've heard the same" }
-  - { t: 2589, text: "thing. And I would also argue when software becomes a commodity and so I just built a background remover." }
-  - { t: 2599, text: "You can build a background remover. You can go talk to any agent and build a background like everyone's got a background remover. like you don't need to go buy anything like to go purchase" }
-  - { t: 2608, text: "that anymore. You don't tactically need to do it now. However, to your point earlier around skills, now that I've got 50 background removers at my disposal, and this is why I feel like GitHub has become like my social media network at" }
-  - { t: 2625, text: "this point. Also, last week we discussed GitHub pull requests and GitHub repos are through the roof. We're talking" }
-  - { t: 2633, text: "about 20 million new repos every month. Now, agents are just making so much stuff. How do we discern which background remover is the best background remover or the one that works" }
-  - { t: 2645, text: "for my workflow? Can I just pick off one off the shelf and just go with it and be like, none the wiser? Back to your point earlier, should I be building an agent to download these things and test them out and like what's the" }
-  - { t: 2657, text: "quality look like? What's what does a good output mean? Now, this is the the challenge I think we're going to also start walking into as you build software, as you do things with agents" }
-  - { t: 2668, text: "is distribution. Now, how what are you doing to mature a distribution channel about what you've been creating? Who" }
-  - { t: 2676, text: "follows you? like that. That is going to be so incredibly important as you think through the things that you're building in the future here because you could build stuff all day long and eat everyone else's software all day long, but if you don't have a way of distributing that, you could have the best software in the world, but if no one knows about it, it's never going to" }
-  - { t: 2695, text: "sell. sell. So, I don't know what this new world is" }
-  - { t: 2698, text: "going to look like. I think when I look at my business, I'm a small business. Mias, you're a small business" }
-  - { t: 2704, text: "as well. as well. I think we are with agents on our side, we are extremely more advantaged than any large organization that has lots of" }
-  - { t: 2716, text: "employees that need to use agents. I'm looking at like I'm looking at the the story from Uber, right? In Uber, they've got they've got thousands of employees trying to use AI agents and their bill is in the billions of dollars around" }
-  - { t: 2730, text: "agent spend. agent spend. You and I spend, let's just say we're" }
-  - { t: 2735, text: "spending 300 bucks a month right now. Double that cost." }
-  - { t: 2739, text: "We don't care. It's still adding so much more value. Triple the cost." }
-  - { t: 2743, text: "Make it $1,000 a month. I don't know. There's going to be a point where we say no, it's no longer worth our time for" }
-  - { t: 2750, text: "the spend. But for our time is so valuable as like a small business and rolling out AI and agents into our teams. We get a huge amount of" }
-  - { t: 2760, text: "advantage. We can play ball with big players now because the agents are part of our suite and our software. So I think this is actually we're we're stepping into another era of the independent creator" }
-  - { t: 2773, text: "independent creator is got immense power with agents. Now maybe we should end on this topic because we've been we chatted probably way longer than we needed to. we were trying to do like a 30-minute conversation on this and this turned" }
-  - { t: 2783, text: "into much longer. Any any final reaction to that Matias? Maybe like a final" }
-  - { t: 2786, text: "thought maybe as we wrap here. Well, on that one, I was going to say I think the the conversion of AI spend into value created is probably substantially more favorable the the smaller you are the smaller the company is and it gets much more problematic in in in bigger organizations." }
-  - { t: 2807, text: "organizations. I don't have evidence to back that but but neither do I. Maybe and maybe there there is no data on that because how would there be right but it that's that's something which seems quite likely and which means we have a fantastic competitive advantage right and smaller companies small mediumsiz businesses in particular so interesting new world indeed indeed it is awesome well thank you so much for listening to Agentic thinking hopefully this conversation was interesting to you Matias and I are real time unpacking how agents and agentic things are" }
-  - { t: 2845, text: "working in our workflows. We're not doing any less work, that's for sure. It's not taking away our jobs from what" }
-  - { t: 2851, text: "we can tell. So, my my recommendation for those of you who are listening, I mean, you already understand and you already know what's going on here. Push into the job, push into using agents, figure it out because I think there's going to be a whole lot of net new work to understand and figure out in your" }
-  - { t: 2866, text: "organization. If I'm a business and I'm hiring people right now, I will hire the person who has more AI experience over the one who has certifications and and legacy information or software and coding now at this point because I want the new mind to think about agentic things. I think that's going to be a big push and I think new software has to be really reimagined solely thinking about how do you to your point, how do you build software, how do you make things happen and how do you have the agent" }
-  - { t: 2893, text: "observe and watch what's going on there. Last quick quick call out I'll call here. I found a really cool tool that" }
-  - { t: 2898, text: "people may be interested in. I do a lot of web app development. This is not" }
-  - { t: 2902, text: "a paid sponsorship. Sounds like a paid sponsorship. It's not. I found this" }
-  - { t: 2906, text: "really cool open source. It's called it's it's a play on the word annotation and they replace the front of it with agent notation. So it's it's agentation" }
-  - { t: 2916, text: "is the website agentation.com. I put it in the chat window. It is an ability for you to build a website, put a MCP like server element on your vibecoded website and you can literally select divs and pages on the report or whatever the website is built and you can make comments and those comments can be directly fed back to your agent and you can say agent resolve the comments and it does a great job of like you commenting on a UI and having your agent handle those comments directly and then push them back into making new tasks or" }
-  - { t: 2948, text: "things as well. So, this is a really cool tool. I just discovered this. Well," }
-  - { t: 2952, text: "I rediscovered it. I found it months ago and I I lost the link and I'm like, crap, where'd it go? I just red dug it out from the the library and I I find it so fascinating what this is doing that I really want to recommend to the" }
-  - { t: 2963, text: "community. Anyways, agentation is out there. Check it out. You might find some" }
-  - { t: 2968, text: "value from that if you build apps. Matias, as always, it's been a pleasure." }
-  - { t: 2973, text: "Super fun. Super fun. This is a blast. We'll do it again soon." }
-  - { t: 2976, text: "See you on Friday." }
+  - { t: 13, text: "All . Hello and welcome back to another Agentic Thinking podcast with Matias and Mike. Hello Matias. Welcome again. &gt;&gt; Yes. Hi Mike. How are you? &gt;&gt; I'm enjoying this twice a week conversation with you. If nothing else," }
+  - { t: 24, text: "it's just helping me get out of my normal workflow. I'm pulling away. I'm I'm unpacking what I've been doing, what I've been learning. I have another really smart AI person" }
+  - { t: 36, text: "that I've been talking with. &gt;&gt; His name is Dan. A and &gt;&gt; he's started this habit with me on Fridays. He'll text me something. He'll say [clears throat] &gt;&gt;" }
+  - { t: 46, text: "&gt;&gt; this week I've learned and he tries to distill all of the things he's been work it's happening fast. He's trying to distill all the little nuggets and pieces and things that you've been" }
+  - { t: 56, text: "working on down to a single item. what is a two or three sentence? What did you learn this week? &gt;&gt; Could be could be remedial, but" }
+  - { t: 66, text: "&gt;&gt; reflect on your week and and and drop in what you're doing what did you learn? &gt;&gt; What are you working on? just something simple something simple around that around agents. And I'm finding it" }
+  - { t: 77, text: "extremely valuable because he's given me some really good nuggets that he's been learning and and pulling in. and he's really emphasized or re-emphasized my need to do better planning and more" }
+  - { t: 88, text: "plan mode with my agents to build out better requirements. You Matias as have also been really pushing me to do better at that additionally. anyways, all this to say just" }
+  - { t: 98, text: "these conversations are this to me. It's helping me reflect and go back over what we're doing. &gt;&gt; Fantastic. Yeah. &gt;&gt; You have any comments for any intros or" }
+  - { t: 109, text: "openers? I think you found some news here that we should unpack before our main topic today. &gt;&gt; not quite news I would say almost the opposite of news. , I've gone" }
+  - { t: 119, text: "into history a little bit recently, sort of figuring out, , how how did we how did we get to where we are today and I found a reference to a 2017" }
+  - { t: 133, text: "research paper, nine years old &gt;&gt; which is called attention is all you need. And we can we can share the link to it. and I'm in absolutely no" }
+  - { t: 145, text: "position to comment on this academically and not even going to try to. but it turns out if you look into things a little bit this one this" }
+  - { t: 157, text: "single paper apparently was really really pivotal in terms of enabling everything around AI that we rely on today. they introduced a concept" }
+  - { t: 167, text: "of transformers which effectively helps massive parallelization of GPUs and" }
+  - { t: 181, text: "ultimately leading to the the scale and performance that modern large language models rely on nowadays. you know everything up to that point was" }
+  - { t: 193, text: "quite sequential with respect to &gt;&gt; going through and understanding text and that didn't scale the hardware wouldn't have been able to keep up at all in" }
+  - { t: 204, text: "terms of the the the volumes we would need for a very very good large language model. it turns out that this paper specifically changed" }
+  - { t: 214, text: "the course of history you can almost say. attention is all you need. There you go. Almost sounds a cheesy song title but if if if anyone has some academic interest" }
+  - { t: 227, text: "definitely something you should check out. And I think this this was again very early days" }
+  - { t: 237, text: "the neural networks was this is when we're starting to really explore what neural networks are. &gt;&gt; Andre Karpathy I think is how you say his name. he was the gentleman who" }
+  - { t: 248, text: "was at &gt;&gt; I believe he was at Tesla or open AI in the early days with Elon building some AI things. moved over to Tesla, built a whole bunch of vision and things there." }
+  - { t: 259, text: "&gt;&gt; Really deep diving on Transformers. , I think he was one of the there's a lot of people that regard him very highly on Twitter and on X I guess is X is appropriately the name" }
+  - { t: 269, text: "&gt;&gt; around what he's unpacking. And I &gt;&gt; every often someone shares a little video and says &gt;&gt; you should watch this instead of watching Netflix for two hours. You should watch this video from Andre and" }
+  - { t: 280, text: "see what he talks about for Transformers. And man, I was hanging with him for the first 45 minutes and then he went past my head. [clears throat]" }
+  - { t: 290, text: "what he was discussing and again this is this is the concept here is he was doing some very simple math and and what he was describing in this" }
+  - { t: 300, text: "video talk. It's a two-hour video talk that I and I got about halfway through it and I really got was really into it and then my ADHD kicked in. I did something else. I started going to something else. but he was" }
+  - { t: 310, text: "talking about when we do large language models, we send some text into it, it the weights of the model" }
+  - { t: 321, text: "just do things and we get the other side of the output. on the other side you get the answers that you're expecting. And what he was trying to do or he was" }
+  - { t: 332, text: "mathematically walking through the transformers and saying different transformers have different weights and when you adjust something on" }
+  - { t: 342, text: "the front side, how much of that upfront change in parameter or change in information in results in a" }
+  - { t: 352, text: "different waiting and how does that waiting push the output differently one one direction or another. And that's what he was unpacking was this very simple math he's doing 2 plus 2 equals 3 and and" }
+  - { t: 362, text: "doing a division symbol and he was saying look we know what the answer is but then we can then work our math back through. one of the things I think he was discussing the paper that was kind of interesting to me was we can watch" }
+  - { t: 373, text: "what's happening inside the neural network and start to understand how do the weights influence the outcomes and that's really what we're doing with these neural network things." }
+  - { t: 383, text: "And &gt;&gt; it's really interesting. Again, I'm not a PhD person. I I can't go deep with these topics, but I find these immensely fascinating as to what people are" }
+  - { t: 394, text: "discovering these math that they're coming up with and &gt;&gt; it's too compute intensive for us to look at the whole system individually every single node" }
+  - { t: 404, text: "because there's just too many of them. But in general, we can generalize and look at what are the weights? How are weights being pushed on these models? really interesting stuff. These papers are phenomenal. There's people way smarter than I doing this" }
+  - { t: 415, text: "work and here I am just sending a text box to or or sending a text string to an agent and getting all this code out of it. It's it's phenomenal what this is doing this technology. what" }
+  - { t: 426, text: "really puzzles me, , totally from a position of ignorance obviously how when you when you chat with a large language model, ," }
+  - { t: 436, text: "when it doesn't produce code for you, but but text language, &gt;&gt; how it it only ever produces perfectly" }
+  - { t: 446, text: "correct, valid English grammar, assuming we're talking English, ? which is obviously not something a human would ever do, ? it as as far as I" }
+  - { t: 457, text: "can tell it never makes mistakes unless I just never spot them or . . it almost feels if you don't really know what's in the black box &gt;&gt; as if there is some" }
+  - { t: 469, text: "&gt;&gt; a grammarly a process that checks all outputs and and filters them before they get to you." }
+  - { t: 479, text: "But apparently that's not the case. . I I I had some discussions with Chad TPT about that at some point because I was just really curious and apparently you always get perfect" }
+  - { t: 492, text: "grammar perfect outputs just because of the huge volume of training material those models have been built on and and because apparently" }
+  - { t: 504, text: "they've been selected that the models have only ever seen valid English sentences. It's absolutely mindboggling. &gt;&gt; Wow, that's interesting. Yeah," }
+  - { t: 515, text: "definitely wasn't a study on what I've been talking about because my sentences are all messed up. [laughter] All don't make sense. , let's let's get into we talked a little bit about some some interesting things." }
+  - { t: 526, text: "Let's let's transition the topic here. Let's go into move into a bit of our main topic here. And I think I want to unpack Matias. We were just talking about before this episode." }
+  - { t: 536, text: "&gt;&gt; You're coming out of a deep thinking session, ? you you you and you do this quite often and we talked about this a little bit with the very episode one was the mind palace what does what does the mental model look for when I think things" }
+  - { t: 547, text: "agentically and I have been finding how I look at my work daytoday is greatly being reshaped" }
+  - { t: 557, text: "&gt;&gt; with the use of AI in what I do also what I think is possible the level of reach I'm looking to grasp is" }
+  - { t: 569, text: "much higher than I would have three months ago. I'm much more aggressive on taking on bigger projects, more specific code detailed things" }
+  - { t: 581, text: "knowing that I've got agentic support behind me. , let's unpack some of this. Let's rethink what work is looking . What are you describe for me before we got on this call, what were" }
+  - { t: 592, text: "you doing? What what was what was really boggling your mind? And what are you changing from how you used to do work to what you're doing with agents? Let's talk about that. &gt;&gt; Yeah, absolutely. I I think a lot is" }
+  - { t: 603, text: "going on here. and let let's let's talk about a myth first of all. you know, lots of people think or fear, you" }
+  - { t: 613, text: "know, that all our jobs are going to go away because AI is going to do everything, ? &gt;&gt; Yeah. &gt;&gt; My experience is quite the opposite to be fair." }
+  - { t: 624, text: "&gt;&gt; same &gt;&gt; in I'm a hardcore coder I've spent most of my career writing code I have to say I have I have not" }
+  - { t: 635, text: "wrote a single line of code for many many months intentionally to some degree but also because I've just" }
+  - { t: 648, text: "I'm just using different tools and , I'm writing more pros, ? I'm I'm writing more prompts, inputs," }
+  - { t: 659, text: "reviews, , requirements. , , that's what all my keyboard time is is spent on. and" }
+  - { t: 674, text: "it also turns out that we we are substantially more" }
+  - { t: 684, text: "capable in terms of what in conjunction with agents we can produce in terms of &gt;&gt; in terms of scale in terms of volume" }
+  - { t: 696, text: "in particular. in in terms of depth, , we we can we can write in in in in in" }
+  - { t: 706, text: "in quotes in languages that we've never known about, ? &gt;&gt; Yep. Agree. &gt;&gt; that's that." }
+  - { t: 717, text: "but are we necessarily producing more let's say shippable things out out of that per se? Not necessarily. . we just" }
+  - { t: 728, text: "we've we've inherited new kinds of problems, ? , harvesting and and orchestrating and observing and" }
+  - { t: 740, text: "steering agents turns out to be a very non-trivial problem. And that turns out to be one where we're still very early in terms of getting the" }
+  - { t: 751, text: "processes and procedures and tools in place. And that's something you know we all have to do a lot of learning around &gt;&gt;" }
+  - { t: 761, text: "&gt;&gt; it it may seem you get you're getting a lot of stuff for free if you put a prompt into I don't know code or and" }
+  - { t: 771, text: "then it spits out some software that runs on your machine. , &gt;&gt; sure. &gt;&gt; Which is, , exciting, particularly when when you don't" }
+  - { t: 781, text: "necessarily have a have a coding background. , but, , if you want to do this seriously, , , in in in a in a" }
+  - { t: 792, text: "professional context, that's not really where things stop. If anything, that's where they start, ? And everything else that comes after that takes a lot of new thinking" }
+  - { t: 803, text: "around what engineering harness do you need to put around this agentic system. and again I would say we're very early on here." }
+  - { t: 813, text: "&gt;&gt; I would agree with this statement and I think I'm I'm relating a lot to what you're describing. &gt;&gt; let me give you just let me give you a tangible example of something I'm physically working through ." }
+  - { t: 823, text: "often I get a lot of phone calls about, , wanting to do some support or some work. I have, thankfully, I made a decision when I started my business in 2019 to go" }
+  - { t: 835, text: "independent and do my own work. I I decided I can't stand working in Word &gt;&gt; anymore. I'm done. The formatting is just not helpful to me. I don't need it. In order for me to convey information" }
+  - { t: 846, text: "from my business to a customer, I need markdown or or that landing page of GitHub, ? If it has headers, it has bold, you can add images, most of the formatting pieces," }
+  - { t: 857, text: "and I don't really care. The the formatting isn't &gt;&gt; Let me say it this way, Matis. If I gave you a Word document that was PDFed and I gave you a markdown file that was PDFed," }
+  - { t: 869, text: "does the formatting sway you in any way to buy my services? Probably not. &gt;&gt; I probably I probably would argue if I put a picture in there and it has a" }
+  - { t: 879, text: "border around it or if it's centered or if it's less just you're probably less interested in the format of my document. You're probably more interested in the words on the page, the comments I'm" }
+  - { t: 889, text: "producing for you. thankfully I've been writing all of my re all of my statement of works in a single repo all in markdown." }
+  - { t: 899, text: "&gt;&gt; Here come agents, &gt;&gt; ? over the last two weeks I have been rethinking my entire process around what do I need to do to distill" }
+  - { t: 910, text: "and get information and knowledge to my agent to help me rationally think through what is the statement of work? What do I want to emphasize? What kind of work do you need? What examples are" }
+  - { t: 921, text: "are you going to build? What are the primary outcomes for this this engagement? it has all of my old statement of works. The agent can see all of this stuff. I'm building" }
+  - { t: 931, text: "new skills. I'm enhancing this documentation. when you give me an email whatever the end of your domain name is, I'm giving the domain" }
+  - { t: 941, text: "name to my agent and say, \"Hey, this is the new client. Go build me the basic information that I need. Go research them on the internet. Go find them. Go go find their website and" }
+  - { t: 951, text: "research everything about them. What do they do? How do they do it? And oh by the way, since agent I've described to you what my business does and you already have a summary, I've already had" }
+  - { t: 961, text: "to go through and summarize my other statement of works. what do we do based on what I've sold review against our services against what they think they might need? How could I find opportunities for them?" }
+  - { t: 972, text: "&gt;&gt; And I'm building a whole litany of skills around my very hyperspecific business and workflow that's not trivial. And I guess the" }
+  - { t: 983, text: "point here of this and the reason the example is I would just do the process because that would make that's what made sense to me. I have to step out of that process and think is that the way" }
+  - { t: 994, text: "to do the process how would I document it? What is the integration points between where I take my notes in loop where the teams meeting comes from? How" }
+  - { t: 1004, text: "can I automate the transcription and the summary documents from teams into my agent? how do I get it there? there's all these other things that I'm trying to unpack and organize" }
+  - { t: 1016, text: "and maybe that's an experience you're having. What are you finding? &gt;&gt; one thing which is quite related here which I thought about recently is" }
+  - { t: 1026, text: "I'm finding it increasingly hard to select the the skills and tools when creating a new dedicated agent. , we've we've talked" }
+  - { t: 1038, text: "about this presumably, , how the industry had a massive explosion of MCP servers last year and then end of last year, everyone switched to skills" }
+  - { t: 1049, text: "as as the new kid on the block and skills were pushed as solving lots of problems related with MCP servers." }
+  - { t: 1060, text: "But if you look at plug-in marketplaces and skills repositories, it's insane. but particularly because they're easy to" }
+  - { t: 1071, text: "make, ? It's just generally a natural language document. virtually anyone can can write a skill. what I find very very challenging" }
+  - { t: 1083, text: "nowadays is how do you even how do you select given a particular problem you want to tackle how do you select high quality and useful skills" }
+  - { t: 1096, text: "it's increasingly hard and hard it becomes harder and harder I don't really have a solution for it yet but it does not seem a great place to" }
+  - { t: 1108, text: "be from from my point of view unless you restrict yourself really heavily and say I only use I don't know" }
+  - { t: 1119, text: "three four or five particular sources slashmarketplaces and ignore everything else considered noise I think that's definitely where we need some" }
+  - { t: 1133, text: "innovation and [snorts] &gt;&gt; let let me I this idea. May I propose a top an idea? Let me" }
+  - { t: 1143, text: "propose a thought and maybe maybe you do this already. Maybe I maybe I don't maybe I'm just learning this as we go here as we think through this one. to your point, I also see the same reflection. Lots of" }
+  - { t: 1154, text: "skills every other day in my feeds. There's another whole look at this new skills repo for Claude. Look at this new &gt;&gt; thing I built. I built 70 custom agents all in a repo. pick what you" }
+  - { t: 1165, text: "want. Awesome. Co-pilot has a whole library of a bunch of things that just continue to grow and the community is getting big. Awesome. Love it. Super cool." }
+  - { t: 1175, text: "What I'm finding I'm doing is I'm building skills and as I work with the skills, the skills usually do a lot of what I want, but as I refine my process and the skill, we're" }
+  - { t: 1185, text: "evolving together a little bit. the skill does a lot of what I want , it doesn't always get it 100% all the time. Or my process is shifting a little bit. I need to slightly tweak my skill." }
+  - { t: 1197, text: "Are you finding or are you building a process where you're doing more retroactive skill review after you use it and having it refine itself or" }
+  - { t: 1207, text: "enhance based on your most recent run? Do you do this at all? I I'm me I'm doing this a little bit and finding value from it. I don't know if you're if" }
+  - { t: 1217, text: "you're experimenting with this. &gt;&gt; I'm tackling it a bit differently. I I see this as a problem of volume and scale," }
+  - { t: 1227, text: "? And when when when I have seemingly a thousand different skills available that all came to do the same thing, &gt;&gt; I as a human possibly cannot select" }
+  - { t: 1240, text: "which one is best. &gt;&gt; Sure. &gt;&gt; But my thinking would then kick in to say this is per this is the stuff I can hand to an agent, ? I'm I'm increasingly investing" }
+  - { t: 1253, text: "in second level agent infrastructures where I use agents to run experiments because they can do things in" }
+  - { t: 1265, text: "parallel. they can reason very and all I need to do is to explain to them what the scenario is and what" }
+  - { t: 1275, text: "success means in terms of output and then an agent can assuming I've got AI credits" }
+  - { t: 1285, text: "available or or run it on my own hardware they can they they can just test out a hundred different versions of it and ultimately report back to me And that's that's" }
+  - { t: 1297, text: "where I'm at . &gt;&gt; I this too. &gt;&gt; my my my natural response whenever I see a a a problem of scale is" }
+  - { t: 1307, text: "a human cannot tackle that &gt;&gt; or build testing and validation and you know problem statement is this success" }
+  - { t: 1318, text: "looks that. &gt;&gt; Here's here's here's 60 differential equations. solve the solve the one that has the the the the maximize function, ? You're you're" }
+  - { t: 1328, text: "just doing a maximize function &gt;&gt; on lots of skills with defining a clearly defined goalpost. &gt;&gt; And and I think this is maybe the point" }
+  - { t: 1338, text: "around rethinking your work, &gt;&gt; ? I think what you're describing here is exactly what I'm finding myself doing more often, which is rethinking what are the inputs and" }
+  - { t: 1351, text: "rethinking what does success look ? And I got to be honest, even in software development, people are not good at defining what does success look for your software. What does a win look" }
+  - { t: 1361, text: "? it's hard writing requirements, documents, and tasks and features because you really need to be specific at the end of the game." }
+  - { t: 1372, text: "&gt;&gt; What does that look ? as you hand it back to your development team you know when we're pre- aent world I had to be very specific around I want this this and this because they're going to put the nav menu in the wrong area and" }
+  - { t: 1383, text: "they're going to have to use the wrong colors and we're going to deviate from xyz things we have to have standards in place to really be specific about this &gt;&gt; sounds we're able to then to your" }
+  - { t: 1393, text: "point problem of scale but let the agents build verify and what we have to do is shift our work to think about what's the goal what's the output" }
+  - { t: 1403, text: "I've had a few really good successes I would say in that space recently. exactly around the" }
+  - { t: 1413, text: "definition of what's success and and what is" }
+  - { t: 1423, text: "&gt;&gt; a positive outcome. ? what what I find very challenging and hard today in in an agentic world is creating good test harnesses. , it" }
+  - { t: 1437, text: "turns out, if you are able to define to not just define a PR and and requirements, but to give" }
+  - { t: 1447, text: "the the agent who's implementing your PR, a very specific ways for them to use and run the product they're" }
+  - { t: 1457, text: "producing, , the feature they're producing, the the software they're producing. Yes. If if you enable them to use that" }
+  - { t: 1468, text: "it's incredible how much how how the quality of of what's coming out of it is shooting up. wi without that and this is the default place that you" }
+  - { t: 1480, text: "get for many coding agents today. you may have a reviewer coding agent and it may seem to be" }
+  - { t: 1490, text: "very thorough and it may find lots of issues to address. But normally those are hygiene things. Those are cosmetic" }
+  - { t: 1501, text: "things. Those are obvious typing or compiler things. it only gets you far and and a" }
+  - { t: 1511, text: "reviewer that's not running your software may pass something that if you then try to run it as as a human user you will immediately" }
+  - { t: 1523, text: "find this thing doesn't do the thing it's not working yeah button makes sense but that that is definitely something which I've" }
+  - { t: 1534, text: "&gt;&gt; experienced recently where I've been able to produce very longunning agent sessions" }
+  - { t: 1545, text: "because the reviewer as it was able to run the software themselves was then able to give much more specific feedback" }
+  - { t: 1557, text: "and you had longer loops. and you had absolute certainty that at the end of the loop the thing that was produced produced the outcome." }
+  - { t: 1568, text: "&gt;&gt; this is not trivial to define up front. ? This is this goes substantially further than you writing a PR because you need to think about what" }
+  - { t: 1579, text: "execution environment for instance do you need to provide you really need to think about &gt;&gt; do you need to provide login or or or give a way for your agent to to" }
+  - { t: 1591, text: "authenticate maybe on your behalf or to bypass it or something that it it this is where the the real hard engineering" }
+  - { t: 1603, text: "problems sit nowadays I would say compared to where we were a couple years ago where our engineering problems were about how do I write this function or how do I design" }
+  - { t: 1615, text: "this API in the best possible way we no longer have that problem but &gt;&gt; I really see it as as a test harness problem" }
+  - { t: 1626, text: "&gt;&gt; and that is harder or easier depending on, , what software you're dealing with, ? If you have a CLI app, for instance, or or" }
+  - { t: 1636, text: "a REST API, it's obviously substantially easier to test that than, , a mobile or a UI or or even a a whole" }
+  - { t: 1647, text: "fabric solution, ? Which is one of the hardest things to test in in my opinion. but anyone who is worried that they may no longer" }
+  - { t: 1660, text: "have a reason to be employed as an engineer, there are probably more opportunities than they have ever been. they're just going to be" }
+  - { t: 1670, text: "somehow different, ? And I see a lot of opportunity around testing as I just explained but also around experimentation to figure out" }
+  - { t: 1683, text: "what's the agent harness for me to use? What's the model? What what are the model settings? what's the system" }
+  - { t: 1693, text: "prompt? It an agentic system has many inputs in addition to your prompt. it's in insane the" }
+  - { t: 1704, text: "different it's it's an infinite number of possibilities how you can configure a system. if you want to be particularly efficient, if you want to" }
+  - { t: 1714, text: "have particularly good outcomes, you have no way other than running experiments to figure out which one of those performs best. Th &gt;&gt; this is the same concept. I'm I'm going" }
+  - { t: 1724, text: "to bring this really back to PowerBI and Fabric. I think you made a note here on how hard it is to test these things. I really do want to push on this note. , let's go pre-agent world and how I think" }
+  - { t: 1735, text: "about some of these things. If I wanted to know something was more efficient than a different system. Let's say for I'm going to use a very simple example. I use this all the time on other podcasts and I've talked about" }
+  - { t: 1746, text: "this a lot. If I'm going to load data using data flows gen 2 and I'm going to load data using a notebook, ? Two different systems on how I build things. One's more business user focused and one" }
+  - { t: 1757, text: "is more notebook and code ccentric. . And when I look at those two, in order for me to really evaluate the performance of both of those, I've got" }
+  - { t: 1767, text: "to think of a a test to your point, a test, where does the data come from? How do I load it in? Let's run it through the CUS on the pipeline. Let's have an isolation environment. , , I'm" }
+  - { t: 1777, text: "going to run this data flow three or four times. See how long it takes to do the the loading. , let's do it again with a fabric notebook. How long did that take? What did we get? Are the" }
+  - { t: 1787, text: "outputs the same? Yes or no? . , this is something we would have to do one manually. And then two, I would wait a lot for not wait, but I would be very intuitive when" }
+  - { t: 1799, text: "Microsoft would release new features. For example, the shoot, I forget the name of it. It's in the Spark Notebooks where you turn on the the new Veilocks engine. I know the names of" }
+  - { t: 1811, text: "the terms, the gluten and vex engine on top of the spark engine. It's they're it's they're equivalent to the data bricks hypers scaling or whatever they're doing on the on the SQL" }
+  - { t: 1822, text: "server. Anyways, &gt;&gt; when they come out with that feature, someone needs to go do, hey, I was loading this table and it took me two hours. I turned these things on and" }
+  - { t: 1832, text: "here's what it did differently. I would wait for someone else in the community or observe. Mim was one of the ones I to follow from Australia. I think I think maybe he's from New" }
+  - { t: 1842, text: "Zealand or Australia, that region of the world. , but he would write all these articles about it , \"Hey, did you guys know about duck DB? You should check it out.\" it's super fast. That's all and he's doing all these" }
+  - { t: 1852, text: "benchmark things. And I was eating that up because it was he was doing the research that the community needed to figure out what was efficient or not. And let me extrapolate a little bit" }
+  - { t: 1862, text: "forward . . the new feature landed in fabric. We needed to have multiple decision paths on what we could build. This is the same" }
+  - { t: 1872, text: "thing for what I see for data flows, copy job, mirroring. There's all these other features of how you can move data from the in around in fabric. I want to evaluate how long it takes and" }
+  - { t: 1882, text: "how much to it cost me. with agents to your point here with fabric, it's hard. We can define here's the starting point, here's the ending point, here's" }
+  - { t: 1894, text: "the different potential routes you can get to to get from A to B. You can define some of that. And you can just say agents, all , you go build seven different workspaces and go build" }
+  - { t: 1905, text: "each architecture and run them three times, then come back automatically and tell me the results. That's , this is" }
+  - { t: 1916, text: "that's what I want, &gt;&gt; ? I want to be able to do that and and have verification my process, my table, my SQL database, this is the" }
+  - { t: 1926, text: "most efficient way to run this process in fabric, ? &gt;&gt; With agents, we can build at scale to do more of these testing type things. &gt;&gt; Yep. And ultimately, that's where you" }
+  - { t: 1938, text: "got to be, ? Yeah. &gt;&gt; But this is your point. Your point is that to build systems that do that, &gt;&gt; that's where the challenge is . You can't you're not going to be able to" }
+  - { t: 1948, text: "go in and step into an agent be , \", agent, test six things, go do it.\" It's not going to know all the nuances of deploying and fabric. And we we have to build tools. And I'm" }
+  - { t: 1960, text: "going to point out today Alex Powers has agentic task flow development, ? he just built an agent that helps him use a large language model and helps you build the" }
+  - { t: 1971, text: "architecture and has a whole bunch of he's got thousands of lines, dare I say, of input information to the agent to help it just build an architecture point" }
+  - { t: 1983, text: "blank. That's not even doing the testing. That's not running data through it. That's not doing eval. That's just making the infrastructure. It takes thought. You're going to have to think through these things. this is I really love this point that" }
+  - { t: 1994, text: "you're defining here is the testing is really important for us. and again I think our our work is shifting I'm not writing the Python scripts anymore. I'm going to agents and defining what I" }
+  - { t: 2004, text: "want it to build and then say you figure out the best way to build this thing. and and let's let's define the result of what I expect. What do what's your thoughts? What are" }
+  - { t: 2014, text: "your reactions? &gt;&gt; Yeah, absolutely. this is what people should be getting into. those are the hard but really" }
+  - { t: 2026, text: "real and valid problems. non-trivial it takes a lot of effort and time and and persistence to to become" }
+  - { t: 2036, text: "good at this. another example is last week I think we talked a lot about how the freelance is over and how" }
+  - { t: 2049, text: "access to frontier coding models is getting more and more expensive very extensively if you've relied on on on GitHub copilot in particular" }
+  - { t: 2061, text: "&gt;&gt; because they just changed their whole pricing model really radically. Yes. there's a real incentive and this is something I've invested into recently to do some" }
+  - { t: 2073, text: "broad experimentation around how can you produce high quality outputs with cheaper models with with either" }
+  - { t: 2086, text: "non-frontier versions of models or with alternative models that are substantially cheaper rather than you throwing every single even the most" }
+  - { t: 2096, text: "trivial problem at the most expensive model. ? , , this is something which translates into really significant dollar savings if you" }
+  - { t: 2106, text: "do it . And , it's a very worthwhile investment from my point of view. But again, it's also something you need to think about a lot in" }
+  - { t: 2116, text: "terms of , how do you set up an experiment that? how do you make it valid? and and reliable." }
+  - { t: 2127, text: "this is ultimately building your own custom agents. there are lots and lots of Lego pieces and and available frameworks" }
+  - { t: 2140, text: "and whatnot nowadays. every day new ones are being added. definitely the learning is not over." }
+  - { t: 2150, text: "Quite the opposite. &gt;&gt; Yeah. I'm I'm more than ever convinced that the aator the creator agent or agents to" }
+  - { t: 2160, text: "create &gt;&gt; that what I don't know what that term is yet. ? &gt;&gt; Agents should be building things that are deterministic, &gt;&gt; ? You use the agents to build" }
+  - { t: 2171, text: "systems and repeatable processes. &gt;&gt; . I I I get much if I think about the value I get of throwing an agent at a random data model, throwing an agent at a random" }
+  - { t: 2181, text: "data table and saying go sift through this thing and figure it out sometimes it works, ? Sometimes I get and sometimes it it I have to steer it a little bit and and &gt;&gt; but man, when I get it to let" }
+  - { t: 2193, text: "me give you some real examples. I have a lot of thumbnails that I use for YouTube videos. I'm I'm all in the video in the AI video space and I have three or four expressions of you" }
+  - { t: 2205, text: "know the the home alone look or or angry and thinking or pensive or these different expressions. I had all these images with backgrounds on them" }
+  - { t: 2215, text: "&gt;&gt; and you could always go randomly through the internet and find a website that has a background remover just I make it make this take this image take off the background make it a PNG save it to my" }
+  - { t: 2225, text: "computer. That's what you want to do. I said,\"I wonder if my agent could build me a tool that does this.\" &gt;&gt; , I described what I want. I described the outcome. I need it to be this input." }
+  - { t: 2235, text: "I want to be that output. , I don't care what model you pick. You go figure it out. You do the research on what models need to be there. And then with a little bit of refining and tuning, it" }
+  - { t: 2245, text: "wrote me a Python script, Python 3, that runs on my machine locally. And then it ran it all in CPU initially. And it would take, , I I did 80 images" }
+  - { t: 2255, text: "in a probably about 5 minutes, 10 minutes. Wow. Impressive. Didn't pay a dime. Didn't have to go to Adobe. Didn't have to use Illustrator. zero effort. And then I said, \" document" }
+  - { t: 2266, text: "all the parameters.\" It was giving me alpha settings for front, foreground, background, all the things that these models could do. I was impressed. And then I said, \", wait a minute. Let's push oursel a bit here.\"" }
+  - { t: 2277, text: "And , how about instead of me googling this, let's see if I can get it to run on my GPU. I have a GPU enabled background remover from five different" }
+  - { t: 2287, text: "models that can all be run with a command line and any image I get backgrounds are gone that no problem. It's automated. It's it it's a" }
+  - { t: 2297, text: "very simple process. And thi it's this stuff. It's &gt;&gt; I need to be able to materialize the the problem down to the solution. ." }
+  - { t: 2307, text: "&gt;&gt; And I'm building a lot of these micro tools &gt;&gt; that are starting to stitch together . I'm solving very small problems &gt;&gt; which are part of a bigger problem that" }
+  - { t: 2318, text: "I can start stitching things together . And this is this is what really gets me up in the morning honestly. &gt;&gt; But can I can I ask you does you being able to build those tools ? Does it" }
+  - { t: 2329, text: "mean you're less busy? &gt;&gt; No, it doesn't . &gt;&gt; . Coming back to the original point. &gt;&gt; Yes. Yes. , instead of spending it probably could have taken 15 minutes," }
+  - { t: 2340, text: "&gt;&gt; go to a website, click a couple buttons, and maybe 20, that would have been fine. &gt;&gt; But I will argue the next time I need to remove background images, it's get images down, throw them in a folder," }
+  - { t: 2350, text: "hit run, done. &gt;&gt; The next part of my to your point, ? &gt;&gt; Let's , I think you you you said this very early on in our conversation," }
+  - { t: 2361, text: "which was , is it production ready? . Is is it ready to go? Is it ready to land for real time? &gt;&gt; I'm not there yet. I'm not ready to land at real time. It's a lot of these I" }
+  - { t: 2372, text: "I feel I've I've proliferated the amount of work I've been able to do. I can accomplish much more with these additional projects and and solutions" }
+  - { t: 2383, text: "I'm solving. But is it removing time from my schedule? I'm not sitting here just talking to my agent and eating bon bons and fruit all day. this is not what" }
+  - { t: 2394, text: "I'm doing. I'm stressing more. I'm working more. I'm I'm talking to my phone in the evenings. I'm chatting with it on Telegram. I'm &gt;&gt; the volume of things I'm doing is" }
+  - { t: 2404, text: "increasing. I'm not getting less stuff. It's just more cap. I would never have contemplated building these other little solutions until . &gt;&gt; that I can do them. I have" }
+  - { t: 2415, text: "instead of three or four unsolved projects, I've got 15 or 20 unsolved projects that are all really interesting in their own , solving very specific needs, but not necessarily" }
+  - { t: 2427, text: "stitched together holistically yet. And that's maybe my next move is as I build these small, to your point, small little efforts of of solutioning, how do I start building" }
+  - { t: 2439, text: "these little Lego bricks of problem solving? How do I start weaving them together into a bigger set that I can just tell the agent here's what I want" }
+  - { t: 2450, text: "and it knows all the little micro tools that I've built to make things run for me. maybe that's where I'm starting to go . I don't know. Are you experiencing this too? Do you have more side projects than ever?" }
+  - { t: 2460, text: "what's it look for you? &gt;&gt; Absolutely. In the past, ? pre- aents. the preent I think I think this is I think this is a shirt that we" }
+  - { t: 2470, text: "need to have that's I was around pre- agents. Oh yeah, I certainly was. [laughter] [clears throat] we we all have finite" }
+  - { t: 2481, text: "resources. We all have finite number of hours in a day, ? in the past coming re reacting to the point you just made how did we cope with" }
+  - { t: 2491, text: "that? How did we preserve our time by saying no &gt;&gt; to many potential problems much more than we do . . this is one" }
+  - { t: 2501, text: "thing that's changed. That's true. &gt;&gt; Lots lots more things are being started because it's certainly viable and possible, ? but the the thing" }
+  - { t: 2513, text: "I'm really struggling with is the agentic solution is almost certainly never going to get you to 100%. And then" }
+  - { t: 2524, text: "you end up with having a lot of parallel small projects that you started and you probably got to 80 or 90% of them. But the remaining 10 or 20% which" }
+  - { t: 2537, text: "then require your input in one way or another either to sign it off or to I don't know provide some credentials or to unblock something." }
+  - { t: 2547, text: "&gt;&gt; Those compound quite significantly. And I've heard from many people that the the sum total of all those remaining 10% is very very" }
+  - { t: 2560, text: "significant nowadays and ends up making people much more busy than they've ever been when it originally appeared that Asians would take" }
+  - { t: 2570, text: "away all our workload. . it's conundrum which certainly I'm experiencing. I'm not sure about you," }
+  - { t: 2580, text: "but I've definitely heard similar stories from from other people I've talked to. &gt;&gt; Yeah, I'll I'll Yes, I've heard the same thing. And I would also argue" }
+  - { t: 2594, text: "when software becomes a commodity and I just built a background remover. &gt;&gt; You can build a background remover. You can go talk to any agent and build a background everyone's got a" }
+  - { t: 2604, text: "background remover. you don't need to go buy anything to go purchase that anymore. You don't tactically need to do it . However, to your point" }
+  - { t: 2615, text: "earlier around skills, that I've got 50 background removers at my disposal, and this is why I feel GitHub has become my social media network at" }
+  - { t: 2625, text: "this point. Also, last week we discussed GitHub pull requests and GitHub repos are through the roof. We're talking about 20 million new repos every month." }
+  - { t: 2635, text: "agents are just making much stuff. How do we discern which background remover is the best background remover or the one that works" }
+  - { t: 2645, text: "for my workflow? Can I just pick off one off the shelf and just go with it and be none the [snorts] wiser? Back to your point earlier, should I be building an agent to download these things and" }
+  - { t: 2655, text: "test them out and what's the quality look ? What's what does a good output mean? , this is the the challenge I think we're going to also" }
+  - { t: 2665, text: "start walking into as you build software, as you do things with agents is distribution. , how what are you doing to mature a distribution channel about what you've been creating? Who" }
+  - { t: 2676, text: "follows you? that. That is going to be incredibly important as you think through the things that you're building in the future here because you could build stuff all day long and eat" }
+  - { t: 2687, text: "everyone else's software all day long, but if you don't have a way of distributing that, you could have the best software in the world, but if no one knows about it, it's never going to sell. &gt;&gt; , I don't know what this new world is" }
+  - { t: 2698, text: "going to look . I think when I look at my business, I'm a small business. Mias, you're a small business as . I think we are with agents on our side," }
+  - { t: 2709, text: "we are extremely more advantaged than any large organization that has lots of employees that need to use agents. I'm looking at I'm looking at the the" }
+  - { t: 2719, text: "story from Uber, &gt;&gt; ? In Uber, &gt;&gt; they've got &gt;&gt; thousands of employees trying to use AI agents and their bill" }
+  - { t: 2729, text: "is in the billions of dollars around agent spend. You and I spend, let's just say we're spending 300 bucks a month . &gt;&gt; Double that cost." }
+  - { t: 2739, text: "&gt;&gt; We don't care. It's still adding much more value. Triple the cost. &gt;&gt; Make it $1,000 a month. I don't know. There's going to be a point where we say no, it's no longer worth our time for" }
+  - { t: 2750, text: "the spend. But for our time is valuable as a small business and rolling out AI and agents into our teams. We get a huge amount of" }
+  - { t: 2760, text: "advantage. We can play ball with big players because the agents are part of our suite and our software. I think this is we're we're stepping into another era of the" }
+  - { t: 2770, text: "independent creator &gt;&gt; is got immense power with agents. maybe we should end on this topic because we've been we chatted probably way longer than we needed to. we were" }
+  - { t: 2781, text: "trying to do a 30-minute conversation on this and this turned into much longer. Any any final reaction to that Matias? Maybe a final thought maybe as we wrap here. , on that one, I was going to say I think the the conversion of AI spend into value" }
+  - { t: 2794, text: "created is probably substantially more favorable the the smaller you are the smaller the company is and it gets much more problematic in in in bigger" }
+  - { t: 2806, text: "organizations. &gt;&gt; I don't have evidence to back that but &gt;&gt; neither do I. [laughter] Maybe and maybe there there is no data on that because how would there be" }
+  - { t: 2817, text: "but it that's that's something which seems quite likely and which means we have a fantastic competitive advantage and smaller companies" }
+  - { t: 2828, text: "small mediumsiz businesses in particular interesting new world indeed &gt;&gt; it is awesome thank you much for listening to Agentic thinking hopefully" }
+  - { t: 2838, text: "this conversation was interesting to you Matias and I are real time unpacking how agents and agentic things are working in our workflows. We're not doing any less work, that's for sure." }
+  - { t: 2849, text: "It's not taking away our jobs from what we can tell. , my my recommendation for those of you who are listening, I mean, you already understand and you already know what's going on here. Push into the job, push into using agents," }
+  - { t: 2861, text: "figure it out because I think there's going to be a whole lot of net new work to understand and figure out in your organization. If I'm a business and I'm hiring people , I will hire the person who has more AI experience over" }
+  - { t: 2872, text: "the one who has certifications and and legacy information or software and coding at this point because I want the new mind to think about agentic things. I think that's going to be a big" }
+  - { t: 2882, text: "push and I think new software has to be really reimagined solely thinking about how do you to your point, how do you build software, how do you make things" }
+  - { t: 2892, text: "happen and how do you have the agent observe and watch what's going on there. Last quick quick call out I'll call here. I found a really cool tool that people may be interested in. I do a lot of web app development. This is not" }
+  - { t: 2902, text: "a paid sponsorship. Sounds a paid sponsorship. It's not. I found this really cool open source. It's called it's it's a play on the word annotation and they replace the front of it with" }
+  - { t: 2912, text: "agent notation. it's it's agentation is the website agentation.com. I put it in the chat window. It is an ability for you to build a website, put a MCP" }
+  - { t: 2924, text: "server element on your vibecoded website and you can select divs and pages on the report or whatever the website is built and you can make" }
+  - { t: 2934, text: "comments and those comments can be directly fed back to your agent and you can say agent resolve the comments and it does a great job of you commenting on a UI and having your agent" }
+  - { t: 2944, text: "handle those comments directly and then push them back into making new tasks or things as . , this is a really cool tool. I just discovered this. , I rediscovered it. I found it months ago" }
+  - { t: 2954, text: "and I I lost the link and I'm , crap, where'd it go? I just red dug it out from the the library and I I find it fascinating what this is doing that I really want to recommend to the community. Anyways, agentation is out" }
+  - { t: 2967, text: "there. Check it out. You might find some value from that if you build apps. Matias, as always, it's been a pleasure. Super fun. &gt;&gt; This is a blast. We'll do it again soon. See you on Friday." }
 
 ---
 
