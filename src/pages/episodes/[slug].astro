@@ -81,7 +81,7 @@ const slug = episode.id.replace(/\/index\.mdx?$/, '').replace(/\.mdx?$/, '');
     }}
   />
 
-  <!-- Show notes rendered below on mobile, also available in notes tab -->
+  <!-- Show notes rendered server-side; EpisodePlayer reads innerHTML on mount -->
   <div id="show-notes-content" style="display: none;">
     <Content />
   </div>
@@ -118,14 +118,3 @@ const slug = episode.id.replace(/\/index\.mdx?$/, '').replace(/\.mdx?$/, '');
     </div>
   </div>
 </BaseLayout>
-
-<script>
-  // Pass rendered show notes HTML to the EpisodePlayer notes tab
-  document.addEventListener('DOMContentLoaded', () => {
-    const notesEl = document.getElementById('show-notes-content');
-    if (notesEl) {
-      const html = notesEl.innerHTML;
-      window.dispatchEvent(new CustomEvent('at:show-notes', { detail: { html } }));
-    }
-  });
-</script>

@@ -51,6 +51,7 @@ export default function EpisodePlayer({ episode, showNotes }: Props) {
   const [tab, setTab] = useState<'chapters' | 'transcript' | 'notes'>('transcript');
   const [t, setT] = useState(0);
   const [playing, setPlaying] = useState(false);
+  const [notesHtml, setNotesHtml] = useState(showNotes || '');
   const [showToast, toastNode] = useToast();
   const playerRef = useRef<any>(null);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -58,6 +59,16 @@ export default function EpisodePlayer({ episode, showNotes }: Props) {
   const intervalRef = useRef<ReturnType<typeof setInterval>>();
 
   const { chapters, transcript } = episode;
+
+  // Read server-rendered show notes from the hidden DOM element on mount.
+  // Astro renders <div id="show-notes-content"> server-side (SSG), so the
+  // content is always present in the DOM by the time React hydrates.
+  useEffect(() => {
+    if (!showNotes) {
+      const el = document.getElementById('show-notes-content');
+      if (el?.innerHTML?.trim()) setNotesHtml(el.innerHTML);
+    }
+  }, []);
 
   // Load YouTube IFrame API
   useEffect(() => {
@@ -248,8 +259,8 @@ export default function EpisodePlayer({ episode, showNotes }: Props) {
 
             {tab === 'notes' && (
               <div
-                style={{ fontSize: '13.5px', lineHeight: 1.65, color: 'var(--fg-dim)' }}
-                dangerouslySetInnerHTML={{ __html: showNotes || '<p>No show notes available.</p>' }}
+                className="ep-notes"
+                dangerouslySetInnerHTML={{ __html: notesHtml || '<p style="color:var(--fg-mute);font-family:var(--font-mono);font-size:12px">no show notes available.</p>' }}
               />
             )}
           </div>
