@@ -1,5 +1,7 @@
 # Agentic Thinking Site
 
+site deployed at [https://agenticthinking.show](https://agenticthinking.show)
+
 ## Running Locally
 
 **Prerequisites:** Node.js 24+
