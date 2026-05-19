@@ -19,6 +19,7 @@ Usage:
     python scripts/clean_vtt.py --dry-run <input.vtt>
 """
 
+import html
 import re
 import sys
 import os
@@ -56,8 +57,12 @@ def apply_corrections(text: str) -> str:
 
 
 def strip_html_only(text: str) -> str:
-    """Remove HTML tags but keep all words (for overlap detection)."""
-    return re.sub(r'<[^>]+>', '', text)
+    """Remove HTML tags, decode HTML entities, and strip >> speaker markers."""
+    text = re.sub(r'<[^>]+>', '', text)
+    text = html.unescape(text)
+    # Remove YouTube speaker-change markers (>> at start of text or after space)
+    text = re.sub(r'\s*>>\s*', ' ', text).strip()
+    return text
 
 
 def clean_fillers(text: str) -> str:

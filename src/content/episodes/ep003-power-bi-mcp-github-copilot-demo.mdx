@@ -18,22 +18,22 @@ chapters:
   - { t: 2250, label: "npx and tool access" }
   - { t: 2620, label: "wrap up" }
 transcript:
-  - { t: 15, text: "&gt;&gt; All , we're back again with another agentic thinking podcast. Matías and I are here. We're going to just go a little bit different format than we have in the past. , if you've seen podcast in the past, typically it's all words talking, that's all that's" }
+  - { t: 15, text: "All , we're back again with another agentic thinking podcast. Matías and I are here. We're going to just go a little bit different format than we have in the past. , if you've seen podcast in the past, typically it's all words talking, that's all that's" }
   - { t: 25, text: "there. This one's going to entail some demos. We're going to do some screen share. , if you're listening online or on Spotify or wherever you're listening to your you get your podcast things from, we want to encourage you to go to" }
   - { t: 37, text: "YouTube and go watch the video. It's going to be in portrait mode, nice easy to see area. And we're going to do some screen share and we're going to talk and interact with a demo that you have planned for us, Matías. ." }
-  - { t: 48, text: "The topic for today is going to be all around GitHub Copilot . &gt;&gt; and using the Power BI MCP modeling server. Give give us the full name. You have a full description of what we're" }
+  - { t: 48, text: "The topic for today is going to be all around GitHub Copilot . and using the Power BI MCP modeling server. Give give us the full name. You have a full description of what we're" }
   - { t: 58, text: "doing. , I had to shorten the title for the video. What was the real name you gave us here? I was very descriptive. , I I was going to show how to set up the the" }
   - { t: 70, text: "Power BI modeling MCP server to work with GitHub cloud agents, which is something I'm using a lot for my daily" }
   - { t: 80, text: "development. And it's not super easy and straightforward. That's why I thought I'd share sorry, I hope you didn't hear my ring" }
-  - { t: 91, text: "door bell here. &gt;&gt; [laughter] &gt;&gt; [clears throat] , I I thought I'd share, , the hoops I had to jump through and and show how" }
+  - { t: 91, text: "door bell here. [laughter] [clears throat] , I I thought I'd share, , the hoops I had to jump through and and show how" }
   - { t: 101, text: "exciting and new this experience can be. And I'm going to be also be very note here. This is you've been chewing on this idea for not just it's not" }
   - { t: 112, text: "a one that's a little difficult to set up, but you've been chewing through this workflow, how to do this for months . you've been you spent a long time thinking through" }
   - { t: 122, text: "different patterns, which patterns would work. And this is a a pattern that you're finding that works , it's secure, and it lands what you need to do from a workflow standpoint." }
   - { t: 134, text: "This is a a pattern that you're evolving from your expertise and your experience here. And I want to highlight this is we're all learning this together. I feel a lot of times I'm just educating myself. I love" }
   - { t: 144, text: "learning from people in the community. People are still trying to figure out what's the path, what's the pattern in some of this. And we got to tease out these ideas because sometimes we'll build something that wasn't secure or that didn't" }
   - { t: 156, text: "really work with my workflow. And , I think this is going to be really informative for everyone. Anyways, we'll get into it. Before we get into the main topic, let's do a couple news items. ," }
-  - { t: 166, text: "&gt;&gt; Yeah. there's been some announcements this week. We want to talk about this first and then we'll go into the episode. first and foremost, we've got to talk about Opus 4.7. Matías, have you played with it? Have you turned it on?" }
-  - { t: 178, text: "&gt;&gt; I haven't played much with it because it was just announced yesterday. I've heard quite a few things about it. I've definitely seen it in in my Claude" }
+  - { t: 166, text: "Yeah. there's been some announcements this week. We want to talk about this first and then we'll go into the episode. first and foremost, we've got to talk about Opus 4.7. Matías, have you played with it? Have you turned it on?" }
+  - { t: 178, text: "I haven't played much with it because it was just announced yesterday. I've heard quite a few things about it. I've definitely seen it in in my Claude" }
   - { t: 188, text: "Claude and in my GitHub Copilot. very exciting. there was a lot of noise recently around people getting" }
   - { t: 199, text: "quite upset with Claude experiences and claiming that performance and and thinking capabilities were" }
   - { t: 209, text: "apparently degrading. I can't really back that, but there was a lot of press about that. Lots of people expected that would be the the precursor to some new" }
@@ -59,7 +59,7 @@ transcript:
   - { t: 430, text: "because they they harness, they pay access to the compute that they have access to, ? If you bring in a whole bunch of open source models that you can run anywhere you want, even on your local box or machine, that takes" }
   - { t: 441, text: "away a lot of that big corporate power away from these big larger models. , this is going to be interesting to see where this goes. I think I think there's a movement that's coming that's going to" }
   - { t: 452, text: "have to start slowly shift this in a different direction. I don't think we can keep getting bigger, bigger, more expensive models all the time. At some point, companies will say, \"That's too much. We we're not we're not willing to" }
-  - { t: 462, text: "do it, ? We won't spend we're going to block this model because it's just not cost-effective for us to run it, ?\" Anyways, &gt;&gt; My takeaway was slightly different, . Oh, really? . ," }
+  - { t: 462, text: "do it, ? We won't spend we're going to block this model because it's just not cost-effective for us to run it, ?\" Anyways, My takeaway was slightly different, . Oh, really? . ," }
   - { t: 474, text: "last time, if anyone followed episode one, if you haven't, you should definitely catch up on it. last time we we talked a fair bit about Agent Harness, ? And and" }
   - { t: 485, text: "how I I think the real takeaway from that should have been. I don't think we were really clear about it." }
   - { t: 499, text: "the real takeaway should have been it's not much the model you're targeting that matters. It's much more the harness you're using to target that model, ? You could you could for instance, you could be" }
@@ -77,17 +77,17 @@ transcript:
   - { t: 633, text: "saying roughly 60% of their performance, they felt against this a a fuzzy number, ? Roughly 60% of the performance of a model came from the harness that was in. You can take the" }
   - { t: 644, text: "same model and put it to many different harnesses, GitHub, Claude Code, something from some other thing, build your own harness, I don't care, ? A CLI solution. That harness really" }
   - { t: 657, text: "impacts the performance of what the agent can do and not do to the user. The the the effectiveness of the user. And I didn't know this. Did there's a whole benchmarking website around harness? I did not know this." }
-  - { t: 668, text: "&gt;&gt; [clears throat] &gt;&gt; Yeah. And GitHub isn't even on the list. . There's there's another what's the company Forge? Forge harness? Forge Code? &gt;&gt; Code Forge Code, exactly. They they lead" }
+  - { t: 668, text: "[clears throat] Yeah. And GitHub isn't even on the list. . There's there's another what's the company Forge? Forge harness? Forge Code? Code Forge Code, exactly. They they lead" }
   - { t: 678, text: "this this one by far, absolutely. Even Claude Code only comes within the first 20 or . absolutely. Yeah. Blown away because I didn't understand" }
-  - { t: 689, text: "&gt;&gt; Bench that what you're talking about. And interestingly, I I I I just read about that yesterday. , it's a massive coincidence that you mentioned. &gt;&gt; . &gt;&gt; [laughter] &gt;&gt; , apparently our feeds are very" }
+  - { t: 689, text: "Bench that what you're talking about. And interestingly, I I I I just read about that yesterday. , it's a massive coincidence that you mentioned. . [laughter] apparently our feeds are very" }
   - { t: 700, text: "linked in the same way. , I'll put the links here as . If you want to go check out another harness, which I'm we'll maybe have to touch test it out on the program here as at some point in the future. But the other" }
   - { t: 710, text: "harness we're talking about here is code or Forge Code is the harness. , I'll put that here as . And then also the other the testing for benchmarking of harnesses, what was the name of that" }
-  - { t: 720, text: "again, Matthias? &gt;&gt; Terminal Bench, if I'm not mistaken. Yep. Let me quickly Terminal Let me quickly Terminal Bench 2.0, I think. It's called Terminal" }
-  - { t: 730, text: "&gt;&gt; Yeah, that's the one, 2.0. 2.0 leaderboard. It had a had a great leaderboard talking about what harnesses are available to you and then how you can measure yourself, what harnesses are good, which ones are" }
+  - { t: 720, text: "again, Matthias? Terminal Bench, if I'm not mistaken. Yep. Let me quickly Terminal Let me quickly Terminal Bench 2.0, I think. It's called Terminal" }
+  - { t: 730, text: "Yeah, that's the one, 2.0. 2.0 leaderboard. It had a had a great leaderboard talking about what harnesses are available to you and then how you can measure yourself, what harnesses are good, which ones are" }
   - { t: 741, text: "working . And there's a whole bunch of them. I did not know this existed. just just being aware of this is something that you need to be able to say, \"I know what a harness is, and here's how I can go score them and" }
-  - { t: 751, text: "figure out which ones are good or not.\" Anyways, any other news items we should cover off on? We've already talked a lot about this first news article. And we want to get to the demo here shortly. Yes. &gt;&gt; , just briefly," }
+  - { t: 751, text: "figure out which ones are good or not.\" Anyways, any other news items we should cover off on? We've already talked a lot about this first news article. And we want to get to the demo here shortly. Yes. just briefly," }
   - { t: 762, text: "the Fabric team announced the OneLake MCP server Yes. I haven't played much with it, that may be a demo for another day, but just wanted to" }
-  - { t: 773, text: "mention it here. It's on the Fabric blog. It's all And , this one is GA. it's &gt;&gt; I landing GA stuff. That's great." }
+  - { t: 773, text: "mention it here. It's on the Fabric blog. It's all And , this one is GA. it's I landing GA stuff. That's great." }
   - { t: 783, text: "Absolutely. has it has there been public preview on that? I heard about it for the first time. Interesting that it would come out as GA" }
   - { t: 794, text: "straight away, but there we go. Maybe I missed something. , there's much stuff being announced constantly on the Fabric blog, maybe I just missed it. They probably threw Mythos at it and said," }
   - { t: 805, text: "\", check it. Is it good to go? Yep, ship it.\" Let's just make it GA. We're done. We're not going to add any new features. Let it rip. I'm I'm cool with it. Anything that's GA, I'm happy with. That means Microsoft's going to" }
@@ -130,8 +130,8 @@ transcript:
   - { t: 1212, text: "if you haven't if you've never used you know GitHub cloud agents, we've got this drop down. I'm showing that particularly because it" }
   - { t: 1223, text: "links very nicely back to our introduction. , you can see the 7.5x here. If you if you if you choose to select Opus 47, you can" }
   - { t: 1234, text: "also see how there's a large 1x selection including Sonnet 46. I because for that reason I use Sonnet 46 a lot" }
-  - { t: 1246, text: "in when it comes to GitHub. &gt;&gt; powerful and does a really good job of being a lot of reasoning even does a good job there. I really it. Yep." }
-  - { t: 1256, text: "&gt;&gt; Also to point out a GPT 54 which is definitely very very close to Opus when it comes to coding is available here" }
+  - { t: 1246, text: "in when it comes to GitHub. powerful and does a really good job of being a lot of reasoning even does a good job there. I really it. Yep." }
+  - { t: 1256, text: "Also to point out a GPT 54 which is definitely very very close to Opus when it comes to coding is available here" }
   - { t: 1267, text: "with a 1x multiplier. it's cheaper than Opus and more importantly in GitHub GPT 54 comes with a 400,000" }
   - { t: 1277, text: "token context window whereas you only get 160 for the cloud model. cloud models are more expensive and you" }
   - { t: 1287, text: "have a substantially smaller context window. Think about that. . let me fire this off and" }
@@ -142,7 +142,7 @@ transcript:
   - { t: 1339, text: "obfuscated away from normal agent usage in a harness. When you go to cloud code, you just pay a subscription and you just talk to it and it says, \"Hey, you've reached your threshold." }
   - { t: 1349, text: "You've sent too many tokens.\" in other languages or other worlds, we're talking token count and here we're talking in premium requests. Can maybe you just speak very briefly around" }
   - { t: 1360, text: "You have at the very bottom the the window's moving away from you , but can you scroll down to where it says one premium request there? It was showing" }
-  - { t: 1370, text: "you a little note there. It's showing up here . &gt;&gt; they're up there. . There you go. This is you sent a message into it. Yeah. &gt;&gt; It's thinking about it and it's doing a lot of generation of stuff behind" }
+  - { t: 1370, text: "you a little note there. It's showing up here . they're up there. . There you go. This is you sent a message into it. Yeah. It's thinking about it and it's doing a lot of generation of stuff behind" }
   - { t: 1381, text: "it. , server's thinking, writing text, , you can see it outputting its logic as it's thinking through these things. The premium requests and the 1x, 3x, 7.5x" }
   - { t: 1392, text: "are just telling you this message I sent in that's what it's using as the premium request. Correct. the" }
   - { t: 1402, text: "GitHub co-pilot billing model is very interesting. Really interesting because it's a real steal from my point of view." }
@@ -164,7 +164,7 @@ transcript:
   - { t: 1579, text: "you you get one pool. And that is filled with the number of seats you have. it's very nice because" }
   - { t: 1590, text: "you you're not forced to the the the 1,000 requests are not allocated to one particular person." }
   - { t: 1600, text: "They're allocated to your business. If you have 100 seats, you get 100,000 premium requests. Who's who's going to use them within your business is irrelevant, ? it's it's a" }
-  - { t: 1611, text: "different model. Nonetheless, . We've talked enough . &gt;&gt; it's a real steal I would say because one," }
+  - { t: 1611, text: "different model. Nonetheless, . We've talked enough . it's a real steal I would say because one," }
   - { t: 1621, text: "you get to use the really with an arguably very good harness, the co-pilot harness getting better every day and also with" }
   - { t: 1632, text: "very very neat UX integration into the GitHub experience. All . Should we see what this one has done?" }
   - { t: 1642, text: "it says setting up environment and then in here we can see at the bottom Here we go. Start Power BI modeling MCP server" }
@@ -194,7 +194,7 @@ transcript:
   - { t: 1907, text: "that you need to need to hear you can get it to work correctly for you. given that this one finished quickly why don't I give it another prompt" }
   - { t: 1917, text: "I'm going to give it a very very brief one but one that will turn out to be extremely powerful. look at that. I'm going to say please review the model and" }
   - { t: 1927, text: "propose suggestions for improvement. and I'm just going to fire it off and this is going to consume another premium request. Yes." }
-  - { t: 1937, text: "&gt;&gt; ? this whole exercise has far cost me two premium requests although that's two out of 1500 not a big deal. And Another part I want to" }
+  - { t: 1937, text: "? this whole exercise has far cost me two premium requests although that's two out of 1500 not a big deal. And Another part I want to" }
   - { t: 1948, text: "really hang on here too ? A lot of I think when we talk about MCP servers and what we're used to thinking about mental model here ? We're used to thinking about it has to be on my VS" }
   - { t: 1959, text: "code on my machine there's a server physically being spun up there. This whole solution here is allowing me to lift this work directly to GitHub and" }
   - { t: 1969, text: "the power of this I think this becomes you can interact with this in the website you can interact with this on your phone you can see sessions on your computer this democratizes where" }
@@ -209,7 +209,7 @@ transcript:
   - { t: 2065, text: "availability perspectives cultures hidden columns. I'm expecting some good outputs here I'm not sure how long that's going to take but we'll probably want to" }
   - { t: 2076, text: "wrap up at some point but if you're up for it we could just give it another 30 seconds or and see I don't I don't think we can get I don't think we can" }
   - { t: 2086, text: "bait people along this far and not let them see the results of this this it's saying giving giving you all the build it up to this amazing thing and then all of a sudden you don't you don't get the request out" }
-  - { t: 2097, text: "here. &gt;&gt; [snorts] &gt;&gt; let's let's keep talking about some of this as . this is a workflow this is specifically for Power BI MCP . The main let's I'm going to hang on a a" }
+  - { t: 2097, text: "here. [snorts] let's let's keep talking about some of this as . this is a workflow this is specifically for Power BI MCP . The main let's I'm going to hang on a a" }
   - { t: 2107, text: "note here. This works because of the NPM package. for example and the reason I'm I'm extrapolating some things here there's other MCP servers we just talked about the one lake MCP server. We" }
   - { t: 2119, text: "also talked about or we've heard about the there's a fabric real time MCP server. There's also a fabric MCP server to do make items in fabric. . None of" }
   - { t: 2131, text: "those we are aware of that has an MPP NMP blah blah blah NMP package for those sorry NPM I got it wrong even after I tried to" }
@@ -230,18 +230,18 @@ transcript:
   - { t: 2301, text: "to use NPX and and acquire a package and run it immediately that makes this bit of" }
   - { t: 2311, text: "needing a locally running MCP server much more easy. can you also speak to one thing that's also on here that I just recently learned about tools at the bottom there. There's a section a property called" }
   - { t: 2322, text: "tools and there's a little star a text star that's being shown up in there. this NPM server has a handful of tools that it has access to it can do things." }
-  - { t: 2332, text: "you you went earlier back under the NPM package documentation or when you ran the tool initially there's a whole list of tools &gt;&gt; Yes 21 of them yeah. 21 in the tools area you can add" }
+  - { t: 2332, text: "you you went earlier back under the NPM package documentation or when you ran the tool initially there's a whole list of tools Yes 21 of them yeah. 21 in the tools area you can add" }
   - { t: 2342, text: "additional security elements to this You can restrict it. No deleting there's there's you could you could start pulling the tools that you want it to use. I don't want you looking" }
   - { t: 2352, text: "at partitions. there's a partition tool and you can remove that from the knowledge of the agent that it's not using that as . that's another really good yeah here you" }
   - { t: 2363, text: "go. Yeah. Yeah there we go. this is there we go. Look 21 tools and you can for instance say I don't want" }
   - { t: 2373, text: "you to be able to do anything around calculation groups Yep. or or calendar or security roles and then you just" }
   - { t: 2383, text: "drop them from what's allowed, ? Correct. Yep. And that's that little tools list is all the available tools. it's a star option, which means all tools are available to the" }
-  - { t: 2393, text: "agent. You can use whatever you want. if you want this is another security piece. The reason I'm bringing this up is because &gt;&gt; in, ? You need to You need to explicitly allow what the agent is permitted to do. Yes," }
+  - { t: 2393, text: "agent. You can use whatever you want. if you want this is another security piece. The reason I'm bringing this up is because in, ? You need to You need to explicitly allow what the agent is permitted to do. Yes," }
   - { t: 2405, text: "exactly. And that's my point there, which is this there's additional security controls as you set it up during that little JSON file that helps you specify" }
   - { t: 2415, text: "which tools you're using. shall we see what it's done? Yeah, what it do? It has I want to see a timing here." }
   - { t: 2425, text: "There's no timing, weirdly enough. I've used another premium request. And this time I got a lot more back, ? I got something about" }
   - { t: 2436, text: "measure naming consistency, display folders. It's saying 29 measures have no display folder and that should be changed. Consider" }
-  - { t: 2447, text: "grouping them. And then it even suggests what those display folders should be called, ? &gt;&gt; Wow. We've got something around using the" }
+  - { t: 2447, text: "grouping them. And then it even suggests what those display folders should be called, ? Wow. We've got something around using the" }
   - { t: 2458, text: "round function inside a DAX measure, known bad practice. This should be done using a format string that you still have the complete accuracy in the return value." }
   - { t: 2471, text: "Rounding is is is a display is is is a reporting concern. It's not a calculation concern, ? Stuff that. I could go on and on because it goes all" }
   - { t: 2482, text: "the way to 11. Oh, look at that. We even got some praise. Things done for reference. How How cool is that?" }
@@ -262,7 +262,7 @@ transcript:
   - { t: 2658, text: "let us know in the comments and , we'll happily accommodate that if possible. Love it. We're going to be building some other things coming soon, you'll be able to interact with us" }
   - { t: 2668, text: "directly. You always go interact with us on LinkedIn or YouTube. We'd see those chats directly and we'll and we'll be able to get those comments and we'll respond to your questions if you have any. Also, more things coming. Hopefully" }
   - { t: 2679, text: "we'll get you a mailbox form and you can submit questions and things that as . Thank you much, Matthias. Love this session today. Super fun. Appreciate you. We'll see you next time." }
-  - { t: 2689, text: "Thanks very much. Agentic Thinking &gt;&gt; [music]" }
+  - { t: 2689, text: "Thanks very much. Agentic Thinking [music]" }
 
 ---
 
