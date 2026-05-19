@@ -1,50 +1,218 @@
 ---
 title: "Power BI + MCP + GitHub Copilot Demo"
 episodeNumber: 3
-date: "2025-05-12"
+date: "2026-04-18"
 youtubeId: "c-vlxZ7RCt0"
-duration: "42:15"
-blurb: "A live demo episode showing the integration of Power BI with Model Context Protocol (MCP) and GitHub Copilot. Mathias and Mike demonstrate how MCP servers can bridge the gap between AI coding assistants and BI tooling."
-tags: ["Power BI", "MCP", "GitHub Copilot", "demo", "integration"]
-guest: ""
-guestRole: ""
+duration: "45:06"
+blurb: "Mike Carlo and Mathias Thierbach walk through a live GitHub Copilot cloud agent demo wired to the Power BI Modeling MCP server. They cover why harness design matters, how the NPM release simplifies setup, and what to watch for with pricing, secrets, and tool configuration."
+tags: ["power bi", "mcp", "github copilot", "agents", "demo"]
 chapters:
-  - { t: 0, label: "intro — why MCP matters for BI" }
-  - { t: 105, label: "what is Model Context Protocol?" }
-  - { t: 330, label: "setting up the MCP server" }
-  - { t: 600, label: "connecting GitHub Copilot" }
-  - { t: 900, label: "live demo: querying a Power BI model" }
-  - { t: 1380, label: "writing DAX through Copilot + MCP" }
-  - { t: 1800, label: "DevOps implications" }
-  - { t: 2200, label: "what's next for this stack" }
+  - { t: 0, label: "intro" }
+  - { t: 49, label: "demo format and setup" }
+  - { t: 499, label: "harness over models" }
+  - { t: 607, label: "routing smarter models" }
+  - { t: 942, label: "npm release overview" }
+  - { t: 1021, label: "live repo walkthrough" }
+  - { t: 1360, label: "premium request pricing" }
+  - { t: 1741, label: "secrets and configuration" }
+  - { t: 2250, label: "npx and tool access" }
+  - { t: 2620, label: "wrap up" }
 transcript:
-  - { t: 0, s: "host_b", text: "Welcome to Agentic Thinking, episode three. I'm Mathias Thierbach, and today is a demo episode." }
-  - { t: 7, s: "host_a", text: "I'm Mike Carlo. We're going to show you something we've been building that connects three worlds: Power BI, Model Context Protocol, and GitHub Copilot." }
-  - { t: 18, s: "host_b", text: "MCP — Model Context Protocol — is something I've been deeply excited about. It's a standard for how AI models can interact with external tools and data sources." }
-  - { t: 32, s: "host_a", text: "And the key insight is: once you have an MCP server that speaks Power BI, any AI tool that supports MCP can work with your BI environment." }
-  - { t: 46, s: "host_b", text: "GitHub Copilot being the most obvious one. Imagine writing DAX, modifying your data model, or debugging measures — all from your IDE, with the AI understanding your actual model." }
-  - { t: 62, s: "host_a", text: "Not a generic AI that hallucinates table names. An AI that knows your specific columns, relationships, and measures." }
-  - { t: 76, s: "host_b", text: "Let me share my screen and show how we set this up. First, the MCP server. It's a lightweight Node process that connects to your Power BI workspace." }
-  - { t: 92, s: "host_a", text: "And it exposes your model metadata — tables, columns, measures, relationships — as MCP resources that Copilot can query." }
-  - { t: 108, s: "host_b", text: "The beautiful thing is this follows the same DevOps patterns we advocate. The MCP server reads from your TMDL source files, so it's always in sync with your version-controlled model." }
-  - { t: 126, s: "host_a", text: "Let's see it in action. I'm going to ask Copilot to write a time intelligence measure, and watch how it uses the MCP server to understand my date table structure." }
+  - { t: 15, text: "All right, we're back again with another agentic thinking podcast. Matías and I are here. We're going to just go a little bit different format than we have in the past." }
+  - { t: 20, text: "So, if you've seen podcast in the past, typically it's all words talking, that's all that's there. This one's going to entail some demos. We're going to do some screen share." }
+  - { t: 29, text: "So, if you're listening online or on Spotify or wherever you're listening to your you get your podcast things from, we want to encourage you to go to YouTube and go watch the video. It's going to be in portrait mode, nice easy to see area. And we're going to do some screen share and we're going to talk and interact with a demo that you have planned for us, Matías." }
+  - { t: 46, text: "Mhm. The topic for today is going to be all around GitHub Copilot Mhm. and using the Power BI MCP modeling server." }
+  - { t: 54, text: "Give us the full name. You have a full description of what we're doing. doing." }
+  - { t: 60, text: "I had to shorten the title for the video. What was the real name you gave us here? Well, I was very descriptive." }
+  - { t: 64, text: "I was going to show how to set up the Power BI modeling MCP server to work with GitHub cloud agents, which is actually something I'm using a lot for my daily development. And it's not super easy and straightforward. That's why I thought I'd share sorry, I hope you didn't hear my ring door bell here." }
+  - { t: 92, text: "so, I thought I'd share, the hoops I had to jump through and show how exciting and new this experience can be. And I'm going to be also be very note here. This is like you've been chewing on this idea for like not just it's not a one that's a little difficult to set up, but you've been chewing through like this workflow, how to do this for months now." }
+  - { t: 115, text: "Like you've been you spent a long time like thinking through different patterns, which patterns would work. And this is a pattern that you're finding that works well, it's secure, and it lands what you need to do from a workflow standpoint. This is a pattern that you're evolving from your expertise and your experience here." }
+  - { t: 138, text: "And I want to highlight this is like we're all learning this together. I feel like a lot of times I'm just educating myself. I love learning from people in the community." }
+  - { t: 144, text: "People are still trying to figure out what's the right path, what's the right pattern in some of this. And we got to tease out these ideas because sometimes we'll build something like that wasn't so secure or that didn't really work with my workflow. And so, I think this is going to be really informative for everyone." }
+  - { t: 159, text: "Anyways, we'll get into it. Before we get into the main topic, let's do a couple news items. So, Yeah." }
+  - { t: 166, text: "there's been some announcements this week. We want to talk about this first and then we'll go right into the episode. So, first and foremost, we've got to talk about Opus 4." }
+  - { t: 172, text: "7. Matías, have you played with it? Have you turned it on?" }
+  - { t: 175, text: "I haven't played much with it because it was just announced yesterday. I've heard quite a few things about it. I've definitely seen it in my Claude and in my GitHub Copilot." }
+  - { t: 188, text: "very exciting. there was a lot of noise recently around people getting quite upset with Claude experiences and claiming that performance and thinking capabilities were apparently degrading. I can't really back that, but there was a lot of press about that." }
+  - { t: 213, text: "Lots of people expected that would be the precursor to some new model coming. So, it's finally out now. but the real thing I thought was worth mentioning was not so much Anthropic's announcement, but actually the related GitHub announcement which also came out yesterday." }
+  - { t: 234, text: "There we go. So, so they're announcing that Opus 4. 7 is now available as part of GitHub Copilot." }
+  - { t: 243, text: "And if you scroll down here, this one is very interesting. So, they're saying it's launching with promotional pricing and a 7. 5x request multiplier, which is pretty wild." }
+  - { t: 260, text: "So, that's the promotional pricing is the 7. 5x? So, it's going to be bigger than that moving It's So, just to just to recap, where we're at in terms of those multipliers, Yep." }
+  - { t: 272, text: "most frontier models, particularly the GPT ones, as in Codex, have a 1x multiplier right now, right? Right? So, which means basically for each request one of your budget premium requests is being used." }
+  - { t: 295, text: "The outlier so far has been Opus, which has had has had a 3x multiplier. Yes. we also have some mini models which have a 0." }
+  - { t: 306, text: "33x multiplier, Haiku and GPT-5 Mini. no, actually not a 54 Mini. And then and then and then for paid accounts, we also have some mini models that come have a have a zero multiplier." }
+  - { t: 326, text: "Basically, they come for free. so, that's pretty exciting. But so, there was also a time until that was deprecated recently where you had a 30x multiplier for Opus fast mode." }
+  - { t: 341, text: "I'm not sure who's ever used that to be fair. fair. and whether that was worth it." }
+  - { t: 349, text: "So, 7. 5 is outstanding, particularly obviously the suggestion is that it's going to go up, right? So, is it going to be 15x?" }
+  - { t: 361, text: "in any case, I think the learning to take away from that is AI is becoming more expensive, the I think the free lunch is definitely over or is going to be over very soon. And, those are signs of this actually happening. Interesting." }
+  - { t: 380, text: "I That's an interesting concept there. I would argue with you, yes, but I think if you talk about the premier models, right? Or the big players, right?" }
+  - { t: 393, text: "Opus, Claude, there's other ones. Gemini 4 was announced a couple weeks ago. And apparently, that's pretty easy to run and can run on much smaller machines." }
+  - { t: 402, text: "And then I think at the same time again, we're talking about very big premier models, Quinn 3. 6, I think, was just announced or something another one as well. well." }
+  - { t: 413, text: "These are models that are a fraction of the cost to run. And so, I think there's a bit of a story here. The large players in the space want the game to be about compute." }
+  - { t: 426, text: "The game for them has to be about the compute story because they harness, they pay access to the compute that they have access to, right? If you bring in a whole bunch of open source models that you can run anywhere you want, even on your local box or machine, that takes away a lot of that big corporate power away from these big larger models. So, this is going to be interesting to see where this goes." }
+  - { t: 447, text: "I think I think there's a movement that's coming that's going to have to start slowly shift this in a different direction. I don't think we can keep getting bigger, bigger, more expensive models all the time. At some point, companies will say, \"That's too much." }
+  - { t: 458, text: "We're not we're not willing to do it, right? We won't spend we're going to block this model because it's just not cost-effective for us to run it, right? \"Anyways, My takeaway was slightly different, actually." }
+  - { t: 471, text: "Oh, really? Okay. So, so last time, if anyone followed episode one, if you haven't, you should definitely catch up on it." }
+  - { t: 478, text: "So, last time we talked a fair bit about Agent Harness, right? And how actually I think the real takeaway from that should have been. I don't think we were really clear about it." }
+  - { t: 493, text: "the real takeaway should have been it's not so much the model you're targeting that matters. It's much more the harness you're actually using to target that model, right? You could you could for instance, you could be using Anthropic's Opus 4." }
+  - { t: 510, text: "6 or 4. 7 for some of your tasks, but depending on whether you're using that out of Claude code or out of Copilot or out of some open source coding agent harness, you're going to get, very different multipliers. You're going to get very different experiences." }
+  - { t: 529, text: "And I think moving forward what matters is that people pay attention to the harness and to harness engineering a lot more. particularly when it comes to using specific kinds of models as part of a bigger agentic workflow, Yes. Don't throw everything at Opus." }
+  - { t: 550, text: "have a have a good routing system in place that uses, for instance, Opus, for certain tasks, but then Haiku and other smaller models for other tasks. And I think this is moving forward where you need to spend much more attention and much more engineering depth in figuring out what that particular setup looks like because otherwise, you're going to be you're going to be burning money, right? If you're if you're going to be doing everything, with a 7." }
+  - { t: 587, text: "5 or 15x multiplier on the latest and shiniest Opus, you may well get great results, but it's going to really cost you. This is I think my point. I see the industry moving more to what you're saying, like real-time model context routing, right?" }
+  - { t: 606, text: "There's a router in front of your prompt. Send prompt in, the routing says, \"This is a really complex problem. We're sending to Opus 4." }
+  - { t: 612, text: "7. That makes sense, right? Oh, you just said, 'Hi." }
+  - { t: 617, text: "How's it going? ' Right? That doesn't require a very massive GPU." }
+  - { t: 620, text: "Let's use a free model and respond back with this additional context. \" So, I think there's to your point I was watching probably months ago someone speaking and educating about harness, and they were saying roughly 60% of their performance, they felt against this a fuzzy number, right? Roughly 60% of the performance of a model came from the harness that was in." }
+  - { t: 642, text: "You can take the same model and put it to many different harnesses, GitHub, Claude Code, something from some other thing, build your own harness, I don't care, right? A CLI solution. That harness really impacts the performance of what the agent can do and not do to the user." }
+  - { t: 658, text: "The effectiveness of the user. And I didn't know this. Did there's a whole benchmarking website around harness?" }
+  - { t: 666, text: "I did not know this. Yeah. And GitHub isn't even on the list." }
+  - { t: 668, text: "Mhm. There's another like what's the company Forge? Forge harness?" }
+  - { t: 672, text: "Forge Code? Code Forge Code, exactly. They lead this one by far, absolutely." }
+  - { t: 678, text: "Even Claude Code only comes like within the first 20 or so. absolutely. Yeah." }
+  - { t: 683, text: "Blown away because I didn't understand Bench that what you're talking about. And interestingly, I actually I just read about that yesterday. So, it's a massive coincidence that you mentioned." }
+  - { t: 696, text: "Okay. Well, apparently our feeds are very linked in the same way. So, I'll put the links here as well." }
+  - { t: 702, text: "If you want to go check out another harness, which I'm we'll maybe have to touch test it out on the program here as well at some point in the future. But the other harness we're talking about here is code or Forge Code is the harness. So, I'll put that here as well." }
+  - { t: 715, text: "And then also the other the testing for benchmarking of harnesses, what was the name of that again, Matthias? Terminal Bench, if I'm not mistaken. Yep." }
+  - { t: 721, text: "Let me quickly Terminal Let me quickly Terminal Bench 2. 0, I think. It's called Terminal Yeah, that's the one, 2." }
+  - { t: 730, text: "0. 2. 0 leaderboard." }
+  - { t: 732, text: "It had a had a great leaderboard talking about what harnesses are available to you and then how you can measure yourself, like what harnesses are good, which ones are working well. And there's a whole bunch of them. I did not know this existed." }
+  - { t: 742, text: "So, just being aware of this is something that you need to be able to say, \"I know what a harness is, and here's how I can go score them and figure out which ones are good or not. \"Anyways, any other news items we should cover off on? We've already talked a lot about this first news article." }
+  - { t: 757, text: "And we want to get to the demo here shortly. Yes. well, just briefly, the Fabric team announced the OneLake MCP server Yes." }
+  - { t: 765, text: "I haven't played much with it, so that may well be a demo for another day, but just wanted to mention it here. It's on the Fabric blog. It's all And actually, this one is GA." }
+  - { t: 774, text: "GA. so, so, it's I like landing GA stuff. That's great." }
+  - { t: 781, text: "Absolutely. has it has there been public preview on that? that?" }
+  - { t: 784, text: "I heard about it for the first time. Interesting that it would come out as GA straight away, but there we go. Maybe I missed something." }
+  - { t: 795, text: "there's so much stuff being announced constantly on the Fabric blog, so maybe I just missed it. They probably threw Mythos at it and said, \"Okay, check it. Is it good to go?" }
+  - { t: 805, text: "Yep, ship it. \" Let's just make it GA. We're done." }
+  - { t: 807, text: "We're not going to add any new features. Let it rip. Like I'm cool with it." }
+  - { t: 810, text: "Anything that's GA, I'm happy with. That means Microsoft's going to support it. It's going to stick moving forward." }
+  - { t: 815, text: "So, I think this is the right this is the right idea to move forward with. All right. Let's with that." }
+  - { t: 819, text: "Let's go right into screen sharing. So, if you don't mind, Matthias, let's go into the demo piece. Show us what you're building here." }
+  - { t: 824, text: "Explain through us like maybe a high level, what are we trying to accomplish here? What are you going to show us here? What are we looking into?" }
+  - { t: 830, text: "Okay. So, I'm a huge fan of using cloud using asynchronous cloud agents. So, basically, not sitting in a TUI, not sitting in a terminal, where you're instructing your agent interactively what to do, and then you wait for something to come back and you react to it, etc." }
+  - { t: 854, text: "etc. I'm talking about creating very substantial and beefy PODs and then sending them off to an agent that doesn't even run on your own machine, run somewhere else, on their own infrastructure asynchronously, and then informs me when they've when they're finished by creating a PR for instance, right? So, this is this is a working pattern that I've adopted over the past few months, and I'm very happy with it." }
+  - { t: 889, text: "And it means that you can scale much better, the interactive terminal experience with an agent means you write a prompt, you send off a prompt, and then you have to wait possibly, 5, 10, 15, 20 minutes for something to come back. But you never know when that is, right? So, it may be half a minute, it may be half an hour, you don't know." }
+  - { t: 918, text: "So, how do you decide whether you should just sit and wait or whether you should context switch, to another task. task. So, that's the big problem with interactive development." }
+  - { t: 931, text: "So, hope that is a useful in terms of introduction here. so, I GitHub have released their cloud Copilot agents a while ago, very mature product now. I love it, use it all the time, use it extensively." }
+  - { t: 952, text: "and I wanted to show how to combine that with Microsoft's Power BI modeling MCP, which we all love. in conjunction with an announcement that's on my screen right now. now." }
+  - { t: 968, text: "Because the modeling MCP server was recently released as an NPM package, which means it's very it's much more straightforward installing the MCP server on different platforms and bringing it into different coding agents. Previously, it was only released as a VS Code extension. so, if you wanted to use it outside of VS Code, you had to do a lot of hacking." }
+  - { t: 1003, text: "That's no longer necessary. And yeah, we can we can share the link to the NPM package. It's currently 0." }
+  - { t: 1010, text: "5 beta 3 and was last updated a couple weeks ago. So, with that one, I wanted to show this repo, which by the way, I'm going to make public. So, just need to, add a bit more read me and all of that." }
+  - { t: 1028, text: "So, in this read mode read in this repo, I don't really have much in place as you can see, right? There are two files here, and they basically don't really have anything useful in them. But what I have done on it is I've set up the modeling MCP server." }
+  - { t: 1046, text: "And so, I can switch over to the agents tab. So, if you're not familiar with that, this is basically your interface to Copilot cloud agents. And I'm going to send off a task here, and that obviously that's going to take a little while." }
+  - { t: 1062, text: "And in the meantime, whilst we wait, I'm going to show what setup I've done for it. Okay? Now, while you're doing while you're doing that, I'm going to interject here a little bit." }
+  - { t: 1072, text: "This GitHub experience, this is like an agent running in another machine, a VM, something that's on their runtime and not on your local machine. This is one thing I had to get my head around. This, in my opinion, and maybe Matthias, you can correct me if I'm wrong here, this is another form of a harness for an agent." }
+  - { t: 1091, text: "A harness a website-based harness. You have a chat box, you have some, controls about picking what repo you're attaching yourself to, what code does it have access to, all these really great things. But this is a new a separate harness." }
+  - { t: 1103, text: "And what I'm trying on the on the same note, I'm as I'm unpacking this, I now have new language in my vocabulary. Like I want to interact with an agent here through GitHub. com." }
+  - { t: 1115, text: "I also want to have an agent on my local VS Code harness. I also want to be able to work on it on my mobile device. So, one of the advantages of this harness here is this agent session will begin, and you'll have access to it on the web browser here as well as the mobile app for GitHub, which I think is pretty dang sweet." }
+  - { t: 1131, text: "And you can actually Absolutely. chat with it in both places once the agent is in the cloud, which is kind the agent is in the cloud, which is cool. So, just want to point that of cool." }
+  - { t: 1139, text: "So, just want to point that out, too. Totally. And, when I made the point about, asynchronous cloud agents, that is one of the big advantages." }
+  - { t: 1149, text: "you can be on public transport, you can you can be waiting for a bus somewhere or anything. As long as you have your phone, you can fire off your agents. So, this one happens to run on the GitHub Actions infrastructure." }
+  - { t: 1168, text: "So, if GitHub Actions, if the VM model behind it, and also how GitHub Actions runners are configured, they come very conveniently with a whole range of development tools pre-installed, it's the exact same infrastructure you're getting here. So, what I'm doing here is I'm saying, \"Connect to the sales model in the Git demo workspace and list all tables with their row count, right? So this seems fairly innocent, but there's a lot in here that the agent needs to understand and translate into real actions." }
+  - { t: 1205, text: "But before I send that off, just going to show quickly over here, if you haven't if you've never used you know GitHub cloud agents, we've got this drop down. down. I'm showing that particularly because it links very nicely back to our introduction." }
+  - { t: 1223, text: "you can see the 7. 5x here. If you if you if you choose to select Opus 47, you can also see how there's a large 1x selection including Sonnet 46." }
+  - { t: 1236, text: "I actually because for that reason I use Sonnet 46 a lot in when it comes to GitHub. powerful and does a really good job of being a lot of like reasoning even does a good job there. I really like it." }
+  - { t: 1254, text: "Yep. Also to point out a GPT 54 which is definitely very close to Opus when it comes to coding is available here with a 1x multiplier. So it's cheaper than Opus and more importantly actually in GitHub GPT 54 comes with a 400, 000 token context window whereas you only get 160 for the cloud model." }
+  - { t: 1281, text: "So cloud models are more expensive and you have a substantially smaller context window. Think about that. Right." }
+  - { t: 1289, text: "So let me fire this off and you have a really nice UI here. So this is initializing and now I can actually click on that. I get a dedicated URL." }
+  - { t: 1303, text: "If I bookmark the URL, I can always go back to that exact same session and it's basically starting a VM in the background. It's installing various things including the modeling server. We can come back to it in a little bit." }
+  - { t: 1319, text: "What I wanted to show was Before you leave, real quick. I had a question come in from the chat which I think is a really relevant question here. We've been talking about these premium requests and you showed the multipliers and things." }
+  - { t: 1334, text: "Yeah. If we're using a so a lot of this is obfuscated away from normal agent usage in a harness. When you go to like cloud code, you just pay a subscription and you just talk to it and it says, \"Hey, you've reached your threshold." }
+  - { t: 1347, text: "You've sent too many tokens. \" So in other languages or other worlds, we're talking token count and here we're talking in premium requests. Can maybe you just speak very briefly around You have at the very bottom so the window's actually moving away from you right now, but can you scroll down to where it says one premium request there?" }
+  - { t: 1367, text: "It was actually showing you a little note there. It's showing up here actually. they're up there." }
+  - { t: 1371, text: "Okay. There you go. This is you sent a message into it." }
+  - { t: 1374, text: "Yeah. Yeah. It's thinking about it and it's doing a lot of like generation of stuff behind it." }
+  - { t: 1379, text: "Like, server's thinking, writing text, you can see it outputting its logic as it's thinking through these things. The premium requests and the 1x, 3x, 7. 5x are just telling you this message I sent in that's what it's using as the premium request." }
+  - { t: 1397, text: "Correct. So basically the GitHub Copilot billing model is very interesting. Really interesting because right now it's a real steal from my point of view." }
+  - { t: 1409, text: "They may well change that at some point because I don't think they're making any money with that, but I'm on a pro plus plan right now which is 39 bucks a month. So nothing and I get 1, 500 premium requests. Which means I can send off I can fire off those kinds of cloud sessions 1, 500 times in a calendar month and this one here is very trivial and it finished already as you can see in under 2 minutes." }
+  - { t: 1441, text: "However, it frequently happens that I send off very beefy prompts and they take 25, 27, 35 minutes and I'm still getting billed only one premium request. so economically this is awesome because it's very different from for instance the cloud code model, right? In cloud you're getting, you've got a subscription and it has an unknown amount of usage in it, right?" }
+  - { t: 1472, text: "So there's no transparency at all with respect to how Anthropic is actually calculating your usage. It is somehow token based, but you don't know what the formula is. It may well change every day or by hour of the day." }
+  - { t: 1487, text: "You don't know. All you can see is how what percentage of your current 5-hour window you've used. And how you got there is completely unknown and is completely intransparent, right?" }
+  - { t: 1503, text: "Whereas here, I'm using Sonnet 4. 6. I'm sending a request." }
+  - { t: 1507, text: "I'm starting a session. So I'm I know that one premium request is going to be deducted. If I had chosen Opus, it would have been three premium requests." }
+  - { t: 1518, text: "If it if it was Opus 46, if it was Opus 47 would have been 7. 5 premium requests, right? right?" }
+  - { t: 1524, text: "So it's a different bill. I just want to be clear about what this is happening here and to be also very honest, this is all tied to the subscription you pay for Copilot, GitHub Copilot. And there is a $20 plan and there's a $40 plan as of right now." }
+  - { t: 1540, text: "The $20 plan gives you 300 a month. I think I'm on the $40 plan. I get about 1, 000 a month and I think I misquoted myself there on LinkedIn." }
+  - { t: 1548, text: "So it's not 10, 000 on your plan. It's only 1, 000 that you get on the Yeah, you get 1, 000 when you're on business. You get 1, 500 when you're on a individual one on a personal plan." }
+  - { t: 1561, text: "It's the same price, 39 bucks, but on a personal plan you actually get more. Yeah. With business it's with business you Well, you get one pool." }
+  - { t: 1576, text: "And that is filled with the number of seats you have. So it's actually very nice because you're not forced to the 1, 000 requests are not allocated to one particular person. They're allocated to your business." }
+  - { t: 1600, text: "If you have 100 seats, you get 100, 000 premium requests. Who's going to use them within your business is irrelevant, right? So it's a different model." }
+  - { t: 1609, text: "Nonetheless, Okay. We've talked enough now. Right now it's a real steal I would say because one, you get to use the really with an arguably very good harness, the Copilot harness getting better every day and also with very neat UX integration right into the GitHub experience." }
+  - { t: 1632, text: "All right. Should we see what this one has done? So it says setting up environment and then in here we can see at the bottom Here we go." }
+  - { t: 1646, text: "Start Power BI modeling MCP server version 0. 5 21 tools and then those are the tools listed here, right? So I'm going to show you shortly how I've set this up, but at this point we can see the MCP server was installed correctly and it's actually in scope here." }
+  - { t: 1670, text: "And then the second thing is it now translates my request to connect to this particular model into a connection operation and as you can see down here, that's the input and this is the output. And so I've got the XMLA endpoint for that workspace and I've got the connection string for that particular model. So it's translated my prompt and it also successfully connected using the credentials I've provided." }
+  - { t: 1703, text: "So now it's listing tables. Here we go. And as you can see each table from the list table operation already comes back with column count." }
+  - { t: 1717, text: "So it doesn't even have to do additional DAX requests to find out how many columns are in there which is why the whole session basically finished after not even 2 minutes. So there we go. So that's that." }
+  - { t: 1731, text: "Let me just show you what's needed to configure that because sadly that's not super straightforward. So in that repo I've I'm going into settings. Then over here I've got Copilot cloud agents." }
+  - { t: 1744, text: "So cloud agent is the technical term for what we're using here. There are lots of things you can switch on and off, but the main thing is at the bottom there is a JSON document that allows you to configure any number of MCP servers and the format here is quite similar to you format here is quite similar to, the various MCP. json know, the various MCP." }
+  - { t: 1775, text: "json configurations in cloud code etc. etc. And so the one thing I wanted to point out here is I'm using three secrets to specify tenant client and client secret for my credentials and what you need to know is that first of all any environment variables that you want to make available to your MCP server they need to be explicitly specified." }
+  - { t: 1805, text: "But most importantly if you want to reference a secret from your GitHub configuration those secret entries need to be prefixed copilot_mcp_ If you don't do that they will not be visible here and sadly this is something which is not very prominently configured. So you need to So first of all we've got two layers of indirection here and secondly we need to know that this prefix is necessary otherwise it will never be passed to the MCP server." }
+  - { t: 1841, text: "the whole co-GitHub copilot setup is very restrictive from safety first point of view. So you need to you need to configure your firewalls you need to make sure that a certain secrets for instance are explicitly passed into your copilot environment. And so that's that and I'm going to share that publicly in a readme so you don't have to figure it out yourself and then the only other thing is for those secrets to become available you need to set up an explicit environment and you which has to be called copilot and then down here you can see the three secrets we've referenced earlier they are listed here again." }
+  - { t: 1892, text: "If you don't have the copilot_mcp_ prefix it's not going to work. Wow okay. Very specific on that account." }
+  - { t: 1899, text: "Good to know. This is the tricks that you need to need to hear so you can get it to work correctly for you. So given that this one finished so quickly why don't I give it another prompt I'm going to give it a very brief one but one that will turn out to be extremely powerful." }
+  - { t: 1920, text: "So look at that. I'm going to say please review the model and propose suggestions for improvement. and I'm just going to fire it off and so this is now going to consume another premium request." }
+  - { t: 1933, text: "Yes. Right? So basically this whole exercise has so far cost me two premium requests although that's two out of 1500 so not a big deal." }
+  - { t: 1943, text: "deal. And Another part I want to really hang on here too right? A lot of so I think when we talk about MCP servers and what we're used to thinking about mental model here right?" }
+  - { t: 1954, text: "We're used to thinking about it has to be on my VS code on my machine there's a server physically being spun up there. This whole solution here is allowing me to lift this work directly to GitHub and so the power of this I think this becomes you can interact with this in the website you can interact with this on your phone you can see sessions on your computer this democratizes where the work can happen and I think maybe your I'd like your impression on this one as well Matthias by moving this away from having to sit on my machine this opens up a lot more automation Mhm. possibilities where we can have other agents interacting with this or doing some automation that comes into here and we can start kicking off GitHub actions and other things that are automating additional subsequent business jobs on top of this right?" }
+  - { t: 2005, text: "This is to me one of the hooks of that I'm exploring a lot right now is wow GitHub actions are so powerful they can do a lot of things and I can keep the secrets away from the agent but the agent can use them right? So it's to me this all feels a lot like security first better design and I'm really excited to learn more about like where this is going cuz this is really powerful it's just chewing away here it's just making all kinds of things. Yeah there we go." }
+  - { t: 2033, text: "We can see it's doing all sorts of tool calls so and this is all coming from not even a full sentence right? So it's clearly inferred my intention very nicely it's looking at measures relationships connections security roles and columns and looking at display folders MDX availability perspectives cultures hidden columns. So I'm expecting some good outputs here I'm not sure how long that's going to take but we'll probably want to wrap up at some point but if you're up for it we could just give it another 30 seconds or so and see I don't I don't think we can get I don't think we can bait people along this far and not actually let them see the results of this it's like saying giving you all the build it up to this amazing thing and then all of a sudden you don't you don't get the request out here." }
+  - { t: 2094, text: "So let's keep talking about some of this as well. Like so this is a workflow this is specifically for Power BI MCP Mhm. Mhm." }
+  - { t: 2099, text: "The main let's I'm going to hang on a note here. This works because of the NPM package. Like so for example and the reason I'm extrapolating some things here there's other MCP servers we just talked about the one lake MCP server." }
+  - { t: 2114, text: "We also talked about or we've heard about the there's a fabric real time MCP server. There's also a fabric MCP server to do like make items in fabric. Mhm." }
+  - { t: 2125, text: "None of those we are aware of that has an MPP NMP blah NMP package for those so sorry NPM I got it wrong even after I tried to say it right. So this is very specific to NPM this particular server. So there's I just want to be very clear about what that means and if you want this for other parts that Microsoft is tooling you're going to need to like pick on Microsoft and ask for these features to be made cuz this is an additional thing and into above and beyond just the regular Power BI MCP modeling server right?" }
+  - { t: 2161, text: "This is above and beyond. Well some of that a few things to unpack here right? So as far as MCP servers are concerned they fall into two brackets right?" }
+  - { t: 2173, text: "You can have HTTP MCP servers that work as a web service and you can have local MCP servers that run as a local process on your development machine. for the HTTP ones it's very straightforward they work everywhere because the endpoint to it obviously is in the cloud and all you need is to configure with reference and possibly some API key. the ones that run locally are much harder and so because you need to make sure that you somehow acquire the binaries that it works with your developer machine architecture and that you start that process correctly so that your harness can actually communicate with it right?" }
+  - { t: 2219, text: "And so the modeling server happens to be one of those you server happens to be one of those it has to run locally and so know it has to run locally and so this is why the NPM delivery model really helps here because if we go back here and if we look at the configuration what's actually happening here is we're using NPX which is the NPX package runner. So NPX is not normally you use NPM install for instance right?" }
+  - { t: 2257, text: "Which basically and so this one happens to download the package from the NPM registry and then basically invoke it straight away using those three arguments dash start dash auth mode and dash skip confirmation skip confirmation. and so basically this whole model of being able to use NPX and acquire a package and run it immediately that makes this bit of needing a locally running MCP server much more easy." }
+  - { t: 2308, text: "So can you also speak to one thing that's also on here that I just recently learned about tools at the bottom there. There's a section a property called tools and there's a little star a text star that's being shown up in there. So this NPM server has a handful of tools that it has access to it can do things." }
+  - { t: 2326, text: "So you went earlier back under the NPM package documentation or when you ran the tool initially there's a whole list of tools Yes 21 of them yeah. 21 in the tools area you can actually add additional security elements to this You can restrict it. No deleting there's like you could you could start pulling the tools that you actually want it to use." }
+  - { t: 2348, text: "Like I don't want you looking at partitions. So there's a partition tool and you can actually remove that from the knowledge of the agent so that it's not actually using that as well. So that's another really good yeah here you go." }
+  - { t: 2360, text: "Yeah. Yeah there we go. So this is there we go." }
+  - { t: 2361, text: "Look 21 tools and you can for instance say I don't want you to be able to do anything around calculation groups Yep. or calendar or security roles and then you just drop them from what's allowed, right? Correct." }
+  - { t: 2380, text: "Yep. And so that's that little tools list is all the available tools. So right now it's a star option, which means all tools are available to the agent." }
+  - { t: 2389, text: "You can use whatever you want. So if you want So this is another security piece. The reason I'm bringing this up is because in, right?" }
+  - { t: 2394, text: "You need to You need to explicitly allow what the agent is permitted to do. Yes, exactly. And that's my point there, which is this there's additional security controls as you set it up during that little JSON file that helps you specify which tools you're actually using." }
+  - { t: 2411, text: "So shall we see what it's done? Yeah, what it do? It has I want to see a timing here." }
+  - { t: 2417, text: "There's no timing, weirdly enough. Okay, so I've used another premium request. And this time I actually got a lot more back, right?" }
+  - { t: 2428, text: "So I got something about measure naming consistency, display folders. It's saying 29 measures have no display folder and that should be changed. Consider grouping them." }
+  - { t: 2441, text: "And then it even suggests what those display folders should be called, right? Wow. Wow." }
+  - { t: 2447, text: "We've got something around using the round function inside a DAX measure, known bad practice. This should be done using a format string so that you still have the complete accuracy in the return value. Rounding is a display is a reporting concern." }
+  - { t: 2467, text: "It's not a calculation concern, right? Stuff like that. that." }
+  - { t: 2474, text: "I could go on and on because it goes all the way to 11. Oh, actually look at that. We even got some praise." }
+  - { t: 2480, text: "Things done well for reference. How cool is that? for instance, we could grab this whole thing." }
+  - { t: 2486, text: "We could make that a an issue in that repo and we can then assign that issue to the same Copilot Cloud agent and then things become really interesting because then you really interesting because then, those Copilot agents basically know, those Copilot agents basically become team members that can work alongside. This is human agents, right?" }
+  - { t: 2527, text: "I'm not going to show that now because otherwise we're way off, but this is where things are headed and this is what everyone should be aware of. I really want to emphasize this because this is now lifting work you would then hand over to BI or modeling developers and you're actually giving it back to the agent. The important thing here is tracking what a problem is, getting it logged somewhere and seeing the work getting complete against it." }
+  - { t: 2557, text: "So to me, this just reinforcing all the more story. Everything you build, models, reports, all of this stuff must exist inside Git repos. And I'm going to choose for this reason, right?" }
+  - { t: 2571, text: "I don't see this level of agentic work and harnessing happening in Azure DevOps at this point. Maybe there's something there. I don't see it being this robust." }
+  - { t: 2582, text: "So now this clearly is choosing. So takeaways from this kind is choosing. So takeaways from this session really quick here are of session really quick here are definitely get your stuff into GitHub." }
+  - { t: 2590, text: "That's where you want to be playing. You definitely want to be really seriously looking at GitHub Copilot. It is really powerful, a really interesting pricing model, a great deal for you to get started and do a lot of work with it." }
+  - { t: 2600, text: "And now you've got this amazing integration between agent work, issue building, and fixing that with tickets and other items that you can directly task agents back to go do. This is incredible. I absolutely love this." }
+  - { t: 2614, text: "Okay. With that, Matthias, let's wrap it here. I'll take the screen share off." }
+  - { t: 2617, text: "Great demo today. Love this. This is the stuff we're going to continually unpack on agentic thinking." }
+  - { t: 2622, text: "We're going to keep doing news. The next episode we're going to do is next Tuesday at 10: 00 a. m." }
+  - { t: 2628, text: "Central Standard Time. We're going to do another one purely talking. News, what's happening, what are we learning?" }
+  - { t: 2634, text: "We're just going to talk through that episode and then we'll probably do another demo on Friday again unpacking. Let's get hands on keyboard. Let's go to our screen and go check out things and build things in there directly." }
+  - { t: 2643, text: "Any final thoughts, Matthias? Well, to the audience, if there if there's anything in particular they want to see more demos about or let us know in the comments and, and, we'll happily accommodate that if possible. Love it." }
+  - { t: 2658, text: "We're going to be building some other things coming soon, so you'll be able to interact with us directly. You always go interact with us on LinkedIn or YouTube. We'd see those chats directly and we'll and we'll be able to get those comments and we'll respond to your questions if you have any." }
+  - { t: 2673, text: "Also, more things coming. Hopefully we'll get you like a mailbox form and you can submit questions and things like that as well. Thank you so much, Matthias." }
+  - { t: 2681, text: "Love this session today. Super fun. Appreciate you." }
+  - { t: 2682, text: "We'll see you next time. Thanks very much. Agentic Thinking" }
+
 ---
 
 ## Summary
 
-A live demo episode showing the integration of Power BI with Model Context Protocol (MCP) and GitHub Copilot. Mathias and Mike demonstrate how MCP servers can bridge the gap between AI coding assistants and BI tooling, enabling context-aware AI development workflows.
+Mike Carlo and Mathias Thierbach open with Anthropic and GitHub news before shifting into a live demo of GitHub Copilot cloud agents working with the Power BI Modeling MCP server. They spend time on a key theme from the episode: the harness and routing strategy around a model often matters more than the model itself. The demo walks through the newer NPM-based setup, how the agent connects to a Power BI model, and how MCP tools show up inside the GitHub experience. They also unpack premium request pricing, secret-passing rules, and the practical differences between local MCP servers and easier HTTP-based setups.
 
 ## Key Takeaways
 
-- ▸ MCP provides a standard protocol for AI tools to access external data sources
-- ▸ An MCP server for Power BI exposes model metadata (tables, columns, measures, relationships)
-- ▸ GitHub Copilot + MCP = context-aware DAX generation (no hallucinated table names)
-- ▸ The MCP server reads from TMDL source files, staying in sync with version control
-- ▸ This pattern works with any MCP-compatible AI tool, not just Copilot
+- ▸ Harness design and model routing can matter more than simply choosing the strongest model.
+- ▸ GitHub Copilot cloud agents can run Power BI MCP-backed tasks remotely against a repo-based workflow.
+- ▸ The Power BI Modeling MCP server being available as an NPM package makes non-VS Code setup much easier.
+- ▸ Copilot premium requests are easier to reason about than opaque token-based usage windows.
+- ▸ Secrets must be explicitly passed through the Copilot environment, and MCP-related secrets need the `copilot_mcp_` prefix.
+- ▸ MCP tool access can be tightened for safety, which matters when exposing modeling actions to agents.
 
 ## Links
 
-- ▸ [Model Context Protocol](https://modelcontextprotocol.io)
-- ▸ [GitHub Copilot](https://github.com/features/copilot)
-- ▸ [pbi-tools](https://pbi.tools)
-- ▸ [TMDL Overview](https://learn.microsoft.com/en-us/analysis-services/tmdl/tmdl-overview)
+- ▸ [Anthropic: Claude Opus 4.7](https://www.anthropic.com/news/claude-opus-4-7)

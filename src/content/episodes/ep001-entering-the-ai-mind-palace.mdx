@@ -1,48 +1,158 @@
 ---
 title: "Entering the AI Mind Palace"
 episodeNumber: 1
-date: "2025-04-28"
+date: "2026-04-15"
 youtubeId: "iBHErQuPO5A"
-duration: "58:12"
-blurb: "The inaugural episode of Agentic Thinking. Mike and Mathias explore the concept of AI Mind Palaces — structured approaches to organizing how AI agents think, remember, and reason through complex problems."
-tags: ["AI", "agents", "mind palace", "reasoning"]
-guest: ""
-guestRole: ""
+duration: "29:34"
+blurb: "Mike Carlo and Mathias Thierbach launch Agentic Thinking by unpacking what AI agents actually are, why the tooling landscape is changing so fast, and how to build a useful mental model for it all. They argue that the real opportunity is not just smarter chat, but agentic systems that let more people create, automate, and ship work."
+tags: ["ai agents", "agentic workflows", "developer tools", "no-code automation", "microsoft fabric"]
 chapters:
-  - { t: 0, label: "intro — what is agentic thinking?" }
-  - { t: 120, label: "the mind palace metaphor" }
-  - { t: 420, label: "structured reasoning for agents" }
-  - { t: 780, label: "building mental models with AI" }
-  - { t: 1200, label: "practical applications" }
-  - { t: 1800, label: "tool use as cognition" }
-  - { t: 2400, label: "future of agent reasoning" }
-  - { t: 3100, label: "wrap up and next episode" }
+  - { t: 0, label: "intro" }
+  - { t: 187, label: "mind palace framing" }
+  - { t: 264, label: "defining an agent" }
+  - { t: 420, label: "creator workflows" }
+  - { t: 557, label: "the harness" }
+  - { t: 757, label: "tooling landscape" }
+  - { t: 1080, label: "non-coders shipping" }
+  - { t: 1385, label: "n8n workflows" }
+  - { t: 1637, label: "closing thoughts" }
 transcript:
-  - { t: 0, s: "host_a", text: "Welcome to Agentic Thinking, episode one. I'm Mike Carlo." }
-  - { t: 5, s: "host_b", text: "And I'm Mathias Thierbach. Today we're kicking things off with a concept we've been obsessing over — the AI Mind Palace." }
-  - { t: 14, s: "host_a", text: "Right. If you've ever watched Sherlock, you know the mind palace. A structured space where you organize information for recall. We think agents need something similar." }
-  - { t: 28, s: "host_b", text: "The question is: how do you give an AI system that kind of structured memory? It's not just about vector databases and embeddings." }
-  - { t: 42, s: "host_a", text: "Exactly. It's about giving the agent a framework for reasoning. A place to put things, a way to traverse connections, and a method for knowing what it doesn't know." }
-  - { t: 60, s: "host_b", text: "We've been building with Power BI and data platforms for years. The patterns are surprisingly similar — you need a schema, you need relationships, you need query paths." }
-  - { t: 78, s: "host_a", text: "So in this episode, we'll break down what we mean by the mind palace metaphor, how it translates to actual agent architectures, and where we see this going." }
-  - { t: 92, s: "host_b", text: "Let's also talk about why the current approach of just dumping everything into context windows isn't sustainable." }
-  - { t: 108, s: "host_a", text: "200k tokens sounds great until you realize the agent can't actually reason over all of it effectively. There's attention degradation." }
-  - { t: 124, s: "host_b", text: "Which is exactly why structure matters. The mind palace isn't about storing more — it's about retrieving better." }
+  - { t: 16, text: "Well, hello and welcome to a brand new show. This is a new podcast is if one wasn't enough, if you didn't like the explicit measures, maybe this podcast will fit your need. I'm here with Matthias Turpak." }
+  - { t: 26, text: "We are starting a brand new podcast. Hello Matthias, welcome to the show. Very, very excited about this." }
+  - { t: 32, text: "And how are you? I'm doing well. Thank you very much." }
+  - { t: 36, text: "We have just recently come off of the high of the Microsoft Fabric conference. We're very excited about all the agentic experiences that we're seeing. I'm seeing a lot of people on social media and YouTube recently talking about we're building this thing." }
+  - { t: 50, text: "We have a CLI thing. What's all this stuff mean? And we did a recent session at the Fabric conference." }
+  - { t: 57, text: "We did a full day pre-con, 8 hours. Really good. Just trying to get people's head around what is an agent." }
+  - { t: 63, text: "How does this stuff work? What does this mean to you? And we felt like this is a conversation that needs to go beyond the scope of just the Fabric conference." }
+  - { t: 72, text: "So, what do you think? Where are we going to take this? Well, let's see." }
+  - { t: 78, text: "we've had we spent loads of time preparing for that workshop, which was fascinating and really enjoyable. And every time we talk agentic topics, you and I, it feels like infinite, right? It's like never ending in terms of new aspects of it, new developments." }
+  - { t: 97, text: "It feels like it constantly keeps you on your toes if you're following the agentic space. So, we are just using that a bit as an outlet for that. And hopefully, for folks watching and listening, providing a bit of guidance and pointing out some helpful things." }
+  - { t: 117, text: "There will be opinions for sure. So much so true. Yeah, and we'll see if we do any predictions at any point, how right or wrong they were." }
+  - { t: 135, text: "No one knows, right? That's the one thing that we can know for sure at this point. I think you make a really good point there." }
+  - { t: 140, text: "And we've also struggled a lot getting prepared for the Fabric conference because we started talking about this as soon as we got accepted. And this was months out and we were trying to like unpack like what does this mean? What does this look like?" }
+  - { t: 153, text: "How do we teach things? And as we're building this, literally month after month, things were adjusting and changing. And we're like, how do we build how do we build a session to teach people about things where the foundation of like what agents are doing inside of organizations or what we're using to build them with is fundamentally shifting." }
+  - { t: 170, text: "We started with a lot of heavy use around MCP and now we're all on skills. And now there's this agentic looping stuff that's going on. Open claw comes out and that changes the game yet again." }
+  - { t: 181, text: "So, this is a very fluid space and we're just going to be open and candid about what we're doing and what we're learning here. The name of the episode here is entering the AI mind palace. So, I've watched I like shows that make you think." }
+  - { t: 195, text: "One of the shows that I like to watch was a BBC, which I think you would like it's that's in your area. The BBC was a Sherlock Holmes series. Really interesting." }
+  - { t: 206, text: "I Cumberbatch Oh, what's the guy's name who does the Patrick Cumberbatch? I don't remember his name. But he does the show." }
+  - { t: 215, text: "He is the investigator, right? He is Sherlock Holmes. And every so often he would enter into his mind palace." }
+  - { t: 224, text: "And it's this really weird like infographic and he would like go but that's how he visualizes the world. If you look up the definition of like a mind palace, it's like your mental model of framing a room and putting things in a room. And those are like memories and ideas and it helps you visualize or materialize like concepts about things." }
+  - { t: 244, text: "So, this very first episode is just us talking about what does agentic mean to us? What does this look like? What is our mental picture?" }
+  - { t: 254, text: "What is our mental model of what an AI agent does and how it works? And so, with that concept for this first episode, let's just start unpacking what is an agent? So, Matthias, I'll kick it over to you first." }
+  - { t: 266, text: "Give you the first ring here at the first belt in the ring around what is an agentic experience? What is an agent to you? I think that's it sounds like an easy question, but really it's not because all sorts of things are called agentic nowadays, right?" }
+  - { t: 287, text: "So, let me come at this from a very technical point of view and then I'm sure you'll have a very different approach to it, right? So, everyone who's played around with AI experiences with most certainly have started with some chat experience, right? Chat GPT obviously in was the one thing I would say that brought" }
+  - { t: 310, text: "brought AI into the consumer space big time a couple years ago. And I'm sure lots of people would have started there. So, you basically have this thing that you're chatting with, you put a question or a prompt in and you're getting a reply back, right?" }
+  - { t: 326, text: "so, let me differentiate that from an agent, which is ultimately the same thing, right? You put a prompt in, a request, a task using natural language and ultimately you get some reply back. But what makes an agent different is everything that happens in between." }
+  - { t: 350, text: "So, unlike a simple chat system where it's just text in, text out, an agent knows how to do stuff. An agent has so-called tools, right? And can create things for you, can call APIs, can make things, can change things, can update things." }
+  - { t: 368, text: "And so, in a way, those are side effects, right? Ultimately, an agent experience is prompt in, response back. But what really matters to you is all the stuff that happens in between." }
+  - { t: 379, text: "And so, that would be the technical definition. I like your definition. I was going to go way more technical than actually you were on the definition of things." }
+  - { t: 389, text: "I was actually thinking way deeper around, what is an agent? An agent is the harness and it's the memory and it's like the tool that you use. And so, there's a whole new layer of language that I'm using now that people aren't familiar with." }
+  - { t: 404, text: "And I'm starting to see more of the language starting to appear across social media and people are picking up on it. So, I agree with everything you said. I like I love the idea of like the agent is the doer of things." }
+  - { t: 416, text: "It's supplementing action on top of a creator's experience. One thing I feel like and I'm going to maybe portray this a bit of a lens of what how I see Fabric and how Fabric is using agents a little bit. Maybe I'll taint the lens here a little bit from that perspective." }
+  - { t: 432, text: "On one hand, I look at Fabric and a lot of it has been agents or large language models that have been applied to semantic models like ask a question, get an answer out, right? Q&A, I have a question, agent you go figure some things out about the model and then return results back to me. I feel that adds minimal value to the user, to the end user." }
+  - { t: 452, text: "You're spending a lot of money on tokens. This agent thing is not cheap. Just to get what is my sales this month?" }
+  - { t: 458, text: "Like it doesn't seem like an immense amount of value add. Where I start really finding incredible value is when I use the agents to build with me. And I think this is what you're talking about, which is the agent doing things, right?" }
+  - { t: 471, text: "When the agent creates the report, when the agent creates and modifies my semantic model, when the agent builds me a web application and helps me to design and build a back end and APIs and functions. Like there's a lot of things that I would normally have coded myself and it would have taken me a lot longer to do. But the time compression from building a website with a full back end and front end to now create a website with back end and front end is almost hours compared to days or weeks." }
+  - { t: 499, text: "Now, again, you'll have to finesse the output product. I'm not going to say it's going to get it right the first time right away. But where I resonate is agents are there to help you with the creator's experience." }
+  - { t: 512, text: "Whatever the creator's experience is, I'm whatever you're building, they're there to assist with that. It's not taking away your reasoning. It doesn't take it away the business process." }
+  - { t: 522, text: "It doesn't take away the problem you're trying to solve. It's a supplemental tool that I'm using to do this. And now I look at everything in the lens of well, what's the harness?" }
+  - { t: 534, text: "So, the harness for the large language model and I think right now my mental model is a lot of the large language model Opus or Sonnet or Chat GPT or any other model that you're going to throw at things, that is what you said earlier. Text in, text out. That's all we're getting." }
+  - { t: 551, text: "And then I move over to this area of okay, what does the harness do? And I think maybe we could spend a little time on identifying what as an outsider, someone who's looking at agentic things, how can we pick up on what is a harness? And maybe some maybe talk to us Matthias about some harnesses that you're using in your workflow." }
+  - { t: 575, text: "I think harness is probably what a lot of people would confuse with agent. And not necessarily because it's their limitation, but because it's really blurry, right? So, let's give one specific example." }
+  - { t: 596, text: "Obviously, Claude Code is a system that is very popular and obviously has" }
+  - { t: 601, text: "has is owning its space in a phenomenal way, right? So, now the question Let's be really clear. Claude code, like you say Claude code, I think Claude code software." }
+  - { t: 613, text: "Are you saying like physically the desktop application? Like is it there's like a downloadable EXE that is Claude code, yes? what I'm thinking the CLI, right?" }
+  - { t: 622, text: "So, the coding tool, right? At this point. Slightly different than what I'm thinking." }
+  - { t: 627, text: "I'm thinking of When you say Claude code, I think there's like an EXE, an executable, that is a software piece that you download directly to your machine and like you open it up and it looks like a window feels a little bit like VS code slightly, but it's an executable. Now you're talking about Claude code the command line interface a interface, the CLI, and that's what you're just saying of like that's the harness that you're describing. exactly, right?" }
+  - { t: 652, text: "So, one may say a tool like that is actually an agent, right? And you're Yeah. this is your coding agent." }
+  - { t: 658, text: "And in fact, it's frequently called that, right? and that doesn't just apply to Claude code, it applies to Copilot, Codex, you name it, right? technically, it's an agent which is basically the wrapper within which your agents run." }
+  - { t: 679, text: "So, what I described earlier, in a technical way is Sure. the agent is effectively just the thing that receives a prompt, talks to an LLM, has access to tools, has permissions, and pretty much then runs through a circle of agentic loop. And everything around it, everything that sets up the agent, everything that provides a UI for you to put prompts in and get feedback responses out of everything that makes it live within an application, on your desktop, on a website, in the console, that's technically the harness." }
+  - { t: 723, text: "and I think moving forward, this will be the real differentiator in how good and how efficient and how popular, frankly, agentic experiences will be. It's actually choosing the harness that does all the setup around the actual LLM interaction. So, I'm going to rattle off just a couple identified harnesses that I see." }
+  - { t: 752, text: "And give me your read on like am I on point with these or am I off base? So, I would argue that VS code is a harness, right? So, the chat experience on the right hand side, it's harnessing the large language model." }
+  - { t: 765, text: "So, that's one of the harnesses. There's a lot of really neat things about that harness. You can select which model, there's an auto model selector, you can have YOLO mode, which is like there's a lot of approvals that you need to have the agent to adjust files or not adjust things or run command scripts or not run them." }
+  - { t: 783, text: "The harness in the VS code experience is letting you identify what level of security you want on or off while you're working with the agent while you're having it do things. Another harness I think I'd like to identify is like when I go look at Fabric. I think it inside powerbi.com in Fabric, whenever you click those chat it like experiences." }
+  - { t: 807, text: "Those are also, I would argue, a somewhat of a harness as well. Now, very limited, right? And so, this is where I have a little bit of gripes here around some of this is where the harnesses that I observe inside Fabric are much feat- less feature rich than what I see inside VS code." }
+  - { t: 825, text: "So, that's another harness I would look at. I'm building custom applications. And in my custom application, I have something that has you enter in a prompt and then I can do something with that and I actually send an API call over to Foundry and Foundry returns a result as well." }
+  - { t: 841, text: "so, I'm going to argue you can build your own custom harness for things with web applications. And I'm even going to say I've used a lot more of like AI Foundry or Azure Foundry to help use the agent use the AI, the large language model in concert with tools, data agents, other systems that I can bring those executable or action-based things directly to the agent, right? So, I want my agent to show up." }
+  - { t: 872, text: "I'm going to send you some text, write me an email, write me a draft email, and then go put it in my draft inbox in my Outlook, right? That's something that AI Foundry can do. And so, that's where I would argue that Foundry is also another harness." }
+  - { t: 886, text: "Probably more developer-centric, but another harness as well. Any other harnesses that you see in the marketplace that are interest- Oh, I forgot" }
+  - { t: 893, text: "forgot the biggest one. I have an open claw Right. next to me, that's another version of a harness." }
+  - { t: 899, text: "They've got software you put on a computer and you basically give full control to that machine through open claw. Anything else that I missed? Well, even tools like Lovable, for instance, which I know you're a big fan of, right?" }
+  - { t: 912, text: "of that, yes. So, basically, I would say an agent is not something you can directly interact with. An agent, by definition, is always a piece of software that needs to run somewhere and you need some interface Mhm." }
+  - { t: 929, text: "to talk to the agent and get something back from it. So, that bit is the harness, right? as you mentioned, VS code chat is incredible." }
+  - { t: 943, text: "I know we both love it. It's fantastic how it's progressing every single month, they're really putting so much effort and good engineering into it. I love it." }
+  - { t: 959, text: "I can't wait to get out monthly new VS code releases. they generally don't actually contain Yeah. They're now doing weekly releases, I heard." }
+  - { t: 972, text: "And I'm not sure whether you followed it, but this So, there is the mainstream VS code release, but there's also VS code Insiders, which is basically always a month ahead. but it's publicly available. So, it's like public preview, right?" }
+  - { t: 987, text: "if you want to get a preview of what's coming next month or so or two months, you download VS code Insiders and you get early access to new features. So, this month, they actually launched as part of VS code Insiders a side-by-side app, like a dedicated new app that's effectively the chat experience as a standalone app. so, this is big deal." }
+  - { t: 1018, text: "and again, if you want to experience it, just go and download VS code Insiders and I'm sure it'll hit regular VS code next month or so. I will put that here in the chat window as well and we'll make sure we ask you include this as well in the description of the video. So, down below in the video, we'll make sure we add the Insiders link here as well in case you want to get a hold of that." }
+  - { t: 1038, text: "The link will also be in the chat window here as well. So, in case you're interested in getting engaged with that, learning about what the new agentic experiences that are coming out for VS code, you can see those as well. So, that's also in the chat window as well." }
+  - { t: 1050, text: "So, where do you Can I Sorry, can ahead. Can I add when you were talking about your take on agents earlier, right? I was missing, I think, one very important aspect here, right?" }
+  - { t: 1065, text: "So, I think you were mostly talking about, let's say, the engineering perspective, what do engineers, what do coders Yeah. in terms of agents. I think something that is getting bigger and bigger nowadays is the other side of the coin, which is dedicated agents and agentic experiences and agentic workflow portals for non-coders." }
+  - { t: 1095, text: "And I think so, basically, Cohere and everything that's in the same space, Claude Cohere stuff. A Cohere type of assistance for things, yes. And this is what we're going to see I believe lots of innovation and lots of competing products." }
+  - { t: 1113, text: "And this is what's what will bring agentic experiences really deep into enterprises and businesses of all sizes. And so, what we're talking about is basically graphical interfaces that allow knowledge workers, non-engineers, to make connections, to their email, to their notes system, to their you name it. and basically, create an automation just by providing a prompt." }
+  - { t: 1152, text: "just by writing some specs, if you will. and effectively, I would say this is creating automation software without a software developer. So, this is from my point of view, this is the big revolution." }
+  - { t: 1169, text: "That's, you're taking the developer out of the equation, which historically has always been the expensive and difficult part it" }
+  - { t: 1187, text: "it would have brought in either an inability to make an idea happen or it would have massively delayed it. And so that's all gone now. And so this is I think where the real potential is." }
+  - { t: 1202, text: "Everyone is now empowered to basically create their own tools and workflows. I would I'm going to 100% agree with your statement here. And I'm going to double down on this statement as well." }
+  - { t: 1215, text: "I feel like I was just reading an article and I'm blanking on the company. There was some recent company that is in the agentic space, but they're moving much forward much more forward into this. And they've been watching what code or features have been developed by their teams." }
+  - { t: 1231, text: "And they're seeing a rapid increase. Oh gosh, I can't remember the name of the company. But it's going to bother me now." }
+  - { t: 1237, text: "I'm going to go find the article. I'm going to go pull it out. But they are they're basically trying to gamify their AI a little bit, right?" }
+  - { t: 1244, text: "So there's this there's two worlds of this. There's the developer side, which again I think we as developers are going through a an internal crisis a little bit. Some developers are very resistant to this." }
+  - { t: 1254, text: "Like why would I give the agent all this power? I my whole career has been writing code. Why do I want to relinquish this?" }
+  - { t: 1259, text: "Why do I want to let the agent do all of that? and then on the other side of this we a lot of business users like I don't want to write any code. Look, I can go to lovable." }
+  - { t: 1268, text: "I can go to replet and I can make these incredible applications that are like very robust experiences with minimal effort and I just talk to it. And so as we move towards this business side of things of what that solution's going to look like. I really So one thing I really like co-work." }
+  - { t: 1286, text: "This co-work experience. Claude co-work came out first. Microsoft has adopted or basically absorbed the Claude co-work by licensing it for their own uses for co-pilot as well." }
+  - { t: 1298, text: "I really feel like in general co-pilot has missed the mark agentically. A lot of these other companies are doing a much better job. Loop is a document collection tool that I've been using for years now since it came out." }
+  - { t: 1310, text: "I really like it. But it doesn't have the same features as what a notion does, which is a more agentically built more tightly coupled between like a co-pilot and the loop experience, but all built inside notion. I think this is the way of the way people are going to start thinking." }
+  - { t: 1325, text: "And they were going back to this article that I was reading. The article was saying that more than like 10 or 15% of their PMs, the people that were just directing what features need to be built, they're actually building their own features, creating their own pull request, making code happen and actually developing and pulling things out because the cycle time between idea and chew out something with a developer has now been reduced to almost nothing. Like I can hand it over to this agent and 30 minutes to an hour I can get something built and created." }
+  - { t: 1358, text: "And it's simple things like I find as one who's a bit higher level in the organization, there's always things you want to adjust about an app. This doesn't look right. There's a bug here." }
+  - { t: 1367, text: "This formatting is off or this button is wrong or inaccurate or whatever the things are. Those simple changes are now just describe it, boom, off to the races and it fixes itself. So I really like this." }
+  - { t: 1380, text: "I think let's mention one tool here. N A 10 is what started that whole space,. co-work is something that came much later." }
+  - { t: 1397, text: "and that we're going to see much more of those kinds of tools moving forward. So I really like N A 10. Are you using N A 10?" }
+  - { t: 1413, text: "no, not for anything I'm personally doing. So just for exploration. So I've been playing around with N A 10." }
+  - { t: 1421, text: "I have a an instance running in multiple environments. I've actually installed a couple N A 10 on containers in Azure for customers. Really like the tool." }
+  - { t: 1430, text: "And to me I get frustrated at Power Automate because this feels like Power Automate. There's connectors and there's triggers and there's things that start stuff and things that but the difference is the way N A 10 did agentic experiences is just really good. I really like it." }
+  - { t: 1451, text: "You drop in this node cuz again like in for those who are familiar with Power Automate, you have like these nodes or actions that are occurring. And the flow inside Power Automate is very linear. It's either horizontal or vertical." }
+  - { t: 1465, text: "It's all you get. And it's very difficult to compress a workflow down to a smaller screen size. Where N A 10 doesn't really have that." }
+  - { t: 1472, text: "It's just wires between different noted elements nodal objects. And then there's this" }
+  - { t: 1480, text: "this one object called the agentic node. You can give it instructions. You can give it skills." }
+  - { t: 1483, text: "You can apply tools to it. And you apply what model runs inside that agentic node. Which going back to it's almost like helping you build the harness in real time." }
+  - { t: 1493, text: "Pick the model, pick the tools, pick instructions, and you stitch it all together to make this actionable thing that you can use and repeatedly run a process on top of it. This is what I want. someone take note of this cuz this is what I want to be built in fabric and in Power BI and in Power Automate." }
+  - { t: 1512, text: "This is the right solution in my opinion. So the analogy that comes to mind here is when Open Claw rocked the world earlier this year and suddenly, had this incredible initial public release. what they said was this is the personal assistant that we've always been promised in the past, but it's it was never delivered." }
+  - { t: 1542, text: "And this is the first time where people actually get the assistant experience that people really wanted and need. And so I think we're at a similar point now with respect to workflow automation, the what people would have wanted to get out of Power Automate, we're now at a point, with other kinds of tools where we're actually getting, those kinds of capabilities. And can't wait to see what's happening." }
+  - { t: 1579, text: "So I'm going to wrap here. I think this Open Claw thing is very interesting to me. I don't know if you're following Microsoft stocks at all, but yesterday there was a pretty good sizable bump for Microsoft." }
+  - { t: 1593, text: "Microsoft just recently announced they're trying to build a Open Claw like part of their product feature. this is on TechCrunch. So this is not me making this." }
+  - { t: 1602, text: "This is from TechCrunch. There's a TechCrunch credit here. And they're saying they just announced this and whether it's Claude or the model that's, Opus or Sonnet or whatever that the item is here." }
+  - { t: 1615, text: "Microsoft is looking to build more of the Open Claw type experience for an agentic item. Which I think is the right way to go. It focuses more on the creator experience." }
+  - { t: 1625, text: "And to be honest, I get frustrated when I can't develop code like talking to it through my phone or chatting to something. And like it's so powerful now. So this is fundamentally changing how I work here." }
+  - { t: 1635, text: "So I'm going to wrap with some final thoughts, right? The agentic space is here. It's happening." }
+  - { t: 1643, text: "It's already available. We have to pivot our mind thinking. We have to change our mental picture." }
+  - { t: 1648, text: "We have to change our mind palace to start incorporating more things around what does agentic look like in your space? And we're hoping that this show we're going to do this regularly. There's going to be two episodes a week." }
+  - { t: 1659, text: "We're going to do it on Tuesdays and Fridays. And we're going to go as long as we can until we run out of topics. So we'll just see what happens here." }
+  - { t: 1667, text: "but as we unpack what agentic means for us, we're very much invested in this is the future. It's going to happen. We're going to try to continually unpack on this show both with a mix of just chatting and discussing articles and things that we find, but also going further and doing real demos." }
+  - { t: 1684, text: "So this Friday, Matthias, you're going to prepare some content around what does an agentic pattern look like for you? And we're going to live demo real agentic things that we're building and using and developing today that will likely help you as a developer or a business user in the future. Any final thoughts from you?" }
+  - { t: 1700, text: "yeah, I've been spending pretty much the last year or so building agentic experiences to help myself and my own daily workflows. And I don't want to go back, right? I'm completely this can only get better now." }
+  - { t: 1720, text: "So definitely keen, to share a few snippets here. but I think I also have some concerns. which hopefully we get to share moving forward." }
+  - { t: 1735, text: "so we want to make sure, we've got a balanced view here and True. but let's keep that for another day. Thank you all so much." }
+  - { t: 1745, text: "We appreciate you listening to the show. This is our introduction to agentic thinking. We're very excited to bring this show to you." }
+  - { t: 1752, text: "We hope you enjoy it. Many more conversations to come. We'll see you on Friday." }
+  - { t: 1755, text: "Thank you all." }
+
 ---
 
 ## Summary
 
-The inaugural episode of Agentic Thinking explores the concept of AI Mind Palaces — structured approaches to organizing how AI agents think, remember, and reason through complex problems. Mike and Mathias draw parallels between traditional memory techniques and modern agent architectures.
+In the first episode of Agentic Thinking, Mike Carlo and Mathias Thierbach use the idea of a mind palace to build a shared mental model for understanding AI agents. They separate simple chat experiences from truly agentic systems by focusing on tools, side effects, and the loop between prompt and action. A big theme is that the surrounding harness matters as much as the model itself, whether that harness is a coding tool, a desktop agent, or a visual workflow builder. They also argue that agentic tooling is lowering the barrier for non-developers to build useful software and automation much faster than before.
 
 ## Key Takeaways
 
-- ▸ Agents need structured memory, not just vector stores
-- ▸ The mind palace metaphor maps well to agent architecture patterns
-- ▸ Context window size is not a substitute for structured reasoning
-- ▸ Data platform patterns (schemas, relationships, queries) apply directly to agent memory
-- ▸ Attention degradation in long contexts makes structure essential
+- ▸ An agent is more than a chatbot because it can use tools, take actions, and iterate toward an outcome.
+- ▸ The harness around a model often determines how useful an agent feels in practice.
+- ▸ The biggest wins come from using agents to create and automate work, not just answer questions.
+- ▸ The current tooling landscape is changing quickly, so teams need an updated mental model to keep up.
+- ▸ Visual and natural-language workflows are making software creation more accessible to non-developers.
+- ▸ Tools like n8n point toward a more flexible way to build agentic business processes.
 
 ## Links
 
-- ▸ [Power BI Tips](https://powerbi.tips)
-- ▸ [pbi-tools](https://pbi.tools)
+No links in this episode.
