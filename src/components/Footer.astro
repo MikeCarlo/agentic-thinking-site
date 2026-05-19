@@ -1,4 +1,5 @@
 ---
+import { addCampaignParams } from '../utils/campaign';
 ---
 
 <footer class="foot">
@@ -8,11 +9,11 @@
     <span class="dim">built in the terminal</span>
   </div>
   <div>
-    <a href="https://www.youtube.com/@PowerBITips" target="_blank" rel="noopener">youtube</a>
+    <a href={addCampaignParams("https://www.youtube.com/@PowerBITips")} target="_blank" rel="noopener">youtube</a>
     <span class="muted-sep">·</span>
-    <a href="https://podcasts.apple.com" target="_blank" rel="noopener">apple</a>
+    <a href={addCampaignParams("https://podcasts.apple.com")} target="_blank" rel="noopener">apple</a>
     <span class="muted-sep">·</span>
-    <a href="https://open.spotify.com" target="_blank" rel="noopener">spotify</a>
+    <a href={addCampaignParams("https://open.spotify.com")} target="_blank" rel="noopener">spotify</a>
     <span class="muted-sep">·</span>
     <span class="kbd-hint">press <kbd>⌘K</kbd></span>
   </div>

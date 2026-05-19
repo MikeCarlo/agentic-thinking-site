@@ -4,6 +4,7 @@ import Win from '../components/Win.astro';
 import { Image } from 'astro:assets';
 import mikePic from '../styles/MikeHostPicture.png';
 import mathiasPic from '../styles/MathiasHostPicture.png';
+import { addCampaignParams } from '../utils/campaign';
 ---
 
 <BaseLayout title="Hosts — Agentic Thinking">
@@ -46,10 +47,10 @@ import mathiasPic from '../styles/MathiasHostPicture.png';
         </div>
         <div style="margin-top: 14px; font-family: var(--font-mono); font-size: 11px;">
           <div style="color: var(--fg-mute);">
-            ▸ <a style="color: var(--accent-2);" href="https://www.linkedin.com/in/michaelcarlo/" target="_blank" rel="noopener">linkedin.com/in/michaelcarlo</a>
+            ▸ <a style="color: var(--accent-2);" href={addCampaignParams("https://www.linkedin.com/in/michaelcarlo/")} target="_blank" rel="noopener">linkedin.com/in/michaelcarlo</a>
           </div>
           <div style="color: var(--fg-mute);">
-            ▸ <a style="color: var(--accent-2);" href="https://powerbi.tips" target="_blank" rel="noopener">powerbi.tips</a>
+            ▸ <a style="color: var(--accent-2);" href={addCampaignParams("https://powerbi.tips")} target="_blank" rel="noopener">powerbi.tips</a>
           </div>
         </div>
       </div>
@@ -71,10 +72,10 @@ import mathiasPic from '../styles/MathiasHostPicture.png';
         </div>
         <div style="margin-top: 14px; font-family: var(--font-mono); font-size: 11px;">
           <div style="color: var(--fg-mute);">
-            ▸ <a style="color: var(--accent-2);" href="https://www.linkedin.com/in/mthierba/" target="_blank" rel="noopener">linkedin.com/in/mthierba</a>
+            ▸ <a style="color: var(--accent-2);" href={addCampaignParams("https://www.linkedin.com/in/mthierba/")} target="_blank" rel="noopener">linkedin.com/in/mthierba</a>
           </div>
           <div style="color: var(--fg-mute);">
-            ▸ <a style="color: var(--accent-2);" href="https://pbi.tools" target="_blank" rel="noopener">pbi.tools</a>
+            ▸ <a style="color: var(--accent-2);" href={addCampaignParams("https://pbi.tools")} target="_blank" rel="noopener">pbi.tools</a>
           </div>
         </div>
       </div>

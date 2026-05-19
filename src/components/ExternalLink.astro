@@ -1,0 +1,7 @@
+---
+import { addCampaignParams } from '../utils/campaign';
+
+const { href, ...rest } = Astro.props;
+const trackedHref = href ? addCampaignParams(String(href)) : href;
+---
+<a href={trackedHref} {...rest}><slot /></a>

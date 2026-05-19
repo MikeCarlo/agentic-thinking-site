@@ -2,3 +2,6 @@ User-agent: *
 Allow: /
 
 Sitemap: https://mikecarlo.github.io/agentic-thinking-site/sitemap-index.xml
+
+# Structured site information for LLM assistants
+# See: https://mikecarlo.github.io/agentic-thinking-site/llms.txt

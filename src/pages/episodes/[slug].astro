@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import EpisodePlayer from '../../components/EpisodePlayer.tsx';
+import ExternalLink from '../../components/ExternalLink.astro';
 import { getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -84,7 +85,7 @@ const slug = episode.id.replace(/\/index\.mdx?$/, '').replace(/\.mdx?$/, '');
 
   <!-- Show notes rendered server-side; EpisodePlayer reads innerHTML on mount -->
   <div id="show-notes-content" style="display: none;">
-    <Content />
+    <Content components={{ a: ExternalLink }} />
   </div>
 
   <!-- Episode navigation -->

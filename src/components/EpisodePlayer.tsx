@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import { useToast } from './Toast';
+import { addCampaignParams } from '../utils/campaign';
 
 interface Chapter {
   t: number;
@@ -235,7 +236,7 @@ export default function EpisodePlayer({ episode, showNotes }: Props) {
                 </div>
                 <div style={{ marginLeft: 'auto' }}>
                   <a
-                    href={episode.guestLinkedIn}
+                    href={addCampaignParams(episode.guestLinkedIn!)}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="btn"

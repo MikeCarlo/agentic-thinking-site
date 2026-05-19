@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Win from '../components/Win.astro';
+import { addCampaignParams } from '../utils/campaign';
 ---
 
 <BaseLayout title="Subscribe — Agentic Thinking">
@@ -27,7 +28,7 @@ import Win from '../components/Win.astro';
     <Win path="subscribe.feed">
       <h2 class="h2">Platforms</h2>
       <ul class="ls-rows" style="padding: 0;">
-        <li><b>YouTube</b> — <a href="https://www.youtube.com/@PowerBITips" target="_blank" rel="noopener" style="color: var(--accent-2);">@PowerBITips</a></li>
+        <li><b>YouTube</b> — <a href={addCampaignParams("https://www.youtube.com/@PowerBITips")} target="_blank" rel="noopener" style="color: var(--accent-2);">@PowerBITips</a></li>
         <li><b>Apple Podcasts</b> — <span class="dim">coming soon</span></li>
         <li><b>Spotify</b> — <span class="dim">coming soon</span></li>
         <li><b>Overcast / Pocket Casts / Castro</b> — paste the rss url</li>
