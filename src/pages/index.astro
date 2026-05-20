@@ -74,7 +74,7 @@ const latest = episodes[0];
             &rarr; Episode <b>{String(e.data.episodeNumber).padStart(2, '0')}</b>: <em>{e.data.title}</em>
           </div>
         ))}
-        <div class="queue__line">$ subscribe --channel youtube,spotify,apple</div>
+        <div class="queue__line">$ listen --channel youtube</div>
         <div class="queue__line queue__cursor">$ </div>
       </div>
     </Win>
@@ -99,29 +99,6 @@ const latest = episodes[0];
         <span style="color: var(--accent);">+</span> archive available as transcript, code notes, and operator playbooks &nbsp;·&nbsp;
         <a href={`${base}/episodes/`} style="color: var(--accent);">see_all_{episodes.length}_episodes →</a>
       </div>
-    </Win>
-  </div>
-
-  <!-- SUBSCRIBE + LISTENER STATS -->
-  <div class="sub-grid" style="margin-bottom: 22px;">
-    <Win path="subscribe.prompt">
-      <h2 class="h2">Keep the terminal open.</h2>
-      <p style="color: var(--fg-dim); max-width: 42ch;">
-        Get new episodes, field notes, and CLI experiments in your inbox.
-      </p>
-      <div class="rss-row">
-        <span>rss://</span>
-        <code>agentic-thinking.dev/feed.xml</code>
-      </div>
-    </Win>
-
-    <Win path="listener.stats">
-      <ul class="ls-rows" style="padding: 0; margin: 0;">
-        <li>weekly drop: <b>Mondays</b></li>
-        <li>formats: video, transcript, show notes</li>
-        <li>audience: builders, architects, data engineers</li>
-        <li>platform: <b>YouTube / Power BI Tips</b></li>
-      </ul>
     </Win>
   </div>
 

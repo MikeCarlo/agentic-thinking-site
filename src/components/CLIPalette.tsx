@@ -77,7 +77,7 @@ export default function CLIPalette({ episodes, base }: Props) {
     { group: 'cmd', k: 'goto home', h: 'back to homepage', run: () => { navigate('/'); setOpen(false); } },
     { group: 'cmd', k: 'goto episodes', h: 'full episode index', run: () => { navigate('/episodes/'); setOpen(false); } },
     { group: 'cmd', k: 'goto hosts', h: 'about the hosts', run: () => { navigate('/about/'); setOpen(false); } },
-    { group: 'cmd', k: 'goto subscribe', h: 'rss + newsletter', run: () => { navigate('/subscribe/'); setOpen(false); } },
+    { group: 'cmd', k: 'goto listen', h: 'where to listen', run: () => { navigate('/subscribe/'); setOpen(false); } },
     { group: 'cmd', k: 'latest', h: 'play newest episode', run: () => {
       const latest = episodes[0];
       if (latest) navigate(`/episodes/${latest.slug}/`);
@@ -85,10 +85,6 @@ export default function CLIPalette({ episodes, base }: Props) {
     }},
     { group: 'cmd', k: 'open tweaks', h: 'accent · tone · density', run: () => {
       window.dispatchEvent(new CustomEvent('at:tweaks:open'));
-      setOpen(false);
-    }},
-    { group: 'cmd', k: 'copy rss', h: '/feed.xml to clipboard', run: () => {
-      navigator.clipboard?.writeText('https://mikecarlo.github.io/agentic-thinking-site/feed.xml');
       setOpen(false);
     }},
   ], [episodes, navigate]);
