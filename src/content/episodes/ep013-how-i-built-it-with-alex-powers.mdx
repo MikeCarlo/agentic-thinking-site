@@ -1,0 +1,337 @@
+---
+title: "How I Built It with Alex Powers"
+episodeNumber: 13
+date: "2026-05-23"
+youtubeId: "-46Gnh-RdDA"
+duration: "52:54"
+blurb: "Mike Carlo brings Alex Powers on for a behind-the-scenes walkthrough of Fabric Task Flows, showing how a plain-language problem statement turns into a deployable Microsoft Fabric architecture. The episode focuses on creator agents, thin deterministic tooling, and the repo patterns that keep Copilot useful without letting it wander."
+tags: ["agents", "github copilot", "microsoft fabric", "task flows", "vscode"]
+guest: "Alex Powers"
+guestLinkedIn: "https://www.linkedin.com/in/alexmpowers/"
+chapters:
+  - { t: 0, label: "intro" }
+  - { t: 307, label: "creator agents and task flows framing" }
+  - { t: 739, label: "mission control and staged orchestration" }
+  - { t: 1062, label: "deploying outage iq into fabric" }
+  - { t: 1411, label: "registries templates and deterministic tools" }
+  - { t: 1546, label: "how the .github skills prompts and hooks work" }
+  - { t: 1979, label: "testing harnesses evals and reusable prompts" }
+  - { t: 2645, label: "thin skills predictable outputs and creator workflows" }
+  - { t: 3114, label: "wrap up" }
+transcript:
+  - { t: 19, text: "All . I don't know why I did the wrong technical difficulty on that one. Hello everyone, welcome back to Agentic Thinking with Mike and Alex. We are here talking about more Agentic experiences." }
+  - { t: 30, text: "This is going to be an interesting episode. Matthias is out for the week, he's been doing some traveling, I'm picking up some guests here and one of the most amazing guests I've seen build around Agentic experiences Alex." }
+  - { t: 40, text: "Alex, welcome to the show. Happy to have you on. Thank you much. I know we set the stage with this topic on explicit measures, but let's go behind the scenes. how I built it, why I was building it, where" }
+  - { t: 51, text: "inspiration came from and all the other fun stuff. This is exactly where I want to go with this. , for a little bit of context for users who didn't show up or, , the explicit measures podcast. This is" }
+  - { t: 62, text: "an extension of using agents to create things. And I think Alex, you and I would probably agree here. , if I'm going to ask an agent to go give me answers about my data, give me the" }
+  - { t: 72, text: "insights, it's at doing those things. That's probably adding some value. And there's a lot of executives thinking , oh, we need to throw agents at our data and it'll just give us all the answers. I don't think" }
+  - { t: 82, text: "that's the the value that I see from agents at this point. I see agents being this amazing creator tool. Yep. And I'm going to coin the term here, the creator agent, ? I want to use" }
+  - { t: 94, text: "agents that build deterministic code-based solutions that I can automate and string together. we just before this episode, the thumbnail you saw, Yeah. Alex gave me a photo and I" }
+  - { t: 106, text: "made my little I made an agent build me a background remover for thumbnails that I get for the show. , Alex watched me go through. I ran my little Python script, but all that is deterministic" }
+  - { t: 117, text: "code built by agents. , I think there's a huge story here around the creator agent. We need to focus on how do we get agents to help us build things that we can run on cheap hardware, cheap" }
+  - { t: 128, text: "code, make it run efficiently. That's the goal here. , Alex, this is a program that you built, which is , \"Look, there's there's a problem we have here. The problem is" }
+  - { t: 138, text: "we need to build workspaces, pipelines, and notebooks, and lake houses, and based on my requirements, these conversations are happening over and over and over again hundreds [snorts]" }
+  - { t: 149, text: "and thousands of times per day across different organizations and consulting firms.\" you said, \"Look, this is something that's just an input and and processing problem. , how do we leverage this and" }
+  - { t: 160, text: "how do we build a system around this?\" And , this is where you came up with What's this specific name? Task flows? Agent agentic task flows? assistant. Task flows assistant, . say the word wizard anymore. Wizards are" }
+  - { t: 172, text: "out of business. Out of business. They're all assistants. We've moved on. [laughter] Love it. Love it. it was you sit down with the customer, you hear their problem" }
+  - { t: 182, text: "statement, and then it's very much just \", let's go , what's the introduction of Fabric?\" And here's what this item is, here's what these other items are. to me, that's boring." }
+  - { t: 194, text: "it's the same repeated conversation you're going to have over and over again as opposed to Yes. thing we talked about, here's where it goes. something a lot more prescriptive of , \"Cool, you see" }
+  - { t: 204, text: "the picture, you see the vision.\" You know, I go back to Power Query. it was an amazing tool because you saw what was going to happen. You're painting on a canvas the entire time." }
+  - { t: 214, text: "especially with this agent, it was conversation to canvas. How do we get there as quickly as possible? in the system here especially, it was just I don't want to use technical terms. I" }
+  - { t: 224, text: "don't want to have anything that has to do with Fabric. It's really going to be if I was sitting down with you and you gave me , \"Here's 5 minutes' worth of my company. Yep. What we want" }
+  - { t: 234, text: "to do and what we want to solve. Yep. I hit enter at the very end. whether that be through a voice transcript in the room or just using a tool handy or any of the other" }
+  - { t: 244, text: "fun ones . record it, put it in the input box, hit enter. Yep. It should be that easy. for anyone that's maybe in an internal position where you have to do" }
+  - { t: 254, text: "architecture, if you're a consultant, if you're just, , wildly building on fabric. For me it's why would you not use this? . and that's not" }
+  - { t: 265, text: "I think the parts we talked about explicit measures this isn't here to replace a consultant. No. It's here to save the boring parts of looking up documentation of is" }
+  - { t: 275, text: "this GA or is this public preview? Does this have CICD or does it not? it's metadata flags and properties. That again goes back to deterministic work. . if this" }
+  - { t: 286, text: "thing stays up to date, it provides value. It gives you shortcuts. It's automation with a little thin slice of an LLM which is that sentence you provided," }
+  - { t: 297, text: "all , I have to have an LLM to go reason through it. Yep. All , cool. that I've reason through it, boom, boom, boom, deterministic. Love it. I think the more that we can get in that mindset, it's just a huge win." }
+  - { t: 307, text: "I'm happy to go to my screen though if you want to see. Yeah. let's do this. We the episode 12, the one before this one, is where we went through and I did a demo. out without Alex on the show, I just" }
+  - { t: 318, text: "said, \"Hey, I'm going to go build one of these systems.\" I said, \"I have some SharePoint files. Let's go get it.\" This episode is about how you built the tool that I used on episode 12. yes, let's" }
+  - { t: 328, text: "jump over to screen share here. Alex, take us away. Let's see what your screen's doing. here's your screen. It is up. And here we are in your VS code and I can" }
+  - { t: 338, text: "see your terminal. Yes. a couple different things. especially anyone who's new to me the GitHub Copilot, it's as simple as going into your file directory, typing in" }
+  - { t: 348, text: "copilot at the very end, and then it just starts. , it's not a huge lift if you're , \"I don't know how to get started with all these crazy tools and things.\" out here." }
+  - { t: 359, text: "Simple one-liner and I'm in the tool. We'll let this thing up and run for a little bit, Mike. What I'll probably do though is say let's do a simple problem" }
+  - { t: 370, text: "statement if you don't mind. Sure. All let's do that. I work for an energy company. We have a lot of outages" }
+  - { t: 382, text: "that require pen and paper plus phone calls to headquarters. The reports are burning because we're" }
+  - { t: 394, text: "constantly refreshing during the outages. We need faster time from machine device to the" }
+  - { t: 404, text: "report page. Ooh, I where you're going with this. Great demo. I'll be honest with you ." }
+  - { t: 414, text: "Leadership says put AI in chatbots and they'll cut the red tape. Red tape from budget and IT." }
+  - { t: 426, text: "We're legacy SQL shop with batch jobs running. , especially during these high-volume events," }
+  - { t: 438, text: "we have to really turn that dial up. We'd prefer more of a push and proactive method" }
+  - { t: 450, text: "as opposed to a reactive when it happens. Anything else you'd want to add, Mike, from your conversations you generally" }
+  - { t: 460, text: "have? Or they're just vague, they're just listening. Yeah. You're just Yeah, I'm just You're I'm trying to think of anything else here that would be" }
+  - { t: 470, text: "if I'm thinking about I'm in my if I'm in this energy company, ? The only thing I would maybe add here is reporting should be easy to access through our field service team. Yeah." }
+  - { t: 480, text: "? Something along that line, that way that way as we're doing real-time stuff people on the lines working the the fixes or whatever they got to do, ?" }
+  - { t: 490, text: "They have real-time data access. We need the data to be accessible to our field teams and on their mobile" }
+  - { t: 500, text: "devices. Perfect. Love this. that. anything about fabric or technology specific? This is a prob- It's a problem statement. 100%. No, nothing about" }
+  - { t: 511, text: "fabric here at all. All . I'm staring at our watch. I think that was 2 minutes. All , let's go. Sit down for the brief. You type in the problem statement and you ask the probing questions up" }
+  - { t: 521, text: "front. And then it goes into our little fabric advisor. , I want to just quickly note here. , one of the things that you did here that was different than mine. , when I was" }
+  - { t: 531, text: "trying your tool and again, I'm I'm the Mr. All the edge case builder here. I thought I had to run some agent or skill or something in front of" }
+  - { t: 541, text: "this to get it to go. Alex, all you did was type the word copilot. Because you're in the folder of where you deploy this project to, it automatically has all the skills, all the things it needs." }
+  - { t: 552, text: "You just run copilot and hit go. and that wasn't very clear in the read me file. , maybe maybe I'd [laughter] recommend a little update to the read me around that one. You maybe already done it, but for me that was a little bit" }
+  - { t: 562, text: "of a a question in my mind, but this is much more clearer. Run copilot, ask the questions, and then it just picks up and goes. Cool. That's it. What should we call this? [snorts] How did I get you? Sounds pretty fun." }
+  - { t: 573, text: "It's very on brand . do it Yeah, let's do let's do how did I get you? How did I get you? That feels very Microsoft approved at that point. Everything's an IQ . No assistant No No wizards, all IQ. All , it's" }
+  - { t: 585, text: "scaffolding our project. it's building out we should expect to see our Outage IQ project. it's starting to build out all of our fun stuff. not only documentation." }
+  - { t: 596, text: "this this projects folder is an empty folder that exists when you clone the repo. It's you built obviously here you've done a couple times here. you've done a couple a couple different company" }
+  - { t: 607, text: "of projects. When you talk to it, it creates a new project for you in the projects folder and then builds out everything it thinks it needs in that project folder. Yes? Absolutely. in the very end if I was working on" }
+  - { t: 618, text: "this project it would be as simple as click and zip this folder. Yep, . Can you Can you zoom in just a touch on the VS Code side cuz I know you and I have great eyes, but" }
+  - { t: 628, text: "our audience on on the social media things. Yep, there we go. there's projects and then the the name that we just made up was fabric or Outage IQ. It's all part of the project list. Yep, we've got some of the discovery" }
+  - { t: 639, text: "brief that came through our problem statement's been recorded. Some of the various candidates here that it's going through and that's presenting it to us here on the screen at least." }
+  - { t: 649, text: "let's go ahead and take a look. Outage IQ it said hey, we should do an event stream. Absolutely. copy job history." }
+  - { t: 659, text: "at the very end here if you may have been talking as I was typing, but I said we have 30 years of history. sample data We have all this great information. We're data rich, insight poor. How do we get this data" }
+  - { t: 672, text: "and the streaming data into the hands of our data scientist teams? Sure. cool, long-term storage. yeah, if you're running batch, let's do that into a lake house for that long-term. absolutely KQL query set." }
+  - { t: 684, text: "Notebooks for that ML that we just talked about. Real-time dashboard. Yeah, for our insights they're coming in fast. I need to see them. Yeah. And then a data agent." }
+  - { t: 697, text: "Awesome. IT or I'm sorry, leadership said they want chatbots. Data agents. Let's go. Didn't say data agents, did we? No, we didn't. But it it knew how to" }
+  - { t: 708, text: "pick that up there from a cuz that's where you're going to go with that one. That's that's the AI piece that you want to throw in there. Yeah. All . , in plain English, device telemetry streams into an event stream, push not pulling into an event house for" }
+  - { t: 719, text: "sub-second queries, powering a real-time KPI dashboard where field teams can hit from mobile. Oh, awesome. Replacing pen and paper phone call loop in parallel copy job lift you 30 years of legacy SQL history in Light house." }
+  - { t: 729, text: "do you want to move forward? let's do it. Progress. And I might want to switch to an agent here at some point, but we'll see. We'll see where it goes." }
+  - { t: 739, text: "part of this Alex is this is the the command line interface. You're using Copilot to talk to this one, ? When you were building the project, I mean we'll we'll let this get" }
+  - { t: 749, text: "through here, too. How did you How did you come up with some of this idea? how did you get to the framework of this? we'll we'll we'll we'll come cover that in a little bit here, but what is this running on? Is this purely a skill?" }
+  - { t: 759, text: "Is this something else? Is there other things you're running here? what what is little the , how is this sausage been made slightly? Absolutely. , the part that I here" }
+  - { t: 770, text: "I can go into VS Code and we'll zoom out. Yeah. I a orchestrator. , especially here, it's just moving through different phases of the project through skills." }
+  - { t: 781, text: "we just got done with discovery. we're moving into design, testing. this is called mission control if you're looking out for terms. ." }
+  - { t: 791, text: "where , think of NASA where it's you're communicating with a central thing where it's saying progress, progress, progress. Sure. the flag that just ran" }
+  - { t: 801, text: "for other people here, it has this advanced property. . advances to the next stage. Oh, . a JSON behind the scenes" }
+  - { t: 812, text: "says, you were at step number one, I'm going to look through if that's been updated to complete, I move on to step two. And then as it continues to read and advance through" }
+  - { t: 822, text: "that that property, we know where we're at. you're shaking between the this Copilot experience and then physical files that it's just manually updating back. , ," }
+  - { t: 832, text: "the tasks of these Python scripts are physically updating direct markdown files back in the file system. And as you're advancing through the project, yeah, you're showing me the secret" }
+  - { t: 843, text: "sauce here a little bit, yep. Yep. let's go and take a look. where are we at? Deploy config descriptions, lighthouse, awesome. we're starting to get a lot of things in here. I'm just" }
+  - { t: 854, text: "scaling them back down. signal mapper, discovery, architect, IDs 1 2 3, pipeline states." }
+  - { t: 864, text: "completed that one, I moved off, completed, completed, completed. again, this is just reading that single file. Yep. a Yeah." }
+  - { t: 874, text: "this one back. it's it's taking this file in, doing some work to it, and then putting it back down. Here's the results. And then moving on to the next step. And then when you you're saying the word advance, you have gone through, ," }
+  - { t: 883, text: "we're on test plan, we're on design plan, we can then kick into the next section of what we're at. , this makes sense. And this keeps the agent on track. anyone who's out there , I'm fighting with my agent a" }
+  - { t: 893, text: "lot, it's not doing the things I want. It's , , have you given it a linear path? . And this this is the part for me, especially when building things. Yes." }
+  - { t: 903, text: "I have very linear steps that I want it to take. when I need to go off road, absolutely I will, where I'll be , hey, I need sub agents to go do some stuff and bring it back to me. Yep." }
+  - { t: 915, text: "But most of my work I'm trying to automate, not necessarily replace thought. I'm , no, I need to get to the thought faster and get past the tedious parts. , that's why I" }
+  - { t: 925, text: "always enjoy this. it. , good. Great explanation there. All , the pipeline generator deployment artifacts artifact only mode. You don't want to really push . Just repeat the artifacts. All , let's" }
+  - { t: 935, text: "see where we end up here. with Outage IQ, we have our deployment . this , generated our" }
+  - { t: 946, text: "config of the YAML file. . And then all of our parameters . for anyone who's unaware, this is using Fabric CICD." }
+  - { t: 957, text: "it's using a Python package. Where all I'm saying is I want to create these items for you automatically from our initial conversation of 5" }
+  - { t: 967, text: "minutes up until . [snorts] This is amazing to me. one one of the things I was very shocked and surprised about when you were doing this project, when I ran it, I was very impressed with I was why are we" }
+  - { t: 978, text: "using pipeline , the the parameters? that that the variable library is what this this system is the item is in the workspace. And then after I saw the application of" }
+  - { t: 989, text: "it, you did a really good job of giving it enough instruction to understand how does that variable library play into the larger mix of things? What code needs to be in" }
+  - { t: 999, text: "there? , and also it had references to actual items. There was a lake house. It showed the icon for the lake house in there. Other items that it was making, it didn't have the reference, but it did have the GUID of" }
+  - { t: 1009, text: "the item that it was referencing. it seems that was what was impressive to me because to me when I look at the variable the item variables, there's a miss and not every single item" }
+  - { t: 1020, text: "supports those as as I would it to, but you handled that gracefully and it just added everything in there that I needed. I was just very impressed by that that even though" }
+  - { t: 1030, text: "it it showed me that the variable library is more more capable than I was understanding, which I thought was very useful. Yeah, and especially I think they introduced an object type" }
+  - { t: 1042, text: "which does dynamic binding of both the workspace and the item. then it's \"Oh my god, this is amazing.\" as opposed to , \", here's just the GUID.\" I think that was a rather" }
+  - { t: 1052, text: "new introduction. if there were still gaps, it's , \"Hey, as the APIs change, I'll go out there and I'll get those things fixed.\" but I that. Yeah," }
+  - { t: 1062, text: "at the very end, you and me, we just got done having this great discussion. I've got my deployment scripts. . I want to run this. I have a couple different options" }
+  - { t: 1072, text: "here. I've got single workspace. if this was a demo mode, which we're in, or if I was an organization, it is , \"I'm just doing one.\" . if you want to do a multi-environment" }
+  - { t: 1082, text: "though, Oh, yeah. if you're , \"Cool, I'm going to set this up for a true multi-stage new CICD on day one.\" Awesome, go for it." }
+  - { t: 1092, text: ". Love that. I don't want to be the limiter here. your creativity. I I just want to take care of the tedious parts. Yeah, exactly. All , let's go through this single authenticated through a CLI" }
+  - { t: 1104, text: "workspace name outage IQ. Sounds amazing. I'll just hit enter. Create it ? Yes, cuz it does not exist. Let me go ahead and zoom this in here a little bit we can see That's also another feature I really liked is" }
+  - { t: 1115, text: "it was smart enough to understand that things do exist and do not exist and figured stuff out for you automatically and just said, \"Oh, let's just go.\" that was nice that it just automatically did that for us. I'm" }
+  - { t: 1125, text: "going to use this capacity here that says, \"Do not touch.\" I'm going to touch it. [laughter] You're the only one with permissions for that. Awesome. it's starting to build" }
+  - { t: 1135, text: "out the dependencies here. especially first one is going to be , \"Hey, just create the freaking workspace.\" , it's empty, it doesn't exist. And then of course I have my variable" }
+  - { t: 1145, text: "library up front. . that way as new IDs are being created, I'm just storing those here with it. there. Makes sense. and then I'll just hydrate them at the very end. . as this process is going through, I" }
+  - { t: 1157, text: "just want to ground people on the fact of we sat down, we had a 2-minute, 5-minute conversation, didn't say any fabric words. I'm getting you deployed exactly of" }
+  - { t: 1167, text: "what I would have done in that meeting. It's not let me go back to my desk and let me wire this up in a whiteboard or let me, , take a 2 weeks to" }
+  - { t: 1178, text: "send you back an email. No, cool. That thing you just talked about, here's what it's going to look . Yeah. Exactly . And then they're , wait, what? you're telling me that that's going to go there and this is" }
+  - { t: 1188, text: "going to go here and all this other fun stuff. It's absolutely. All , let me pull out the workspace here. I'm going to make sure I get logged" }
+  - { t: 1198, text: "in to this tenant and I'm not showing anything weird or wild that I shouldn't be showing. Yes, let's not do that. I know. We'd you to keep your job if possible." }
+  - { t: 1208, text: "Please. [laughter] It's Work IQ. Looking for it real fast. Work IQ. No, what's it called? Outage" }
+  - { t: 1218, text: "IQ. Outage IQ. Outage IQ. It's Work IQ, that's the Microsoft thing. Awesome. 2 minutes." }
+  - { t: 1229, text: "Again, had the discussion. Yep. I'm out in the Outage IQ workspace. configs we just talked about. my variable library" }
+  - { t: 1239, text: "Important things I want to call out there, Mike. . The title. Sure." }
+  - { t: 1250, text: "All this has been added already. And the Madinah architecture, I need to get that one way better, but I'm prepopulating as much as I possibly can from my descriptions and settings. Awesome. Absolutely amazing." }
+  - { t: 1260, text: "if I go to configurations, Outage variable library. This is the variable library for Outage IQ CICD stage configuration. Which they should all have descript this is these are following best prac- This is the" }
+  - { t: 1272, text: "what you're describing here is this is the grunt work that is what you want to be putting into this stuff when you build stuff initially. a lot of times people build build stuff when you're clicking the normal screens" }
+  - { t: 1282, text: "to go through creating items. Most no one puts in descriptions on things. what is it here for? Why is it here? You may not even know when you first put it there. You're just testing something out, ? at least here" }
+  - { t: 1292, text: "this is that low-hanging fruit work that you're just saying it just comes with Yeah, I really this. This is great. all that done, something you had called out. Unfortunately, there's not an API, but" }
+  - { t: 1303, text: "this is why we do streams this is that we can make enough noise. Correct. Some of you get task flows. I was disappointed about this one when I when I saw this one Microsoft [clears throat] PM for task flows. I'm not sure who" }
+  - { t: 1314, text: "that is, but I was very sad that I couldn't automatically I I built everything this is cool and then there's where is the task flow items? It's still blank. you have it here. But" }
+  - { t: 1325, text: "it's it was annoying to me that I'm I don't have the item. The task flow didn't just automatically populate with an API. I'm . I wish. something we got to have in there. If it did, , I'll be the first one to" }
+  - { t: 1335, text: "update it. we've got our task flow diagram. . if you wanted to go out to these, just for anyone that's curious, it's a set standard where" }
+  - { t: 1346, text: "it's just , \"Hey, what is the type?\" It's store data. It's get data. that's just system for Microsoft. . The IDs don't mean anything here. I'm" }
+  - { t: 1356, text: "just randomly generating them. . and then at the very end, I'm just doing the edges of how they . Source target stuff. . That's easy enough. the very end here" }
+  - { t: 1367, text: "Look at that. That's everything we just built. Oh. Nice. unfortunately, the current import does not allow me to bind the items. again, that's just" }
+  - { t: 1378, text: "another gap of Oh. showing of what's possible, but the actual binding of that lake house to this item. , yeah, you got to do that manually still. but" }
+  - { t: 1389, text: "Get out of here. I hate this banner. Just give me task list full screen. I know that that may be controversial for others, but if I'm looking at items and and nuggets and things that are just linked" }
+  - { t: 1399, text: "together that should be that would make sense that it's just Yeah, yeah, you want to full screen it cuz you're I'm looking at the architecture of the system. Yeah. Love this. This is great. , 2 minutes," }
+  - { t: 1411, text: "we didn't say anything about fabric. This is what I fully built out from an architecture that I would likely build. Yeah. And then at the very end, it's , all cool. Let's start populating our" }
+  - { t: 1421, text: "endpoint addresses. , what what's your data source? for me, this is the more interesting part of I've taken us this far." }
+  - { t: 1431, text: "if I was to go shared registries, this is a lot of the brains. , all the different item types. up here are just" }
+  - { t: 1441, text: "human-readable descriptions. , here are the fields, here are connection protocols, here's, , skill sets. down here is the meat and potatoes of for every item," }
+  - { t: 1452, text: "here is the possible query language, here are alternative considerations, here is low code or code first. and then within the templates," }
+  - { t: 1464, text: "cool, we're building a copy job through the REST API. Here are the properties that I would need to fill in. ." }
+  - { t: 1474, text: "Why do I stop at just doing empty shells of items? same hydrate hydrate them with as" }
+  - { t: 1484, text: "much as if you had, hey, here's my SQL database connection things, ? Set this up as a connection somewhere and have it you" }
+  - { t: 1494, text: "know, you what items go into that element there. Yeah, that's the part for me especially when I think of the value of the YAML based approach." }
+  - { t: 1504, text: ". I don't feel comfortable giving my connection string. Yep. Cool. Put it in this file and I'll just read it with the Python script. Yep. And I'll generate it and I'll push that" }
+  - { t: 1515, text: "through to the API. Yep. give me the table names just these little dashes. That's just an item list. , what are all the tables I need to inject into a copy job? Yep. Why could you not have a complete" }
+  - { t: 1525, text: "agentic workflow that is purely just asking questions and you could get to the very end. Yes. It all feels very possible to me." }
+  - { t: 1535, text: "I agree. scary though? I don't know. , I I think other people may think it's scary, but again, this is this is the idea of building" }
+  - { t: 1546, text: "and to be also very clear as . this whole repo, ? The fault the the secret sauce on this project is the GitHub folder. the GitHub .github" }
+  - { t: 1556, text: "folder is the one that you build. That's let's talk about let's zoom out just a hair for a moment here, ? I needed a custom agent to be able to" }
+  - { t: 1566, text: "pick up What What does this What does this project do, ? , how do we track our stages? What stages are in there? what fabric item are available" }
+  - { t: 1577, text: "to us? and I believe, , you have skills here, ? , there's a couple things you're you're noting here. let's just I want to talk a bit more about the pieces of the the project here just slightly. Yep. you're going" }
+  - { t: 1588, text: "through the the left-hand nav here and this is agents, hooks, prompts, and skills. , I'm very familiar with with skills. Agents, I'm somewhat familiar with. I've been doing a little bit more" }
+  - { t: 1598, text: "experimentation on this. This is a custom agent that you're using and then GitHub is aware of this FabricAdvisor agent. , this is when you did Copilot initially," }
+  - { t: 1609, text: "? It read this file and said, \"This is a reference a a grounding for when you run Copilot, it knows this stuff off the gate.\" That's" }
+  - { t: 1619, text: "something that I had a gap of when I was trying to project with the first time, which was I didn't understand that this was already baked in and I just had to type my question. I thought I had to run a skill or command the" }
+  - { t: 1629, text: "Copilot to go do something. . Walk me through hooks and prompts. What are those doing? what is this something you contrive but this is" }
+  - { t: 1640, text: "something that's standard with GitHub? what what is the what are these intended to be doing? Yeah, especially for prompts, this is more shorthand. if you're ever , \"Hey, I'm typing the exact same prompt over and" }
+  - { t: 1651, text: "over again.\" this is a cleanup prompt for me. Oh, . finding out in the community. Yep. , this is ignore everything about any of my documentation and just purely" }
+  - { t: 1663, text: "look at the code. Yep. Sure. is a a great reusable prompt where it's just , \"Awesome.\" . I didn't know you could restore prompts over and over again and" }
+  - { t: 1673, text: "that would just call that prompt. Cuz what you're seeing you're doing in the chat window, that's to me I look at it going, \"That's a shorthand for a skill.\" But it's a prompt or a skill that slash runs both of them, yes? Yeah. , with" }
+  - { t: 1684, text: "with prompts, I can have arguments. . then I can have based on this ordinal position of the thing that I'm going to type go do these things. Yeah, sure. , especially for" }
+  - { t: 1694, text: "reusable I always try and tell everyone audit your code in your projects. Yeah. Especially if it's not nightly do weekly just cuz of all the added" }
+  - { t: 1705, text: "tech debt that comes with generation. The LLMs that are not your friend in the sense of they want to spit out as much verbose code. verbose text. , slim. Slim" }
+  - { t: 1716, text: "[clears throat] equals success. Oh. , I'm always find contradictions, find where you're creating duplication. Yep. , any of those repeatable audits that I do . that's" }
+  - { t: 1727, text: "just a prompt that I store. I that. there's a there's another skill or item or concept that's coming out that's called caveman mode. Oh yeah, I've tried that. caveman is this idea" }
+  - { t: 1738, text: "of , , Mike make code, ? , just kind [laughter] of talking talking very simple terms cuz there's idea of if you if you let the agent be very verbose with its language, it will always give you lots" }
+  - { t: 1749, text: "of information back and overtalk back to you and overexplain things. Sometimes you just wanted to get the work done and you invoke this skill or scenario around caveman mode and" }
+  - { t: 1760, text: "it just gives you the very the bare-bones information and will save you tokens. It makes your prompts more efficient a little bit and the response is quicker, too. All , cool. Hooks. Let's Let's go through hooks. What are" }
+  - { t: 1770, text: "these hooks that you're you're doing here? Pre- or post- tool call activities. Hm, . if let's say there's a scenario where \"Hey, I've got this MCP. It's got" }
+  - { t: 1780, text: "all the commands I need. Don't imagine calling the REST API generic. Sure. you could block that call. . . Do pre-call or post. Yep. And that way it'll" }
+  - { t: 1792, text: "reroute it. Be , \"Nope. Sorry, you can't make that generic call. You need to use this tooling.\" Oh, . fantastic guardrails for your system. let me let me reiterate what I heard" }
+  - { t: 1802, text: "you say there. again, when we work with the large language models, they are open-ended. There's a They will They will do whatever they want to do whenever they need to do it. these" }
+  - { t: 1812, text: "the hooks that you're doing here for your your observability item specifically is you're giving it guardrails. I want to play within this boundary of things at this point." }
+  - { t: 1823, text: "Yep. again, I got I haven't spent a lot of time in myself with hooks yet. This is a good place to learn this one from this project. walk me through what's going on here. you have some hooks that are What is" }
+  - { t: 1833, text: "defining session start? What is defining user prompt submitted? Is that just kind of information that's coming from your chat experiences? Hook scripts. Let's go and do session starts." }
+  - { t: 1844, text: "Yeah, let's look at that. All . , this is requiring it to use the workflow guide and then also the run pipeline runner. , . if it's not going through that" }
+  - { t: 1855, text: "linear process we just talked about, it's \"No, I'm going to deny you.\" let me also re Let me re-understand this one as cuz again, this is a newer concept to me." }
+  - { t: 1865, text: "hooks are the harness, which is VS Code in this ex- example, is doing certain things. The hook is saying when this process" }
+  - { t: 1875, text: "takes action. , you said, , when the one that is session start, ? The very first thing. Session's starting here, and that's how it knew to start using some of these shared experiences in these markdown files" }
+  - { t: 1885, text: "initially to read those, initialize them, and then as VS Code does other things and you I think I saw one that was on error, on other items there. these are the the harness, and I'm" }
+  - { t: 1896, text: "trying to use the language of how AI things work. The harness, which is VS Code, has a a messaging system or a signaling system, ? And you're tapping into that signaling" }
+  - { t: 1906, text: "system and saying when these type of events occur in the harness, I want you to do something very specific with this. You are not allowed to go off rail. , I didn't tell it anything in the very" }
+  - { t: 1916, text: "beginning. Yep. I didn't have to slash command, I didn't have to agent. It was just , \"Hey, the session's starting. We're running our pipeline .\" Nice. Cool. And of course, it , if it" }
+  - { t: 1927, text: "LLMs, , they could scan through the entire repo and waste tokens left and , but Yeah. I've already set the guardrail and boundary of , \"If you try and do something, I'm going to reject you.\"" }
+  - { t: 1937, text: "Yeah, yeah. And again, these are pre-tool calls or post-tool calls. , if it was, , return something you were not expecting your system, you block it. And then you're , \"Nope, you got to reroute it" }
+  - { t: 1948, text: "to this defined thing that I want.\" Love it. that's where you see post-tool audits as . , definitely this is the newer concept. ." }
+  - { t: 1958, text: "I would say Brooke Holland did a really great video if you've been following any of his YouTube content, but it's awesome to get set up out here. Love this. Good. ." }
+  - { t: 1968, text: "Hooks and prompts, , if you're typing the same thing repeatedly, getting out here, and then if you want, add a little bit of arguments too. , it's cool. The last one we didn't cover and we're almost out of" }
+  - { t: 1979, text: "time here, we probably need to start thinking about wrapping here. , tell us what's going on in the workflows area. , what was your concept to run that one? What's in the workflows folder? What is this looking ?" }
+  - { t: 1989, text: "Yeah, this is more around the GitHub deployment. This is less me, this is more of the robot. , don't don't trust anything that it's saying or doing. workflows is it trying to think" }
+  - { t: 2000, text: "through an in a file , \"Hey, if I'm Is it an example file? Is it something I would use as an example , \"Hey, this is something that you're doing here.\" Or is this more just for you in your GitHub repo that you're using directly?" }
+  - { t: 2011, text: "in the GitHub repo. . , this is just a setup file for the agent. , got you. Let me ask another question around this one. , this project exists Can I do one here? You want" }
+  - { t: 2021, text: "Oh, yeah, do this. Yeah, keep [clears throat] going. If we were talking about skills, the part I always is the process of testing. in this example, I have my system, I" }
+  - { t: 2032, text: "could go out there and I could type in hundreds of different scenarios. But that seems wildly inefficient to me. if you've ever played video games, there's the concept the self-healer" }
+  - { t: 2043, text: "where it's , \"Hey, I just want you to take care of yourself.\" , in this example, I have the mage. This is the mage of the project. Yeah, with this [laughter] I'm , \"I want you to come up with" }
+  - { t: 2054, text: "n number of scenarios and make them as verbose or as vague as you want.\" Yeah. And at the very end, , I want these problem statements, , our insurance company, our grocery" }
+  - { t: 2064, text: "store, our government, our city water. It generates all these and it runs through the system. It says, \" what? Here's your gaps.\" . Here's the quality benchmark. Cool. at a" }
+  - { t: 2076, text: "minimum viable level where I'm not embarrassed to jump on a live stream. it's these are the fun things you need to think about with your project. . not only" }
+  - { t: 2086, text: "a testing framework, but a lot of the things I think people start seeing and I don't know if I've implemented it here in this tooling, but an eval system, . which is just from" }
+  - { t: 2096, text: "this task, how did it do? Yeah. setting a common framework of pass fail. Yeah. And then within that also have descriptions of , \"Here is why it failed.\" in that way" }
+  - { t: 2107, text: "everything continues to improve. I think the best part about the systems here is build wildly and then rein it in when you" }
+  - { t: 2117, text: "finally know what you want to do. . I'll show this as . I don't know if you're using this yet, Mike. Marp. No, I haven't heard of this one yet." }
+  - { t: 2127, text: "this is Marp. m a r p. This is a presentation builder, I presume? Marp for VS Code. Yeah. this is presentations from code." }
+  - { t: 2137, text: "Oh, I have been trying some presentations from code. I found a a I found a separate project more on the agentic side called Vella, v e e" }
+  - { t: 2149, text: "l a slides. Which is Yeah, this is side note. PowerPoint is officially really, really dead to me. I didn't it before. I really" }
+  - { t: 2159, text: "dislike it because I can just tell an agent to build an HTML page slide deck for me and I get what I want immediately. This is good. markdown presentation the Marp" }
+  - { t: 2169, text: "just go out anyone download the extension and it does support style systems as . you want to design. you could have just a generic white page and black text, but I" }
+  - { t: 2180, text: "was , \"No, I want to have be a little cool.\" I've got the fading and all the other fun stuff. . Marp is in the description as . I put it in the chat window here that'll be here as . If you" }
+  - { t: 2188, text: "want to go find Morp from the VS Code marketplace, it's in the chat. You can go click on that link there directly if you want it. Awesome. , tedious part we talked about. Boring is blank whiteboards. It's not" }
+  - { t: 2200, text: "fun for you to have to fumble through documentation. Yep. Is it GA? Is it public preview? What does it support? . , I just want you to talk to people. Yep. And if {quote} \"Fabric is hard,\"" }
+  - { t: 2210, text: "here's the easy button. . It starts with your problem domain and I'll walk you through , here's the architectural design review. those are a couple of things we didn't talk about , . How does" }
+  - { t: 2221, text: "IQ? , I have full documentation for you. here's deployment handoff, discovery brief. what do we have? Deploy. I think we" }
+  - { t: 2231, text: "might even have some documents up here. Let me take a look. This is where it's , much fun. I haven't been out here in a while, Mike. This is amazing. [laughter]" }
+  - { t: 2242, text: "it's volume, velocity, variety. Everything is documented for you. Yeah. Power app exists. That was something you mentioned where it's , \"Hey, I want to get out in mobile field.\" ," }
+  - { t: 2252, text: "all . Let's get out of that. Let's get out of that. I'm going to go back to the Morp. Yep. I'm just having fun. And then, , Morp went" }
+  - { t: 2262, text: "cool. AI projects, plain language business problem, one human readable project brief, , CI/CD ready deployment, what was built. This is the advisor." }
+  - { t: 2273, text: ". composable skills. Yeah. One is product discovery. I need architecture design. I need a tester. I can say, are these skills, are they just bunch of" }
+  - { t: 2284, text: "fluff or is this human deliverable? . , it's testing against just the API framework of , all , yeah, we can deploy that. Yeah. And then, the last couple I wanted still roll out is just ," }
+  - { t: 2296, text: "you deployed it, let's do a actual validation that everything was completed. Yeah. And documentation of here is every GUID that was deployed. Yeah. , those are just" }
+  - { t: 2306, text: "some post things I would to come back to. the pipeline is my complete runner. Hm. which stage am I at? All , cool. I'm going to loop back through that JSON. I can pass to the next" }
+  - { t: 2316, text: "gate because this was complete, this is not started. All , cool. I move on to not started. Yeah. Complete, complete, not started. Complete, complete, complete, not started. Yeah. Registry first, again. I" }
+  - { t: 2328, text: "don't want my models to read markdown. Cuz that is a waste of tokens. I want them to have tools. Yes. I want my workers at their desk. , I" }
+  - { t: 2338, text: "hand them a laptop, I hand them a notepad, I hand them a piece of paper. That's how they do their job. Yep. to do your job, you need a dot Python file. and then with that script, you're going to read through this JSON" }
+  - { t: 2348, text: "registry. You'll never touch actual markdown or text yourself. You'll get output. And that's and that's to to that registry part is the shared registry is not having to have it go to a website and scrape it and find" }
+  - { t: 2359, text: "it. And then it's already , the the thought here is there's a lot of semi-unstructured data that you've already had to go through and groom back into this, ? , there's and maybe" }
+  - { t: 2370, text: "this is not part of this project but the community, ? If you find things that are not in the registry or language or things you want to add to it, that's why this is an open source project because" }
+  - { t: 2380, text: "as the product moves fast. Yeah. It's constantly updating new things, you know, ontologies, Work IQ, all these other things you can potentially integrate yourself into. that" }
+  - { t: 2391, text: "registry it needs to be updated fairly frequently. And , that's that's the the nugget, the piece that is taking a lot of the internet web scrape data, pulling it down to a structured space," }
+  - { t: 2401, text: "and using it. And I found me personally, I also found that very helpful for I was looking at the project and asking the agent via that folder saying, \"What's out there? What's in GA? What's not?\" You can I could ask" }
+  - { t: 2412, text: "questions directly to Copilot even after the project was done. , I wanted to just ask you some questions around stuff. It had a good knowledge library there. I'm looking at that going, \"Wow, I'm in a" }
+  - { t: 2422, text: "phone call with a client. They ask me about a certain feature. I And then, , it's funneling details back to me that way in the call I'm being , able to" }
+  - { t: 2433, text: "let them know, \"Yeah, that's not quite GA yet. it hasn't been announced.\" and let me ask another question here to Alex for that one specifically. Is there road map items on that?" }
+  - { t: 2443, text: "Or I would probably have to add that as a after fact. , \"Hey, this is all the existing stuff today. Maybe in the in the registry I add another folder for road map items. , here's language of" }
+  - { t: 2453, text: "what Microsoft is building.\" But then I could give me a little bit of a forethought around, \"Hey, , what you're asking for doesn't exist today, but there's a couple future things.\" Yeah. , I haven't incorporated anything that's future looking." }
+  - { t: 2464, text: "And to me that's probably a little bit of scope creep in the sense of Out of this project, yeah. Yeah, for this project. What I want though from and this is a bigger thing for me. I want to have" }
+  - { t: 2475, text: "the road map be an RSS feed. . Yeah, it should be. Yeah, that'd be great. Yeah. And then same with known issues page. I want that to be an RSS feed you never have to" }
+  - { t: 2486, text: "necessarily you can get push notifications through that method or Yes. , updates. , that's fantastic. But in the moment with your agent system Look at this endpoint address." }
+  - { t: 2497, text: "Tell me what I need to know. All , cool. Find anything? Awesome. I'm moving on. Love it. this is the fun parts where I'm let's let's get those done. how the engine works, describe the" }
+  - { t: 2507, text: "business problem, review architecture decisions, confirm the test plan, just move on. yeah. Just a few stages, a few skills, and we didn't really" }
+  - { t: 2517, text: "hit home on the context of what's in each skill, but I don't think a lot of those are as important cuz I'm constantly finding myself challenging the bot to say less and less. ." }
+  - { t: 2528, text: "if I'm ever at a point where this line count is, , 200, 300, 400, oh man, you're in the danger zone. You're you're likely looking at a second" }
+  - { t: 2538, text: "skill or, , breaking it apart into other pieces. It's too much in one side one item. Yeah. Yeah. , anyone that's out there building wildly, go for it up front, but then at the very" }
+  - { t: 2548, text: "end, challenge through that flash prompt. I may have a challenge prompt that I constantly do, find contradictions, find where there's a legacy tech debt. and then" }
+  - { t: 2559, text: "this way, I want these skills to be extremely thin and narrow. I'm always looking at the line count. . How do I get less? Yep. I get less to do more?" }
+  - { t: 2570, text: "Look at that. , again, I try and keep these as very thin from a discovery, a lot of it is just looking at load the discovery brief that you" }
+  - { t: 2580, text: "just created for your project, and then start filling out required fields. Wow, this is impressive. Again, it's a project scaffolding. Yeah. What the scaffold looks ." }
+  - { t: 2591, text: "Yeah. Yep. Fill out the trade-off section. Fill out the consideration section. Sure. Find architecture. Everything that you would do in a normal business. Yeah. I'm just outsourcing a" }
+  - { t: 2602, text: "lot of the parts that I'm I think you do this 100 times over your during your day or week. , why not take the monotonous part and get" }
+  - { t: 2612, text: "back to the cool stuff, which is focusing on the customer and the problem. Yeah, agreed. we do. that you've seen the image, you're , \"Oh my god, I didn't realize we're going to get there in 2 days.\" Yeah." }
+  - { t: 2622, text: "you took my the next big problem. Yeah. my 6-month project is a 6-day problem. What else can we do? , yeah, let's let's let's have fun. Love this. ," }
+  - { t: 2633, text: "again, just designing, deployment, discovery. discovery is simply just asking questions. Do I have enough confidence in what was stated to move forward? ," }
+  - { t: 2645, text: "my four V's, what is the volume of data? Do I have a confident answer to tackle that? What's the velocity? , is it coming in nightly? Is it real time?" }
+  - { t: 2656, text: "Variety that goes into Is it a bunch of spreadsheets? Is it databases? Is it a What I think they said SCADA IoT devices. I didn't say anything about that type. Sure. You have to infer that" }
+  - { t: 2668, text: "cuz that's the LM strength. Yeah. It will let it reason about those things. That's the That's the part of where you you apply the reasoning element to this. You give it parameters and then let it go. Yeah, agreed." }
+  - { t: 2679, text: "Yeah. My pipeline is deterministic. Yeah. My reasoning is very thin. Yes. give it very detailed instructions around what you want it to reason about." }
+  - { t: 2689, text: "Yeah. it's the upfront discovery part? That's the squishy part that LMs are great at. Cool, you said this, I inferred this. Am I on the path? You're , \"Yeah, awesome.\" And it's" }
+  - { t: 2699, text: "\"Awesome. I'm going to move on to the deterministic I think our project was done in 3 minutes. Yeah, it was. It was very quick. Yeah. to be on a call with a customer again, that would be mind-blowing to be" }
+  - { t: 2710, text: "\"This is what I want to build you.\" And I'm , \"Oh god, I wasn't expecting this.\" architecture schemas again, the schema goes back to a lot of the APIs are already" }
+  - { t: 2721, text: "-defined. They're -documented. . I just have those in a folder out in this project. then at that point I'm not imagining of what it should be. Sure. And then from there it's more" }
+  - { t: 2734, text: "if I was to move into the next stage of this project of deploying items for you. Awesome. We're at the stage where we're copy job. I need you to fill in this YAML metadata property that says," }
+  - { t: 2745, text: "\"What's the connection string? What are the tables you need?\" Yeah. And I filled that out. Cool. And I'm going to pass that through to the schema for the REST API. If I need to convert it to base 64, whatever it is I need to do" }
+  - { t: 2756, text: "Awesome. I'm done. Yeah, makes sense. it's a little bit of a slip. little things again, just deterministic tools." }
+  - { t: 2766, text: "I don't want creativity to be up to the LLM. I I need the same reproducible end goal. This stage moves to this stage moves to" }
+  - { t: 2776, text: "this stage to support all of these things which is getting me to a final call to the fabric endpoint. . I need that again I just love this concept" }
+  - { t: 2786, text: "of using tooling that is needed and then using the LLM when it's absolutely necessary. A lot of these tools that I've" }
+  - { t: 2796, text: "given to my workers, , these are my skills, my discover worker, my design worker, my deploy mentor, they all have tools." }
+  - { t: 2807, text: "A little Python file. anyone that's out there looking at this project and thinking about yourself don't let your agents read raw JSON. Don't let them read" }
+  - { t: 2817, text: "just wildly and endlessly. That's when your tokens start bloating and that's where context rot comes into play. as much as you can make this slim Mike in your example what's" }
+  - { t: 2827, text: "GA? All , let's just run that script. We'll go for the GA property. here's a list of 11 things. Yeah. 20 things. Yep. Supposed to reading through 1400 lines." }
+  - { t: 2839, text: "It's interesting. it also requires a lot of again we talk about how AI's going to take all of our jobs. This doesn't seem to me it's taking any my job. It's just shifting what" }
+  - { t: 2850, text: "I work on. instead of thinking about I to your point I'm I hear you saying very specific questions you're sitting back and being very contemplative around what do I want this to do? What repeatable" }
+  - { t: 2862, text: "actions am I going to take? And then you're thinking about these all these files you didn't make these Python files. You didn't write these hand by hand code them. You" }
+  - { t: 2872, text: "said hey I'm thinking through a discovery thing. And then you the engineer the call it the prompt engineer, whatever you want to call it, that's your work. Your work is spending the time saying," }
+  - { t: 2882, text: "what tools are required that I can give to the agent it can gives me that that more regular experience out. And this is we talked at the very beginning here," }
+  - { t: 2892, text: "creator agent. This is doubling down on that concept of creator agent. Our work is shifting into the creator experience. We want to be able to craft tools and experiences that" }
+  - { t: 2904, text: "work alongside the agent that gives us a very regular output of what we desire. It's It has There's flexibility, there's reasoning inside these things, but signal mapper, it knows what to do." }
+  - { t: 2915, text: "that that is a defined input and output. And and that Yeah, it's it's totally IOs . , that's that's where the I think that the large" }
+  - { t: 2925, text: "language models makes a lot of sense. And also, the large language model built this stuff. you came up with the concept of this is the steps I want to go through, you communicated that to the agent and said, I need to build a" }
+  - { t: 2936, text: "framework around this, use this orchestrator agent and do these things. This is great. I love this. This is This is This is shifting how we think about using agents. Don't think about a" }
+  - { t: 2946, text: "chatbot, it's building systems and tools. That's what we need to really focus on. Yeah. , especially internal at home. Yeah, especially internal work , , job titles program" }
+  - { t: 2957, text: "manager, I wrote trying to compare on people problem manager. Yeah. What problem do you need to manage? It is what it is. Yeah. And then from there it's, all , cool, what things" }
+  - { t: 2967, text: "do you need? , I need someone who's great at documentation and going out to my meetings and grabbing transcripts and making sense of them. awesome. , you've got someone that's more a BA" }
+  - { t: 2978, text: "or executive admin who's scheduling meetings for you. they have very specific tasks. That's exactly what I'm building . for my my business, a lot of my statement of work building and master service agreements, it's a lot of" }
+  - { t: 2988, text: "regular output of things. And I'm I'm building to your point. this is a framework that I need to start leveraging. Similar idea, but same thing with documents. I have all these" }
+  - { t: 2998, text: "conversations. They're recorded. There's transcripts. There's videos. I need to pull all that that data down and build special tools to then absorb that. And then, ," }
+  - { t: 3009, text: "there are places where reasoning needs to be applied, but how does that tool with the Python, , Python scripts should just go to the graph, sign in, get the things I need, download them here. Great. I can apply the" }
+  - { t: 3019, text: "reasoning cuz that tool's been built. This is really really written. I love the idea this this diagram here is very very sharp. I love this. Yeah. , again, a lot of it just runs through the pipeline, human" }
+  - { t: 3029, text: "approval gates. I to stop and ask you, here's what I was thinking, you know, I'm not just building wildly. And then I at least in this system here, I've got three turns. Yep." }
+  - { t: 3040, text: "if that's our three revisions, we haven't figured out. let's just go back to the beginning. Yeah, something's not . Yeah. And then yeah, we did it in action, you know, very simple intake only. I don't" }
+  - { t: 3051, text: "want you to ever type technology. That's the most boring thing to me of I want to build a lake house to do X. , no. , that's the end. That's not the beginning. Yeah." }
+  - { t: 3061, text: "if anyone that's out there, if you're internal, if you're external, if you're consultant, if you're business, how do I just get to fabric faster? This is the tool. Yeah. I this." }
+  - { t: 3072, text: "Very slick. Awesome. I need noise, though. I would love for this to be in product. Why can't this just be a co-pilot pane that pops up in product and says, here's what I want to build. And it builds it for you. Let's keep" }
+  - { t: 3083, text: "that idea sharp, Alex. There may be some stuff that I'm cooking on here on the side that may help us out here as . , let That would be a great idea. If also, let us know in the chat down below if you" }
+  - { t: 3093, text: "this content, let us know. I think we're good to wrap, Alex. Any other final thoughts you want to land on or No, let's come back for some more projects in the future here cuz I'm always doing weird and wild stuff, but this is a fun one to help" }
+  - { t: 3103, text: "inspire people. Check out the GitHub repo. Leave issues. Leave comments. Let me know if you tried it out. I'm going to push some updates from this morning because of course before we went live I made a bunch of changes. Of" }
+  - { t: 3113, text: "course. Cuz that's the technology person at the at the back. [laughter] Because we want to make sure all of our demos are on the edge of our seats the entire time. [laughter] Alex, thank you much for your time. I" }
+  - { t: 3123, text: "really appreciate you going over here a little bit. Thank you much for this really deep dive on how I built it. This is the task flows assistant is what we're talking through here today. awesome" }
+  - { t: 3134, text: "job. Let's continue to talk about more other places and how you're building things and maybe maybe on the show at some point we let's step into something and build a new agent agentic something. Maybe we can do build" }
+  - { t: 3145, text: "a little simple tool together and and walk your through your process of how do you how are you building the orchestration? What are you doing to prompt it to get these tools and systems built inside your system as ." }
+  - { t: 3155, text: "Awesome. Thank you very much, sir, and we'll see you next time. Thank you all. All. Agentic thinking. [music]" }
+
+---
+
+## Summary
+
+Mike Carlo brings Alex Powers back after the previous live demo to unpack how Fabric Task Flows was actually built and why the project matters. Alex walks through the repo structure, the mission-control style pipeline, and the way Copilot moves from plain-language discovery into architecture decisions, deployment artifacts, and validation steps. The two keep returning to the same core idea: agents are most valuable when they help build deterministic systems, not when they are left to improvise entire solutions end to end. It lands as a practical blueprint for anyone building creator agents, internal tools, or guided Copilot workflows around structured problem solving.
+
+## Key Takeaways
+
+- ▸ Alex frames Fabric Task Flows as a way to turn repetitive architecture conversations into a guided system that starts from business language instead of product jargon.
+- ▸ The strongest pattern in the episode is thin reasoning plus deterministic tooling: let the model infer just enough up front, then hand work to scripts, schemas, and registries.
+- ▸ The project’s pipeline model matters as much as the prompts, because advancing through explicit stages keeps Copilot aligned and prevents broad token-heavy wandering.
+- ▸ Hooks, prompts, and skills are presented as practical guardrails, not novelty features, with each one narrowing what the agent can do and when it should do it.
+- ▸ The live Outage IQ example shows the payoff: a short business problem statement becomes a Fabric architecture, deployment artifacts, and a workspace-ready implementation path in minutes.
+
+## Links
+
+- ▸ [github.com](https://github.com/microsoft/fabric-task-flows?utm_source=agentic_thinking&utm_medium=website&utm_campaign=20260523)
+- ▸ [linkedin.com](https://www.linkedin.com/in/alexmpowers/?utm_source=agentic_thinking&utm_medium=website&utm_campaign=20260523)
