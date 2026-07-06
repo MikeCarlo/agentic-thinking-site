@@ -1,0 +1,311 @@
+---
+title: "Rayfin - 019 Agentic Thinking"
+episodeNumber: 19
+date: "2026-06-10"
+youtubeId: "DgRcriXgLmg"
+duration: "49:28"
+blurb: "links"
+tags: ["agentic thinking", "youtube"]
+chapters:
+  - { t: 0, label: "intro" }
+  - { t: 494, label: "context" }
+  - { t: 989, label: "problem framing" }
+  - { t: 1484, label: "working session" }
+  - { t: 1978, label: "practical takeaways" }
+  - { t: 2473, label: "closing thoughts" }
+  - { t: 2908, label: "wrap up" }
+transcript:
+  - { t: 16, text: "Hello everyone and welcome back again with the Agentic Thinking Show. Matthias and I are here again. Matthias, hello. Welcome back. Hello. welcome back to AI chat. Can't wait to see what we have to" }
+  - { t: 27, text: "discuss to discuss today. we're going to just jump in today. this is more of the news and announcements and just talking about what's happening in the the world in the space of AI. We came back from" }
+  - { t: 37, text: "Build. , I I came back. Matthias, you were watching Build online and a whole bunch of new announcements were were made out at Microsoft Build. one of the main topics I do want to cover today at some point we'll hit on" }
+  - { t: 48, text: "top of this today is this whole concept of Microsoft Fabric as a back end using this new project called Project Raven helping you build Agentic experiences." }
+  - { t: 59, text: "Maybe not the experience of Agentic, but using agents to help you build something that you can then deploy directly into Fabric as an app. This is incredibly powerful and I'm going to say it again." }
+  - { t: 70, text: "I've been saying it since the whole conference. I've been on other people's channels and and communicating this one. Raven is the single most biggest feature since Power BI Desktop release. This" }
+  - { t: 80, text: "this is how important this is to the community, to people who build, to people who are leveraging Fabric, especially teams who are looking to move more into the" }
+  - { t: 90, text: "let's call it the creator the Agentic creator experience, ? , using agents to help you build things. This is in important. Anyways, we'll come back to that in a bit. Matthias," }
+  - { t: 101, text: "you found some articles for us. Let's go through some articles that you found. something from OpenAI. Lead us off. Yeah. yesterday they published a really big article" }
+  - { t: 114, text: "which is almost a company manifest called build to benefit everyone our plan. , pretty much a big update in terms of" }
+  - { t: 125, text: "where AI stands and , , where they're going strategically moving forward. And" }
+  - { t: 135, text: "the the outline of that is to say they're beginning the third phase of Open AI . , they're saying phase one was for them to do fundamental" }
+  - { t: 146, text: "research towards AGI. [clears throat] Yeah. number phase two was We're not going to get there. it's it's not AGI. that great goal, but that's not the" }
+  - { t: 157, text: "We're not going to make it. that I don't think that's that's not the end game here, I think at this point. I've I've heard conflicting opinions about that. Some" }
+  - { t: 167, text: "people argue that we're already there, , to some degree. But as as a as a goal, it it's it's valid, ? And it makes sense." }
+  - { t: 177, text: "And it's clear that that's where everyone's striving. , then they're saying the second phase was for them to build products, , to bring the the outcomes of that research into the world and and make it" }
+  - { t: 189, text: "accessible. And they're saying it's all about them consolidating" }
+  - { t: 199, text: "the success of AI that we've achieved far and explicitly saying their goal is to make this one abundant, affordable, safe," }
+  - { t: 210, text: "useful, and easy enough for pretty much everyone on the planet. , really really big visionary and and strategic goals here." }
+  - { t: 222, text: "the there's a lot in there. we'll share in the link and yeah, people should definitely have a have a look here. Links in the description. Also link is in the chat window as [clears throat]" }
+  - { t: 232, text: "as we unpack this one. I love this this is a phrase they use here in the middle of the article roughly maybe towards the top of it here is" }
+  - { t: 242, text: "the transformative technologies can either concentrate power or they can broaden it. And I when I look at the landscape of AI, I think my perspective" }
+  - { t: 254, text: "is it's concentrating power at this point. if you don't have access to a premier model, if you don't have access to GitHub Copilot or Anthropic's Claude code or chat GPT or" }
+  - { t: 266, text: "Codex, if you if you don't pay for that subscription on a user basis, I think you're at a very big disadvantage compared to everyone else who's using these models at at these higher-end" }
+  - { t: 276, text: "levels. , I think there's an idea of this that's very interesting. , this article is shifting what OpenAI's is either manifesto is changing" }
+  - { t: 286, text: "more towards in the products and helping people build great experience with products for products, making new products with with agents. I feel that this is also something that's really communicated very clearly" }
+  - { t: 296, text: "at Build. There was a lot of announcements between Nvidia building new graphics chips that are on computers or laptops that have 128 VRAM on these computers that are going to enable" }
+  - { t: 307, text: "larger models to run on your laptop. And I think we're squarely in the optimiz- optimization stage of agents and AI and" }
+  - { t: 317, text: "agentic experiences where more the hardware we're already hitting the tipping point where hardware is starting to change to" }
+  - { t: 327, text: "cater to what people want to use. And and maybe there's another analogy here of when we talked about Bitcoin or mining crypto, initially it was a bunch of graphics cards. They were more efficient, you would just buy a bunch of" }
+  - { t: 337, text: "graphics cards and you could mine these crypto things and get Bitcoin, ? That was the premise. then the hardware physically started to change. People built machines" }
+  - { t: 348, text: "designed only to mine the Bitcoin elements, the cryptographic signature that you're looking for there. And , hardware comes out that changes the game and allows you to have a higher" }
+  - { t: 360, text: "hash rate. , I think we're seeing the same thing again. The hardware is physically adjusting itself to compensate for models to run locally on your machine. Your thoughts around" }
+  - { t: 370, text: "this, Matthias? Do you see this as ? been thinking about" }
+  - { t: 380, text: "laptops in particular running models locally. And , what would be a practical use case for that? And what I really want is to use those kinds of models for code completion. ," }
+  - { t: 391, text: "when you're when you're in an IDE, nowadays, unless you toggle everything off, as you type, the the the the" }
+  - { t: 403, text: "local context of what you're typing is constantly being sent into the cloud for the purpose of code completion, ? Very very chatty also means your stuff is not your stuff anymore, ? It" }
+  - { t: 414, text: "goes out there and you need to have a massive trust relationship. A plus, there's a huge cost there in terms of," }
+  - { t: 426, text: "energy consumption and and and network transfers and all of that. , that's the stuff where personally I would want to have, , as a developer, I would want to have a very beefy laptop that is" }
+  - { t: 437, text: "able to do high-quality code completion completely locally, ? One for latency, two for privacy." }
+  - { t: 447, text: "I don't know if laptop is where I want to do this on, though. I have a I have a suspicion as I as I reimagine what computers are doing, I'm speaking more" }
+  - { t: 457, text: "and more to my computer. I have I'm using my microphone more and more as I talk to it. The last time we just did a an episode on Friday last week around programming with Ray Fen. And you saw me" }
+  - { t: 467, text: "attempt in real time using VS Code and the chat experience where I'm trying to talk to the agent and and just say things, let it translate the language and then get the prompt started" }
+  - { t: 477, text: "that way. I'm finding this is becoming more and more of my workload. I want to do more communication to computers using talking. I think the hardware is going to shift. I don't know if I'm buying into I don't know if I wanted to" }
+  - { t: 488, text: "run models on my laptop. I think more what I would to have is a home base. I my desktop machine seems to be the place to put these local models or" }
+  - { t: 498, text: "code completion models or things that are there that are local and I want VS Code to be smart enough to route between , , these activities need to go to Mike's desktop machine on the local" }
+  - { t: 508, text: "network, ? Just be just discover and figure out what's there. I I'm of the opinion I'd to buy hardware that I could sit on my desk" }
+  - { t: 518, text: ". and blocks, cubes of compute that I could reuse or and use over and over again. And I think I can kick myself, Matthias. I I did a bad thing." }
+  - { t: 528, text: "I really should have bought the Mac Studio 512 gigabytes of VRAM when it was available to be sold in February," }
+  - { t: 539, text: "March because I missed a window there. You can't get them anymore and that size computer with that much memory in it could pretty much run any open source premiere model you can get" }
+  - { t: 550, text: "your hands on. , even there's some really beefy ones out there, , 200 gigabytes in size. It would fit on that machine. , it wouldn't run very fast, but it would fit on the machine." }
+  - { t: 560, text: "And from some of these long-running tasks I'm not going to use this computer 24/7, but why not let an agent chew on a a task overnight and just let it do its thinking and all I'm paying for is electricity. I think there's" }
+  - { t: 572, text: "something there. I don't know if I see exactly the scenario. This was an announcement at Microsoft Build. They did announce a new computer that sits on your desktop and is that little inference box. It sits on your" }
+  - { t: 584, text: "desktop. And , Microsoft does have some hardware in this game to help you build these models and pull some of them locally down to your machine. , I I do think it's an interesting time we live in" }
+  - { t: 595, text: "because the the hardware is starting to shift to optimize inference at this point, I think. Make sure you link it to your home heating system, particularly in a winter" }
+  - { t: 605, text: "or ? Yes. [laughter] might as , ? , if I can have it write code and heat my house, I get the double sure, I'll pay for that. No no problem. one thing can make you legit money" }
+  - { t: 615, text: "and the other part of it just is saving you money and not having to buy heating costs to your house. , anyways, very interesting article or or thought there as . , that article. we have another one here" }
+  - { t: 625, text: "from Claude.com. How Anthropic enables self-service data analytics Yeah. with Claude. , . This is stepping on the toes of Fabric" }
+  - { t: 636, text: "and Power BI reporting here a little bit. , what's going on here, Matthias? What is up with this article? that's only a week old or 6 days. Only. It's ancient. It's ancient . a very very long article, very detailed." }
+  - { t: 648, text: "they're talking about their internal observations and findings as as setup when using Claude for data analytics." }
+  - { t: 661, text: "there's absolutely no way we can take apart the whole thing . There's just too much in there, but I just wanted to point out something that to Fabric users, you" }
+  - { t: 672, text: "know, would would resonate very . They're, , they're putting huge emphasis on on on human" }
+  - { t: 682, text: "maintained semantic layers here and and and and We know this. curated data sets, ? , there we go. very good. , they did certainly did not invent anything" }
+  - { t: 693, text: "completely new but can absolutely recommend everyone having a good read of this. Lots of great insights here. , it starts off by saying" }
+  - { t: 705, text: "which is something we've all known for a while, ? Data analytics is quite different from from software development . And then" }
+  - { t: 715, text: "they're going into into the specific challenges that you get when dealing with data. lots of good stuff" }
+  - { t: 725, text: "but also thinking forward a little bit strategically shows what , our current wave of AI is capable of and" }
+  - { t: 737, text: "definitely something that anyone who's in the in the analytics and BI space absolutely needs to pay attention." }
+  - { t: 747, text: "a couple observations with our article. I again, I cheated Matthias. I sent this article over to Claude and said, \"Hey, summarize this article. Tell me tell me what this thing's doing. What what what do I care about here?\" And I" }
+  - { t: 758, text: "think there's some key lessons here at the end of the article they they wrap up here that I think are very relevant to discuss from this, ? And I think I would argue with these I would agree with these sentiment key analysis pieces of this." }
+  - { t: 769, text: "One of them is giving your model or your agent raw access to, , historical SQL queries barely moved the accuracy and improve the accuracy of the output of the of the" }
+  - { t: 779, text: "agent, ? it can write SQL for you or write SQL against data tables but the bottleneck was your structure. How do" }
+  - { t: 789, text: "the tables relate? What are the relationships between the tables? And I think that's another area where when I when we look at the Power BI landscape all of our data engineering lands and" }
+  - { t: 799, text: "centralizes around the semantic model. And then from the semantic model, I think I see it's it's two narrowing effects, ? have all this data in pipelines and notebooks and lake houses" }
+  - { t: 811, text: "and all that narrows down to the single item in the core, which is the semantic model. And then on the other side, it expands . And this is a good area where I'm going to I'm going to add Ray Fen is part of this" }
+  - { t: 821, text: "expansion on the other side, which is we have reports, paginated reports. We have apps in Fabric with which with Ray Fen. And if you look on the" }
+  - { t: 831, text: "other side of the spectrum, , we have agents. we have an agent or a data agent that can be attached to this. These output items are" }
+  - { t: 843, text: "easily consumed, efficient to run, with maybe the exception of the data agent, but you use agents to build these output experiences. But everything everything hangs on a good," }
+  - { t: 854, text: "-designed semantic model. Can Can the agent and can the person understand what's inside the semantic model? I think that's really relevant here. they also said skills docs must be" }
+  - { t: 864, text: "collated with the data model they stay in sync. and then without any collation between the skills and the model, you start losing data" }
+  - { t: 874, text: "accuracy and accuracy drifted substantially when when not keeping skills about the model up to date. another thing Yeah, that's something I wanted to point out as . It really really resonated" }
+  - { t: 884, text: "with me and it's something I've been trying to mention and and reference a lot over the last weeks we've been doing this podcast, ? really really important" }
+  - { t: 895, text: "insights they're saying keep your skills up to date, , don't don't just consider them" }
+  - { t: 906, text: "Don't consider skill creation a one-off exercise, , those are those are not static artifacts. They They need to evolve not only with your project, but" }
+  - { t: 917, text: "also with your workflow with your with your engineering practices, all if anything, use a skill that you get from someone else as a starting point rather than as the final" }
+  - { t: 933, text: "immutable version. I would agree with that one as . the auto-generated metrics definitions" }
+  - { t: 943, text: ". using large language models was net negative. , just throwing a pile of calculations at an S semantic model and say, \"Go figure it out.\" not useful. I would also argue I have" }
+  - { t: 954, text: "found the same. It will just make up a bunch of random stuff, and the metrics that it's trying to calculate or measures that it's trying to build, you might get some value, you might not get some value. However," }
+  - { t: 966, text: "what I think the other observation here is humans must own the definition of the metric. Yeah. And Claude can draft the documentation" }
+  - { t: 976, text: "and or the calculation based on what you say. . I think the the real value here is metrics are important. . It just needs to be more human interaction and the the definition of" }
+  - { t: 987, text: "what you're physically looking for inside these data sets. And I I again I go back to this makes a ton of sense to me. , this is where we should be pushing into this and letting, , where the the human part of this, the human aspect" }
+  - { t: 998, text: "shows up and adds value. We should own the the metrics definitions. We should define what they mean, how they relate to things. let the agent describe what DAX was written, what SQL was" }
+  - { t: 1009, text: "written. Explain why this is here. That makes much better sense cuz you've in incorporated the the business logic into that calculation, which I think was a very good observation." }
+  - { t: 1021, text: "And I think I would say oh, an adversarial review. whenever you come up with some metrics or some data or some" }
+  - { t: 1031, text: "information, if you say, , \"Counter my argument. Add some adversarial views to this.\" it only added 6% more accuracy to your queries or the data analytics, but" }
+  - { t: 1041, text: "added 32% more cost and tokens. , it slowed things down and cost you more money. , maybe that would be useful in certain cases, but you use that sparingly. , anyway, an" }
+  - { t: 1051, text: "interesting article, what they came out with. A lot of things in here I agreed with. . Absolutely. And, , as a segue into Raven, which I" }
+  - { t: 1061, text: "know you want to get to, , and we didn't discuss it beforehand, but I just remembered yesterday they announced, , Power BI report a building skills." }
+  - { t: 1073, text: "Yes. sorry. I'm I'm going to add the link here. I believe it is. And this is again, this is this is a big one where we should probably do a dedicated episode." }
+  - { t: 1084, text: "I 100% agree. It's not the whole series, but, , we've got the article here and what's interesting is, , they're not just shipping markdown files" }
+  - { t: 1096, text: "in terms of skills, they're also shipping, , corresponding CLI apps, that those skills use and reference." }
+  - { t: 1106, text: "it's a very, very good best practice, , , bundle, , whenever you can, your business logic into actual" }
+  - { t: 1117, text: "software, into into tools, into deterministic code as opposed to leaving it open to interpretation. And the skill is then merely there to make your model" }
+  - { t: 1128, text: "aware of those capabilities as opposed to , trying to let the model infer all sorts of, , technical, , avenues. , I" }
+  - { t: 1138, text: "really, really that. And we have lots of exploring to do here. The only thing I would maybe make a note here around the Microsoft skills that I found was interesting was most of the skills that I'm seeing come from" }
+  - { t: 1149, text: "Microsoft. There is a lot of documentation around the MD files themselves. There's a lot of MD creation of things. Really good, very robust, has a lot of" }
+  - { t: 1159, text: "description to a lot of different things. But, as I look at this from an outsider, it feels these these skills were made by a team that has no limits on tokens." }
+  - { t: 1169, text: "when I look at , the descriptions are very verbose. There's , of of the skills there's an assets folder" }
+  - { t: 1179, text: "and in reference folder as . They're using these folders, but inside the reference folder there's just a bunch of other markdown files with lots more information about skills. , you know, part of what I look at this" }
+  - { t: 1190, text: "process I go look, if we're trying to build regularly, , reusable pieces or contents or elements inside the skills area," }
+  - { t: 1200, text: "does it make sense for me to build a bunch of markdown to describe what I want you to do or make a script or a Python script that just does what I want you to do. And and" }
+  - { t: 1211, text: "make it more of a a deterministic, this is my input, this is my output, have the agent build that script and then reuse that script and just describe, \"Hey, when I'm building a" }
+  - { t: 1221, text: "visual, I give it this this this and this input and then the script just makes the code and has it happen, ? , instead of describing to the agent all the nuances" }
+  - { t: 1231, text: "and intricacies of making a visual on a page, maybe instead we should describe more about functions and and features and scripts that we use to build the" }
+  - { t: 1241, text: "items that we want. That way we get a really [clears throat] consistent output of of what you're building with code. that's the one area I would maybe pick on these skills is it doesn't feel" }
+  - { t: 1251, text: "there's enough scripting to aid the skill. It feels it's just a bunch of markdown and descriptions, which could be really expensive when you use tokens. What you really want is some" }
+  - { t: 1263, text: "foundational LEGO blocks that you provide and teach your model how to how to combine them given a real request, given" }
+  - { t: 1273, text: "a real use case, ? That That would be the ultimate architecture we're looking for here. I think I think this this is a great starting point for a lot of these skills pieces. I think there's needs to" }
+  - { t: 1283, text: "be more work around the task and the the scripting side of things that I think will aid and make this a bit even more useful for us moving forward." }
+  - { t: 1293, text: "Anyways, overall I where this is going. This is a very exciting. these skills , , Rayfin is is back end as a service, , ? Use your semantic model, use your lakehouse," }
+  - { t: 1304, text: "use your SQL database. That's going to help with the security between an app side, front end, and the back end, which is Fabric. I've been building Fabric back ends since January, as soon as I" }
+  - { t: 1315, text: "started getting my hands on agents. I absolutely love it. Fabric as a back end is an awesome idea. And Rayfin just makes this even easier for us to build better back ends with" }
+  - { t: 1325, text: "all of our existing data. And , with this, because of Rayfin is powerful, I'm rethinking a lot of my organization, my company, and rebuilding paid software that I used to" }
+  - { t: 1335, text: "be paying for. I'm deleting it. I'm rebuilding it. I'm I'm I'm rebuilding our time card app. I'm getting rid of Azure DevOps and and moving into other tracking experiences" }
+  - { t: 1345, text: "for what we do and how we work on projects. , I'm actively rethinking my company by making the software that we would need, and thinking, \"Great. all that data can exist directly" }
+  - { t: 1356, text: "inside Fabric through the Rayfin app.\" , that's an area that I'm really excited to see move forward. I'm going to try to This is my second talk on Rayfin this in since it came out," }
+  - { t: 1366, text: "since Build. I'm going to try and do a lot more demos. I'm hopefully going to get something this afternoon, as . We'll We'll see if I can get my schedule to align with that, but I'd love to do another demo of just starting to use" }
+  - { t: 1375, text: "some templates, and showing people how to build with templates from Rayfin, and getting that started to get your journey beginning around the Rafe inside. What are your thoughts, Matthias? What do you think? Is Is Rafe in as" }
+  - { t: 1386, text: "revolutionary? I'm very pro and positive on this. Is this as revolutionary as I say it is, or am I missing something? I'm still" }
+  - { t: 1397, text: "observing. Let's put it that way. . I I still have a degree of skepticism here, but I'm , one thing that's definitely" }
+  - { t: 1410, text: "indisputable is that there is huge excitement and and a lot of noise around this" }
+  - { t: 1420, text: "in , in in in the community and and on social media. lots of people definitely enjoy this, certainly from a technical point of" }
+  - { t: 1431, text: "view. , my my if you want to call it skepticism at this point, is is around what does that look within an" }
+  - { t: 1442, text: "enterprise, ? Which obviously are the vast majority That's the vast majority of of customers in in in the fabric space, ? What" }
+  - { t: 1454, text: "what is the uptake going to be there if at all if if at all given, , the the enterprises I" }
+  - { t: 1465, text: "know about from the inside, , who would be traditional fabric customers, I'm having some trouble, imagining that" }
+  - { t: 1477, text: "those kinds of departments and organizations would would jump on this but let's see. I'm definitely ," }
+  - { t: 1489, text: "from a technical point of view, as a technologist, , I really love that, ? And it's very executed from what I've seen far. particularly given that it's only just" }
+  - { t: 1500, text: "been released, ? It's It if if if that matures further, it it's going to go quite far as a technology piece. I'm just" }
+  - { t: 1510, text: "very curious around the actual business impact. Yeah. I'm less worried about the business impact . I think this is very revolutionary. And again, I I" }
+  - { t: 1521, text: "keep saying it, Raven is the best feature that we've gotten since the release of Power BI desktop. This is This is really going to un- unlock people here. One of the partnerships that I saw at the conference at Build, which I do want to touch on" }
+  - { t: 1531, text: "here, is I put another article out here in the chat. Replit has made a blog around the partnership between Replit and Microsoft Fabric as a Fabric as a back end. , I" }
+  - { t: 1542, text: "went over it , after the conf- after the main, , Satya's up there talking about it, I saw a demo. Also, they used GitHub Copilot app to help build the agent. And there was a feature" }
+  - { t: 1552, text: "they showed there that I absolutely loved, thought it was cool. When you build the app and had it run Raven, the Raven project locally as you're developing with the GitHub Copilot app, there was an" }
+  - { t: 1564, text: "I don't know have I don't know the name of the feature exactly, but it was edit this or or comment about this. And the app was on the page, and it was allowing you to highlight the different divs or locations of elements on the page, and" }
+  - { t: 1575, text: "you could comment directly on that element and say, \"Change this item.\" One of the really big challenges with agentic development and front end is the agent has a hard time seeing exactly" }
+  - { t: 1585, text: "what the front end looks . It's either taking images and then having to look at the images and figure out what's in there, but I can see it. It's rendered for me in the page, and I want to be able to comment on" }
+  - { t: 1595, text: "individual items. In the past, I've used a product that's open source that works for you can go get it today. It's called agentation, agent and annotation, two words stuck together." }
+  - { t: 1607, text: "agent- agentation.com, and And a skills library you can add to your project and it lets you do the exact same thing. You can go to your website, you can publish the the local" }
+  - { t: 1618, text: "host version of it, run the app, you can click directly on the elements and comment in them. Hey, I don't this color. This is too long. Change this formatting. Move to the left, move to" }
+  - { t: 1628, text: "the . Delete this. Really good and you can add many, many comments in the same session and then those become almost tasks or issues that you hand back" }
+  - { t: 1639, text: "to the agent in code and it knows exactly where to find them, it knows how to fix them and it adds a huge amount of reliability. That was the exact same feature we saw in VS Code" }
+  - { t: 1649, text: "app. , that feature alone was awesome. Back to Replit, ? , very briefly did they announce, \"Hey, there's an integration coming between Replit and" }
+  - { t: 1661, text: "Fabric as a backend.\" this I can really get behind cuz I think Replit is more built for that app creator experience. It's almost the Power Automate audience." }
+  - { t: 1672, text: "But, , I can be somewhat technical, I can describe what I want to build, but I don't have to be a developer, ? , it you don't have to be really technical to" }
+  - { t: 1682, text: "make that happen. , I'm very excited about this integration. I think the Replit and Rayfen integration is going to be massive for Power BI and Fabric and this is" }
+  - { t: 1692, text: "going to bring the heavier developer experience into that any user of the business who has" }
+  - { t: 1703, text: "an idea to build something. , the way Power Apps did for users, it's it was semi-code or light code where, , low-code versions of that. It's not going to be agent code," }
+  - { t: 1714, text: "? It's just talk to your agent, get it to build things, use Replit as the backend and they showed me how easy it was to get a semantic model into the application. One-line prompt, add this semantic" }
+  - { t: 1725, text: "model, I want to get data about this, this, and this. Here's the URL. Boom. It was working. And they were working on making it easy to publish as , where you are done with the Replit app, you" }
+  - { t: 1735, text: "say publish to Microsoft Fabric, it bundles everything, and sticks it in Fabric, and the app the app item is done. , that's the level of I think clarity that we need for this to be" }
+  - { t: 1747, text: "widely adopted, , I'm I'm doubling down more on , , Replit, I what you're doing. . Microsoft Fabric Raven as a back end," }
+  - { t: 1757, text: "definitely digging it. , these two ideas coming together, it's still kind of unformed, you got to see where this is going to shake out, but I think these the combination of these two is going to be really ultimately very powerful for" }
+  - { t: 1768, text: "users. does it support custom domains yet? It does not. , there's a lot of miss- there's not not missing features, but I think there's things that are on the" }
+  - { t: 1778, text: "backlog that need to get there, ? the way I read that the application the documentation today, when you publish the app, you get a app in the workspace, and this is what we did on Friday. There's a a specific URL, it has" }
+  - { t: 1790, text: "this , , Michael's yellow sand, and then some URL random [clears throat] domain, and you get this URL. , that URL will work. you could use that in an embedded application, you can put it it's just a" }
+  - { t: 1801, text: "URL, you can put anywhere in an iframe, whatever you want. , very flexible from that standpoint. but there is no features inside Fabric to say, look, I'm going to register a custom domain" }
+  - { t: 1812, text: "directly to this. that would make sense, cuz then you could fully build, agenticthinking.show as a Raven app, and have it as the the actual app. Speaking of" }
+  - { t: 1823, text: "which, shameless plug, if you want to go watch our videos and see our transcripts, and go search for our text, you can go visit agenticthinking.show . that is an app that we've built on an SWA, static web app in Azure, and" }
+  - { t: 1836, text: "that has all been built by agents. Agents built the whole thing. if you You to go see how we're using agents to build. Will that become a Ray Fen app? What do you think? I I what? I think it" }
+  - { t: 1846, text: "makes sense to do a Ray Fen app of this. that , host things, put it there. , the things that I don't think Fabric is doing very on is the transcription side" }
+  - { t: 1856, text: "of things. How do I get transcriptions of stuff built down and and pulled down as ? , that's an area that I'm a little bit more gray on at this point. Today, Ray Fen" }
+  - { t: 1866, text: "only compiles down to HTML, CSS, and a JavaScript file. . again, there's a lot of limitation there and there's there's technically no custom back end. , Matthias, we build" }
+  - { t: 1877, text: "in apps and things, we need a front end side and we need a back end side. The back end side holds all your secrets and securities and keys. , if you're building the app, anything you" }
+  - { t: 1887, text: "build with an API call that doesn't directly talk to semantic models or Fabric data sets, , semantic model, SQL database, or a lake house," }
+  - { t: 1898, text: "you have to put an app registration and secrets in there and those are getting embedded in the JavaScript somewhere. , , we don't really have the ability to do apps in a" }
+  - { t: 1908, text: "back end and functions. It would make sense though to go use the user data functions from Fabric. , we already have functions that are in Fabric today" }
+  - { t: 1919, text: "that likely would make sense to add to Ray Fen. , I see there's a lot of pieces I can see coming together that makes sense to fit part of the puzzle. We are in early" }
+  - { t: 1930, text: "private pre public preview, it's out. You can go install it . I just turned it on in my tenant. that you can go use it today. There is limited regions . They're rolling out to more regions as" }
+  - { t: 1940, text: "they go. , it may not be available in your region currently, but stay tuned. It will be rolling out to all regions here as fast as possible. Anyways, what what I'm" }
+  - { t: 1951, text: "expecting and I think what's what's the next natural thing here will be let's say scoped build experiences on" }
+  - { t: 1961, text: "top of Rayfen, ? I I see Rayfen more as as a as a foundational technology. Yep. where ISVs or could provide" }
+  - { t: 1976, text: "methods for let's say internal analytics departments to to build app experiences without having to go all the" }
+  - { t: 1986, text: "way down to , the whole V NPM React stack, ? build something that is more abstracted" }
+  - { t: 1998, text: "and then it will make a lot of sense, ? this is interesting, Matthias. I want to unpack this one with you. I this idea of ISVs building customized experiences on top of fabric data and" }
+  - { t: 2009, text: "assets, ? I'm already in my mind thinking I hate the table experience in Power BI. Period. any Power BI table experience that I've been getting is just junk. It needs to be updated badly." }
+  - { t: 2021, text: "[laughter] I really want to rethink I know we need to get data and tables out of our models and semantics and and lake houses and and SQL databases." }
+  - { t: 2031, text: "How would I reimagine that? What would Michael want to build, ? And Rayfen to me opens this up. I don't have any limitations on what table I want to build, , paging," }
+  - { t: 2041, text: "parsing. How how do I go through the data? And I think there's a really great opportunity here for the ISVs, developers, to build an experience" }
+  - { t: 2051, text: "that they want to use. Highly flexible. The downside of this is how do you monetize this? if a Rayfen app is a published get repo and you can build" }
+  - { t: 2062, text: "whatever you want, what does that monetization pattern look ? How do you distribute that idea and get people to pay for the app thing" }
+  - { t: 2072, text: "that you built and get it pulled into fabric. And , I'm not sure Microsoft understands the monetization pattern for ISVs to monetize [clears throat] on these things. It's the same problem we" }
+  - { t: 2082, text: "had with visuals. Microsoft never had a good story there. , I'm of the opinion that Rayfin has to be the projects of Rayfin" }
+  - { t: 2092, text: "are going to be have to be given away for free or almost next to free. there there's going to be no barrier to to create things. and if you come" }
+  - { t: 2103, text: "up with a great idea in a Rayfin app, I just need to see it and I can go to my agent and say, \"Screenshot, screenshot, screenshot. Build me something this and here's what I want it to do and add this new feature.\" there's almost" }
+  - { t: 2114, text: "no barrier to what people can create in this or what people can copy from other people in this experience. , how do you monetize this? That's the trick here. we at Carlos Solutions are" }
+  - { t: 2126, text: "thinking that this is a community-based project. We have a thing called collections. It's a workload item. , if you go into fabric and go install our Power Designer" }
+  - { t: 2136, text: "application, we have this thing called collections and we're actively looking on trying to build out a Rayfin gallery of all the Rayfin templates and projects that are there for free that anyone can" }
+  - { t: 2147, text: "go download and use. I think that makes a lot of sense. Where this might slightly change is , what if I'm an enterprise and I need to deploy a" }
+  - { t: 2157, text: "template Rayfin app over and over again for my team. we build it, we we put it somewhere and we want it to be a one-button press deploy for other" }
+  - { t: 2167, text: "organizations and I think that's another area that would be monetizable from \"Hey, we want to build a enterprise library or collection around these Rayfin type projects or apps.\" , I" }
+  - { t: 2178, text: "think that's where the money's going to live and we're putting our eggs in that basket and trying to make tooling available to enterprise to create templates of Rayfins and then" }
+  - { t: 2188, text: "deploy them across your organization as useful products in different workspaces. I think that's where the real value comes from. Let's see. No one knows, ?" }
+  - { t: 2198, text: "It's good We're making it up as we go at this point. we are about at time here. We have hit the top of the hour. , any final thoughts, Matthias, around this week's" }
+  - { t: 2208, text: "news, around Build, Open AI, large language models we didn't touch on, which we should have probably touched on. Yeah. GitHub Copilot is the next thing." }
+  - { t: 2218, text: "[laughter] Do you want to do that quickly? Yeah, we probably should touch on that one briefly and then call it a day. . how has your usage been going, Matthias? We had last week was July 1st." }
+  - { t: 2228, text: "All AI credits in GitHub Copilot. Are you still using GitHub Copilot? Are you moving to something else? What are you doing ? very interesting , I really dreaded June 1st, ? I was I was" }
+  - { t: 2239, text: "[laughter] counting the minutes and was really trying to squeeze everything I could until the until midnight on 31st of May." }
+  - { t: 2252, text: "I've been Initially, certainly last week, I've completely stopped using Copilot at all. Wow. And then over the weekend, I realized," }
+  - { t: 2264, text: "I I have credits there, ? , let's let's run some work on Copilot and see what that translates into. And I have to" }
+  - { t: 2275, text: "say, it was quite a positive surprise. Oh, good. Because , I I I ran three sessions, which which were quite beefy" }
+  - { t: 2286, text: "and and also very representative of the stuff that I've Copilot have always asked to do for me, ? Yeah. I I I normally don't throw" }
+  - { t: 2297, text: "top-tier coding tasks at Copilot. and far I've used 6.3% of my monthly allowance, which means there's" }
+  - { t: 2308, text: "there's there's a lot of of of of credits though. , it looks it's not quite as bad" }
+  - { t: 2319, text: "as it could have been and at least for my personal usage patterns, it may very massively for other people. It looks I'm still getting a lot of mileage out of it and I I will gradually" }
+  - { t: 2331, text: "go back and and throw , tasks back at Copilot that I had redirected elsewhere in the meantime. What about you though?" }
+  - { t: 2341, text: "my whole company has been running we we made a position [clears throat] let's dance around GitHub Copilot. We've been using the premium request for a while. It's been week one. We have a number of" }
+  - { t: 2351, text: "AI credits. We've burned through pretty much all the the enterprise credits that we get for our company all in one shot. , I I've got to rethink about how this works in the enterprise" }
+  - { t: 2362, text: "space. We're doubling down on it, but I'm more inclined to look at other , models and other agents and other places. ," }
+  - { t: 2373, text: "there's and Matias this probably you're your prompting and what you build is probably more efficient than the the average user, honestly, to be clear. you are very efficient. You have" }
+  - { t: 2384, text: "been very metered. You also had a brilliant mode where you were talking about to me you you you watched the sessions. how many tokens were used. You have analytics against sessions and things, ? , in" }
+  - { t: 2395, text: "order for you to correctly evaluate does Copilot handle things better or worse than GPT or Codex or Anthropic or or open open claw or sorry claw code" }
+  - { t: 2407, text: "you don't know unless you've collected metrics on these things. . the fact that you have had substantial time collecting metrics and building things and pulling this stuff together, you can do a more fair" }
+  - { t: 2417, text: "evaluation, not just looking at did I run out of tokens, but does my workload representation match what the code and the tokens are doing across different platforms." }
+  - { t: 2427, text: ". we're going to continue moving on it, but we're I'm actively tasking my lead engineers, let's figure out a better way to run" }
+  - { t: 2438, text: "models. . Are we prompting egregiously? Are we prompting efficiently? Are we doing better planning? , there's a bit more learning and lessons that we're applying to our team to make sure that" }
+  - { t: 2448, text: "we're using not just models as much as we can, but using them in an efficient way. and I also think there's this concept of a mix of models and harnesses" }
+  - { t: 2458, text: "that should probably be leveraged here as . , , if I get a certain amount of token usage out of GitHub Copilot, maybe I should go buy the team" }
+  - { t: 2468, text: "Claude Code licenses and then kick over to that for a little bit. Or is there a specific task planning and billing issues? Should that come from Claude Code and then I go give, you" }
+  - { t: 2481, text: "know, remedial tasks broken out to GitHub Copilot or Codex or you were just telling me a couple models you're finding some great success" }
+  - { t: 2491, text: "with is 5.4 mini. Very cheap to run. If you give it really really detailed instructions, it can produce pretty decent code. . I think we're in this game . I'm" }
+  - { t: 2501, text: "looking at DeepSeek version 4, running that on Azure Foundry. I'm doing a lot more exploration on where we need the model, the" }
+  - { t: 2512, text: "harness, on the task. . And and don't Sorry, don't don't forget reasoning level. That is huge. ? , you've got those three main categories, model, reasoning level, and" }
+  - { t: 2522, text: "harness as . Yes. this is we have unlimited knobs at this point, ? Which harness, which reasoning level, which" }
+  - { t: 2532, text: "model, ? There's not a really good paper or system that says, \"Look, I just have this task I want to get" }
+  - { t: 2543, text: "done. I I want to communicate in features and apps. That's what I want to communicate in.\" I could honestly care less about which harness, which model. I just want the task done. I don't care." }
+  - { t: 2554, text: "where is the model router? Where is the harness router? Where is the reasoning router that gets me the best performance out of what I want" }
+  - { t: 2565, text: "and how to achieve that goal. , that's where I'm my mental model is going, Matias. It's I feel I need things in that space that is going to aid me in help me building out that structure cuz" }
+  - { t: 2576, text: "I don't honestly at the end of the day, I could care less. I do not care. I want those tokens. I want that feature done for a reasonable price and cost. That's what we're going after." }
+  - { t: 2586, text: "And , I think we are entering, my opinion, we're entering the optimization phase of agents. How do we optimize them ?" }
+  - { t: 2597, text: "And there's a that that is the new No longer am I going to write code. [laughter] That's just done on my task list. What I'm going to spend all my time" }
+  - { t: 2607, text: "working about is how can I get old code written faster with agents that are building this stuff agentically and looping through things and making things happen quicker for me, ? , it's" }
+  - { t: 2618, text: "optimization, rebalancing. That's the new game that I'm going to be playing with our agents. What do you think? Is this I think you're I think you're on board with this one. Yeah, yeah, totally. And there's a" }
+  - { t: 2629, text: "massive gap there, ? We we need much better tooling and and ability to draw insights, , for those , ," }
+  - { t: 2639, text: "multi-agent experiences, , that we've all ended up with. Very prone This is very manual, difficult, tedious." }
+  - { t: 2650, text: "for instance, what do you what do you what do you were saying earlier around how do you find out whether you're using the best possible model for the task, ?" }
+  - { t: 2660, text: "You even if you even even if you collect abundant data around your sessions, there's no way for you to know whether the tokens" }
+  - { t: 2672, text: "you've used with that particular model whether or not they were used , ? All is how many tokens there were. the the only" }
+  - { t: 2683, text: "empirical way for you to find out is to identify the complexity of the task and then to run it with the smallest possible model, you" }
+  - { t: 2694, text: "know, you've got access to and then to gradually move up the ladder in terms of model cost, if you will," }
+  - { t: 2705, text: "until you get to a point where you get reasonable results back, ? That's the only way you can get there. You will if you obviously you can run everything with Opus 48 and GPT 55," }
+  - { t: 2718, text: "but the real question is how do I get similar results by using GPT mini for instance, ?" }
+  - { t: 2728, text: "And unfortunately, that is can only be done through experimentation, but it's absolutely worth it. Someone's got to do some of this experimentation and start making some" }
+  - { t: 2738, text: "rules around this because again, I don't I don't want to spend the tokens or the time to make all this go on my own end. I want someone else to figure this out for me and I want to use the software or" }
+  - { t: 2745, text: "the hardware to do this or and or, ? We're going to be doing work. I'm going to be experimenting with new things. New stuff's coming out every week. How do I capture that and use general heuristics of what I've already" }
+  - { t: 2756, text: "been doing to inform future tasks? And how do how this is there's another whole, , agent heuristics issue that's going on here that I'm building things with me, my" }
+  - { t: 2766, text: "other engineers are are building things with them, the amount of tokens and and data we're generating from using agents to help us build stuff, there should be enough there to harvest out what is a good pattern and what pattern we should" }
+  - { t: 2776, text: "be using. And that should be inform our tooling to pick and use different sub agents, different models to get different tasks that are done. there's there's a" }
+  - { t: 2786, text: "very generalizable problem here that should be solved. I I just don't have my hands around what that solution should look . starts with collecting data, ? We we're the data people, we should we" }
+  - { t: 2796, text: "should know that. for months I've been meticulously collecting every single one of my coding agent sessions, no matter which" }
+  - { t: 2806, text: "agent I've been using, and I've got them all stored in a central location. And if if I don't correlate that with the" }
+  - { t: 2817, text: "with with the commits and PRs and the tasks, , I I can use that data to rerun those exact same tasks using, , other model" }
+  - { t: 2829, text: "combinations for instance, in in order to figure out , could could I could I downgrade all my coding agent model across the board," }
+  - { t: 2840, text: "for a 50% saving for instance, ? That would be a very worthwhile experiment. But key is you need to have that data to start with. And I think and" }
+  - { t: 2850, text: "also very important cloud code users for instance, I think the default retention is something 30 or 60 days on your machine," }
+  - { t: 2861, text: "which means one, first of all, it sits on your machine in your user profile, might get wiped in any case. Secondly, after 30 days, I believe that's the default, it gets" }
+  - { t: 2871, text: "wiped automatically. unless you have awareness of this and unless you change the defaults and you create backups, you're going to lose all that very very" }
+  - { t: 2881, text: "valuable data. And I think that's that's the new again oil we're going to be we're going to be dealing here is how to get that information out, where to put it. Maybe that would be a great place to put in" }
+  - { t: 2892, text: "Fabric and Rayfen. Maybe that would be a good place to centralize a lot of this from all your team members. a lake house, ? It should it should sit in a lake house and we should then be able to run analytics across it. this is what" }
+  - { t: 2900, text: "we do. maybe maybe there's going to be a new Rayfen project between Matias and I where we go harvest these details for our for our team and maybe we should build something that. maybe that'll be one of our Rayfen projects that we produce for the community is to" }
+  - { t: 2911, text: "help people get their heads around what agentic tasks are they doing, what work is being done. Anyways, really good discussion today Matias. Thank you much. I really enjoy these conversations weekly. It's fun to talk" }
+  - { t: 2923, text: "to someone else who's into the weeds with all the AI and agentic space. We really appreciate we hope people listening to the podcast. We hope you've been enjoying it. We hope you what we're we're picking up here, what we're" }
+  - { t: 2933, text: "looking at, what we're talking about. And we're going to continue to explain and share the knowledge and information that we're building and learning through this agentic space." }
+  - { t: 2944, text: "Matias, thank you much. We'll see you all next time one. Yeah, bye. on the next agentic thinking show. Talk to you later." }
+
+---
+
+## Summary
+
+Michael and Matthias run a wide-ranging news episode covering OpenAI’s strategy update, Build announcements, and what they see as the shift from model novelty to practical optimization. They connect that trend to real engineering tradeoffs: local inference for privacy and latency, token economics, and choosing the right model/harness/reasoning level for each task. The discussion also revisits Rayfin as a Fabric backend pattern, including current limitations (for example, custom domains and backend extensibility) and emerging opportunities for ISV templates and enterprise reuse. They close by stressing that teams need to capture session telemetry and outcomes if they want to systematically improve agent performance and cost.
+
+## Key Takeaways
+
+- ▸ The hosts describe the current moment as an optimization phase: the hard problem is no longer access to models, but routing tasks to the most efficient model stack.
+- ▸ For analytics workflows, they stress keeping semantic models and skill docs in sync, because stale skill context can cause accuracy drift.
+- ▸ They argue metric definitions should stay human-owned, with agents assisting on documentation and implementation rather than inventing business logic.
+- ▸ Rayfin is treated as foundational Fabric backend infrastructure for app experiences, but still has preview-stage constraints around domains and backend patterns.
+- ▸ Sustainable agent operations require data: collect session history, correlate with commits/tasks, and use experiments to tune cost versus quality over time.
+
+## Links
+
+- ▸ [openai.com](https://openai.com/index/built-to-benefit-everyone-our-plan/?utm_source=agentic_thinking&utm_medium=website&utm_campaign=20260610)
+- ▸ [claude.com](https://claude.com/blog/how-anthropic-enables-self-service-data-analytics-with-claude?utm_source=agentic_thinking&utm_medium=website&utm_campaign=20260610)
+- ▸ [microsoft.com](https://www.microsoft.com/en-us/microsoft-fabric/features/rayfin?utm_source=agentic_thinking&utm_medium=website&utm_campaign=20260610)

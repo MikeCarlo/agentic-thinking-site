@@ -1,0 +1,219 @@
+---
+title: "Skills and Agent Automation - 015 Agentic Thinking"
+episodeNumber: 15
+date: "2026-05-27"
+youtubeId: "8Txqcz2W5KQ"
+duration: "33:06"
+blurb: "Links"
+tags: ["agentic thinking", "youtube"]
+chapters:
+  - { t: 0, label: "intro" }
+  - { t: 397, label: "context" }
+  - { t: 794, label: "problem framing" }
+  - { t: 1191, label: "working session" }
+  - { t: 1588, label: "practical takeaways" }
+  - { t: 1926, label: "closing thoughts" }
+transcript:
+  - { t: 15, text: "Hello everyone and welcome back to the Agentic Thinking podcast with Mike and Matthias. We're jumping back in. Matthias, you were gone for a week, welcome back. I'm glad you get made it back safely and you're . You are in the hottest week" }
+  - { t: 25, text: "ever where you live out in the UK. Absolutely. Yes, hopefully [laughter] I don't show, but it's pretty pretty wild here. Insane heatwave," }
+  - { t: 38, text: "which is it's a bit boring talking to about the weather too much, but just 2 weeks ago we we had our heating on and we don't know how to cool down." }
+  - { t: 48, text: "Yeah, [laughter] it's wild. Bad time to have a data center in the UK . You're going to have a hard time keeping those suckers cool. Indeed. Very true. But yeah, I've taken a break" }
+  - { t: 61, text: "last week, still catching up with everything. What's new in AI world from your point of view? Yeah, let's let's get into some news. we're going to talk about just some general things. I think" }
+  - { t: 72, text: "I want to talk a couple areas around, skills, some agent automation. Matthias, you've been running a monolithic session with some agents here recently. I want to definitely unpack what you're" }
+  - { t: 83, text: "doing and what you're discovering and how you're finding things. I'm finding a couple things inside the semantic model space that I'm I would to bring up as . in general," }
+  - { t: 94, text: "let's talk let's maybe start with your news, Matthias. You you were gone for the week, but you didn't really stop working and Or did I? agents or agents" }
+  - { t: 104, text: "or did you? I don't know. Tell us the story here. What's going on? What what were you doing while you were traveling? . . yes, I'm super excited about this. This this is a" }
+  - { t: 115, text: "dream that's come true after months and months of heavy intense work to get to that point. , I've I've just been" }
+  - { t: 125, text: "away on vacation, and it's been a vacation, but I've also come back to having produced some really really substantial piece of software through" }
+  - { t: 136, text: "agents. much that one I've had probably the longest ever running" }
+  - { t: 148, text: "agent session. it was live and ongoing throughout 10 days, the entire time I was gone. Sure. and I just reviewed it on from my phone" }
+  - { t: 161, text: "occasionally and pretty much gave it a daily steer, you know, some inputs. Sometimes I had to tell it off a little bit, but [laughter]" }
+  - { t: 172, text: "I've had a couple of those days, too. the agent was insane. I pretty much gave it an initial prompt," }
+  - { t: 183, text: "and the agent effectively built an agentic orchestration platform in a in an extreme" }
+  - { t: 196, text: "dogfooding way. Yes. the the the agent was tasked to to build this agentic platform and then to use whatever it's built to make" }
+  - { t: 206, text: "its its next respective iteration Wow. better and more productive. And that worked very very . It's It's almost to the point where it you" }
+  - { t: 216, text: "know, it was very self-reflective in the sense that it found Hm. on its own" }
+  - { t: 226, text: "gaps and potential to improvement. Yeah. And and it it then actively research those gaps, inspect them, and and dispatch" }
+  - { t: 238, text: "them to workers to fix them. , whilst I produced an original prompt with my vision, Sure. and whilst I gave" }
+  - { t: 248, text: "a daily steer, , with my thoughts and sometimes my , very specific directives, Yeah." }
+  - { t: 258, text: "the agent ended up creating substantially more than I could ever have dreamed of. Wow. Just by having real-world experience with what it's to use this particular" }
+  - { t: 269, text: "platform to drive its objectives. And it's created stuff that I definitely never thought we would have, certainly not after 10 days. It's" }
+  - { t: 281, text: "created little tools and and CLI commands and all of that that I wouldn't even have dared to dream of cuz I I would have" }
+  - { t: 291, text: "considered them scope creep, but it's done it. and the the because I" }
+  - { t: 301, text: "very very explicitly prompted the agent to not do any work themselves, to delegate all substantial work to other agents, I was getting" }
+  - { t: 313, text: "along, , with a single session and staying within a million token context window. very very happy, but also there" }
+  - { t: 324, text: "is much to unpack still. One for me in terms of fully understanding what this thing is capable of. And secondly, I want to share this, and" }
+  - { t: 334, text: "I want to talk about it, and I want to do demos. , yes, I I I did I did a little post earlier today, but there's more coming." }
+  - { t: 344, text: "let's go through some of the stats that you gave out in the post, cuz I think these are very phenomenal. And And again, I want to I want to give this context of these" }
+  - { t: 354, text: "Matthias, you're pushing on the edges, the very fringe of what can be produced with this. And I I don't I don't want to say this is maybe not our maybe not necessarily our North Star, but this is" }
+  - { t: 365, text: "a really important milestone of understanding. We have to be able to communicate why an agent, what is the good value that it adds here. , I think what you're exploring is" }
+  - { t: 375, text: "really pushing on the edges of what's possible and how it gets done. , let me let me go through the numbers here. The numbers, you said in your post here, and the post is also in the chat in case you wanted" }
+  - { t: 385, text: "to know about that as . 297 pull requests, incredible. 73 releases being shipped, going from version 2.1 up to 4.52, it's just" }
+  - { t: 397, text: "cranking out stuff, awesome. 160,000 lines of TypeScript created. you had some testing here. 85 to" }
+  - { t: 407, text: "86 ratio of test code to production code, test code coverage very high. And then a total of 900, this is insane," }
+  - { t: 417, text: "963 GitHub issues and pull requests in just 10 days. And again, the part of this that boggles my mind," }
+  - { t: 427, text: "these are impressive stats. A team of developers would need to be leveraging this to get this much work done in 10 days. In addition to this, you're on your phone" }
+  - { t: 438, text: "with what platform? What How are you talking back to the agents? what's what's the medium here? Is it a GitHub Copilot? Is it Which Which app are you using to communicate? . ," }
+  - { t: 450, text: "the the the the driving agent was Claude. One, because I love the the Claude remote feature, and the the how you can" }
+  - { t: 460, text: "interact with it on a phone. Way better than OpenClaw and Hermes at this point cuz it's they they've copied it verbatim. They didn't have that feature. Then they saw OpenClaw talking with you" }
+  - { t: 470, text: "Telegram and they said, \"Oh, we're just going to mimic that make it just way better.\" And they did it a really good job polishing that up. Absolutely. Yeah, I was, , in the mountains having a quick look at what's going on in my chat" }
+  - { t: 481, text: "and just feeling good about it. Amazing. And secondly, because obviously you get a million token contacts winner, which makes a huge difference, ." }
+  - { t: 491, text: "That million tokens, , really changes thing compared to 260 or 400k or . but ultimately, I want" }
+  - { t: 502, text: "my own agent which by the way is called Hekaton to give me that same interface. , you know, using using Claude remote is is just an interim stage at that point" }
+  - { t: 513, text: "because I had it available, ? And it was when when this whole thing started, Hekaton didn't exist. , There's a thing , I'm I'm still using" }
+  - { t: 523, text: "that Claude session, but it's using Hekaton agents the whole time in the background and many of them in parallel as . And And and also the" }
+  - { t: 533, text: "other thing I did at some point I I I taught it to to use Slack. , I'm also using Slack to get" }
+  - { t: 544, text: "some more comprehensive status updates, every few hours, which is really neat because I can then I have nice history, ? And that that is retained. , it" }
+  - { t: 555, text: "doesn't depend on the lifetime of that particular Claude remote session. I can search through it. , yeah, but at this point Slack integration is" }
+  - { t: 565, text: "one way. I haven't set it up yet. , you can send messages back. Sure. Just Just giving the status outputs. for from concept, ? , this is a" }
+  - { t: 577, text: "project, Matias, that you're saying I need to be able to use multiple harnesses. . you're saying in here in the in here the the A Con platform that you've" }
+  - { t: 589, text: "designed here, it's agent orchestration and it's designed to run with many different agents Co-pilot, Codex, Cloud Code, or others. And , you're you're giving a declarative workflow. Here's what I want" }
+  - { t: 599, text: "to accomplish. . The agent can then pick up whatever platform it needs and use whatever harness that wants to accomplish the goal. Is that the the premise here?" }
+  - { t: 610, text: "The idea also is I really want to avoid the vendor lock-in. , obviously, , the Anthropic's in this world, they They want you to lock in. Yeah." }
+  - { t: 621, text: "But, I don't, ? , , that's one of the drivers here, to be able to use all the goodness of all these absolute top-tier agent harnesses out there. Sure. Codex, Claude, Co-pilot," }
+  - { t: 635, text: "Open Code, Pi, you name it, ? Anything that's out there, yeah. and but and obviously, , I've" }
+  - { t: 645, text: "worked with multiple of those harnesses a lot, , on various complex projects for many months . and" }
+  - { t: 655, text: "one of the limitations I've always run into is that I needed something more high-level. I needed something that sits on top of" }
+  - { t: 665, text: "them and is able to orchestrate those kinds of harnesses and have an oversight view. And that's precisely what A Con is. Yes. it's it it it is not trying to be yet another" }
+  - { t: 678, text: "harness. It is not trying to be yet another coding agent. I would be silly trying, , to to compete with that. to compete with Codex or Cloud Code." }
+  - { t: 688, text: "But, what these guys need or what you need, if you want to be really productive and and want to have a solid workflow is something that" }
+  - { t: 699, text: "uses a a cloud code harness or a codex harness as a tool inside your workflow rather than as the only tool you're" }
+  - { t: 709, text: "working with and that's the big difference and Did you just Did you just build Kubernetes for harnesses? [laughter] I don't know. We'll have to see but" }
+  - { t: 721, text: "something which worked very very as you can tell at least from what I'm claiming here I haven't released anything yet but something which worked very for me was" }
+  - { t: 732, text: "I used copilot with GPT for implementation and codex with" }
+  - { t: 742, text: "obviously another GPT model for reviews to make sure and then obviously Claude to orchestrate the the whole thing pretty much had all three of" }
+  - { t: 754, text: "them in the mix making sure that I have I'm using different harnesses and in fact I asked some of the some of the jobs last week were to one do" }
+  - { t: 766, text: "some comparative analysis between different harnesses and different models and secondly to build the model eval feature it needed to make" }
+  - { t: 778, text: "that comparison into the tool itself. that's going to be released it's not just it's not just a coding agent orchestrator" }
+  - { t: 788, text: "or workflow tool you can also run evals with it if you want to know there's a lot of talk given that" }
+  - { t: 800, text: "top tier harnesses and and agents become much more expensive, ? Just look at what" }
+  - { t: 810, text: "happened to GitHub Copilot recently. There's a lot of talk about using alternative models and maybe using local models as opposed to" }
+  - { t: 820, text: "cloud models. , I wanted to I wanted to have a solid and standardized way to make assessments." }
+  - { t: 831, text: "when which model it does the job compared to others and and when which particular harness works better than others. And , that's that's part of it. And , that yeah. Again," }
+  - { t: 845, text: "I this is the last month of where we are have a free lunch in terms of Copilot. , I definitely asked the agent to to make heavy use of my" }
+  - { t: 858, text: "Copilot allowance. I'm counting the days that I've got left. I'm going to make sure I'm not any of those premium requests cuz they're never coming back. Or waste" }
+  - { t: 870, text: "them because they're not coming back [laughter] later. , use them up. Use them up. , yeah. That that was the idea. I'm just excited" }
+  - { t: 880, text: "because I wouldn't have made a bet that it would be successful and it would work out in such a short period of time. Amazing. This is the new world" }
+  - { t: 891, text: "that we're living in. A question came in here from LinkedIn that I do want to address here that I think is really relevant here. The question comes from how trustworthy do you find the output of agent work? And do you find spending" }
+  - { t: 902, text: "more time with validating and testing offsetting the time gained by the reduced development time? , , another or how effective do you find" }
+  - { t: 912, text: "agents validating their own work? . And I think this is the really the message of what you're trying to convey with this project particularly is" }
+  - { t: 922, text: "with [clears throat] a good system, a framework in place, you can ask the agent to build code, assess the code, test the code, and confirm that it's working as expected." }
+  - { t: 933, text: "But, this is not done with a singular agent. I think that the mind shift for people here is to not focus solely on I'm just going to use Opus for everything. It's the idea that Opus or" }
+  - { t: 945, text: "ChatGPT or multiple models and or multiple agents do a better job at these different search of sorts of activities. And , today it might be reason" }
+  - { t: 956, text: "the system with Opus, build with Codex, create something with GPT, and then the combination of those different items you" }
+  - { t: 966, text: "that that's the way the world looks today, but in 6 months from , 3 months from , a month from , that story may shift. And , you need a declarative system that allows us to be" }
+  - { t: 976, text: "flexible. Is that a good way of maybe summarizing that? What What would you add to that? that, Matthias? , two things to say here. One is with this particular project, I was quite lucky" }
+  - { t: 988, text: "from a reliability point of view in the sense that the agent's task obviously was to build its own execution framework. Which means" }
+  - { t: 1000, text: "every time a feature was ready, the agent then would use it for real work for its next iteration, ? , it it it maintained its own backlog. It con- continuously" }
+  - { t: 1012, text: "added new items to the backlog. a new feature was shipped, a new release was made, and that new release was then immediately used to execute the next backlog items. And at that point, the" }
+  - { t: 1023, text: "agent would have looked at whether any new problems occurred. If that if that happened, and that obviously did happen a lot, new issues were then immediately filed" }
+  - { t: 1034, text: "and and fixed. , in this regard, first of all, , I didn't have the issue of, , first of all, I certainly did not have the issue of me having to test on behalf of" }
+  - { t: 1045, text: "the agent because the agent did it, , themselves. , secondly, I did not have the issue of, , an agent being overly optimistic with" }
+  - { t: 1056, text: "respect to passing certain developments because if if it had done that wrongly, it would have noticed within the next 20 minutes or ? , but I do agree, , there" }
+  - { t: 1068, text: "definitely is a a wider, ," }
+  - { t: 1079, text: "challenge, let's say, around what testing looks in an agentic world. and I'm not making this up. Yesterday, I sat down with my agent, ," }
+  - { t: 1090, text: "to review some regressions we went through last week. Sure. were there were certain, , scenarios where fixes that had been" }
+  - { t: 1101, text: "made in response to problems were forgotten about later and were undone, which really annoyed me. And , yesterday, I had a meta session about" }
+  - { t: 1111, text: "that and we created a new behavioral, contract framework where, we said, \"If you look at all" }
+  - { t: 1122, text: "the meta testing, there there is a semantic difference between tests that, test certain internal" }
+  - { t: 1132, text: "functions and features as opposed to tests that, , that, , verify behavior, , high-level functionality. And then," }
+  - { t: 1142, text: "and, , obviously, when it comes to unit tests, they can be very easily, , amended by an agent as part of their work, , when" }
+  - { t: 1153, text: "they feel that, , they've committed code and the unit test suddenly doesn't work anymore, they would then be very much inclined to change the unit test. And that that" }
+  - { t: 1163, text: "might introduce regressions quite easily, which is why yesterday we then designed a higher level testing harness that is" }
+  - { t: 1175, text: "not codified, that is expressed through natural language and that is something which has to go" }
+  - { t: 1186, text: "through a formal change process if any of those behaviors expressed in there need to be modified. And that Sorry, it's" }
+  - { t: 1197, text: "it's quite theoretical. [laughter] Hopefully I can I can do a webinar about that at some point, but also that ultimately that was my solution and to" }
+  - { t: 1207, text: "the question that was raised. It starts theoretical , but as we tease out the idea of the ideal state and then what happens with agents, there's this I think negotiation between the two worlds where" }
+  - { t: 1218, text: "the theoretical becomes a bit more reality and you can build into what those systems look . , I do want to transition the topic here slightly. Want to move on a couple couple other items here that I think would be worthy" }
+  - { t: 1227, text: "as we're going to get close to time here and I do want to wrap at the top of the hour. one other area I'd to really present here. This was entirely built with agents. congratulations, Matias. We have a" }
+  - { t: 1239, text: "an entire website for agentic thinking. I want to introduce everyone here. We have done We're on episode 15 in only a couple weeks. We are going quick" }
+  - { t: 1249, text: "here. There's lots of communication around agentic items and show elements. what we've done is I worked on some of the style and graphics of the website. We have agentic" }
+  - { t: 1260, text: "thinking.show. , if you want to go look at the show, go find our episodes, our previous We have a dedicated site specifically for Agentic Thinking. We have our first 12 episodes up and on" }
+  - { t: 1271, text: "the the show, the podcast currently. And the fun part about this was let me communicate how we built this. Sorry, you're going to say something. do" }
+  - { t: 1283, text: "I'm super excited about this. looks great. and definitely tell people about the control K shortcut. Oh yes, I for [laughter] sure will. Is a real gem and" }
+  - { t: 1293, text: "that's definitely something you you you want to be aware of. if you go to agenticthinking.com, you'll find or sorry, agenticthinking.show, I said it already" }
+  - { t: 1303, text: "wrong. you'll find that there is our podcast, our episode and on the site you'll notice that there is a a little very bottom hand corner, there's" }
+  - { t: 1314, text: "a little very small icon that says you can do a shortcut command. on this website, you can hit control K and you get a command line. The command line" }
+  - { t: 1324, text: "shows up on the website and with that command line, you can search for any episodes. You can also change pages. You can do most things on" }
+  - { t: 1336, text: "the website just using a command line. go to the latest episode, you can open the tweaks area where you can change the color and the style of the website. that's a a little hidden trick on the" }
+  - { t: 1346, text: "website. Control K gets you into that command window. , let me let me just talk a little bit of briefly about what is this site it how do we build it? let me give you the workflow here. The workflow was" }
+  - { t: 1357, text: "Matthias and I started talking about this show, we should do this. I went into Figma with my Figma MC MCP server and I gave it some general guidelines. Here's some images that I" }
+  - { t: 1367, text: "want. I talked to my agent in VS Code and said, \"Hey agent, I want you to open up the MCP server, go build me some wireframes.\" I have a Figma document opened up." }
+  - { t: 1378, text: "it built all of the graphics and artwork for a website page. And then from there I said, \", based on this information, rebuild me all the" }
+  - { t: 1388, text: "components, all the little items, you know, the card, the the the list of shows, what a show would look .\" And just generally gave it some features here." }
+  - { t: 1398, text: "And then it built out a whole bunch of screenshots and components for this. Again, this is I'm not building them directly in Figma. I just told my agent to go build it. Boom, it created them." }
+  - { t: 1408, text: "Then on a live episode of probably about 3 weeks ago, myself and Armando was talking and we said, \"Let's Claude code design showed up.\" And this is Opus 4.7 just shows up. We get" }
+  - { t: 1419, text: "into Claude design. Armando and I go on a show and we'd talk about, \"Let's build a real website.\" And we said, \"Hey, Claude design, go build me the Agentech Thinking" }
+  - { t: 1430, text: "Podcast.\" And it built a full single-page HTML site with everything. I mean, the site you're looking at was entirely created verbatim from my" }
+  - { t: 1440, text: "screenshots from Figma, go create this. And it made this beautiful site. And we added a couple features , \"It'd be fun to do control K.\" , it made that feature all by itself. It used its" }
+  - { t: 1450, text: "own control K. And then we said, \"We want to search episodes. We want to refine a couple things.\" And the fun part I think is when you go to an episode, you'll see the entire transcript of everything Matias and I" }
+  - { t: 1460, text: "are talking about on the episode. And when you click on the words on the -hand side, it skims to the video to the section where we said the words." }
+  - { t: 1470, text: "It skips ahead to the actual video segment and shows you what we said when we said it. anyways, we're very excited about this site." }
+  - { t: 1480, text: "It's all been built with agents, Agentech building this whole thing. And it was a little bit of steering from myself, but we have a full site. what's your initial reaction, Matias? This is the first" }
+  - { t: 1491, text: "time you've been able to play with it and see the site. Absolutely love it. I love the fact I can change the color scheme and all of that. I haven't tested it on on mobile yet, but" }
+  - { t: 1502, text: "I'll certainly do that once we're offline here. A year ago you wouldn't have thought that would be possible in" }
+  - { t: 1514, text: "to be done by agents, ? and let's say let's just unpack a year ago. A year ago I would have wanted to build a static website. , this is all hosted on" }
+  - { t: 1524, text: "GitHub pages. It's It's a GitHub pages that we have hosted. , typically I would have had to go learn how to do that, and I would have started with a template or an example, and I would have had to build" }
+  - { t: 1534, text: "out what I want. This is highly customized. There's nothing template about this. It built everything from scratch. The style, the look, the feel, the the the how heavy code it looks," }
+  - { t: 1545, text: "the glitching, browsing the the episode index. Key terms and phrases and searching, all that is directly built into this tool. It just figured it all out. And" }
+  - { t: 1555, text: "then with some general guidance, it gave me everything here. You'll even notice when you go to the I think this is funny. It's It's done such a good job of adding personality to it. When you" }
+  - { t: 1565, text: "go to the episodes page, in the upper left-hand corner, you'll see there's a little dollar sign, and it has ls-la" }
+  - { t: 1576, text: "episodes/ , it's it's putting commands it would be a terminal all over the site, which is just super fun and engaging to look at. Oh, yeah, ls list. , what's [laughter] what what are we doing here? , very" }
+  - { t: 1587, text: "fun, and there's a lot of a fun little area here. it even has a little hosts page, and everything feels very appropriately and styled as if it was authentically built. Anyways, the" }
+  - { t: 1597, text: "show.manifest.txt is available on the the the host page, and it's just fun. Anyways, we hope you enjoy this. we're currently only on the YouTube platform," }
+  - { t: 1607, text: "but we maybe we'll add more platforms as . we might do the full video on Spotify and push it other places. If you want to know about more things around agentic thinking and have additional" }
+  - { t: 1619, text: "platforms you'd to see us on, let us know in the comments. Just let us know where you'd to see the podcast go. , currently we are only on YouTube. We're We're happy to go to other places if there's a need for it." }
+  - { t: 1629, text: "All . Just wanted to make that big announcement and show you the fun shortcut command to control K. All . Let's move on to another topic if you don't mind. If unless you have any final" }
+  - { t: 1640, text: "comments, Matthias. , no. . Go ahead. let's jump over to our next topic here that I think is relevant." }
+  - { t: 1650, text: ". I have been following this for a little bit and I believe we just landed something that is, I think, impactful. I've been talking a lot recently on the" }
+  - { t: 1661, text: "the Explicit Measures podcast, a little bit here on agentic thinking, which is we really need the Enterprise Semantics model. We've heard about ontology coming out from Microsoft. It's supposed to" }
+  - { t: 1672, text: "help your agents get better context around how your business runs. What are the tables you have? Where does the Where does the data live and how do you interact with it? Snowflake, I maybe is spearheading" }
+  - { t: 1683, text: "this a bit, but they have just come out with the OSI, the Open Semantic Interchange. And this is an area that I have felt Microsoft has a bit of a weakness in. We have" }
+  - { t: 1694, text: "semantic models. They're very designed for the purpose-built items that we have. But when the semantic model gets really large, we struggle to give that data or that information to users, to end users." }
+  - { t: 1705, text: "And this new specification has just recently been finalized. It started being worked on, I think, earlier in the year. , it's been It's been around for a while, but they have got their first" }
+  - { t: 1715, text: "finalization of the specification. And I'll put the links here in the as . It's on GitHub. , you can also see that it it's expanding the different partners that can use and build out this" }
+  - { t: 1726, text: "interchange. , I'm very excited about this this system here and I just kind of wanted to get your reaction with TS. What's your thought around the open semantic model interchange?" }
+  - { t: 1738, text: "the first thing that comes to mind is this is a little bit MCP service specification in the agentic world. only for" }
+  - { t: 1749, text: "data artifacts and enterprise semantics. . I this idea a lot. I'm also [clears throat] thinking" }
+  - { t: 1759, text: "here this is not very agentic in nature. However, it feels that in fact that it's written in YAML, human readable," }
+  - { t: 1770, text: "and a translation tool between what source are you where you coming from? How do you translate that semantics layer into something that can be ported to any other platform? I feel this is going to be very" }
+  - { t: 1781, text: "useful for agents in general. , I feel this is maybe not a particular agentic experience the way they've written it currently, but I do feel this OSI standard" }
+  - { t: 1792, text: "will be extremely useful for agents to be able to generalize what you what you build. And my my mental model here is when we talk about customers or date tables or how factual data relates," }
+  - { t: 1804, text: "I really want a system that doesn't matter whether or not I'm writing a SQL statement in a data warehouse in Fabric or I'm writing DAX statements in a semantic model." }
+  - { t: 1814, text: "At the end of the day, the resulting table from both systems should be the same numbers. I should be able to write a SQL statement and a DAX statement with dimensions and filters that get me the same answer. All of this is just" }
+  - { t: 1825, text: "semantics to describe what information you want. And , I'm hoping that that this OSI standard will help us generalize our business logic into a" }
+  - { t: 1835, text: "proper enterprise semantic model that we can throw at our agents. . I think this will be useful. . , you made me aware of OSI earlier. ," }
+  - { t: 1845, text: "much more about it than I have. and I do, but I'm just looking at some of the published examples and what" }
+  - { t: 1855, text: "is quite interesting AI context. you know, those are top-level properties which seem to exist at various levels inside the YAML" }
+  - { t: 1866, text: "specification. And why wouldn't they exist, ? Noteworthy, but Point point the AI to why does this table exist? What's in here? How does this work? Yeah. Anyways, AI context" }
+  - { t: 1877, text: "instructions, you've got AI context synonyms. is there anything else? Yeah, there we go. Fantastic. Which means this was designed and inspect, , from" }
+  - { t: 1888, text: "from an from an AI native starting point. Which is precisely what we need nowadays. I would agree with that one 100%. All , with that being said, we've burned through a good 30-minute episode here. I don't think" }
+  - { t: 1900, text: "there's anything else ready to wrap and close. Final thoughts here, Matthias? I'm going to bore you with much more episodes [laughter] on Picon" }
+  - { t: 1911, text: "later on. But we've got Friday coming up, another demo day, We do. for this Friday, what's the demo for this Friday do you feel ? we are" }
+  - { t: 1922, text: "going to drill into external skills, particularly for semantic modeling. what , how to find them, how" }
+  - { t: 1932, text: "to bring them into your project, and what advantages you're getting from them. I love that. That's going to be a great demo. All , with that being said, thank you much for listening to the Agentic Thinking podcast. This is our talking episode about news, things" }
+  - { t: 1943, text: "that are happening, what we're building . Just to give you some context on how we're pushing the edges of what AI and Agentic things are doing. Go check out the Agentic Thinking show. I'd love you to go check out the website" }
+  - { t: 1954, text: "agenticthinking.show. Go check it out. See what you think. go play with the website. Go list listen to some older episodes. Let us know what you think. Let us know in the comments if you the site and if you have" }
+  - { t: 1964, text: "any suggestions. That being said, thank you Matias. Thank you everyone for listening and we'll see you next time." }
+
+---
+
+## Summary
+
+Mike and Matthias unpack a 10-day autonomous agent run that produced an orchestration platform through daily steering rather than constant hands-on coding. They share concrete output stats (hundreds of PRs, dozens of releases, and high test volume) and discuss what made the loop reliable: delegation, self-review, and rapid issue/backlog iteration. The conversation emphasizes a multi-harness strategy to avoid vendor lock-in and use different agents/models for implementation, review, and orchestration. They also showcase the new agenticthinking.show site built with agents, including command-palette style navigation and transcript search. The episode closes with why open semantic standards like OSI could improve enterprise AI context portability.
+
+## Key Takeaways
+
+- ▸ A long-running “manager” agent can deliver substantial output with light daily steering when it is explicitly instructed to delegate implementation to worker agents.
+- ▸ The showcased run reported extreme throughput (e.g., hundreds of PRs/releases) while staying in one extended context window, highlighting what sustained agent loops can do.
+- ▸ Combining harnesses by role (for example, one for orchestration, another for coding, another for review) was presented as a practical way to reduce lock-in and improve results.
+- ▸ Reliability improved because new releases were immediately used for subsequent work, causing regressions to surface quickly and be fed back into the backlog.
+- ▸ The hosts call out a shift from mutable low-level tests to higher-level behavior contracts so agents cannot silently “fix” tests by changing expected behavior.
+- ▸ They also demoed an agent-built podcast site with Control+K commands, episode search, and transcript-linked navigation as a real production example of agentic delivery.
+
+## Links
+
+- ▸ [linkedin.com](https://www.linkedin.com/posts/mthierba_aiengineering-developertools-agentai-share-7465055374337982464-TOco/?utm_source=agentic_thinking&utm_medium=website&utm_campaign=20260527)
+- ▸ [agenticthinking.show](https://agenticthinking.show/?utm_source=agentic_thinking&utm_medium=website&utm_campaign=20260527)
+- ▸ [snowflake.com](https://www.snowflake.com/en/blog/osi-initiative-expands-partners/https://www.snowflake.com/en/blog/open-semantic-interchanges-specs-finalized/?utm_source=agentic_thinking&utm_medium=website&utm_campaign=20260527)
+- ▸ [github.com](https://github.com/open-semantic-interchange/OSI?utm_source=agentic_thinking&utm_medium=website&utm_campaign=20260527)

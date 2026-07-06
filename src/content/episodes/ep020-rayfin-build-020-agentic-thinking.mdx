@@ -1,0 +1,403 @@
+---
+title: "Rayfin Build - 020 Agentic Thinking"
+episodeNumber: 20
+date: "2026-06-10"
+youtubeId: "UC2_QTbXeW8"
+duration: "1:08:40"
+blurb: "Follow Us"
+tags: ["agentic thinking", "youtube"]
+chapters:
+  - { t: 0, label: "intro" }
+  - { t: 588, label: "context" }
+  - { t: 1177, label: "problem framing" }
+  - { t: 1765, label: "working session" }
+  - { t: 2354, label: "practical takeaways" }
+  - { t: 2942, label: "closing thoughts" }
+  - { t: 3531, label: "deeper dive" }
+  - { t: 4060, label: "wrap up" }
+transcript:
+  - { t: 15, text: "Hello and welcome back to Agentic Thinking. I'm doing a couple quick videos here around the Rayfin project. I'm excited about this project. It is by far the best" }
+  - { t: 25, text: "feature that Microsoft has released since the invention of PowerBI desktop. I'm going to claim it . I think this is the way to go. And we're going to dive in and go to my desktop and start building more Rayfin projects. We're" }
+  - { t: 36, text: "kicking off a lot of these the series around Rayfin. We're doing a lot more of the templates that are coming out of the Rayfin project. , I'd to get through maybe one possibly two additional" }
+  - { t: 46, text: "templates today. See if we can build the templates from the Rayfin Rayfin project and going directly into building apps on top of the Rayfin system. , let's jump in. Let me" }
+  - { t: 57, text: "share my screen here. And here we have my desktop. I have VS Code up and running on my computer. but before we go to VS Code, I'm going to go over to powerbi.com." }
+  - { t: 68, text: "we're going to start here. And let me zoom in just a slight bit more it looks a little bit bigger. And we're going to start by creating a brand new item. Make sure that if you are trying out Rafein for the first time or fabric" }
+  - { t: 78, text: "apps is what this is called in the service, make sure you have this turned on in your admin tenant settings. This was covered in video one if you want to go check that out. you go here, click on new item over here. You'll search for" }
+  - { t: 90, text: "the word app in the upper hand corner here. look for app here. And you'll see an item in the list here called app preview, which is what we're going to go use. we're going to click" }
+  - { t: 100, text: "on Whoops. I don't want to click a SQL database. New item. Click on app. And then select the app item here. I probably should favorite that. We're going to be building a lot of these here pretty shortly. I'll" }
+  - { t: 111, text: "favorite that and put it down here. For the first item, we're going to start with the basic app that they give you or provide to you. they there's a data app that they have. we're going" }
+  - { t: 121, text: "to try the very first template they give us. we're going to call this template number one. template 01. We're going to hit create here. And what this will do is this will create an item inside Microsoft Fabric. It'll give you a name" }
+  - { t: 133, text: "of said template and it'll give you a bunch of details here that you can see. You can copy the prompt which would go to your your agent if you want to give that. But I running these commands directly inside VS Code. we're going" }
+  - { t: 144, text: "to go tackle the direct code items here. And we're going to run these commands directly. copy the command. We will move out of powerbi.com and we'll move" }
+  - { t: 154, text: "back into VS Code. You make this large. Let's make this a bit bigger here. One thing I'd to do is when I'm building in VS Code, especially with the" }
+  - { t: 164, text: "Rayfin projects, I to have a folder to start my project in. over here, I'll click on my desktop. I'll create a new folder. We're going to call this temp one because this is the" }
+  - { t: 174, text: "template number one. I'll hit enter here and I'll bring that folder into VS Code. The first thing we're going to want to do is we're going to initialize this git repo. , I'm going to initialize the" }
+  - { t: 184, text: "repository here. That way, I can track my changes if I make a mistake. I can always go back and revert to any file changes that happen on inside this folder. , I'm just going to click initialize here. We're not going to" }
+  - { t: 194, text: "check it in. We're not going to go to the cloud. We're not going to do remotes. , we're going to just stay local on my machine for . Clicking over here in the explorer area, we'll be back on our main area here. , let me" }
+  - { t: 205, text: "just zoom out just a tad bit. We're going to go control tilda to bring up our terminal and copying that first command for mpmre. We're going to start" }
+  - { t: 215, text: "here and go mpm create template01 through our workspace. , I'll click enter here. And what this will do is this will connect to" }
+  - { t: 225, text: "pbby.com the service. It'll go find the data app test workspace that we're building from and it should be able to find all those commands and build down the latest template from Rayfin." }
+  - { t: 236, text: "it'll always ask me to create that the npx. It's going to create a new command here. Create ray friend template01 sending in the parameter of workspace data app test. let here cook here for" }
+  - { t: 247, text: "a bit and we're going to allow Rayfin to build our our basic framework of the app. You'll notice here on the lefth hand side as I open up this folder here" }
+  - { t: 257, text: "as it's creating this file structure here for me. it will then oh here we go. It's going to add files here on the lefth hand side in just a moment. I'm going to start with a template that's built in. We're going to" }
+  - { t: 268, text: "try and get through the basic templates that come out of the box with the Rayfin project. I'm going to click into the terminal window and you can use your arrow keys to move up and down. Use a" }
+  - { t: 278, text: "template. Click builtin. we have four different options here. We're going to start with option number one. A barebones fabric authenticated React and VI vit app signin routing and a" }
+  - { t: 289, text: "placeholder homepage. Sounds good. There's no data layer to remove. just hit enter on this one. I'm going to let it run. It will build the" }
+  - { t: 300, text: "project. And as you notice, the files it needs to create the project are being created on the lefthand navigation here in the explorer area. it's going to build all the files it needs. It's" }
+  - { t: 310, text: "going to run node and build out the beginning of my project. While we're waiting for that to start, I do have some new music on Carlos Solutions. , if you want to go follow some of the music that we're creating with agents" }
+  - { t: 320, text: "and AI, , go check us out on Spotify, YouTube Music, all the major platforms. We're on Apple Music as . You can just go search for Carlos Solutions and we're out there. , with" }
+  - { t: 330, text: "that, I'm going to go press play on some music here and we'll let it DJ just DJ us our way through our app building. All . , we'll put that music on and in the background and we'll let this" }
+  - { t: 340, text: "thing do some work here. This way, I don't have to feel I have to talk the entire time. We can let the music play. [singing]" }
+  - { t: 354, text: "All , we're sinking. We're getting the scaffolding done. , looks looks our project has been successfully created. We're ready to" }
+  - { t: 365, text: "move on to some next steps. The very first thing in inside VS Code, we notice here that we are in temp 01 folder at this root level. And I have" }
+  - { t: 376, text: "this template01 folder which is the same name as the workspace where this app was created. Interesting. I how this is built. But one thing to note here is when you're in VS Code, there's an" }
+  - { t: 386, text: "agents folder and a skill here called skill.md. When you're in VS Code, at the root level of your directory, you're able to pick up the agents and their templates." }
+  - { t: 396, text: "I don't really having this additional folder in the folder structure here. , I'm going to close out this project. I'm going to jump back into it very quickly here. And then" }
+  - { t: 406, text: "you'll see that the folder structure has slightly changed. , I'm going to hit control KF to close out the folder. I'm going to go into this temp folder and I'm going to grab the template 01 folder" }
+  - { t: 417, text: "that we created inside here. , that's this is inside that one. I'm just going to drag that into VS Code. And I have the template 01. I'm going to get rid of that for . I don't want to worry about that today. All . ," }
+  - { t: 428, text: "here's all my files here created in my folder. And we have this created here. , we can get our agent going. I'm going to go control shift I to bring out chat. This is our VS, our" }
+  - { t: 440, text: "code- pilot here. And I have tried building things with Sonnet 4.6 and I've got mixed results. I have found using better models give me better outputs" }
+  - { t: 450, text: "when working with Rayfin. , I'm going to up it here to the Opus 4.6. I know this is a bit more expensive than other models that are out there, but I'm going to give it a try here and we'll see what Opus can do throughout" }
+  - { t: 461, text: "our project here. All , next thing I'm going to do is we need to go into the correct folder. , it gave me" }
+  - { t: 471, text: "some commands in there earlier. , it's saying cd your project directory. I think we're already in it that we're already in template 01. , I'm going to try" }
+  - { t: 482, text: "running the next command. , we're going to go mpm rundev. And I know that I can run mpm rundev here. This is running the development server because I'm looking for this package file. And" }
+  - { t: 493, text: "if you're in the root of the folder structure and you have that package file, that means you can run the mpm system. I'm going to hit enter here. There we go. Template looks it's" }
+  - { t: 505, text: "working. Raen environment looks we're going there. What I'm looking for is a localhost URL that will pop in here and we should be able" }
+  - { t: 516, text: "to see the the Rayfin project here running. assuming everything's good. Rayfin project found at the root. Yes. Yes. Yes." }
+  - { t: 526, text: ". It's checking some tenant ID for me. Great. Workload endpoint is created. , that's there as . Perishable key retrieved, meaning it can" }
+  - { t: 536, text: "talk back and forth to the fabric back end. All . , it looks it's still doing a couple more things here." }
+  - { t: 551, text: "There we go. . , we have the app running . And if I click on localhost, this local host here, it will bring up the application. And notice how there's already a sign-in screen here already for me to" }
+  - { t: 563, text: "authenticate. , if I click sign in with Microsoft, it will redirect me to where I need to place my email in a little browser window here. It's a little pop-up window for signing in. , I'm going" }
+  - { t: 575, text: "to go mike@carloons consultants.com. That's going to be my email address I'm going to use here. I'm going to sign in and then I'm going to go grab my password and things from my password" }
+  - { t: 585, text: "account. , let me grab that. I'll copy those in here and then we'll be able to sign directly into the service." }
+  - { t: 599, text: "Grabbing passwords. Signing into my passwords app for things to download. Here we go. Finding the account." }
+  - { t: 613, text: "All , let's drop a password in. Boom. And boom. I need the special code. Got that. Drop it in and verify. Boom. we're in." }
+  - { t: 624, text: "Let's not show it again. Let's just stay in here. , this is a little bit interesting because it does sign you directly into Fabric. It looks it's loading Fabric here, but it's only long enough for it to pass some" }
+  - { t: 634, text: "authentication parameters to your app. I'm officially here. I'm signed in. I'm using the app. And I can see here in the browser, this is a browser window directly inside VS Code. And this" }
+  - { t: 644, text: "is the app that's running. . , awesome. This is excellent. , we can go ahead and start working with our agent. , I'm going to move over here to our chat window and start asking it" }
+  - { t: 654, text: "to do things. , let's let us let's build a very simple what we want" }
+  - { t: 664, text: "to do report. , I'll look here on chat. If anyone is watching on YouTube and you have any idea of what you'd to build or what you'd to see, go ahead and put the information" }
+  - { t: 674, text: "in chat of what you'd to put here. I'm thinking let's explore a little bit around what frameworks we can use to build with our app. I know that PowerBI has its way of handling visuals" }
+  - { t: 686, text: "themselves, but I'm also very familiar with the Vega and Vega light specifications. , what I'd to do is I'm going to probably try and build three pages or a couple pages here where" }
+  - { t: 696, text: "I explore different types of visualizations. , let's build a very simple threepage app." }
+  - { t: 706, text: "let's start with I'm gonna attempt to just talk to my agent here. Let me see if I can get the microphone going. We'll see what we get." }
+  - { t: 721, text: "On my first page in the app, I want to build a number of sample representative visuals using Vega Light. Please add sample representation data on the visuals we can see the visuals with" }
+  - { t: 732, text: "data on them. bar chart, scatter chart, whatever other visual, something that." }
+  - { t: 744, text: "let me pause this. , let's move down. Let's Let's go here. , let's see if it'll let me build this first page. what it should do is it's going to analyze my project. It's going to" }
+  - { t: 754, text: "look through Ray Finn and it's going to go build out some information here and pull this in. Aaron, thanks for jumping in. a time tracker app. I see that you were" }
+  - { t: 764, text: "making a comment there. An invoice app. These would be great options. Maybe we can attempt that on our second page here. All . One thing you're going to notice here is it's going to run some commands on your computer." }
+  - { t: 775, text: "And one thing you can do here on inside VS Code is you can add the allow button on every single command. anytime it wants to run a command or install something or you can adjust the default" }
+  - { t: 787, text: "approvals and just allow it to be a bit more permissive around how it runs code. I don't recommend doing this all the time, but we're going to change default permissions to autopilot. Let it run. And then for this particular" }
+  - { t: 797, text: "command here, I'm going to allow it to run here directly. Notice it's also built out a little list of to-dos that it's working through here. It's going to install the Vegaite and Vega" }
+  - { t: 808, text: "React. , it's going to create some charts and Vegaite visuals. And then it'll create t page two and three as placeholders because it heard me talking about multiple pages. And then we'll add" }
+  - { t: 818, text: "some navigation and update the routing. great. , we'll let it run mpm install here and we'll start building some charts. Another thing that I to do," }
+  - { t: 828, text: "especially when I'm building apps, is to think about ideas of reusable components. , if I'm trying to get apps to build things that are reusable, I to make sure that the application or the agent understands I'm building" }
+  - { t: 840, text: "these things. , I probably should have been a bit more explicit when I talked about this in the original prompt. , but I think we can go fix this after the fact and we'll let it build here and then we'll have the agent make all these" }
+  - { t: 851, text: "items components and then use those components inside [music] this main page here. All , it's moving pretty quick here. We get a layouts file. ," }
+  - { t: 861, text: "as we're building things, notice here on the hand side of the screen we're starting to observe edits in the files. these items or these notes" }
+  - { t: 871, text: "here are these are from the chat where it's editing different files and adding things in here. it added a layout file. We've got some what's in Oh, it's just saying in" }
+  - { t: 882, text: "here there's somewhere in here there's emphasized items. . All . my because we're running Vit it is live updating on the" }
+  - { t: 892, text: "page. And you notice that our little sample image has disappeared and it's rebuilding the code and as it's editing the pages behind here it's modifying the page and" }
+  - { t: 902, text: "that's why it's white . hopefully fingers crossed. . it's looking at checking out errors. No errors. Done." }
+  - { t: 913, text: ". . . All . Let's keep our pages. Let me refresh this here. See if we can get a refresh on this. . , and there we go. , I have a page already in my" }
+  - { t: 925, text: "app. I have three sample visuals here. there's my bar chart. Here's a little scatter chart that it provided to me. A line chart and a circle. Great. . , I have another page here. It" }
+  - { t: 937, text: "says data and settings. I don't really need those , but let's update these two other card items here. And , let's keep going here a little bit further. All . , let's go to data and" }
+  - { t: 948, text: "let's add some other frameworks. again, I want to highlight the idea that we don't have to use only a certain visual type. There's another language called D3.js. And you can build a D3.js page. let's talk to" }
+  - { t: 959, text: "our agent again and ask it to change the data page from just being data. Let's say let's make a new page of charts and let's call this D3.js and go ask for it to build some visuals." }
+  - { t: 970, text: "Here I'm going to click on the microphone again and start talking to the agent. Let's build another page. Let's change the data page from data to D3.js." }
+  - { t: 983, text: "I want this page to have a number of visuals, representative visuals from the D3.js library. Again, I want visuals a scatter chart, a bar chart," }
+  - { t: 994, text: "column chart, and maybe a map. All , let me go back here and let me just update. , it did change the language here. , let's see. Yep," }
+  - { t: 1004, text: "exactly. Yep. representative again. . let's add a couple more notes here. let's see if we can also throw in another task for the agent here is we want all of our visuals to become" }
+  - { t: 1016, text: "components. Make all visuals in this project components that can be reused" }
+  - { t: 1026, text: "[singing] across pages. We'll see if this is going to help if this will help with this second build here. All , let's let that run." }
+  - { t: 1036, text: "We'll let that cook here for a bit and see what it builds this time. [singing]" }
+  - { t: 1047, text: "again, it's planning this out. It's building out a plan for us. it's already tasked out. we need to go build appropriately, ? D3.js is another visualization program. it's another visualization" }
+  - { t: 1058, text: "application. And this thing is needing to install another library, a client library for this app we can have a different framework to build against. , . it's also asking" }
+  - { t: 1070, text: "it's going to refactor the Vega light charts into reusable components we asked. Great. , it's going to recreate D3 chart components bar scatter line column chart map. Excellent. And it's" }
+  - { t: 1081, text: "going to rename the page. Great. . looks it's got the amount of tasks here. And it's going through and editing and creating our new our new files." }
+  - { t: 1099, text: "All , we're still going to let it chew here. , we've got a bunch more files being added. Yep. , great. , we can see on the lefth hand side again, some best practices here. We have the ability to see items on the lefth" }
+  - { t: 1107, text: "hand side of the page. We can see that they're being added here with the notes here. These are little card call outs saying that the the files are changing, which is great. ," }
+  - { t: 1117, text: "refactor vagger charts. we're creating the usable D3 components . It's working to that step next. far good." }
+  - { t: 1133, text: "And while this is doing some work here, that did it pretty quickly here. we got some rebuilt here items. , these are components. , they're the same visuals they were before, but they're reusable items. We can see" }
+  - { t: 1143, text: "them over here in our layout. Here's the Vega charts over here. And we have some D3. D3 bar chart, D3 column chart, D3 map. Awesome. Very, very good there." }
+  - { t: 1155, text: "it's checking some things. Done. Here's what we built. Giving me a little summary. Excellent. Pages committed. Great. , we have a new page called D3.js. All . Let's click on that. See what we get there. Great. Another" }
+  - { t: 1166, text: "good library. Oh, world map with almost no mapping on there. , that's that's interesting. , it made something. Put a world map on it. All . Interesting." }
+  - { t: 1176, text: "All . Not bad. , we've got two different frameworks. We're doing Vega and Vegaite for the charts. We have D3.js on our second page, another framework. And maybe let's try our third" }
+  - { t: 1186, text: "framework. I know this is a a framework that I think we can use. I think it's open source. , let's design something with our agent here. I'm going to ask if it knows about Plotly. , instead of" }
+  - { t: 1196, text: "using agent mode, which means we're going to build things with it. We can plan or ask things of our agent directly. , I go over here to the menu. This is the little menu bar down here on the far bottom side of the" }
+  - { t: 1208, text: "page here, agent. And we're going to change that agent mode to not create files and build things. Instead, we're going to just go to ask a question. , let's ask a question about this project" }
+  - { t: 1219, text: "and see what we can get here. I want to build another page with the Plotly plugin. Is Plotly an open- source project that we can use and pull into" }
+  - { t: 1229, text: "this library of visuals? All . , let's do that. Let's run this here. [singing] . , we're going to let the agent" }
+  - { t: 1240, text: "think about this and see if it Yep. Yes. Le plotly.js is a fully open source MIT license. Great. Plotly works. We've got the content for wrapper for React. Excellent. . , everything fits." }
+  - { t: 1250, text: "we're in a React project. , anything that works with React can work with the project. All . , what we're going to do here, would you me to go ahead and install it and we're going to move over here to move back to agent mode. And I'm" }
+  - { t: 1261, text: "going to tell the agent again, let's add this plotly library. Go ahead and add the plotly library to the project. Build out representative" }
+  - { t: 1272, text: "visuals for a bar chart, a column chart, and a scatter plot again." }
+  - { t: 1282, text: "turn off the microphone. We're going to hit ship it. All , let's build out our third page and we'll see what plotly cost. I didn't tell it to rename the settings item. , that was weird. I probably should have that" }
+  - { t: 1292, text: "should have had a note there for that. again, what I'm doing is just testing out the the ability for the agent to understand what kinds of visuals can it use and build. At some" }
+  - { t: 1304, text: "point, we're going to need to start hooking in a semantic model and wiring up data to these visuals that we're putting on the page, which is going to be useful for us at some point. I'm just again getting my legs here with a little" }
+  - { t: 1314, text: "bit of RAN to see what frameworks I can use and what can I build with it. All , it's changing more files again." }
+  - { t: 1325, text: "updating the routing and nav to replace the settings with , it did a good job here. I added the third page. It's changing the settings page to plotly. Great." }
+  - { t: 1339, text: "All , we get a white page again. All , we have charts. We have D3.js. And we have a handful of plotly visuals. Excellent. Oo, these are kind of a bit weird. They're falling off the cards a little bit. Does give me some" }
+  - { t: 1350, text: "hover tool tips, which is interesting. Look the sizing is a bit weird on these things. ," }
+  - { t: 1360, text: "let's keep all these files. This looks good. , I want to add one more feature here. Again, we're doing cool app stuff, building things. Let's build a part of the app here. , I'm going to go in" }
+  - { t: 1370, text: "here and say let's add a dark mode to toggle on or off the shading of the app." }
+  - { t: 1382, text: "[singing] Let's hit run on that. Let it build dark mode. , I really this experience. I love jumping into agents and talking to" }
+  - { t: 1392, text: "things and adding little features at once here and there. I think a lot of times when I'm building things, I start with a really good idea and I kind of can describe most of what I need, but" }
+  - { t: 1402, text: "then once I start seeing the app being built in front of me, it's very rewarding to give it slight changes here or there to have it tweak and design and edit and modify certain things on the page. One thing you'll" }
+  - { t: 1413, text: "note here is is this going to let me add to chat? This is interesting. this might be a new feature that's here out on desk. ," }
+  - { t: 1424, text: "can I can I click on items here? Oh, . We'll wait. We'll wait till this Oh, it's got a little dark button here. . All . , it says it's updated that it's completed that feature. And it's" }
+  - { t: 1436, text: "just moving quick. It's moving faster than I can think . All . We'll let it finish doing the the button toggle up there." }
+  - { t: 1449, text: "updating supporting dark mode. . boom. updating the background color. , support dark. . , it's updating most of the component pieces here to handle dark mode. Yep. ." }
+  - { t: 1462, text: "All clean. Dark mode is available. Click the moon or the sun. . , we click on dark mode. Boom. We get dark mode. Some of the visuals look better in dark mode. ." }
+  - { t: 1472, text: "You see which ones look better. . this is interesting. , I can test different frameworks and see what's inside the framework. Oh, look at this. This is a little Vega editor button up here. Interesting." }
+  - { t: 1482, text: "View compiled Vega. . Interesting. What's going on there? Oh, all . Very neat. . , we've got some stuff here and we can go to light mode and dark mode and we've got different pages. We can see how" }
+  - { t: 1493, text: "different visuals interact on the pages and what we to see or how it's handling the the dark and light modes for us. This is excellent." }
+  - { t: 1504, text: "we're done with this part here. I think this is good enough to say we can ship it. , what we're going to do is let me keep all these files. And let's go back over here to the" }
+  - { t: 1514, text: "project. And I don't think we need this. I want to see what this button does here. Add to chat. Add element to chat. Oh, yes. . Here we go. This is sick." }
+  - { t: 1526, text: ". , I'm clicking this new button here. , I'm in I'm in this browser window here, ? One thing that's really difficult when working with agents is selecting something on the" }
+  - { t: 1536, text: "page. Oh, this is cool. There's a little clicker here. You can click this little item that says add element to chat. When I click on this button or it looks it's also the shortcut is" }
+  - { t: 1546, text: "control shift C to get into that mode. Control shift C. Yeah. what I can do is I can highlight specific things inside the visuals. And you" }
+  - { t: 1556, text: "notice how it's selecting this the SVG or the div or the area or the box. I can select these different items. And if I click that item, it selects that specific" }
+  - { t: 1568, text: "element here in the screenshot and it shows me what's what's going on here. for the D3.js" }
+  - { t: 1581, text: "visuals, I'm going to talk to it instead of just typing it here. It's much faster. The text on the visuals appears black when it's in dark mode and black when it" }
+  - { t: 1591, text: "appears in light mode. I'd the text to also change on the D3.js visuals to be white when we're in dark mode and turn to black text when" }
+  - { t: 1603, text: "we're in light mode. done talking about there. We'll hit run. . while that is chewing I'm going to address a question" }
+  - { t: 1613, text: "here in the chat. the question is, what is the use case to build Rayfin? Rayfin is an app. You can build whatever you want. You want to build open maps" }
+  - { t: 1624, text: "and put that in your rayen project, you can do that. You want to build rightback and write back to and from your application and write it back into fabric and put it in a SQL database or" }
+  - { t: 1634, text: "something that, it does that. You want to add extra APIs and go talk to a third party system, you want to add a chat window and have a chat experience inside embedded inside Raven, you can do that. It's a full-blown React app." }
+  - { t: 1646, text: "Anything you can dream up, you can create. There are a lot of minor I'll call it paper cuts with PowerBI desktop and PowerBI reports. One is it's" }
+  - { t: 1656, text: "not very easy to stylize and build a light mode and dark mode without a lot of effort. With here I can just add one line of sentence and say build a light mode and dark mode and then I give it some guidance here around hey I want the" }
+  - { t: 1666, text: "text to change colors. it did a little bit of it's passing some properties in the light and dark mode. it's still changing some things here." }
+  - { t: 1677, text: "It made the text lighter, but not quite light enough. , I don't think it's spitting out enough text here. We might have to refine this prompt a little bit and ask it to change the text" }
+  - { t: 1688, text: "to full white. Oh, there it goes. It went white. Just kidding. It was still thinking. Look at that. , great. [singing] All clean. D3.chart text has can" }
+  - { t: 1698, text: "render white in dark mode. Let's check it out. Dark mode, text goes dark. Light mode, text goes. Awesome. , I really this experience of being able to talk to my agent and tell it what I want" }
+  - { t: 1709, text: "and what I desire on the different visuals and charts, and it just does it. This is just cool and way faster than clicking all the property buttons in PowerBI reports. This is absolutely" }
+  - { t: 1719, text: "incredible. Really love this experience. All , we're going to keep all the files here. I think we're at a place where we could publish this app and go see it at powerb.com. , what I'm going to do is I'm going to" }
+  - { t: 1728, text: "close out of the app that we're showing here directly. We're going to go back into our console window here. And let's see here. What do we have running? , here's our rundev app." }
+  - { t: 1740, text: "Let's go over here and let me just do a new terminal. Let's just do a new one here real quick. we got done here. The last" }
+  - { t: 1750, text: "command that we need is to push this code, the app. We need to build it and then deploy it into fabric.com. , I'm going to do f npx" }
+  - { t: 1760, text: "rayfin up. that's what we're going to use here. Ray fininn up is the command. And when I hit enter on that," }
+  - { t: 1770, text: "it will bundle up the project, package the files, and then it will ship those files directly up to powerb.com. at the very bottom of my window, which is kind" }
+  - { t: 1780, text: "of hard to see cuz I'm covering it with my icon there at the bottom of the screen. here it's it's building and transforming, building the the environments, building" }
+  - { t: 1790, text: "feet, packaging everything up. Any moment here it should finish and build and push this directly to Microsoft Fabric." }
+  - { t: 1809, text: "Still building the client environment for production. . [singing]" }
+  - { t: 1825, text: "still going. . , we're building the project. It's you're going to see some static content is showing. . One thing I want to point out here is notice how it's building content. It said here pushing content pushing key. . Look over here. You'll notice" }
+  - { t: 1836, text: "there's a distribution folder dist. This is the folder where it compiles all the assets that we just built. , we built a project. The entire project compiles down to simple static HTML. also HTML, a" }
+  - { t: 1848, text: "JavaScript file, and a CSS file. This is a front-end only item. It does not contain any special backend other than the fact that it can talk to fabric data sections. There's a back end that is" }
+  - { t: 1859, text: "applied here as . , there's a front end of our app, there's a back end, the back end is fabric. There's a little bit of secret sauce happening between the front end of our app and the back end to help the data connect together. This example we're" }
+  - { t: 1870, text: "doing has no data attached. Everything's mocked up for . All , done. and done. , we have pushed it. Everything looks it's complete. I'm going to go back over to" }
+  - { t: 1882, text: "my workspace over here in Microsoft Fabric. Here we go. , here's our app. We have an app. We have a template SQL database" }
+  - { t: 1892, text: "and a template 01 SQL Analytics Warehouse. I didn't ask it to build these things. I don't know if we need those, but the app is here . And if I click on the app itself," }
+  - { t: 1905, text: "it looks I need to refresh maybe. My browser must have cached. Oh, there we go. , here's the app that we just built. , another advantage here, the question to, , why would" }
+  - { t: 1916, text: "I want to use to build Ravenfin? , another example here of why we want to build Raven is if I stretch my screen very narrow here, notice how everything is very dynamic on the page. the the" }
+  - { t: 1926, text: "visuals snap and adjust. You can build experiences on the actual application that resize very cleanly for what you're building. There's a couple little weird" }
+  - { t: 1937, text: "things here on the edge here where it falls off the edge slightly. but you can build whatever you want into the application. If I maximize this and zoom out even further, notice how all the visuals and the screen size resizes" }
+  - { t: 1949, text: "correctly for everything we have here. We got a couple visual issues here on the page, but overall we've got a pretty good look and feel for the app. , that's app number one. Let's try and" }
+  - { t: 1959, text: "build one more template and then we'll we'll go into adding other things. Another question just came in from Aaron. How easy is it to build security or security groups? This acts" }
+  - { t: 1969, text: "anything else you'd have in a fabric semantic model. It's also going to run queries directly against your semantic model. you should be able to use all the semantic model richness of role level security incorporating that" }
+  - { t: 1980, text: "into the application and having context to who the user is. you will need to know a little bit more around how to integrate the application signing in identifying who that user is" }
+  - { t: 1991, text: "and then pass that information back through to the semantic model. most of those details around security and security groups are not quite yet known. We have it. It's the project's out in" }
+  - { t: 2001, text: "preview. , I'm guessing there's going to be more features coming around security and how it integrates with Rollo Security inside our apps. , great question. , the project is is currently in preview. It was just" }
+  - { t: 2012, text: "released at Build a week ago. , I'm assuming that there's probably a bit more work being done on the project to bolster some of the security side. , one other note around security as ." }
+  - { t: 2022, text: "This is a fabric item. to access this item, I have to go directly into the workspace and I have to access the app here directly. There is also" }
+  - { t: 2033, text: "if you go over to this button here on the far hand side here, I'll zoom in a little bit. It's called manage app. If I go into managing the app. Whoa." }
+  - { t: 2045, text: "Come on. Let go of my cursor there, mister. Zoom it. My escape key is not working." }
+  - { t: 2057, text: "Oh, come on. There it goes. , it released it. All good. , if you click on manage app, the app will show you the" }
+  - { t: 2069, text: "URL of the template. the template is here. You can click open of this directly. And this loads the app directly here. be aware this app" }
+  - { t: 2079, text: "is also using the permissions. It's giving me some security here as . even though I can get to the app, it is requiring me to authenticate myself. I do have to sign in with Microsoft. It's going to bring me to my sign-in" }
+  - { t: 2090, text: "page for Microsoft. I'm going to click my name here. It's going to then bring me into the sign-in page, show me this fabric very briefly, hide the window, and bring me into the app. , even though there is a real URL of this app," }
+  - { t: 2103, text: "I still need to sign into it. , my suspicion here is I haven't tried this yet directly. , the user I'm using on this one is my Carlo Solutions email account. , if I didn't have access to" }
+  - { t: 2115, text: "the workspace and didn't have access to be able to see the app, I would have expected this to sign me out and say, \"Nope, it didn't work.\" But I haven't tested that yet. That might be a test we want to do in the future as" }
+  - { t: 2125, text: ". excellent. , is manage app similar to publish app? The answer is no. Manage app is just the settings of" }
+  - { t: 2135, text: "the app. manage app and publish app. There is no technically publish of this app. As soon as it's here and you see it in powerbi.com or fabric.com, it's live." }
+  - { t: 2146, text: "That is the app. If I want to make changes, I'm going back to VS Code to make any changes. over here in VS Code, I'm going to make additional changes if I want to the app." }
+  - { t: 2156, text: "This is where I have to make changes. And then I have to do rayfin up again to republish against on top of the app. If I want to get control or have CI/CD pipelines, all that needs to be managed" }
+  - { t: 2167, text: "here at the files level inside VS Code. management of the code has to be done inside VS Code for . There's there's no fabricbased elements that help us build here as ." }
+  - { t: 2179, text: "with that being said, we're going to keep moving on and doing some more code. Let's start a new project. I'm going to do control krl+ f. We're going to start" }
+  - { t: 2189, text: "clean again. , I'm going to go grab my temp one folder here and put it back in my VS Code. It will have my template01 inside this root folder here, but I'm" }
+  - { t: 2199, text: "not going to use that. We're going to start another rayfan project. , in order to start my rayan project, let's go build another one over to powerbi.com." }
+  - { t: 2209, text: "We're going to go back over to our workspace. Let's go back into our workspace . Let's just go to the workspace. We'll add a new item." }
+  - { t: 2219, text: "Let's build template two. [music] Template O2. See what we get there. Create that. . , same thing again. We have our" }
+  - { t: 2230, text: "template O2. Notice this time we get a different username for the app. We're going to use MPM create on this project. We're going to copy that code down. Go back over to VS Code. And I'm" }
+  - { t: 2242, text: "going to then create this new project template 02 workspace. we're going to let it go connect again. Build our next Rayfin project." }
+  - { t: 2252, text: "And here we go. Let's use our template again. Enter. And this time, we're going to use number two, version two of this, a data app. Build a data analytics app based on your data in Fabric. Excellent." }
+  - { t: 2271, text: "All . It's It was trying to install. . , interesting here. It tried to install some dependencies with npm. npm install failed with some I'm not sure if this is going" }
+  - { t: 2281, text: "to be a problem, but we'll keep going. Template files have been copied, but npm install and failed with code. , you can try npm install manually. , excellent. All , it something happened on the mpm install. template" }
+  - { t: 2293, text: "02 here. what I'm going to do down here on my command line, I'll move that up everyone can see that." }
+  - { t: 2304, text: "Bring it a little higher here. I'm going to CD my way into , let's go CD template 2. Template O2. Let's move in there. And then we're going to run what it recommended here" }
+  - { t: 2315, text: "was the MPM install. , let's just do mpm install here. And let's see if that runs successfully." }
+  - { t: 2327, text: "I hope we don't have to go into a big depre bug bashing session here with my agent, but we'll see what happens. some deprecations. Not bad." }
+  - { t: 2343, text: "Still thinking here. far, no issues. , in our template O2 folder. , it is doing something correctly here. We can see that it is in fact building our node modules and adding them directly into this template," }
+  - { t: 2353, text: "which is good. We do want that. it looks we've got a good successful session far." }
+  - { t: 2381, text: "There we go. All . , change package. Yep. MP. All . Looks to me. , I think we did it. I think we got it through that node module install. Excellent." }
+  - { t: 2391, text: "we're going to keep going ahead here. We're going to keep cruising forward. , first step was to change a directory into template 02. , we already did that. CD that. And then I" }
+  - { t: 2402, text: "think we want to do npm rundev. , that we've done the npm install, we'll do npm rundev and see what template number two gives us. npm rundev." }
+  - { t: 2427, text: "Oh, we got some comments here coming in. Excellent. Thank you. a cool use case. A skill listens to a live brainstorm. You can turn out your ideas into building prompts. It keeps you updating while the Raven app is in" }
+  - { t: 2437, text: "the browser and keeps watching what is live and happy on screen and live. Yeah, pretty cool." }
+  - { t: 2447, text: "I do am finding myself talking more and more directly to my agent. , which is running pretty cool. All . , all . , we've got an app here. Excellent. , this is interesting. , this app template is trying to connect" }
+  - { t: 2458, text: "to data. , it's interesting. This app cannot be opened outside of fabric. , opening the connected app to semantic model outside of fabric portal is not supported at this time." }
+  - { t: 2468, text: "I'm not I don't really love this experience. I ran into this before. or I was looking at this previously and I can ask it to build things or connect to different data elements on the page but" }
+  - { t: 2478, text: "it's clunky. I don't really love this experience because it doesn't have the ability to connect to fabric and show me or talk to the semantic model. All , I'm going to do a couple more items here. we have zoom" }
+  - { t: 2490, text: "out here a bit. How many terminals do I have open? I think I've only got one open currently. . , what are we going" }
+  - { t: 2501, text: "to do ? , first things first is I want to get my agents and co-pilot all running inside this correct directory." }
+  - { t: 2512, text: "I'm going to go to this folder. I'm going to add I want to add a folder to my workspace." }
+  - { t: 2523, text: "I'm going to go to my desktop and I'm going to add this template O2 item and hit add. . Why I am doing this is because the temp one folder is the root" }
+  - { t: 2533, text: "level of the folder. But I want temp O2 to show and have access to the agents that are inside here. Notice in this template, , in the last template we" }
+  - { t: 2544, text: "used template 01, the agents file is very simple. Just Rafen. Look at this. Look how different this is. Just the Rafen skill was there. In template O2," }
+  - { t: 2555, text: "look at all the skills we get. We got ones talking about app design, app validation, fabric CLI, playright CLI, the Rayfen skill, and visuals and" }
+  - { t: 2566, text: "schema discovery. Holy smokes, this has got a ton more skills in this one. It's a bummer that I can't see what it's trying to produce here. , ," }
+  - { t: 2576, text: "let's let's go a little bit further ahead here. I'm going to go back to my workspaces again. I'm back in the workspace and I have" }
+  - { t: 2587, text: "this social media data data set. And , you can see what this looks . This is a a data set that I've created. Let's just open it up real quick you can see what the the schema of this thing looks . We have a couple" }
+  - { t: 2601, text: "look a snowflaking effect here. We have some dimension for content. We have some fact for metrics. We have platforms and teams. I'm going to try and build something across these tables here. We're going to" }
+  - { t: 2612, text: "try and build something across the platform, the content, and then counting something in in the metrics for data and content pieces. , let me move that" }
+  - { t: 2622, text: "out of the way. I'm going to leave that semantic model up in the hand side. What I will do is I gra I will grab the URL from that and I'm going to talk to my agent and say, ," }
+  - { t: 2633, text: "we want let's let's talk it out. I'm going to hit the microphone again." }
+  - { t: 2644, text: "want to build an app using the following semantic model. And then here I'm going to Whoops. It's still getting all my words. ," }
+  - { t: 2654, text: "let's get rid of the chatting thing. let's just say I want to build an app using the following semantic model. And what I'm going to do is I'm going" }
+  - { t: 2664, text: "to paste in that semantic model, just the straight up URL of what that URL is doing. It'll parse that out." }
+  - { t: 2677, text: "This app, this model contains three tables that I care about. DIM platform, dim content view, which is all the unique distributions of pieces of content, and then the fact metrics" }
+  - { t: 2687, text: "table, which contains all the factual data and the measures required to build sum of views. . what I did" }
+  - { t: 2697, text: "again what I was talking here to the agent I was telling giving it some description of what I wanted to build inside inside the application here. I also want to describe some things here else the the fact metrics" }
+  - { t: 2708, text: "table has slowly changing dimensions in there for measures and things. I need to tell it to filter all measures" }
+  - { t: 2718, text: "to the is current flag. I'm I'm going to describe some details about my semantic model for to get some information. Here" }
+  - { t: 2729, text: "in the fact metrics table I have a column named is underscorecurren and this is the current value of the piece of content and the most recent observed record. set this flag to" }
+  - { t: 2741, text: "true when using any of the measures. [singing] Jeez, this is getting complicated. Oops. [laughter] Let's get rid of that. All . ," }
+  - { t: 2751, text: "this is getting quite complicated . next thing I want to do is we need to describe what we want to see in the report. , let's do a little bit of report building. And maybe we want a KPI, maybe a a bar chart with" }
+  - { t: 2765, text: "platform information and count of content, something that. , and then maybe we can do some other elements here as , let's just see if we can describe what we want in the report and what we can get out through the chat." }
+  - { t: 2778, text: "For the report page, I'd to have a couple KPI cards showing total comments, total number of likes, and total views." }
+  - { t: 2795, text: "Use the is current flag to filter out all data that is not current, meaning is current is equal to true." }
+  - { t: 2806, text: "Also add some KPI cards for the count of pieces of content. Also add a bar chart for view count by different platform IDs" }
+  - { t: 2816, text: "or platform names. [singing] let's get rid of some of the stuff here. I need Let's get rid of that. Or platform by different platform" }
+  - { t: 2826, text: "names. Let's go with that. , let's see what we can get here. I I have not done this before, we don't know what we're going to get. We're going to let this thing chew and we'll see what we" }
+  - { t: 2836, text: "can get from this app. hopefully this will be working on template O2 because I'm in the folder. Let me add just something to reference it here. , one thing I'm going to do" }
+  - { t: 2847, text: "here because this is a template O2 item, I really want to make sure that this agent has context to this. , I'm going to go into the source and I'm going to click something in the source area." }
+  - { t: 2858, text: "let's see your test services main. Let's click on main. That looks a good place to start. I'm trying to give the agent some reference point here. main.tsx" }
+  - { t: 2869, text: "to give it context where I'm asking it to build this inside the item called template O2. . Hit run." }
+  - { t: 2885, text: "[singing] All" }
+  - { t: 2895, text: ". , we're going to let it cook here for a little bit. I'm looking at some of the comments here. , I see your comments. , Mr. Guru, I see you have a comment there. I'm not sure if I understand your comment. Maybe you have to explain a" }
+  - { t: 2904, text: "little bit more for me here to describe what you're you're talking about here for deploying a static app. , one thing I will note here is what I'm seeing a lot from this. Oh, shoot. I forgot to turn on the default values" }
+  - { t: 2915, text: "here. Autopilot allow. one thing I will note here is I've done a lot of work with app building on top" }
+  - { t: 2925, text: "of fabric. I've been starting since in January. I've been doing a lot of work around this. Rayfin is acting a static web app that sits inside Fabric. That's how I think about it. there may be more features coming" }
+  - { t: 2936, text: "later on, but it's a SWA, a static web app inside Fabric. I've also been building a lot of Azure static web apps for the last number of years and a lot of GitHub pages that are also static" }
+  - { t: 2946, text: "websites. This development process of React and Vit and publishing and shipping these pages, these apps in this way is feeling very common across many" }
+  - { t: 2956, text: "other patterns on how I build apps . almost everything I build these days is a static web app or a single page app that we're using with no app server, no server running behind the" }
+  - { t: 2967, text: "scenes. It's a it's a static web app that's very popular . very cheap to run, very efficient to get going. , a lot of times I'm building specifically those items. , these fabric apps are operating very much the" }
+  - { t: 2979, text: "same way as a static web app. , that that's my mental model. , the nice part about Rayfin compared to a Azure static web app is the Azure static web app has the need for an app registration" }
+  - { t: 2992, text: "to talk to the APIs and some additional authentication that needs to occur inside the app properties. The Rafen app doesn't really need that. There's" }
+  - { t: 3002, text: "already built-in integrations for that part of the security. You don't need an app registration. It shouldn't time out. It should automatically refresh and just build and work all the time. , there's" }
+  - { t: 3012, text: "a little bit of friction that I'm seeing being removed by building the Raven apps directly, which I really ." }
+  - { t: 3023, text: "Oh, wow. It's really chewing here. , we got a whole bunch of things going on. All , let's unpack what it's doing here. first thing I asked it to do do some items. said first let me register the semantic model connection and then discover the schema. Great." }
+  - { t: 3034, text: "it's using a fabric app data app connection from URL. . Interesting. it's running a data app generate. . let me" }
+  - { t: 3045, text: "discover the schema. Execute a command in terminal. Awesome. it's running another command. Query connection metrics. Excellent. oh," }
+  - { t: 3056, text: "there it is. Look, it found it. we can we can interrogate this a little bit. What is it doing here? Rayfin is running a DAX query. Look at this. We got an evaluate" }
+  - { t: 3067, text: "statement happening. Evaluate row table count. Count the number of rows in these info view.tables. what's the table count? What is my measure count? Where" }
+  - { t: 3078, text: "are the measures? And what are the items? it's it's returning results back here for us. It's getting the request. We're back. . . Yep. Here we go. Yep. Success." }
+  - { t: 3090, text: "Table count. Unknown. Oh, no. No. No. No. Awesome. . Interesting. Everything's unknown on that query. , that's a a lousy query. Didn't really do anything. All . , it runs another one." }
+  - { t: 3100, text: "query content metrics. it's looking for , it found a couple local date tables. Oh, there's my DIM team table. It found that. Yes. Fact" }
+  - { t: 3110, text: "metrics. There it is. It found that table. dim users and it's interrogating the model by directly running queries from the DAX query ex experience nice good let me" }
+  - { t: 3123, text: "get the columns for the key date tables and measures again it's running another query and it's returning details of oh we got an error on this one" }
+  - { t: 3133, text: "execute queries didn't that for some reason it didn't seem to get that Executing a couple more queries." }
+  - { t: 3146, text: "Yeah, the info view is not returning very much data to this thing. it's getting some context here. this one seemed to work." }
+  - { t: 3157, text: "What's it doing here? Evaluate select columns filter view info column table in. , it's doing some things here. Oh, I'm sorry. I must have switched something here. Something must have" }
+  - { t: 3167, text: "stopped sharing the screen. Thanks for calling out, Aaron. I'm doing a lot of talking but no one's looking. Hang on one second. Let me see if I can reshare that one. Let me replace that again. Replace." }
+  - { t: 3178, text: "Let's just do entire screen. Thanks for calling out. you can tell this is really live. [laughter] We're doing it live here. Let's see here. Turn that back on." }
+  - { t: 3190, text: "There we go. How's that look, Aaron? Much better . Hopefully you can see the screen again. . You saw me flub up there. All . , no problem. We are building" }
+  - { t: 3200, text: "live. This is what's really happening here. I'm going what I was doing while I was off screen here looking at a bunch of things. I must have hit a shortcut command. over here on the" }
+  - { t: 3210, text: "hand side, I'm I'm looking at all the the queries it's doing. this is running a series of commands. the agent is it's telling me it ran these different MPX commands here and it's" }
+  - { t: 3222, text: "getting different query metrics. And if I click the little arrow here on the hand side, I'm expanding that window and looking at the DAX query that's running. I can see" }
+  - { t: 3233, text: "the query that it's running here. Evaluate and then it's writing DAX. this is all DAX information here. And then the result of that DAX query is" }
+  - { t: 3243, text: "being returned here below. I can scroll through this as . And you can see this is a successful call. gives me the tables and starts giving me some columns and data types and other things from these these" }
+  - { t: 3254, text: "tables. let me minimize this one. let me get the measures. let's test the DAX queries that we'll need. Oo, interesting. What is it building" }
+  - { t: 3264, text: "here? Evaluate row total comments calculate. it's doing it's getting data back. Great. that's working." }
+  - { t: 3275, text: "Content metrics. , it's doing some other items. It's found YouTube x YouTube Reddit website data. All , both queries work. Let me read the" }
+  - { t: 3286, text: "skills. Review the app design. Examine multiple files. We've created seven files with with specifications. Let me build the React components. , great. It's already by default using" }
+  - { t: 3297, text: "React components, which is a good best practice when building here. That's awesome. And then" }
+  - { t: 3309, text: "We're going to keep going here. What else do we have ? Let's check for TypeScript errors. , it's looking through TypeScript errors. Good. No, no errors. Let me update. Let me also add the raw declaration for the DAX files. If not, already present." }
+  - { t: 3321, text: ". . I don't know what's doing there. Zero TypeScript errors. That's good. Check the dev server structure looks correct." }
+  - { t: 3331, text: "Validation requires Rafen up to have the first. , here is where this is looking for some new information. , this is interesting here. I'm not" }
+  - { t: 3341, text: "sure what it's doing with this env file. Searching for files matching env. All depends are present. Let me run the validation. Per the skill, I need to use the portal embed flow. Let me check if" }
+  - { t: 3352, text: "the eenv file exists with required variables. Interesting. , it's looking for something" }
+  - { t: 3364, text: "and it's reading this H. . Validation requires npx rafen up to have been run first to set up the DMV.local and the env fabric. Oh, interesting." }
+  - { t: 3374, text: "Here's what I built. , it's telling me here in this command we're going to need to run npx ray up to get something going here. All . ," }
+  - { t: 3385, text: "let's go over to this one. I don't know why it keeps doing that cursor thing. we got a new cursor here. ," }
+  - { t: 3395, text: "let's just double check here. Let's just do npx ray fin up. , I'm in the wrong folder. let me just double check. I want to" }
+  - { t: 3405, text: "be in the folder that has template 02. let's do cd template 02. I'm in the correct folder. we want to do mpx" }
+  - { t: 3416, text: "ray fin up. this is going to do that command that it was asking for us to do to build this which should build some local env files" }
+  - { t: 3427, text: "and create some items for us. All , let's see what it's doing . All ," }
+  - { t: 3438, text: "doing some things. Ray up. Found the rayon project. Yep. Using the name. Good. Using the workspace app test correct deploying the project to fabric. Redeployment detected." }
+  - { t: 3448, text: ". Workload endpoint. Fine. Perishable key retrieve. This might have been the thing that we need here. Workspace name sanitized. ." }
+  - { t: 3461, text: "I guess it doesn't my spaces in the name here. Wrote the deployment config. here we go. V detected. Look at this. refreshed env.local before build" }
+  - { t: 3474, text: "deploying static tonic content and doing npm run build fabric. , doot some chunks are larger. Don't care. , static components. Yeah, yeah, yeah." }
+  - { t: 3486, text: "looks everything deployed. Your next steps, go to the fabric portal. Check it out. All let's do that." }
+  - { t: 3496, text: "We're going to go over here back to the fabric portal. There is a URL in that page down below. , we could have just clicked that as . I'm going to go back over to my data app test workspace. We're going to go click on template O2" }
+  - { t: 3507, text: "directly. That's what we're going to click on. This is what we just created. We'll click on this. And we have the app item. Let me just refresh the page here." }
+  - { t: 3518, text: "Did it deploy correctly? Looks it's loading. Boom. All . We got data." }
+  - { t: 3529, text: "we have data here. It's pulling from our semantic model. We have a light mode and a dark mode by default . Sweet. All . Not bad." }
+  - { t: 3541, text: "We could probably throw some other metrics in here as . , . I'm digging it." }
+  - { t: 3552, text: "All . Let's see here. What else can we do? All . , I think that's the two of them. We've got a semantic model connected app running in" }
+  - { t: 3563, text: "the service with some elements there. We could stylize and build from here. I'm guessing we could build other tables or other items. Let's let's be a little bit creative. I'm going to kind of close off with this last thought here. I'm going to step back and just" }
+  - { t: 3575, text: "let the agent think about what it could reason about, what would be good charts about what's on this this page here. I'm going to go into the agent and say, , add some more visuals to the" }
+  - { t: 3587, text: "page. I want to observe. I should just talk to the agent. I keep thinking I keep typing all the time. I'm trying to get myself" }
+  - { t: 3597, text: "in a habit doing this. Let's just let it do it. I want to look at the number of views by each social platform channel." }
+  - { t: 3609, text: "come up with some additional interesting metrics or visualizations that would represent my performance compared to other channels performance." }
+  - { t: 3622, text: "I'm instead of saying my performance I'm going to say would represent performance across performance across" }
+  - { t: 3634, text: "other channels across channels. Let's call across channels. Let's see what it let's see what it comes up with. , I'm going to try and reason with the agent here a little bit and see if it can figure out things on its own. add" }
+  - { t: 3646, text: "three more visuals. add three more visuals. And let's let's" }
+  - { t: 3656, text: "add something to the the to the KPI cards and add a spark line to the KPI cards. Let's see if we can do that." }
+  - { t: 3667, text: "I'm just going to throw a couple random tasks at it and see what it comes up with. , a lot of the times I just got to build something that , sometimes you really know what you want. You're very metered about I need this," }
+  - { t: 3677, text: "this, and this. I have a really clear design. I'm just winging it . I'm just trying to figure out how to get the app to do things at this point. , I'm not really trying to build a specific report or I don't have" }
+  - { t: 3686, text: "a goal yet in mind. I'm just trying to build some stuff to see what I can get. [singing] All , it's doing some other things" }
+  - { t: 3696, text: "here. , while we're letting that chew here for a bit, let's go look at some of the data that's inside this model that we're looking at, the semantic model. , let's do a little data exploration. I'm going to go back over to the workspace. I'm going to" }
+  - { t: 3707, text: "click into the semantic model, and we're going to use the explore feature here on the menu. , I can go look at what's inside the data, explore this data," }
+  - { t: 3719, text: "and let's go see what we have. We have some values here. Let's do sum of views. Drop that on the page. I don't really want the visual. Get rid of that. And we can go grab some metrics here." }
+  - { t: 3730, text: "we have, let's see here. We have the dim platform. , I can do platform name. I could break it out by platform. interesting, but not really really that relevant. Let's do [singing]" }
+  - { t: 3746, text: "content. This is probably what we want. Yeah, there's a lot more metrics here. let's do source.name. name. These are the different YouTube channels that we're monitoring or looking at. . [singing]" }
+  - { t: 3757, text: "we also remember how I said earlier there's that that flag around is is current or not. I think I need a filter for this," }
+  - { t: 3768, text: "but looks that column is currently hidden. , I'll have to use that later. what else do we have here?" }
+  - { t: 3780, text: "Dim view. do we have published at? I could do published at something. I could put published at here as . Gives me some data there around who published the content. that would" }
+  - { t: 3790, text: "give me a really nasty diagram down below. But if I select that table looks nasty content with lots of different views on" }
+  - { t: 3802, text: "things. All . we do have some other source name items. You can see over time how much content has been selected. We can do a created at, published at" }
+  - { t: 3814, text: "the description. There is a thumbnail URL. That would be interesting. we go back up here to the matrix and minimize this. Let's get rid of some of this other yucky data up here. Let's get rid of all our yucky time frame." }
+  - { t: 3827, text: "We could do thumbnail URLs. that's a specific icon. We could also go by descriptions." }
+  - { t: 3840, text: "That would be interesting. That's a lot of text there. Burnout. There's probably a URL for each of these items as . There we go. , we have" }
+  - { t: 3851, text: "blogs from fabric.com. We could use that URL. . , maybe we we could make a a thumbnail page as . We could maybe throw that in there as . All . Let's not save this. Let's see what the agent has built here. ." }
+  - { t: 3862, text: "Still analyzing. Rewriting the KPI cards and we have three more components. Update the app.tx. , it's building stuff." }
+  - { t: 3879, text: "It's still thinking. Zero TypeScript errors. Good. We're almost done. It's checking and validating. Let me validate the browser using the fabric portal embedded flow. [singing]" }
+  - { t: 3889, text: "It's saying it's using the embedded flow and checking the interesting. it's trying to build this using Playright CLI. This is really neat." }
+  - { t: 3907, text: "Interesting. I wonder if it's able to render it that we've gotten that Rayfen published up item. we can see here we have the ENV local object. And I'm not going to show" }
+  - { t: 3917, text: "you that because that's where the secrets are for this app. But the ENV local item, that's where all the secrets or things are stored. we can render and pull down the data from the app directly. , this is interesting." }
+  - { t: 3929, text: "I wonder if" }
+  - { t: 3944, text: "it's already running a server here on this one. , I'll wait for it to be done here before I make any changes. We'll let it finish up here. Playright's running. The browser is not the AAD signin page. P validation skills should" }
+  - { t: 3954, text: "not interact with the sign in flow. fine. It's doing a bunch of things." }
+  - { t: 3964, text: "It's doing a whole bunch of stuff there. [singing]" }
+  - { t: 3974, text: "Yeah, I didn't think it was going to get any errors there. Yeah, it's going to be freaking out. [music] [singing] All , let's keep these files. I think it's going to work. , we're going to wing it here. We're going to go" }
+  - { t: 3984, text: "a bit aggressive here. And we have this template 02. , let's just do npx raen up. It's doing some validation stuff. , I think we're . Let's see" }
+  - { t: 3994, text: "if it will push this project over to rafen up. Let's let it build. We'll let it generate." }
+  - { t: 4011, text: "Boom. Static build command completed. Static content packaged. Good to go there. Next steps. We're ready to go to the fabric portal again. All . , it's still doing some validation with" }
+  - { t: 4022, text: "playright, but we're going to skip that for . We're going to go back to our data app test. We're going to go to template 02 and we'll refresh our page to get a fresh context of all that hopefully newly edited data." }
+  - { t: 4034, text: "And there we go. [laughter] Not really what I was envisioning for spark lines, but it's got a little bit of work to do there. Views by platform are working pretty" }
+  - { t: 4044, text: ". Top channels by views. Interesting. Engagement rate by platform. Reddit's really engaged. . ," }
+  - { t: 4055, text: "we've got some more visuals . It's looking a little bit more a some regular context there. All . with that, I hope you've enjoyed this demo. We did two more demos, two templates today around Rayin. We did" }
+  - { t: 4066, text: "the number one demo for app signing through a portal page and we also did the connected semantic model app demo. And we have light mode and dark mode. that's the start starting" }
+  - { t: 4077, text: "point of Rayen. You can start building out very simple things, creating items, working with your semantic models, and starting to build content directly. here. We're going to go on and build some more templates and we're also going to go try and find some community" }
+  - { t: 4087, text: "templates later on this week. If you this content, make sure you thumbs up the content down below. Let me know you enjoy this content and you want to learn more about Rayfin through our channel. Thank you all much for" }
+  - { t: 4098, text: "checking out our channel. We appreciate you. Have a great day and , we'll see you again the next time." }
+
+---
+
+## Summary
+
+In this episode, he builds two Rayfin templates end-to-end from Microsoft Fabric into VS Code: a basic authenticated app (Template 01) and a semantic-model-connected data app (Template 02). He shows the full workflow of scaffolding with `npx create rayfin`, running locally with `npm run dev`, signing in through Microsoft auth, and deploying with `npx rayfin up`. Along the way, he compares template capabilities, including the larger skill set in Template 02 and how Rayfin behaves like a static web app with built-in Fabric integration. He also troubleshoots install/deployment friction and UI styling issues while still getting the semantic model visuals published in Fabric.
+
+## Key Takeaways
+
+- ▸ Rayfin app creation starts in Fabric, then the generated command is run locally to scaffold the project in VS Code.
+- ▸ Template 01 gives a minimal authenticated React/Vite starter, while Template 02 introduces data-app patterns and many more built-in agent skills.
+- ▸ A failed dependency step during scaffolding can be recovered by manually running `npm install` in the template folder.
+- ▸ `npx rayfin up` refreshes environment config, builds static assets, and republishes changes directly to the Fabric item.
+- ▸ The host distinguishes app management from code publishing: settings are in Fabric, but real development and CI/CD stay in source control/VS Code.
+- ▸ Agent-driven UI edits can accelerate iteration, but model/tooling mismatches (like dark/light mode behavior) still require debugging and validation.
+
+## Links
+
+- ▸ [microsoft.com](https://www.microsoft.com/en-us/microsoft-fabric/features/rayfin?utm_source=agentic_thinking&utm_medium=website&utm_campaign=20260610)

@@ -1,0 +1,282 @@
+---
+title: "Skills in Fabric - 026 Agentic Thinking"
+episodeNumber: 26
+date: "2026-06-27"
+youtubeId: "7XzpHlnfT9M"
+duration: "45:22"
+blurb: "Follow Us"
+tags: ["agentic thinking", "youtube"]
+chapters:
+  - { t: 0, label: "intro" }
+  - { t: 453, label: "context" }
+  - { t: 907, label: "problem framing" }
+  - { t: 1361, label: "working session" }
+  - { t: 1814, label: "practical takeaways" }
+  - { t: 2268, label: "closing thoughts" }
+  - { t: 2662, label: "wrap up" }
+transcript:
+  - { t: 16, text: "Hello everyone and welcome back to the Agentic Thinking podcast. Matias and I are jumping in today and we're going to talk a little bit about agents or skills with agents. Hello Matias, welcome back. How are you doing?" }
+  - { t: 26, text: "Hello. I, as you can probably tell, I'm a bit hot because we're going through a crazy heat wave . But apart from that, apart from being surrounded by lots of fans and noise," }
+  - { t: 37, text: "[laughter] and cold water with ice. It's, , trying to stay cool for the day. Absolutely. Awesome. And I think we're going to do a bit of an unplugged session today, ? Yeah. This this is going to be a bit of" }
+  - { t: 48, text: "a , we're going to just try some things. , this may this is not a very clearly defined demo. We're doing things live. This is all going to be live for this session. We're going to try and" }
+  - { t: 58, text: "work with this new area called skills for fabric. It's just recently came out. There's a number of report authoring skills that we want to test out and see how it's working. , we're going to try and demo some of those" }
+  - { t: 68, text: "things. The first thing we'll need to do is get everything set up in our environment. We've been playing with Skills for Fabric for a couple months since they've been released initially and they're updating things. we're going to go through an" }
+  - { t: 78, text: "update cycle here. We were just talking before the episode trying to get things working. are , \"Oh, this is crazy difficult.\" , we figured we better just start the episode and do it live." }
+  - { t: 89, text: "be aware this episode may go really and it'll be impressive. It may be a dud. , we may just struggle through some things. , just be aware. We're going to go through things. You'll see how this happens and unwinds in real" }
+  - { t: 100, text: "time. Any other news announcements real quick, Matias, before we jump into our main demo? I heard some rumors around Codeex 56 today. apparently that is rolling" }
+  - { t: 113, text: "out to some enterprise customers but no nothing official. , I'm not sure whether that was a hoax or not, but it if anything, it's definitely expected to happen very very soon, ?" }
+  - { t: 125, text: "I noticed Claude , Enthropic released yet another product, Claude Tag, which is Claude inside your" }
+  - { t: 136, text: "Slack workspace. , you can you can talk to to Yeah. , you can bring Claude into a Slack channel and then you've got a background agent there" }
+  - { t: 147, text: "that has access to your your whole channel context, if you will, and you can include it in your conversation. , that's" }
+  - { t: 158, text: "new as far as anthropic products are concerned, but definitely not new in terms of where we are in the AI world. In in fact, it's quite old news, ?" }
+  - { t: 168, text: "And this is also you're saying this is currently in Slack. It hasn't added itself to Teams yet, I think is what I'm reading in the documentation. , , it seems" }
+  - { t: 178, text: "it's currently a non non-M Microsoft product thing, but who knows? there may be eventually a an ability for you to start tagging Claude. I think the idea here is you can have multiple people" }
+  - { t: 190, text: "interacting Matias and I could both interact with Claude in the same chat session together. , it's a multi-person communication cycle, ? Why do we need to have one agent" }
+  - { t: 200, text: "and one person involved for all the communication? Why not have a channel where multiple people can talk and at Claude to have it go do things or or make things happen and then it has context to the conversation which I" }
+  - { t: 211, text: "think this is just fitting in line with you. You said it earlier. This is your idea, not mine. This is what Open Claw is doing. This is what Hermes is doing. All the other agents that are out there, you're able to bring" }
+  - { t: 221, text: "them into chat windows and talk to them there directly. Awesome. that I'll we'll put the introducing Claude Claude tags. That's" }
+  - { t: 231, text: "hard to say. , Claude tags are in the description here also in the comments here as on the page. , you can go check that out if you'd to see more details. All , enough of the news." }
+  - { t: 242, text: "Let's go do some demo things. , what we're going to let's start with the GitHub website first and let's just show you what's there initially. I will put in the URL link here as ." }
+  - { t: 254, text: "in the chat window in case you want to go explore skills for fabric. , let me switch screens here and I'll get my desktop going. here is my desktop. this is the GitHub page. It" }
+  - { t: 266, text: "is a Microsoft repo. skills for fabric is what we're looking at here. And if we go into the skills that are inside this page, we can narrate down" }
+  - { t: 278, text: "to the folder called skills. And if we open up the skills area, we can see there's a whole bunch of skills here that have been created across many different artifacts directly inside" }
+  - { t: 288, text: "Microsoft Fabric. I'm going to move the window over here slightly everyone can see this. , we've got Fabric IQ. We have some pipeline integrations. The ones I think we're interested in today" }
+  - { t: 300, text: "is we want to go handle these PowerBI report authoring, design, management, and planning. We think these are the ones the skills that we're going to be able to use to manipulate a PowerBI" }
+  - { t: 310, text: "desktop file with our agent. , we're going to attempt to get these going. here in lies the problem. , this and I have installed skills for fabric" }
+  - { t: 322, text: "inside our VS Code environment, but we did this a month ago, I say, or . Matias, you did it even earlier than I did. , but we have some lag time." }
+  - { t: 333, text: "if we try to go look at VS Code. I'm going to go over here to VS Code and look at what's inside VS Code. First thing is where do you get these skills? How do you get them from GitHub and put" }
+  - { t: 344, text: "them into VS Code? Matias, you already covered this in a previous session going through some settings and having some configuration items. we're going to show you a second way to get access to" }
+  - { t: 354, text: "that which is if you go over here to the chat window. , control shift I turns on the chat window for my agent. This is" }
+  - { t: 364, text: "for GitHub Copilot inside VS Code. And you'll notice up here all the way in the corner, there's this little toggle gear in the upper hand corner next to my chat. If I click on the gear," }
+  - { t: 376, text: "we'll be presented with a new window. And in the window on the left hand side are all the different things that our agent is able to see and use and and" }
+  - { t: 387, text: "have. There's instructions, there's prompts, hooks, MCP servers, all a bunch of richness here. If I click on the item called plugins, we can see on my" }
+  - { t: 397, text: "computer, we have skills for fabric. before this video, we were trying to get the agent to understand what skills do" }
+  - { t: 407, text: "you have? What skills do you have knowledge of for specifically skills for fabric? And what we found was when we were talking with the agent, it didn't have the latest skills. , VS Code is" }
+  - { t: 418, text: "not automatically updating that location with those skills in it regularly. , what we're going to need to do here is I'll show you where where this exists." }
+  - { t: 428, text: "I have a folder on my computer, mike carlo.copilot u install plugins fabric collection. that's the one that we're talking about here. , if I go over to this" }
+  - { t: 438, text: "one, if I click on or click on the item, clicking on the item, you'll see that there is an open plug-in folder. , this will open the folder on my desktop and take me directly to the" }
+  - { t: 450, text: "folder. , rightclick, open plug-in folder, and we'll get here a nice pretty folder here on my computer. , this is the skills for fabric folder on" }
+  - { t: 461, text: "my machine. And if I double click into the skills for fabric, I know this is quite small, I'll zoom in here. We can see we have GitHub, agents, common, and skills. Skills is what we're going after. We'll jump into the skills area" }
+  - { t: 473, text: "and you'll notice my list is quite small and if we go down to the elemento we only have one skill called pipeline inte migration. We don't have all the" }
+  - { t: 484, text: "report authoring skills that we need. we had quickly identified there's a problem here. We don't have the most recent skills. Matias over to you. How do we how should we fix this?" }
+  - { t: 496, text: "there are various ways. , I would go to the I I would in I would register the Microsoft Skills for Fabric" }
+  - { t: 508, text: "repo as a marketplace. , and inside this window you can you can do install plugin from source. , there we go." }
+  - { t: 518, text: "And then you paste just paste in the repo URL. There we go. , in fact, this one, as you can see, you don't even have to have the full URL. If" }
+  - { t: 528, text: "you just do Microsoftskills for fabric without the github.com, it will work. It will recognize it. By convention, if you just put orcreo," }
+  - { t: 539, text: "it assumes that that's on github.org. that makes it very easy and straightforward. I'm going to drop in the full URL here. , this is the URL that I just got from the website page. All ," }
+  - { t: 549, text: "Charlie again. That's the web page. We're going to drop that URL back in here again and hit enter. . Hopefully. And and then it should download the whole thing. once you've confirmed you" }
+  - { t: 562, text: "trust it, it will then download the repo. and you can specify which plugin from that particular marketplace you want. And" }
+  - { t: 573, text: "I would suggest we go for PowerBI authoring which is a bundle that contains a number of PowerBI related skills. This one here is where we're going" }
+  - { t: 583, text: "after. And notice here this is an alias that's deprecated. Deprecated alias collection. . Interesting. . we're going to go down to the oh I don't know why I did that. I hit" }
+  - { t: 594, text: "escape I think accidentally. Let's go down here to PowerBI authoring. We're going to select that one as . Yeah. . And that's showing up. And unlike the two the three at the top, this one does not show up with an" }
+  - { t: 605, text: "external file path because this is installed within the VS Code native environment as opposed to coming from an external folder. that's a" }
+  - { t: 615, text: "good way to distinguish. I'm going to disable I'm going to try to click on this one. I'm going to disable this particular skill because I don't want to get confused between skills for fabric and the PowerB authoring. I'm" }
+  - { t: 626, text: "going to disable this other one and get rid of that one. also, , general for everyone out there," }
+  - { t: 636, text: "you you you want to be very selective, ? It's not a good thing to bring more and more stuff into your context or into your project. more more is bad, ? , because" }
+  - { t: 650, text: "one, , it's more things to load into your context window. two, it produces ambiguities with respect to ultimately, when it comes to skills," }
+  - { t: 662, text: "you're asking your LLM to make a judgment call to invoke a skill, ? And if it has more choice, it can it has more chance to go wrong, ? , it's" }
+  - { t: 672, text: "it's always a very good idea to be minimalist and selective here. I'm going to click cancel on this window. And , we're going to go back over here to U. , I have my VS" }
+  - { t: 682, text: "Code again. I have made a demo folder on my desktop and that's the folder that we've pulled into my VS Code. that's the folder that we're looking at . And that we've added that" }
+  - { t: 692, text: "skill, it probably makes sense for us to talk to our agent and ask it what PowerBI authoring skills do you have? let me ask the question here." }
+  - { t: 705, text: "What PowerBI authoring skills do you have? hit run on that and we're going to let the agent chew on those thoughts. , we'll see. , the idea here is I don't" }
+  - { t: 716, text: "really know what's in there. I don't know what capabilities I have. , what do these skills do? And I'll let the agent teach me how to use these skills. I think this is a pattern that I'm finding I use a lot with especially when" }
+  - { t: 727, text: "I'm pulling in skills, skills for fabric or other places. I ask the agent specifically what I want to do. What does this do? Teach me this. Show me what's going on here. and it does a really good job of explaining" }
+  - { t: 738, text: "what's going on in those skills that it found. , it's giving me a summary here. I have a planning skill, end toend requirements for implementation of a workflow, define audience, scope, plan a page, design a direction, and create a" }
+  - { t: 750, text: "locked report spec before building. that's the planning step. PowerBI report design, visual guidance, tone, chart types, PowerBI report authoring, that's the next one here." }
+  - { t: 763, text: "Report authoring is create, modify power report file. , modifying report files in the PBIR format, visuals, pages, slicers, bookmarks, and themes." }
+  - { t: 774, text: "this is really what I want to get after here is being able to use skills directly to modify the PBIR and PBIP project format. That'll be really useful. And then there's a report management that talks to the REST API," }
+  - { t: 786, text: "create, download, and update. This is awesome. . Interesting. if I may. Yeah. that repo is frequently updated." }
+  - { t: 797, text: "They use public releases and they they use semantic version numbers and this is something which really really matters because we have pretty" }
+  - { t: 808, text: "much zero visibility within the VS code environment with respect to what version we're using. But that really matters. the" }
+  - { t: 818, text: "current version is 0.5. the stuff we are after with respect to enhanced PowerBI authoring skills that was all only added in 0.3" }
+  - { t: 832, text: "two weeks ago. Yes. if you happen to have an old checkout of of that skills repo, you're not going to get any of the goodness we're showing you today. Unfortunately, as I said" }
+  - { t: 842, text: "before, it doesn't show you anywhere easily. you either need to remember or you need to drill into into the local cache folder and check which" }
+  - { t: 853, text: "version of the git repo it's pulled down. bit a bit problematic from a UX and from a DX point of view but for not much we can do about it" }
+  - { t: 866, text: "other than double-checking. . yeah, agreed. since we know we're gonna let's go try attempt this one. let's go after the probably" }
+  - { t: 876, text: "the report authoring skills what we want to attempt today just to do a quick demo around that. I'm going to assume some things here. There's not a lot of documentation on this. this is where things are maybe go off the rails. We're" }
+  - { t: 886, text: "going to do the best we can to keep things together here as we do this demo. let's jump in. We know we need to start with a PowerBI report file in PBIR and PBIP format. let's go get some" }
+  - { t: 897, text: "files off of my machine and we will go use those formats. Over here I have two files. one named fancy report. You may have seen this one. This has been around for quite a long time across the" }
+  - { t: 907, text: "internet. We also have this other one called the star model, which is a star diagram of data sets, some dimensions, one fact, a handful of measures. Pretty simple, but a very basic page. , I'm" }
+  - { t: 918, text: "going to build new pages or modify this report. , I'm going to start with the star model. We'll go there first. I think that will give us our best results. , this is all in real time. , let's open a report. Let's" }
+  - { t: 930, text: "browse my device. We'll go to my desktop here and we'll go get that file called the star model. We'll go ahead and open it. The reason I'm opening this file as" }
+  - { t: 940, text: "a PBX file is I know this is a file is older. It's not in the PBIP format. what I need to do is I need to create this report inside a PBIP format." }
+  - { t: 951, text: "And to do that we will go to the file save as option in the menu. And in save as, we'll pick on our desktop application. We'll go into our" }
+  - { t: 962, text: "demo folder. And this will create all the files that we need here in desktop. And I probably want to create a new folder here as . let me create a new folder cuz it will create many" }
+  - { t: 972, text: "different files in this. Let's call this star model. Sorry to interrupt, but you may want to mention that at this point people need to have a couple of preview features" }
+  - { t: 982, text: "enabled as , otherwise they're not getting the correct output. . Yes. If you do not have this PBIP format, you need to make sure you turn" }
+  - { t: 992, text: "this on in the options in the settings of the preview feature. , this is a preview feature that's currently out. We're getting very close to going public GA with PBIP. We keep hearing announcement that it's getting closer" }
+  - { t: 1002, text: "and closer. but PBIP is currently a preview feature. You need to turn that on in the settings. , I'm going to this new folder I created. I'm" }
+  - { t: 1012, text: "changing the file format type to PBIP here and then I'm hitting save. This will take the file that I'm currently looking at in PowerBI desktop." }
+  - { t: 1022, text: "You'll notice here at the very top of the page, it changed the name of the file to have this thing called P PowerBI project. This indicates to me" }
+  - { t: 1032, text: "that I'm looking at a PBIP formatted item. All the files, all the details are there. If you click this down arrow, you can also see that we get this" }
+  - { t: 1042, text: "enhanced metadata about everything that's in here. Here's the report layer. Here's the semantic model layer. And these are the folder structures and where those data sets or those files" }
+  - { t: 1052, text: "will live for managing the report and the semantic model. all this is included with this new PBIP project format, which is amazing. All ," }
+  - { t: 1062, text: "this is all good and dandy. This is here. If I go over to my demo folder in VS Code because I created that file structure and into the star model PBIP folder, I can see everything here" }
+  - { t: 1074, text: "that was previously saved from PowerBI desktop. this is all the files that PowerBI desktop created for me directly inside VS Code. , this being said, I" }
+  - { t: 1085, text: "think we're ready to try and start report authoring. let's start off something simple. I'm going to just attempt to do a duplicate." }
+  - { t: 1097, text: "for context, let's look at our report and let's give our agent some an easy task. I'm going to propose let's just" }
+  - { t: 1107, text: "duplicate the tips page. What do you think, Matias? You think that would be an easy enough task or should we do something different? let's start easy. Let's see what happens. It's either that or make a new I" }
+  - { t: 1119, text: "don't want to do a new visual yet. I want to maybe let's see if I could just copy the page let's copy the page named tips in the report. , let's see if we can do here." }
+  - { t: 1130, text: "another one you could start with would be just to ask it question about what it currently has. That's a better idea. Let's let's do that instead. Sorry. Let's let's No, I that." }
+  - { t: 1140, text: "It's a lot better. I don't want to make it create things. That way you verify that it can access the stuff and that it can compile a really good" }
+  - { t: 1150, text: "summary out of it. ? I would totally agree with that one. All . let's do that. let me go over here. Let's talk to it and say I have loaded a PowerBI report named" }
+  - { t: 1161, text: "start model PBIP. There is a report here. What can I do or what can you see from this report?" }
+  - { t: 1179, text: "what can I do or what can you see from this report? , let me let me ask that a different way. I don't really how I did that. , I don't even I'm not asking a question. Is there a report here? , let's just say," }
+  - { t: 1190, text: "can you see this report? Let's just ask that question. Can you see this report in PBIP format? Let's say that. And if I may, if you if you want to" }
+  - { t: 1201, text: "make this a more complex prompt, you could also ask it what are your capabilities? What can you do with a report in in PBIR format" }
+  - { t: 1214, text: "then it should give you a good summary of of the skills effectively. I that prompt very much. All , hitting enter. We'll let it go. We're" }
+  - { t: 1224, text: "going to ask it if it has can see this file that has been loaded and will it be able to tell us what's going on. All it's evaluating and see what it comes back here with. It's reading my" }
+  - { t: 1234, text: "demo folder. Star model. Yep, exactly." }
+  - { t: 1253, text: "All , reading some definition files. Let's burn those tokens. All . Read all the things. [laughter] We're going to eat up all of our tokens. Reading lots of files here. , it's going through my pages. It's going to the model. . . Great." }
+  - { t: 1264, text: "Identified. I can see your star model PBI project. Here's what's in it. Oh, look. It found two pages. It found the theme file. CY fiscal year 21 SU7." }
+  - { t: 1276, text: "That's the release date of that U theme file. Oh, it it found a report level filter relative date. Awesome. It finds this the semantic model, all the tables." }
+  - { t: 1286, text: "Excellent. . , what can we do ? Oh, great summary here. Let me expand this just a little bit more. There we go. Here we go. , we can add or oh, add," }
+  - { t: 1296, text: "remove or reorder pages, add charts, visuals, edit filters, slicers, customize themes and colors, create" }
+  - { t: 1306, text: "navigation bookmarks, and toggle states. That would be fun to play around with layout positioning things. and then we can do semantic model, add measures, calculate columns or edit" }
+  - { t: 1316, text: "relationships. . you can write DAX measures and recommend chart types. . I I find those in introspective" }
+  - { t: 1327, text: "questions really really useful for two reasons. One, it verifies that your setup is correct and you have the stuff installed you thought you had installed. And two, it gives you a really good starting point you" }
+  - { t: 1337, text: "know what can you do , ? you're not making wrong assumptions about what's possible." }
+  - { t: 1348, text: "All . that being said, let's go next. the original task I had said after we got we've confirmed we are connected, let's try to get it to duplicate the tips page. let me hit" }
+  - { t: 1360, text: "record here and we'll do that. Please duplicate the tips page and name it tips page two. All" }
+  - { t: 1373, text: "we'll see if it can find that tips page and duplicate it. All , we'll watch desktop here. , I want to watch what's going on. There's" }
+  - { t: 1384, text: "two places I think I want to observe here. One is I want to observe what PowerBI desktop is doing. because we are manipulating the PBIP format. in the past I believe Matias whenever I" }
+  - { t: 1395, text: "edit the PBIP format in order for those changes to be rec to be rendered inside PowerBI desktop I have to shut down desktop and reopen the report." }
+  - { t: 1405, text: "However I believe the PowerBI gateway that was just released in the June version of desktop should let the CLI refresh the report for you" }
+  - { t: 1417, text: "automatically. . yeah, does that seem accurate? they yes, they they ship a dedicated CLI which they call the" }
+  - { t: 1429, text: "desktop bridge which is able to use an internal communication channel with desktop to have it reload all the" }
+  - { t: 1439, text: "sources from disk. But it may not trigger that one on its own. You may have to give it a hint that you want that and you may need" }
+  - { t: 1449, text: "to I think you at this point I think the skill is only looking at your file system. I don't think it's aware that you wanted to do anything with" }
+  - { t: 1459, text: "this desktop session, ? . , I think that's probably what's missing in that point." }
+  - { t: 1470, text: "let's review what it did. , it did make some changes. my PBIP format has changed. down here in the GitHub window, we can see that it is in fact building it has added has modified" }
+  - { t: 1481, text: "the pages, modified a page, done some V and made two new visuals. it's it's doing some changes here. And if we click on these items individually, we can go directly over to the VS Code window and" }
+  - { t: 1492, text: "we can see exactly what it's doing and making those changes. it's it did rename the page to page tips 2. , we can see here, here's the page details." }
+  - { t: 1502, text: "this is all brand new information. It's making the the JSON describe what to put on that page. it even added my background image." }
+  - { t: 1512, text: "I have a background image on that page. It's using the same background image as a reference, which is awesome. And then it makes my two visuals, visual one and visual two. . , it looks it's doing everything correctly." }
+  - { t: 1522, text: "I'm going to say keep on this. And because I think Matias, you're spot on. Even though I changed the PBIP files, notice that PowerBI desktop did not change." }
+  - { t: 1533, text: "I'm going to try and prompt it and see if it can do the change in PowerBI desktop. what is the command? Do we know what the Is there a command specifically that I should tell it to do?" }
+  - { t: 1543, text: "to do that. Yeah. One second. I I just had it. , I feel I just saw someone on LinkedIn describe this exact same" }
+  - { t: 1553, text: "feature. , and I highlighted it saying, \"This is a really cool feature. Thanks for sharing this tip.\" , I'm gonna go I'm gonna go to my page real quick here and see if I can remember. Yeah. , I'm looking in in the" }
+  - { t: 1571, text: "I think if you mention desktop bridge, that's that's a very specific technical term which is used inside the scrill def skill definition. , you could ask it to use the desktop bridge" }
+  - { t: 1582, text: "to identify your current PowerBI desktop session and see if it if it's able to do something with that. What that one would do in the background, it would download" }
+  - { t: 1593, text: "an npm package and it would then invoke an executable inside that npm package. there's a lot of stuff happening in the background, but we would see that as a tool call. we" }
+  - { t: 1604, text: "would be able to verify that quite easily. . , we're going to say using the PowerBI desktop bridge," }
+  - { t: 1615, text: "reload the report. and I'm also going to , I'm I found the post. , the the command line or the CLI command line is" }
+  - { t: 1626, text: "PowerBI desktop dash reload. The CLI command is PowerBI- desktop" }
+  - { t: 1637, text: "space reload. We'll see if it if that gives it a little bit of extra help here to figure out how to make how to use that CLI. All , good. We'll hit enter on that. We'll see if it does it." }
+  - { t: 1647, text: "we're going to let it chew here for a bit. And while it's thinking, we're going to let it I'm going to try and split the window here. , we'll have PowerBI Desktop on the left and we'll have VS Code on the . and" }
+  - { t: 1656, text: "we're going to try to watch what it's doing. . , it it can't find it. , . Ran," }
+  - { t: 1669, text: "that's it's telling me I it can't find it. All . , how do we in , I guess the next up here is how do we install the desktop bridge CLI?" }
+  - { t: 1679, text: "Oh, do you want me to check if there's an MPM pip package for the Yes, I do. go check for one. Yes. what's interesting if it had followed the actual skill the PowerBI report" }
+  - { t: 1689, text: "authoring skill yeah the skill starts by telling the agent that it needs to run an update check and it needs to install prerequisites somehow" }
+  - { t: 1700, text: "it's decided to ignore that because if it had done that the CLI would have been in place oh it found it running mpm installed yeah there we go yes" }
+  - { t: 1710, text: "yep Microsoft PowerBI desktop bridge CLI it did find the mpm package package and it's installing it . And this one you can use that on your own, ? That's that's that's" }
+  - { t: 1720, text: "a globally installed CLI. , and you can you can invoke that using the PowerBI desktop command anywhere on" }
+  - { t: 1730, text: "your file system. , for instance, you could you could run PowerBI desktop space status. Yep. if you want to do that in a terminal maybe" }
+  - { t: 1741, text: "to see which open sessions you've got. And I want to highlight that it's global because of the mpm install line here. just for those who are not code people. decoding a" }
+  - { t: 1752, text: "little bit of the crypticness here mpm is the installer packaging. Installing is doing the install. The - g means global means all users everywhere on your computer. It's globally" }
+  - { t: 1762, text: "installed anywhere any folder can use this command. that that's what that we know it's global because of that command there. . it did the executed the command. ," }
+  - { t: 1774, text: "let me reload the report. Oh, look, there it goes. , it ran the installer, found it, got the mpm package, executed the command. Here's the command in terminal being executed. Ran" }
+  - { t: 1785, text: "reload, and then it says the report has been reloaded in desktop successfully. Your tips page two is visible. Very good. There we go. Tips page two. We have the" }
+  - { t: 1795, text: "exact same thing on the first page and the second. , great. Awesome. And that only cost you 17 credits. I just saw that pop [laughter] up over there. Yes, exactly. I'm burning burning" }
+  - { t: 1806, text: "through my tokens. , great. , that's done. Oh, also, I've done some rough math on the credits and tokens you can think of 17." }
+  - { t: 1818, text: "that that note there Matias 17 credits that's 17 cents I think is I think it's a credit is about a penny I think is what the rough math I've done. I" }
+  - { t: 1828, text: "don't know if that's exactly true. I think it's half because Yeah, I think you get double the amount of what you've paid." }
+  - { t: 1841, text: "it depend , it depends what tier you're on, ? , if you're if you're on max, I think that cost $100, but you're getting 20,000 credits" }
+  - { t: 1853, text: "currently, which means it's half a scent. But if you're on the lower tier, then the multiplier is smaller. A little bit higher. . Yeah, exactly. roughly" }
+  - { t: 1864, text: "8 cents to do that that task there. . Worth my time cuz I don't have to I don't have to do the [laughter] buttons. Yeah. Anyways, just some general approximate. . , let's go. , we had some" }
+  - { t: 1874, text: "skills earlier. We can do other things . , let's ask it to add another u visual here. , let's just start communicating with our agent. Let's see if we can get it to do let's add" }
+  - { t: 1884, text: "a scatter chart. I'd to add a scatter chart between units sold and sum of sales based on product. Let's see what it can do. ," }
+  - { t: 1900, text: "I'd to add a scatter chart on our new page. And I would to have the sum of sales and unit counts on the x and y axis of" }
+  - { t: 1910, text: "the chart. And I'd the details of the data broken out by products." }
+  - { t: 1921, text: "Oh boy. We'll see if it how how this does. All , we'll let it. We're going to see if it's going to add a scatter chart to the visual. it's reading. again, we can watch what it's doing here. It's it" }
+  - { t: 1932, text: "has the measure names. it did find sum of sales and it found sum of units sold. Good. It did find the dimension table for dim product. . let me create the visual. Let" }
+  - { t: 1944, text: "me reload desktop. , it even it this time it's doing the reload desktop for me and seeing if it created something. , I did ask it to create it on page two. , I'm going to go back over to tips page two. Look at that." }
+  - { t: 1956, text: "It did it. Wow. . I'm impressed. That was way better. . , let's I'm going to be I'm gonna do something that I to do in" }
+  - { t: 1967, text: "desktop that causes me some pain. , one quick question, Matias. I want to move away from VS Code directly. Can I pop this window out into out" }
+  - { t: 1978, text: "of VS Code? How do you pop it out? Yes. , what you can you No, you can take the entire panel and move that into a dedicated VS Code window. And then" }
+  - { t: 1989, text: "that's what I want. There we go. That's what we That's because I want to see both things side by side here. I want to be able to look at the model and look at what's going on here. Oh, this is cool. I'm already liking this a lot." }
+  - { t: 1998, text: "All . , hang on. Let me just do a little bit of finagling here. , let me put this here. And we'll put that there. And then we'll scooch this over a little bit. And we're there. . , I think" }
+  - { t: 2008, text: "we can go back a little bit here for the view and the video. Awesome. This is cool. . , here we are building that. , we've gotten this one. We'll keep our Looks it should be a panel within PBI Desktop, ?" }
+  - { t: 2018, text: ". Almost. [laughter] Maybe there's something coming in the future that'll get us closer to that. who knows? , , we've got the chat window here on the . We have" }
+  - { t: 2029, text: "our desktop on the left. And we can add some. let's I doing one thing I to do a lot is I don't really the on the scatter chart it makes sense to have the different labels for X and Y because I think that makes" }
+  - { t: 2039, text: "sense. But on my bar chart it doesn't really make sense to have the X-axis labels. I'm going to see if we can modify an existing visuals across the entire report. ? I have two" }
+  - { t: 2050, text: "pages, page one and page two. and we have two sum of sales by products on a stacked column chart. I'm going to ask" }
+  - { t: 2060, text: "it to remove all titles from stacked column charts. , we'll see if it it'll do that. I want to update the theme of this report to remove the title for the" }
+  - { t: 2071, text: "x-axis on the stacked column chart. If it can this is this is kind of complex, Matias. I'm giving a a" }
+  - { t: 2082, text: "detail about a theme adjustment on the specific theme file for this one. . oh interesting. , I said I update" }
+  - { t: 2093, text: "the theme of this report and it said it found it wants to remove the title for the xax x-axis. It didn't mention anything about updating the theme." }
+  - { t: 2104, text: "if I go to page two. . , interesting. I asked it to remove the x-axis. I said the word theme, but it did not pick up on the ability that we were talking" }
+  - { t: 2115, text: "about the theme of the entire report. It just removed the x-axis on the one chart. Notice that. on the page I was on, it found the stacked column" }
+  - { t: 2125, text: "chart, removed the item, and then I'll keep my changes. It goes back over here to the tips page. And on the tips page, it did not. . let me see if" }
+  - { t: 2136, text: "I can adjust that again. you remove the axis on the single visual. I would rather add the property" }
+  - { t: 2146, text: "to the report theme file that removes all axes for all of stacked column charts across the entire report by using the PowerBI theme file." }
+  - { t: 2158, text: "I'm trying to say theme file a lot to see if it'll make the [laughter] change . , we'll see if it will catch that . , let's see if it'll fix the changes here." }
+  - { t: 2172, text: "Reading some shared resources. This is fun. Read the base themes. . , it's reading the base theme file." }
+  - { t: 2182, text: ". . , it's this makes more sense . , read the theme file. Adjust the theme file directly. Oh, see this is this is clunky because the theme file is just big. It's not" }
+  - { t: 2192, text: "good for agents to read really large theme files. One thing I'll notice here, one thing you observe here, notice how it's reading this theme file in chunks. Matias, you've probably observed this as . When your when your files" }
+  - { t: 2203, text: "get really large and big, agents spend a lot of tokens reading through files, chunking through things. Instead of using functions GP, , gr to go search and find things in files, it just" }
+  - { t: 2214, text: "reads the entire file and looks through all the code. That's inefficient and quite heavy on token usage. this is going to be I think potentially a challenge for us in the future which is if we read and update" }
+  - { t: 2225, text: "those files. it will cause problems over time. . it read the file. I can see that the visual styles has category access settings to star. Let me" }
+  - { t: 2235, text: "see if I can update the column chart. There's already a column chart section. Add again category access. . it did adjust some things. , what I'm a bit worried about is" }
+  - { t: 2245, text: "that it's changed the the base theme file rather than a custom theme file. . , look, it's changed to CY21, which is the one that's" }
+  - { t: 2256, text: "a static file that ships that Microsoft ships. Yes. And you , you're you're not meant to modify that. you're meant to create your own theme on top of that." }
+  - { t: 2267, text: "obviously, it didn't quite figure that one out. it technically it works but yes it does it would also mean that if you upgraded the report using a newer" }
+  - { t: 2279, text: "desktop version to to a newer base theme version it those changes would be wiped yes correct other thing here is" }
+  - { t: 2290, text: "interesting it it tried to do this on the column chart the column chart is here it's labeled but I don't think the column chart is correct because it did not update on the item" }
+  - { t: 2300, text: "here. I believe the column chart is a specifically different one. , I need to ask it to update this on the" }
+  - { t: 2310, text: "I think the visual I'm using is the stacked column chart. And we can we can verify that by going into PowerBI desktop here. I'm going to parse this back over. I'm going to open up the build window and I'm going to" }
+  - { t: 2321, text: "highlight my visual here. And I'm going to hover my cursor over this one. You can barely see that there, but I'm on the stacked column chart and not just a there's a clustered column chart, 100%" }
+  - { t: 2333, text: "column chart. I don't think there's a column chart in here. , let me update it and say update this on the stacked column chart. It's very specific, I" }
+  - { t: 2345, text: "think, what you need to do there. Again, I only know this because I've been doing a lot of work in theme files over the years, and I'm going to see if it will update this as . What I'm hoping it" }
+  - { t: 2355, text: "will do is it'll it even though it's modifying the wrong file it's at least updating the theme file with that category access. we'll see what it does here." }
+  - { t: 2365, text: "Is just out of curiosity. Is there a custom theme file in that PBIP at all or does it only have the base theme? Great question. Let me go in there and check. that would be found under" }
+  - { t: 2376, text: "static resources and you'd have the registered resources and the base theme file. tips. No, no, that's a PNG. Oh," }
+  - { t: 2386, text: ". There we go. Don't have one. Nope. , these there is no base theme file. It's just modifying the original base theme file. There we go. it's it's not , there's also" }
+  - { t: 2396, text: "Matis, I think what you were also asking about was there some precedence override because if you have the base theme file and then you have a custom theme file, base theme file is rendered, but then the the custom theme files are" }
+  - { t: 2407, text: "rendered next and it cascades the effects there as . Yeah. All . All . , did it make any changes? , it doesn't look it's doing that" }
+  - { t: 2418, text: "correctly. , I'm not sure this is based on the changes. It added another one here. There's another change. , objects category access. , it took it" }
+  - { t: 2428, text: "off of this general false on everything, but I think it's not going to get it. I'm going to let it keep these changes. I don't think it built out the JSON theme for this" }
+  - { t: 2438, text: "because it's still showing it on the visuals, but that's . the most it's not quite aware of the theme file elements. . , I'm fairly happy with this. I'm I'm able to modify some" }
+  - { t: 2448, text: "things. I can see some things on this report. Anything, Matias, that you'd to try one last time before we call it quits." }
+  - { t: 2460, text: "apparently it's able to take screenshots of your report page. Shall we try that? Oh, yeah. Let's try that one. what should we do there? Ask it to take a screenshot of something and and check something. ." }
+  - { t: 2470, text: "All . I'm not sure how to prompt this one. Maybe give me a little bit of support here. What do you think for the prompt for this one?" }
+  - { t: 2482, text: "just ask it to take a screenshot of all three pages and and make them available as a PNG file in in your in your folder in in your in your working directory." }
+  - { t: 2493, text: "something that. yeah, let's see that. Let's see what that does. , that sounds good. take a screenshot of all three pages as a PNG and store them in a new folder called images." }
+  - { t: 2506, text: "We'll see what that does. , we're going to command it directly to take screenshots of this and see if it can Oh, it used a PNG as a single word. It should have been splitting that" }
+  - { t: 2517, text: "apart, but that's . We'll see if it is able to find that. And that should be using the the PowerBI bridge CNI. when we look into" }
+  - { t: 2527, text: "tool calls later we should see that invocation there. There we go. Look at that. PowerBI desktop screenshot. There we go. It did do it." }
+  - { t: 2537, text: "Awesome. Very nice. we just need to make sure we can see it in our project folder. There we go. PNG natively." }
+  - { t: 2548, text: "Oh yeah. Agine. . Look, it's making an image folder. . ." }
+  - { t: 2559, text: "All . Making screenshot. Running screenshots. Doing some Whoa, it's grabbing. . Got all the pages. It's really going for it. Yeah, it's moving around." }
+  - { t: 2570, text: "Whoa. It's doing lots of It's making the whole desktop shake a little bit. [snorts] , let me combine all three into an anim and Oh, it's animating them . Oh my goodness. It's using FF." }
+  - { t: 2581, text: "Apparently, APNG is an animated PNG. We just invented a new image type. Why? Why not? [laughter]" }
+  - { t: 2591, text: "I love it. What? . , page is APNG. Wow. much for a typo. Let's have a look. ," }
+  - { t: 2601, text: ". The files are in images. , great. , let me maximize the VS Code here. Let me get out of GitHub. Let's go over here to the files. There should be Oh, there it is. Here's our images folder. And here is the PNG. Look" }
+  - { t: 2612, text: "at that. Awesome. Yeah, there we go. Cool. Yeah. . , that's the APNG. Y, but Awesome. It did do it. Very nice. I don't know if an APG is a thing because I don't think it" }
+  - { t: 2623, text: "renders anything. you could ask it to create a tool that can read the APG format. [laughter] Yeah, that's exactly . , , we got all we really wanted was our PNG" }
+  - { t: 2634, text: "shapes. Yeah, this is cool. really neat. , this opens up a lot. , I just did a lot of editing of a report or a good amount of editing. I think some things I think you're going to have to learn" }
+  - { t: 2643, text: "how to do this more, but this is really interesting. I what's going on here. , this was very intriguing and I it did pretty good at using the tools and being able to edit the report" }
+  - { t: 2654, text: "directly. , editing the PBIR and PBIP with these skills and I did a pretty decent job. All , I think that's good enough for today. Matias, thanks" }
+  - { t: 2665, text: "for jumping in and helping me out with this demo today. , I thought this was really relevant and super useful. today, just to wrap up our coverage, we did an update on our skills for fabric" }
+  - { t: 2675, text: "skills inside VS Code. We updated that and then we also opened up PowerBI desktop, saved a PBIP project and then used skills with our GitHub copilot to" }
+  - { t: 2686, text: "edit and modify the report directly. Sounds we need to do another pre-con Matia. we're going to have to do some model edits and some report edits as one big class. you get it" }
+  - { t: 2696, text: "here first. Thank you all very much for listening and attending. Matias, thanks very much for attending today and helping out and doing the demo. That was fun. , bye. Cheers everyone. We'll see you next time." }
+
+---
+
+## Summary
+
+Mike and Matias run a live, unscripted walkthrough of the new Skills for Fabric experience, focusing on Power BI report authoring skills in VS Code. They show a key setup issue first: older local plugin installs can miss newer skills, so they reinstall from the Microsoft repo and stress checking versions. The demo then moves from a PBIX file to PBIP/PBIR format in Power BI Desktop (with preview features enabled) so Copilot can edit project files directly. In practice, some edits work well (page/report changes and screenshots), while others reveal current limitations, like imperfect theme-file handling and chart-specific updates.
+
+## Key Takeaways
+
+- ▸ Skills for Fabric may not auto-refresh in local environments, so reinstalling from source and verifying plugin version is essential.
+- ▸ The Power BI authoring bundle exposes planning, design, authoring, and management skills, but you should keep enabled skills minimal to reduce ambiguity.
+- ▸ PBIP/PBIR project format is required for reliable file-level report edits; it depends on enabling the relevant Power BI preview settings.
+- ▸ Copilot can make practical report changes, but prompt specificity matters (for example, naming the exact visual type).
+- ▸ Theme editing showed a current gap: the agent modified a shipped base theme file instead of creating/using a custom overlay.
+- ▸ Screenshot automation worked end-to-end, including generating page images directly into the working directory.
+
+## Links
+
+- ▸ [github.com](https://github.com/microsoft/skills-for-fabric?utm_source=agentic_thinking&utm_medium=website&utm_campaign=20260627)

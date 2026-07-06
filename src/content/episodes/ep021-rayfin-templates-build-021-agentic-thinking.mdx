@@ -1,0 +1,97 @@
+---
+title: "Rayfin Templates Build - 021 Agentic Thinking"
+episodeNumber: 21
+date: "2026-06-10"
+youtubeId: "4-yRZ6lSlEo"
+duration: "11:49"
+blurb: "Follow Us"
+tags: ["agentic thinking", "youtube"]
+chapters:
+  - { t: 0, label: "intro" }
+  - { t: 141, label: "context" }
+  - { t: 283, label: "problem framing" }
+  - { t: 425, label: "working session" }
+  - { t: 567, label: "practical takeaways" }
+  - { t: 649, label: "closing thoughts" }
+transcript:
+  - { t: 10, text: "Hello everyone and welcome back to another agentic thinking show. We're going to go back in a little bit more deeper again on building more templates with Rayfin. I know I was committing to trying to do a video everyday this week. we're" }
+  - { t: 21, text: "going to stay with that commitment and keep building videos. That being said, let's turn on some music and we'll get down here to our desktop and we'll start getting into the application. I want to highlight here we are" }
+  - { t: 32, text: "building Rayfin applications. We're going to start in the service first, create the template and then from there we're going to go grab a template from the Rayfin project." }
+  - { t: 42, text: "first thing I'm in my workspace. I'm going to click on the item for new item in the upper left hand corner. In our previous episodes I have already" }
+  - { t: 52, text: "starred my app. it's already here on the home page of this. Click on that item. It will ask me the name. we're going to do template number three. There's four templates" }
+  - { t: 63, text: "that are provided out of the Rayfin project by starting. we're going to do the third item which I believe is getting a a template from somewhere else. We're going to see if we can attempt to see to get a template to work." }
+  - { t: 73, text: "let's go to template number three. And then we will create the application inside Microsoft Fabric. Template is landed. We have the" }
+  - { t: 84, text: "application built. This is just the the initial framework where we're going to publish the app into. We will then go down to set up your project and we'll run this command in VS" }
+  - { t: 95, text: "code locally on our machine. I'm going to copy this code. We will go find where VS code is hiding out." }
+  - { t: 107, text: "And we're starting with a clean VS code. There's nothing in here at all. We're starting from scratch. I'm going to bring in our temp folder that we did earlier cuz that's what we were doing previously. I'm going to land that in here inside this" }
+  - { t: 118, text: "VS code. And we have our template one and two already in this folder. , we're going to stay at the root level of this" }
+  - { t: 129, text: "project and we're just going to add in that command. , we're going to paste the command in here. That was the command directly from the service. Create the Rayfin template number three" }
+  - { t: 139, text: "and it's going to give me the name of the workspace. , let's run this locally. And what this should do is it should create for us another folder on the left-hand side here that we can then" }
+  - { t: 150, text: "go build from this template that we see here. While this is building and getting things set up here, I do want to highlight where can we find templates? You can go search for GitHub" }
+  - { t: 163, text: "awesome Rayfin. And this will bring you to a project, the awesome Rayfin community-driven templates for Rayfin. And , we can" }
+  - { t: 175, text: "start here and and this is where we're going to try to pull templates from today. I'm going to click on that GitHub project and we'll see here we have the awesome Rayfin project here living and" }
+  - { t: 186, text: "we have a folder here, which I'm assuming we're going to use, is called templates. we're going to see what happens here. we'll read through this a little bit here to see if we can get this going." }
+  - { t: 198, text: "Oh, look at this. , it's giving us a different command here. , I'm running the standard command. Note here, point Rayfin CLI at this repo to scaffold any template from the gallery. I didn't do that. , maybe we might" }
+  - { t: 209, text: "have to redo this again. , we'll see how we'll see how this goes. . We're back over here to VS code. We did create our initial item. , we have a use template item built" }
+  - { t: 221, text: "in. We did this one last time. we can use the external template as or some other ones. , let's try this use external get template as our" }
+  - { t: 232, text: "second option. We'll try this one. it's going to ask you for the get URL use an external get template. Get template URL. ." }
+  - { t: 242, text: "let's go back over to the Ray Fin project here and there are a number of templates attached here. These have off and data attached to them. They're all built on React, feed, and tailwind on all the items." }
+  - { t: 254, text: "We have an IBCS trainer and a slide deck. let's try the IBCS trainer. I'm going to hope that I can just give" }
+  - { t: 264, text: "it this URL here. I believe what this will be looking for is this thing called the Ray Fin template.yaml which I think is the structure that it's" }
+  - { t: 274, text: "required to give it metadata to understand how to build the app. We'll see what happens. let me go back up here to the root page. I'm going to grab this URL directly." }
+  - { t: 284, text: "Copy that. Move that out of the way and we're going to paste that command line here and we'll see what we get." }
+  - { t: 295, text: "All . , get hub URL failed to fetch template. What are we going after here? That way this is a live demo." }
+  - { t: 307, text: "It really doesn't seem to my failed to fetch the template. , what do we have going on here? [singing] Maybe it wants the root of that. I'm not sure if that project is what it's looking for here. , let me see if I" }
+  - { t: 316, text: "can give that a little bit clearer here. Let's go back up to the templates that they have. I'm going to go up to the root directory here of the project awesome Ray Fin." }
+  - { t: 329, text: "I'm going to give it just this repo name. Maybe this is what it wants. let's run that command again. We'll do our template number three again in VS code." }
+  - { t: 344, text: "I do need to make this a bit shorter cuz it's getting cut off there at the bottom. There we go. It's probably a little bit better for people to see. Let's use an external Git template. Let's give it the URL." }
+  - { t: 357, text: ". , I went too deep into the folder structure. I wasn't supposed to go into the templates folder. The templates folder is there and I can just point directly to the root of the library. , it's giving me the option to pick the" }
+  - { t: 367, text: "different templates. , this is kind of cool. I didn't know to go to the very root level. That would have been good instructions." }
+  - { t: 378, text: "Doesn't really clearly call that out in the instructions at the very beginning. Maybe it does and I just didn't look at it close enough. , whatever. It is what it is. All , we're going to go here and we're going to try the IBCS trainer." }
+  - { t: 388, text: "Let's get that template running. We'll let this run and cook here. This should copy all of our files down just we saw before. here we go. We're getting our files" }
+  - { t: 399, text: "created here on the left-hand side of the screen. Any skills that we're getting from this template, we should be getting those in automatically. This is only has one skill far. There we go. , we have all of our" }
+  - { t: 410, text: "files, dependencies are installed. synchronizing with the latest Ray Fen scaffolding. ." }
+  - { t: 422, text: "Synced. . we can go to CD template oath template three. , let's go we'll do that . CD template oath or just three, I guess." }
+  - { t: 438, text: "And then we will jump into that directory. , I know we can do NPM run dev, but we can also just publish this directly to the service. because this is authenticating and it's not really going to show us much here on the desktop application, I'm" }
+  - { t: 449, text: "going to ship it. We're going to go straight to the the service. , MPX is the command that I need to run. And again, I apologize my head is all in the way on this one cuz I" }
+  - { t: 459, text: "have that icon in the wrong run Let's put this up a little bit. There we go. you can see the code. NPX Raven up. That's what we're going to" }
+  - { t: 469, text: "run. And this should push the code that I've been working on here locally. Should kick it up to the service and should be then inside powerbi.com. [singing]" }
+  - { t: 482, text: "You'll also notice as soon as I do Raven up, it's going to do some build commands. on the left-hand navigation menu here as , we should start seeing that populate. Yep, we got deployment detected. ," }
+  - { t: 492, text: "it's got my fabric workspace tenant and item ID. Great. It's doing some key generating, applying runtime settings. Great." }
+  - { t: 502, text: "If I go in the source, I don't see any build files yet. Ooh, it's doing things ." }
+  - { t: 512, text: "Applying configuration to workload. Database configuration applied successfully. Deployment , here we go. we're starting to see our distribution" }
+  - { t: 522, text: "folder. the distribution folder is a good sign that we've gotten everything built. Build build build. Yep, great. Modules created. Deployment details. There we go. All" }
+  - { t: 532, text: "great. with that being said, I think we can go back over to Microsoft Fabric. We can refresh the page here. And what we should see is our" }
+  - { t: 543, text: "sign-in screen. There we go. IBCS trainer is up and running. conquer bad charts one IBCS one IBCS rule per level. . I can" }
+  - { t: 555, text: "use command keys here. We can and click enter to click your name. we're going to call this Power BI tips. Why not? Boom. Ooh, look at that. I got a little guy." }
+  - { t: 566, text: "Ooh, I can jump. Oh, look at this. It's Mario. I'm moving my cursor keys left and and space bar is jumping. And I'm jumping on the different" }
+  - { t: 576, text: "items. Oh, that's fun. Oh, I just hit the little guy. , this is really [laughter] cool. , neat little game vibe coded here. , see if I can get" }
+  - { t: 586, text: "through the level here . Oops. Oop, . far, good. Oh, got hit again. Apparently, I'm not very good at this. Don't quit your day job." }
+  - { t: 597, text: "All . It's not a speed run. All , , anyways, the app is up and running. We have the app running. , we can queue quit, and then we go back here to the main main level. Oh, awesome. ." }
+  - { t: 609, text: "that's good. , there you go. we have another template built. If you want, go out and deploy this app away. Make sure you get a score higher than 1,125." }
+  - { t: 619, text: "That was my score. And there you go. I'm going to spend my afternoon messing around with my app and collecting charts. And that was a pie chart. Yeah, let's get rid of him." }
+  - { t: 632, text: "Am I collecting those things or am I stepping on them? I can't quite figure out what's going on. I think I'm collecting those. . The pie charts are bad. , don't hit the pie charts. [laughter] Those are the Those are the ones you" }
+  - { t: 642, text: "want to jump on. There you go. You can collect charts, it looks . Oh, we got a What is that thing? That does not look a chart at all." }
+  - { t: 652, text: "Can I bounce off of it? I can ride it." }
+  - { t: 662, text: ". Going to collect more things. , maybe this is a speed run. Let's just go for it. , what's that? Don't know." }
+  - { t: 672, text: "I jumped up to the end of the world. Anyways, hope you found this a fun episode of getting another Rhafein project. , stay tuned. We're going to find some more Rhafein templates out there in the world. We're going to explore them, deploy them, and see how" }
+  - { t: 682, text: "they build. Anyways, I hope you enjoyed this another Rhafein template demo. Pretty easy to get going. Thank you very much, and we'll see you next time." }
+
+---
+
+## Summary
+
+This episode focuses on using Rayfin Template 03 with an external Git template source from the Awesome Rayfin repository. He first hits a template fetch error by pointing too deep into the repo, then fixes it by using the repository root URL so the CLI can list available templates. After selecting the IBCS Trainer template, he scaffolds the project locally, installs dependencies, and deploys with `npx rayfin up`. The walkthrough ends with a live Fabric run of the deployed app, including gameplay-style interactions that confirm the template is working.
+
+## Key Takeaways
+
+- ▸ For external templates, point Rayfin CLI to the root Git repo, not a nested folder URL, to avoid fetch failures.
+- ▸ Template 03 can scaffold from community templates and then sync with current Rayfin scaffolding automatically.
+- ▸ The Awesome Rayfin gallery provides multiple React/Tailwind-based starter apps that can be selected during CLI setup.
+- ▸ `npx rayfin up` packages the local build, creates the distribution artifacts, and pushes the app to Fabric.
+- ▸ Deployment status can be verified by watching build/deploy logs and then refreshing the Fabric app item.
+- ▸ A successful publish should result in an immediately usable in-service app experience, not just a local dev preview.
+
+## Links
+
+- ▸ [microsoft.com](https://www.microsoft.com/en-us/microsoft-fabric/features/rayfin?utm_source=agentic_thinking&utm_medium=website&utm_campaign=20260610)

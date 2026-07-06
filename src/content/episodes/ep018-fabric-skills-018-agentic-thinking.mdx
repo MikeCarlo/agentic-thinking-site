@@ -1,0 +1,138 @@
+---
+title: "Fabric Skills - 018 Agentic Thinking"
+episodeNumber: 18
+date: "2026-06-06"
+youtubeId: "2LO_UL5j_eg"
+duration: "19:48"
+blurb: "Follow Us"
+tags: ["agentic thinking", "youtube"]
+guest: "Santhosh:"
+guestLinkedIn: "https://www.linkedin.com/in/thisissanthoshr/"
+chapters:
+  - { t: 0, label: "intro" }
+  - { t: 237, label: "context" }
+  - { t: 475, label: "problem framing" }
+  - { t: 712, label: "working session" }
+  - { t: 950, label: "practical takeaways" }
+  - { t: 1128, label: "closing thoughts" }
+transcript:
+  - { t: 15, text: "Hello everyone and welcome back to another Friday episode of a Agenetic thinking. With me I have my good friend Santosh from Microsoft. He's a PM inside the Microsoft ecosystem building" }
+  - { t: 26, text: "lots of a genetic tools and solutions for us to use every day in our agents. Santosh, welcome back to the show. I'm happy to have you back here. Let's" }
+  - { t: 36, text: "talk about these skills. What what are we building? What's coming out from Microsoft? I'm extremely excited about this. Thanks for having me on the show here. I hope you enjoyed build." }
+  - { t: 47, text: "Yes, very much . Awesome. Nice to see you again and thanks for having me on the show. we're excited to share some updates. And yes, skills for fabric." }
+  - { t: 58, text: "[clears throat] Skills for fabric is something that we as part of fabric team made it available for the open source community as part of FabCon. This was one of the" }
+  - { t: 69, text: "keynote announcements. And the excitement has been huge. The adoption has been really really interesting and vital. Lots of customer use cases." }
+  - { t: 79, text: "the repository has been growing. More skills have been added. to introduce what skills are, think of it more" }
+  - { t: 90, text: "everyone is going to be start using agentic engineering. It could be any tool of your choice. Could be cloud, it could be GitHub CLI, it could be Codex, cursor or any what have you." }
+  - { t: 102, text: "In this case, you don't want to start your data engineering project or your end-to-end analytics framework or a medallion architecture or" }
+  - { t: 113, text: "monitor your existing data stack through just a prompt. You You've got You've got to want to have all the best practices baked in, all the" }
+  - { t: 124, text: "authentication handled. . Everything should be governed and sandboxed. And that's all packaged as part of skills for Fabric. . It's It's It's available as a plugin." }
+  - { t: 135, text: "All you have to do is just download the plugin. And as we keep shipping updates, Bogdan added this functionality as part of the initial build. , Bogdan" }
+  - { t: 145, text: "Christian started this project. I had the opportunity to collaborate and contribute towards the authoring and consumption for the data engineering" }
+  - { t: 155, text: "scenarios. And all the other teams have come together and they've contributed to all the workloads in Fabric. , we you have Event House, you have data" }
+  - { t: 166, text: "flows, you have SQL data warehouse, monitoring and operation management skills. You also have admin capabilities. , it" }
+  - { t: 176, text: "covers all the workloads inside Fabric. , you would need If you wanted to get started on an agentic engineering on Fabric," }
+  - { t: 188, text: "all the tools and skills would be the best tool for you to start from any agentic CLI tool of your choice. let let me give you a little more context for some of our users who are" }
+  - { t: 198, text: "not quite familiar with skills. I We talk about skills a lot and maybe people have heard this before or other organizations talking about what skills are. , a lot of the conference at Build, I did" }
+  - { t: 208, text: "a couple table talks around specifically what is a harness? How does How do you identify what the harness is? Harness is software that wraps around the agent, the large language model. Skills are a" }
+  - { t: 219, text: "way of customizing and giving agents more information about how to identify and group and build better toolings around this. , , Santosh, you have a great slide up here. It's" }
+  - { t: 229, text: "talking about how how a skill can help an agent move through this. And I love this animation here because there's user intent. I want to build a certain thing. And in order for my user intent, my" }
+  - { t: 240, text: "question, what I want to create, a lake house, a test, a report, whatever the things are, Yes. you have all these different areas where you can start to step into and then skills are a a customization, a" }
+  - { t: 252, text: "plugin to help the large language model give you consistent, repeatable results, but skills are designed for your workflow, how you to work. It gives" }
+  - { t: 263, text: "you the ability to highly customize these harnesses with what you want. And Think of these as instructions, ? Exactly what you mentioned." }
+  - { t: 273, text: "Sure. You have a bunch of agents and subagents to go work on tasks, work towards a goal, ? ," }
+  - { t: 283, text: "you want them to be grounded on all the intent, the harnesses and controls and context" }
+  - { t: 293, text: "that you would want to share. And you would also want to make sure that it is highly optimized Yes. and it is consistent and it's repeatable, ? you don't want to" }
+  - { t: 304, text: "keep repeating all of this as part of your prompt or every every message or every interaction that you have with your" }
+  - { t: 314, text: "agent. That's that's the whole intent where you package all of these things into a skill or a plugin . it that it scales across every" }
+  - { t: 327, text: "session that you have with your with your CLI. I want to I want to talk specifically, Sint how some of the plugins or the skills that you created directly, I believe. if I look back" }
+  - { t: 338, text: "here on some of the commit history on this repo. all these skills exist in a GitHub repo. I've already included the link here in the chat window as . It also is in the description. , it's" }
+  - { t: 348, text: "microsoft/skillsforfabric with hyphens in there, where you can go access all these skills and use them with your agents. And Santosh, you've got a ton of stuff in here. There's a" }
+  - { t: 358, text: "There's a a number of commits that were made when you were making commits to things. I see one here around let's see here. check updates." }
+  - { t: 368, text: "End-to-end medallion architecture. Lakehouse event authoring. I saw a lot of , [laughter] were these made by you or the team? how how do these get in here? check updates" }
+  - { t: 379, text: "Bogdan added this. , the reason why we wanted this was think of it this way. , we keep pushing updates every every week. . Yeah." }
+  - { t: 389, text: "It's changing all the time. the problem that every user has with skills is the skills get out outdated because the parent plugin could be" }
+  - { t: 399, text: "refreshed. , check updates what it does is it does a weekly check on your last session. it checks in if" }
+  - { t: 409, text: "your if the skills repository and the skill plugins are up to date. About to the report. And if not, it automatically refreshes that you get all the latest and greatest updates baked in. ," }
+  - { t: 420, text: "say for example, runtime 2.0 got released last week as part of build. and we have exciting new updates on native execution engine. , we are adding some best practices based on" }
+  - { t: 431, text: "that. All those things flow into the next update that gets published as part of skills. , that's how it works. how do you unpack this one a little bit, ? You're , you're saying you've made updates to the APIs for the" }
+  - { t: 444, text: "optimized runtime engine. And , you can provide skills to say, \"Hey, look at this notebook. What could I do to to optimize this based on what the notebook is doing?\" Cuz this is" }
+  - { t: 454, text: "This is verbatim going back to do I need to write these tables down to the lakehouse in a read or optimized format or not? Is my cluster set up correctly or not? Those are Those are" }
+  - { t: 464, text: "all business rules that because you're Microsoft. You've been building these things with customers. You understand what needs to be optimized and what doesn't. you're able to" }
+  - { t: 474, text: "package that in that knowledge into a skill and then we just run the skill. Hey, check out the skill. Tell me how to use it. Put it against my notebooks. Oh, this is really exciting. I this a lot." }
+  - { t: 484, text: "stays stays updated. , say for example, I'll you give you an example, ? In runtime 2.0, there were tons of" }
+  - { t: 494, text: "updates that were shipped as part of price performance. And say for example, one key update is we have enabled something called as" }
+  - { t: 504, text: "an optimized scale down mechanism or we have made deletion vectors Sure. default or driver mode based snapshot acceleration default. , in those" }
+  - { t: 515, text: "cases, you don't have to your skill in the next update of skills, you will know these things. Your system will automatically fine-tuned and say it's going to be" }
+  - { t: 525, text: "switching to runtime 2.0. It has all this context. it's going to be able to make decisions based on that. If it's designing a pipeline, it's going to be able to make decisions based on that. that's the whole intent. And" }
+  - { t: 536, text: "just to point to this slide, that's the whole We just want to make it as easy for users that they can get these updates and they can have a" }
+  - { t: 547, text: "more seamless agenting experience because there's many releases happening. There's many updates that we are shipping. It's hard to keep track of. , all the users would have to do in this" }
+  - { t: 557, text: "case, they install the plugin. . Say I'm starting a a data engineering workflow. . It does Maybe I'm starting a new project. It could be a green field one or if I'm going to be" }
+  - { t: 567, text: "managing my existing one or optimizing an existing workspace. They just describe what they need in plain language, in natural language. And and they specify the scenario. They" }
+  - { t: 579, text: "don't even have to choose the skill. They could if they want to, but they they could just specify it as a a single shot blunt question. And the AI their model and their agent is" }
+  - { t: 590, text: "going to be able to choose which are the skills that it could chain for achieving this task, ? It breaks it down authenticates since it's going to Let's take an example of" }
+  - { t: 601, text: "GitHub CLI. That's been my favorite tool of choice. I I just specify this given that I'm already authenticated on Azure AD. It handles my login. It's going to" }
+  - { t: 612, text: "make sure that all the actions that it's doing it's within the access boundary that I have permissions on. And then it's going to be going and creating fabric resources, managing" }
+  - { t: 623, text: "them, monitoring them, or fine-tuning a job. , I could say, \"Hey, this job is running slower.\" Or maybe it was running properly for the last three" }
+  - { t: 633, text: "three months. I see some issues in the last week. Can you go explore and tell me what is what has changed?\" , I could just offload it. It's going to run as a background task and it's going to" }
+  - { t: 643, text: "give me a summary, \", this has been the problem. Do you want me to go fix it?\" Maybe there's a data skew, ? That's how I've seen people use it. That's how I use it in some of the cases when I run into issues. And I think" }
+  - { t: 656, text: "many of our enterprise customers have been have been using this since we announced and it's been pretty exciting. Awesome. What else can we share about some skills here? You have a couple more" }
+  - { t: 666, text: "slides here I think for us. Yes, I can again I just want to unpack what it is and then I would want to show you a demo. , again the skills what you get out of them" }
+  - { t: 676, text: "first, you get all the enterprise fundamentals. It knows what a fabric what authentication is what Azure AD account that is going to be logging" }
+  - { t: 687, text: "or it's going to be using. It manages the secret scanning. There's no It's not going to have any one thing that as these agents are good at is on-demand code generation," }
+  - { t: 699, text: "? Yes. the skills we have made sure that it's super lightweight. the reason we wanted to be open source is that the community can contribute because I'm pretty sure you'll be running into many scenarios where" }
+  - { t: 710, text: "you're building solutions for the customers. if you find an interesting one, do do contribute and that it could be used for other customers as ." }
+  - { t: 721, text: "And the next one is the check updates one. This is this is a skill that Bogdan had added. Yeah. it automatically keeps updating. And the next one is it's going to be tool agnostic, ?" }
+  - { t: 731, text: "It's going to you're going to be able to use it in any tool of your choice. it could be VS Code, it could be WinSCP, it could be Cloud. and all you have to do is just do a plug-in update" }
+  - { t: 741, text: "and update the skills files. That's it. Awesome. Amazing. in terms of collection, I think we briefly touched upon this. . It has SQL DW authoring. it's" }
+  - { t: 752, text: "broken down in authoring and consumption. . Spark authoring is SQL DW authoring. it it knows and it chooses based on the intent and the scenarios that you" }
+  - { t: 763, text: "describe, but you also have the choice you can choose a specific skill that you want to assign a task to. And it has agents in terms of check updates, end-to-end medallion architecture. you have a data" }
+  - { t: 774, text: "engineering agent, you have an admin agent. There are there's also a new agent that has been added. It's for app dev. And there are tons of other capabilities in terms of" }
+  - { t: 786, text: "skills within these in terms of say monitoring. and I got a chance to also add a few migration skills. And Jenny on my" }
+  - { t: 798, text: "team has added a lot more resources which makes and expands it to complex migration scenarios. there's been a ton of excitement around that as ." }
+  - { t: 810, text: "I would I would strongly recommend to recommend you and the community to try this out. And And if you run into issues, I would say for example, say for example you find a" }
+  - { t: 821, text: "bug or a or a gap in a or you're you're saying, \"Hey, you need a specific feature area that needs to be covered.\" Do raise an issue on the repo." }
+  - { t: 831, text: "The team will monitor Sure. and we I monitor, and we we hope to ship those updates pretty soon. Or feel free to contribute as . We want you all to contribute to" }
+  - { t: 841, text: "this. I'm going to put here in the chat window as . If you have an idea about a skill, ? I'll I'll keep put the issues page here as . And as I go back to the skills themselves, again" }
+  - { t: 852, text: "looking through the list of skills that you have here, there's some that I'm going to call out here directly because I can, and this is our show. We can do every we want here. Santosh, I've got a great one here. There's one called Databricks migration." }
+  - { t: 863, text: "And if you read the description, it's taking notebooks that you would have had in Databricks and migrated them over to Fabric and running them over there. There's another skill about migrations" }
+  - { t: 874, text: "around a Synapse migration. , you have Synapse, and you want to modernize your Synapse environment, bring the pipeline over, bring the notebooks over to Fabric, the Synapse migration will" }
+  - { t: 884, text: "look at this. And this one is quite interesting because from what I gather in my initial runs on the Synapse migration, it's going to even do some translations" }
+  - { t: 894, text: "for you. It's going to help you migrate the notebook. There's the MS Spark utilities translating that into a proper namespace that would let you use it" }
+  - { t: 904, text: "inside Fabric. again, there's some syntax differences between how Synapse runs and how Fabric runs. Exactly. Yes. And this skill is going to help identify" }
+  - { t: 914, text: "what those differences are, replace them, fix them, and help you migrate. Awesome. Very, very nice. , these are great skills. I love all these other" }
+  - { t: 925, text: "items here. And there's" }
+  - { t: 981, text: "I do have my agents, but I want to make sure that I see good results. , Yeah." }
+  - { t: 1006, text: "is. I know you you've been using this, but would love for your community and also your viewers to test it out and share some more feedback. Yeah, go ahead. Let's Let's see a quick" }
+  - { t: 1016, text: "demo of what you're going to use for some skills. And do let me know if you're if you're able to audio. At Zava, moving from manual" }
+  - { t: 1026, text: "data handling to an AI-native customer analytics platform. Today, I'm using the new skills from Microsoft Fabric open-source plugin in" }
+  - { t: 1044, text: "First first let's look at the Santosh, it's a little hard to hear. Those skills, they're coming in. It's the audio video is really slow." }
+  - { t: 1055, text: "It allow co- co- [snorts] [sighs] Hey Santosh, I think we're losing a" }
+  - { t: 1065, text: "little bit more of our connection here. it's getting a little bit delayed here on our side. Must be a a weak connection. I'm going to cut it there, Santosh. we're going to come back maybe have to load the video" }
+  - { t: 1075, text: "separately, but it doesn't look it's coming through too clear across the video screen share." }
+  - { t: 1086, text: "All , I think we've lost the connection here. I'm you to pull Santosh off of here. I'm going to say that is a quick summary of skills on top of Microsoft Fabric. You want to go check out the skills for" }
+  - { t: 1096, text: "Fabric repo. the idea those skills are there for you. You can then see them directly inside the the skills area. The link for the Microsoft skills repo" }
+  - { t: 1106, text: "is down here in the description as . make sure you go check out that link for the Microsoft Fabric skills on GitHub. The issues is also listed there" }
+  - { t: 1116, text: "as . if you don't mind, you can also go check out those skills directly. And if you have any issues or ideas or things you want to build that are not new, make sure you go make" }
+  - { t: 1126, text: "a comment on the issues area. Let Santosh and the team from Microsoft know what you want to improve, how you want to make it better. That being said, thank you all very much for taking us through an adventure" }
+  - { t: 1138, text: "around here from Fabric skills. We hope you've enjoyed some of these skills, and we really appreciate Santosh for jumping in and doing a a demo and talking a little bit about the the layout of" }
+  - { t: 1149, text: "skills and how they work. We're going to continue to explore more of these topics around skills directly on the Agentic Thinking podcast. , stay tuned. Next week, we're going to keep going further" }
+  - { t: 1159, text: "with using skills and other Agentic experiences directly inside Microsoft Fabric and inside VS Code. Thank you all much, and we appreciate you, and we'll see you next time." }
+
+---
+
+## Summary
+
+Michael and Santosh unpack Microsoft’s open-source Skills for Fabric project and explain skills as reusable harnesses that package context, guardrails, and best practices for agents. They describe how the plugin supports Fabric workloads end to end—authoring, admin, monitoring, and migration—so users can work from natural-language requests instead of manual setup each time. A core theme is reliability: enterprise authentication boundaries, governed execution, and the `check updates` flow to keep skills current as Fabric features ship quickly. The episode also highlights real customer adoption and invites community contributions through GitHub issues and pull requests.
+
+## Key Takeaways
+
+- ▸ Skills are presented as packaged instructions/plugins that make agent behavior more consistent and repeatable across sessions and tools.
+- ▸ Skills for Fabric is open source and designed to work with multiple agent environments (including CLI and editor workflows), not one single client.
+- ▸ The `check updates` capability helps prevent stale skill packs by automatically refreshing users to newer guidance and platform changes.
+- ▸ The collection spans major Fabric scenarios, including data engineering workflows, admin operations, and migration paths like Databricks and Synapse.
+- ▸ The team emphasizes community-driven improvement: report gaps in GitHub issues or contribute new skills so patterns can scale across customers.
+
+## Links
+
+- ▸ [github.com](https://github.com/microsoft/skills-for-fabric?utm_source=agentic_thinking&utm_medium=website&utm_campaign=20260606)

@@ -1,0 +1,270 @@
+---
+title: "Fabric App - Rayfin Templates Build - 022 Agentic Thinking"
+episodeNumber: 22
+date: "2026-06-12"
+youtubeId: "LD_7Dt1FIoE"
+duration: "45:32"
+blurb: "Follow Us"
+tags: ["fabric apps", "fabric rayfin", "microsoft fabric rayfin"]
+chapters:
+  - { t: 0, label: "intro" }
+  - { t: 455, label: "context" }
+  - { t: 910, label: "problem framing" }
+  - { t: 1366, label: "working session" }
+  - { t: 1821, label: "practical takeaways" }
+  - { t: 2276, label: "closing thoughts" }
+  - { t: 2672, label: "wrap up" }
+transcript:
+  - { t: 13, text: "Hello everyone and welcome back to another exciting episode of Agentic Thinking. We're going to dive in again back to Rayfin and build some more items. With that being said, let's jump over to my desktop." }
+  - { t: 23, text: "Here we are on my desktop. We have VS Code open. We are going to go over to start our project every other time we've been doing. We're going to go over to fabric. We're going to click on new item." }
+  - { t: 34, text: "Then we're going to click on the rayfin item here. The app which is also known as rayfin and create this in and we're going to use template number three. There was four basic templates that were used in" }
+  - { t: 45, text: "the beginning project when you start a brand new rayfin template. We're going to start with template number three today and we're going to do another template again. template 03." }
+  - { t: 55, text: "Let's create this and we'll get going. It will create the structure of the Rayfin project and give you some commands. We're going to copy this command over here by clicking the copy" }
+  - { t: 66, text: "icon on the far hand side. Clicking copy will take us down to VS Code. here over here at VS Code, make" }
+  - { t: 76, text: "this a little bit larger here. Also, let me get some music started. Hopefully that will work." }
+  - { t: 88, text: "get that going here we can have something to listen to. There we go. All . , that we're in VS Code, we can go to the command line. ," }
+  - { t: 98, text: "control tilda on VS Code. We'll get open up the command line and we probably want to get into our our template folder that we were using previously. , , I'm going to" }
+  - { t: 108, text: "close it out. I don't really want to be in this . We're going to grab our temp one folder. This is what we've been working on for the last couple days, , building some projects. , we're going to grab temp one, add it to" }
+  - { t: 117, text: "our project here. And we will see that we have a number of templates already created. , I already have a template number three here, but we'll see if I can rename this. I don't know if it'll" }
+  - { t: 127, text: "allow me to do . Let's just call this this was the IBCS. IBCES. that was the IB IBCS project we" }
+  - { t: 138, text: "did earlier. [clears throat] All . , that we have this going, we can go in here and we can open up our command line. , let's minimize this." }
+  - { t: 148, text: "Let's get control tilda. That's not what I want. Control command line. All . , copy our command that we did earlier. We're going to put" }
+  - { t: 158, text: "that here inside our project. Go to the chat window. . , here we're going to create the ray project template 03. And from our workspace, we'll hit enter here." }
+  - { t: 169, text: "And it should build out the structure of the application. It'll go load this template, grab it from the mpm packages. This is coming with built into the initial RFI library." }
+  - { t: 183, text: "[music] We'll give it a couple seconds here. It takes a little bit of time for it to get going here to make things happen. While this is working, oh, there we go. It already came in. Great. We don't have to" }
+  - { t: 193, text: "wait. , we have three options here. Last time we did our video on use an external git template that was using a git repo from Microsoft. This was awesome. Rayfin was the project we used" }
+  - { t: 203, text: "here last time. We're going to go back here and use this new template one. Use a template built in. We've done one. We've done two. These two have already been built for us. Let's build template number three. The to-do app with off and" }
+  - { t: 215, text: "getting started documentation. It will have the to-do app with fabric authentication, Tailwind, and a production first workflow. We'll see what that what that means by production" }
+  - { t: 226, text: "first workflow. we'll do that number three. Answer number three. We'll let it go build. Let it cook here for a bit. It will build down the project. [singing]" }
+  - { t: 236, text: "And it will build out these pieces as ." }
+  - { t: 255, text: "We can see over here on the left, it is in fact building a bunch of files for us, which is great. Creating new items here," }
+  - { t: 265, text: "the app the static web page app itself. The the files that make up that are in inside this source area. That's what's happening here. We'll see what it builds. One of the things that we've been looking at across" }
+  - { t: 275, text: "the different projects is each project has a different set of skills or there's different items that are in here. I don't see any [singing] agent skills yet in this one. , this" }
+  - { t: 287, text: "seems to be pretty bare bones. If you remember in our previous templates, there was a whole agents and skills. This was the one that had a whole bunch of extra skills in this. For template 2, this was the data app that we were" }
+  - { t: 297, text: "building. And then template 01 was the just blank app with nothing in it. And we had an agents file with a single skill file in it. But we didn't we don't have any skill files on this one ." }
+  - { t: 308, text: "Sure, that's fine. [singing] It's just warning me about many files changing. It's it's seeing all the files here in the public folder, I believe." }
+  - { t: 318, text: "Also here, it's trying to track all the node modules, which is it's freaking out about we definitely don't need the node modules coming along with this template. ," }
+  - { t: 328, text: ". , it's doing a little work here. I do want to fix something here really quick. it is trying to track all the node modules with this template. I don't know why it's doing that. , let's just fix that really quickly here. And let's" }
+  - { t: 339, text: "just describe for this project in the folder" }
+  - { t: 351, text: "template 03 add the node_modules [music] to the.get ignore" }
+  - { t: 362, text: "ignore. I think I got that . We'll see if that can remove that from file tracking. All , we'll let that cook there for a bit." }
+  - { t: 374, text: "All , it's going to try and add the files there. , one thing that's awkward is we have this temporary one folder. , this temporary one folder is here. The work template, this is the item in the" }
+  - { t: 385, text: "workspace called template 03 inside the workspace. , I don't really need this nested folder structure. I want just the root folder of just the a the template 03. , even though it's" }
+  - { t: 395, text: "done all the build here for me, which is nice. I'm going to escape out of this VS Code instance here. . , it's doing a little quick changes. All . let me just go here. Let me control" }
+  - { t: 406, text: "KF. I'm going to clean out my VS Code again. I'm going to go into this temp 1 folder directly and I'm going to just drop in" }
+  - { t: 418, text: "go here. I'm just going to drop in template 03. , we're going to take template 03 and just drop it into VS [music] Code. That's really all that I want here. And then we can move this file explorer out of the way." }
+  - { t: 431, text: "All . , we have the folder here. , let's just get rid of that. We don't need that here. , great. , we have all our folders here. We've got the project up and running. , I" }
+  - { t: 441, text: "believe we can go in here and we can do npm rundev. , we're going to run the server to show the V app. , I think mpm rundev is our" }
+  - { t: 454, text: "command." }
+  - { t: 466, text: "It's got the framework noted here as vite. I don't know how you say that." }
+  - { t: 480, text: "Once we get this up and running. There we go. Rifin found. It's produced. We got some code running. Awesome. [music] Code is going. Wonderful." }
+  - { t: 493, text: "Check the chat here to make sure no one's safe. Yep, we're good to go. All . , we've got the workload running. It's applying some settings. . . , it's doing this is where it does the checks. It's checking some" }
+  - { t: 503, text: "things back on the website and and checking that the website is building correctly. It's doing a push and making sure the app is secure. Great. . , we have this local host" }
+  - { t: 514, text: "version here. And , I can click local host and this should run the local version of the app . , , there we go." }
+  - { t: 524, text: "Oh, look at this. Oh, hey, cool. , out of the box, it's already got a lot of things here. Let me subtract zoom out here just a bit here on the VS Code." }
+  - { t: 534, text: "Look at that. We got an app already. , getting started is here. That's not clickable. We have the email address that it used to sign me in or out with. Great. it didn't show me any data here because I believe this" }
+  - { t: 544, text: "authentication piece is required to be part of fabric, which is fine. We have this new item area, a button, a little bit about your app. , has a database built in and ready to go." }
+  - { t: 556, text: "Editable by an agent. , more to come. Has a quick start guide which takes me to some learn docs at Microsoft. Awesome." }
+  - { t: 566, text: "And then we have an SDK reference documentation piece here as . And there we go. to the rayen documentation. All . Excellent. Nice work, guys. This looks really good. All . Very pleased about this. All" }
+  - { t: 576, text: ". , let's go publish the app directly to the service and we'll check to see how this app runs in the service . , I'm going to create a new terminal window here by clicking the" }
+  - { t: 586, text: "little plus sign. and I'm in VS Code. I click this little plus sign here on the hand side. It opens up a new terminal wind window. And we'll make it large again you can see nice and big what I'm going to write. We're going" }
+  - { t: 597, text: "to do npx ray fin up. And that will then package up the file, build the distribution folder, the dist folder," }
+  - { t: 607, text: "and then it will bundle it and push it directly to fabric.com. it should be bundling here." }
+  - { t: 620, text: "while this is doing the bundling and packaging and pushing back to the [music] window here, , can I wait? We'll wait. Oh, it's really close. Chunking versions that build complete." }
+  - { t: 631, text: "Yep. , we know it's it's success successfully working when we have this distribution folder. That's what it uses to package the file. And again, we've looked at this in the past. Oo, this has a little bit more stuff this time. ," }
+  - { t: 642, text: "typically it is just the index, a CSS file, and a JavaScript file. This one's got a couple other items here which are interesting. has an SVG in there as . . Interesting." }
+  - { t: 653, text: "All . , I believe we are published. You are published live and we can go. Ooh, local vocal surf. Interesting. Good. Good app name. , that being said, we can adventure" }
+  - { t: 664, text: "over to our powerba.com portal. and get rid of all this stuff here." }
+  - { t: 675, text: "Let's go back over to our workspace. All , we're in data app test and here is our template 03 item that we have. notice here, this is also" }
+  - { t: 686, text: "creating a SQL database and there's a SQL analytics endpoint behind the scenes here. what we're going to do is we're going to enter some data in here. Look at what it's doing and then seeing on the back end what is it doing to the SQL" }
+  - { t: 696, text: "side and are we seeing items and artifacts showing up in SQL? this is one of the reasons I really Rayfin is because it's building things physical items. I'm able to define the app and in the app you can" }
+  - { t: 708, text: "have it build its own SQL database and that SQL database can talk to itself. There's two ways you can talk to a SQL database. You can have drivers or you can use the GraphQL to talk to it. I wonder what they're using here" }
+  - { t: 719, text: "on the back end. We'll interrogate that with our agent to ask the agent what it's doing. , let's click on template 03. This will open up our app. There we go." }
+  - { t: 730, text: "It says I'm signed in. We've already got our first item checked off. Create and publish your app. Great. Visit your page in fabric. Yes, we have done that. Edit your app using the GitHub co-pilot" }
+  - { t: 740, text: "chat. Yes, we are going to do that. And publish your changes by Oh, this is cute. I really this. This is really I love the UI on this. This is really done. , there. All . ," }
+  - { t: 750, text: "let's check a new item. Let's make a new task. Go look at the SQL back end. We'll hit, I guess, the plus sign here." }
+  - { t: 761, text: "[music] And there we go. It's on my little to-do list. We'll go do it. All . No comments from the chat yet. We're going to keep going. [music] let's go back over to our app database here. And we do have the SQL" }
+  - { t: 772, text: "database here. , let's click on that item directly and see what it's doing. Clicking on the item, it's creating a view of the SQL database. Nice. It" }
+  - { t: 783, text: "gave me a a database with template 03. Inside we have the root schema. The schema is dbo database objects" }
+  - { t: 794, text: "tables. And there we go. Oops, I did that [music] zoom in a little bit wrong. There we go. We have to-dos and we have users inside the app. , if I click on the to-dos," }
+  - { t: 804, text: "I would assume that there we go. Here's all of our items. It's got tracking when it was created. It has a title on the item, which makes a lot of sense, and the user ID. And then if I go over to" }
+  - { t: 814, text: "user IDs, I'm assuming it's going to track me, who I am, and what I have in my email. Oh, it doesn't have that there. , I don't know. It may not be tracking IDs" }
+  - { t: 824, text: "and email on the users table. It does have columns, but it does not appear to have any data in it. Interesting. , it has the user ID, but it is not tracking the users in the user table." }
+  - { t: 834, text: "This could be something we could probably wire up inside the app. One thing I'll also note here is notice how there is this new API for GraphQL. If I click on this, let's see what this does." }
+  - { t: 846, text: "I don't really want that. I don't want to create a new API. I just want to know if it's using existing ones. How do I know that or not?" }
+  - { t: 856, text: "We have some functions, scalar functions, table valued functions. I don't see any of these things are doing stuff. H. . I don't know how it's talking" }
+  - { t: 866, text: "to this stuff then. Replication. Don't care about that. Security. Nope. Help. H. . I don't know. I don't know what the what the" }
+  - { t: 876, text: "API is doing here. . , let's go over to the Rafe and app itself and let's ask some questions. Let me get rid of this. Let's open up our co-pilot here." }
+  - { t: 888, text: "And we're going to ask Copilot specifically around, , what is this thing? What is this app doing? What files are going on here? , let's ask it here. , let me put this on Opus cuz" }
+  - { t: 898, text: "I want good answers and we'll let the reasoning be medium should be fine. [singing] . , let's do a little bit of asking questions. , I do find it's" }
+  - { t: 908, text: "good to if you're going to make it ask and not build anything, it's good to turn over to the ask option when you're using the the agent. , I'm going down here to this little set agent down" }
+  - { t: 919, text: "here below icon. And if I click on this, it gives me the agent mode or ask mode or plan mode. if I just go to ask mode is I can ask questions about the project and it will go search through the codebase and give me answers about" }
+  - { t: 930, text: "things. , let's talk to our agent. Click the microphone." }
+  - { t: 941, text: "I don't understand how the SQL database is connecting between the app and the SQL database directly. Is this using a GraphQL feature? And where in the code is this happening?" }
+  - { t: 953, text: "All , let's send it to our agent and we'll see what we get. It said SQL. I love that. User wants to understand how the app connects with the Rafen the data API" }
+  - { t: 965, text: "flu. , great. This is a technique that I to use. , a lot of times when I'm building apps and things with agents, , it is using GraphQL" }
+  - { t: 977, text: "via the data API builder. Excellent. Whoa, it's having a really hard time rendering that code block. , it's going . Oh, I this. It gives me a diagram. , it goes React app," }
+  - { t: 988, text: "GraphQL, Rayfen API, SQL, then to the Microsoft SQL database. Oh, I love this. The Rayfin client uses an HTTP request" }
+  - { t: 999, text: "and request a Rayfin API endpoint. It does not open the database connection from the browser. Good. It shouldn't do that. the Fluent data data API in the" }
+  - { t: 1009, text: "Rayfin to-do services calls the select order by execute great translates into GraphQL queries that are sent to the back end over the HTTP which makes" }
+  - { t: 1020, text: "sense. It makes a lot more sense to talk GraphQL to the SQL database than anything else. This is great. I love this. , the backend data API builder DAB configured by RAM Rayfen YAML with a" }
+  - { t: 1032, text: "dialect MSSQL. Oh, this is interesting. this is the back end is a data API builder. Oh, let's go check this out. I haven't looked at this very much yet. , let's go look at the the database builder here. , it's telling" }
+  - { t: 1043, text: "me this is in the Raven YAML file. , if I I can go to this item here that it's talking about, and I can click on the file directly. And" }
+  - { t: 1053, text: "when I click on the file, it takes me into the application and it shows me what it's defining here. here we go. we have services, there's authentication enabled is true. ," }
+  - { t: 1064, text: "there's options there. Here's my allowed redirect URIs. this means it allows the app to be redirected to local and this vocal surf, which is the app that's" }
+  - { t: 1074, text: "in the service. Makes sense. there's different scopes. The data is enabled. True. It does detect the dialect is SQL" }
+  - { t: 1084, text: "static hosting true folder. , there's interesting. There's there's options in here. Storage is enabled and functions are enabled. All , great. But where is the SQL data being defined?" }
+  - { t: 1096, text: "[singing] Because there's got to define the table in here somewhere. Just checking some things around here. That's not really what I want." }
+  - { t: 1108, text: "H Oh, schema. This is probably it. Export. No, that's not it either. All . , I'm not sure where they're putting it. H." }
+  - { t: 1118, text: "Let me ask the agent to see where the schema of the tables are defined. the back end entity. Oh, this is what entity" }
+  - { t: 1128, text: "definitions to-do.ts are decorations. . Yep. Define the schema. , to-do.ts. . This is what I think I was looking for. Yeah, this is" }
+  - { t: 1138, text: "it. , it's in the data object under the to-do schema here. , I wasn't seeing I clicked on the schema.ts. It's the to-do item." }
+  - { t: 1149, text: "I believe that field, this import RO entity, these items here, these objects are being" }
+  - { t: 1159, text: "defined here. And that's what defines the to-do table by the columns. I think if we match those up, we have entity ro text. No, I don't." }
+  - { t: 1174, text: "ID. No, that's not what I was thinking. I thought that was defining the actual data. , maybe not. Maybe this is just items for the app at this point. , fine. Current operation" }
+  - { t: 1186, text: "generates database config get ignored generate deconfig. , yes, GraphQL is the layer. , this is all probably GraphQL stuff. ," }
+  - { t: 1203, text: "where where does the project define the tables that are used in the SQL database?" }
+  - { t: 1215, text: "I believe there's a schema that we're able to apply here. , this is one of the things that are interesting here. I want to know where entity" }
+  - { t: 1229, text: "primary key text boolean date time. I don't understand though cuz I thought these would be labeled what I see in the database. there's no is completed. Where is the is completed column?" }
+  - { t: 1241, text: ". I guess I don't understand that part. I might have to dig into that a little bit more later." }
+  - { t: 1252, text: "Was it there? I just missed it. to do. Oh, that's the name of it. I was misreading it. Oh, . , maybe I'm reading this" }
+  - { t: 1262, text: "wrong. . I just was reading the code wrong. ID is here. Yep. Correct. Title in the database. User. . , I'm I was mistaken. I don't know why I was reading the the data type text." }
+  - { t: 1273, text: "Whatever. I'm getting confused. these this is the name of the columns in the table. , this is defining the schema. this class is being defined here and then being used to generate the database. Awesome. . cool. We" }
+  - { t: 1285, text: "have the app up and running. Not a big deal. let's go check out the options in the app. let's if we go into the app directly. This is one of" }
+  - { t: 1295, text: "the tricks and challenges of building an app. I want to tell the agent maybe I want to update something. I want to have it highlight some text or change this icon or maybe I don't want it to show my username up here. I'm going" }
+  - { t: 1305, text: "to give you a little tip or trick that I'm using when I build with agents and building database and applications with my agentic experiences. that trick is there's a project" }
+  - { t: 1318, text: "that I really . It's called agentation.com. And what this is is it is visual feedback for your agents. You select things on the page and as you click and" }
+  - { t: 1330, text: "highlight items, it lets you select them and make comments directly on the page. back to the agent. It's cool. I love this one. , here's how I install this. I go to the install page." }
+  - { t: 1340, text: "I copy the page URL. We go back to our agent here in VS Code and I say" }
+  - { t: 1352, text: "install agentation plugin and the associated agent skill in this repo. [singing] Install the agentation plugin and the associated agent skill in this repo." }
+  - { t: 1362, text: "Great. And I'll and I'll hit run. Don't know why that switched on me. There we go. , one of my key cut" }
+  - { t: 1373, text: "commands switched the screen around. there we are. We're good to go. And the it's going to add this agentation item directly into the project. , while this is doing the" }
+  - { t: 1383, text: "build here of that, , it's going to add a bunch of things in here. It's going to install the agent. This is a neat interplay between what the agent can see and what I can do and how it goes back and forth. It even" }
+  - { t: 1393, text: "adds a skill directly into my agent. , would you me to switch to a mode where you can I Yeah. Oh, sorry. It's just doing the planning. Let's go to" }
+  - { t: 1403, text: "agent mode and say go ahead [singing] and add it. Boom. Just wasted some tokens there." }
+  - { t: 1413, text: ". , we'll let that true. It's going to build out the items. While we're doing that, we're going to bring up our terminal again. We still have our local host running. , I'm going to" }
+  - { t: 1423, text: "run that up here on the app. And because I can run the app here, it does ask me to sign in with Microsoft. , I'm going to click sign in with Microsoft here. It'll make it a little bit easier for me. It will go to my Fabric" }
+  - { t: 1433, text: "application and sign me in I can see the full application. , it interesting. It does show me the data which is [music] good. , it's looking the full app. Let me autopilot these previews options" }
+  - { t: 1444, text: "and let it [music] just build. . as it continues to install the agentation item. What this is going to give us, it will give us a little icon in the bottom hand corner of our browser window" }
+  - { t: 1455, text: "here. And this will allow me to directly edit or comment on on inside the window here, the local host. And then I can send those commands directly over to my agent and it will pick up all" }
+  - { t: 1466, text: "of my comments and know how to fix the page by selecting the specific item. [music] it did it. , here's my new icon. Here's how to use this. If you click on" }
+  - { t: 1477, text: "the icon, it flows out here into a big wide circle. And there are some settings. You can then turn the settings on or off. If you turn the settings on and you can go, , light mode or" }
+  - { t: 1487, text: "dark mode depending on how you want this to look. Since I have a very white app, I'm going to use dark mode on this. , let this thing go to a darker outstanding. You can have" }
+  - { t: 1497, text: "different colors if you want the colors to look differently on the page as you highlight things. Those are colored there as . And you can change the level of detailed output. this is detailed debugging. There's different" }
+  - { t: 1508, text: "levels of output detail that you can use for the agent to in to see what's going on there. . we're good. I'm going to minimize the settings. ." }
+  - { t: 1519, text: "let's make a couple edits to the app. we have a getting started item. Fine. I don't really want my email address showing up at the top here. I'm going to click on this item and then I can" }
+  - { t: 1529, text: "just make a comment. , this is where I'll make my comment on the page. Type out what I want. Remove the email address." }
+  - { t: 1539, text: "[singing] Not needed. Add that there as a comment." }
+  - { t: 1549, text: "I don't really this header. , let's see if we can remove this title and add something a bit" }
+  - { t: 1564, text: "fun. a iconography I think is what I want to say or animate or animated. [singing]" }
+  - { t: 1575, text: "No, anim cartoon style kind. I'm thinking or a cartoon style to-do list. , we'll add that there." }
+  - { t: 1588, text: ". don't have anything else there. I the page here, but I I want the page maybe have a little bit a light mode or dark mode. , I'm going to click the screen size here and say add a dark mode." }
+  - { t: 1607, text: "Also, add a gradient across the background of the main page. Start" }
+  - { t: 1617, text: "with the lighter color" }
+  - { t: 1627, text: "on the upper left and go darker to bottom . We'll add that there. , great. ," }
+  - { t: 1638, text: "we've made a couple command commits here. That all looks good. , , maybe we want to get rid of this whole thing. , you can even click and drag multiple items. here I can drag this whole element here. Clicking" }
+  - { t: 1648, text: "and dragging on the screen. Lets me select all of them and just say remove the documentation section. ? I may want that. Get rid of that as . We'll hit add that." }
+  - { t: 1659, text: "also another here note here is we have other items. We may want to add this here is say add a counter for how many" }
+  - { t: 1672, text: "completed tasks. Boom. . , I've made about five or comments around the page, things I want to adjust or modify. And what I should be able to do is since this is a" }
+  - { t: 1684, text: "skill, or hopefully it's a skill, I'll have to check my skills and my agents. I don't think it added a skill. Add the agentation skill." }
+  - { t: 1694, text: "Let's see if we can get that there as ." }
+  - { t: 1708, text: "it's reading the skills from the ray friend project." }
+  - { t: 1722, text: "it's going to create the I thought it had a skill file. Let me just double check the documentation here." }
+  - { t: 1734, text: "Yeah, here use this. [music] I want to do this code." }
+  - { t: 1751, text: "[music] [singing] There it goes. it's getting it. I knew there was a skill listed in the documentation. Because what I should be able to do here" }
+  - { t: 1761, text: "is in the command window as it's adding these things I should be able to directly command it and say add agentation here directly." }
+  - { t: 1774, text: "Done. It's installed two skills. Oh, it has two of them. . , I'll use the agentation one. All . Great. D. . Great. , let's just go here and let's just say agentation." }
+  - { t: 1793, text: "fix the feedback. Fix the UI feedback. . Then we'll hit enter. we're going to let the the agent will" }
+  - { t: 1803, text: "be able to identify all the bullet points that were made on the page and those are all cached here locally and it should be able to grab those items and all the pending items and it will then" }
+  - { t: 1814, text: "complete them. [music] Oh, it's looking for the dev server. maybe I didn't run the dev server on it yet. [singing and music]" }
+  - { t: 1829, text: "Start the MPC server. Yep. [singing] I think there's another command I need to run to get this thing to go. We did the install command. We've done the mpm skills." }
+  - { t: 1850, text: "[music] I thought there was an mpm run something." }
+  - { t: 1860, text: "You may need to [singing] restart VS Code or reload the agent MPS server. Can you start this MCP server? This usually works pretty . I do" }
+  - { t: 1871, text: "have a backup option here as , but I'm going to see if I I really want to try and get the actual server running. I'm also going to click on this option over here. , very far in the hand side. It's really small" }
+  - { t: 1881, text: "down here. This little tools and configuration. I'm going to click on this. And here we're just going to double check that the I know why it can't find it. It can't find it because" }
+  - { t: 1891, text: "it's not in my tool set. I have all these different MCP servers on my computer. None of them are working or plugged in. I have the agentation MCP server sitting here. I" }
+  - { t: 1902, text: "need to turn that on and that's why I can't find it. let me hit this. Let me turn on the agentation and update the tool. Yeah, we're going to trust it and run it." }
+  - { t: 1912, text: "I have the agentation skill and tool. We'll hit and it's also doing some stuff here too. it's executing the command" }
+  - { t: 1922, text: "in the terminal. , great. , the server's working. , this is how it should work. Once you have the server up and running, once you have that the MPC server running, it should be able to" }
+  - { t: 1932, text: "directly communicate with the website that you're building here on the local host. It says I have five pending UI annotations. Let me read the dashboard and start fixing them. it reads exactly where those items are." }
+  - { t: 1944, text: "Then it will make the changes and then what we should see here is fairly shortly it should make the changes on the app directly and" }
+  - { t: 1956, text: "we should be good to go. I'm going to get rid of those two panels. Really give us some room here on the website. Wow, what a great developer experience. I'm really liking this." }
+  - { t: 1970, text: "I have the full picture. Let me check up the setup here. We have enough context. Let me implement all five fixes. , great. , it's reading and editing in VS Code. You get this little menu at" }
+  - { t: 1982, text: "the bottom corner here, this little to-do section, and it goes through a little checklist of all the things that [music] it's going to do. , and I really this because it gives me a good read on how far along the" }
+  - { t: 1993, text: "agent is and what it thinks it needs to do versus what I think it needs to do. I'm going to switch up the songs here because I've been playing a lot of the same songs over and over again." }
+  - { t: 2003, text: "Let's do this one . I think this is a good one. There we go. , we got a little bit more of an icon. That's a different here. Your personal task tracker. Great. That worked. , we do have our little" }
+  - { t: 2015, text: "four or five tasks completed here at the middle. That worked as . We're in dark mode and we got a little bit of a light mode at the bottom end here. , that might have just been because," }
+  - { t: 2025, text: "the page isn't is scrolling out the out the bottom here. I don't really know why that's extra page there. [crying] Oh, yeah. And look at this. , this we got some more issues up here. , we have the text on the menu bar in very" }
+  - { t: 2037, text: "dark mode, and if I hover them, it shows the buttons. , we're going to need to make a comment around that. . It's still building things. We'll keep all those changes." }
+  - { t: 2047, text: "I'm going to delete all these edits because it looks it did a pretty decent job making a dark mode of the app. But we do want to adjust these other buttons here at the top." }
+  - { t: 2057, text: "if I click the light, let me leave this agentation mode. If I click on light mode, it doesn't toggle. It's only toggling the menu bar. Whoops." }
+  - { t: 2074, text: "that's not really helpful. . , let's go back here and ask them to fix [singing] that. We're going to go back into agentation. We're going to open this back up again. We're going to just highlight the item that it knows exactly what we're" }
+  - { t: 2085, text: "looking for. When we use dark mode or light mode, only the icons in this header" }
+  - { t: 2096, text: "are changing. oh, I should have grabbed both of them. Can I grab both?" }
+  - { t: 2112, text: "Oh, , I'll do it later. Also, the text in dark mode is also dark." }
+  - { t: 2126, text: "Make the text white in dark mode and black in light mode. we'll say there. , and I'll make another note here. Do this for all buttons" }
+  - { t: 2137, text: "in the header. I'll add that there. Make that comment. And I'm going to click on the main screen again and say when the" }
+  - { t: 2148, text: "light mode or dark mode button is pressed" }
+  - { t: 2163, text: "should change color. Hit add on that one. All , we're going to use that last thing again. , agentation and say fix bug fix UI issues." }
+  - { t: 2174, text: "we just call it off again in our skills. Use a little slash command. And there we go." }
+  - { t: 2185, text: "it's going to think again, build out what we want. [singing]" }
+  - { t: 2196, text: "Found our annotations. Hopefully, [singing] Great. And found our two options. Dark classes. Great." }
+  - { t: 2213, text: "I do this. This looks pretty sharp. I do the the gradient that I put across the page was really nice. It went dark up here and has this diagonal. I just did a good job on that one." }
+  - { t: 2224, text: "editing files. I need to meet the dark classes. Yep, sounds good. Keep going." }
+  - { t: 2240, text: "I think we're almost done here. [singing]" }
+  - { t: 2257, text: ". Yep. There we go. Refresh the page and [singing] try and toggle the dark dark mode. . Great. We're hit refresh on the page here. We're going to toggle it from dark mode to light mode. Still not working." }
+  - { t: 2277, text: "The page colors are not changing. Let's see if it can figure it out here. Come on, Opus. You should be pretty smart. Figure" }
+  - { t: 2287, text: "this thing out. [music] [singing]" }
+  - { t: 2299, text: "Just reading what it says here. it's it's reasoning about this tailwind thing doing some searches across the CSS. Found it. Dark mode is" }
+  - { t: 2310, text: "defined in main CSS [singing] [music] because it's overwriting its properties. It's setting it twice ." }
+  - { t: 2324, text: "[singing] . Oh, I love it when it does this. It goes it's more clear and then it goes wait I need to look more carefully" }
+  - { t: 2337, text: "learning things halfway through it thoughts." }
+  - { t: 2352, text: "we'll refresh the page again. Nope. All . This is where we go after a different model or change the reasoning. I'm going to switch over to here. Chat GPT 5.4. I'm going to change my" }
+  - { t: 2363, text: "reasoning to high. , I'm going to start adjusting the model. It did not do what I thought it would should do. It wasn't making any change. It's doing some set attribute. Oh, that's weird. Let's do if dark mode set" }
+  - { t: 2375, text: "will that be why? ." }
+  - { t: 2389, text: "maybe that's our problem. Oh, it's removing dark. Never mind. Just kidding. Set add dark and remove dark. . , we'll see if that [singing] does it. I don't think that really was the" }
+  - { t: 2399, text: "problem. Let me just check the page. We refresh one more time. Yeah, still not fixed. All , let's start a new session here. We'll do a new chat. We'll get a clean contact" }
+  - { t: 2410, text: "window, not polluted with anything else. We're going to use chat GPT 5.4 and see how this one does. When I'm tired of typing, when I click on the dark mode button," }
+  - { t: 2423, text: "the page is not changing from dark mode to light mode. [music] The toggle seems to be broken." }
+  - { t: 2436, text: "Then let's go. We'll just hit run on this context of that. We'll send that too. . [singing]" }
+  - { t: 2449, text: "it's going to trace the dark mode control from the dashboard component. I've narrowed this to state [music] versus how the CSS drives." }
+  - { t: 2460, text: "[singing] I found the mismatch. [music] This sounds it's the same thing it was doing before. it's changing a file again." }
+  - { t: 2477, text: "All . Rewrote some things here. It's changing from it's doing some formatting here. . let's see if Let's give it some approvals. Allow." }
+  - { t: 2488, text: "Sure, why not? I don't know why you're trying to open the dashboard. It's already here." }
+  - { t: 2505, text: "[singing] It thinks it's all done and trying to publish the [music] app. Nice try." }
+  - { t: 2515, text: "Oh, this one's got light mode on it. Goodness. I got to put my password in. let's get that done." }
+  - { t: 2528, text: "In the flash crash anomaly [singing] show [music]" }
+  - { t: 2550, text: "we'll sign in there. Put the password in. We'll enter the code. [music] Sure. Don't show it again. Just get me" }
+  - { t: 2561, text: "in." }
+  - { t: 2576, text: "it's not even signing me in . That's weird. . I don't think that's what we wanted." }
+  - { t: 2586, text: "All . I'm not sure why it's not fixing this. It's definitely getting stuck. All . , let's see if it does a rayen up. , let's just see what it does in the service. MP MPX" }
+  - { t: 2597, text: "raen up. Go push it to the service. Disappointing. We made a change. It changed some UI, but it broke it." }
+  - { t: 2608, text: "that's disappointing there. We'll see if it will build it and we'll cut call it for today. I don't want to" }
+  - { t: 2619, text: "spend a lot of time on this video [music] debugging things." }
+  - { t: 2630, text: "All , looks Rayfin has successfully pushed. We are good to go there. We're going to minimize that. We're going to go over back to our powerb.com" }
+  - { t: 2640, text: "environment. I'm going to click refresh on the website page there directly. And this should reload our template app. There we go. We still have it. It still works a little bit. , we did go look" }
+  - { t: 2650, text: "at the SQL back end. That is done. We can check that off our list. And there we go. We did remove the things at the bottom. , that's not bad. It just doesn't work with the dark mode and the light mode. It's doing something. I" }
+  - { t: 2660, text: "mean, it's changing it's changing the bar over here on the far hand side. It's just got some styling messed up. , it's it's definitely adjusting" }
+  - { t: 2670, text: "the style somehow. For whatever reason, the actual items on the page are not adjusting correctly. [music] , good enough for . I we'll take it for what this one is. Good little to-do app that you have inside the Rafe project." }
+  - { t: 2681, text: "Anyways, hope you enjoyed this one. Thank you much for watching today. We appreciate you being on the show checking out the Agentic Thinking. We're doing some more development directly with agents inside Rayfen, building apps" }
+  - { t: 2693, text: "and making changes to them. We want to check out our link. I'll put the link in the description in the title here as . If you want to go use Agentation, that is also here in the the content in the chat as . Agentation is the" }
+  - { t: 2705, text: "solution that I'm using to help me comment on the page and make adjustments directly to the page. That being said, thank you much and we'll see you next time." }
+
+---
+
+## Summary
+
+In this longer build session, he creates Rayfin Template 03 (the to-do app) in Fabric, runs it locally, and publishes it to the service. He then inspects the generated SQL database artifacts and uses Copilot Ask mode to trace how the app talks to data through Rayfin’s GraphQL/Data API Builder layer rather than direct browser-to-SQL access. The episode also demonstrates adding the Agentation workflow so UI feedback can be placed directly on the running app and converted into agent tasks. Several UI refinements are applied, but dark/light mode behavior remains partially broken by the end, illustrating real-world agentic debugging limits.
+
+## Key Takeaways
+
+- ▸ Template 03 scaffolds a production-oriented to-do app with Fabric auth, local dev workflow, and deploy-ready structure.
+- ▸ Publishing with `npx rayfin up` creates and updates both the app and related backend artifacts visible in the Fabric workspace.
+- ▸ The generated data path is app → Rayfin API/GraphQL layer → SQL, not direct client-side SQL connectivity.
+- ▸ Table/schema definitions can be traced in project entity files, which map to the SQL objects created for the app.
+- ▸ Agentation-style visual annotation can speed UI iteration by turning on-page comments into actionable agent tasks.
+- ▸ Even with strong agent support, CSS/theme issues may need multiple model passes and can still ship with known limitations.
+
+## Links
+
+- ▸ [microsoft.com](https://www.microsoft.com/en-us/microsoft-fabric/features/rayfin?utm_source=agentic_thinking&utm_medium=website&utm_campaign=20260612)

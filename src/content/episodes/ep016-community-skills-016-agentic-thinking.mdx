@@ -1,0 +1,239 @@
+---
+title: "Community Skills - 016 Agentic Thinking"
+episodeNumber: 16
+date: "2026-05-30"
+youtubeId: "d3fuBz-NmaU"
+duration: "37:46"
+blurb: "Follow Us"
+tags: ["agentic thinking", "youtube"]
+chapters:
+  - { t: 0, label: "intro" }
+  - { t: 377, label: "context" }
+  - { t: 755, label: "problem framing" }
+  - { t: 1133, label: "working session" }
+  - { t: 1510, label: "practical takeaways" }
+  - { t: 1888, label: "closing thoughts" }
+  - { t: 2206, label: "wrap up" }
+transcript:
+  - { t: 17, text: "Hello everyone and welcome back to Agentic Thinking with Mike Carlo and Matthias. We're back again with some more thoughts around building things with agents. In true In true fashion, this is our" }
+  - { t: 27, text: "Friday session. Let's get hands-on keyboards. We're going to do demos. We're going to have screen sharing happening. , we're going to adventure down the route of using community" }
+  - { t: 37, text: "skills. What are community skills? Where do we find them? How would we incorporate them into our agent and sessions that we're using to to build with agents? , any other thoughts? Matthias, you want" }
+  - { t: 47, text: "to kick off here any news items that you found that were interesting to or worthy of note before we jump into demos? hi everyone, first of all, and absolutely news" }
+  - { t: 57, text: "news worthy, Opus 4.8 was released yesterday. Yes. I haven't played with it. as I mentioned a few weeks ago when" }
+  - { t: 67, text: "4.7 came out, I didn't make a very explicit choice to go back to 4.6, and I've stuck with 4.6 ever since. I'm not particularly thrilled" }
+  - { t: 78, text: "about always running after latest version Yeah. because , to be really frank, Those are expensive. seem they get more and more expensive without adding" }
+  - { t: 90, text: "substantial value to to the whole equation. , The balancing value add, ? If If If" }
+  - { t: 101, text: "you charge me three times more tokens, . they better give me three times more value, or else I'll just fall back and write better instructions with 4.6 and get 4.6 to be cheaper and use that in a" }
+  - { t: 112, text: "more efficient way as . I'm finding similar behavior on my side as . I'm not going to bigger models. I am trying out deep seek I don't know if" }
+  - { t: 122, text: "you you follow different models. Deep seek version 4 was just recently released. I have turned that on in my Azure Foundry and I'm starting to test out using that with my open claw agent" }
+  - { t: 132, text: "and seeing if deep seek version 4 is interesting and worthy. It's a mixed Masters model I guess is what they call it. 238 billion parameters. give" }
+  - { t: 142, text: "it a test. It's quite a bit cheaper than running any of the other models that you see out there though. if I can get decent performance with a much cheaper model, I guess dude I'll" }
+  - { t: 153, text: "I'll do that all day long. we're going to try it out. Oh yeah. there's a lot of good talk around Kimi 2.6 as . I haven't heard that one yet." }
+  - { t: 163, text: "I've I've tested that alongside Deep Seek V4 and I got substantially better results from the latter from Deep Seek as opposed to Kimi." }
+  - { t: 173, text: "there we go. All . None of these statements we're making here are generally applicable. It always depends [laughter] on your setup, on your on your domain, on your prompting, on on your" }
+  - { t: 186, text: "harness, ? if if there's one thing to take away from this podcast, harness matters more than anything else. Oh 100%. 100% agree with that one. All that sounds good. Let's go" }
+  - { t: 197, text: "over from from the news let's go into demo. Matthias you have some screen share you to show with us today. let's dive into what is this going to look ? What are we talking about for skills and where do we find" }
+  - { t: 208, text: "these things? What is what is a skill? Where do we find it? Absolutely, . if you followed our hands-on sessions far, we concluded a few things." }
+  - { t: 219, text: "One that very explicit and detailed prompting is extremely important. Two, there are quite a few things out there including skills and" }
+  - { t: 230, text: "agents instruction files and things that that ultimately are just prompt templates, ? At the end of the day, it comes down to you having" }
+  - { t: 241, text: "loads and loads of markdown with loads and loads of natural language descriptions, and have some system or harness that feeds that into your LLM." }
+  - { t: 252, text: "skills is a" }
+  - { t: 263, text: "standard that evolved over the last 6 months, which is pretty much just a packaging system for markdown files, if you want. turns out," }
+  - { t: 275, text: "skill marketplaces have absolutely exploded in a very, very short amount of time. , I'm looking at skills.hashnode, which is maintained by Vercel. Vercel" }
+  - { t: 286, text: "also owns the NPM skills package, which is a very nice, neat CLI that helps with management of skills." }
+  - { t: 296, text: "and as you can see here, look at that. , their marketplace has more than half a million skills from from big commercial" }
+  - { t: 307, text: "vendors. , we see Vercel, Anthropic, Microsoft, ? Top five, as as loads of community contributions." }
+  - { t: 317, text: "We can go to GitHub. We've got Copilot plugins, which is yet another marketplace. I'm not sure they have an a total count here. , but" }
+  - { t: 330, text: "there quite a few in here. and we have Awesome Copilot, which is a substantially larger marketplace" }
+  - { t: 340, text: "that also has a a .com URL. Here we go. Do we Yeah, there we go. , this one is more in in the hundreds rather than ," }
+  - { t: 351, text: "hundreds of it's a slight difference. Doesn't have half a million? What the heck? This is what a small skill subset. [laughter] I thought we'd" }
+  - { t: 361, text: "And as you can easily see, , even if you're dealing with 349 skills, ? Even that is a number that is quite overwhelming, let alone 300,000 or" }
+  - { t: 372, text: "more, ? Yes. this is really what agentic development and agentic engineering comes down to nowadays, , being able to have some" }
+  - { t: 382, text: "awareness of what's out there and then making choices and and figuring out, , what to select and what not to select and potentially also what to, , amend, ? , , I just wanted to have a" }
+  - { t: 393, text: "little play today with, , the VS Code experience of bringing skills, , into your project, how to discover them, , how to inspect them and and, , what" }
+  - { t: 403, text: "the whole experience looks . , let's go back to VS Code. , I kept open here our own agentic attempt" }
+  - { t: 415, text: "from 2 weeks ago, if I'm not mistaken, where we had our agent create a skill on the fly , using the Anthropic" }
+  - { t: 425, text: "Cloud Code official docs for how to write good skills. , I remember that was one of one of our recommendations. given that skills" }
+  - { t: 436, text: "largely come down to markdown files with natural language, given that this is what, , large language models are really good at consuming, given that this is" }
+  - { t: 446, text: "what large language models are really good at outputting, , you can have them inspect your skills or even create them for you. in" }
+  - { t: 458, text: "VS Code, you have a nice UI, obviously. . If you go to extensions" }
+  - { t: 469, text: "by default you're going to see your installed extensions and your MCP servers. If you happen to have skills already installed, it then shows up this third" }
+  - { t: 481, text: "agent plugins tab, ? It it will not show up if you don't have any installed." }
+  - { t: 493, text: "that's already That's the first usability issue you have with that. What you need to know for that is if you go into the search bar and you type at agent plugins" }
+  - { t: 507, text: "then [clears throat] the the search experience changes and you're not searching VS Code extensions you're searching through agent plugins. But, if you don't happen to know this particular keyword," }
+  - { t: 519, text: "you're not going to get into this search experience. a bit hidden something you need to know. say second thing" }
+  - { t: 530, text: "as you can see, this one is one I had installed already and then this one here shows me because I haven't put in a search term" }
+  - { t: 540, text: "a very large number, nicely alphabetically sorted, which is Oh, no No, you would think , ? It's not It's not alphabetical. It's sorted somehow randomly." }
+  - { t: 550, text: "And you're seeing here it's coming from You can see the reference of each of the repos. , this is coming from GitHub {slash} copilot-plugins is where that's coming from. if I click on RockIQ, which is obviously" }
+  - { t: 562, text: "a Microsoft product, we we get a little pop-up here, which shows a readme file. It's quite sparse, it's definitely the UI that can still evolve, hopefully." }
+  - { t: 573, text: "And then here you have the ability to install it. how does VS Code know, , all of these, ," }
+  - { t: 583, text: "skills or or plugins as as they call them. you think question I the deeper question I also ask you is, how do I get access to all those Versel skills that are also there, too? , how do I get it , how" }
+  - { t: 593, text: "do we open this up to just not get up Copilot? Yeah, , I think it's pretty good . Yeah, , if you go to settings and you type marketplace," }
+  - { t: 614, text: "don't switch to workspace because, the marketplace setting, as you can see, is only available at the user level. , user means this is global for your machine. It's stored in your user profile. Workspace means it's local to" }
+  - { t: 625, text: "this particular folder, ? Sure. marketplace only exists at the user level and then, , here, we have, , chat plugins" }
+  - { t: 636, text: "marketplace. , this is where you can register any number of, , hosted," }
+  - { t: 646, text: "marketplaces. If you just use, , this shorthand format, it defaults to GitHub owner/repo. , for instance, this one here, GitHub Copilot plugins." }
+  - { t: 657, text: "Yep. but you can also put a full URL here, , where you reference any publicly available Git repo in in either on your own server or on a GitHub competitors," }
+  - { t: 669, text: "? , Can we unpack this a bit? I want to just unt- touch this. Any , this is a GitHub repo, just give the URL of the repo and that will then allow it to scan" }
+  - { t: 679, text: "that repo and know what skills are from there. Correct. , if we're going if we're going back, , here, , this this is one of them. Yep. ," }
+  - { t: 690, text: "and, if we're looking" }
+  - { t: 701, text: "in here, da da da, sorry, , wrong one. . There we go. , that's what I'm looking for, marketplace.json. this particular meta file," }
+  - { t: 711, text: "marketplace.json, is what your VS Code instance will then read in order to understand for this repo, which" }
+  - { t: 722, text: "acts as a marketplace, which plugins, we can see that down here, Yep. are available from that repo, ? And then And then here, for instance, you" }
+  - { t: 734, text: "can then install Work IQ, Spark, Advanced Security, etc., etc. all of these exist in subfolders in that particular repo, ? , if I go to plugins, Work IQ," }
+  - { t: 747, text: "plugins, Work IQ, I then see that one happens to have a readme file, which is one we saw earlier, and it happens to have a skills subfolder with" }
+  - { t: 758, text: "a skill.md, which is very similar to what we created on the fly last time. I want to I want to just highlight this, I think this is a challenge. , even in my team , cuz I have a a team of developers, we're trying to" }
+  - { t: 769, text: "figure out how do we negotiate a team with multiple users and having similar skills or updating those skills collectively. we have landed on" }
+  - { t: 780, text: "building our own repo that has all of our skills in it. , we have a skills repo that we built internally for our organization. , this feels Matias, with a little bit of extra work here on the marketplace file inside our" }
+  - { t: 792, text: "repo, we would be able to expose that repo directly to our team members, and then as they li- log in, as they have access to that that marketplace, we could marketplace our own repo. That way everyone in the organization could share" }
+  - { t: 804, text: "common skills across the team. Exactly. That's precisely I was showing this particular setting earlier because as you can see you've got 1 2 3 4 5" }
+  - { t: 815, text: "different ways of referencing your own marketplaces and and they can even be a file share. It doesn't even have to be HTTP hosted. Sure." }
+  - { t: 826, text: "And there we go. that's number one. You can also see how I already added a custom one here Rui Romano Power BI agentic plugin. that's something you" }
+  - { t: 836, text: "want to explore later. Awesome. He's taken Rui is Microsoft Power BI PM focusing very much on agentic" }
+  - { t: 846, text: "development topics nowadays. he's created this open source repo with a number of Power BI and" }
+  - { t: 856, text: "semantic modeling plugins and skills. here we go. Cool. Can I give you one more? I don't know if this is one that would be useful here cuz I'm not sure if the marketplace here but I I think it's" }
+  - { t: 866, text: "there. let me give you one more Matthias. I'll put here in the private chat you can see it and also put in the chat window as . Microsoft has a GitHub repo Yeah. a Microsoft skills for fabric repo as" }
+  - { t: 878, text: ". this is might be another one we want to add in here as in the chat here I can hear you as . already skills for fabric. There we go. . That's what we're looking at. I'm just thinking this is a" }
+  - { t: 888, text: "great opportunity to show this. I'm going to show you I could go here and do add item. . but recently they added a neat new option which makes this much easier." }
+  - { t: 901, text: "Once you're in your extensions panel down here you can install plugin from source. that plus sign. that's really cool. what I'm going to do I'm going to grab the URL here" }
+  - { t: 913, text: "Love it. I'm just going to click plus. I'm going to paste this. Oh that makes a lot more sense. and in fact I can even use just this short hand version, ? , just" }
+  - { t: 925, text: "owner/reponame. . obviously, I'm going to have to say I trust it. And you can see that this" }
+  - { t: 935, text: "repo, which is effectively a marketplace, happens to contain five individual plugins. Plugins, in turn, contain skills and other things. We're" }
+  - { t: 946, text: "mostly interested in skills here. Turns out there is one which they've deprecated. we should ignore that. One of them is a bundle." }
+  - { t: 957, text: "Fabric skills, if you install that, you get everything. Or you can install individually fabric authoring, fabric consumption, fabric operations." }
+  - { t: 969, text: "why don't we do everything? here we go. which means we have" }
+  - { t: 979, text: "Microsoft skills for fabric available in here. you can open the plugin folder. That's quite important. If you, , for" }
+  - { t: 991, text: "awareness of what's in there. this one, as you can see, opens a local folder in my user profile, .vscode agent plugins." }
+  - { t: 1004, text: "And then, we've got the github.com Microsoft skills for fabric plugin. , when you install a plugin from the marketplace," }
+  - { t: 1014, text: "VS Code will download or or check out the entire repo onto your local machine. And that's where it's then referenced to. And" }
+  - { t: 1025, text: "this is a complete clone, as you can see. , it contains agent definitions, MCP servers, and a whole range of skills." }
+  - { t: 1036, text: "? . and this is available, which means I can go over here" }
+  - { t: 1047, text: "to my chat window. . What I still have very cheap access to that. Remember everyone, Monday, 1st of June, everything changes for corporate Black Monday." }
+  - { t: 1058, text: "[laughter] Token Black Monday. on, I'm going to be very, very careful which prompt I'm going to put in here. For , I'm fine. Yeah. I I can just burn them. Yeah, [laughter] exactly." }
+  - { t: 1069, text: ". Any city prompt is going to cost you real dollars from Monday on. . I can say which skills do you have?" }
+  - { t: 1083, text: "And because we have a lot of them , I'm going to say please organize" }
+  - { t: 1093, text: "them by the topic. this is very meta, ? This is the me asking the agent" }
+  - { t: 1103, text: "[laughter] to introspect the skills that have been registered. and" }
+  - { t: 1113, text: "it's going to read through all the skill descriptions. It's going to summarize them, and it's going to group them. There we go. And I I think" }
+  - { t: 1124, text: "that was a good call because as you can see, there's a lot going on here. let's see. There's some general development stuff." }
+  - { t: 1134, text: "this is important to know. , I personally happen to have some skills installed in my machine" }
+  - { t: 1148, text: "user profile. . And they are in included here implicitly. Sure." }
+  - { t: 1158, text: "Exactly. How can you How can that? If you again, if you go back to settings, and if you look for plugins, you can see No, if you not look for plugins. If" }
+  - { t: 1169, text: "you look for skills, there we go. If you look for agent skill locations, , you can see that by default" }
+  - { t: 1182, text: "those six locations, the first three are local folders, the second three are user profile folders. They are always included by default in any agent" }
+  - { t: 1194, text: "session inside VS Code. I happen to have some stuff in my user profile under cloud.skills and and .agent.skills, which is why they show up . ," }
+  - { t: 1204, text: "for instance, commit changes. and again, coming back to your question Mike from before, this is another way how you can share between colleagues and" }
+  - { t: 1216, text: "standardize, just make sure that you install common skills in in in your machine's user profile. The big advantage is that" }
+  - { t: 1228, text: "you can work on any number of projects in parallel, no matter where they're checked out, those skills are always available, ? , this is the pattern I'm using, ." }
+  - { t: 1238, text: "we've got GitHub web , here we go. , Power BI semantic models, semantic model documentation, Power BI authoring CLI, Power BI consumption CLI. we've got Fabric" }
+  - { t: 1250, text: "stuff, Fabric Fabric migration. , cool. the most interesting ones for us is semantic model documentation, Power BI" }
+  - { t: 1262, text: "authoring, Power BI consumption. can we see those? There we go, ? , we've got a Power BI authoring CLI, Power BI" }
+  - { t: 1272, text: "consumption CLI. , those are all skills from fabric skills. Microsoft, what was the third one?" }
+  - { t: 1282, text: "Awesome copilot. Semantic model documentation. Spin it out. Yes, . Which is not here." }
+  - { t: 1296, text: "skills is it Yeah, just you can already see, ? This this is where things start to get a little messy, ? You if you're not very organized" }
+  - { t: 1307, text: "here, you you suddenly load into your context loads of skills. Some sometimes you may not even be aware where they come from. And" }
+  - { t: 1319, text: "if you're not very careful here, you can create some really unexpected results if you run something" }
+  - { t: 1329, text: "on machine A and then on machine B, if both machines happen to be configured differently with global globally installed skills, your agent sessions," }
+  - { t: 1341, text: "even though they work in the exact same repo, will have potentially very different context, ? , this is this is where a bit of planning comes in." }
+  - { t: 1353, text: "the next thing is" }
+  - { t: 1365, text: "Here, you can we can open the readme for this directly in here. this is a readme that is not going to made" }
+  - { t: 1375, text: "available to your agent or your LLM. This is something which is only there for you, ? The only thing the agent will see is , the actual skill. md file." }
+  - { t: 1386, text: "and the , this is all , the readme is also all in markdown. And if you want it though, this is, , written all" }
+  - { t: 1397, text: "in code here. You can also while this file is open, there's a button in the upper -hand corner that'll let you see the pretty version of this one as . Yeah. if you want to go look at just as if it was a web page as ," }
+  - { t: 1408, text: "you can see , , here's here's how it's written out as a more human readable version of of the code. And this is what you were looking at earlier, Matthias, when you were opening up the information or look at the details of those of those , different" }
+  - { t: 1418, text: "skills. This is the same markdown that you would have been seeing in in the the settings of the skills specifically." }
+  - { t: 1428, text: ". . , next thing, , this is the project we've been working on , for quite a few weeks . , we" }
+  - { t: 1438, text: "happen to have a semantic model in here in tabular format. , it tells us that the Power BI authoring CLI allows us to create, update, deploy," }
+  - { t: 1450, text: "and refresh semantic models. And then the consumption CLI allows us to run DAX queries and inspect semantic model metadata." }
+  - { t: 1461, text: "probably just give it a test and see what happens. Yes, give it a whirl, see what it will do. I I just want to make sure because the other thing I also have, and again," }
+  - { t: 1471, text: "? Things get messy very quickly. I also happen to have the Power BI modeling MCP server installed , as a VS Code extension." }
+  - { t: 1482, text: ". I want to make sure that this is disabled. Yeah, there we go. , ? just as a reminder, down here, if I go to configure tools, I've got the modeling MCP server, but it's not" }
+  - { t: 1493, text: "enabled, which means it's not part of my context . I want to make sure that whatever happens is is solely going back to skill usage rather" }
+  - { t: 1504, text: "than potentially also using the MCP server, ? Yeah. All . , if I say please" }
+  - { t: 1515, text: "summarize the semantic model in in the work in in this" }
+  - { t: 1526, text: "working folder. Very high-level vague prompt. let's see what it does. It definitely Here There we go. Cool. ," }
+  - { t: 1537, text: "Do you need to call off it? , you didn't call off the skill. It it it found the skill automatically. Do you use the slash command or I guess would you recommend using the slash command and then typing your" }
+  - { t: 1547, text: "prompt or how do you prefer that? Yes, very good question. , first of all," }
+  - { t: 1559, text: "what? I Oh, I This one's the semantic model documentation. That's the one we created last week, remember? That That's why I was really confused . Where does this" }
+  - { t: 1569, text: "come from? The neat thing is when I have when you have it over here, you see the file, ? , dot cloud skill semantic model documentation. It's a semantic skills up out there. reading that one, which is probably" }
+  - { t: 1581, text: "not quite what we want here. And why is it reading that? We've given it a description, and" }
+  - { t: 1592, text: "the description says guides annotation documentation of Power BI fabric semantic model elements. Use when adding or updating descriptions, documenting tables, columns," }
+  - { t: 1603, text: "and on and forth. Writing semantic model documentation. All , here we go. this bit is the only thing the" }
+  - { t: 1614, text: "large language model knows about your skills, ? , even if you have hundreds of skills, again, not recommended, but if you had hundreds of skills in your" }
+  - { t: 1624, text: "project or on your machine, for every single one of them, the LLM only sees this to start with. And it's using that description in order" }
+  - { t: 1634, text: "to make a a call to make a decision whether or not it wants to learn more about the skill to then potentially use it, ? Unless unless there's a way to" }
+  - { t: 1646, text: "force it, too, ? Yes. , the other thing you can do is you do slash, then you can invoke" }
+  - { t: 1657, text: "any skill a command or a workflow. it's not searching through" }
+  - { t: 1667, text: "descriptions. You're saying, \"Look, I want you, Mr. Agent, go use this skill specifically. I'm expecting this skill to be used.\" And it won't go searching for things. It'll hunt for this only one" }
+  - { t: 1677, text: "skill, read the information on this particular skill, and then execute whatever statement you asked and also note here in your chat window, if you can zoom in there, it says" }
+  - { t: 1688, text: "the description you gave it earlier, notice how it's adding guides, annotation, and documentation of the item here. , when you use the skill, you can see part of the" }
+  - { t: 1698, text: "description of it. , if you don't have the skill specifically open, you can start seeing the words of what that skill is trying to do, and then you can Exactly. add other details there." }
+  - { t: 1708, text: "What's worth noting is that invoking and this is also really nice, as you can see, ? Oh, yeah. Hover it. it it has a nice pop-up, which again" }
+  - { t: 1720, text: "gives you the description. And in fact, it also tells you when you click on it, it opens that file. , if I if I close this here Yeah. and click on this, the there we go. I've" }
+  - { t: 1730, text: "got that file, ? Awesome. that is a really neat way for you to inspect anything that comes from a plug-in for instance, where you don't have the file in your workspace. , for instance," }
+  - { t: 1742, text: "if I do power BI fabric, here there we go. Power BI authoring. As you can see, these are" }
+  - { t: 1752, text: "name-spaced. , anything that comes from a plug-in, when you invoke it as a slash command, you you must also invoke you must also include the plug-in name with a colon." }
+  - { t: 1764, text: "You can't just use the skill name. there we go. I can click on it and , look at this. This has a very significant description. I'm not sure whether that's good practice or" }
+  - { t: 1776, text: "not, because remember, context management, , context preservation. Yeah. If this skill is in my workspace, that whole description will" }
+  - { t: 1788, text: "inevitably be added to my system prompt. and it will always be sent across to the LLM. Personally, I would think that this is" }
+  - { t: 1798, text: "probably overstretching the limits of what you should do in a description, but there we go. you're , again, you're trying" }
+  - { t: 1808, text: "to mince words here on the description part. , you're thinking what? No more than , 200, 300 words. , you're trying to you're trying to make that as concise as you physically can, ?" }
+  - { t: 1819, text: "when the user wants to and then a whole bunch of listed items here, ? Yeah, . , can we thousand characters. Yeah. I see. 956, ? , you you'll probably want" }
+  - { t: 1829, text: "to keep it to 400 or , I would say. Or less. Makes sense. And that getting that description is really, really key, because" }
+  - { t: 1839, text: "if you if it's not specific enough, it may not find it or it may not decide that it wants to invoke it. Let's If If it's" }
+  - { t: 1850, text: "Let's talk strategy If it's too broad, if it's too broad, it might always go for it even though it is the skill may not be the one to use, ?" }
+  - { t: 1861, text: "let's unpack this a little bit cuz I think this is a key point here is if your skill that you're trying to accomplish , even even the skill itself, ? What the skill is doing," }
+  - { t: 1871, text: "maybe that isn't even , you could have Let me Let me say it this way. You can have skills that call other skills, ? This is a ingestion point for something that you may want to go do. If the agent jumps" }
+  - { t: 1882, text: "into the skill, this is going to be able to do certain things or use different scripts or whatever that would be. If this description has to get large that it's very detailed this, this" }
+  - { t: 1892, text: "might be indicative of you need multiple skills from this one skill. It needs to be broken apart a bit. And then you can call, \", when I'm If I'm doing the update the semantic model" }
+  - { t: 1904, text: "definition with Tim Doll, here's a skill for that. Here's what you know, you can abbreviate this and make this call other skills as . Is that something that you've used before, Matthias? I've been doing that a little" }
+  - { t: 1914, text: "bit where I've been making skills too big and I'm having to break them apart into smaller skills that do a very specific task . and then reference that task or that" }
+  - { t: 1924, text: "skill in other skills. Hey, if you want to do this thing, here's a repeatable Here's how to understand what Tim Doll's doing, ? Or here's how to write a description in Tim Doll or whatever those smaller task-level pieces are. I" }
+  - { t: 1935, text: "can more metered go after those specific task-level items. And also what we saw earlier, ? As I said, there's a huge marketplace out" }
+  - { t: 1945, text: "there or there is huge marketplaces, where you can grab plugins and skills. don't go crazy." }
+  - { t: 1956, text: "don't add everything in there because it looks good or because it comes from a big vendor. If you then end up having conflicting skills, Yes. lots of them that do" }
+  - { t: 1967, text: "similar things, . it can be really tricky for your LLM to make a call to and choose one over the other, ? Which ultimately ends up" }
+  - { t: 1977, text: "giving you inconsistent workflows as . , we do need to wrap up. Just wanted to . [laughter]" }
+  - { t: 1987, text: "I got you. Yeah, you you were wrapping up a bit faster, but there we go. , there's a lot to say here around" }
+  - { t: 1997, text: "selection and , good practices around being very selective and specific around the" }
+  - { t: 2008, text: "skills, but also I would say don't just import skills blindly, review them carefully, review how they" }
+  - { t: 2018, text: "impact your workflow, and potentially clone them and refine them for your particular ways of working, ? I love that." }
+  - { t: 2028, text: "I'm sure we'll have plenty opportunity to go into much more detail on on many of those questions. And I'm I'm going to directly argue that I believe Build is next week. next" }
+  - { t: 2038, text: "week I'll be out of Build. we'll have to figure out how we we might have to take a pause on some of the show next week or if not we'll have to figure something else out. Maybe I'll do this might be a bit more impromptu." }
+  - { t: 2048, text: "Maybe I'll do a couple little light sessions with Matias while I'm at Build. We'll see how this all turns Yeah, that'd be cool. That'd be fun. if you it'd be nice if we can keep the show going, but it might be a little bit of a different" }
+  - { t: 2056, text: "format next week just because I'm at Build. However, I'm firmly convinced Build is going to have a whole plethora of skills appearing and being announced." }
+  - { t: 2066, text: "I feel this is going to be this feels what Microsoft is doing. Even as I'm looking at the Microsoft Fabric skills repo, new skills are coming out all the time. That repo is getting updated quite" }
+  - { t: 2077, text: "frequently . And , I have pretty high confidence that the trend we're going to see that over the last couple of weeks is going to continue to increase. And , I think the new challenge will be which skill?" }
+  - { t: 2088, text: ". How many skills? How do I pick the skill? I think that's going to be another area here that we're going to need to investigate. Awesome. Matthias, any other final thoughts as we wrap here on" }
+  - { t: 2098, text: "community skills and how to get them added in the VS Code? don't get overwhelmed." }
+  - { t: 2108, text: "Don't don't don't select them all, you know. , be very mindful. bring in a plug-in or a set of skills at a time. Really test how they" }
+  - { t: 2120, text: "work for your workflow. , what assumptions those skills make? , I've shown you how to find the the skill.md description , and how you can" }
+  - { t: 2131, text: "navigate to them. Do read them. It's really important. Don't just take them as a black box and and blindly rely on it. It's not going to be a good experience for you. You need , you" }
+  - { t: 2141, text: "need to own the whole process end-to-end. With this and maybe a a word of tip or trick here as as I think about this or impact this as we think about this" }
+  - { t: 2151, text: "together. I feel I'm going to use my agent to go, \"Hey, I've added a bunch of skills. Can Can you tell me are there any skills that you see that are too close together" }
+  - { t: 2162, text: "or conflicting?\" , don't be afraid One of the things I'm learning a lot more is the agent is really good at discovering and finding and reasoning against things. , leverage the agent to your" }
+  - { t: 2172, text: "advantage. Spend some time with it. have someone, , go into that and figure out how do you use the agent to help you pick which skills to turn on and off. That might also be an" }
+  - { t: 2182, text: "advantage for you as there. Anyways, thank you much for presenting today, Matthias, on this agentic thinking topic. there's many more to come. We're going to do a lot more topics around this. There's much" }
+  - { t: 2192, text: "stuff happening in this agent world. Thank you for joining us. We're going to keep going down. Let us know in the comments if you found this valuable, if there's any other topics you'd us to cover, or things that, ," }
+  - { t: 2202, text: "\"Hey, you guys are going too deep already. Go to Go back to 101.\" Let us know in the comments. Please let us know what you want us to talk about, and we'll cater some of the topics more towards that direction. If you haven't" }
+  - { t: 2212, text: "found us, you can also find us on a website, agenticthinking.show, all one word, no dashes. agenticthinking.show, super fun website. Go check out. All of our transcriptions" }
+  - { t: 2223, text: "are fully there. Search for any words that we've said over the last 12 episodes. We're constantly adding new episodes as we build them, but every episode will have full transcriptions there. , if" }
+  - { t: 2233, text: "you want to search for a key phrase, you can do that on the website, as . Super fun website. Also, all built by agents. , we didn't touch the code on that at all. That being said, thanks, Matias, and we'll see you next time." }
+  - { t: 2246, text: "Bye, everyone." }
+
+---
+
+## Summary
+
+This episode is a hands-on walkthrough of community skills: where to find them, how to install them in VS Code, and how to use them safely in real workflows. Mike and Matthias compare large marketplaces, then show the actual plugin plumbing (marketplace.json, plugin folders, and user-level marketplace settings). They demo adding Microsoft Fabric skills from source and testing skill invocation behavior in chat, including explicit slash-command targeting. A key theme is governance: too many overlapping skills can bloat context and create inconsistent results across machines. The practical advice is to install selectively, inspect every skill.md, and treat skills as assets you actively curate.
+
+## Key Takeaways
+
+- ▸ Skills are effectively packaged prompt instructions, and modern agent workflows increasingly depend on discovering and curating the right ones.
+- ▸ VS Code plugin discovery can be non-obvious (for example, using `@agent plugins`), so knowing the search and install paths is part of effective setup.
+- ▸ Marketplaces are configurable at the user level, and teams can publish their own shared plugin repositories to standardize skills across developers.
+- ▸ Installing from source (owner/repo) makes it easy to add external skill packs such as Microsoft’s Fabric skills and inspect exactly what was pulled locally.
+- ▸ For model selection, the skill description is critical: the agent first sees that description and decides whether to invoke the skill, unless you force usage with slash commands.
+- ▸ Avoid skill sprawl—review skill.md files, keep descriptions tight, and add plugins gradually to reduce conflicts, hidden context bloat, and inconsistent agent behavior.
+
+

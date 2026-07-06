@@ -1,0 +1,345 @@
+---
+title: "Build Recap - Awesome Rayfin - 017 Agentic Thinking"
+episodeNumber: 17
+date: "2026-06-06"
+youtubeId: "YndHMZzXYK8"
+duration: "55:15"
+blurb: "Follow Us"
+tags: ["microsoft fabric", "rayfin apps review", "fabric apps", "rayfin apps"]
+chapters:
+  - { t: 0, label: "intro" }
+  - { t: 473, label: "context" }
+  - { t: 947, label: "problem framing" }
+  - { t: 1420, label: "working session" }
+  - { t: 1894, label: "practical takeaways" }
+  - { t: 2367, label: "closing thoughts" }
+  - { t: 2841, label: "deeper dive" }
+  - { t: 3255, label: "wrap up" }
+transcript:
+  - { t: 15, text: "Hello everyone and welcome back to the Agentic Thinking podcast. We have another fun episode. We're going to do a build recap today. Hello Matthias, welcome back. It's good to see you again." }
+  - { t: 25, text: "Absolutely, likewise. You've just been to build which I'm quite jealous about. [laughter] very very obviously I've I've been following it from several" }
+  - { t: 36, text: "time zones away. I've I've seen lots of blog posts and announcements and all of that but very keen. How was it? I thought it was one of the more" }
+  - { t: 46, text: "energetic and fun builds conferences I've been to. I've only been to two I'll have two to compare to but this was way more fun. At the very end they brought out the" }
+  - { t: 56, text: "Chainsmokers which was funny. Satya was talking with the Chainsmokers. They have made some money in the music era and industry and they have created their own venture capitalist firm around investing" }
+  - { t: 67, text: "in tech and high-tech technology pieces and they felt it fit very much their personality and how they were again already in the tech already and it was very fun because at the end of day" }
+  - { t: 77, text: "one they put on a huge conference. if you go follow me on social media you'll probably see some posts from me jumping and singing to the Chainsmokers in the front row." }
+  - { t: 88, text: "I've never been close to a really big artist this but we were able to narrate ourselves up to the front row. They were super fun. That was the fun part but the technology announcements" }
+  - { t: 99, text: "were through the roof. I thought there was a lot of really amazing announcements and by far the one that's most impactful to me and and the one that's probably most near and dear to my heart is Project Rayfin. It's a" }
+  - { t: 110, text: "Power BI application that we can start start vibe coding our apps using agents which is awesome. . . What did you hear, Matias, while you" }
+  - { t: 120, text: "were on the other side of the world? . [sighs] Loads of Foundry stuff. Foundry-hosted agents, Foundry routines. Very interested in digging" }
+  - { t: 131, text: "deeper into that. the Windows Intelligent Terminal is definitely something which caught my attention. it's it's a fork of Windows Terminal" }
+  - { t: 143, text: "built with direct integration for coding , for agents using the agent client protocol, ACP. , you pretty much any agent that supports the" }
+  - { t: 154, text: "protocol can be hooked in there. I installed it earlier today. is it's a very early version, let's put it that way. , but I I I do the idea and and" }
+  - { t: 167, text: "the vision behind it. bit disappointed that it's Windows-only. I , I I run most of my agent and dev stuff" }
+  - { t: 179, text: "on Linux these days. , but yeah, definitely something that stands out. what else? Microsoft Scout." }
+  - { t: 190, text: "Scout is really Yes. Would you already interested in? Very much . And it feels that was the They had this thing internally, I" }
+  - { t: 200, text: "think there was a gentleman talking about Claw Pilot, I think is what they were calling it initially. But it's turned into the the project name of Scout, which is I think what" }
+  - { t: 210, text: "they're doing they're they're doing a Hermes or an Open Claw. , I at the conference, there was a lot of talk about Open Claw native on Windows Yeah." }
+  - { t: 220, text: "in sandboxes, a lot more support for Linux-related things. That was really exciting to see Microsoft within a relatively short period of time, November till ," }
+  - { t: 231, text: ". and already adding open claw and agents and Hermes and these other agent experiences directly inside Windows with proper sandboxing. I thought this was a" }
+  - { t: 242, text: "very bold move. . and it felt this was there's a momentum, a movement behind this. And when the big tech guys start jumping in to do this, . that says something." }
+  - { t: 252, text: ". And very much linked to that, there's new hardware coming. ? New hardware. Lots Yeah. there's new projects, Spark bots," }
+  - { t: 262, text: "Yes. which looks definitely a sort of next-generation device as . not sure when it's going to be available, but definitely something quite promising." }
+  - { t: 273, text: "I think there there was another thread of this that wove through many of the conversations that they were having on stage. It talked a lot about running your models locally on your" }
+  - { t: 283, text: "machine. I found this to be very interesting from a company that's and a lot of these big premier models, . they run in the cloud on big data" }
+  - { t: 293, text: "centers and everyone's trying to build massive data centers all over the world to to support these models. And people want to purchase it, but then we can't get enough. . I think the increase in prices" }
+  - { t: 304, text: "recently here, I think Microsoft also wants to get in the game of Nvidia. It felt , you know, Nvidia has the corner on the market on we build GPUs for really" }
+  - { t: 316, text: "good agentic experiences. And Microsoft's , , we make hardware. We need to get on this, too. Look, what can we do to produce something on machines and hardware to" }
+  - { t: 326, text: "lift some of that weight or load away from tokens in the cloud and use them locally. , this was a really interesting move. I wasn't quite anticipating this. ." }
+  - { t: 336, text: "Very pleasantly surprised that Microsoft is putting more effort around building this local running hosting of models into their hardware, . And something which was very surprising" }
+  - { t: 348, text: "to me, , you mentioned hardware. , very good photo up here. GPU accelerated analytics in fabric." }
+  - { t: 359, text: "Oh, yeah. That is Huge. something very, very interesting. leading edge, , they're going very deep and using" }
+  - { t: 371, text: "GPU internals to to based on what's been published, it" }
+  - { t: 381, text: "massively accelerate certain types of queries in in in data warehouse. my first thought on that, to be fair, was ." }
+  - { t: 391, text: "interesting move given that GPU as a capacity or or as a resource is sparse nowadays, ?" }
+  - { t: 401, text: ". The world doesn't have as much GPUs as as as we all need to, , to run our large language model. , very interesting I thought that we're" }
+  - { t: 411, text: "adding a whole new use case, on top of that sparse resource. But there we go. far, I this is only I think in in some private" }
+  - { t: 421, text: "preview, but they have talked about it publicly. It's part of the announcements and I think it's definitely coming later this year." }
+  - { t: 432, text: "I want to unpack that a little bit. I had to imagine when Microsoft buys a bunch of , the the era of agentic inference and GPUs and compute" }
+  - { t: 442, text: "that's being designed specifically for large language models, if they're moving more towards that direction or , gaming is continually getting newer and better" }
+  - { t: 452, text: "graphics cards and more gaming and graphics cards are being built into the cloud, I had to also imagine Microsoft has a huge amount of let's call them older graphics GPUs" }
+  - { t: 463, text: "laying around their data centers and what are we going to do? what it is, What what are we going to do with all these other GPUs? We're upgrading, we're building new things. , do we just rip out the old racks and throw them" }
+  - { t: 472, text: "away? Is there any use case where we could find a good placement for these old GPUs? , they're likely going to be more expensive than a CPU cuz that's just how they seem to run price-wise. But, if you have a bunch of" }
+  - { t: 484, text: "aging hardware, you try and find new uses for this. Maybe this is a good non-graphical space, but still uses a lot of its capability to help accelerate what we're trying to" }
+  - { t: 494, text: "do in the data warehouse side of things. That This will be very interesting and this could be just a a rollover of use utility happening on existing GPU stock. I don't know the details here. This is" }
+  - { t: 505, text: "all speculation at this point, don't quote me on this and don't come after me if I'm totally wrong cuz this is just speculating and I'm just guessing. I did something quite similar a year ago. , , I had to" }
+  - { t: 515, text: "I had an old third generation RTX graphics card lying around. Yep. and made it suddenly became extremely useful cuz it turns out, you" }
+  - { t: 525, text: "know, it can run some some some pretty powerful local models in Ollama LM Studio. , yeah, Amazing. maybe that's what it is." }
+  - { t: 535, text: "what else did I see? , , obviously lots of Fabric stuff. , a bit more technical and and much more related to what we've been" }
+  - { t: 545, text: "doing in terms of demos. . Microsoft skills for Fabric repo had a new release. Yes." }
+  - { t: 555, text: "032 release, which doesn't sound [laughter] super exciting. in fact, technically it's a patch release, but it's a massive PR" }
+  - { t: 567, text: "behind that with over 220 files. , we're definitely going to have to use one of our upcoming episodes to look into that one specifically in detail. There's loads to unpack. there's new" }
+  - { t: 579, text: "stuff in there around semantic modeling and and probably our reports. the whole package around fabric skills for your" }
+  - { t: 591, text: "agents has increased enormously. , that's something I noticed. Horizon DB" }
+  - { t: 601, text: "a Can I call off a couple I'm going to call off a couple of really interesting skills that appeared two days ago, ? one of the skills that I see here is called a Databricks migration skill." }
+  - { t: 614, text: "Oh, wow. there's a skill here that says, \"Port your Databricks notebooks and jobs over to Microsoft Fabric.\" I found that to be very interesting as a skill in the skills for Fabric" }
+  - { t: 624, text: "area. That one was very interesting there. And I'm also looking through here, let's see here, two days ago, we get a Fabric IQ skill. , that one's appearing . semantic model authoring, you said" }
+  - { t: 634, text: "before, semantic model consumption. These are two skills that are appearing. Matthias, I I I'm just before we go on to the next topic, I just want to kind of maybe hang on you for here just a" }
+  - { t: 644, text: "moment here on this one. inside these skills that you're finding, . have you noticed anything interesting? And I'm going to I'm not going to I'm not going to lead you to that question." }
+  - { t: 654, text: "I'm going to I'm going to give you what I think is interesting and then and you can go from there. , I I have found when I'm looking at these skills, when I look inside the skills, most of" }
+  - { t: 664, text: "the references are more markdown. There's a skill file, skill.md, [clears throat] and then behind it, there's a whole bunch of other skills or reference files" }
+  - { t: 674, text: "that are additional details about how to work with the auto the author modeling and all these other areas. but I found it quite fascinating that everything in the repo seems it's" }
+  - { t: 684, text: "only markdown and reference files for markdown and almost no scripting or Python or anything else to support" }
+  - { t: 696, text: "For my understanding, I guess maybe this is just a slight topic here, James. When you build skills, you build the main skill markdown file, and then you're supposed to build any" }
+  - { t: 706, text: "task-related items, anything you want regular output from, you build scripts around. Cuz it adds more structure to what the agent is" }
+  - { t: 716, text: "doing. , instead of telling the agent, \"Here's how to go talk to build a DAX performance guide on an analysis services model.\" Or here's instead of how to do" }
+  - { t: 727, text: "DAX guidelines, ? You would almost build a Python script that says, \"Send me your DAX, I'll return you the guidelines that you did or did not use.\" And , I was" }
+  - { t: 738, text: "surprised seeing this whole skills for Fabric only existing in the markdown landscape. . What are your thoughts on this, and did you observe the same?" }
+  - { t: 748, text: "Oh, I've got a lot of thoughts here. yes, it's it's abundant markdown, which means it's targeting a very" }
+  - { t: 760, text: "you need to use a very good reasoning model with that, , it needs a model that needs to be able to read through all of this stuff" }
+  - { t: 771, text: "and then make the choices and inferences, but also you need a model that has a really big context window, ? ," }
+  - { t: 782, text: "this architecture that will not work very , with with non premier models. , that's one thing to" }
+  - { t: 792, text: "point out. The other thing which I've personally noticed particularly in a VS Code context and using , the VS Code chat" }
+  - { t: 803, text: "experience. and I'm sure , we can go in in some more technical detail in in some in future demo sessions. You need to be" }
+  - { t: 813, text: "extremely careful with respect to what gets put into your context automatically. , if you if you install these" }
+  - { t: 823, text: "skills into VS Code and given that unfortunately those those skills for Fabric" }
+  - { t: 833, text: "markdown files in particular happen to have a very very large description. I think in in in one of our recent demo episodes I pointed out when we looked at" }
+  - { t: 843, text: "them, ? from my point of view, you know, they all contain substantially more markdown in the" }
+  - { t: 853, text: "description field than what should be considered best practice, . , once they're installed in your VS Code environment, every single chat session you open irrespective of" }
+  - { t: 864, text: "whether that's Fabric related or not, will have all of those description paragraphs" }
+  - { t: 875, text: "loaded, ? And , that adds up, , and particularly if you know, obviously , it's the 5th of June today. , for Copilot users" }
+  - { t: 885, text: "this week has been a pivotal change because as of Monday, , nothing is nothing is cheap anymore, , as of I've heard lots of people who used their entire monthly" }
+  - { t: 897, text: "Copilot allowance within a day or . I'm not kidding, ? , if you are if you're" }
+  - { t: 908, text: "impacted by the Copilot pricing change, you you want to be extremely token aware moving forward. And this architecture doesn't really" }
+  - { t: 919, text: "help with that, ? , lots to unpack here. And and need to have really good awareness of what's installed in your environment. , what what gets" }
+  - { t: 930, text: "what gets added to all your agent sessions, and you need to be very good at at deselecting them when it's the thing to do." }
+  - { t: 940, text: "Agree with that one very much . All , I I do we could talk build the entire episode. I do want to do a little bit of demoing. Matthias, while I was at Build, one of the reasons why I went to Build was I was speaking" }
+  - { t: 950, text: "on RayFun. I've been testing and building and making things. , I was hoping what we could do here today, if this is a good transition moment, let's go into my desktop and" }
+  - { t: 960, text: "then we'll go build a RayFun project directly through Microsoft Fabric. I'll go show you how it works. I'll show you the the basis of getting things started here. it's still" }
+  - { t: 971, text: "it's in preview. There's things that are going to be changing, I'm just going to preface that with, , it's still a little rough around the edges, but things are changing quickly and I think it's going to be awesome. , . if you're good with it," }
+  - { t: 981, text: "I Yeah, I can't wait. , there's a RayFun CLI, ? Which which you sort of use as your guiding tool. That's what something I've seen. There there is a" }
+  - { t: 991, text: "public repo . it's meant to be open source, but when you look at the repo today, there are just some markdown files that say source code is coming, ? ," }
+  - { t: 1001, text: "Yes, correct. it's not technically open source yet, but it will get there. It's going to get there soon. All , with that being said, let's go over to my screen here. , I'm going to go" }
+  - { t: 1011, text: "dip down and share my screen. , I have a Fabric workspace here already ready to go. And I just want to highlight one note here that you need to turn on in order for this to work inside your environment. If I go over here and" }
+  - { t: 1023, text: "click on the settings icon, you'll need to go into your admin portal. And once in your admin portal, you'll need to search for the word app. There's a lot of app things in here. It's not" }
+  - { t: 1033, text: "called RayFun inside the admin portal, but what you're looking for is this setting here called enable app items. It's currently in preview. This is the new item that was just recently" }
+  - { t: 1044, text: "added to your workspace to your admin settings. , you have to turn this on. And as always, I always recommend to add a security group to this and don't just open it up for everyone in your" }
+  - { t: 1054, text: "organization. , make sure you you go build a security group specifically for your Power BI admins or whatever Raven" }
+  - { t: 1064, text: "testers or app testers and add that there in a specific security group. . , My understanding also is that the there are some region restrictions. , Raven" }
+  - { t: 1075, text: "apps are not yet available in all regions. Is that ? Yes. , I believe this is in the documentation. They're not rolled out to all regions yet, but they should be getting there shortly. , I believe" }
+  - { t: 1085, text: "there's a short list of regions and it's regularly growing longer as we speak. They're actively pushing out to more regions . , everyone can test and build with these." }
+  - { t: 1095, text: ". And and would that be your fabric home tenant region or what region matters here? Yeah, I believe this is in any region where your fabric workspace is residing." }
+  - { t: 1106, text: "if you have a fabric capacity that's in a different region, it will let it spin up. , but it's not your tenant region. capacity region. It's how I understand it . Yes, correct." }
+  - { t: 1118, text: "All . , that being said, this is my app has been turned on. I'm going to go back to my workspace. , I'm going to build the app from scratch. I'm going to go here click on new item. And inside this new item, it will ask" }
+  - { t: 1130, text: "you to , pick an item here. I will search for the word app up in the upper hand corner. And what you'll find is we're going to be looking for again, the item called app. And it's going to" }
+  - { t: 1141, text: "have this little blue app icon with a database attached to your or screen. It's maybe it's a browser and and app icon. , I'll click on that one here and it's going to ask me to add this new app. , let's just do a genetic" }
+  - { t: 1152, text: "thinking and I'll just put it all here. One word, no spaces. and then I'll hit create on this one. you could probably use spaces in here. I think I've done that in the past." }
+  - { t: 1162, text: "And what this will do is it'll create an item directly inside Microsoft Fabric. there's a couple things that you'll note here. Once the app has been published from whatever your local" }
+  - { t: 1172, text: "development space looks into the Fabric environment, this URL will populate at the top. You'll have a specific URL and notice here you have a" }
+  - { t: 1183, text: "direct URL open of that URL. , you don't even need to be inside the context of Microsoft Fabric to open the application. The app has a back end, this is" }
+  - { t: 1194, text: "really what the technology piece here is. The back end piece is what is talking to the front end and back end securely, ? You build a front end part of an app and you have a back end where functions and data calls and all" }
+  - { t: 1205, text: "the secret things you don't want users exposed to would go in the back end. , there's a specific back end URL and there's this perishable API key item to help you during development." }
+  - { t: 1215, text: "If you wanted to, you can give a command prompt directly to your agent. , to be very clear, I've tried this a couple times. I've gotten weird results from the prompt. , I going" }
+  - { t: 1226, text: "straight to the CLI and doing it directly, but I will copy the prompt and I will show you what the prompt looks . , let me copy the prompt here. It doesn't give you any indication that it was copied. You just have to" }
+  - { t: 1236, text: "trust that it was it was doing it. And let me pull over here VS Code and we control new control N here. I'll just paste in that code. here's the prompt that it gives me." }
+  - { t: 1247, text: "Let me make this a little bit larger. we're going to set up a new app called the name of the app. We're going to run this command that you saw on the main page there. The first parameter" }
+  - { t: 1257, text: "here is just the name of the app. Notice there's no actual parameter in front of it and then we have the workspace name that goes over here. And , it looks up the workspace ID and items for" }
+  - { t: 1268, text: "you automatically. The only other commands we really need to understand here is run npm dev. That's when you're building locally, you want to see what the app is doing. And then when you're done building locally," }
+  - { t: 1278, text: "you want to push it back to powerbi.com, you're going to use npx ren-rayfin up, pushing it up to the service. , that's what the code is doing here, but in true" }
+  - { t: 1288, text: "fashion, I'm going to do this hopefully properly with Matias's approval. He's a way better dev than I am and or ever will be. , I'm going to do this correctly. I'm going to go grab a" }
+  - { t: 1298, text: "folder, I'm going to go bring it to my VS Code location here. I'm going to do what every good dev does is we're going to initialize our repository. , as the agent builds things, we can always" }
+  - { t: 1308, text: "revert, commit changes. this is going to be local on my computer only, but I will do this you can see what files are changing. I love this feature inside VS Code. It's professional. , we're" }
+  - { t: 1319, text: "going to do that. , here I am in in in the demo folder on my computer here, on my desktop. And , I'm going to go back over to the website. Let me go grab the website here again." }
+  - { t: 1330, text: "And I'm going to just straight-up use the commands it tells you here because this is more of a technical podcast or demonstration, let's use the actual code." }
+  - { t: 1340, text: "I'm going to copy this code directly, minimize this, I'm going to bring up my terminal window here, control tilde. I'm going to bring up my terminal." }
+  - { t: 1350, text: "And I'm going to confirm that I yes am in fact in the same folder as my demo folder. I'm going to paste in that command, npm create rayfin latest." }
+  - { t: 1361, text: "And let me make this maximize the size cuz you don't need the extra items there. We're going to hit enter. And we're going to let it chew here for a bit. , it's going to go through, it's going to go ask you to download some packages hopefully here." }
+  - { t: 1372, text: "As it thinks. anyone who wants to replicate that, make sure you've got Node installed. Otherwise, that npm command will not be resolvable on your machine." }
+  - { t: 1382, text: "great comment there. Let me add a quick new terminal here. I'll even do that a new terminal. I'll just give you a quick node {dash} {dash} version. , I'm running one of the light latest" }
+  - { t: 1392, text: "long-term support versions 24.15. that's the one that I have running for this demo. , it's good to let people know that that's happening. . All . , we're back to here. It" }
+  - { t: 1402, text: "was looking for the project. it's looking for a package. Once we install this, I'm going to say yes. We'll say yes here. We'll let it go install the package. And once it installs the package, it" }
+  - { t: 1412, text: "will do a couple more prompts here and it's going to going to start running and trying to let us build out a template here. , I'm going to start with whatever template they give us. it's going to do some work here." }
+  - { t: 1423, text: "It's going to tell me some things are deprecated. There we go. . , after I did the install the package, notice here it's already running its next command," }
+  - { t: 1434, text: "which it automatically ran. let's create the create Rayfin command . Gives it some input parameters and let's it think as . we'll let this keep thinking here" }
+  - { t: 1444, text: "for a bit. And we should get This is long. It's taking a bit of time here. Usually goes a little bit faster than this. , it should give us another command. There we go. , it's" }
+  - { t: 1455, text: "gone through. It's resolved the workspace. , what it's doing has gone back to the workspace and it looks for the name of the workspace that we had earlier. , notice here I sent in data app tabs. It" }
+  - { t: 1468, text: "found the actual GUID of the the the location. It's going to save that for later. And then it looks for the back end item cuz because the item in the workspace is also" }
+  - { t: 1478, text: "part of that workspace and it also found the identity of that as . , it's using text and and some code behind the scenes to go search this using API calls behind the scenes. All . We can use a template. We can use" }
+  - { t: 1490, text: "an external Git template. I'll come back come back to that at the end. There's a way for you to templatize your Raven projects and there's a kind of a standard they're trying to build" }
+  - { t: 1500, text: "out here in Yamo that will help you build templates as . Sorry, quick question if you don't mind. yeah, go ahead. Obviously it it access the fabric API on" }
+  - { t: 1511, text: "your behalf. I never saw you log in. does it use your AZ CLI log in or how does it work? I believe it's using an AZ login behind" }
+  - { t: 1521, text: "the scenes is what I've seen it. It's prompted me in the past and to be honest, I've done this many times. I've registered my device to be authenticated to talk to fabric and" }
+  - { t: 1532, text: "AZ login as . it may be doing something behind the scenes that's doing that for me automatically. But yes, it is using my identity to go ask for those things. And let me make this a" }
+  - { t: 1542, text: "little bit I think I'm covering the screen here slightly with my bubbles here. There we go. All , we're going to go ahead and use a template. I'm going to use one of their built-in templates. And this is going to be quite verbose" }
+  - { t: 1553, text: "here. Move this over a little bit farther that. , there we go. we can start with a blank app bare bones. It has a fabric authentication" }
+  - { t: 1563, text: "on the V or Vite app. it's using React and Vite as the the the the the framework. You can build a data app. build data apps and analytics pieces" }
+  - { t: 1574, text: "connected with your data inside fabric. You could build a to do app which comes with a fabric authentication and a SQL server. it spin up the fabric SQL database behind the scenes." }
+  - { t: 1585, text: "again, when I say Raven, a lot of people think, \"Oh, I can build Power BI reports with anything an app.\" it's not reporting. This is full app building. this means API calls" }
+  - { t: 1596, text: "back and forth from fabric to your app. it's back. It's whatever custom experience you want. It's not just building Power BI visuals. It's building any visual context you want. D3.js or" }
+  - { t: 1608, text: "any other one as . it's all available to you as . And then we can build a basic to-do app, which is an end-to-end Fabric authenticated to-do app with CRUD applications directly to and from the" }
+  - { t: 1618, text: "server. , I'm going to start out pretty simple here because of sake of time, I it takes it a while for it to build all these things. , I've done this a number of times. I'm going to start with just the blank app to begin" }
+  - { t: 1628, text: "with here. In the future, we may do some more demos. Next week, I plan on doing a lot more demos of this as to show you all the different other app types. let's do the We'll start with the basic one." }
+  - { t: 1639, text: "It's not going to install some more NPM packages and go through some other elements here. this is going to start setting up of the file area, and you'll notice on the left-hand side in my menu, we're" }
+  - { t: 1650, text: "going to start getting a lot more files attached here. ? it's going to build a lot of this out for me. it's going to build Yeah, here it's grabbing my node modules. It's" }
+  - { t: 1661, text: "installing my NPM. Inside the source folder, you'll have a full project. , it starts with there's even a little test folders they have designed for you. Have your" }
+  - { t: 1671, text: "assets, anything SVGs or elements there. They have any additional components." }
+  - { t: 1681, text: "fine. Keep going. it'll build out components. , if you describe to the agent, \"Hey, I want you to build components around a visual or certain elements,\" it has awareness of \"Hey, I'm going to build additional components.\"" }
+  - { t: 1691, text: "It has pages. These are the different pages of the application you can have here. , this is the homepage. And there we are. We are done. , with that, it has created the project successfully. It's asking me to" }
+  - { t: 1702, text: "change my directory cuz I'm in Currently, I'm in the root directory of demo . You'll see it over here. I'm in this root directory. In order for me to run the app, I need to be" }
+  - { t: 1712, text: "in the folder context of the Agentic Thinking app that I just created. , let's change directory. CD Agentic Thinking." }
+  - { t: 1722, text: "There we go. We are in the Agentic Thinking app area. And then we go NPM run dev. it will use Vite in order to host that app, and it will update as you run" }
+  - { t: 1734, text: "or make changes to the application because you're using Vite, it will update these and serve the page back to you dynamically. it will automatically change and update the page for you as you go here." }
+  - { t: 1744, text: "Hot reload. Hot reloading everything. Yes, correct. Thank you for [cough and clears throat] the term there. , there we go. We pull this back open big again. Move this over just a little bit more." }
+  - { t: 1754, text: "There we go. , we have the app is running. we have deployment detected. , it's targeting this Fabric API. Yep," }
+  - { t: 1764, text: "there we go. It should Here's the workload endpoint. it has identified this from the website. This is from the Power BI or the Fabric environment." }
+  - { t: 1775, text: "And it should give me There we go. A localhost URL. if I run this localhost, it's going to ask me to sign in here directly with this screen here. I do want to change this slightly cuz" }
+  - { t: 1785, text: "this is nice, it works, but I want to show you that we can vibe code something with an agent even on this homepage that we have here as . I'm going to" }
+  - { t: 1796, text: "transition away from using the command line. I'm going to go over to my VS Code. I'm going to close out this here, and let's just let's go talk to Copilot and ask" }
+  - { t: 1808, text: "Copilot to update some things inside this app. what I'm going to do is I'm going to say, \"Move the sign in what? Let's see if I can do this. I've I've been wanting" }
+  - { t: 1819, text: "to try this with my microphone on my computer. I have the installed microphone here. I'm going to attempt to talk to it. , let's see what we can do this here with talking to it. Let me click this here." }
+  - { t: 1830, text: "Move the Move the I Move the sign in with Microsoft button to the top menu bar. And also I want to add a couple sample visuals with dummy data on the home page" }
+  - { t: 1843, text: "and the sample visuals should contain a Vega light bar chart, a Vega light KPI card and a Vega light scatter plot." }
+  - { t: 1855, text: "Make up sample data for those visuals. And we'll see , move move the I I stuttered there a little" }
+  - { t: 1866, text: "bit at the beginning. Move the sign in with Microsoft button to the top menu bar. Yep, . Oh, I should also add here as . Make all of these" }
+  - { t: 1879, text: "items components. And use the components components on the page. I calling this out." }
+  - { t: 1890, text: "This is one thing I found that was very useful for me is if I think about making components and things, it's a lot better when it runs on the page. let me hit send. And we're going to let Copilot chew on" }
+  - { t: 1900, text: "this for a bit , and it is on auto mode. Oh, we don't know which model it is. We don't know which model it's going to pick here for this one. we'll let it read. it's going to go inspect." }
+  - { t: 1910, text: "It's going to go read what's inside the project. , there is some skills. while this thing is thinking here and and exploring, let's go explore some more of the files that we have here as . Notice also we get an agents" }
+  - { t: 1921, text: "folder. Inside the agents folder, we also get a skill.md file. here is a skill, again quite verbose as . There's no other items here, but it does" }
+  - { t: 1933, text: "talk about the Rayfin docs. It It points out their MCP tools that are helpful as . the CLI fallback is is showing here as . and a couple" }
+  - { t: 1943, text: "other information pieces directly for the All Also, a note because that dot agents skills folder is in a subfolder of your" }
+  - { t: 1953, text: "workspace, it may not get picked up automatically. ? Because by default VS Code chat is configured to only look in dot agents in at the" }
+  - { t: 1964, text: "root of your workspace. , it's it's just just something that that that may happen here. it's interesting that you make this note because I found the same thing to" }
+  - { t: 1974, text: "be true also, Matthias. It wasn't always finding things it needed. , it's it's funny to me when you do this because when you use the templates, the templates don't use my demo folder and" }
+  - { t: 1985, text: "put everything in the demo folder. It makes a subfolder immediately and then puts the skill in there, which obscures away that skill from the agent when I'm" }
+  - { t: 1996, text: "talking to it. another another technique here would be is once you're in the folder context here, users.mycarlo.desktop.demo, then" }
+  - { t: 2006, text: "change directory into agentic thinking, the subfolder, and then run Copilot as a CLI directly and then work with Copilot there. that might be another area that would have been a bit more" }
+  - { t: 2016, text: "consistent because then the Ray Fen skill would be exposed to the agent I think a bit better there. Hm. Great callout on that one as . All ." }
+  - { t: 2026, text: "It's thinking it's once what I would recommend once the app folder has been scaffolded, only then open it in VS Code ." }
+  - { t: 2037, text: "And open the the scaffolded folder as your workspace folder. we can see here I'm going to go back over here to Copilot. it's it's been reviewing some files. It found the off" }
+  - { t: 2047, text: "and home implementations. It has found Vega light is not in the project and therefore it goes to find npm install react Vega and Vega light. it's adding those items in there." }
+  - { t: 2058, text: "Dependencies are installed, created some components. , also Is your V service still running? Cuz if it is, you should be able to see changes in in real time at least on that" }
+  - { t: 2068, text: "landing. Yeah, there we go. Look at that. that's pretty cool, ? Hot reload is really kicking in here. Yeah, the the the menu button has moved to the menu at the top and it's trying to build more elements on" }
+  - { t: 2078, text: "the page. and the other thing here, too, that I think is really interesting is if you tell the agent to use components, it starts thinking about building the components first and then" }
+  - { t: 2088, text: "adding them to the page and I think the hot reload looks better when you do that because it's not trying to build the component in the line with the page automatically. It's building separately" }
+  - { t: 2099, text: "and then loading them in directly. All , it's sending the class final version of the component will appear on the screen. Yes. , it looks it made everything it felt it needed. it" }
+  - { t: 2110, text: "changed some things, added some items. The off page uses a couple menu items. The home page , we have new component visuals of Vega light bar chart KPI scatter plot and some sample" }
+  - { t: 2121, text: "visuals. , I'm going to ask you it didn't add them to this home page here. Add the sample visuals into the" }
+  - { t: 2131, text: "what do they call in this page here? Let me just make sure you get the language here. let me go into source. Let me go into pages. . Yeah, ." }
+  - { t: 2142, text: "Add the sample visuals onto the body of the home page beneath be neath" }
+  - { t: 2152, text: "the header bar. Let's see what it does. , what I'm trying to get it to do is I'm it's made a bunch of changes. We have some things I want some visuals to show" }
+  - { t: 2162, text: "in the page here. , I want it to kind of reuse those components and drop them here in the page as . All , still thinking, editing the home page and we should see" }
+  - { t: 2176, text: "hopefully here. Oh, yep, it's doing some things, thinking a little bit more. We should hopefully see our visuals appear on this page." }
+  - { t: 2194, text: "I'll quickly verify the home page layout and place the visuals. , fine. I'm adjusting the layout they're immediately rendered under the home page. I don't see them. Not seen" }
+  - { t: 2205, text: "the visuals on the home page. It It may not consider that login screen as the home page. Yeah, place them on the login page." }
+  - { t: 2222, text: "It might try to make me sign in first. it might It might be asking me to Hey, I want you to sign in and then after sign in there's a technical home page there as . I thought I might need to change my language here slightly" }
+  - { t: 2230, text: "and say, there we go. . It was the the words of the login page. it's building some items. Let's make sure it's going to be able to add some sample dummy data to them as" }
+  - { t: 2240, text: ". it's It's thinking. It's trying to add them on the login page . And let's make sure they have some dummy data in them as ." }
+  - { t: 2250, text: "Add dummy data to the visuals on the off page." }
+  - { t: 2261, text: "All , let's see if we can add some data to them. And hopefully this will all work. Going to wire some explicit data. , great. Zoop. , analyzing our visuals." }
+  - { t: 2278, text: "Adding some page specific dummy data sets. Perfect. All , and I think we're about ready to be done here. this will be enough to get us started. What I'm going to do next is I want to get this dummy data and this login page" }
+  - { t: 2289, text: "published and up to the service. I want to show that this is going to be able to be rendered inside fabric.com. This is exciting. I'm excited about this cuz this I'm building the Vega" }
+  - { t: 2300, text: "light visuals here on the home page here. This is really, really slick because this means we can move away from the Power BI desktop framework of building visuals. Anything you can dream" }
+  - { t: 2311, text: "up becomes part of your imagination. If you've seen it on the internet, odds are you can go build it here. All , saying some patching." }
+  - { t: 2321, text: "Good. [clears throat] While you do that, let me call out the awesome-rayfin GitHub repo, which is also live ." }
+  - { t: 2331, text: "github.com/microsoft/awesome-rayfin, which is a officially curated gallery of Rayfin templates, including the ones" }
+  - { t: 2343, text: "the one you're playing with . it's all open source and I'm sure loads more will will be added" }
+  - { t: 2353, text: "here over time. I don't see it landing my visuals here on this page, let's just go into the app. what I want to do is it's not for some reason it's not getting me the actual dummy data on these visuals here." }
+  - { t: 2364, text: "I have other demo items that I'll show you as that did do this, but for I have an app with a sign-in page. Let's bring back up our console here down below. Let's go publish this . let me go back up" }
+  - { t: 2375, text: "here to let's see here, which one of these are running. I'll I'll try this one. we have the app running . I'm going to go MPX" }
+  - { t: 2385, text: "Rayfin up. this should allow me to go and create this app. Let me make sure I'm in the directory here. Nope, I am not. Let me just make sure I'm in the correct directory. CD" }
+  - { t: 2397, text: "Agentic Thinking. Good thing I thought of that first. I'm in the Agentic Thinking correct library. MPX Rayfin up." }
+  - { t: 2408, text: ". this should take all the contacts we did when we started the project. It should identify me as the user. It should build the context here. also I will note here as ," }
+  - { t: 2418, text: "when we're building these apps, notice what it's building here in the distribution folder. I found this to be quite interesting. I , \"Oh, is it publishing all this code and all these JavaScript and TypeScript files?\"" }
+  - { t: 2429, text: "When I look in the distribution folder, you'll notice the assets are very simple that it's publishing. The assets it publishes is only an HTML" }
+  - { t: 2439, text: "file, a CSS file, and a JavaScript file. That's it for the distribution. everything you're looking at is compiling down to just pure HTML, and from there it's getting pushed into the" }
+  - { t: 2450, text: "service. Raven up has been landed. It says, \"We have successfully deployed to Fabric. The next steps is to go back to the Fabric portal and go look at the app" }
+  - { t: 2461, text: "in the service.\" All . With that being said, let me move this out of the way. Let me bring it back up here the website, and I'm going to refresh my page here." }
+  - { t: 2471, text: "And hopefully this time, we should see our app has been deployed. And there we go. We have a sign-in, sign-out page with a lot of homepage dashboard information," }
+  - { t: 2481, text: "but there's nothing on my page and my sample dummy data does not exist on the page. I could not get it to render that stuff, but I have a fully working app. A couple other observations around this" }
+  - { t: 2492, text: "app, it is fully resizable. There is no canvas size. , when you build an app you would on a website, it's fully responsive. And the wider you make your screen, the wider the app can become," }
+  - { t: 2503, text: "which I think is extremely helpful. If you want to get other data about the information on the app, you can go into the back end of the app, and there will be a full URL. , this is able" }
+  - { t: 2514, text: "route brought brought and then I can open this directly, and this is hosted as a proper website URL. , you can sign in with your Microsoft account. It will" }
+  - { t: 2524, text: "push you back through the sign-in authentication. , it will then make me go through an authentication step, which will make sure that it it confirms that I do have access. And there we go, I'm" }
+  - { t: 2534, text: "inside the app, and then I can see my dashboard and data here directly inside the application. Again, all built on just a normal web URL with a sign-in and sign-out experience. , I sign out," }
+  - { t: 2545, text: "it should go back to the main home page. this wasn't a really great demo just because it the agent couldn't figure out what I was doing. I was probably using a dummy agent, or maybe the model wasn't hot there. , maybe we'll fix" }
+  - { t: 2556, text: "that in a future episode. But, I do want to show you other things that I have built. I have built a couple other apps. I have one built for an item called Content Nudge. This is an application" }
+  - { t: 2566, text: "that I've built. Here's another app that I've built. It has visuals on the page. Again, this is all mocked up or dummy data. I had navigation across the top of the page where I was changing out different" }
+  - { t: 2576, text: "visuals. , dashboard, analytics. I had a mapping feature. And this map is, you'll notice, neither It is not a Bing map. This is an" }
+  - { t: 2586, text: "OpenStreetMap mapping element, and it runs just open and it's honestly, it's stinking fast. , this was pretty cool on how quick it runs and renders here." }
+  - { t: 2596, text: "you can use open maps inside your visualizations , which is pretty cool. And one thing I really to do when I build these items is called I usually use this thing called a style guide." }
+  - { t: 2606, text: "I building out a representation of all the elements on the page. , you may hide this later on, but I seeing all the colors and items at in a glance in one single spot." }
+  - { t: 2617, text: "that was one that I built. And then also, I want to highlight another individual that would made this incredible application. I I think the application is called Vera." }
+  - { t: 2629, text: "And this is a slide deck application that was vibe coded with Claude code, and I lifted the entire project off of GitHub and brought the entire project inside of Rayfin app. , this is a" }
+  - { t: 2640, text: "fully functional documentation element, and this is a slide deck that I built to document what Rayfin is and how it works. ," }
+  - { t: 2650, text: "it has all the transitions and the slide presentations, and you can you can tap your way through. I'm using my arrow keys to tap my way through. I can expand and come back out of the application. I could go back in if I" }
+  - { t: 2661, text: "don't what it was typing. You can even type directly in the slide, and you can even delete things and change them directly inside here as , and then re-present, and we'll then locally" }
+  - { t: 2672, text: "store that and let you see that slide deck as , which is pretty amazing. this Vera app is designed to be made with an with an agent. I haven't wired it up correctly yet, but you" }
+  - { t: 2683, text: "have a virtual agent that you could give it a cloud license, a co-pilot API key, and it would let you talk to it and ask for changes on the app directly. Anyways, thought" }
+  - { t: 2693, text: "this was an amazing slide presentation element. Really cool to be presented as an actual app, and there you go. , those are some other apps you can build. Everyone going to be able to build cool things. I've already seen" }
+  - { t: 2704, text: "someone building a video game around IBCS standards. They're going to go try. there's going to be a lot of really rich things. the last thing I want to point out here" }
+  - { t: 2714, text: "is on the awesome Ray Find project. I'm just going to find that real quick here on GitHub. , let's go find , I'm going to search for awesome Ray Find on GitHub. It's the first link" }
+  - { t: 2725, text: "that you'll find in the list here, community-driven templates. When I click on this templates here, you'll notice here there is a folder named templates." }
+  - { t: 2736, text: "And if you click on that folder specifically, and there are multiple template folders in here, and when you click on one of these items, this is the Ray Find project, but you'll" }
+  - { t: 2746, text: "notice here there's a special incorporated file here around YAML. , there's a Ray Find template YAML item that you would want to use, and using this item specifically, it'll give you" }
+  - { t: 2757, text: "details around how to leverage templates. , Ray Find is already being started to be, , created in a way that will let you reuse these items" }
+  - { t: 2767, text: "as . , I do want to call this out. awesome Rayfin is an amazing project. There are multiple templates already here and you can get more information here. Down is what is Rayfin, how to use the gallery. , you" }
+  - { t: 2778, text: "notice here they already have the command lines already picked out for you. You can say create this Rayfin, use this template. And then, , you can use other" }
+  - { t: 2789, text: "short-handed items as from a local clone. ? , this is really important. Anyways, I'm super excited about Rayfin. You're going to hear us talking a lot about this in the upcoming" }
+  - { t: 2799, text: "weeks as Matthias and I dig in, try to build things, create stuff, learn what works and what doesn't work, get my stinking skill to work because it was in a subfolder, probably wasn't working correctly, that's why I got weirder" }
+  - { t: 2809, text: "results. , but all that being said, I wanted to just introduce everyone to what I presented at Build, which was Rayfin. All . Shoo, a lot of things there. What do you" }
+  - { t: 2819, text: "think, Matthias? Yeah, fantastic. , I looking at the Microsoft Rayfin repo, quite interesting how it's been positioned that I called it a back-end as a service platform." }
+  - { t: 2831, text: "Yeah. And that's exactly what it is, ? Cuz, , Yes. all you're doing as a front end here, ? The read application, , you don't have to worry about anything in" }
+  - { t: 2841, text: "terms of authentication and whatnot, , that happens in a back end. Obviously, that, , exists, but, , Fabric provides it to you. ," }
+  - { t: 2852, text: "One other thing I just want to would call out here, , as another area of thing we're going to explore. Matthias, have you used Replit before? It rings a bell, , but, , help" }
+  - { t: 2862, text: "Have you heard of Have you heard of Lovable? Yes. Yeah, yeah. . All . , a competitor Lovable, which would be would be Replit, which is the same thing." }
+  - { t: 2872, text: ". but Replit made an announcement while in the Build speaker or in the build main session, they talked about Rayfin and how Rayfin is partnering with" }
+  - { t: 2882, text: "Replit. And , while at the conference, I just wanted to call this out. And also, kudos to Replit for jumping in and helping out here. I went to go talk" }
+  - { t: 2892, text: "to the booth at the Replit team, and they were telling me that they are very close to getting a real integration between Replit and Rayfin all working." }
+  - { t: 2903, text: "Where you go to Replit, say, \"I want to build an app, and my back end is Fabric.\" , to your point, Matthias, this is a Fabric back end project to host the data, the SQL database, the" }
+  - { t: 2914, text: "lakehouse, the storage, all the data elements, the real-time analytics, anything we want to build data-wise will be supported with the ability of using Rayfin and going directly to" }
+  - { t: 2925, text: "Replit to build any experiences we want. Replit's got a great story, and I absolutely love using the app. It's it's worth its time. , I'm really excited." }
+  - { t: 2936, text: "Again, I did a lot of stuff in here in VS Code, but I'm really wanted to see the experience of how does this work. The Replit guys were showing me, you go into the the Replit chat, you say," }
+  - { t: 2946, text: "\"Connect to this workspace, make a Rayfin app, and connect it to the semantic model.\" And it just knew how to wire everything together. They've got some skills, they've got some" }
+  - { t: 2956, text: "scripts there that are making it easy for you to onboard directly with Replit. I'm very excited about this, especially since not even a month ago, Databricks announced a partnership" }
+  - { t: 2967, text: "with Lovable. Great. we have a competitive advantage here. We have our own Replit and Power BI being partnered up here together. , I'm very excited about this one, as you can likely tell." }
+  - { t: 2978, text: "this is going to be very exciting for us to keep diving into, and stay tuned. Much, much more to come on Rayfin and the Rayfin projects. Absolutely fantastic." }
+  - { t: 2989, text: "and yeah, can't I'm I'm super excited . Can't wait to get my hands on it as . I've just wasted your evening . Hopefully, you don't have to go anywhere for dinner too soon cuz you're going" }
+  - { t: 3000, text: "to want to go play and see and run and go build things on your own. , stay tuned. if you this content, if you what we're doing here, if you the real-time demos we're doing, this is a little bit longer" }
+  - { t: 3010, text: "of an episode. On Tuesdays, we typically do just talking and narrating about the topics that are coming out. On Fridays, we try and do a lot more screen sharing. Also, I'm going to make a" }
+  - { t: 3020, text: "commitment to the community here. I'm going to try my best to go through and build something with Rayfin every single day next week around my lunchtime. I'm going to try and spend at least 30" }
+  - { t: 3030, text: "minutes going in, creating, building, using some templates. I really want to dive into this Rayfin experience. I I'm" }
+  - { t: 3040, text: "95% confident this announcement around Rayfin is the biggest announcement we've had since the invention of Power BI desktop." }
+  - { t: 3050, text: "I'm going to I'm going to be that bold and say I think this is revolutionary in giving the power of building applications, reports, apps, read-write" }
+  - { t: 3063, text: "back data to any user in the business. This is incredibly useful. , I think this is going to really take off wildfire. This transition from just" }
+  - { t: 3074, text: "doing Power BI reports to adding this into my repertoire of other elements to be It's going to happen fast. This is going to be very quick. Anyways. are you saying internal analytics" }
+  - { t: 3086, text: "teams need to hire web developers to or or what Who is the Who do you see as a target? Who do you think is going to pick this up? Is it these or internal" }
+  - { t: 3097, text: "IT teams? this is a really good question. I think I don't know yet. I'm going to say I'm a little I'm going to reserve my reservation on that one. I think with a little bit of refining of" }
+  - { t: 3109, text: "how you talk to the agent. I think Replit is a really good use case here to get going quickly with non-technical developers. , if you're using VS" }
+  - { t: 3119, text: "Code and doing what I did, ? You're you're talking developers . But, if I'm talking Replit or Lovable or these other apps that I'm I'm talking with an agent and it's building code and making files and doing the" }
+  - { t: 3130, text: "entire project structure for me inside that application, I really think this is much more accessible to any user who understands a problem" }
+  - { t: 3140, text: "can handle some of the technical jargon around Fabric app, database, lakehouse, notebooks. , if how the things fit together, if you can be a bit" }
+  - { t: 3151, text: "more of an architect, I think you can really quickly get some stuff built that's very impactful. And you're only going to be limited by how creative your mind can be. And you're not you're not going to" }
+  - { t: 3162, text: "focus as hard on the actual code. Again, I've already seen video games showing up in building these app things. This is incredible what people are building. I'm going to have to go out and build a Pac-Man version here because I got I" }
+  - { t: 3172, text: "have to compete. , , Pac-Man and all the little icons are you know, little visual charts and stuff that, ? and , maybe the maybe the little bad guys are" }
+  - { t: 3182, text: "Databricks elements that are coming around after me all the time. , we'll have fun with it, ? It'll be something that we can have fun with. I I think for , it's quite technical. But, I" }
+  - { t: 3192, text: "think as Microsoft continues developing the idea, I believe this is going to get less technical as we go and as we learn better skills and as we learn how to use it better, it will become more accessible to the broader community. ," }
+  - { t: 3204, text: "I'm not going to say go out and hire a dev . You probably want to go borrow a dev for a little bit and explore with this and figure out how it works and does this fit your organization? Do you have the" }
+  - { t: 3214, text: "tolerance for putting out apps this? I do think this is going to be a huge point of topic around governance. How do we govern them? Who can build" }
+  - { t: 3224, text: "them? Does every single app need to have a sign-in or not? I think there's a huge governance conversation that leaders need to have around this and just and determine what" }
+  - { t: 3234, text: "how to turn these on. And that's why I want to point out always always always don't just turn the feature on. Go make a security group and go pull that in directly. Awesome. Any other final thoughts," }
+  - { t: 3244, text: "Matthias, before we wrap? too many, I think. I'm sure we'll come back [laughter] to that one. , I'll park that un- until we have another Raven session," }
+  - { t: 3254, text: "which I'm pretty sure will happen fairly soon. I'm I'm hoping we do one I'm I'm down for doing another one on Tuesday. Matthias, I would love for you to talk about your experience over the weekend by the time we get to Tuesday." }
+  - { t: 3264, text: "What have you built? What does it What does it feel for you? How does this work for you? , stay tuned. There's going to be many more episodes around Raven. Next week we'll be very vocal about this one. We're going to do a lot" }
+  - { t: 3273, text: "more episodes, short little shorts, short videos around building, creating, and developing content directly with Raven. Matthias, as always, thank you much for jumping in here. This is" }
+  - { t: 3283, text: "Agentic Thinking. We really appreciate you, the audience, of going along this journey with us and unpacking how does this new agent world fit with us inside [clears throat] Microsoft Fabric?" }
+  - { t: 3294, text: "Thanks for the demo. Really great. Bye. Bye." }
+
+---
+
+## Summary
+
+This episode recaps Microsoft Build and focuses on why Project Rayfin is a major shift for Fabric users building agent-powered apps. The hosts review key announcements, then run a live Rayfin walkthrough: enabling App Items, scaffolding a project with the CLI, iterating in VS Code with Copilot, and publishing back to Fabric. They also discuss practical realities of the preview experience, including region rollout, skill-file placement, and current frontend/backend limitations. The conversation closes with excitement around Awesome Rayfin templates, Replit integration, and the governance and adoption questions enterprises still need to solve.
+
+## Key Takeaways
+
+- ▸ The hosts frame Rayfin as the biggest Power BI/Fabric app-building change since Power BI Desktop, especially for agent-assisted development.
+- ▸ The live flow is concrete: enable App Items in Fabric admin settings, run `npm create rayfin@latest`, develop with `npm run dev`, then deploy with `npx rayfin up`.
+- ▸ Rayfin projects compile to simple web artifacts (HTML/CSS/JS), and apps are exposed via direct URLs with Microsoft sign-in.
+- ▸ Skill placement matters: if `.agents/skills` lives in a subfolder, VS Code chat may miss it unless you open the scaffolded app folder as workspace root.
+- ▸ The ecosystem is expanding quickly through Awesome Rayfin templates and upcoming Replit integration, but governance, monetization, and enterprise rollout remain open questions.
+
+## Links
+
+- ▸ [azure.microsoft.com](https://azure.microsoft.com/en-us/blog/microsoft-build-2026-building-agentic-apps-with-microsoft-fabric-and-microsoft-databases/?utm_source=agentic_thinking&utm_medium=website&utm_campaign=20260606)
+- ▸ [github.com](https://github.com/microsoft/awesome-rayfin?utm_source=agentic_thinking&utm_medium=website&utm_campaign=20260606)

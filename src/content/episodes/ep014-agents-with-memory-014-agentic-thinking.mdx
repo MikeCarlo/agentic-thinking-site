@@ -1,0 +1,198 @@
+---
+title: "Agents with Memory - 014 Agentic Thinking"
+episodeNumber: 14
+date: "2026-05-23"
+youtubeId: "ArANXomdubo"
+duration: "32:58"
+blurb: "Tool made by Santhosh"
+tags: ["agentic thinking", "youtube"]
+guest: "Santhosh"
+guestLinkedIn: "https://www.linkedin.com/in/thisissanthoshr/"
+chapters:
+  - { t: 0, label: "intro" }
+  - { t: 395, label: "context" }
+  - { t: 791, label: "problem framing" }
+  - { t: 1186, label: "working session" }
+  - { t: 1582, label: "practical takeaways" }
+  - { t: 1918, label: "closing thoughts" }
+transcript:
+  - { t: 17, text: "Welcome back everyone to another episode of Agnetic Thinking. I'm here with Santhosh, PM on the Microsoft product team. Santhosh is an amazing Agnetic thinker. He and I have been talking about cool" }
+  - { t: 28, text: "ideas on agents and AI things. , Santhosh, welcome to the show. I'm happy you're here. What have you got for us today?" }
+  - { t: 38, text: "Thank you much, Mike. Thanks for having me and I've been watching the show. This is really cool. I think I've been on the latest. This is my first time here, super excited. And" }
+  - { t: 50, text: "I would love to share something that I've been I've worked on the past week and I think I had shared this with community online and got some good feedback to something that I started as" }
+  - { t: 63, text: "a Why should our memory be locked to an agent extension, ? , it's always been my a painful experience for me to port" }
+  - { t: 75, text: "things out of one single context to another session that I have when I'm running into rate limits or if I want to put it to another" }
+  - { t: 85, text: "agent existing that I'm working on. , I I worked on something called this portable agent memory. I wrote a blog on it and the community feedback has been very interesting and" }
+  - { t: 96, text: "extremely motivating. , I would love to share that with you and you the community and looking forward to learning more. excellent. , what I have here is in the chat window, it's also in the" }
+  - { t: 106, text: "description of the videos below. , Santosh made a wonderful post on what is the reasoning why this exists. , your agents can have this concept of memory, but how do you" }
+  - { t: 116, text: "reuse it? How do we save this for long-term conversations and return to that memory when you worked on a project and come back to something. , that link will be in the chat window as ." }
+  - { t: 126, text: "if you want to go check out that that blog post, which is awesome by the way. I'm also going to include in the chat window there is a GitHub repo that you may need to use for this as ." }
+  - { t: 136, text: "the GitHub repo is from Santosh as , the portable agent memory. All , with that being said, no more further ado, no more introductions. Let's go over to sharing" }
+  - { t: 146, text: "your screen. All , we we have your screen up, Santosh. Go ahead, give us the run through. What is this? How do we install this? How do we get this working? Yeah, sure. , again, thanks for the" }
+  - { t: 158, text: "intro and the repo is something that I had shared which users could directly download and access from their CLI experience. But, you may be" }
+  - { t: 168, text: "thinking, hey, , you you shared a CLI based tool, but why are we looking at a VS Code experience, ? some of the community feedback that" }
+  - { t: 178, text: "I had gotten once I published blog post and people trying it is, , some of them also use Copilot within VS Code, which is amazing. ," }
+  - { t: 190, text: "I would want to again, taking a step back, just giving some context about the problem that we're trying to solve here, ? , Yes. you have you're building you're building data systems or you're building" }
+  - { t: 200, text: "applications, you're building back-end services. , and you're working and collaborating with a bunch of agents." }
+  - { t: 210, text: "Be it on any tool, Cursor, Clock, or Copilot CLI. Sure. Yep. And your your agent's memory" }
+  - { t: 220, text: "dies within , say, the exact session time when you terminate the session or you close the browser tab, ?" }
+  - { t: 230, text: "the overall the overarching effort is more in terms of , , how do we make memory as a first party, ? that it's" }
+  - { t: 240, text: "Yeah. it's it's session agnostic and it is something that you can you can , port it out , plug it into another session. , make it more auditable." }
+  - { t: 252, text: ". ? that you don't , you don't , it's it becomes more tamper proof and even if it if it's being modified by multiple agents, you" }
+  - { t: 262, text: "can still have a history and later audit on it. What are the changes? What have what have changed over time, ? that's the whole that's the whole , goal that we" }
+  - { t: 273, text: "wanted to go after. Excellent. and and if we think of , memory," }
+  - { t: 283, text: "there are I would say there are six different constructs that , are pretty key in this case, . You can think of it more" }
+  - { t: 293, text: "an episodic memory where there's a specific task that you're trying to perform. or something that's related to your" }
+  - { t: 303, text: "metadata. it could be , more on the semantic layer, ? And the next one is a set of sequence of actions that it has done." }
+  - { t: 313, text: "a bunch of tasks that an agent or using different skills that an agent has performed. this is this becomes more procedural. And Yes. , the next one is an active session where it's it becomes" }
+  - { t: 323, text: "more of a working memory. And the last one is , the who behind all of these actions, the identity part. , who and what" }
+  - { t: 334, text: "things that you have This is tricky . A lot of these tools that we're integrating I want to work in fabric and then I want to connect to Azure DevOps and then I want to work in my website or maybe" }
+  - { t: 344, text: "I'm talking to GitHub pages. there's many different tools and all of them need a little slightly different authentication. And that's that's probably my biggest pain point is how do you get" }
+  - { t: 354, text: "it to understand how to authenticate to these different tools? Exactly. And that's that's the some of the problems that I have and I think most of" }
+  - { t: 364, text: "the most of the people who who do agent engineering have as . Yeah. unpacking these and by decoupling all of these" }
+  - { t: 374, text: "constructs, you you want to make sure that you have to track and trace all these different instances. that said, Yeah. first" }
+  - { t: 386, text: "I'm really happy to share this with you first and yeah, let me share my screen. Yep, we see your screen. Screen sharing is up. We can we can yep, we can see your extensions ." }
+  - { t: 397, text: "Yep, we're good. . when you go to Visual Studio Code extensions, Look at this. an option" }
+  - { t: 407, text: "an extension that's available. It's available for free. You should be able to try it. It's again based on the same open source repo that you had pointed out. I've also pushed this more transparently with the community." }
+  - { t: 418, text: "All the code in the repo. again, this this explains this is going to be a native login in Visual Studio Code. You should be able to try it ." }
+  - { t: 429, text: "And what it does and the same thing can be already used in tools GitHub Copilot, CLI, Cload, or cursor by installing" }
+  - { t: 439, text: "doing a plugin install or a pipi install on based on the setup that I've shared in my repo. You can also go over that demo." }
+  - { t: 449, text: "But in the case of how this should look in a in a VS Code experience. Let's say for example, I just started a a sample project where I'm just building a new project with the REST API." }
+  - { t: 461, text: "Let's say it's called task manager, something that, ? once you install this, you would see an option here. some feedback that I got is ," }
+  - { t: 473, text: "people who are working with the agency of agents within the portable CLI or the cursor or cloud, they they prefer using the the skills of the agent" }
+  - { t: 483, text: "version of portable agent memory. People who are more on the VS code experience, they do find this extension much more easier. , for example," }
+  - { t: 493, text: "you'll be able to tap and when you do a control shift P, you should be able to explore all the" }
+  - { t: 503, text: "functions that come along with this extension. First, Nice. able to search memory and you say for example, I want to remember this. new" }
+  - { t: 513, text: "task manager project rest API implementation." }
+  - { t: 523, text: ". And this becomes a new It gets added" }
+  - { t: 533, text: "to my episodic memory because I'm adding a new instance in this. And I should be also be able to track and trace. And the best part is export all memory." }
+  - { t: 545, text: "once I or I'll just verify integrity, ? and Oops, sorry. I think I've installed" }
+  - { t: 555, text: "You have the preview version ? [laughter] Yes. and the other one is more in terms of say for example, if I do an export, I should also be able to save that." }
+  - { t: 566, text: "in this case, say let's go over this. bam. what it gives me is I should be able to go and download this," }
+  - { t: 577, text: "extract this, and say I have opened this with VS Code again. Oh, I see your you're clicking on something else that's in a different area. , we did see it download. We're only seeing the VS Code window, which is ." }
+  - { t: 589, text: "sorry. . It's back in VS Code. , this is exactly the extracted version. In this case, you can Let me close the chat view." }
+  - { t: 599, text: "Make it much more easier for you. . you can see the different instance of memory that has been logged as part of this. And you can pull this to say a GitHub Copilot CLI" }
+  - { t: 611, text: "instance. You evoke it, and all of the context of this and all its references and all the scheme gets added" }
+  - { t: 621, text: "with the signatures get added into your CLI session. And similarly, you could also forward to other instances. , and you can also manage the access based on that and" }
+  - { t: 633, text: "things that. , that's That's something that I would want to share and would love to for people to try this out, give more feedback, and also contribute to this because the" }
+  - { t: 644, text: "main reason I wanted to make this open source is in my head I was thinking of \", for different tools to orchestrate and communicate, we have we've been following MGPs." }
+  - { t: 655, text: "And the next one is for And then we also have agent-to-agent protocol. But the memory space has been something that's that's gaining a lot" }
+  - { t: 666, text: "more importance given there is multiple the context becomes super important. And the memory which is on which it is grounded upon becomes even more important. ," }
+  - { t: 677, text: "that's that was a whole intent to making this available as open source with all the community. Let me just give a again, I'm just" }
+  - { t: 687, text: "trying to unpack what you're saying here a little bit. , I this idea of of memory. One of the other key features that you're calling out here and I believe you called this out in the blog post as is everything here is cryptographically signed. It's" }
+  - { t: 698, text: "cryptographically verified. , this idea is Yes. Yes. you said me. Yes. really solid it's secure and it's verifiable secure part of memory is part of it. ," }
+  - { t: 708, text: "I'm not just lifting This is a bit better than just lifting around a bunch of markdown files and just moving them around places, ? , because there's let me project a little bit here" }
+  - { t: 718, text: "what I understand about this, ? Imagine you have memories from one agent you're trying to bring to a second agent and somewhere along the way it gets tampered with along that route. , you" }
+  - { t: 730, text: "want to be able to verify the things that you're drawing into memory for the agent is in fact what it remembered from the other session and that, , not malicious things were added in transit between these two memory sessions. ," }
+  - { t: 742, text: "good. , I want to just I think one of that was one of the areas that you mentioned. I thought, \"I've never even thought of that.\" Thought that was genius that you're bringing this cryptographic space into this as" }
+  - { t: 753, text: "and felt that was also extremely useful here. , and that we're seeing the memory details, you know, this is the exported file and how you can help transport this between things. Awesome." }
+  - { t: 765, text: "No, and again, it's it's a very basic approach, but it's more in terms of yes, the maintaining the integrity of the" }
+  - { t: 776, text: "markdown files. exactly what you mentioned, ? you could even have a common markdown file which could manage state, but if it's not encrypted, you're not" }
+  - { t: 786, text: "going to be able to manage state and also not make it a tamper-proof item, ? And once it's tampered with, then your entire context and your entire agent's" }
+  - { t: 798, text: "actions become unreliable. , yeah, that's the whole idea. Can you walk us through the different you have there's a couple icons you have in the left here and you you very briefly touched on episodic" }
+  - { t: 808, text: "areas here. in the extension that you're looking at , there's episodic, you have semantic, procedural, working, and then identity pieces here. Can you just walk us through" }
+  - { t: 818, text: "how do I interact with those different groupings that you have? And, how would I get something from my chat window into one of those areas? maybe talk about maybe the" }
+  - { t: 828, text: "working or procedural. What does that look ? Oh yeah, for sure. Yes. take for example, let me go over the different memory options" }
+  - { t: 838, text: "that we have here, ? In this case, say for example, you're going to be setting up a" }
+  - { t: 849, text: "a memory. . and in this case, if it's going to be entire instance, one minute. I just need to take a break. My my dog" }
+  - { t: 859, text: "just walked into my Just a second. I'll be back. Sorry. No worries. [gasps] for those who are knowing the link for this VS Code extension" }
+  - { t: 870, text: "is already in the chat window as . you can go get this already today currently. Santosh's name is on the repo. Also, I've just installed it on my machine and it as I did the" }
+  - { t: 881, text: "install directly, the install of the extension automatically said, \"Hey, you need the CLI?\" And it said, \"Do you want me to do that?\" I said, \"Yep, no problem.\" And it and VS Code automatically added the the command line" }
+  - { t: 891, text: "interface to me as directly inside the extension. already you've got one more additional user. It's in my machine . I was just just playing with it as we started here away." }
+  - { t: 901, text: "Oh, awesome. that's great. you should you should also be able to try this. . you you mentioned that you wanted to the two things that you you were asking." }
+  - { t: 911, text: "Yeah. First one is the identity concept, ? in this case, say for example, if I want to add an example with my specific user ID," }
+  - { t: 922, text: "? let's say let's start a co-pilot session. In this case I I want to say I'll just write" }
+  - { t: 933, text: "Oh, if you're typing something I don't see it on the VS Code page that you're looking at. Oh, there you go. I see your cursor moving. Yep, . I got you. Yeah, there could be a bit of lag." }
+  - { t: 943, text: "There we go. Yep, I see the chat . It's there." }
+  - { t: 957, text: "say for example I'm building let's go back to the project. [music] In this case I'm building" }
+  - { t: 970, text: "You're good. There's a little bit of music going on in the background. I turned on a little bit of music while we're waiting for things to go. . Got it. [laughter] All . You're , \"What What's that music I just turned on?\"" }
+  - { t: 979, text: "You're , \"What speakers did I just turn on?\" [laughter] No, I'm because I don't have I'm not able to look at your your the screen the screen [laughter] I'm , \"What's what's happening?\" , say for" }
+  - { t: 990, text: "example in this case I'm I'm watching I'm I'm looking at a file. , this is just a dummy app.ts that the TypeScript file that this" }
+  - { t: 1000, text: "this agent extension has created. It's it's a basic scaffolding, ? , what you can do , if I go to in this case I'm working." }
+  - { t: 1010, text: "I should be able to say TS [singing] . be moved." }
+  - { t: 1024, text: "Yeah, where is [crying] All . . [singing] [music]" }
+  - { t: 1034, text: "Is it because it's still in the keep mode? No, I'm in the Yeah, that's another thing. Let me know what I'm not I'm not even a Maybe it's because I'm screen sharing." }
+  - { t: 1044, text: "I'm back. [music] There it goes. what? This" }
+  - { t: 1056, text: "There we go. There it goes. I go up to" }
+  - { t: 1068, text: ". is saved. [singing] Yeah. if you want to see the light" }
+  - { t: 1084, text: "this connection Oh, . Yeah." }
+  - { t: 1097, text: ". This key it gets added as a number . If you press this particular session is added as an instance that I" }
+  - { t: 1109, text: "have as part of my existing session. . What I'll also be able to to do is, say for example," }
+  - { t: 1120, text: "let's see I see my session. I can share [music] I'm not able to see your screen at all, apologies if you're asking me" }
+  - { t: 1131, text: "anything or if No, nothing's nothing's happening on the chat window. There are no questions yet. I'll field them to you if we need them. but we can't see your CLI screen. We can only see your VS code screen." }
+  - { t: 1143, text: "let me if you if you have a CLI window that you were showing, yeah, you might need to reshare the once again. Yep," }
+  - { t: 1161, text: "I'm already I'm back on your screen, just a second. Yep, no problem. Let me know when you reshare and I will add that back to the the video here as ." }
+  - { t: 1184, text: "I'm starting a new I'm starting Copilot." }
+  - { t: 1202, text: ". All , I'm in. Let me know when you start seeing my screen. . Nothing yet." }
+  - { t: 1212, text: "We'll wait here until it gets to the screen share going again." }
+  - { t: 1232, text: "I can also share through I have a project on my computer if that would make sense too. If you I have it up installed on my machine if you want to narrate narrate me through some of the pieces as . That would be" }
+  - { t: 1239, text: "can you see my screen ? I'm reshare I'm sharing the screen but you'll see this. , let me know if you got things here. . Oh, no, it just came through. Yeah, we've got the GitHub Copilot. Yep," }
+  - { t: 1250, text: "it's there . . Can you zoom in just a touch on the size of the screen by chance? I'll try. Yes, is it better ? Little bit more, little bit more." }
+  - { t: 1261, text: "It's a little hard to read. Yeah, that's that's good there. Yep, perfect. Yep, I see it. Perfect, nice and big. , got it. , I just added a new co-pilot session in this case. ." }
+  - { t: 1272, text: "One minute. Let me yellow this. Oh, you're yellowing it. All , let's go. [laughter] Agent, you can do all the things." }
+  - { t: 1284, text: "once again, the new co-pilot session, let's see. I install this." }
+  - { t: 1294, text: "you're you're installing the session directly here via the GitHub co-pilot terminal. . And this is the CLI portion that we're talking about earlier. This is the CLI portion. Yes. And all of" }
+  - { t: 1304, text: "the steps are in the automated book in the in the in the GitHub repo. , all you would need to do is is to" }
+  - { t: 1315, text: "plug in co-pilot or a pip install. One minute. ." }
+  - { t: 1338, text: "Trying to confirm your your command here on the CLI side. Yep. you could just open and just do a pip install" }
+  - { t: 1349, text: "giving the repo name. Just install the repo URL. And it just takes a minute and once that's done, let's see. I can just do a pip" }
+  - { t: 1359, text: "install or I can do also do a hard dump because I'm do a pip. if it's through a skill, this installs all the packages. And then what I can do is, say for" }
+  - { t: 1369, text: "example, let me this. And I have exported and I want to import the memories that" }
+  - { t: 1380, text: "exported it my VS code session. , that's what I wanted to show you much. Sure, yeah." }
+  - { t: 1392, text: "I'm going to also look on your the . blog post you have here. , on the blog post you call out a couple things here how you install from the marketplace. You have a couple notes here as . , all" }
+  - { t: 1402, text: "those items are there. If you look on the repo, all the things that Santosh is showing you is also detailed out on the repo. And there's detailed instructions on there as around how to install it. This pip" }
+  - { t: 1413, text: "install command line is also available for you on the GitHub repo as . , you'll be able to you'll be able to All the documentation Santosh is working through here is already lives today currently on the GitHub repo as" }
+  - { t: 1423, text: ". one moment. , let's get TypeScript project and run." }
+  - { t: 1433, text: ". And then what I could do is do a a" }
+  - { t: 1443, text: "re-call. Huh? And see for example I'm going to do a import of my memory box. . . Let me copy my memory box." }
+  - { t: 1462, text: "look, there is Sketch it. 12 episodes, yep. . . Let's see let's let's look at all the options that that we" }
+  - { t: 1473, text: "have. ," }
+  - { t: 1486, text: "I want to do a a import" }
+  - { t: 1498, text: "Nice. is going to be a" }
+  - { t: 1550, text: ". a very command shell line there." }
+  - { t: 1600, text: "[music] [singing] There we go. I got the Yep. Just 1 second. Turning on the screen . , I can see via the" }
+  - { t: 1612, text: "command line on the left and then I can see VS VS code on the . Exactly." }
+  - { t: 1649, text: "this is a new question that I'm asking. let's say for example if I want to remember this, what I can do is do a [music] do a and" }
+  - { t: 1659, text: ". I want it to be [music and singing] do with [singing] ." }
+  - { t: 1669, text: "I think that I am going to be able to do what you call [screaming] I think I think" }
+  - { t: 1684, text: "All . say if I'm doing an analysis on fabric is much more preferable than I do all the other things that I and I want to use that and put it to" }
+  - { t: 1695, text: "another project, I should be able to also save all of the states as part of my working session or also as my episodic session." }
+  - { t: 1705, text: ". Or save the procedure one and push it and use it as against multiple other projects. Sure. There you go. Nice. . we we made some" }
+  - { t: 1715, text: "memories inside VS code. You've gone over to the command line interface, imported some memories and or made new memories. and these it be" }
+  - { t: 1725, text: "recalled back here as . , the memory you just made here would that be able to be you would export from there and then re-import in VS Code and then it would" }
+  - { t: 1735, text: "be able to get that memory back in? Yes. , if I'm able to save this save for example. Yep. Up, there you go. Yep, selecting the memory. Yep, . Nice." }
+  - { t: 1751, text: "And if I save this there you go. Oh, look at that. , cool. the the PAM file, the portable item that we were using here, that's really the key to all these memories, ?" }
+  - { t: 1761, text: "When you're talking about that that's that's the main storage component that's being leveraged when we move between different systems. And it's And the format is pretty simple. , it's a JSON" }
+  - { t: 1772, text: "if you look at this Sure. It's it's a JSON file. And what we could do is again, the reason I want this to be more accessible is say for example, when you integrate with Git" }
+  - { t: 1783, text: "you're going to also integrate and see all the changes. . . It becomes an item that's part of your agent environment. just how you would have skills," }
+  - { t: 1793, text: "how you would have agent MP files and all of your context files. Sure. , I'll make that." }
+  - { t: 1803, text: "Makes sense. Awesome. Anything else to share before on this project before we give it a wrap here and call our quits? No, I think that is all I have and" }
+  - { t: 1814, text: "there's another thing that I've also been working on on this. I I haven't released it yet, but I'll have to get more feedback from the community. More in terms of say" }
+  - { t: 1826, text: "this is again, this covers two sessions, ? we have we have we saw in new how how the install and how the setup happens from a a VS Code experience and" }
+  - { t: 1838, text: "then also from a new PowerShell and a GitHub Copilot and all of it would be the same say for example, cloud coding. Sure." }
+  - { t: 1896, text: "Excellent. , Santosh, thank you much for the demo of this one. This has been a really cool project. I'm going to start the start playing with this one. I'm overwhelmed with the amount of community projects that are getting started and happening and things that" }
+  - { t: 1906, text: "are people are building that are absolutely incredible. , very excited to see a lot of these things coming together and very excited to have a lot of individuals producing things for the community. , if you're interested in" }
+  - { t: 1917, text: "transporting your memory between different sessions with different agents, if that's something you do, this is a tool to go check out. Portable agent memory. It's found on the GitHub marketplace. The links are in the chat" }
+  - { t: 1929, text: "description as as they're also in the chat window here as . , go test this product out on your own. It's free, open source. If you have ideas, let Santosh know on the GitHub. Go fill" }
+  - { t: 1939, text: "out an issue on the GitHub or feature request there. That way he knows what to go send his agents to go work on and go build for the next feature. Santosh, thank you very much. Another" }
+  - { t: 1949, text: "good demo as always. Appreciate you, sir. Have a wonderful day and we'll see you next time on the Agent Thinking Show. Thank you much for having me." }
+
+---
+
+## Summary
+
+In this episode, Santosh demos Portable Agent Memory, an open-source approach to make agent memory portable across sessions and tools instead of losing context when a chat ends. He explains memory as multiple layers (episodic, semantic, procedural, working, and identity) and why each should be tracked, auditable, and reusable. The walkthrough shows both the VS Code extension and CLI flow, including creating memories, exporting them, and importing them into a new Copilot session. A major focus is integrity: memory artifacts are signed and verifiable so teams can trust transferred context. If you switch between agents or environments often, this episode gives a practical pattern for persistent memory.
+
+## Key Takeaways
+
+- ▸ Portable Agent Memory is designed to decouple memory from a single session or tool so context can move between Copilot CLI, VS Code, and other agent environments.
+- ▸ The project models memory in distinct types (episodic, semantic, procedural, working, and identity), which helps organize what is stored and how it is reused.
+- ▸ The VS Code extension supports creating, searching, exporting, and validating memory entries directly from the editor workflow.
+- ▸ The CLI workflow complements the extension by letting you import exported memory into new sessions and continue work without rebuilding context from scratch.
+- ▸ Memory export uses a structured JSON/PAM artifact intended to be versionable, auditable, and easier to manage in real project workflows.
+- ▸ Cryptographic signing and integrity checks are central to the design so transferred memory can be trusted and tampering can be detected.
+
+## Links
+
+- ▸ [github.com](https://github.com/santhoshravindran7/portable-agent-memory?utm_source=agentic_thinking&utm_medium=website&utm_campaign=20260523)
+- ▸ [linkedin.com](https://www.linkedin.com/pulse/your-agents-memory-shouldnt-die-when-you-close-tab-ravindran-a2qac/?utm_source=agentic_thinking&utm_medium=website&utm_campaign=20260523)

@@ -1,0 +1,359 @@
+---
+title: "Fabric Apps Rayfin - 023 Agentic Thinking"
+episodeNumber: 23
+date: "2026-06-13"
+youtubeId: "h_Sya__97jM"
+duration: "58:18"
+blurb: "Follow Us"
+tags: ["agentic thinking", "youtube"]
+chapters:
+  - { t: 0, label: "intro" }
+  - { t: 499, label: "context" }
+  - { t: 999, label: "problem framing" }
+  - { t: 1499, label: "working session" }
+  - { t: 1998, label: "practical takeaways" }
+  - { t: 2498, label: "closing thoughts" }
+  - { t: 2998, label: "deeper dive" }
+  - { t: 3438, label: "wrap up" }
+transcript:
+  - { t: 12, text: "Hello everyone and welcome back to the agentic thinking podcast. Matias and I are here going through some more announcements things around the agentic space and world with Microsoft and fabric and the intersection of all those" }
+  - { t: 23, text: "conversations. How you doing Matias? Doing great. , as always, , a busy just catching up with news and and and new releases. , other than that," }
+  - { t: 35, text: "also looking forward to the weekend, to be fair. Same. , I'm going to be doing some a bit of travel here shortly. , it it means I have to leave my station, my my" }
+  - { t: 45, text: "my home base. , I have to be able to be I'm I'm trying to feverishly get all my agents in order. , , if I have agents, , where are they running? Are they going to be able to run while I'm gone? Do I leave my computer on?" }
+  - { t: 56, text: "testing out all the different remote controls on all my agents to make sure that that's working correctly. when I leave I can still be somewhat productive. finding extreme value in that as . jumping in then a" }
+  - { t: 69, text: "couple news announcements. The main episode here I'm going to do another demo of some more Rayfin items. Let's go make another app again today. this week has been very busy for us. Agentic" }
+  - { t: 79, text: "thinking has been I think we've released five four episodes this week alone. between us chatting about things on Tuesday and then I've been trying to do late evening. I've been swamped with" }
+  - { t: 90, text: "meetings, but I need to get this out into the the news into the world around how great Rayfin is. It's extremely fun to build in Rayfin. I just saw a LinkedIn post. Someone has made a Doom" }
+  - { t: 100, text: "game, the Doom. They ran it on Rayfin. which is, , if you're you don't you don't have a real infrastructure. You can't have a real app or real software unless it can" }
+  - { t: 111, text: "run Doom apparently. [laughter] that's what's going to happen . Anyways, that's been ported over to Rafen as . Just some fun conversations there. But before we do that, let's talk about some news and" }
+  - { t: 122, text: "updates. Matias, you found some really interesting articles here. Let's go through some of those. I found Microsoft Skill Opt came" }
+  - { t: 132, text: "through on the news feed earlier today. and it looks hasn't been around in in the public domain for" }
+  - { t: 142, text: "very long at all, but the more I look into it and obviously we've got a we've got a link in in the show notes here, the more excited I am about this. ," }
+  - { t: 152, text: "they built a agent skill optimization framework which uses" }
+  - { t: 162, text: "a benchmarking process taking a skill which we we looked at this a few times on the podcast usually" }
+  - { t: 173, text: "just a large markdown document natural language text document and compares" }
+  - { t: 183, text: "how that skill performs in in with with different models and agents and then uses some huristics to improve the the the language of of the" }
+  - { t: 196, text: "skill itself. very nice and something which I'm super excited about because I'm I've I'm gi given the" }
+  - { t: 210, text: "abundance of skills we're all surrounded by nowadays this is absolutely something that's needed. I will certainly spend some time going" }
+  - { t: 220, text: "quite deep and and checking this one out. I agree with and I just had a conversation with my team internally. this is I think the point you bring up here is merging a" }
+  - { t: 231, text: "couple really interesting conversations all at once. One is Microsoft has announced skills for building PowerBI reports. there's a whole skills for fabric which I also put in the link here as ." }
+  - { t: 241, text: "the description or in the chat window here skills for fabric is also in the video comments here as . skills for fabric. They've built a bunch of skills around PowerBI reports," }
+  - { t: 254, text: "PowerBI reporting, PowerBI design, PowerBI report management, PowerBI report planning. , there's multiple skills here that are appearing that are all specifically designed around that area. Really interesting. My" }
+  - { t: 265, text: "thinking was how do when a skill is good and when is it done? How do I performance tune it? How many models do I run on it? If I run this skill on Claude, does it give me the" }
+  - { t: 275, text: "same performance when I run it on ChatGpt? Does it have the same performance when I run it on another model? Do I use it on Sonnet or Opus or there's many knobs we can adjust" }
+  - { t: 286, text: "and and change? And , how do you I was just just talking this with my engineer. I said, how do you measure performance? What is a what is the" }
+  - { t: 296, text: "designation of a good skill? M and I think that's where I'm I'm looking at this going, \"Oh, wow. This this is what maybe Microsoft is using or has published internally to themselves where" }
+  - { t: 308, text: "they are going to the different teams, the the data warehouse team, the PowerBI team, the fabric team, the notebook team, they've all got to" }
+  - { t: 318, text: "produce skills. , how do when they're good? How do works ? What words do you need to tweak inside the skill director?\" , this this project is poorly named. ," }
+  - { t: 329, text: "yeah. And and even just the title of it, skill opt, which I would say this is more skill optimization is what I would would think you'd want to call it, but it says executive strategy for" }
+  - { t: 340, text: "self-evolving agent skills. What does that mean? What does that mean? It's a word solid. what what is your on your read" }
+  - { t: 352, text: "of this Matias and why you're excited about this what is your initial read on in plain business terms what is this doing?" }
+  - { t: 362, text: "if you think about how how would you even without that very intuitively how would you measure" }
+  - { t: 372, text: "what how good a skill is you can only really do that by means of comparison you you have a problem you have context as in" }
+  - { t: 383, text: "some artifacts a project and you have a prompt and you want to run that same prompt once with the skill" }
+  - { t: 394, text: "and once without the skill and then you look at what do you get out of it how long did it take and how many token did it consume that's what I would look at and then you want to run the" }
+  - { t: 405, text: "same thing using different coding agents as as different models and and look at the exact same parameters you" }
+  - { t: 415, text: "know what's the outcome which obviously means you need to have some understanding of what you're expecting. for for that benchmarking to work, you need to put in" }
+  - { t: 426, text: "some work up front to define quite what what's success and what isn't. you don't get that for free I would say. but the" }
+  - { t: 438, text: "other thing how long it takes and how many tokens it consumes is all also very important if you hypothetically if you had two different routes that produce the same outcome but" }
+  - { t: 449, text: "one of them used five times as many tokens or or 10 times as much time you would definitely have a clear winner and this that's pretty much" }
+  - { t: 459, text: "what what they've tudified here if that's a word and allowed you to to run as as" }
+  - { t: 470, text: "as a structured benchmark. This is really interesting. And I also Matias, one thing that you've done that I think is really relevant here as" }
+  - { t: 480, text: "is every time I use a skill or every time I'm invoking a skill or some some action, the agent is building a bunch of local metrics and output. How many tokens, how" }
+  - { t: 490, text: "long it took to run. , and you there's many variables in this. if I run the skill , there's context inside that context window or how many tokens" }
+  - { t: 500, text: "I've already used in my context window that potentially will impact or influence the output of that skill. it's not running a clean skill every time from a brand new context window no no information." }
+  - { t: 510, text: "because sometimes that's better. You don't want to have that extra context hanging around all the time. You want to do a new session and then run the skill. that being said, it looks" }
+  - { t: 521, text: "there's other options in here. skill optimization sleep. It allows you to as I'm reading some of the documentation here, it allows you to run your it" }
+  - { t: 531, text: "reviews your past sessions. , you just do work with skills. It's able to scrape how you were using that skill previously" }
+  - { t: 541, text: "and look at what it was doing, what models, and then it's scoring everything you put together. this is really fascinating. I this a lot. I think this is becoming much more scientific around how you build skills." }
+  - { t: 552, text: "this needs to be coming. They also talk a lot about in this document. I think they're talking about running on different lang different harnesses, ? direct chat, codec cli, cloud" }
+  - { t: 563, text: "code. I'm guessing they're doing something with GitHub copilot CLI. It's talking about models, benchmarks, harnesses as characteristics of things you would want to adjust. And this is" }
+  - { t: 574, text: "handling that. , I'm really I don't I haven't dug in. There's too much very technical language in here that I'm not really familiar with yet, but I'm going to maybe step into this and Matias, I'm sure you'll figure out" }
+  - { t: 584, text: "some really cool way to leverage this on top of our existing skills. And it's it it really hit home with me because something that's been bugging me for a while is oftentimes" }
+  - { t: 595, text: "when you see news guilds announced on on social media or the announcement itself is very unspecific" }
+  - { t: 605, text: "with respect to what what is the environment within which that skill is meant to be used. How how did they" }
+  - { t: 616, text: "test it? what model, what what coding what harness most importantly, how are you" }
+  - { t: 626, text: "meant to prompt your model in conjunction with your skill to get the best possible result, ? oftenimes skill announcements" }
+  - { t: 637, text: "nowadays pretend that a skill is some magic thing that you just throw into any environment and you you're going to get those amazing" }
+  - { t: 647, text: "outputs when in reality you have to do a lot of work in terms of getting the knobs around choosing which model you're" }
+  - { t: 657, text: "using with that etc etc. Obviously, you know, if if you have money to burn, you can always go for the most expensive model. And that's that's" }
+  - { t: 667, text: "certainly a a a good way of ensuring good outcomes, but [snorts] economically maybe you don't want to do that, ? Which may be a really" }
+  - { t: 677, text: "good segue into our next news item. Yeah, exactly. Let's go. Let's let's transition to the next item. , what else did you find, Matias? What's your second news item that you found? . , , yet another big Claude" }
+  - { t: 689, text: "Anthropic announcement. , Fable 5 came out, , 3 days ago, and I think you've played with it. , yes. Unlike me. , why don't you tell us a little" }
+  - { t: 700, text: "bit? Yeah. , I've been exploring a little bit with Fable 5. , some of the general sentiment that I've read about it is it's it can do really impressive things. I've seen people building 3D diagrams and having , you" }
+  - { t: 712, text: "know, an AutoCAD type thing. you can give it an AutoCAD level you know hey build me an engine and it knows how to use the AutoCAD program and then design out and build out things." }
+  - { t: 723, text: "design more for long longunning tasks. it does they call out very specifically that this model is very expensive compared to prior models. it's it's burning double the rate of" }
+  - { t: 733, text: "tokens as you did previously. I also have found it does burn through your subscriptions very quick because of how many tokens it's using to generate things. , that's definitely there. I" }
+  - { t: 746, text: "have found the performance to be a slight bit better, but is it worth 2x the amount of tokens in my initial testing of things? No, not really. I feel I can get a lot of really good" }
+  - { t: 756, text: "output out of Opus or if I do a better job planning what I want the work to be done with Opus, it seems to do" }
+  - { t: 766, text: "reasonably . And then I'm handing a lot of those tasks off to, , GPT 5.4 for many and go build code and go and go do stuff, ? , I'm finding" }
+  - { t: 776, text: "myself changing a little bit. I'm also back to our conversation weeks ago, Matias, was I'm finding an immense amount of value in" }
+  - { t: 786, text: "better harnesses that help me talk to the model and even in my development patterns, better harnesses. And what by this is recently VS Code has the" }
+  - { t: 799, text: "ability for you to click a button and then it highlights different divs or elements on your website or your view of the page and then those elements are directly" }
+  - { t: 809, text: "screenshotted, captured and the div is passed over to the agent to fix things. one of the things I'm finding an immense amount of value with is , I can get pretty close with" }
+  - { t: 820, text: "a design for something, but usually there's a little couple things that are off. it doesn't look the way I want it to look. I need to refine things. , that refining step is really useful for me to have better tooling." }
+  - { t: 832, text: "One of the things I'm using a lot is an open- source project called agentation. You have the ability to pause any animations on the screen, click on" }
+  - { t: 842, text: "elements, make comments, and then those comments can be shoved back over to the agent, which it can then understand what you're building and how to adjust the app based on your comments in real time." }
+  - { t: 852, text: "with a skill and an MCP server. that that I'm finding incredibly valuable as . initial impressions, it's . I I need to maybe give it some harder tasks," }
+  - { t: 863, text: "maybe some longer running things, but it it just seems to be very costly. I think the balance scale for me . I'd rather have better coding models that" }
+  - { t: 873, text: "ran cheaper is what I'm at . . I I don't need bigger models all [clears throat] the time. Yeah. I'm I'm I looked into the pricing in some detail. That's" }
+  - { t: 883, text: "something that always interests me. the the the official API rates are exactly double that of Oppus and Oppus is already not cheap, ?" }
+  - { t: 894, text: "Fable is $10 input 50 output as opposed to five and 25. that's four million tokens by the way." }
+  - { t: 904, text: "I thought wow this is alltime high but no it's not. I was very surprised. I hope you're too. guess" }
+  - { t: 916, text: "which anthropic model is even more expensive. Even more is it one of their fast? Usually the fast models are the ones that cost a lot more money. Is there" }
+  - { t: 926, text: "something fast that's out there? No. Weird. Weirdly enough, weirdly enough, a legacy model, , Oppus 4 and 4.1, , they are on 15 and $75," }
+  - { t: 938, text: "multiple of the current Oppers. It's really weird. , I don't know why that is. , obviously, they don't want you anymore. Why Why would anyone even use that? But" }
+  - { t: 948, text: "yeah, I would because I went into a table and then I did a sort by descending, ? And suddenly Oppus 4 showed up at the top there. yeah, surprising. , I was not surprised. if if if anyone ever accidentally" }
+  - { t: 960, text: "selects Oppus 4 for whatever reason, don't do it, ? [laughter] That's certainly a good way to burn money because obviously that's going to be a lot less capable as . Yes. Yeah. currently everyone is" }
+  - { t: 971, text: "expecting for Open AI to follow with a big announcement and yeah. that's expected for next week." }
+  - { t: 982, text: "Let's see. just this is a general feeling. I don't know, Matis, if you're feeling the same thing. In January, February, and March, I felt there was a huge rash of" }
+  - { t: 993, text: "very quickly generated models over and over again. I I felt there was a huge wind of everyone was coming out with really neat models. There was a lot of excitement for me around, wow, these agent things show up. Open call is" }
+  - { t: 1003, text: "getting capable. We have all these tokens happening. a lot of wind of it feels this next wave of models is coming out . And I don't feel that much excitement as I did earlier in the" }
+  - { t: 1014, text: "year. it it and or there's not there's not a lot of them all happening at the same time. What's your sentiment on this? Is this the read that you're feeling as ? Obviously, Anthropic did something very" }
+  - { t: 1024, text: "very smart here in the sense you remember myths, ? We , a while ago they said, , we've got" }
+  - { t: 1034, text: "this new Myths model, but it's good we can't give it to anyone because it's too risky, ? And , apparently they did they" }
+  - { t: 1044, text: "risky from a from a security point of view. Apparently, it was extremely good at finding and and potentially being able" }
+  - { t: 1055, text: "to exploit security loopholes. apparently they've made that available very selectively to" }
+  - { t: 1065, text: "companies in in the security space in particular. whether or not that's true, we will we can't really know because again, , it's it's very" }
+  - { t: 1077, text: "selectively being made available. But Fable is meant to be the public version of Mththeros" }
+  - { t: 1088, text: "with lots and lots of additional guards built in connections. [laughter] Yeah, exactly. and that because they've been" }
+  - { t: 1100, text: "let's say sensitive around that you may find that those guardrails are extremely conservative and and may" }
+  - { t: 1111, text: "prevent [clears throat] the model to do certain things that you might otherwise have expected from oppos." }
+  - { t: 1122, text: "your question was what do I think around new generations of models coming? that's that one is interesting because it may be an extremely good marketing strategy, you" }
+  - { t: 1133, text: "know, by saying we've got something that's good we can't even give it to you. I don't know. I can't tell." }
+  - { t: 1145, text: "but generally, , very similar to what you said before. I think with extreme pricing" }
+  - { t: 1155, text: "inflation across the industry. Yeah. there's a lot of interest of people to go into medium tier and medium price models and figure out" }
+  - { t: 1168, text: "how do we get more out of those. I don't think there is much interest to go higher and higher in terms of getting more and more frontier and top" }
+  - { t: 1179, text: "tier models. I feel the analogy that sticks in my head is, , the the analogy is grabbing some whatever the highest end model that's out there. And I think" }
+  - { t: 1190, text: "there's a lot of naivity around, you know, oh, it's the newest model, I should just use that always and just go in and step into that and not really understanding the cost implications there. But the analogy in my mind is" }
+  - { t: 1200, text: "I call an Uber to go a block, ? , if I I'm going to go I'm at I'm at a restaurant. I want to go one more block north. And I'm going to wait. I'm going to pay more money." }
+  - { t: 1211, text: "I'm going to wait for that Uber to show up, hop in the car, and have it just take me one block ahead. Whereas it would have been just faster or easier for me to just go ahead and walk the distance. I feel some we're in" }
+  - { t: 1220, text: "that little bit of analogy . are are we buying extra large language models and we're driving around in Ubers everywhere where all we should be doing is just using lower-end models. And I" }
+  - { t: 1231, text: "think the to your point, I think the importance of model routing is going to become increasingly important for people to really understand," }
+  - { t: 1241, text: "get their head around and unpack that. how do I route which model on which harness is going to really become important here. I I believe when you" }
+  - { t: 1251, text: "put your I don't this is a suspicion. I don't know if this is true or not, but when you go into VS Code and you submit your prompt" }
+  - { t: 1261, text: "in the VS Code, if you have it set to auto for which model to pick, there's a little step that says reasoning. It just sits there and thinks reasoning, reasoning, reasoning. I wonder if that's what it's doing during" }
+  - { t: 1271, text: "that reasoning step. The reasoning step is saying, \", let's analyze a prompt. which model is best served to a solution on top of that that prompt. I suspect that's what it's doing, but" }
+  - { t: 1282, text: "I'm not sure it before the co-pilot pricing change that auto model selection was always did" }
+  - { t: 1293, text: "not work in your favor. That was my impression because obviously you know with the with the premium request model that Copilot has abandoned" }
+  - { t: 1304, text: "it was in their interest to give you the a cheaper model, ? I don't know. it would be in their interest to do it" }
+  - { t: 1314, text: "the other way around. yeah, I I wouldn't know but I haven't really used copiloted much lately for obvious reasons. That's a really I" }
+  - { t: 1326, text: "sneaky point potentially Microsoft. I mean that's exactly what could be happening there. when you're a premium run model, you want everything to run as" }
+  - { t: 1336, text: "cheap as possible because you're bearing the cost of all these extra runs and models and things. But that we're able to charge you what you're really using and getting fair value market value for that. you're" }
+  - { t: 1346, text: "incentivized to give the user the best experience and getting the the prompt done in one shot but on the model. And if you're spending it on a," }
+  - { t: 1357, text: "Fable versus an Opus and getting a little bit more they might push you that direction because then they get their money out of the tokens there. , this is we're going to need to take control of" }
+  - { t: 1367, text: "this which model, which harness, this is going to have to be something that we're going to need to study a bit more. And I think that skills option will be very useful here for efficiency. just because I have a bunch of" }
+  - { t: 1377, text: "skills sorry, side note here too, these fabric skills, I have a question in my mind also, which is we have skills for fabric around report modeling, but we also have" }
+  - { t: 1387, text: "Rayfin. I'm comparing is it cheaper in tokens to just build the Raven thing that I want or do I go after the skills for fabric and start using agents to build reports." }
+  - { t: 1399, text: "there's going to be competing in my mind language here across the two items. What can I do to build frameworks and systems and patterns that my agents can just" }
+  - { t: 1410, text: "simply reuse which saves me tokens and I don't I can just go to Rafin and say oh build me this report with all these things in it. Oh, by the way, here's a library of stuff you can just go use and you're not having to rebuild" }
+  - { t: 1421, text: "it from scratch. the meanwhile the the PowerBI side thing doesn't feel that way. I'm not building reusable components inside that yet. Anyways, really interesting conversation there, ? Just a couple before we move on," }
+  - { t: 1432, text: "just a couple more notes on on table if that's . one is we mentioned pricing a lot, ? ," }
+  - { t: 1442, text: "if you're a Clawude subscriber, you only have until I think June 22nd where you're able to use Fable" }
+  - { t: 1452, text: "as part of your subscription and after that it will only come out of extra usage. , money you put into your account. , that's really important to be aware of. there" }
+  - { t: 1464, text: "there's an there's an interim period where there even on a cloud maxion Yeah. Yeah. even on max. Absolutely. Yeah. , it's very important." }
+  - { t: 1474, text: "that's just whilst it's being introduced [clears throat] and obviously at this point it would eat through your subscription allowance quite quickly." }
+  - { t: 1484, text: "Yeah. At the end of the month it will eat through your cash that [laughter] you put into the account and it will eat on API rates. the other" }
+  - { t: 1494, text: "thing is very important for a month or they if you're using Fable they've changed their a data" }
+  - { t: 1506, text: "retention policy which is very very important particularly when you're in enterprise context generally there's a zero data retention policy" }
+  - { t: 1516, text: "as far as enthropic models are concerned and obviously that's an important guarantee we should rely On which subscription does that work? Is that is that on all subscription levels?" }
+  - { t: 1526, text: "Anytime you subscribe to them, they have a zero attention policy. Yes. or is it only on the the $100 and the $200 one? the pro and the max one?" }
+  - { t: 1537, text: "I don't remember this one exactly. Don't quote me on that. but if if you're if if you're if you're paying for it, you definitely have have the opt out option. Gotcha. . But on for Fable" }
+  - { t: 1548, text: "specifically and they they justify that with with their security concerns they require" }
+  - { t: 1560, text: "you to allow them to collect data for months. they will this is different from training ? this is this is not them collecting training" }
+  - { t: 1571, text: "collecting data from you for future training. this is for them to collect data. I think the argumentation was to say if there were any security concerns" }
+  - { t: 1583, text: "arising, they want to know where it came from and and and they want to have the data to ensure that future safeguards can be put in place, ? And , ," }
+  - { t: 1593, text: "I saw another news item where apparently Microsoft internally made a a very very strict requirements that no one is allowed to use Fable" }
+  - { t: 1603, text: "because of the of of that particular data retention interesting policy there. , yeah," }
+  - { t: 1613, text: "anyone who's keen to give that one a go, be aware. it is definitely a a a new model just with respect to even how pricing" }
+  - { t: 1626, text: "works and all of that. All , that is I did not think yeah I'm glad you read that because I would not have known that specifically that it was making that change there for us and" }
+  - { t: 1636, text: "that's really useful to know especially around data retention policies what you're using being aware of those things incredibly important as . . , that being said, I think" }
+  - { t: 1647, text: "we've talked a lot a lot about our news things. Let's go in and maybe do some more demo pieces. , this week we've been doing a lot of Rayfin demos. We've been really excited about Rayfin coming out. We've been talking a lot" }
+  - { t: 1656, text: "about that project in general. , this is going to be another demo of Rayfin. we've been I've been going through all the series and trying to say there's a starting project for Rayfin." }
+  - { t: 1667, text: "And in each of those starting projects, I wanted to highlight the the different templates that come with the project out of the box. We've gone through three of the templates. We have one more template to go through and" }
+  - { t: 1678, text: "that's what we're going to go build . that being said, let me get my screen share going here and we will get everyone started on the final the final" }
+  - { t: 1688, text: "template. I want to say the final countdown, but the final count. [clears throat] All . , that being said, I'm aware Ray also ships with agent skills. Is that ? Have you found" }
+  - { t: 1700, text: "them useful? Have you used them at all? Yes. and no. , there's a there's a let me let me talk about that because there's a couple pieces. There's a little bit of buggess with it" }
+  - { t: 1710, text: "and let me show you what I'm doing to solve work around it . I think there's some fixes coming that are going to solve this, but for , it's a bit difficult to get the agent and the skills working." }
+  - { t: 1720, text: "Also, there is a data app that they have that has a whole different set of skills than the other templates. , most of the templates have a base set of skills" }
+  - { t: 1730, text: "that you get. The data app has a lot extra skills. it's different than the other RA. not every project is getting the same group of skills in these templates. And the data app is bound to a semantic" }
+  - { t: 1741, text: "model by default, ? Or what what makes it a data app or is it is it just linked to the SQL database back end? it's trying to help you get data from a semantic model and put it into your" }
+  - { t: 1752, text: "report. There's also an issue if you're on local host, the semantic model does not render inside the app locally on your computer. you can't securely connect to the" }
+  - { t: 1762, text: "semantic model on your local host while you're developing. you have to publish that app directly to the service and then you can do your UI changes there which I did find a technique or trick around that which" }
+  - { t: 1772, text: "I'll show today on how you can render apps from the service inside VS Code locally on your machine which is cool. All , that being said, let me pull up a couple screen" }
+  - { t: 1784, text: "share here. Let me move over here to our Let me do that. I I I found a very compelling use case for Rafen the other day. Ruie published it on LinkedIn" }
+  - { t: 1794, text: "talking about that makes it possible for you to connect to multiple distinct semantic models and show data from from different models" }
+  - { t: 1805, text: "side by side which architecturally would never have been possible at all in in a in a traditional report unless you then create some composite model on top of that. correct that makes" }
+  - { t: 1816, text: "much sense last time I said I haven't really found a a killer scenario but that is" }
+  - { t: 1827, text: "certainly one where I can see the value immediately and what about doing comparisons between dev test prod hey I got some changes in test and how does that look you can definitely pull" }
+  - { t: 1837, text: "even across environments again that means that opens the world for us to build a lot of extra cool application pieces in here we're going to we're going to as I've been building these RAF things, I'm finding it's useful to start inside" }
+  - { t: 1848, text: "fabric u directly. I'm in a workspace here with all my apps. I click on the new item element on the upper leftand corner. We go over here and we click our app preview button. I have started" }
+  - { t: 1859, text: "because I've been building many of these. And we are on template number four. we'll do template 04. And then I'm just going to hit create here. This will generate the template. It'll give me just the single destination and it" }
+  - { t: 1872, text: "it's doing a little bit of setup stuff here. , it needs to know this is an item. It's in this workspace. There's a couple pieces of context here that we need for the Rayfin templates to work correctly. I've been using this one." }
+  - { t: 1883, text: "I've tried the copy prompt to use directly in the agent. I've seen some weirdness and sometimes some of my agents get confused or not confused. It doesn't quite work out the way I want." }
+  - { t: 1893, text: "I have found that using deck directly this for works a little bit better. , I'm going to copy the project command and then we'll go back" }
+  - { t: 1903, text: "over here to VS Code. And , I'm going to open up I've been doing in all my previous projects. I have a single folder where all of our projects and temporary stuff has been living. I'm" }
+  - { t: 1913, text: "going to drag that into VS Code. And I have the folder with all of our various templates in it. The terminal is already up. You can open" }
+  - { t: 1923, text: "that up with command tilda to get that opened. And I'm just going to paste my command in here directly. Let me remove my chat window and just highlight this here. . , npm create ray" }
+  - { t: 1934, text: "finest. , we have template04 and we're going to put it in the workspace of data app test. It will take it a couple seconds here. It's not super fast in this area. , it's definitely taking" }
+  - { t: 1945, text: "some time to chew and think through some things here. , it does think here for a little bit while it gets the template started. Let me explain. While this is thinking, Matias, you asked the question around" }
+  - { t: 1955, text: "what skills do you get? , I have three templates here all ready to go. And we can go dig around in the skills while this thing's working. , over here on the hand side of the pane, we've got our different templates." }
+  - { t: 1966, text: "In template 03, we get I added these skills. Oops. Oops. Too many buttons. I added agentation and agentation self-driving. Rayfin was already added." }
+  - { t: 1977, text: "the Rayfin skill is there and there's just a single skill file. This was using a app the to-do app with a sign-in screen and authentication. Template 01 has a very similar thing. It" }
+  - { t: 1989, text: "just has a rayfin skill. That's only one skill that's attached there as . And then the template 02, this is the data app. template 02 was the data app and this one added a whole bunch of" }
+  - { t: 2001, text: "skills. There is a rayfin skill. All these other skills were automatically added by this project. , these are skills. They're not exactly the same as" }
+  - { t: 2011, text: "what you see for Skills for Fabric, but they're similar. There's a lot of similar aspects of this of how to build an app, how to stylize it, how to test it, how to use Playright. , this template O2 also adds Playright and the" }
+  - { t: 2021, text: "playright CLI in there as . , it lets you view the app in the browser and can get some information directly from the browser back to the agent as . , that's a big" }
+  - { t: 2031, text: "difference between the different templates. , we are officially done with that. We can go over here into my command window again. And we're going to use this built use a" }
+  - { t: 2042, text: "built-in template. And we're going to go down here to the last option number four, which is an end to end fabric authenticated to-do app CRUD with Rayfin data model." }
+  - { t: 2055, text: "And it has a per user row security. this is going to increase row level security. The last one we did was fabric authenticated. No row security. This one's going to contain the" }
+  - { t: 2065, text: "rear level security part. , we're going to use that . We're gonna say answer four and let it run. , what it'll do is it'll build my folder. This is the part mats that I found to be quite awkward honestly. , it builds" }
+  - { t: 2077, text: "the template for you, but it builds a folder for the app name that's in fabric and then puts all the products down, all" }
+  - { t: 2088, text: "the items. That's in my opinion, that's not ideal. It should be able to build it at the root level of whatever directory you're in. I don't always want it to do this because it's going to stitch in here the rayfin" }
+  - { t: 2100, text: "skill or it will eventually add a skill here for rayfin we've seen the other ones and vs code. it's complaining about all the I think we've seen that you really want" }
+  - { t: 2111, text: "to reopen or rescope your VS code workspace for that particular folder, ? Otherwise, it doesn't know the it may not find for instance where your" }
+  - { t: 2122, text: "skills are located. Yes. And I feel that's a problem because this agents is where the skills exist and I want my chat window or CLI to understand where the" }
+  - { t: 2132, text: "agent skills are in this workspace in fabric. Also, you'll notice here I have 10,000 changes because it's also trying to get track all the node modules for whatever reason. I don't know why it doesn't just" }
+  - { t: 2143, text: "ignore those, but again, I think it's this nested folder structure when you just hit run the Rayan project. It's that there's a bug there. I think I think that just needs to get resolved a bit. what I'm finding that's useful" }
+  - { t: 2153, text: "is , I'm have what I want. I'm going to go krl+ f close out the project. I'm going to start a brand new workspace. We will open our folder. And I'll" }
+  - { t: 2164, text: "go to my desktop and I'll go into this temp folder and I'll go to template04. I'm rescoping my workspace to just look at this specific project. And the agents skill is at the top of the" }
+  - { t: 2174, text: "project. we're in a better place. let me get rid of that. Let me go control tilda here. We'll bring up our command line. And we want to try to get the project running here" }
+  - { t: 2185, text: "locally. we're going to go mpm rundev. And that should spin up the server. It should then understand how this" }
+  - { t: 2195, text: "project's working. we're again we're using Vit here I believe in all these. Yeah. Vit is the framework and it it runs out of the box. You don't have to configure anything once you've" }
+  - { t: 2205, text: "scaffolded it. Yeah. You just you're supposed to be able to Yeah. Yeah. It pretty it's pretty good to get you in there. I that's part I really do . and" }
+  - { t: 2216, text: "then when you're done it's going to get the framework running here. it's doing the root project. Let me move my screen over here a little bit we can see what it's it's talking about. , we just move this to the here a" }
+  - { t: 2226, text: "little bit. We can watch. We can read through the text here. , I want to do that. And then I want to move it over it's out of my bubbles here on the screen. ." }
+  - { t: 2236, text: "we can see here it's doing a bunch of things. The the important thing that it's doing here, it's doing a bit of setup. , you'll notice that there is a ENV local file that's appearing. Part of this process is" }
+  - { t: 2246, text: "letting it build this ENV file. And it writes this ENV local. This is really important because if I go over to fabric.com," }
+  - { t: 2256, text: "this is the same app, but notice how those the screen has automatically updated and changed. Your app is here. And this is the initial initialization of the app." }
+  - { t: 2266, text: "And that's showing you that it talked and got those environment variables over and running. we're all good. The rayan project was found. We have it all running. And then at the very bottom here, we should see our local host," }
+  - { t: 2277, text: "which is awesome. we'll click on this local host button. It will then run it in your browser. here is a signedin application. This" }
+  - { t: 2287, text: "is the application. And notice how it's already signed me in here. I have already run this app multiple times on my local machine. But here we are. We have a to-do app here with Row" }
+  - { t: 2297, text: "security on these items. we're going to attempt to add something in here. let's just say review the published" }
+  - { t: 2307, text: "app. Let's see if it will let me do anything here. This might error out because of some permissions between this local version running and the service. I'm going to click add." }
+  - { t: 2318, text: "And it might sit here and think for a bit. It might not be able to communicate to the back end. All . I think this is an issue of signing in and authentication pieces" }
+  - { t: 2328, text: "potentially. what I'm going to do is I'm going to go back over to our terminal window. I'm going to add another one here. I'm going to click the little plus sign in VS Code. This little" }
+  - { t: 2339, text: "plus sign adds another terminal window for me. And then here I'm going to do npx rayfin up which will push this app directly to Microsoft fabric." }
+  - { t: 2350, text: "it's going to do some work here. This is building a distribution folder. you'll see here inside this there'll be a folder that appears called dist" }
+  - { t: 2360, text: "and it will authenticate me here on this side. here's the dist folder which is packaging the HTML, the CSS and a JavaScript or series of JavaScript files that all get bundled and sent to the" }
+  - { t: 2370, text: "service. , that that has been published, it says it's done. You can go look at your RAF fin project in the service. And this is where we need to do the testing on the app" }
+  - { t: 2380, text: "because we need authentication. It's going to be doing things specifically for me. I'm going to refresh this page. [clears throat] And what we should see after this is refreshed, the app should" }
+  - { t: 2390, text: "be loaded. we've published our code to the service and hopefully here I can say review the backend" }
+  - { t: 2400, text: "and we'll hit add and there we go. the app's working and doing all it's authenticated and in the service and it's running. you can sign out. if I sign out here it's" }
+  - { t: 2410, text: "going to give me just back to this normal the normal to-do app here as . when I click on sign in here it's going to go through the fabric authentication. , since I'm in fabric," }
+  - { t: 2420, text: "it's doing some magic to show you how to sign in. , if you go to this other option here called manage app in the upper hand corner in manage app, I get a URL" }
+  - { t: 2430, text: "that's specific to this application. , this is going to be Sleek Beach is the one we're at today. And , if I click open on this, if I'm authenticated" }
+  - { t: 2441, text: "to Fabric, it will automatically sign me in. If I'm not, it'll give me this sign-in screen. This is interesting, but even better. Let's take this and go to a private browser session. it has no context of who I am. I'm going to go to" }
+  - { t: 2452, text: "the same page here as . And this is essentially running the app outside of fabric altogether. There's no context of fabric here at all. And [clears throat] if I click sign in with Microsoft," }
+  - { t: 2463, text: "it's going to ask me for all my credentials here. I'll put my credentials in and then it's going to ask me for my passwords and everything else. Oh, it's going to even do the security" }
+  - { t: 2473, text: "thing. Great. what this is doing is it's doing the enter ID sign in and authentication for me a user who first needs to have an" }
+  - { t: 2483, text: "identity attached to the application inside fabric. it's going to look it's going to fabric. It's going to close out and then sign me in. in this example, the enter ID is being used" }
+  - { t: 2494, text: "from from fabric to do an authentication loop to identify who I am and sign me in. I don't need an app registration. I don't need to build a custom app. These are users that exist inside your fabric" }
+  - { t: 2505, text: "tenant. again, Matis, I haven't done a ton of testing on this yet. , this is one area that we got to work on, which is, , what if the user doesn't have access to the workspace? What if the user doesn't have access to the app" }
+  - { t: 2514, text: "in that workspace? What about a viewer versus contributor? I don't know. , I'm not sure yet. I got to figure some of those pieces out. I have some more testing to do around this. But again, we should be able to go in here and" }
+  - { t: 2525, text: "I should say add documentation. And what's crucial I think in this mode, it's a standalone web app, ? You" }
+  - { t: 2535, text: "don't even you have you don't have the the fabric nothing harness around it, ? You you just see your app full screen. Very" }
+  - { t: 2545, text: "exciting. I have my to-do items. I'm clicking them on or off. Yeah. Sorry, you're going to say something else. since you have a SQL database as a back end here, does that one show up inside your workspace? And can you" }
+  - { t: 2555, text: "look into the database to see tables, , columns and rows. Great. I love that. . , let's go into that one. , template 04, I'm going to move this here on the window" }
+  - { t: 2566, text: "away. You can see here, this is the template we just built. Template 04. It comes with automatically a SQL analytics endpoint. , I have done some research on this one. It's using a template for" }
+  - { t: 2576, text: "SQL database and it's not installing the SQL.NET library. what it's doing, it's using the GraphQL" }
+  - { t: 2586, text: "library to make a GraphQL item that talks to the SQL database. , it's using GraphQL to edit or or push data back and forth" }
+  - { t: 2597, text: "between the app and your item there, which is nice. If I go into the SQL database directly, we can see we have normal items. We have a database named with our template. We have a DBO" }
+  - { t: 2609, text: "also added here. And we have to-dos. and we have users. these are two columns that exist. And if I click on the table, we render the table. It should show me the users that are in the database" }
+  - { t: 2620, text: "and the data that's there. here we go. Here's my two items here in the list already applied. [clears throat] And then under here under users, we also have the users columns. And I don't see" }
+  - { t: 2630, text: "anything here yet. I'm not sure why there's no users here, but there may need to be some modification on the app to include that user information as . But" }
+  - { t: 2640, text: "you should have a primary key and an email address of said users. It looks let me go back here. The email address is in the to-do table itself. , I'm not sure. Nope," }
+  - { t: 2653, text: "it's just a user ID. Just kidding. I did user ID there. There is a user ID. They must be trying to join user ID with other table. All . Yeah. Anyways, that's the app in" }
+  - { t: 2664, text: "of itself. , what we talked about earlier was this thing called agentation. And I want to show you also how to get this app running inside VS Code. this is somewhat useful. but" }
+  - { t: 2676, text: "let me go over to VS Code. And this is local host and off. what I'm going to do is I'm going to I'm not going to use the sleek app here. U we're going to get rid of this one. I'm going" }
+  - { t: 2686, text: "to close that window. I'm going to go over to fabric. We're going to go into the app directly. let me get out of the SQL database which we can see in query. This is template04. Let me go to" }
+  - { t: 2698, text: "view the app. here is what I want to see. , I'm going to grab the URL here. Copy this. I'm going to go back over to VS Code and drop it in here. , VS" }
+  - { t: 2711, text: "Code will try to load the website. And let me zoom out a little bit here because it's a bit big. And here we are. , it's authenticated me. It knows who I am. It's able to and I can go" }
+  - { t: 2721, text: "directly to the app. And here is where I can bring up my chat agent. And I I can use the add element to chat. this is the item where you can click" }
+  - { t: 2732, text: "this button in the upper hand corner. This is a direct lift off I think off of Codex. I think Codex made this into their harness . But this is a direct lift from that. And you can see if I want to change things, I" }
+  - { t: 2743, text: "can directly change items here. I can click on this item. It tells it sends automatically the screenshot, which is a very not helpful screenshot. , I'm" }
+  - { t: 2753, text: "gonna delete that. But, it tells me what website I'm on. It gives me the header information. View the contents of the header. , this is all the header details it's giving me" }
+  - { t: 2763, text: "that the agent knows where I am and what div and what route and where the location is. , this is giving the agent clear instructions as to where I'm" }
+  - { t: 2773, text: "talking to it. And I could say make the header bar let's call it a gradient" }
+  - { t: 2783, text: "of green and make the let's call dark dark green dark green and make the text white something that. Just give it" }
+  - { t: 2793, text: "some color to the app. I'm going to put my a my model here on what do I want to use here? Let's try" }
+  - { t: 2803, text: "table. I do I have Fable here? I don't have Fable. , I don't have Fable here. Hold on. It was released in in in GitHub copiloted earlier. I can go over to Claude Code, I" }
+  - { t: 2815, text: "[clears throat] believe. And I think I can switch this to Fable. switch model here. And then we will rip some Fable for everyone." }
+  - { t: 2826, text: "All . , we're going to go into Fable. We're going to burn some tokens just for you. , you don't have to burn them. We'll burn them for you for free. All , let's put our command in here. Oh, I also probably need to go get" }
+  - { t: 2836, text: "my let's see if I can use if this chat window will let me use this as . , let me grab my little [clears throat] annotation tool here. We're going to grab the header item. Great. It adds all the elements." }
+  - { t: 2846, text: "Awesome. Yeah, I think it's tied to the co-pilot at window. Can I Can I give this the context? It's not" }
+  - { t: 2856, text: "it it won't in another context. Let me let me drop that in. Sorry, I was confusing you with the fable comment. , . Probably best to stay in in in a chat window to be fair. . , we'll let's go back. We'll" }
+  - { t: 2867, text: "come back. Maybe we'll test Fable here in just a second. Let's go over here. This one. Let's do we'll we'll go all in. We'll do Opus. That's been really reliable for me recently. I have the details in the context of this page." }
+  - { t: 2877, text: "and then I want to describe what I want to do here. I'll talk to it. Whilst that's running, what you could have done green header bar at the top here and" }
+  - { t: 2888, text: "make sure that it is a gradient and then have all the text be white. on the header bar. Sorry, I was just going to talk to the agent. there we go. I'll let I'll let it" }
+  - { t: 2898, text: "cook . Go ahead. If you if you want to stay inside the chat experience, you can go to the bottom left icon that currently says local and then you can switch to claude" }
+  - { t: 2909, text: "in that one. if you have that I don't believe I've turned it on. Oh, I see. You need to enable that inside your subscription. Yeah, correct. Inside your tenant. that" }
+  - { t: 2919, text: "would be a way for you to still use claude and the cloud CLI and all the cloud models but use the chat window as your interface," }
+  - { t: 2932, text: "? And then that way you still have access to the web browser interactions there. here he is. It's making some changes. It found our header file. on the" }
+  - { t: 2943, text: "homepage it has the homepage and let's go here inside the TypeScript file. , and it's making some changes here directly to the HTML. , I'll keep these changes. And , if I go back over" }
+  - { t: 2954, text: "here, you'll notice there's no changes on the web app directly. , it's done. It's made the changes. Awesome. What I to do next is go back to my command line here, and I'll shrink this" }
+  - { t: 2965, text: "down it's not super big. , you can't see it because it's behind our bubbles. , let me move it over here. And then I'll do npx on this. NPX. Hopefully. Come on." }
+  - { t: 2978, text: "Why isn't it letting me type there? it's giving me type NP. Did my keyboard just turn off? Weird. It's not let me type anything." }
+  - { t: 2991, text: "Hang on. All . , we're going to do a new window then. Oh, [laughter] it was just really slow. , there we go. Npx" }
+  - { t: 3002, text: "ray fin up. I'm going to just make it do the the production push the the item to the service. I'm going to run the this command here which will then leverage the ability for the agent" }
+  - { t: 3015, text: "to directly push the items. It'll do all the command line here and then with any luck here. it's looks it's going" }
+  - { t: 3025, text: "through. It's doing deploying. Great. It's successfully deployed. that I've deployed the changes, I can just refresh the page. And what should happen is this app should just go" }
+  - { t: 3035, text: "back in and it should any updates that it made. There it is. there's my header bar with the gradient and green that I asked for earlier. I can I can just command it from here. this is the process I've been working through" }
+  - { t: 3045, text: "recently. It's a workflow that works for me, especially when you have this authenticated stuff. There's not the ability for you to be able to go into the model. You can't go in the model. You can't use the semantic" }
+  - { t: 3057, text: "model and have it render local host for the semantic models that are presenting data on the page. you have to do some authentication and I have found this is a good workound for to bring in the app and run the" }
+  - { t: 3068, text: "app here directly. . All . Wondering with with that implicit connection to a SQL database in the back end. I really wonder how it" }
+  - { t: 3078, text: "would handle schema drift. , obviously the SQL schema is inferred from your TypeScript type definitions. Correct. what if you deploy with your" }
+  - { t: 3092, text: "TypeScript schema v1 and then you you make a breaking change in v2? How would it handle that? or is that something that isn't allowed ?" }
+  - { t: 3104, text: "I don't know yet. This is something we could experiment with. But I do know the rayfin project decides what the what the schema is inside the project." }
+  - { t: 3114, text: "you'll notice here if we go into the rayfin folder inside the data item, there is a schema ts and there's a to-dos ts. The to-do ts is the" }
+  - { t: 3127, text: "definition of ID, title, is completed, and this is the definition of what we're building to add columns or columns that are in the SQL database. to your point, Matias, it's a define the" }
+  - { t: 3138, text: "schema, let the let the app work out what it needs to build on the back end, ? That's I think the the principle here is define this and give" }
+  - { t: 3148, text: "out the table here. to your point, what should we do? Should we add another one in here? No. , what I'm saying obviously adding columns is is straightforward. what what" }
+  - { t: 3158, text: "I'm saying if you had a a a breaking change for instance a user ID change it to a number which obviously in SQL world is incompatible" }
+  - { t: 3168, text: "assuming that that translates from SQL text column to a SQL int column or that's a very very traditional problem that datadriven" }
+  - { t: 3179, text: "applications have had to deal with for decades and given that obviously Raven aims to be simple and and and low-key. I" }
+  - { t: 3190, text: "really wonder, , what is the behavior for for those kinds of hard real world problems?" }
+  - { t: 3203, text: "Let's just see what it does. , I'm going to make to your point, I'm going to add a column as a number inside the string. I'll do that real quick. We'll save this. I don't know this will" }
+  - { t: 3213, text: "change anything. Honestly, I'm curious of if I add another column here, will it update again? , I'll go back over to the terminal again and we will in the terminal do a mpx raffen up. Raen up." }
+  - { t: 3228, text: "I don't know if that will recreate or update that item. , I I don't even know Matias how you would update definitions here. we're defining this entity object" }
+  - { t: 3238, text: "here and we're giving it additional an additional column. Is the agent is it going to be smart enough to figure that out? Oh, look. Here we go. , static build" }
+  - { t: 3249, text: "command. We got some errors here. Oh. All . , there we go. That's our answer. . . Which is good because I was expecting that, but it's also seems a very" }
+  - { t: 3260, text: "conservative approach in saying, , if if you're doing something that we can't handle easily, we're just going to fail on your behalf. . it sounds that would be just a" }
+  - { t: 3270, text: "failed deployment. it won't deploy and just fail for you automatically, but it it giving pretty decent build a fix build errors. It does call out the line in the to-do app. It's" }
+  - { t: 3282, text: "asking for the number. Oh, what? Hold on. Maybe I have it written wrong. Number with exclamate. It looks the format's correct. I don't think there's anything else here" }
+  - { t: 3292, text: "that I would need to. Anyways, this would be a good question. Throw it at your agent. Say, fix it. Add a new column. or if I just add a new column in the database called number that is a text" }
+  - { t: 3302, text: "field, ? would that solve the problem as ? that's there's probably a number of things here that you can work through and define schemas to help you build out things on top of the app. But I do know in our" }
+  - { t: 3313, text: "previous video, not the one yesterday that I did, it gave a little diagram of how this is all working. it's rafin app talking to GraphQL. GraphQL talks to SQL database. that" }
+  - { t: 3324, text: "the GraphQL element is in the middle there. And if you want to see what that looks when I say GraphQL inside the fabric databases that we have attached for this app, you'll see here there is a" }
+  - { t: 3336, text: "new API for GraphQL. this is inside the SQL database. When you click on this, this would let you build APIs on top of this a this GraphQL that we could" }
+  - { t: 3346, text: "talk to the app. this doesn't this means you can use a REST API and you don't need to have packages and libraries and DLS installed in your application. you can just talk directly to the database using an API call which" }
+  - { t: 3357, text: "I think is quite smart and and very brilliant here. love this feature. I don't play with it enough. I need to do a bit more work there to play with those GraphQLs. Anyways, that's it." }
+  - { t: 3367, text: "Exciting. Anything else we should talk about on this demo today? I think we've exhausted it. We yeah" }
+  - { t: 3378, text: "we we've managed to break it which is [laughter] also we're starting to test the boundaries of what what's possible. Absolutely. this is the f the last of the four" }
+  - { t: 3388, text: "versions of Rayfin. And this is the there's four templates. If you want to go back and look at our history, we have a whole bunch of other videos you can find on powerba.tips and through the" }
+  - { t: 3398, text: "agentic thinking podcast. We've done all the templates that we have out today. There is another four templates that are going to be existing inside awesome Rayfin. It's another website I'll call out here as . It's also in the the" }
+  - { t: 3409, text: "liner and description of the notes here. Awesome Rayfin is a another communitydriven template-based solution. we've already done the IBCS trainer on on top of that which is a" }
+  - { t: 3421, text: "game. you can see it here in the app if you wanted to see that as . This is another template that we played with earlier which is the IBCS trainer. And this is" }
+  - { t: 3433, text: "a game that exists inside fabric which is slick. you can do a game here and then press enter to continue. And it should. Let's see if I can move all these stuff out of the way and" }
+  - { t: 3443, text: "minimize this a bit. . let's see if it'll let me do enter here. It's not really giving me all the details. Oh, there we go." }
+  - { t: 3456, text: "I'm a little character that I can then run across the screen and do things. , not not easily in my VS code. anyways, a whole game I that is someone has built out as . All thank you all much and" }
+  - { t: 3468, text: "we'll see you next time. That's the wrap for today. Our demo for today. Thanks Matias. It's great talking to you and we'll be talking to you in the near future. Cheers everyone. Bye everyone." }
+
+---
+
+## Summary
+
+Mike and Matthias open with agent news, including Microsoft SkillOpt and why teams need measurable ways to benchmark and tune skills across models, harnesses, latency, and token cost. They also unpack Anthropic’s Fable pricing and retention tradeoffs, with a strong emphasis on model routing and choosing fit-for-purpose models instead of always defaulting to the most expensive option. In the second half, Mike walks through the fourth Rayfin template: an authenticated Fabric to-do app with per-user row security. The demo covers practical workflow details in VS Code, template skill differences, local-vs-service behavior for semantic model access, and what happens when schema changes break deployment.
+
+## Key Takeaways
+
+- ▸ SkillOpt is framed as a way to scientifically evaluate skills by comparing outcomes, latency, and token usage across models and coding harnesses.
+- ▸ The hosts stress that “good” skills require explicit success criteria and repeatable benchmarks, not just anecdotal demos.
+- ▸ Fable is discussed as potentially better on some tasks but notably more expensive, making model routing and cost-aware usage essential.
+- ▸ Rayfin templates are not identical: the data app template includes extra skills and tooling (like Playwright) beyond the base Rayfin skill.
+- ▸ For semantic-model-connected apps, local development can be limited; deploying to Fabric and iterating against the hosted app can be a practical workaround.
+- ▸ In the live test, a schema change triggered a failed deployment, highlighting that strict schema handling is an important boundary to validate early.
+
+## Links
+
+- ▸ [microsoft.com](https://www.microsoft.com/en-us/microsoft-fabric/features/rayfin?utm_source=agentic_thinking&utm_medium=website&utm_campaign=20260613)
