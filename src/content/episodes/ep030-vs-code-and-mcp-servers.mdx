@@ -1,0 +1,154 @@
+---
+title: "VS Code and MCP Servers"
+episodeNumber: 30
+date: "2026-07-17"
+youtubeId: "nGAfWPq-DW8"
+duration: "20:56"
+blurb: "A desktop walkthrough of the Power BI modeling MCP server: wiring it into VS Code, connecting an agent to a local Power BI Desktop file, and then to a semantic model hosted in powerbi.com."
+tags: ["agentic thinking", "youtube"]
+chapters:
+  - { t: 0, label: "intro" }
+  - { t: 48, label: "power bi desktop and VS code setup" }
+  - { t: 121, label: "turning on the power bi MCP server" }
+  - { t: 312, label: "prompting the agent to connect" }
+  - { t: 425, label: "tool approvals and autopilot" }
+  - { t: 498, label: "listing and suggesting measures" }
+  - { t: 646, label: "fixing the date range and reviewing measures" }
+  - { t: 861, label: "connecting to a model in powerbi.com" }
+  - { t: 1013, label: "authentication and workspace names" }
+  - { t: 1212, label: "wrap up" }
+transcript:
+  - { t: 16, text: "Hello and welcome back to another Agent Thinking episode. I've got a quick demo today. We're doing a quick demo around just generating the Power BI MCP server and working with VS Code to get that set" }
+  - { t: 26, text: "up. I had a couple questions recently from some users. They were asking , \", we saw how you did the MCP server with Azure DevOps or GitHub. We'd to" }
+  - { t: 37, text: "see that how you would do it on your desktop. How do you work with it? , this is a quick demo around that. With that being said, let's get down to our desktop and let's show you what's going on. there are a couple ways to use the" }
+  - { t: 48, text: "Power BI MCP server on your computer. What you see here is my desktop and I have a opened version of Power BI Desktop. Inside Power BI Desktop, I have" }
+  - { t: 59, text: "a semantic model over here on the -hand side. We can observe the model and it has some folders and some measures in it over here on the -hand side. You can see this." }
+  - { t: 69, text: "what we're going to do is we're going to connect the our agent. We're going to use in this case, we're going to use VS Code to connect to an MCP server that can talk directly to Power BI Desktop." }
+  - { t: 80, text: "In order to do that, we'll need to bring up VS Code. , this is my Visual Studio Code version here. Let me make it a little bit larger here we can see what's going on. I'm not going to use the folder area." }
+  - { t: 91, text: "That's not something that we're going to need to utilize at this time I can minimize that window. If you want to bring up your Copilot, you can use control shift I which brings up your Copilot" }
+  - { t: 101, text: "and I'm going to clear this and start a new task. We can mark all these other tasks complete. We don't need to see that anymore. These are all my old sessions and" }
+  - { t: 111, text: "because this is large, yeah, you're done. Mark it all complete. anyways, we'll let that all go. Go away." }
+  - { t: 121, text: "Archive all these, we're done. All , that being said, this is our new chat session here for our agent. We can select a couple options here in our agent. One of the things we do" }
+  - { t: 131, text: "need to do though, is we need to make sure that the Power BI MCP server is turned on inside VS Code. what I do over here is I click this" }
+  - { t: 141, text: "little icon, there's a little settings icon here in the bottom corner of the chat window. You click on this and this will bring up a menu and it'll show you all the different MCP servers that I've loaded" }
+  - { t: 152, text: "to my computer, but they're either active or not active for my current session with my agent. in this example here, I am looking at my different agents and" }
+  - { t: 163, text: "I don't have the Power BI modeling MCP server. If I want to turn this on, I need to check the box here and select that this option is turned on." }
+  - { t: 175, text: "Clicking the option of the box and in order to make sure all the tools are loaded, I need to click on the update tools item and it will then bring me all the" }
+  - { t: 185, text: "different items this can do. , each of these items here is a tool that my agent will be able to use and communicate and talk directly to a model. again, we have Power BI Desktop" }
+  - { t: 196, text: "running locally on our computer, which means there is an Analysis Services model running on my local machine via Power BI Desktop. My agent is inside VS Code and I'm just turned on the MCP" }
+  - { t: 207, text: "server. I'll click and I need to be able to prompt my agent. We're going to start a brand new session here." }
+  - { t: 217, text: "Let's see if I can get rid of all these other messages. , great. All , next we can select what agent we want to use. I have found pretty good usage around Claude Sonnet 5 or Opus 4.6. These are two" }
+  - { t: 229, text: "agents that I use fairly regularly with using VS Code. you could pick other agents as . I find when I'm working with the semantic models, I a little bit higher-end model. it" }
+  - { t: 239, text: "seems to do a better a bit better job of reasoning and thinking through what I'm going to be building here. , we're going to try this with Sonnet 5. If I don't get the results I want, I might switch over to 4.6 or 4.8 to get a" }
+  - { t: 250, text: "little bit better modeling reasoning. . The other thing we want to make sure is if you don't see that MCP server inside your menu, you may need" }
+  - { t: 261, text: "to go add one. over here, if I go to extensions inside VS Code, I can search for Power BI MCP," }
+  - { t: 271, text: "and there should be an item in this list called Power BI MCP Modeling Server. this is the tool that I'm using. This is the MCP server that I have" }
+  - { t: 281, text: "installed into my VS Code, and that's what came down in the menu. , if you don't see that in your menu item, you need to go install the extension directly from the store, and that's how you find it as . ? We're going" }
+  - { t: 291, text: "to close that out. We already know what we're doing there. And then, because I want to maximize my usage screen, if you click this little icon in the upper -hand window here, you can" }
+  - { t: 301, text: "maximize your chat session and make it full screen. I'm going to maximize my chat session, and I have that fully centered here. Next, I need to tell my agent" }
+  - { t: 312, text: "how to talk to Power BI Desktop. the next thing here is how do I communicate with my agent, and how do I get it to connect to Power BI Desktop? here, I can directly talk to my" }
+  - { t: 323, text: "agent, and I'm going to attempt to write a little message here and ask the agent to find my file, which is called star model. It's a star diagram. ," }
+  - { t: 333, text: "that's my star model. , I need to know that when I'm talking to my agent here. Also, I to use this little chat icon. There's a voice chat inside VS" }
+  - { t: 343, text: "Code, which you can use, which I absolutely love. I talking to my coding tools more than I typing to them nowadays." }
+  - { t: 356, text: "I would to connect to the Power BI Desktop file using the Power BI MCP modeling server." }
+  - { t: 372, text: "I'm going to adjust my words here. I think I said them out of out of step here. I'd to connect to the Power BI Desktop to a Let's just do it to a Power BI Desktop file using the Power BI" }
+  - { t: 383, text: "modeling MCP server. I'm going to use it the exact name. It's backwards, but that's what they name it. And the file name is called star model. we'll see if it can get this. ," }
+  - { t: 395, text: "this in combination with the MCP server that we have here earlier. You can see that we have it turned on Power BI modeling MCP. This should allow the agent to" }
+  - { t: 405, text: "understand how to connect directly to this model locally. , if I click return here or send, I'm going to send this over to my agent and we'll let my agent think for a bit about getting this" }
+  - { t: 415, text: "modeling running. It should be able to use the server. It should understand what's going on here. it's first it's looking through the connection tool. It's checking. Hey," }
+  - { t: 425, text: "I think I found this modeling MCP server. Let's establish the connection. Great. this happens to me all the time and I forget to turn this off all the time. Every time the agent wants to make a" }
+  - { t: 435, text: "command to read things or edit files or do something to your computer, there's this idea of a tool request. Every tool request, it is going to ask you or prompt you to to approve this. Do you" }
+  - { t: 446, text: "want to let it talk to your machine? You can allow in this session, that means the entirety of this session. You can click the drop-down menu and allow once in this workspace, always allow it," }
+  - { t: 457, text: "and then you can always allow other options here as . Or I can go down here to default approvals and I can turn this on to auto autopilot. This is going to allow me to not have to say yes, yes," }
+  - { t: 468, text: "yes every single time. I can trust more of the agent and what it's building. since I've done this before and I kind of trust what the agent's doing, I'm going to click on autopilot on preview and then I'm going to allow in this" }
+  - { t: 478, text: "session and that way it as it makes additional tool calls, it's not going to ask me for permissions for every single tool call that we make here. first thing it's doing," }
+  - { t: 488, text: "it's running the connection, found it, found the port, found the connection settings, connected to the star model. great. we can start interacting with my semantic model." }
+  - { t: 498, text: "the idea of this is that is as easy as it is. You give it the prompt. I found you really need to be explicit about what you're saying to the agent. I want to connect to Power BI desktop file. I want to use the MCP" }
+  - { t: 510, text: "modeling server and you have to give it the file name very clearly. With those three really key pieces of details, the agent's really consistent on getting accessing and figuring out" }
+  - { t: 521, text: "how to use that server. Again, I really calling out the server the MCP modeling server directly because then it knows to use that in order to connect to the model. All . we can" }
+  - { t: 531, text: "interact with our model directly. I can say list all measures and then it will go through and it will make a tool call to go interrogate" }
+  - { t: 541, text: "what's going on inside the semantic model. It'll run that tool. It'll then go get the data directly from all the measures that are in my semantic model and there we go. it's able to talk to" }
+  - { t: 551, text: "my semantic model and make all the additional measures that we want here. I could also ask the agent to suggest we can and it's a a co-pairing pairing" }
+  - { t: 561, text: "code buddy . I could even talk to the agent and ask it to suggest some additional measures I may need in this report. I can click on the microphone." }
+  - { t: 572, text: "Please suggest some additional measures that might be useful to this report. I really want to focus on sales and sales performance." }
+  - { t: 583, text: "Again, your business, you're going to know how to directly talk to your models and build semantic models the way you want, but I find this is really interesting to collaborate with the agent and ask it to build various measures. Again, you" }
+  - { t: 594, text: "should always check its work, you should always make sure the measures are doing what you expect them to do, but I find this is a really interesting way of giving additional feedback to yourself as you're building semantic models." }
+  - { t: 605, text: "it's running a number of operations, it's looking at relationships, it's figuring out the tables, it's figuring out what columns are there." }
+  - { t: 615, text: "And it's thinking through some things, it's reasoning about what other measures might be relevant to what we're building here." }
+  - { t: 625, text: "it's doing something around discount rates, it's doing some same period it's doing some time bound calculations. , you can see here we can observe that the agent is using same period last year, it's trying" }
+  - { t: 635, text: "to identify some time period differentiations, which is great." }
+  - { t: 646, text: "it's going to build some structure here. One thing I will do double check because my semantic model has different time periods, I'm just going to go check my model here really quick and see what date ranges we've got going on here. ," }
+  - { t: 657, text: "2021 through 2022. I wonder if I still have the parameter here. I'm I'm shifting the date range" }
+  - { t: 668, text: "that it can be more current. I have it currently pushing 8 years ahead. 2026 I need it another 4 years, let's make that instead of 8, let's make that 12." }
+  - { t: 679, text: "And let's hit . Let's apply the changes. what I'm going to do is I'm going to reload my data, hopefully, and I'm going to hopefully push the calendar dates a little bit further." }
+  - { t: 693, text: "What did I do wrong? Oh, I have an issue in my sales model. Yes, I know what this issue is. The Power BI format, I'm using the standard Power BI format from inside Power BI. , bear with me here while I" }
+  - { t: 705, text: "fix this really quickly as my initial load data table does not have the table called sales. I believe there's a column issue in here" }
+  - { t: 715, text: "that we will go fix." }
+  - { t: 734, text: "Yep, here. . Hopefully that will run. Are we getting everything else to work? Seems we're working out. ," }
+  - { t: 744, text: "close and apply. I need to update my model. It's had some changes in since we've done some things here. , excellent. Let that run. While we let that update our model there, hopefully yeah. ," }
+  - { t: 755, text: "2026. This will help us with the deer the year date calculations that it's trying to do. I'm just pulling the dates a little bit forward here. . here it's suggesting some new measures. , all these new measures" }
+  - { t: 766, text: "are here. Wow, it did a lot. Profit margin, discount rate, transaction count, which is doing some row transaction counting. interesting. I also marked a dim date as the official" }
+  - { t: 776, text: "date table. Awesome, previously unmarked. This is required for the year of a year and year-to-date. Great, that's the stuff we want it to be doing. Very helpful. All . these measures are here. Let's go" }
+  - { t: 787, text: "see if we can find them . Oh, wow. It did a great job. , couple areas of that it built here. , even though I had the model make the changes, it made those changes. It" }
+  - { t: 797, text: "followed my pattern of trying to move some of those measures into the folders that we see here. , we can see here all those additional measures. , we still have some sales KPIs and then some" }
+  - { t: 808, text: "sales performance measures also being added here as . Interesting. the the real test here is does any of this work?" }
+  - { t: 818, text: "let's see here. average order value. All , let's just do that one. That one seems something that would work over time. Look at that. And we've got an average" }
+  - { t: 828, text: "order value. Again, we have to check all the data as the agent makes these things. they have sales prior year. Let's put that in there. yeah, we've got some sales prior" }
+  - { t: 838, text: "year, which would make sense. The 2016 dates would have sales from the prior year. That makes sense for me as . All . They seem to be working at an initial glance. I would probably review that a lot more. But we have the agent" }
+  - { t: 850, text: "building the measures for us directly in the model and with just a couple prompts, I got a a lot more information out of my model. . we can go back over here. , this is one way to connect with semantic" }
+  - { t: 861, text: "model, ? We have Power BI Desktop open and I'm using VS Code. The Power BI MCP modeling server can also connect to models that are in the powerbi.com service. , what I'm going to attempt" }
+  - { t: 872, text: "to do is I'm going to to attempt to create a new chat session and we're going to try connect our Power BI GitHub Copilot here to a model that lives in powerbi.com and" }
+  - { t: 883, text: "we'll see if it's able to connect there as . , first things first, let's create a new session. I'll clear this and and make a brand new session here as . we've got a new session for VS Code." }
+  - { t: 894, text: "And then I'd to go over to powerbi.com and go find the URL of an existing model that I have. , let me go pull up a powerbi.com. , let's go to app.powerbi.com." }
+  - { t: 905, text: "I'm going to go find this a similar data model semantic model and we'll see if we can connect to it and also grab some measures there as . go here. I'll go to my test" }
+  - { t: 916, text: "database. And I have this model over here in the service called another star model. Very similar design to what we have here. I believe the measures are slightly different and there's no folders, but we" }
+  - { t: 927, text: "can go into the semantic model. And what you'll notice is this model is the view of it is here. But I really want the URL. I want the" }
+  - { t: 939, text: "workspace name and I want the modeling name. what I'm going to do is I'm going to grab the entire URL. We'll copy that. We're going to go back over to VS code and I'm going to say" }
+  - { t: 949, text: "similar things, ? I want to connect to a model in the powerbi.com service using my MCP modeling server. And then we'll go that route. Let me click the record button here and" }
+  - { t: 959, text: "we'll try this again. I'd to connect to a semantic model that lives in powerbi.com. I want to use the Power BI" }
+  - { t: 970, text: "modeling MCP server to connect and make changes to this model. Here is the URL of the model." }
+  - { t: 982, text: "All , I need to paste my full URL there into the agent. And I will just also confirm that I just started a new session. I will confirm by clicking the settings, the configuring" }
+  - { t: 992, text: "tools button. We're just going to confirm that the modeling server is in fact still selected. Yes, it is. We should be good and then I can hit return." }
+  - { t: 1003, text: "And we will let the agent go connect directly to the model. All , we're going to let that think here for a minute." }
+  - { t: 1013, text: "it might require me to sign in. one of the things here too is before I was working on Power BI desktop. That's just local permissions for me on my computer with my agent in VS code. I may" }
+  - { t: 1023, text: "want to connect to a a model in the service. But if I connect to a model in the service, there's going to be an authentication required to sign me in." }
+  - { t: 1033, text: "And over here on my other window, you can see here this just popped up on a different screen and it's asking me, \"Hey, I need to connect to that model.\" I will use my Mike at Power BI Tips" }
+  - { t: 1044, text: "email account. It will authenticate me. , it's going to authenticate me there, which is great. And then, I'm going to turn on the autopilot approval here." }
+  - { t: 1055, text: "it's saying, it was doing the request, it found the connection, it found the server. , great. , I think we're connected. As expected, the XMLA endpoint needs the" }
+  - { t: 1066, text: "workspace name, it found it, here is the workspace name. oh, . , it's asking me not for the GUIDs, which is interesting. It'd be nice if this model was able to handle the GUIDs. , by passing it" }
+  - { t: 1077, text: "just the URL, it's asking me for, \"Hey, the workspace has a name and the semantic model dataset has an ID. I don't really have a way of connecting to those. Can you please give me those" }
+  - { t: 1087, text: "variables?\" , let me go back over to powerbi.com and I will directly connect using or get the agent the name of the model. , the" }
+  - { t: 1098, text: "name is star model and the workspaces it is in is called workloads-dev. it's asking me for this and this and not just the URL. ," }
+  - { t: 1108, text: "we got a little stuck there. Let's fix this. The workspace name is workloads-dev" }
+  - { t: 1118, text: "and the model name is star model. And I'll put those in quotes it knows that that is entirely of what I'm talking about." }
+  - { t: 1129, text: "Give it a little bit of extra context here. . , I will hit enter to send this back to the agent. Enter. . , that I've given it some" }
+  - { t: 1139, text: "explicit information about directly connecting to this model, we'll see if we are able to get it connected. All , connect" }
+  - { t: 1149, text: "successfully connected to the star model. , great. let me know what changes you'd . List all measures. let's see if it's able to list the measures from powerbi.com and to give" }
+  - { t: 1161, text: "you a comparison, I have the fact sales table and I have a handful of measures in some folders as . , I should see a similar result to what we saw earlier and there we go." }
+  - { t: 1172, text: "Great. You can also do the same thing we were doing in Power BI Desktop, which was once we've connected to the model, we're able to list the measures. You can ask it to make manipulations to tables, do" }
+  - { t: 1182, text: "formatting and changes, add documentation, add descriptions, move things into folders, all the really rich things that you need to do within semantic models. This chatting experience will allow you to directly" }
+  - { t: 1192, text: "talk to the model and it will make changes to the model. Again, models and agents are not always great. you definitely need to be careful" }
+  - { t: 1202, text: "when the agents are building things. It will build things for you, but you need to be mindful of what it is building and reviewing its output to make sure that it's all correct and acceptable." }
+  - { t: 1212, text: "All . That's all for our demo today. I hope you liked working with VS Code and directly connecting to the MCP modeling server and getting that" }
+  - { t: 1222, text: "information directly up into powerbi.com and in Power BI Desktop. Thank you much. We appreciate your time today. Have a great day. I hope you learned something new and fun today with our" }
+  - { t: 1233, text: "agentic thinking demos demonstration today. Thank you all and we'll see you next time." }
+
+---
+
+## Summary
+
+A solo demo answering a viewer question: people had seen the MCP server driven from Azure DevOps and GitHub, and wanted to see it running on their own desktop. Mike wires the Power BI modeling MCP server into VS Code, enables it from the chat settings, refreshes the tool list, and connects an agent to a semantic model open in Power BI Desktop. Being explicit in the prompt turns out to matter -- naming the target, the server, and the file name is what makes the connection reliable. The agent then lists measures, proposes sales and time-intelligence measures, marks the date table, and files everything into the right display folders, with a detour to push the model's date range forward so year-over-year calculations resolve. The second half repeats the exercise against a model hosted in powerbi.com, where authentication kicks in and the agent needs the workspace and model names spelled out rather than just the URL.
+
+## Key Takeaways
+
+- ▸ The Power BI MCP modeling server is enabled per session from the chat settings icon in VS Code, and the tool list needs refreshing before the agent can see what the server offers.
+- ▸ If the server is missing from that menu, install the Power BI MCP Modeling Server extension from the VS Code marketplace first.
+- ▸ Explicit prompts are what make the connection reliable: name the target, name the MCP modeling server, and name the file.
+- ▸ Autopilot approvals stop the per-tool-call permission prompts, which is worth turning on once you trust what the agent is doing in a session.
+- ▸ Pasting a powerbi.com URL is not enough -- the XMLA endpoint needs the workspace name and model name given explicitly.
+- ▸ The agent proposed useful measures and marked the date table, but its output still needs reviewing; a stale date range in the model quietly broke the time-intelligence calculations until it was fixed.
+
+## Links
+
+- ▸ [github.com](https://github.com/microsoft/powerbi-modeling-mcp?utm_source=agentic_thinking&utm_medium=website&utm_campaign=20260717)
+- ▸ [learn.microsoft.com](https://learn.microsoft.com/en-us/power-bi/developer/mcp/mcp-servers-overview?utm_source=agentic_thinking&utm_medium=website&utm_campaign=20260717)

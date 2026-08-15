@@ -1,0 +1,218 @@
+---
+title: "Loops with Agents"
+episodeNumber: 29
+date: "2026-07-14"
+youtubeId: "5jbsuigKJaw"
+duration: "32:07"
+blurb: "Fable lands in GitHub Copilot, Kimi 2.7 goes GA as the first open-weight model there, and Ollama Cloud opens up a free tier. The main segment separates the agent tool-call loop from \"loop engineering\" and asks what it costs to run."
+tags: ["agentic thinking", "youtube"]
+chapters:
+  - { t: 0, label: "intro" }
+  - { t: 60, label: "fable is back in the ecosystem" }
+  - { t: 196, label: "kimi 2.7 GA in github copilot" }
+  - { t: 315, label: "ollama cloud and open-weight access" }
+  - { t: 477, label: "what loop engineering actually means" }
+  - { t: 802, label: "the cost of running loops" }
+  - { t: 1198, label: "designing AI into real workflows" }
+  - { t: 1478, label: "idea abundance and the relevance bottleneck" }
+  - { t: 1733, label: "mental health and always-on agents" }
+  - { t: 1842, label: "wrap up" }
+transcript:
+  - { t: 17, text: "Hello and welcome back to another episode of Agentic Thinking. This is Mike and Matthias. We are here again to just discuss the news. We haven't done a news article in about a week and a half or . , of course, a" }
+  - { t: 27, text: "lot of news has recently come out. We wanted to discuss that and unpack this what this means for us building things inside Microsoft Fabric and us building software and even our" }
+  - { t: 39, text: "our general workflows. Matthias, welcome. Hello. Welcome back again. Yes, great to be back here. I've just been on vacation. ," }
+  - { t: 49, text: "have not been I've been fully offline . , I have not been as deep in AI world as as I usually have. lots of catching up for me to do as" }
+  - { t: 60, text: ". What have you seen in terms of cool news? there's a lot of news that had come out. And , much to my chagrin, last time we talked, I think it was on a Friday or" }
+  - { t: 70, text: "something that, or maybe it was a Thursday, again, Tuesday, I don't remember exactly what day it was. We have we're talking about, \"Hey, Fable has just recently been released.\" And then we dug around inside," }
+  - { t: 80, text: "GitHub Copilot. We looked at our Claude code subscriptions and it wasn't there yet. hours after we made that made that statement, it was \"Oh, a news article shows up and" }
+  - { t: 90, text: "Fable is here and we can see Fable's back into our ecosystem.\" , we can officially say Fable is back. We can use that tool. The the" }
+  - { t: 100, text: "government has released a little bit of that for us. And , with metered access, we can go use Fable. , that was one of the major announcements here. I've been using Fable quite a lot" }
+  - { t: 111, text: "and trying to experiment with it. Also, , try not to run out of tokens too quickly that I make my Claude code subscription inactive. How about you, Matias? What are you doing with Fable?" }
+  - { t: 121, text: "also Anthropic have extended the the use of Fable with a subscription, ? Cuz they said they they said that" }
+  - { t: 131, text: "it only during introductory period you would be able to use your subscription quota on Fable. and afterwards it's only" }
+  - { t: 142, text: "coming out of a cache that you at your account. but that's been extended . to be fair, I may have used Fable once or twice, but certainly not" }
+  - { t: 153, text: "extensively. It's It's very interesting from my point of view because we see two themes, ? on the one hand, we" }
+  - { t: 163, text: "get better and bigger and more expensive models Fable and and the whole 5.6 series from from OpenAI. it's" }
+  - { t: 175, text: "getting the the the the price point goes up. On the other hand, there's a lot going on around" }
+  - { t: 185, text: "alternative open-weight models, substantially cheaper ones, definitely catching up significantly. two very interesting trends" }
+  - { t: 196, text: "to to to follow, I'd say. And in that respect, it was very interesting from from from my point of view that Kimi 2.7" }
+  - { t: 207, text: "has is fully available in GitHub Copilot and GA as of 1st of July. I think that's the very first open-weight model they've" }
+  - { t: 219, text: "added there. I'll more All , I want to unpack this a little bit cuz this is this is new. , , Fable, it's been typically Fable, ChatGPT, and maybe some of Microsoft stuff, ? Those are the" }
+  - { t: 230, text: "models that are typically hosted through GitHub. This is interesting seeing open source models being competitive. And Matias, on the Kimmi model, it's the rate the spend rate the the credits" }
+  - { t: 240, text: "used. Have you played with Kimmi at all? Have do you see how the rates are the credits are being used with that model yet? I've used I I haven't used it extensively." }
+  - { t: 252, text: "again, maybe just a few times just to have a little play with it, but the the the the the the cost the price" }
+  - { t: 262, text: "point of it is substantially lower the the frontier models and it's is definitely ranking very highly in" }
+  - { t: 272, text: "various benchmarks. the only thing to note on Kimmi specifically, it comes with a relatively small context window relative. 250 or as opposed to a mile." }
+  - { t: 283, text: "Only 250. We were we were killing for 250 , , a month ago. That was Oh, wow. That's big enough for anything we need to do. And we've been tainted by this 1 million context" }
+  - { t: 294, text: "window. it's it's it's everything is a minimum of a million context window. Awesome. let me put that in the chat window. If you want to read about that announcement that came directly from Git" }
+  - { t: 304, text: "GitHub. Kimmi 2.7 code is generally available in GitHub co-pilot. You can then select that from your menu. it's an option for you inside GitHub code which VS code." }
+  - { t: 315, text: "Yeah, maybe a little plug in on in that context as . Ollama which is hopefully known to lots of people out there. , ," }
+  - { t: 326, text: "they're a provider for open weight models. mostly known for their local server. , usually" }
+  - { t: 337, text: "people use Ollama as a as a local engine. you download open weight models to your machine and then run it on your GPU. But, there's also Ollama cloud flavor" }
+  - { t: 350, text: "which allows use bigger models. , the ones you wouldn't be able to run on on your own local hardware." }
+  - { t: 360, text: "Ollama hosts them for you. , what's interesting, obviously that's a paid for" }
+  - { t: 370, text: "account, but they also have a free tier. I think completely free. you just need to sign up and you get an allowance to run, , some" }
+  - { t: 383, text: "cloud models on that free tier. And I have to say, , I used it quite frequently and I you get quite a lot out of it. , it's" }
+  - { t: 393, text: "definitely something , maybe I shouldn't say that publicly cuz more people might sign up there, but it's definitely something [laughter] to try out. if you want" }
+  - { t: 405, text: "straightforward and inexpensive access to alternative models. if anything, , just to have a play with them. one guarantee you get from Ollama cloud is" }
+  - { t: 415, text: "that nothing is stored or used for training. , it's completely safe from a data" }
+  - { t: 425, text: "retention point of view. excellent. I put a link here in as . , for those of you who are not familiar with Ollama, what it is, how it hosts things, a Ollama has traditionally been a desktop application" }
+  - { t: 436, text: "you run on your computer, download the models, run the models on your hardware with the Ollama desktop application. this is a new offering, I think the cloud version of Ollama," }
+  - { t: 447, text: "which is they'll run the models for you. They'll run it on their servers, and then you have a an OpenAI style pattern REST endpoint, ? You" }
+  - { t: 457, text: "can just talk to that model directly a normal OpenAI endpoint call. And then you can then talk directly to that model through their through their hosting of it. , if you want to learn more about that as , that is" }
+  - { t: 467, text: "in the chat window as . I'll have that here in the chat. It's talking about the Ollama cloud, and there's some details and documentation there as . If you want to go check that out." }
+  - { t: 477, text: "Excellent. I'm going to maybe switch shift the topic here a little bit. We've talked about this a while ago. I feel I'm getting feverish pace around this new" }
+  - { t: 489, text: "methodology, theory. I don't know what you want to call it , but everyone is trying to build loops. Everything on X I see is stop building" }
+  - { t: 500, text: "prompts. Don't prompt your AI anymore. Instead, build loops for everything. I believe we talked about this a while ago. There was a LangChain LangChain article that we had previously" }
+  - { t: 511, text: "discussed and shared as . I also found this other article from Andy Azmani talking about loop engineering as to be fairly useful to understand what" }
+  - { t: 521, text: "this is. I want to unpack. Is this hype? Is this useful? What's going on here in this loop engineering space? It seems it's getting more" }
+  - { t: 532, text: "volume on or noise in the social media space. What's your take on this, Matias? why don't we define terms a little bit, ? Because" }
+  - { t: 542, text: "is what makes an agent. , loops have been core to everything we're doing here ever" }
+  - { t: 553, text: "since the concept of agent came about, ? Because if you think about it How does an agent work, ? You've got a connection to LLM. You send a" }
+  - { t: 564, text: "prompt. You define tools. The your local harness advertises those tools to the LLM, and" }
+  - { t: 576, text: "the LLM may decide to invoke some of those tools, ? , it then talks back to your harness and says, \"Please run this tool with those parameters.\" And then the" }
+  - { t: 587, text: "local harness executes the tool, sends the tool result back to the LLM, and the LLM may either respond with the final message or it may request further" }
+  - { t: 599, text: "tool calls, ? , that's pretty much how an agent work. And And , that in itself is a loop," }
+  - { t: 609, text: "? , pretty much from the initial user prompt, and then going through a series of" }
+  - { t: 619, text: "tool call requests from the LLM until the LLM says, \"I'm done. This is my final message.\" ? , what" }
+  - { t: 629, text: "happens locally is is pretty much a loop. That's not what we're talking about in the current hype if you want with respect to loop engineering, ? the new loop engineering" }
+  - { t: 643, text: "theme or hype or whatever you want to say, this is more high-level. This is about what happens when the agent receives the" }
+  - { t: 654, text: "final result message from the LLM. Traditionally, that's the one that would have ended up with you as a user, ? you put the initial prompt in and then you had a bunch of tool calls. They" }
+  - { t: 665, text: "may have taken minutes or many minutes, and then ultimately you had a summary message and it told you, \"I've completed the task.\" you probably then, if" }
+  - { t: 677, text: "you're building software, you probably realize , none of that is working or something that or it's completely overstated how good it's been, and then you had to come up with a second loop to" }
+  - { t: 689, text: "say, \", you're lying to me. This isn't working.\" Or \", you've done You've done my request one and two, but" }
+  - { t: 699, text: "not three and four.\" Something that, ? And , loop engineering is another agent doing this on your behalf, ? figuring out" }
+  - { t: 711, text: "what to respond with in order to get to sort of a a a a higher goal here. And" }
+  - { t: 721, text: "coming back to your question, in that respect, this is a very, very valuable thing because it means we can afford to offload more substantial tasks" }
+  - { t: 731, text: "to agents and have higher confidence that they get completed in in a good way, ? , I don't think" }
+  - { t: 741, text: "this is this is a short-term thing. I don't think this is anything that's overly hyped. This is just natural evolution, Yeah." }
+  - { t: 751, text: "? In in terms of where we're getting to with respect to the the sophistication of of agentic" }
+  - { t: 761, text: "system, ? And it's just there's there's a lot of research done in that space . There are lots of alternative tools. and this is" }
+  - { t: 772, text: "absolutely something people need to watch and be familiar with because it's it's it's a significant stepping" }
+  - { t: 782, text: "stone. We don't know what's coming after loop engineering, but this is definitely something which will remain, I would say, a foundation. You" }
+  - { t: 793, text: "know, anything that comes after will build on top of it instead of replacing it. Sure. A lot of news I'm seeing also and maybe" }
+  - { t: 803, text: "this is in concert with this. I think we're starting to get to that token prices are starting to increase and and maybe it's gradually maybe we're getting a little bit less usage out of cloud code. I know GitHub has realigned their" }
+  - { t: 814, text: "pricing model that everything is credit based and even my internal company we're reevaluating is it is it only GitHub co-pilot are we joining GitHub co-pilot" }
+  - { t: 825, text: "with another subscription to offload some of the tokens when needed where we know which models we do we want to have access to to build out starting parts of the program are we" }
+  - { t: 835, text: "offloading I'm seeing a lot of people seeming to build Fables expensive to run. And it's it seems we're we're" }
+  - { t: 845, text: "starting to see the optimization phase of AI kick in meaning whether it's Loop engineering if I have a loop the we give it a task I want to build this website. Here's" }
+  - { t: 856, text: "some of the definition of success and this is what I want to do. The agent is supposed to read that information in a system and the goal of loopy engineering I think is" }
+  - { t: 866, text: "give it a task let the agent design its own list of requirements or list of how to accomplish said task go do work" }
+  - { t: 877, text: "evaluate coming back from that work did this task get accomplished is it working the way we said what tests do I need to run against it to make sure that it worked. And" }
+  - { t: 887, text: "as I look at this process I just see scariness of people employees showing up doing these Loop experiences and having one or two" }
+  - { t: 898, text: "or three agents running simultaneously and they're just burning tokens per minute over and over again and the agent builds something and then oops it didn't work I need to rethink this let's" }
+  - { t: 909, text: "go add it an issue and go fix it and then do another cycle and then that didn't fix it do another cycle let's try a different approach do another cycle I see potentially here" }
+  - { t: 921, text: "a heavy amount of usage on these tokens. And again, what I'm seeing on X particularly is a lot of users are trying to build this on local running models. Models" }
+  - { t: 931, text: "that run locally on your machine because then you're only paying for electricity. I'm not paying for tokens at that point. The pricing model has shifted. ," }
+  - { t: 941, text: "I don't know. I We'll see where this goes. I I love this idea of loop engineering. I'm cautious about the spend on credits or tokens to make it work or" }
+  - { t: 951, text: "effective. At the same time, I feel everyone's clamoring to optimize their entire AI stack to be more efficient. I'm seeing some large companies walk away." }
+  - { t: 963, text: "I don't know if you knew this one, but Matthias, Ford removed a bunch of employees, fired them in favor of AI. They have since hired" }
+  - { t: 973, text: "back a lot of employees cuz they're \", the AI didn't quite get us far enough with it. We need people in this loop to build stuff.\" , there are there are companies I think are starting to come" }
+  - { t: 983, text: "back. We talked about this a long time ago. Uber, I think it was, burned all their AI usage in the first quarter of the year." }
+  - { t: 993, text: "what are your What are your thoughts on this, Matthias? Do you see this optimization happening? Are you changing your own patterns yourself to run more local AI than" }
+  - { t: 1003, text: "cloud? What's What are you seeing happening here for you? And also, recently, , we had that mysterious company that apparently spent 500 million in a month just on" }
+  - { t: 1013, text: "on It was never named, ? But it definitely made the rounds in the news. Yeah, what you said, , with the" }
+  - { t: 1024, text: "potential of of agent swarms and and long-running loops, this is all great and fantastic if you don't have any cost con- constraints," }
+  - { t: 1035, text: "? If If AI were free, you could do incredible things, ? But single person. just me. ? Yes." }
+  - { t: 1045, text: "But the fact is that it's not free for anyone, or maybe only for very few, ? , it's I guess if you're Anthropic or , it it" }
+  - { t: 1055, text: "or if you are I guess if you are if you're a Microsoft employee and you you've got Yeah. full access to to code pilot without him, ?" }
+  - { t: 1065, text: "Yeah. But, , for the vast majority of companies and people out there, it's not. , this this is where this is this" }
+  - { t: 1075, text: "is where things get really, really hard, and this is where it becomes a real engineering it challenge, ? How how can you use" }
+  - { t: 1085, text: "all that AI power while keeping it affordable? And from my point of view, this is where the the suc-" }
+  - { t: 1097, text: "the success and failure will be divided moving forward in terms of" }
+  - { t: 1108, text: "how good companies are on on the engineering side here. how good they are in terms of" }
+  - { t: 1120, text: "finding the balance, ? Finding using the most expensive models very selectively, , when it's worth it," }
+  - { t: 1130, text: "and otherwise offloading tasks to cheaper or even free models, ? Yes. Yeah. And there's" }
+  - { t: 1141, text: "there's no simple answer for that, ? There there there is no template you can just apply. This is something which requires a lot of experimentation," }
+  - { t: 1152, text: "a lot of analysis that requires you to collect data, that requires learning, that requires" }
+  - { t: 1164, text: "optimization. if anyone wants to go into consulting , I think this would be a very very profitable one to go into because" }
+  - { t: 1176, text: "I would agree. There's There's a lot of work . There's an enormous need in that space, ? And if you think about it, with with a very good" }
+  - { t: 1188, text: "agent optimization strategy, you can you can make a huge difference when when at scale. I think this is also where the" }
+  - { t: 1198, text: "barrier for us to create various applications using agents or having agents to help us create things." }
+  - { t: 1208, text: "I think this is also where we can talk about, , the workflow of what we do in our business. If we just talk about Power BI and semantic models, ? We're We're going to have data, we're going to bring it in, we're going" }
+  - { t: 1217, text: "to run it through notebooks, we're going to get it in the lakehouse. From the lakehouse, we're going to build semantic models and ultimately in the reports. What does that workflow look in your business? Where do we apply AI in" }
+  - { t: 1227, text: "that? And is it something that Microsoft gives us where they're telling us where to use AI? Or do we decide, \"No, that's not really what we want. Instead, we want to just build a custom harness, custom AI, integrate AI into our flow.\"" }
+  - { t: 1239, text: "Is there specific things that in our regular day-to-day business process where we would want to talk to an agent? How would How would we incorporate that agent into our existing workflows? And I" }
+  - { t: 1250, text: "think that's to me really intriguing and I'm I'm almost coining the concept of a custom harness or custom harnesses for your workflow. Think about your workflow. Can" }
+  - { t: 1262, text: "you put a harness on top of some agent that helps that workflow run efficiently for that person, ? what does that look ? And I think there's a a movement here that I think" }
+  - { t: 1272, text: "I'm seeing in my company and in other organizations, which is we're we need to stop talking about let's just throw AI at every problem. Let's start talking about what business" }
+  - { t: 1283, text: "process, what workflow do we do day-to-day? And then let's dissect that and say are there pieces of this where people need to be involved and where there are pieces of this where AI needs to be" }
+  - { t: 1293, text: "involved. Let's ideate around how we would add AI into that system. Where does that fit? . And I think that's a better conversation to have because the outcomes are more" }
+  - { t: 1304, text: "measurable, you could give better customer satisfaction, the user of that workflow likes it better because you've incorporated AI strategically in the" }
+  - { t: 1314, text: "places. Just don't throw AI at the the whole solution because I think you're going to get a mixed bag of somewhat good, somewhat bad results and that's not helpful for anyone." }
+  - { t: 1324, text: "It's It's a process This is a design challenge Yeah. From that point of view. You need to be very good at analyzing and identifying what are common engineering" }
+  - { t: 1334, text: "processes for instance or or general business processes and then which ones can be handed to AI" }
+  - { t: 1346, text: "with great confidence. what guardrails do you put in? , what , where where do you have the most risk of being overly exposed" }
+  - { t: 1357, text: "to indeterministic outputs? How do you protect yourself, , by having human intervention there?" }
+  - { t: 1370, text: "Yeah. , when from from my point of view, , when last year lots of people said everyone's going to be unemployed because AI, I see loads and loads of opportunities" }
+  - { t: 1382, text: "for but, , those are hard problems, , they require they require a lot of determination, lots of" }
+  - { t: 1392, text: "really good engineering skills. , this this is where I would to see, the young generation heading into, as . there's a concern" }
+  - { t: 1402, text: "particularly with people about to enter the workforce, about is there us? I would say absolutely yes, but" }
+  - { t: 1415, text: "it's it's a very specific future, and you got to be you got to be ready for it. In in the era of when the internet showed up, didn't we have the same" }
+  - { t: 1425, text: "conversation? the internet was this really revolutionary technology, and everyone's , , information's going to be everywhere. Aren't we going to delete all libraries and never" }
+  - { t: 1435, text: "have them again? And, , you know, that YouTube comes out, let's just delete all movies, and we'll never have another movie again. , I think there's a little bit of sensationalism that comes along with" }
+  - { t: 1445, text: "some of these new technology patterns. and what we find though is that doesn't happen, ? It it still has a place. we still have libraries. There's still books around. The internet still has has has" }
+  - { t: 1456, text: "shifted a lot of what the workforce does . before that, I maybe was focusing more on manufacturing or other hard skills. , I do a lot with" }
+  - { t: 1466, text: "system design and this whole computer realm is changing. I think the same thing's going to happen for this AI space, as . . . Awesome. I saw one little cartoon" }
+  - { t: 1478, text: "that I just want to point out. I don't know if you've seen this one, either. It it it talks about two worlds, the world before AI and the world after AI. And the And in the world before, I'm going to bring it up here on my" }
+  - { t: 1488, text: "phone, I can correctly describe this photo. it's a meme or a it's a KCDC type infographic, I guess it would be what it would be appropriately called." }
+  - { t: 1499, text: "And if I go in here, before AI, there was a handful of people that had an idea. Before AI, there was a somewhat larger group of people required to execute." }
+  - { t: 1510, text: "Software developers, program managers, a team of people to build it. And then the usage was massive, ? Huge amounts of users using the product or the other" }
+  - { t: 1520, text: "piece of software, ? Think about your website, your Amazons. It takes a couple people to come up with the idea, a large team to produce and introduce it, and then a lot of consumers." }
+  - { t: 1531, text: "AI has flipped this, I think. And the whole after AI, we have everyone who has a idea. the audience of people have all moved over to the idea side. Everyone's" }
+  - { t: 1542, text: "got a brand new idea. , we could build this, or we could build that. The people you need to execute on the idea has shrunk . I don't need a full" }
+  - { t: 1552, text: "team of 50 developers. I can do it with myself, with with me and a handful of agents. Matias, you're doing you're building software. You have a whole company that runs. I'm I'm guessing a" }
+  - { t: 1563, text: "large majority of your company runs with agents. I've seen articles of the $1 billion company, a single entrepreneur running $1 billion companies with agents" }
+  - { t: 1573, text: "doing everything. Interesting. Would love to have that myself. Figure something out there. I don't know. Maybe we can get there. But then the other side of this is when you get down to the usage, because we" }
+  - { t: 1585, text: "have all this large proliferation of many apps and many ideas and much stuff being proliferated, what's good? Does any one idea or any one app" }
+  - { t: 1596, text: "garnish the amount of usage to be useful to anyone? It may be useful in its own , but if it doesn't have media and advertising and getting it out" }
+  - { t: 1606, text: "to the your app is just one of not just five, it's one of a hundred. . do I pick which is a good app to use ? how do I figure out the pricing, feature sets?" }
+  - { t: 1618, text: "It's a whole new ball game, I think. And I think this is AI has greatly improved our ability to be creative and and has improved the ability for us to land a lot of ideas. Me personally," }
+  - { t: 1629, text: "I've got many more ideas on my plate than I have completed projects anymore. , I have to rein in my own self to really hone in and get a project" }
+  - { t: 1639, text: "done. What do you feel, Matthias? Something that you're seeing as with AI? And maybe we should wrap on this final thought, too. Sure. , the bar is really, really high for something to get" }
+  - { t: 1650, text: "traction and be successful, ? It's That's true. the engineer the the the making bit of something is very easy. I mean, relatively not very, relatively" }
+  - { t: 1661, text: "easy. It has gotten simpler, ? Yeah. We have better tooling with agents to help us build more of that. Yes. there's certainly a proliferation Yes." }
+  - { t: 1671, text: "of stuff being put out. but what percentage of that is relevant? What percentage of that will remain?" }
+  - { t: 1681, text: "Yes. it's it's in a way, it's much more competitive, I would agree. Yes, I would agree. only competitiveness comes is is there for a different reason, ?" }
+  - { t: 1692, text: "Previously, it would have been because it would have been difficult and expensive to make something. Yes. That's no longer That's no longer the bottle neck . , it's the" }
+  - { t: 1702, text: "relevance and finding a market for something. And in a way," }
+  - { t: 1713, text: "that hasn't made it easier or better. It In a way, it's made it harder. I would agree. ? Yeah, I would agree with that. yeah, it's it's I think," }
+  - { t: 1723, text: "there's a real risk here for I think we need we should do an episode on on mental health" }
+  - { t: 1733, text: "because we talked about that offline at some point. Yes, we did. I think there's a real risk and it's it's worth ," }
+  - { t: 1745, text: "bringing bringing that one up because that degree of competitiveness Yes. is not for everyone. And , ," }
+  - { t: 1757, text: "we need to be very mindful of it and we need I think we need to talk about it openly as ." }
+  - { t: 1767, text: "Matthias, I think you one of the the talking sessions and when we were starting our friendship and we were trying to learning what what each one of us does and how we started connecting, I went to one of your talks" }
+  - { t: 1777, text: "at a conference one point and you were talking exactly about this topic. You had a really interesting talk around mental health and working through an engineering team and what does burnout look and you just felt" }
+  - { t: 1787, text: "empty at the end of the day and you needed to really take some steps to recharge and rethink your day-to-day patterns that wasn't burning you out. I think this is really true. And I'd" }
+  - { t: 1798, text: "also argue AI has made this mental health or balancing when I work with agents and when I don't, dude, they're on on the all the time." }
+  - { t: 1808, text: "If I just send a message to it via Teams or , with remote control through GitHub or Cloud Code, they're always there. I I'm finding myself leaving multiple Cloud sessions" }
+  - { t: 1821, text: "on my desktop in multiple repos open and just that I can go if I have an idea later on, I can go talk to my phone, ask the agent to go build a new feature or something or deploy a feature directly" }
+  - { t: 1832, text: "into my app. That's how I work . I have multiple I leave my desktop and still work on stuff when I leave. That's probably not healthy. We need to disconnect more. , that's probably a" }
+  - { t: 1842, text: "really good topic we should we should touch on the future. we could revisit your talk is there as . Anyways, all . , I hope you enjoyed this episode of Agentic Thinking. We just wanted to tickle your ears a" }
+  - { t: 1853, text: "little bit around agent loops. What does this look ? How are we unpacking this? We still have more to determine here. Let us know in the comments and in the the description or the chat this" }
+  - { t: 1863, text: "video, what do you want to see coming up this Friday? I'm thinking maybe we'll do a little bit of a MCP server, maybe connecting to a remote model inside powerbi.com, talking about" }
+  - { t: 1874, text: "manipulating some models. I'd love to share that. I had some questions come out. We did it inside github.com, but maybe seeing it inside your computer with VS Code might be another alternative pattern that we want to" }
+  - { t: 1886, text: "show as . , I'm prepared to share that. If you have something else you'd really to see or observe with us using agents inside Fabric, let us know in the comments. We'll take that as feedback and we could formulate what" }
+  - { t: 1896, text: "we're going to talk about on Friday. Matías, always, great conversation. Wonderful to have you back from vacation. I'm happy you're here and safe. Stay cool with all this hot temperature that we got going on, and" }
+  - { t: 1907, text: "we'll see you and everyone next time. Bye, everyone." }
+  - { t: 1917, text: "Agentic Thinking [music]" }
+
+---
+
+## Summary
+
+Mike and Matthias return to the news desk after a break, covering Fable's arrival in GitHub Copilot with metered access and Anthropic extending the window for spending subscription quota on it. Kimi 2.7 became generally available in Copilot on 1 July, the first open-weight model to land there, at a much lower price point but with a 250K context window rather than the now-expected million. They flag Ollama Cloud's free tier as a low-friction way to try larger open-weight models, with a guarantee that nothing is stored or used for training. The main segment separates the tool-call loop that has always been inside an agent from the newer "loop engineering" idea, where a second agent decides what to send back when the first one claims it is done -- natural evolution, they argue, rather than hype, but one whose token cost turns it into a genuine engineering problem. They close on designing AI into specific business workflows instead of throwing it at everything, the shift from execution to relevance as the real bottleneck, and the mental-health cost of agents that are always available.
+
+## Key Takeaways
+
+- ▸ Fable is usable in GitHub Copilot with metered access, and Anthropic extended the period in which subscription quota covers it rather than a separate credit balance.
+- ▸ Kimi 2.7 is the first open-weight model generally available in GitHub Copilot, at a substantially lower price point, though its 250K context window is a step down from the frontier norm.
+- ▸ Ollama Cloud hosts open-weight models too large for local hardware, exposes an OpenAI-style REST endpoint, and offers a free tier with a no-retention, no-training guarantee.
+- ▸ The request/tool-call/response cycle has always been a loop; loop engineering is the higher-level loop that decides how to respond when the agent reports a supposedly final result.
+- ▸ Cost is the binding constraint on agent swarms -- the engineering skill is using expensive models selectively and offloading everything else to cheaper or free ones.
+- ▸ Better tooling made building cheap, so the bottleneck moved from execution to relevance, and always-on agents raise a mental-health question the hosts plan to revisit in its own episode.
+
+## Links
+
+- ▸ [langchain.com](https://www.langchain.com/blog/introducing-openwiki-brains-general-purpose-wiki-memory-for-agents?utm_source=agentic_thinking&utm_medium=website&utm_campaign=20260714)
+- ▸ [addyosmani.com](https://addyosmani.com/blog/loop-engineering/?utm_source=agentic_thinking&utm_medium=website&utm_campaign=20260714)
