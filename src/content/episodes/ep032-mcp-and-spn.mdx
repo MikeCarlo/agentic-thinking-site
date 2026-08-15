@@ -1,0 +1,362 @@
+---
+title: "MCP and SPN"
+episodeNumber: 32
+date: "2026-08-01"
+youtubeId: "uusNnf-kviA"
+duration: "58:41"
+blurb: "A full walkthrough of connecting an agent to a Fabric semantic model with a service principal instead of a user identity, plus Opus 5, OpenAI's price drops, and the new MCP spec."
+tags: ["agentic thinking", "youtube"]
+chapters:
+  - { t: 0, label: "intro" }
+  - { t: 121, label: "opus 5 lands quietly" }
+  - { t: 373, label: "openai price drops for luna and terra" }
+  - { t: 587, label: "planning, prompting, and test harnesses" }
+  - { t: 872, label: "the new MCP spec and oauth hardening" }
+  - { t: 999, label: "demo: service principal and app registration" }
+  - { t: 1806, label: "workspace and admin portal permissions" }
+  - { t: 2291, label: "connecting the agent to the model" }
+  - { t: 2948, label: "secrets sent to the model provider" }
+  - { t: 3246, label: "DAX bench and evaluating models" }
+  - { t: 3483, label: "wrap up" }
+transcript:
+  - { t: 13, text: "Hello everyone and welcome back to a genetic thinking with Mike and Matthias. Hello everyone. Happy to have you back Matthias. Hello again. Haven't seen you in for a little bit here. We've been taking a little bit of time off for summer breaks." }
+  - { t: 23, text: "How are things going over in your neck of the woods? Yeah, nice to see you, too. we've we've both had some breaks. fully back in everything ," }
+  - { t: 34, text: "catching up as always with the news and announcements and and changes. whilst also making it through a very prolonged heatwave." }
+  - { t: 44, text: "True. yeah, it's it's been wild over here in Europe. As the young kids would say, you've been cooking over there. Indeed, yes. [laughter]" }
+  - { t: 54, text: "and metaphorically. Yes, exactly. All , before we get into our main topic today. the main topic today is I've been doing a little bit of experimentation with working with Claude" }
+  - { t: 66, text: "and then using the Power BI MCP modeling server and then also trying to understand how can I use a service principal name to go talk to the Fabric" }
+  - { t: 76, text: "XMLA endpoint. What does that look ? How do I do How do I use that locally or or remotely using the service principal name? I did some experimentation a couple weeks ago was looking at this and" }
+  - { t: 87, text: "thought this was an interesting topic. this means I can authenticate to a workspace. I can talk to a semantic model without having a user identity attached. Also means I don't" }
+  - { t: 98, text: "need to have a pro license attached to this either. this is just purely a service principal external not not directly linking me to a username or user identity, which this may be useful" }
+  - { t: 109, text: "for some purposes you have in your business. I thought I would share how to set this up and do it. that'll be our demo for today. Before we get to the demo piece of this and I share my screen and whatnot," }
+  - { t: 121, text: "we do have I think two worthy news announcements. first news announcement, we have a new model coming from out from Anthropic. their new model is Let me pull up my" }
+  - { t: 132, text: "notes here. It should be Opus 5 is coming out. Go ahead and do it. Yeah, how to even keep up with that, ?" }
+  - { t: 142, text: "Yes. Also, in a way it to me it seemed it it was a bit of a non-event. . I agree. If remember when when we went from" }
+  - { t: 153, text: "when we went to 4.5 and 4.6 and 4.7, each of those minor increments were big deals and there were, , it it" }
+  - { t: 166, text: "it there were significant changes coming. In my experience, Opus 5 was released With little fanfare. it yeah. obviously, there's Fable 5," }
+  - { t: 178, text: "which is generally available to most people. still at twice the price point of Opus." }
+  - { t: 188, text: "And I've heard some mixed reviews with respect to Opus. I have to say I'm very happy with Sonnet 5. Really? that seems to be a really good and" }
+  - { t: 199, text: "substantial workhorse at a very reasonable price point. , I've been I've been doing a lot on Sonnet 5 lately. have not felt any urge or" }
+  - { t: 210, text: "need to compare Opus , for anything heavyweight, I've been relying on Fable lately. there's an interesting graph , in the" }
+  - { t: 220, text: "article that that Anthropic puts out here, which I'll put in the chat window as , just in case you want to look at this. , here's the article from Anthropic that is talking about this" }
+  - { t: 230, text: "new release. , here's the here's the release here of the Opus 5. There is a couple graphs halfway down the page talking about the Frontier benchmarking," }
+  - { t: 240, text: "the cursor benchmarking, and the double A encoding agent index. And the reason they're highlighting this, I believe, is because they want to illuminate, ," }
+  - { t: 251, text: "more to your point, Matthias. , Sonnet 5 they didn't put on this graph, but, , as far as Opus, Fable, and Opus 4.8, the output or the" }
+  - { t: 262, text: "score seems to be very much higher, but the amount of token usage, , or effort, ? Cost in CUs or cost in USD, however you want to call that," }
+  - { t: 273, text: "is much is substantially less. , you're getting more performance for less price at this Opus 5 level, which I think is the message here a little bit. I think while people to use Fable 5, , for really hard things," }
+  - { t: 285, text: "it needs to be very strategically used for only extremely difficult planning, extremely difficult issues that you have, , and because people are starting to get to" }
+  - { t: 296, text: "this min-maxing stage of models, I think. Everyone wants to have the best-performing model with the least amount of cost. And , we're we're doing a lot of this, balancing act of," }
+  - { t: 306, text: "getting the most performance but yet the least cost. And maybe again, Matthias, I'd be curious to hear your thoughts on this one. Maybe the reason why Opus 5 didn't come out with a lot of fanfare is" }
+  - { t: 317, text: "I'm hearing a lot more news around Kimmy and recently. The open-source models coming from China seem to be garnering a lot" }
+  - { t: 327, text: "more excitement because they are performing much better with a way less usage on to , we're talking , dollars of usage on, ," }
+  - { t: 339, text: "Fable for the same output we can get for, 10, 20, 30 cents in these other models. , maybe the fanfare, a little bit of the wind is kicked out of here from the Opus 5" }
+  - { t: 350, text: "because these other models are coming to challenge. . , I'm monitoring pricing very closely. , it's" }
+  - { t: 360, text: "it's a bit of It's [laughter] a hobby . a hobby on my end. . All , what [clears throat] are you finding? before Yeah, before I talk about that, let me just sweep in another news item" }
+  - { t: 373, text: "which came in, I think, yesterday. Yes. Open AI announced really, really, really significant an 80% 80 1 8 0% price drop" }
+  - { t: 384, text: "for 5 6 Luna and a 20% price drop for Terra. Oh, interesting. that means Luna pricing is at 20" }
+  - { t: 396, text: "cents per million input and $1.20 per million output, which is insane Wow. compared to what else there is, ?" }
+  - { t: 406, text: "And , I'm saying that because, open weight and and and mostly Chinese models usually have won a lot," }
+  - { t: 418, text: "on on on the price front, but K3, which you just mentioned, , the latest Frontier Kimi model comes pretty close, , to where" }
+  - { t: 428, text: "our Open AI and Anthropic Frontier models are, ? , K3 costs $2.90 input and $14 output." }
+  - { t: 440, text: "this is surprise is no longer an advantage, K3 also that compares to 2.7, the predecessor, which" }
+  - { t: 452, text: "you can currently get for 74 cents input and 350 output. , definitely something to keep an eye on. But, I would certainly say Luna 5 GPT 56" }
+  - { t: 465, text: "Luna at at the 80% discounted price point, this is a very very very significant player" }
+  - { t: 475, text: "and really something to take seriously. Particularly when you look at the open AI announcement post which makes pretty big claims about the capabilities of Luna. from my point of view an" }
+  - { t: 487, text: "architecture should be use an expensive frontier model for planning, , have it create very detailed plans but then use Luna or mini or high crew, , a" }
+  - { t: 499, text: "model at that price point for execution. Yeah, and this is continually becoming the, , a mixed model approach is becoming the standard. It's essential for what" }
+  - { t: 509, text: "you're building these days. And I put the two quotes here. Terra is dropping by 20% $2 per million tokens, $12 per million output tokens and then Luna is the one getting" }
+  - { t: 520, text: "a huge price drop price drop. 80% for 20 cents per million input and then $1.20 per million output. That's huge. That really I think sets the stage for" }
+  - { t: 533, text: "these types of models really pushing out maybe I don't want to go over to Kimmy and Quinn. Maybe I should stick with chat GPT and open AI with what they're producing. I think this is going to" }
+  - { t: 544, text: "put a lot of pressure back on Anthropic to produce the same level of quality of models but at that lower price point as . This is interesting to see how this is the companies are" }
+  - { t: 554, text: "starting to fight for pricing on models which is interesting. . It also means for input tokens you have a 50x differential between Luna and" }
+  - { t: 564, text: "Fable. 5 theory, ? Insane. even even if it were 10x less efficient or less good" }
+  - { t: 576, text: "you'd still have enormous buffer, ? Very interesting. Does this change the math a little bit? does this and what I mean by does this change the math , if you" }
+  - { t: 587, text: "in the higher end models where you're spending more money, I want to get it the first time, first shot, no issues, ? With this pricing at this point, ? 80% less," }
+  - { t: 598, text: "that means I could have three or four passes on the same try without any additional cost of what it would cost me to do one shot with these" }
+  - { t: 609, text: "more expensive models. , even though the one the one expensive model may get you there, it may not not get you there, honestly. It may be wrong, ? , you may need two or three" }
+  - { t: 620, text: "iterations on those expensive models to have it output what you want or desire. I think this is really going to emphasize planning and better requirements." }
+  - { t: 631, text: "I've been having maybe it's an epiphany, Matias. I don't know if you feel this is the same thing for you. I feel I have been having a lot of conversations with clients and or with Tommy on the" }
+  - { t: 642, text: "podcast, sometimes people are , , I don't really want to trust the AI. I don't you know, I don't know if it's going to get it . I don't know if it's But, my question is I don't think it's the model's issue. I think it's your" }
+  - { t: 654, text: "problem. I I I'm beginning to think if Matias, if you can get your model to build you a really good app with proper tests and a good architecture," }
+  - { t: 665, text: "[snorts] if you're able to do that with the same model that I'm using or people , again, I'm looking at the the market of people using these models, other people are building great things," }
+  - { t: 675, text: "really impressive stuff. and I'm not necessarily able to build at that level yet. And , the only variable in that" }
+  - { t: 685, text: "situation is me, my planning and my prompting. If I was better at prompting and planning, I should be able to get the same level of output that you could or" }
+  - { t: 695, text: "other people will who who've been using it. , I I feel sometimes people say this , \"Oh, I don't know if the model's really going to be . I don't know if the model's going to build what I want. I'm not sure if it's secure.\"" }
+  - { t: 704, text: "I think the answer is your prompts are wrong. You need to learn more about prompting and using the AI better to get a better output. What are your thoughts to this?" }
+  - { t: 715, text: "I would I would rank it a little differently. I would , I , I in principle, I totally agree, ? Planning is, , it's totally" }
+  - { t: 726, text: "If if people haven't realized that yet, Sorry, I just ripped out my headphones. I was getting too [laughter] excited. here we go." }
+  - { t: 738, text: "If people haven't realized that yet over the last 2 years or , doing upfront research and planning , this this is what should be your main job ," }
+  - { t: 748, text: "? But, coming back to your point, personally, I would say" }
+  - { t: 758, text: "whatever you can provide your model in terms of a test harness or in terms of a verification tools, that will make the difference. And , I would rank that above a good" }
+  - { t: 770, text: "plan, ? you can have the best possible plan in the world. If the model isn't able to self-validate, if the model isn't able to let's say run" }
+  - { t: 780, text: "your app as a user would end to end, it will only ever get far, ? It if if if anything, it will do a a theoretical code review as opposed" }
+  - { t: 792, text: "to running something, observing it, and then iterating based on what went wrong. And , any agentic loop that's able" }
+  - { t: 806, text: "to rely on a really solid test harness, that's the one that will win, irrespective of which model you use. And if if if that's where you have a" }
+  - { t: 818, text: "better setup than someone else, then even a plan that's less detailed and less broad will not" }
+  - { t: 830, text: "will not matter really. Hm, it's interesting. Yeah, I feel regardless, I I feel I'm still in this world of I still don't know enough to be I'm still" }
+  - { t: 841, text: "feel I'm learning a lot of things. And and things are changing quickly. I'm constantly trying to refine how I talk to the AI, what loops I put in place, how I build things with it." }
+  - { t: 852, text: "there's this whole graph thing that's showing up . we don't loop things, we use these I don't know. I got to get more my my head around it a bit more I understand I can talk about it more intelligently." }
+  - { t: 861, text: "I don't want to jump off on a on a an edge here. . Any other news items that we should discuss here? I think we had maybe one more I thought was really interesting. We" }
+  - { t: 872, text: "have one more article here around bringing your MCP to the latest version. my understanding of this article, and I'll put this one also in the chat as . this is going to be in the" }
+  - { t: 883, text: "chat window. It's also in the description of the video if you want to go check this out as . This is bringing the MCP 2026-07-28. that's this month's update." }
+  - { t: 894, text: "There's a new spec specification for the MCP servers that you're building. the key notes of this article are there's a stateless core. the MCP moves" }
+  - { t: 905, text: "from a bidirectional stateful relationship into a stateless request and response type model. there's a there's some specification on that, which I think will be useful. it's a" }
+  - { t: 915, text: "supposed to simplify the experience of building your MCP servers for Claude and scaling your usage of them as you grow and use them in more in adoption. agent sessions, multiple" }
+  - { t: 927, text: "sessions, how do you have this stateless type MCP server where you could have a a team of agents using MCP servers and and leveraging them." }
+  - { t: 937, text: "the other area here they talk about a standardized extension. And then they're talking about off hard-hardening, which I think was another problem I had a lot with these MCP servers. Where do you store credentials? How do" }
+  - { t: 948, text: "you how do you use these MCP servers in a secure way? I thought this was probably the more relevant part of this update, which was authorization will align with OAuth" }
+  - { t: 958, text: "2.0 OICD deployments. , MCP servers can connect to the enterprise identity systems. And they specifically called out Entra" }
+  - { t: 968, text: "as one of the off models that they're looking to integrate more closely with, which I was very happy that Entra is being directly called out as part of this because I think this" }
+  - { t: 979, text: "enables us as Microsoft shops and people who use Entra ID for a lot of things, this will definitely ease the ability for us to use Entra more with our MCP servers, which I think is extremely" }
+  - { t: 989, text: "useful. You planted as a great segue into your service principle demo, ? [laughter] with that being said, I do want to ," }
+  - { t: 999, text: "let's go over to the demo side where I'll bring up my screen here and let me share my screen here on my computer. let me do that here. We'll do this one and we'll share my screen." }
+  - { t: 1009, text: "Yes, I do want to share this directly. today I want to show to users. I want to illuminate exactly how we are able to use service" }
+  - { t: 1019, text: "principles. , I I want to be very clear. I'm going to bring up the documentation here from Microsoft. this is the get repo for the Power BI MCP modeling server. , this" }
+  - { t: 1029, text: "is the MCP modeling server that we're talking about today. one thing I was interested in understanding was can I use this in concert with a service principal? , that would have That" }
+  - { t: 1040, text: "would mean can I use this MCP modeling server without the context of a single user? if I do S service principal." }
+  - { t: 1051, text: "you'll notice here in the documentation there is some environment variables. You can use this MCP server when you supply the client ID, a" }
+  - { t: 1062, text: "tenant ID, a client secret. And these will all work with the service principal and you're using the MCP mode of off mode equals service principal." }
+  - { t: 1073, text: "when you use that as a parameter to connect to the MCP server, you're able to use a service principal and not the identity of a user. This could be used in automation scenarios. For this example here, I was just trying to use a" }
+  - { t: 1085, text: "MCP server without the need for a user. that was one of the areas that I was trying to explore here. , the demo for today is going to be how do" }
+  - { t: 1096, text: "we get my VS code to run with this service principal using an MCP server and what things do I need to set up inside Fabric? And what things do I" }
+  - { t: 1107, text: "need to set up locally to get all this to work together correctly? , that's going to be our goal here. We're going to set this up. All , this being said, I'm going to start over here with a very clean VS" }
+  - { t: 1116, text: "code here on my computer. I will call out on my extensions for VS code here. I do have inside my VS code Power BI" }
+  - { t: 1128, text: "the MCP modeling server is installed on my VS code extensions. , it's already here. This is already added into my model, which is great." }
+  - { t: 1138, text: "I do not have a folder attached. , in true fashion here, I'll I'll drag a folder here to this library. , let me just drag this folder into my VS code. This will then open up the folder." }
+  - { t: 1148, text: "This will become my workspace and how I work directly with this VS code workspace here. that I have this" }
+  - { t: 1158, text: "because I to use those with Git, I'm just going to go over here to my Git. Let me just trust this folder cuz I just made it." }
+  - { t: 1168, text: "All , close that and it should just be able to initialize my Git repo. , I'm going to just initialize it here locally I can track changes on my files. We'll initialize this and then I'll just" }
+  - { t: 1178, text: "do an initial commit here to get things started. do initial commit. Let's do that. Check that in." }
+  - { t: 1188, text: "Oh, I don't have any files yet. , let me just make a Git ignore here. We'll do that really quickly on our files." }
+  - { t: 1198, text: ". Let's get Claude up and running here. you can use VS Studio Copilot or you can use Claude Code. I'm probably going to try this with with" }
+  - { t: 1208, text: "GitHub Copilot here first. We'll see what we can get here. make a Git ignore file." }
+  - { t: 1218, text: ". We'll let it do its thing here. While we're working through this, this is just getting VS Code set up while it is building out this on my local computer here." }
+  - { t: 1229, text: "I do want to highlight let's go look at a model that we have in the service. , here's the the principal here. I have a workspace. This is very small." }
+  - { t: 1239, text: "Let's zoom in here a little bit. I have a workspace and inside said workspace I have a star model diagram. This is a model that I'm going to go work on. I want to go connect to this," }
+  - { t: 1249, text: "but I don't want to add a user to this. I want to add a service principal name. , there's a couple things we have to set up inside Microsoft Entra and inside the workspace" }
+  - { t: 1260, text: "to get things started here. All , let's see if this thing was able to make my Git ignore. Let's just let it autopilot while we're doing demos here. Great." }
+  - { t: 1270, text: "All , it should give me here's my folder. There's my get ignore. , great. I'll make my initial commit. Just I have something here to get started. , great." }
+  - { t: 1281, text: "All , we're good to go. All , what what I'd to do is I'm going to talk to my agent here locally. I'm going to try and get some things set up here in VS Code. one thing I'd to do is I'd to be" }
+  - { t: 1290, text: "able to create an MCP server here locally. I do need to set up some environment parameters. per the documentation, I'll bring it back over here." }
+  - { t: 1300, text: "We need to have these three things: client ID, tenant ID, and the Azure client secret. These are three things I need to have it established. what I'm going to do is I'm going to have the GitHub Copilot generate for me a .env" }
+  - { t: 1312, text: "file or a place where I could securely store these things on my machine without having it published up to the Git repo or having it shared. this is going to be local to what I'm building" }
+  - { t: 1323, text: "here directly. in order to do this one, I'll copy this URL. I'm going to go back over to VS Code. I'll start a new chat session and I'll say I'll talk to it and I'll tell it" }
+  - { t: 1334, text: "what we want to build here. Oh, it's downloading a new speech-to-text model apparently. , let's try again." }
+  - { t: 1346, text: "Hm. I've never seen that before. All , I'll just I'll type it out then. Let me try the Windows H version. I'd to build a Power BI MCP modeling server connecting to a model in" }
+  - { t: 1358, text: "a workspace but using the service principal authentication pattern." }
+  - { t: 1368, text: "All , let I'd to send it to the Let's see here. I'd to use the Power BI MCP modeling server connecting to a model over here. . I'll also guys I add here using this documentation" }
+  - { t: 1379, text: "set up a .env file for me to use with this. All , I'll put the location of the link here and we'll hit run. , what" }
+  - { t: 1391, text: "I'm trying to prompt the agent to do here is set itself up that it can use the MCP modeling server. It'll have the secrets, it'll have the client's ID, it'll know how to connect to the model directly through this as ." }
+  - { t: 1402, text: "here it's going to be reading the page. it's getting some information." }
+  - { t: 1415, text: "let me put the autopilot on. We allow allow it to run. it's adding some items here. it's added a bit too much." }
+  - { t: 1426, text: "it it read the article. It made me the the .env file. Oh, , it's only holding the three things. , it it added extra things for certificate-based" }
+  - { t: 1436, text: "authentication, the certificate path. we're not using any of this stuff. it did catch the three the three things that we care about, which is the tenant ID, the client ID, and then your" }
+  - { t: 1446, text: "client secret, which is something we have to build inside Entra ID. when registering the MCP server, pass this authentication principal in the arguments. , yep, da da da da." }
+  - { t: 1456, text: "sounds good. we'll keep this file. I think this looks good. , this is the setup what my agent's going to use here locally. And then what I'm going to do is I'm going to go set up that app" }
+  - { t: 1467, text: "registration. , let me show you how to do that over inside Microsoft Entra ID. I go over to Azure portal. I'll go here to the home page. can I Do you mind if I just feed in one" }
+  - { t: 1478, text: "thing here? 100%, please do. cool. , and I wanted to make that point because this is a very very big security risk. the .env file" }
+  - { t: 1490, text: "is not automatically secure or safe, all ? You need to make sure that you explicitly put a rule into your Git ignore" }
+  - { t: 1500, text: "that .env files are ignored, ? you happen to have that here, but you don't get that" }
+  - { t: 1511, text: "automatically, ? You have to make sure that's the case. you can't assume that only because you're creating a .env file that that's not going to be leaked." }
+  - { t: 1521, text: "And I'm saying that because I've seen it too often, ? and and and" }
+  - { t: 1533, text: "you need to have your Git ignore file set up before you save anything to your .env file. very important, ? if you do it the other way around, it may be too late and you may already" }
+  - { t: 1544, text: "accidentally have published some stuff. just wanted to make sure that's on record." }
+  - { t: 1563, text: "just for folks to understand, how did you get the Git ignore file populated? I talked to my agent and asked my agent to my first step here was set up a Git ignore file. I just" }
+  - { t: 1573, text: "said, \"Hey sorry. Yeah. env setup.\" I did the env setup and I had the create Git ignore file. I just told my agent, \"Hey, make me a" }
+  - { t: 1583, text: "Git ignore file.\" And it read it and it automatically populated a lot of extra things in here for just standard functions, .net, Terraform, just other things that it knows not to check in. I just" }
+  - { t: 1594, text: "arbitrarily said create a .env file and this is what it came up with, which is neat because it did grab all these security things. It gave me a list of things that it doesn't want me to put into my repo, which is good" }
+  - { t: 1605, text: "practice. Cool. But also for everyone to understand, what goes into your Git ignore file heavily depends on your actual type of project and your tool chain, ?" }
+  - { t: 1617, text: "there there is no single standard getting no file. There is one that works for each tool chain . Excellent. All . Great call out. All , that being said, we'll go back over to our" }
+  - { t: 1632, text: "our service here. let me go over and find where , here's Entra ID. we're going to go over to powerbi.com or sorry, the Azure portal. we're going to go to portal.azure.com and in here you're going to either" }
+  - { t: 1642, text: "search for or if you have it already selected, we're going to go after Microsoft Entra ID. That's where we're going to go into this service. we'll click on Entra ID and what we need to create here on the left-hand side is the" }
+  - { t: 1653, text: "item called an app registration. This is what we're going to go after. we're going to go after the app registration and then I'm going to create a new app registration here. we'll create a brand new one." }
+  - { t: 1664, text: "And then here I'll just say demo MCP. That'll be good enough for . nothing else needs be set here. You" }
+  - { t: 1674, text: "can just register this as is. ? This will then automatically produce a couple things that we need. two of the items that we care about are the application, the client ID, and the" }
+  - { t: 1685, text: "tenant ID as . These are two items that we will capture. I'm going to copy these in and put these directly into my file here. the Azure tenant ID and client ID I think I just copied" }
+  - { t: 1697, text: "the client ID. We'll put the client ID here. Your client ID here. let's do that. Save. And then the tenant ID" }
+  - { t: 1707, text: "will be the top one. And then we'll put your tenant ID here. that. The next thing we'll need to do for this particular app registration is we'll need to add the secret here, which I" }
+  - { t: 1717, text: "will not show you. but I will go grab it and I'll show you how to do it in the portal. In the portal, we go into the app registration, we will click on the section named certificates and secrets" }
+  - { t: 1728, text: "on the left-hand side here. We'll click on that. And then here you'll see that there are you click on this button here for new client secret. And what this will expose" }
+  - { t: 1738, text: "is a new row in this data, which will be the actual client secret that I'll take and copy and put directly into my ENV file. , I will do that off screen here" }
+  - { t: 1748, text: "you don't see that. And then also I will move this VS code away as as I click the new client secret button. you have to enter a name for it, I'll just call it token for . I'll" }
+  - { t: 1759, text: "hit add. And then I get a value. The values area is what I'm looking for. And then I put that directly into my ENV file. And then I hit save." }
+  - { t: 1770, text: "All . , we save that. We go back to our get ignore. And here we are. That has been saved into my file. What I may also ask my agent here to do is let me go back over here to" }
+  - { t: 1782, text: "let me go back up here one level here. Let's say instead the get ignore MCP setup, make a sample.env" }
+  - { t: 1795, text: "example file as . . I'll have it make a sample example file here. , if I want to click on that, we can see that directly. . This is step one. Step one is" }
+  - { t: 1806, text: "getting the client service principal created. The step is creating the secret for it. , that's the second step here. that we have this, we've got to go over to our workspace Microsoft Fabric," }
+  - { t: 1817, text: "and we need to give permissions to this service principal. The service principal must be able to talk to and use the APIs in a way that allows it to talk to the" }
+  - { t: 1827, text: "workspace directly. , there's a couple places in Fabric we need to light up and turn on in order for this service principal to work and let it run through" }
+  - { t: 1837, text: "the MCP server here locally on my machine. what we'll do next is we will go over to powerbi.com. , I can leave this" }
+  - { t: 1847, text: "one away here. I'm going to go find my let's see here. I'm looking for the one that had powerbi.com on it. This one here. . that we're over at powerbi.com, we can go manage access. And then here," }
+  - { t: 1859, text: "I'm the admin of this resource group, but I can add people or service principal names. And I believe you have to be member or admin. For , I'm just going to drop in I think member will" }
+  - { t: 1869, text: "work. Let's try it. And then I'm going to go look up that service principal name that I had already entered earlier, demo-mcp." }
+  - { t: 1879, text: "And here's my service principal. , this is the app registration that I made earlier. This can be added directly to the workspace. And then I will add it. Going back to the workspace, I have" }
+  - { t: 1889, text: "the MCP server app registration linked here to the workspace. , this will then give it access to the workspace. This is not the only setting we need. This is one of two" }
+  - { t: 1899, text: "settings. The next setting we need to do, and this is per the Microsoft documentation, I think there's a a section here. I'll see if I can find it real quick. once we go in here, we have to say" }
+  - { t: 1911, text: "admin. Let's see here. Da da da da. I'm looking for" }
+  - { t: 1922, text: "in the service principal, there's another API callout here. admin portal. I might be looking for the word portal here." }
+  - { t: 1934, text: "Where did they put that information? I might need a little bit of help there, Matthias, trying to find where inside there's a setup item here that" }
+  - { t: 1944, text: "you have to add this into admin settings. There's an API that you need to call in order for it to work with the service. that's the the fabric admin portal. I" }
+  - { t: 1956, text: "there's no API for that. There's not an API for it, but I'm looking for the the name of the documentation where the setting is for that cuz there's a they called that out previously. Oh, ." }
+  - { t: 1967, text: "Where do they call it out here? I can't remember in the documentation." }
+  - { t: 1977, text: "I I'm pretty sure I remember where this is. I want to make sure I drop this in the same place. , let me show you in the admin portal of what we're looking for here. , the reason why I'm saying this is because I" }
+  - { t: 1988, text: "want to show you inside the Power BI admin portal there is you need to be able to allow service principles to talk to APIs. , if you look for service" }
+  - { t: 2000, text: "you'll see down here under developer settings, service principles can create workspaces. That's not the one we want. Service principles can call Fabric public APIs. This is the one that" }
+  - { t: 2012, text: "I believe that we're looking for. , let me just double-check the documentation for public API. Nope. I could have sworn they had this" }
+  - { t: 2022, text: "documented inside the the modeling server MCP thing. Maybe they changed something. Anyways." }
+  - { t: 2032, text: "what we need to do is we need to make sure that we have this developer setting here that it can call that API, the XMLA endpoint. And you'll notice here I have two" }
+  - { t: 2043, text: "specific user groups, API Power BI service principles and Fabric workspace identities. these are two service principles that I'm using to control" }
+  - { t: 2053, text: "what APIs can and cannot do. , I'm going to drop in our demo MCP01 into the Entra group called Fabric workspace" }
+  - { t: 2063, text: "identities. ? , if I go back over here to Entra ID again I'm still on this demo MCP01 item. If I go to overview," }
+  - { t: 2074, text: "do I have it here? No, I don't think I can do it here. I think I have to go back up one level, go back to enter ID, go into a group, and I'm looking for the name Fabric" }
+  - { t: 2085, text: "Workspace Identities, the one that's here. That's what we're going to go align to. I'm going to search for Fabric Workspace Identity." }
+  - { t: 2100, text: "See if I can find There it is, Fabric Workspace Identities. And , in here I have owners and members. And , in the membership of this group, I want to add my new member." }
+  - { t: 2110, text: "I'm going to add a new member, and then we're going to add that demo MCPO1. this will then allow this app registration to directly talk to" }
+  - { t: 2122, text: "our APIs. And yeah, if I refresh the page here by clicking the refresh button here in the middle, it shows me that my demo MCP server is here. ." }
+  - { t: 2132, text: "this means inside this setting, inside the admin portal, because my demo app registration is attached here, it will allow it to call the public" }
+  - { t: 2144, text: "APIs. All . That being said, let's can I can I add one more thing that those are people struggle with" }
+  - { t: 2155, text: "Yeah, 100%. Please do. stumble over. If you don't mind going back to your Azure portal page with the enter application. No problem, here we are." }
+  - { t: 2165, text: "And go into the service principle. . one thing that's the enterprise app. Do you mind" }
+  - { t: 2175, text: "going to the application ? Yes, sorry. Let me go back to the workspace here. Let me go to the enter here. Let me go to the app registrations." }
+  - { t: 2185, text: "App registration, there we go. And then all There we go. Great. , one thing you may want to" }
+  - { t: 2196, text: "do intuitively, but it's a very bad thing. you may want to go to API permissions" }
+  - { t: 2207, text: "on the left-hand side, which, if you go to add permission, allows you to select a whole bunch of fabric or Power BI" }
+  - { t: 2217, text: "specific permission levels. It does have a Power BI card somewhere further below. there we go. Yeah, on that one. ," }
+  - { t: 2228, text: "if you click on that, it then gives you a whole range of delegated or application permissions. , you may want to go to application permission because you think this is what you need" }
+  - { t: 2238, text: "for service principal. do not do that. . Yeah, this is off. once once you add any of those API permissions here, or scopes as" }
+  - { t: 2248, text: "they're called, the the the whole handshake will no longer work. it's very counterintuitive, and you wouldn't believe how many times I've had to troubleshoot that for other people." }
+  - { t: 2259, text: "don't do it, all ? If you want to use a service principal for fabric or Power BI, all you need is created and and provide some credential, and that's it. Leave everything else as Great call out. Yeah, very excellent" }
+  - { t: 2270, text: "call out on this one. , this is all you need is just set it up. Everything we did today, go in, create it, add an app registration, and then add it into a group, and then add that group to the admin settings. That's all you need" }
+  - { t: 2281, text: "to do, and everything else should be just fine. Yep, great call out there. All , let me move this out of the way. All , I believe we've got everything set up the way we need to set it up ." }
+  - { t: 2291, text: "let's go back over to our workspace. We should have our service principal attached here, and it should also be able to call and use the API" }
+  - { t: 2302, text: "service principal items as . , let me minimize this. Let's go back over to VS Code. We have our get ignore example, ? , here we go. We have the the example here of what" }
+  - { t: 2313, text: "we would be filling out. We've already filled out tenant ID, client ID, and client secret. All those are done. We'll keep that file. And , the next thing we want to do is I want to ask the agent" }
+  - { t: 2323, text: "to try to connect to that workspace and specifically that semantic model using the MCP server, but using the" }
+  - { t: 2334, text: "designation of service principal. let me just double-check my language here." }
+  - { t: 2346, text: ". , I'm going to need to talk to Copilot and say give it some commands. Let me see if I can talk to it again. I want to connect to a semantic model XMLA endpoint using the Power BI MCP" }
+  - { t: 2359, text: "modeling server. I think that's Oop, I got my other message in the beginning. I want to connect to the" }
+  - { t: 2369, text: "semantic model and yep, that looks good. And I need to give it two things that to directly connect to it. , it needs the workspace name and it needs the name of the model that I'm" }
+  - { t: 2380, text: "connecting to. workspace name is and then I need to go back to powerbi.com and make sure I snag that name of the" }
+  - { t: 2390, text: "model that we're in. , the workspace name here is the MCP with SPN. That's the workspace name, we need to give it that. is" }
+  - { t: 2400, text: "MCP with SPN. And then it also needs the model name. Semantic model name is" }
+  - { t: 2415, text: "star model. And then I also need to be very clear to call out what how I want it to connect with the auth mode. I want to use the auth mode" }
+  - { t: 2425, text: "of service principal." }
+  - { t: 2436, text: "let's give you a minute this language here. I'm going to copy in the exact designation I want to use here. I'm going to put in here auth mode equals service principal." }
+  - { t: 2446, text: "all Sorry, that's all hidden behind my bubble over there. Let's put it this. . I I'm asking it to connect to the MCP server. I want to use a very specific auth mode and I'm even calling out the auth mode that I want it" }
+  - { t: 2456, text: "to use because I want it to focus on this one. I may need to also say, \"Hey, use the ENV credentials to do this.\"" }
+  - { t: 2466, text: "the credentials needed are in the .env file. Sorry, I should move this over here" }
+  - { t: 2476, text: "because you can't see what I'm typing. In the ENV file in this folder. ? We'll see how close I can get. what it should do is it should start" }
+  - { t: 2487, text: "evaluating Oh, what I forgot to do, Matthias? I do this all the time. I forgot to check if the MCP server was turned on. Dog on it. let me stop it here. I will copy that and do it again." }
+  - { t: 2499, text: "I can't tell you how many times I've done this and I've got to screw it up. to show you what I'm going to correct here because I didn't do it the first time. Inside VS Code, we have this little" }
+  - { t: 2510, text: "options setting here. This is the options of where you have the different MCP servers turned on and how you can use them. I have to click this button, which then brings up the menu on VS" }
+  - { t: 2522, text: "Code. I'll go over here. This These bubbles these speech bubbles are bothering me here. Hang on a 1 second. Let me see if I can customize these." }
+  - { t: 2532, text: "Let's move ourselves over there. , this will be a little easier then. , great. All , I'm clicking on this menu option down here, clicking on the menu, and when I click that, I get a" }
+  - { t: 2542, text: "a list of MCP tools at the top. The MCP tool that it needs to use is the MCP modeling server. , I have to go down until I find Power BI modeling MCP. This" }
+  - { t: 2554, text: "is the item that it needs in order to run this command. , I didn't turn this on, it will fail, and it will try and figure out how to use it, and it will not work. , clicking this, I'll scroll" }
+  - { t: 2564, text: "down here, MCP modeling server. I will turn it on, and I will hit update tools. It will then select all the items." }
+  - { t: 2574, text: "And it's going to have all the tools of that MCP modeling server exposed to my agent, which is what we want. Hit ." }
+  - { t: 2586, text: "And then I'm going to confirm that it's still selected by clicking the button again. Yes, there it is. , we got them all selected. , great. the MCP server is turned on. It's going to try to use it. I'm going to copy my command from earlier." }
+  - { t: 2596, text: "Copy that, and we're just going to drop it back in here again, and then let it run. This should be able to run correctly. , it's going to discover the MCP modeling server." }
+  - { t: 2611, text: "a couple things while it's thinking here. It noticed it already picked up I went and connected the modeling server. It did notice I want to use off mode of service principle, which is great. It did recognize the model and the workspace." }
+  - { t: 2624, text: "all those look correct. Thinking, thinking, thinking." }
+  - { t: 2634, text: "it's it's creating , it's already saying the VS code folder is already covered by your dot get ignore. Great. , I can create the MCP config here with all the real credentials embedded, won't be committed. Yep, great." }
+  - { t: 2645, text: "it's using the command connect to some star star model with the MCP server." }
+  - { t: 2655, text: "let's keep those files. It's fine. I I don't know if it connected yet. Let's see if I can I was able to do it. list the tables from" }
+  - { t: 2665, text: "the star model. Let's see if it will Let's see if it is able to connect to that model." }
+  - { t: 2683, text: "it's it's recognizing that the MCP server is existing. Oh, it's interesting. It's saying it's not running." }
+  - { t: 2701, text: "It's not finding the MCP server, which is interesting. being very helpful though, which is weird. I took it off for some reason. , I didn't for whatever reason, it wasn't turned on again. I just thought I'd" }
+  - { t: 2711, text: "check this. I'll try it again. it is correct. Let me try and turn it on again." }
+  - { t: 2728, text: "Select the tools that will be globally applied. Yep, , fine. let me click . This this is a bit I've seen this to be a bit buggy recently. It looks it's selected . I'm" }
+  - { t: 2739, text: "going to select , . I turned it on. Try again." }
+  - { t: 2752, text: "Maybe I did something with a new session or something here. it's finding it. First connect the semantic model, then list the tables." }
+  - { t: 2772, text: "[clears throat] it didn't the fact that I labeled it star model without quotes. There we go. . here we are. Notice I didn't get any prompt or screen or sign-in experience." }
+  - { t: 2783, text: "This is directly using that service principal name to directly connect that model. no user credentials are involved here. This is directly connected to the MCP server using my" }
+  - { t: 2793, text: "agent. I can ask things directly to this model and I can talk to it directly and ask it to, , build a build a diagram or build a mermaid" }
+  - { t: 2803, text: "diagram. We can have full access to what's inside this model here. we could say, list all measures in the fact table." }
+  - { t: 2817, text: "And I can start interacting directly to that model in that workspace using this MCP server. One thing that's interesting to note here is this MCP server is running this will work" }
+  - { t: 2827, text: "in any fabric skew. This will also work in any premium per user workspace. if you want to have an agent that talks to your model and write queries or run DAX or execute" }
+  - { t: 2839, text: "data against that, you can have the model return data back to you using an agent . you can use an agent where the tokens are coming" }
+  - { t: 2849, text: "from , VS Code, GitHub Copilot, or Claude Code and you can remotely connect to any model in any of those XMLA enabled" }
+  - { t: 2859, text: "workspaces. we could say, let's see, I have some tables here. I have product. I could ask it for run a query for" }
+  - { t: 2872, text: "sum of sales by product name. I can ask it to give me data back about that model. And , it will use the DAX query, again," }
+  - { t: 2883, text: "going back to that model, write some DAX, return it, and give me the results back. , I'm directly talking to the model. The agent is using the MCP server to write and execute DAX against" }
+  - { t: 2894, text: "it, and then I can then directly get results back for this information. filter it for the year 2022." }
+  - { t: 2907, text: "And , I can just keep asking questions of the data, and it will then continually adjusting the DAX question DAX query here. , it's filtering the data down, and we can even see what DAX it wrote. it wrote this" }
+  - { t: 2917, text: "DAX, evaluate summarize columns filter dim product date year where equals 2022 using the measure sum of sales sum of sales order by sum of sales in" }
+  - { t: 2927, text: "descending order. it does a really good job of executing queries against, and it returns in JSON back the output here as ." }
+  - { t: 2937, text: "I'll just pause there. Any questions in the chat, Matthias? I don't really see anything there. Any comments you have as we show as we finish up the demo here of this?" }
+  - { t: 2948, text: "just I I don't want to undermine the demo there, but one thing that made me a little nervous. , at the" }
+  - { t: 2958, text: "start, when you asked the agent to find you that ENV file and set up the connection, you could see that it" }
+  - { t: 2968, text: "resulted in a read tool invocation for your ENV file, which means that the contents of your ENV file" }
+  - { t: 2978, text: "were being sent to your model provider. Correct." }
+  - { t: 2988, text: "just wanted to mention that. Because obviously by definition" }
+  - { t: 2998, text: "the .env file will contain highly sensitive information. You may depending on" }
+  - { t: 3009, text: "the context you work in particularly if you're in a in a professional enterprise context that may not be allowable. Correct. ? It It may be fine for personal hobby projects. But" }
+  - { t: 3021, text: "sending a clear text passwords to to some external server." }
+  - { t: 3034, text: "is obviously problematic. that's definitely something I would be cautious about. If you use the Claude harness as as opposed to" }
+  - { t: 3046, text: "Copilot, Claude has built into the harness very strict protection against that stuff. if if if" }
+  - { t: 3057, text: "Claude notices that a .env file is being read, it will not It It may read it, but it will not send the details back or it" }
+  - { t: 3068, text: "will at least obfuscate them. it Claude will pass the contents and then replace the the actual secrets" }
+  - { t: 3078, text: "with placeholders. Which shows you that using better harness, , can give you substantial benefits." }
+  - { t: 3090, text: "Love those security notes there as , Matthias. Again, be very mindful of this as you use this. Yes, it does give you it opens up the world for more things, but you have to be more knowledgeable around where your secrets are going and" }
+  - { t: 3101, text: "and not exposing things in a problematic way. Also, I would argue to Matthias, this is why I using GitHub Copilot because I know it's models that have zero data retention" }
+  - { t: 3112, text: "policies. We've talked about this in the past around whatever model you choose, make sure there's a zero data retention policy and that's not getting sent to an agent or a large language model that you're not comfortable with as an" }
+  - { t: 3123, text: "organization. , awesome to note that as . What I will also note here, if you see me I've been while you were talking Matthias, I was asking the model or my agent here to" }
+  - { t: 3133, text: "document things for me. And you'll notice here I've been able to get a mermaid diagram of the different tables and how they relate and" }
+  - { t: 3143, text: "the the designation between one-to-many relationships between these different tables and the columns there. it listed out all the tables for me and how many columns and measures each one has." }
+  - { t: 3153, text: "Gave me the relationships as a list. it also provided me a fact sales at designated each table and column name where it came from, the data type, and" }
+  - { t: 3163, text: "description. , if you're a someone who wants to just interact or chat or talk against your model, this is a great opportunity where you can leverage all the tokens, the horsepower, the" }
+  - { t: 3173, text: "understanding of the AI agent to then directly talk to your model and have it write documentation for you. which I think is extremely helpful when" }
+  - { t: 3183, text: "you're trying to understand what's inside the model. Also notice there are descriptions on everything. you can ask the agent to explain the model, give you details about the model, and from" }
+  - { t: 3193, text: "there you can ask the agent to update the model or the semantic model with those descriptions on those columns or measures as . , again, I think this is a really interesting way of interacting with semantic models. I'm" }
+  - { t: 3204, text: "preferring not necessarily the the service principal name, but I am preferring more and more to use directly MCP modeling servers to interact with my models nowadays. It's it seems to be" }
+  - { t: 3215, text: "faster. I don't using desktop as much. It can commit changes in bulk, in batches, which is extremely efficient as . , anyways, I wanted to just show this demo. I wanted to show people that" }
+  - { t: 3225, text: "they can do this. This is something that is available today. When you have your service principal in the correct correct admin portal settings and on the workspace, you can" }
+  - { t: 3235, text: "directly talk to your semantic models without using a user credential, which I think is extremely relevant here. Anyways, that being said, that's all I really had for demos. Anything else we should cover off on, Matthias, before we" }
+  - { t: 3246, text: "wrap today? really good question in the chat here. How do you determine quality of models irrespective of pricing? from my point of view," }
+  - { t: 3257, text: "that's one of the hardest questions out there. , I know I know there are obviously benchmarks and leaderboards out there, but" }
+  - { t: 3267, text: "they are quite generic in a in a sense, ? from my my answer would be you need to have a really good understanding of what the typical types of agentic" }
+  - { t: 3277, text: "tasks are in your organization. and then you want to be able to replay those kinds of tasks if when and if you want to evaluate a new model. To to do" }
+  - { t: 3288, text: "a side-by-side comparison, ? that's easier said than done. But , if you're really serious about investing heavily in AI tooling and particularly if you're" }
+  - { t: 3299, text: "serious around being as cost-efficient as possible, that is where you want to invest your engineering because that will pay off massively in in the long" }
+  - { t: 3309, text: "run. there's another gentleman I can't remember exactly who it was. I think he's working with Kurt Buhler on building MCP servers. He's really" }
+  - { t: 3319, text: "very vocal about what's going on in this space and I'm trying to find my name of him. Oh, you mean the DAX benchmarks that" }
+  - { t: 3329, text: "they have? Yes, they have a DAX benchmark. they're using models and benchmarks. I was trying to find the link for that. Have you seen that, Matthias? Can you put your fingers on that link by chance? Yeah, I don't have a link" }
+  - { t: 3341, text: "readily available, I'm afraid, but I think his name is Maxim and and Yes. Yesko, I think it's his name, and he just made a thing called DAX Bench." }
+  - { t: 3351, text: "I think I got the link here. I'm going to bring this up. , Yeah, DAX Bench sounds sounds about . It's a bit behind in terms of the models it's covering. Yes. but then again, those kinds of runs" }
+  - { t: 3363, text: "are difficult and expensive. the link for that is in this the chat window here as . It's called DAX Bench, and it's DAX Large" }
+  - { t: 3375, text: "Language Model Benchmarking, and you are able to see a leaderboard of about 30 different problems each of these agents are trying to solve. And it gives a" }
+  - { t: 3385, text: "score of the different tasks, 30 or tasks each agent is supposed to find or or test and build. And Maxim is doing a really good job of" }
+  - { t: 3396, text: "evaluating these. Quinn 3.5 is on there. GPT 5.3 Chat is there. Quinn 3.7 Max is there. and all of them are doing scoring on" }
+  - { t: 3407, text: "on the tasks that he has there. , Maxim has developed a series of tests for DAX. probably could look at this benchmark a little bit more closely" }
+  - { t: 3417, text: "and figure out how you are evaluating. There's already, , some of these models, Gemini, Claude, Fable 5, they're hitting 29 out of 30" }
+  - { t: 3427, text: "DAX problems solved. , they're doing pretty good from his testing. this is not all comprehensive. there may be other areas here you may want to evaluate. You may want to have" }
+  - { t: 3438, text: "more areas to evaluate against. but this is really pretty interesting to see someone building specific testing elements around DAX models. I don't know if this is open source or if you can run" }
+  - { t: 3449, text: "other models or help assist with this. but this would be really interesting to see how this performs as for other models. it's close to us in terms of the evaluation itself." }
+  - { t: 3460, text: "There's a little bit of documentation on what it's doing, but not a ton. Really pretty interesting here. I what this is doing. Could use more of this in the community. check out daxbench.com. Seems a" }
+  - { t: 3472, text: "really interesting tool. And that's in the chat window as . All . With that being said, Matthias, thanks for hanging out with me today and keeping me honest with getting this working. I'm glad it worked first time. No issues there. Thank you all much" }
+  - { t: 3483, text: "for jumping in for our Agentic Thinking today. We hope this was useful to you and gave you some understanding around how do we build or how can we use service principles with the MCP server" }
+  - { t: 3494, text: "and not have to have a user identity attached. Thank you all much and we'll see you next time. Very good. Yes, see you next time if you want." }
+  - { t: 3508, text: "Agentic Thinking [music]" }
+
+---
+
+## Summary
+
+The news half covers Opus 5 arriving with unusually little fanfare, which both hosts read as a sign that attention has moved to price-performance rather than raw capability, and OpenAI's 80% price cut on Luna alongside a 20% cut on Terra -- leaving a roughly 50x input-token gap between Luna and Fable. That leads into a disagreement worth hearing: Mike argues the limiting factor on agent output is usually the operator's planning and prompting, while Matthias ranks a solid test harness above a good plan, on the grounds that an agent that cannot self-validate will only ever get so far. The demo then builds the whole service principal path end to end -- app registration in Entra, client secret, workspace access, the Fabric admin portal group -- and connects VS Code to a semantic model over XMLA with no user identity and no Pro licence. Matthias supplies two of the episode's most useful warnings along the way: get the .gitignore in place before writing anything to .env, and do not add API permissions to the app registration, which silently breaks the handshake. They close on the difficulty of judging model quality independent of price, and on DAX Bench as one community attempt at it.
+
+## Key Takeaways
+
+- ▸ Opus 5 shipped quietly, and the interesting story in the graphs is score per unit of cost rather than the score alone -- the min-maxing phase of model selection.
+- ▸ OpenAI cut Luna's price by 80% to 20 cents per million input tokens, which makes a plan-with-the-expensive-model, execute-with-the-cheap-one architecture much more compelling.
+- ▸ Cheap execution changes the math: three or four passes with a cheap model can cost less than one shot with a frontier model, and one shot is often not enough anyway.
+- ▸ Matthias ranks a reliable test harness above a detailed plan -- an agent that can run the app end to end and iterate beats one doing a theoretical code review, whatever the model.
+- ▸ The 2026-07-28 MCP spec moves to a stateless request/response core and aligns authorization with OAuth 2.0 and OIDC, calling out Entra explicitly.
+- ▸ A service principal needs three things and no more: an app registration with a secret, membership in a group allowed to call Fabric public APIs, and access on the workspace. Adding API permissions to the app registration breaks the handshake.
+- ▸ Write the .gitignore before the .env file, not after -- and note that asking an agent to read .env sends those secrets to the model provider unless the harness redacts them.
+
+## Links
+
+- ▸ [anthropic.com](https://www.anthropic.com/news/claude-opus-5?utm_source=agentic_thinking&utm_medium=website&utm_campaign=20260801)
+- ▸ [claude.com](https://claude.com/blog/bringing-mcp-2026-07-28-to-claude?utm_source=agentic_thinking&utm_medium=website&utm_campaign=20260801)
+- ▸ [daxbench.com](https://daxbench.com?utm_source=agentic_thinking&utm_medium=website&utm_campaign=20260801)

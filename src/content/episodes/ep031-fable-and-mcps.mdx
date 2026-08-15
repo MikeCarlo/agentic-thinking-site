@@ -1,0 +1,247 @@
+---
+title: "Fable and MCPs"
+episodeNumber: 31
+date: "2026-07-22"
+youtubeId: "eMhvL_N9Q-M"
+duration: "37:22"
+blurb: "Service principal auth for the Power BI MCP server, the agent host protocol landing in VS Code, and Fable staying on Max subscriptions. Plus Kimi K3, AI gateways, and why model choice is now a cost decision."
+tags: ["agentic thinking", "youtube"]
+chapters:
+  - { t: 0, label: "intro" }
+  - { t: 54, label: "service principal auth for the power bi MCP server" }
+  - { t: 372, label: "the VS code agents window" }
+  - { t: 485, label: "MCP server missing from the marketplace" }
+  - { t: 773, label: "agent host protocol in the july release" }
+  - { t: 1169, label: "fable stays for max subscribers" }
+  - { t: 1285, label: "remote sessions and token burn" }
+  - { t: 1537, label: "kimi pricing and the k3 release" }
+  - { t: 1812, label: "AI gateways and data retention" }
+  - { t: 2009, label: "model choice as a cost decision" }
+  - { t: 2178, label: "wrap up" }
+transcript:
+  - { t: 12, text: "Hello everyone and welcome back to Agentic Thinking with Michael and Matias. We're jumping in again today. We've got some more news announcements. As always, the weeks keep clipping by. The news keeps happening. Things are changing all the time. New models are" }
+  - { t: 23, text: "appearing. The landscape is quite competitive. , we'll jump in today. to talk about some news items. Matias, welcome. Hello. Good to talk to you again. Yes, great to see you. H great to be" }
+  - { t: 34, text: "back here. And we we always offline we always go through some of the news items before we start here. And without fail, there's always much to go through" }
+  - { t: 44, text: "every single week, ? What's your top three list ? I'm I'm really noodling on I had an aha moment earlier" }
+  - { t: 54, text: "this week. , and this is maybe a bit of a story, but also reading the Microsoft documentation around MCP modeling servers. , for me , I'm really into the MCP space. ," }
+  - { t: 66, text: "trying to get more into that. , I just recently realized that the PowerBI MCP modeling server that you can use, you can use that not with a" }
+  - { t: 76, text: "user account, they call that interactive signin, that's the default method, but you can also use that with a service principle. And what does this mean to us? This means yesterday I spent some" }
+  - { t: 88, text: "time setting up my cloud code desktop application to use my service principle, connect to a workspace and talk directly" }
+  - { t: 98, text: "to a model without using any of my personal user identities. I set this up automatically. this means I didn't need a pro account. I didn't need a" }
+  - { t: 110, text: "licensing for the the PowerBI Pro experience. I did need fabric. the model had to be running in fabric to talk to it was the XMLA endpoint but the" }
+  - { t: 120, text: "MCP server just ran just normal was really nice. I tested in cloud code. I also tested a data agent. Data agents do the same thing. You can spin" }
+  - { t: 130, text: "up a data agent, point it at lakehouses or models, and then again, you can use the service principle to talk to that data agent. Pretty interesting. Anyways, that's what I was noodling on" }
+  - { t: 141, text: "last week. I don't know if this is a recent feature or a recent addition to the modeling servers, but I found this to be really impactful. And to be honest, this is one exciting but" }
+  - { t: 152, text: "also very dangerous because this means you you can allow a lot more people with a lot of CL claude to go do things directly on your models. Anyways, what" }
+  - { t: 162, text: "are your thoughts Matias? What do you think about that? I think it's it's tailored towards headless unattended scenarios, ? Correct. if if you were to use" }
+  - { t: 174, text: "the server in CI/CD or some other automated workflow, obviously that's the only practical option you've got there. , and I think the credentials are passed via environment" }
+  - { t: 186, text: "variables. , you got to be very very careful how you architect that in terms of setting those environment variables, making sure they don't leak and all of that." }
+  - { t: 196, text: "Oh, 100%. Yeah. Ve very risky, but then also extremely neat and very cool. , , in my cloud code desktop, I told it, hey, I'm going to connect to this thing. I want to use this MCP server. Oh, and by" }
+  - { t: 207, text: "the way, I want you to use the service principle authentication method. Here's the docs. And it said, oh, yeah, no problem. I'll go make the settings. I'll put in the blank tenant and client" }
+  - { t: 219, text: "IDs and a blank client secret. You need to go get all the stuff set up on fabric on the other side. And I did, and it worked. , I I was very pleased to see that running there." }
+  - { t: 229, text: "Anyways, a neat little experiment. Sorry, just one further thought on that. If you ever want to set this up in GitHub coding agent, , which is GitHub's hosted agent that runs in" }
+  - { t: 241, text: "the cloud, not on your own machine, there are a few hoops to jump through for to configure that correctly. first of all, you need" }
+  - { t: 251, text: "to set up a dedicated environment to define secrets. that environment I think is called c co-piloted if I'm not mistaken. And" }
+  - { t: 262, text: "then most importantly if you then want to pass those secrets as environment variables to your MCP server you need" }
+  - { t: 272, text: "to you need to prefix the environment variable names which very clunky prefix. , it's I don't have" }
+  - { t: 284, text: "the exact details off the top of my head but if you if you search through the GitHub docs, , with with those kinds of keywords, you're going to find it. and if you're not" }
+  - { t: 295, text: "aware of that, it can get quite frustrating because things obviously won't work. I've I've been there. I've done it and I've I got burned, which is why I'm I'm I'm very much" }
+  - { t: 306, text: "aware. I'm gonna add I believe Matias I think we if my memory recalls correctly in episode three of our" }
+  - { t: 318, text: "podcast for thinking I believe you went through a demo and did the demo of getting that secret created correctly by using PowerBI plus MCP" }
+  - { t: 329, text: "servers all through GitHub Copilot or there that link I think to the video down here inside this list here and the video link that you want that Matias" }
+  - { t: 340, text: "does a demo of exactly this feature. we've already done it. And that's what happened in episode three. Almost three months ago is when you did this demo. take that with a with a" }
+  - { t: 351, text: "grain of salt because three months today, you [laughter] know, that's a lifetime, ? it may or it may not work in exactly the same way" }
+  - { t: 361, text: "anymore. , and the the docs will probably support it both ways, ? they would hopefully get those updated. All . All . That's all the the news or announcements. One thing I just want to quickly before we get into more topics" }
+  - { t: 372, text: "here, Matias, , in VS Code, I have discovered or or have started using a little bit more, there's this thing called the open in agents window. Have" }
+  - { t: 385, text: "you have you used this agents window from VS Code? Have you seen this before? what I'm talking about? Yeah, I think , it it was released" }
+  - { t: 395, text: "in Insiders first quite a few months ago. I I I I have a vague memory of mentioning that on the podcast when when it came when it first came out" }
+  - { t: 405, text: "in Insiders that may have been April maybe I guess before build and I" }
+  - { t: 419, text: "I it's just another variant of the of the VS Code UI which is tailored more towards" }
+  - { t: 430, text: "your chat your agent conversations as opposed to the the file system and the actual files. . Yes. Agreed. gives you it's the same tool" }
+  - { t: 442, text: "ultimately just a a a different layout emphasis in terms of what matters to you as part of your workflow. . And because I'm" }
+  - { t: 454, text: "still pretty old school, , I [laughter] I my files. I my code. I to see, , what's changing. Sure. Sure. I haven't felt a strong need to" }
+  - { t: 465, text: "switch away from that. . I agree with you 100%. I really the old look and feel of VS Code. That's what I've been used to. I'm" }
+  - { t: 475, text: "growing up on that one. I'm attempting to start in this agents window a little bit. , the reason I bring this up is because I think I found a slight bug," }
+  - { t: 485, text: "not with the agents mode, but with the PowerBI MCP modeling server. , let me describe this bug here. When you open up, in VS Code, there's" }
+  - { t: 496, text: "a little button in the upper hand corner, upper hand corner, it just says here, let's open up agents mode. I the interface. It has all your previous chat history conversations with with your agent, either Claude or your" }
+  - { t: 508, text: "VS Code. Awesome. Totally love that. On the bottom hand corner, it has this little area called customizations. Matias, we've talked a ton about the harness and how do you customize the" }
+  - { t: 519, text: "harness? I this mental model of I'm customizing the VS Code harness with agents or custom agents, skills, various" }
+  - { t: 530, text: "instructions, MCP servers, are there plugins, are there additional tools that are available? all these things are things that we use to modify the harness to get a better performance and regular" }
+  - { t: 541, text: "code or experience out of it. Love it. When I go to the MCP side, , if you go to the MCP servers and you search for the PowerBI modeling MCP server, it" }
+  - { t: 554, text: "does not show up. You can go to the marketplace, you can search for that will not show up. If you go into VS Code and you search for MCP modeling server," }
+  - { t: 564, text: "it will show up but not under the designation of a registered MCP server. It's a standalone version of MCP server. I brought this issue up to" }
+  - { t: 575, text: "Ruie directly and I said, \"Hey Ruie, this is weird and an odd experience. I'm trying to use the PowerBI MCP modeling server in this agent window and it does not show and you when you search the" }
+  - { t: 587, text: "marketplace, it physically filters it out and you cannot see it. However, the fabric MCP modeling server does show. It's just confusing. , I just want to bring this up. If you are using VS Code" }
+  - { t: 598, text: "or if you're using agent window inside VS Code, links in the description of the video here. Anyways, just be aware it's a little bit more setup and you have to manually set up the VS" }
+  - { t: 611, text: "Code extension, hardcode the MCP server using JSON in the settings in order for it to work. you can do it, but you have to go to the MCP modeling server" }
+  - { t: 621, text: "documentation, get the JSON, and directly add it into your file system for the project that you're working on for it to for it to run. , I think" }
+  - { t: 631, text: "Microsoft is aware of this. there's some official registration of an MCP server and once you officially register it with Microsoft in VS Code or" }
+  - { t: 641, text: "the marketplace, it will maybe then appear. Anyways, I just wanted to bring this up. I spent probably about an hour figuring out what the heck's wrong, where did it go? Why can't I find it? It" }
+  - { t: 652, text: "should be here. I've installed it. What hap? , just in case you're running into the same problem, just be aware there's a bug with the MCP modeling server not showing up in VS Code agent" }
+  - { t: 663, text: "mode window. And it goes back all the way to when the MCP server was first released. , correct. For some reason, they made a decision back then to" }
+  - { t: 674, text: "ship it as a VS Code extension. Yes. which also shows up under VS Code extensions as opposed to VS Code MCP server. correct and I" }
+  - { t: 685, text: "think that's what it comes down to. But as you as you said you can not install the extension. You can just register the MCP server as an MCP server. all you have to do for that" }
+  - { t: 696, text: "would be to copy the MCP.json payload. ultimately it's an npx call for the npm package for it. But" }
+  - { t: 707, text: "yeah agreed. just confusing. Just be aware. Yeah. Particularly for people who don't do that stuff day in day out it's yes it's it's a big hurdle" }
+  - { t: 718, text: "absolutely and I think it's for new users you you hear these terms that people are talking about PowerBI modeling server MCP great you hear VS code wonderful you just assume it all" }
+  - { t: 729, text: "works you just start clicking on things you just hope all the systems talk to each other and it's just a bit of a jarring user experience when you try and step into something this and it just doesn't work first try I just wanted to bring" }
+  - { t: 740, text: "that up let people know that's what's happening. , and making sure that people are aware that there's a little bit of friction there. , in case you need that, maybe we'll do a demo on this. , , I think a really" }
+  - { t: 751, text: "good demo maybe this Friday. Weigh in in the chat window or or let us know in the comments. U this Friday, maybe we'll do a cloud code desktop getting your" }
+  - { t: 763, text: "service principle running with data agents or an MCP server. maybe that would be useful there. getting rid of the user account issue and just showing you how to directly connect to these" }
+  - { t: 773, text: "things using a service principle, which is pretty dang sweet in my opinion. . And since we're on VS Code, if I may, yeah, keep going. [laughter] Just just a just a little thing to geek" }
+  - { t: 783, text: "out on. yeah, the latest release, the July release of VS Code, which I think is the" }
+  - { t: 794, text: "129 release if I'm not mistaken. that brought a really significant architectural update to how VS Code runs agents. Microsoft has" }
+  - { t: 806, text: "designed and opensourced the AHP, the agent host protocol. There's a GitHub repo under the Microsoft or agent" }
+  - { t: 816, text: "host protocol which is currently only implemented and used by VS Code. they've abstracted out" }
+  - { t: 828, text: "their mechanism of hosting various agents within VS Code and they turned this into a spec and and a a general protocol. and they're" }
+  - { t: 841, text: "currently in the process of completely re-engineering how VS Code hosts things copiloted CLI, quad code CLI. Wow. And" }
+  - { t: 854, text: "and codeex and hopefully additional agents in the future. on top of that AHP protocol. what it means is" }
+  - { t: 866, text: "in this case VS code is hosting various agents and their respective sessions for instance cloud" }
+  - { t: 876, text: "code or codeex or copilot and using this unified protocol it means that any number of clients on your" }
+  - { t: 889, text: "machine can consume the running the running session. in theory, you could look at a running session both in let's say your VS Code agents window as" }
+  - { t: 900, text: "as your traditional VS Code chat panel as as any other agent interface that is able" }
+  - { t: 912, text: "to serve as a as a client for a HP. arguably a bit of a deep geek topic but definitely something" }
+  - { t: 922, text: "which I'm quite excited about because what it means is that we have a way to" }
+  - { t: 932, text: "bring together the growing ecosystem of diverse agents that are out there and orchestrate them" }
+  - { t: 944, text: "from a single place on our machine which is what VS Code is trying to achieve here. I think there's a lot more needed in that respect because the" }
+  - { t: 954, text: "ecosystem is just massively fragmented and every single tool require has a learning curve. Every single tool has different configuration," }
+  - { t: 964, text: "different UI and all of that. it's not helping, ? You either have to constantly learn new stuff or you have to make a really hard decision to go for" }
+  - { t: 974, text: "tool X and ignore everything else. Yes, I I think this is smart. And honestly, this is what Microsoft is good" }
+  - { t: 984, text: "at. They're good at making protocols and systems and APIs and infrastructure establishments. That's where they should be spending their time building those systems that we" }
+  - { t: 995, text: "can use as developers and enrich on top of these things. And with more AI in front of all this even better, ? Because we build the system, build the infrastructure and" }
+  - { t: 1006, text: "then we just have AI use that to build whatever we want, ? I think it accelerates the whole story here when we can have these larger protocols and systems on top of things that we can just regularly use, which I" }
+  - { t: 1017, text: "think is amazing. Cool. , good to know. I did not know anything about this agent host protocol. I need to dig into this a bit more because I I'm already thinking about" }
+  - { t: 1027, text: "some places where I potentially could use it. , links are in the chat window. I had the link to the release, the agent host protocol in the blog release and then also the page because" }
+  - { t: 1038, text: "it's a dedicated agent host protocol page and then there's a GitHub repo with I believe some releases on it as . that's also there as . Also be" }
+  - { t: 1048, text: "aware it's an optin behavior. in inside VS code you need to set the VS code.hat.agenthost.enabled to true otherwise you're not" }
+  - { t: 1061, text: "going to use any of the new agent host infrastructure. But obviously all sort of new innovation with respect to agents within VS Code is only going to happen on top of agent host. it's definitely" }
+  - { t: 1073, text: "something to watch and and monitor. This is really interesting. Does this does this enable us Matias? Is this part of with the remote thing you" }
+  - { t: 1083, text: "know when you go to a v a when we're doing VS code start a session and then we say remote control turned on if we go to cloud code we say" }
+  - { t: 1093, text: "remote on is this part of that or is this not really part of that remote session piece this is just more about many agents can use the same session what what's is" }
+  - { t: 1105, text: "there a difference there? not directly. in and of itself, that feature doesn't enable remote capabilities, but it's something that" }
+  - { t: 1115, text: "would be possible. , , , it's something you could build on top of that. Absolutely. , but I don't think that's currently in scope. the VS Code team has a massive task of b" }
+  - { t: 1127, text: "re-engineering all their agent host infrastructure internally but it looks they've done I've I've" }
+  - { t: 1138, text: "been digging through the code a lot and they've done an tremendous amount of work already there this is very promising. Are you actively using agent host protocol? Did you opt in and start" }
+  - { t: 1149, text: "playing with it? Yeah. Yeah. Yeah. Absolutely. Yeah. How stable? fairly stable. Didn't didn't see too much difference whatsoever. good. That means I'll for those" }
+  - { t: 1159, text: "of you who are using VS Code, go check out agent host protocol. There's a setting in the new release. Turn that on as a preview feature and you could go play with it. Awesome." }
+  - { t: 1169, text: "wonderful. , let's talk about we we can't really get away from Anthropic. Anthropic is just such a big player in the space. There's many things happening inside what they're" }
+  - { t: 1180, text: "producing and they're setting a lot of the pace for what's going on here. Matias, we just recently announced or we heard the announcement of Fable is back. Fable is back. We can use" }
+  - { t: 1190, text: "it, but it was used for a limited time. we weren't able to really leverage Fable all the time and I think we kept giving we were getting dates July 7th and then it runs out and then July" }
+  - { t: 1200, text: "17th or 14th and then it runs out. There's a new announcement. What What did we just learn about Fable ? Yeah. they just announced a day ago or" }
+  - { t: 1212, text: "that Fable 5 is going to remain available to all Max and higher" }
+  - { t: 1222, text: "subscribers. , if you are enterprise subscriber or Mac subscriber, you will be able to use your subscription quota on Fable. it's kept at 50% of" }
+  - { t: 1233, text: "your weekly quota but initially when Fable came out the message was you can use it as part of your" }
+  - { t: 1243, text: "subscription for a limited amount of time and after that you're going to have to pay with extra credit. that has changed but" }
+  - { t: 1253, text: "with the important caveat it only applies for max onboard. , , if you're on a pro subscription, you will not have, , any, , access" }
+  - { t: 1265, text: "to Fable after the promotional period unless you fund your account with extra credits. makes sense. , I think I" }
+  - { t: 1275, text: "mean, they're my credits. I'm already paying 200 bucks a month for whatever the max plan is. , I should be able to slightly drain down that plan or token usage based on what what and ," }
+  - { t: 1285, text: "Fable is doing. I will say this when you are using cloud code be careful to know what model you're running. I have been running a number of CLI a" }
+  - { t: 1295, text: "pattern that I've I've been doing recent Matias when I leave my desktop machine I've been thinking about what projects do I want to work on when I leave this computer is there something" }
+  - { t: 1305, text: "I may want to develop or work or refine a project an idea that I'm interested in refining after I leave my desktop. what I'm doing is I'm standing up a" }
+  - { t: 1317, text: "bunch of CLIs terminals on my computer. I have three or four CLI the other day. I turned on three different ones. They all were looking at a single repo each each different repos" }
+  - { t: 1328, text: "and I started remote sessions on all of them and that way I could go to the and I had a mix of some projects were on claude, some projects were in GitHub or" }
+  - { t: 1339, text: "GitHub copilot. , I had two remote sessions working from two different agents and then on my phone I could just talk to them. , and I'm I'm finding my opinion , Matias, is" }
+  - { t: 1349, text: "man, these remote sessions in a dedicated app is amazing. Claude Code is crushing it on their" }
+  - { t: 1359, text: "remote sessions. The GitHub Copilot remote sessions are not nearly as good as a Claude application on your phone. anyways, I'm I'm finding a new" }
+  - { t: 1370, text: "interesting pattern that I'm using here with Fable and Anthropic. But come to bring this back full circle, I accidentally left Fable on in one of my one of my terminals and I very quickly" }
+  - { t: 1381, text: "ran myself out of tokens. It burns tokens crazy. be careful when you use Fable strategically for what you need. , planning sessions, thinking" }
+  - { t: 1392, text: "through things, reasoning through stuff. Don't let it just eat and build code for you because there's other models that are really good at that. I I highly caution you to really be" }
+  - { t: 1402, text: "strategic about where you use that model and how you use it. Also, on that one, be aware that Anthrop is currently running a a" }
+  - { t: 1412, text: "pretty extensive promotion yeah that still goes till August 19. a month or almost a month which gives all subscribers 50% additional" }
+  - { t: 1424, text: "credits which means don't get too comfortable with the perceived usage you're getting out of your subscription because there may be a bad" }
+  - { t: 1435, text: "awakening when it's suddenly gone down to only twoirds of that in a month time. But for this is free. There's no opt-in or anything. You just get that automatically as part of your" }
+  - { t: 1445, text: "subscription. make good use of it during during the summer months if you want or enjoy your life and" }
+  - { t: 1455, text: "yolo [laughter] it. Exactly. on that one last weekend and only Saturday Sunday I noticed that" }
+  - { t: 1466, text: "totally by accident co-piloted ran a random promotion where only for those two weekend days you were able to use GPT55 specifically only that" }
+  - { t: 1480, text: "one model at 60% discount if you were on a max subscription and 40% discount if you were on on one of the lower subscriptions. but there we" }
+  - { t: 1493, text: "go. That's gone . this is just an FYI. The reason why I'm still mentioning it is my understanding is that the co-pilot team is planning to" }
+  - { t: 1503, text: "run those kinds of promotions more frequently . keep your eyes open. I've seen it announced on" }
+  - { t: 1513, text: "Reddit on the on the GitHub copilot what's it called? channel. Yep. Channel thread sub something that. Sub and they may have announced it on" }
+  - { t: 1526, text: "X as . It it was yeah it was not very widely advertised although it did show up inside the co-pilot app and also inside VS Code where you make" }
+  - { t: 1537, text: "your model selection. be aware of that. Awesome. cool. , talking of models, , there there is a lot going on on the" }
+  - { t: 1549, text: "other side of the planet. , , Chinese Challenger models are really really challenging. , , what" }
+  - { t: 1559, text: "what are you aware of ? I am testing. , Kimmy is one of the ones that I'm actively using. , it's I'm actively testing it. , Kimmy shows up in VS" }
+  - { t: 1571, text: "Code. if you go to VS Code today currently and you select different models you want to use with your AI agent, you can turn that on. I'm actively testing out the Kimmy 2.5 2.6" }
+  - { t: 1582, text: "model. What do I have here? My 2.7. 27 code is what I'm using in VS Code to test that out. And if you look at the input or output token costs," }
+  - { t: 1592, text: "? the AI credits per input of a million tokens. you go to look at sonnet 5, the input cost is 200, the output" }
+  - { t: 1602, text: "cost is 1,000 AI credits for VS Code. When you look at Kimmy 2.7, input is 95 tokens. less than half of what" }
+  - { t: 1614, text: "Sonnet 5 is doing and the output tokens is 400, which is 60% less than than Sonnet 5, ?" }
+  - { t: 1625, text: "the amount of usage you can get out of this. , even if it's somewhat good, not dialed as some of these other models. , if you compare that to Opus, Opus is insane. Opus is" }
+  - { t: 1636, text: "500 input and 2,500 output. , this is a fraction of the cost compared to these other models. , they're really challenging the performance of these models and making this really" }
+  - { t: 1646, text: "efficient. , Kimmy 2.7 I'm testing out . I have Kimmy 2.6, six I think running from Azure AI foundry in some applications that we're building" }
+  - { t: 1658, text: "seems decent seems pretty pretty strong for some coding agent type stuff. yeah that I'm I'm exploring Kimmy . What about you Matias?" }
+  - { t: 1668, text: "Are you testing out Kimmy in any way? certain yeah yeah certainly played with 27 a fair bit. What was released over the last few days was K3" }
+  - { t: 1680, text: "K3 which this is happening quick has this is very very new and it's been getting some very very good" }
+  - { t: 1692, text: "press and this is being positioned as a oppos if not even fable competitor or challenger. obviously still at a significant lower price" }
+  - { t: 1703, text: "point, although certainly not as cheap as 26 or 27. they're definitely increasing their prices, but it's it's still significantly below where OpenAI" }
+  - { t: 1713, text: "and Anttopic are and these models are huge Kimmy K3 what what's what's the size of that one? How many parameters we're talking about there?" }
+  - { t: 1723, text: "I think yeah 2ion trillion parameters. I mean this is [laughter] we we a month ago we were talking about a barely a 1 trillion 1.5 trillion" }
+  - { t: 1734, text: "parameter and this is almost leapfrogged that in. The training machines on this thing must be massive to get to 2.8 trillion parameter. This is insane how big this stuff is. Where" }
+  - { t: 1744, text: "are they getting all this data from? [laughter] they're scraping all the all the internets of everything. I don't know. This is this is quite impressive. , here's the Kimmy K3" }
+  - { t: 1756, text: "quick start. You can go see it here. Matias, where are you getting K3 from? Because you can't get it in VS Code. It's not hosted from GitHub Copilot and it's not currently hosted in Azure AI" }
+  - { t: 1767, text: "Foundry . , where do you find this? How do you use this? Good question. , it's very limited for another week. , you need to have a Kimmy" }
+  - { t: 1777, text: "subscription. , Kimmy also ships its own coding harness which comes with a subscription. , as far as I'm aware, that's the only place you can get it . But, , within a week, I" }
+  - { t: 1789, text: "think the 27th or , , it, , the open weights will be released, which means , lots of other providers will be hopping on it at that point. , and to be fair, this is what I would wait" }
+  - { t: 1801, text: "for because then you get, , things zero data retention guarantees, etc., which, , I don't think you're getting from Kimmy directly. I would agree with that one as . I'm" }
+  - { t: 1812, text: "hesitant to use anything else on not GitHub copilot and not Azure AI foundry because I want to ensure or whatever I'm deploying I want to kind of verify that I'm deploying into" }
+  - { t: 1824, text: "hardware where there's a zero zero data retention policy. U Matias you brought up a while ago there's a versel AI gateway is it what was it?" }
+  - { t: 1835, text: "AI gateway AI gateway. Yes. And and in that AI gateway, it kind of describes what models from where can you use them and which ones have zero" }
+  - { t: 1846, text: "retention, which ones do not. you can make a better decision or at least a more educated decision as to where that is working as . Is that the gist there?" }
+  - { t: 1858, text: "was a good question because I it just made me look and it turns out turns out they host K3." }
+  - { t: 1871, text: "Oh, really? If I look at what the provider is. Oh, there we go. , they've got two alternative providers. . Moonshot, which is the maker of Kimmy, and Novita AI. let me" }
+  - { t: 1886, text: "just check what these say with respect to oh looks sorry maybe I" }
+  - { t: 1896, text: "misspoke. if you if you access it through the AI gateway on Moonshot apparently you do get zero data" }
+  - { t: 1906, text: "retention. there we go. . All . Great. That's fantastic. and yeah back to your question." }
+  - { t: 1919, text: "the Vel AI gateway and similarly open router which is an alternative or competitive product. they" }
+  - { t: 1929, text: "allow you to access models through a whole range of providers. and what is really important is it's the provider's policy" }
+  - { t: 1940, text: "that matters here. This in terms of you know whether your data is being used for training or not. you always have to look very specifically don't just rely on using Versel. but they do" }
+  - { t: 1954, text: "have a pro feature on paid accounts where you can completely disable any providers that would use your data. ," }
+  - { t: 1965, text: "that's , , in a professional context, that's definitely something, , I would I would heavily recommend. But yeah, there we go. , they've got K3 and the cost is , $3" }
+  - { t: 1977, text: "in, $15 out, which, , let me just compare that to, , Should we do Fable?" }
+  - { t: 1987, text: "Sure, doable. It's not going to be very favorable. , [laughter] not going to be very fabul. Yeah. that compares to $10 in and $50 out for" }
+  - { t: 1999, text: "5050. 15 versus 50. Yeah. Exactly. Again, this is this is the competition we want, ? And this" }
+  - { t: 2009, text: "this alone will drive down prices and hey, you've got to build better stuff. You've got to sharpen your pencil. We've got to figure out if we can build models that are more this is we're in the optimation" }
+  - { t: 2020, text: "optimization phase. people will choose what is more economically viable. I think more organizations Matias are going to start picking and choosing these larger models that are more efficient to run." }
+  - { t: 2030, text: "Tommy sent me an article recently. I don't remember where he sent it to me. I'll have to go dig it up here. See if I still have it here in my hands. , but" }
+  - { t: 2040, text: "the article was talking about I think it was cursor threw a bunch of harnesses and and AI agents and said rebuild" }
+  - { t: 2050, text: "the entire SQL server light SQL light rebuild in SQLite from the the 825page specification. Rebuild the entire system in Rust. Just do it. And they did this" }
+  - { t: 2061, text: "with different models Fable and Opus 4.8 eight and they'd use Grock 4.5 and just different models. It was very interesting to see the pricing and cost." }
+  - { t: 2071, text: "there was the management layer there was an AI managing the project and then there was an AI doing the code work. seeing the ratio of management to code and then the pricing per each of" }
+  - { t: 2081, text: "these development cycles, how much at the end of the day, how many tokens does it cost you to build this? Fable was insanely high. It was $20,000 to" }
+  - { t: 2091, text: "build this SQL light engine. On the other end, you're using 4.8 8 and some other model, a mixed model approach. Grock was really high on there. They were doing it for" }
+  - { t: 2102, text: "$1,500. That's it. , really choosing the agent is really going to affect your costs on how this is going to play out at the end of the" }
+  - { t: 2112, text: "day. Don't just use Fable Everything because it will run you out of money. Anyways, really good story there as . . , we talked about K3 from Kimmy and another model Amit Matias I" }
+  - { t: 2126, text: "want to pay homage to here. I think you found an article here on Quinn. Quinn is also pushing the boundaries on some things as . And I might have just lost your video." }
+  - { t: 2136, text: "I will wrap here and we'll we'll probably roll off here. , Alibaba has also made another status update here for Alibaba Quinn's model" }
+  - { t: 2147, text: "and that model is also released. I'll put that link here also in the chat window as . , that link here, let me click that link and bring it over here to the chat window. Quinn, this is" }
+  - { t: 2158, text: "officially released. it's card, sorry, it's coming to 2.4 trillion parameters open weight model. It's coming soon. , the announcement has been made on X. , we'll be able" }
+  - { t: 2168, text: "to play with that one fairly shortly here, but you'll be able to look at and play with Quinn 3.8 here pretty soon as . I think we see Matias back." }
+  - { t: 2178, text: "Matias, we might have you here only in Oh, there you are. You're back. All . I think we can see you for a little bit there. We're having some technical issues. , with that, we" }
+  - { t: 2188, text: "might go ahead and kill it for today. We will pause here and say thank you very much. The news for today is a lot about models." }
+  - { t: 2198, text: "We've got a ton of information around Versel, Alibaba, Quinn, and Fable also coming out today. , I hope you this episode of just talking about some of the news, keeping you up to date with" }
+  - { t: 2208, text: "what's happening in the VS Code and development space. We appreciate you all for listening for the Agentic Thinking podcast. Please let us know in the chat window what would you us to demo" }
+  - { t: 2218, text: "for Friday. Let us know how you want to learn these new AI systems. Thank you all much and we'll catch you next time." }
+
+---
+
+## Summary
+
+Mike opens with the realization that the Power BI modeling MCP server supports service principal authentication, not just interactive sign-in, which means a Claude Code desktop session can talk to a model in Fabric with no personal identity and no Pro licence attached. Both hosts note this is aimed at headless and CI/CD scenarios and that passing credentials through environment variables deserves real care. From there: the Power BI MCP server does not appear in the VS Code marketplace as a registered MCP server because it shipped as an extension, so it has to be registered by hand via mcp.json. Matthias walks through the agent host protocol in the July VS Code release, an open-sourced spec that abstracts how VS Code hosts Claude Code, Codex, and Copilot CLI sessions so multiple clients can consume the same running session. The back half turns to economics -- Fable staying available on Max subscriptions at 50% of weekly quota, Anthropic's 50% credit promotion, Kimi 2.7 and the new K3, and the reminder that the provider, not the gateway, sets the data retention policy.
+
+## Key Takeaways
+
+- ▸ The Power BI modeling MCP server supports service principal auth, enabling headless model access without a user identity or a Pro licence, though the model must live in Fabric for the XMLA endpoint.
+- ▸ Passing those credentials into a hosted agent means a dedicated secrets environment and an awkward environment-variable prefix -- easy to get wrong and frustrating to debug.
+- ▸ The Power BI MCP server ships as a VS Code extension rather than a registered MCP server, so it is filtered out of the marketplace search and must be wired up manually through mcp.json.
+- ▸ The agent host protocol, open-sourced in the July VS Code release, abstracts agent hosting into a spec so multiple clients can attach to one running session; it is opt-in via a setting.
+- ▸ Fable stays available to Max and enterprise subscribers at 50% of weekly quota, but Pro subscribers need extra credits once the promotional period ends -- and it burns quota fast if left on by accident.
+- ▸ Kimi 2.7 costs roughly half Sonnet 5 on input and a fraction of Opus, and the new K3 lands near frontier capability at a far lower price point, with open weights due within a week.
+- ▸ Zero data retention is a property of the provider behind a gateway, not the gateway itself, so routing through Vercel AI Gateway or OpenRouter still requires checking each provider's policy.
+
+## Links
+
+- ▸ [support.claude.com](https://support.claude.com/en/articles/15424964-claude-fable-5-on-your-plan?utm_source=agentic_thinking&utm_medium=website&utm_campaign=20260722)
+- ▸ [github.com](https://github.com/microsoft/powerbi-modeling-mcp?utm_source=agentic_thinking&utm_medium=website&utm_campaign=20260722#manual)
+- ▸ [platform.kimi.ai](https://platform.kimi.ai/docs/guide/kimi-k3-quickstart?utm_source=agentic_thinking&utm_medium=website&utm_campaign=20260722)
+- ▸ [x.com](https://x.com/Alibaba_Qwen/status/2078759124914098291?utm_source=agentic_thinking&utm_medium=website&utm_campaign=20260722)
+- ▸ [microsoft.ai](https://microsoft.ai/models/mai-thinking-1/?utm_source=agentic_thinking&utm_medium=website&utm_campaign=20260722)
