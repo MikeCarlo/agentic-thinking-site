@@ -1,9 +1,14 @@
 ---
-name: agentic-thinking-podcast-post
-description: Create an MDX episode file for the Agentic Thinking podcast. Use when given a YouTube URL for an episode. Downloads transcript, generates chapters, detects any guest from LinkedIn URLs in the description, and formats a complete MDX file ready for the site.
+name: agentic-pod-post-full-workflow
+description: Long-form reference for the Agentic Thinking episode post workflow. Background detail for the agentic-pod-post skill — transcript rules, chapter guidance, guest detection, and the pre-script manual pipeline. Not invoked directly.
 ---
 
-# Agentic Thinking Podcast — Episode Post
+# Agentic Thinking Podcast — Episode Post (Full Reference)
+
+> Reference material for the `agentic-pod-post` skill, not a standalone skill.
+> `SKILL.md` is the entry point and describes the current script-based workflow;
+> this document predates `scripts/create_episode_post.py` and records the manual
+> pipeline plus the detailed conventions behind it.
 
 Create a full MDX episode file from an Agentic Thinking podcast YouTube episode for the `agentic-thinking-site` repository.
 
@@ -266,7 +271,7 @@ Working directory: ~/projects/agentic-thinking-site (or wherever the repo is clo
 
 Steps:
 1. git pull
-2. Create the MDX file at src/content/episodes/ep{NNN}-{slug}.mdx using the template from .github/workflows/Agentic-Post.md.
+2. Create the MDX file at src/content/episodes/ep{NNN}-{slug}.mdx using the template from .claude/skills/agentic-pod-post/Agentic-Post.md.
 3. For `tags`: use 3–6 topic tags drawn from the video description, YouTube tags, and title. Use lowercase, short phrases.
 4. For `blurb`: 1–2 sentences. What is the episode about and why should someone watch it?
 5. For `chapters`: generate 6–10 chapters from the transcript context. The first chapter must always be { t: 0, label: "intro" }. Base chapter boundaries on topic shifts visible in the transcript. Use concise, lowercase labels (e.g., "what is MCP?", "live demo", "DAX generation", "wrap up").

@@ -79,6 +79,7 @@ Ignore these profiles when detecting guests from the description:
 - Chapter labels are not left as generic placeholders in the final pass
 - `yarn build` succeeds
 
-## Reference Asset
+## Reference Assets
 
-Read the adjacent `Agentic-Post.md` file for the target MDX shape, chapter conventions, guest detection rules, and link expectations.
+- `Agentic-Post.md` — the target MDX shape, chapter conventions, guest detection rules, and link expectations. Read this for every episode.
+- `reference-full-workflow.md` — long-form background: what `clean_vtt.py` does to a transcript, chapter-label guidance with examples, multi-guest handling, YouTube redirect URL decoding, and the manual pipeline used before `create_episode_post.py` existed. Consult it when the helper script fails or an episode does not fit the normal shape.
