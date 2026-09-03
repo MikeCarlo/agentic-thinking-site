@@ -53,28 +53,44 @@ This site is configured to deploy to GitHub Pages at `https://mikecarlo.github.i
        branches: [ main ]
      workflow_dispatch:
 
+   permissions:
+     contents: read
+     pages: write
+     id-token: write
+
    jobs:
-     deploy:
+     build:
        runs-on: ubuntu-latest
        steps:
-         - uses: actions/checkout@v4
-         
+         - uses: actions/checkout@v7
+
          - name: Install Node.js
-           uses: actions/setup-node@v4
+           uses: actions/setup-node@v7
            with:
-             node-version: '24'
-         
+             node-version: '24.x'
+             cache: yarn
+
          - name: Install dependencies
-           run: yarn install
-         
+           run: yarn install --frozen-lockfile
+
          - name: Build
            run: yarn build
-         
-         - name: Deploy to GitHub Pages
-           uses: peaceiris/actions-gh-pages@v3
+
+         - name: Upload artifact
+           uses: actions/upload-pages-artifact@v5
            with:
-             github_token: ${{ secrets.GITHUB_TOKEN }}
-             publish_dir: ./dist
+             path: ./dist
+
+     deploy:
+       environment:
+         name: github-pages
+         url: ${{ steps.deployment.outputs.page_url }}
+       runs-on: ubuntu-latest
+       needs: build
+       steps:
+         - name: Deploy to GitHub Pages
+           id: deployment
+           uses: actions/deploy-pages@v5
    ```
 
 3. **Configure GitHub Pages:**
