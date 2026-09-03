@@ -22,10 +22,17 @@
  *
  * The MDX body becomes the "show notes" tab content (key takeaways, links, etc.)
  */
-import { defineCollection, z } from 'astro:content';
+import { defineCollection } from 'astro:content';
+import { glob } from 'astro/loaders';
+import { z } from 'astro/zod';
 
 const episodes = defineCollection({
-  type: 'content',
+  // Content Layer API (required in Astro 6+). Legacy `type: 'content'`
+  // collections no longer load, so getCollection('episodes') returned [].
+  loader: glob({
+    base: './src/content/episodes',
+    pattern: '**/*.mdx',
+  }),
   schema: z.object({
     title: z.string(),
     episodeNumber: z.number(),
