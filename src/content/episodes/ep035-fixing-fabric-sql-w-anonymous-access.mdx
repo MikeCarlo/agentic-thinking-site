@@ -1,0 +1,93 @@
+---
+title: "Fixing!! Fabric SQL w Anonymous Access"
+episodeNumber: 35
+date: "2026-08-25"
+youtubeId: "8-TvHumzMco"
+duration: "11:15"
+blurb: "A short follow-up that fixes last week's anonymous Fabric intake form: the GraphQL error came from an anonymous role that only had create, and adding read plus create unblocks public submissions into Fabric SQL."
+tags: ["agentic thinking", "youtube", "fabric apps"]
+chapters:
+  - { t: 0, label: "intro" }
+  - { t: 52, label: "back to the failing intake form" }
+  - { t: 157, label: "the graphql error" }
+  - { t: 235, label: "rayfin schema and the hidden graphql" }
+  - { t: 306, label: "anonymous create-only does not work" }
+  - { t: 352, label: "npx rayfin up" }
+  - { t: 440, label: "verify anonymous submit" }
+  - { t: 621, label: "wrap up" }
+transcript:
+  - { t: 0, text: "Hello again and welcome back to another episode of Agentic Thinking. I want to apologize a little bit here because in our last video on episode 34, we did a really good job of trying to build an intake form and using the new anonymous feature and we struggled." }
+  - { t: 16, text: "We couldn't get through it. We had some issues. Matthias and I really were trying to debug the issue live. We were we were trying it live. It was a real demo." }
+  - { t: 26, text: "It was happening and I believe we have figured out the issue. in working with Microsoft and doing some digging around inside the code, I have the appropriate solution." }
+  - { t: 37, text: "this is the the resolution. This is going to be a short video. I'm going to pick up where we left off from our last video and then just go a little bit further around what did we do to fix this problem?" }
+  - { t: 52, text: "with that being said, let's go over to my desktop. You can see here we're back in our desktop and I want to just give you a quick touch point to where we began earlier." }
+  - { t: 65, text: "We made a number of intake forms as a fabric app. One of them such intake form was called intake form. this is the one that we were building originally and this is the one that was failing." }
+  - { t: 77, text: "we're going to start with this project and I'm going to show you the current state of the app. I'm going to show you the bug and then I'm going to show you how to resolve this issue." }
+  - { t: 90, text: "I'll click on intake form. you'll notice when I click on the app itself, it immediately loads the app directly inside fabric. You don't have to do this." }
+  - { t: 100, text: "This is a direct URL anyone can use and it can be accessible anywhere on the internet. if I go over to manage the application, you'll see here we get a direct URL and this is the publicly facing URL and this is why we're using the anonymous access." }
+  - { t: 117, text: "The idea being this is a form. I would want anyone to fill out the form and submit some data to it. I want the form to fill out the information and put it in my SQL database inside Fabric." }
+  - { t: 130, text: "I want a permissionless, I want an anonymous way for users to interact with my application and then send data through. to to open the application, I'm going to click the open button here on the -hand side," }
+  - { t: 143, text: "which will then open up the app directly. this is the app that we built last time, but let me show you the errors the errors. Let me zoom in here a bit you can see what we're doing." }
+  - { t: 157, text: "I'm going to put in some general information. Hey, I'm Mike. I am , , testing this. And then my email is going to be test at gmail.com." }
+  - { t: 167, text: "that's that's the information I'm going to submit into the form. And when I hit submit, it chews for a bit and then it says, \"Whoops, you've got this GraphQL error.\" And you think to yourself, \"What is going on?" }
+  - { t: 181, text: "Where's the GraphQL? Why don't I see it?\" , you would be correct. if I go back over to Fabric , and I go back over to the workspace," }
+  - { t: 191, text: "inside the workspace, near where it says intake form, notice that that there is no GraphQL being shown in here. GraphQL is a specific item that exists inside Microsoft Fabric." }
+  - { t: 201, text: "You can create a GraphQL on top of a SQL database. Or, if you click new item up here, you can also create a GraphQL directly inside the service," }
+  - { t: 211, text: "which is great. Love it. The downside is the GraphQL that we're seeing and the error message we're seeing there is hidden. The GraphQL is being used behind the scenes and we don't see it when this Fabric app deploys." }
+  - { t: 225, text: "it's hidden to us. that's fine, but we only need to understand how do we fix our problem in our code the GraphQL works correctly." }
+  - { t: 235, text: "here's where the issue came from. Let me move over here to VS Code. And if you navigate the project, in your projects, you'll have, agents, a distribution folder, you'll have the Rayfin section of code," }
+  - { t: 249, text: "? And you'll have the source section of code. Source is where the application lives. Rayfin are specific components directly for Rayfin. If you go into the Rayfin folder, open that up, and then inside the folder named data." }
+  - { t: 263, text: "the data folder was key here. And if you click into the data folder, and then for our app, the way we built it, the way our agent built it, it built this thing called schema." }
+  - { t: 275, text: "? the schema file is what we're looking at. And over here, let me minimize my terminal, this is the schema that we have. ?" }
+  - { t: 285, text: "When we access this data table, which is the intake submission form, which is a table in our SQL database, it has these different column names, ID, name, title, and email." }
+  - { t: 295, text: "The thing that it's missing, or it has, it has this create, and this is the anonymous role that we were talking about earlier. this is the new feature, anonymous." }
+  - { t: 306, text: "The role is anonymous, and you give it some permissions. However, if you only use the create object, we have listed here, this is just a create item, create alone does not work." }
+  - { t: 317, text: "? what we need to do is we need to add an array of objects into this role, and you need to automatically include the read and the create item." }
+  - { t: 329, text: "it's apparently there's some bug here that's going on. if I create, read, and then add the create item, and here auto correct is trying to to help me out here." }
+  - { t: 340, text: "I'm going to hit tab and finish that off. the new pattern is read goes first, then we have create. both of these roles or permissions are required on this role of the anonymous." }
+  - { t: 352, text: "if I save this file, control S, save the file, it is different, and I need to do a Ray Fin up exercise." }
+  - { t: 362, text: "I've I've made a change to the application, and I need to make some change. I'll hit the command line here, and then I'll do NPX NPX Ray Fin up." }
+  - { t: 373, text: "And you'll see down here that's what we're doing. This is the command that we're going to run in the terminal. This is what takes the app, bundles it here locally, and pushes up the artifacts into the service." }
+  - { t: 386, text: "I'll hit enter here. And the app will then build. it's building the application. It's checking all the data sets. It's then compiling the app and building it." }
+  - { t: 396, text: "And all we're looking for check boxes here, all green box check boxes. it's building the three items, and again, I've told you this before in the the episodes." }
+  - { t: 406, text: "Whoops, it moved away too quickly here. When it builds and deploys items here, it's going to build these distribution assets. these are the three assets that my project is using to push to the service in order for the service to run all the the code for our app." }
+  - { t: 423, text: "? All check boxes, everything is success, we're good and deployed. we can go back over to Microsoft Fabric. I can click on the intake form again, and I'm going to refresh the page it gets a clean copy of everything here." }
+  - { t: 440, text: "And you'll notice this form will still load. I'm also going to do this on the website. I'm not going to do it directly from Fabric you can prove that I'm not signed in." }
+  - { t: 452, text: "let me go over here to manage the app. I'll click open, and I'll just for kicks and giggles, I'm going to make sure that I click the sign out button you can see that I'm in fact not signed into this application." }
+  - { t: 467, text: "This is true anonymous. Oh, one thing before I show you this, let's go back over to Fabric real quick, and let's look at the database. you can confirm what we've put in here far." }
+  - { t: 480, text: "if I go into our intake form SQL database that we have down here, when I click on the intake form, you'll see that we have a SQL database with a DBO," }
+  - { t: 491, text: "we have some tables, and inside our tables there's our intake submission form directly as a table inside Microsoft Fabric. if I click on intake submissions, and then I can click select the top 1,000 rows," }
+  - { t: 503, text: "it should execute and run and we can see here I've got two test, test one and two, already loaded into this application. Great. Let's do a test three, ?" }
+  - { t: 514, text: "we're going to go back over to the application, the name will be Mike, the title will be test 03, and then we're going to do a same just dummy email." }
+  - { t: 525, text: "We'll just say Mike @email.com, ? assuming we've got everything deployed correctly, this is an anonymous user using the application submitting data back into submitting it back to my SQL database." }
+  - { t: 536, text: "There we go. with that read and create permission on the data set, we get our thank you message and then I can click here again to submit another response and it goes back to the main part of the form." }
+  - { t: 550, text: "this is the embedded form that we would . We have it styled and working correctly and we can confirm the data is in fact there by going back to our SQL database," }
+  - { t: 562, text: "running it again, and there we go. We can see that test 03 over here. Oops, I should probably not cut that off. We can see here our new record has shown up." }
+  - { t: 574, text: "Test 03 is there. We know that it's appropriately working and there we go. We we have finished the build. we have a fully anonymous intake form where you can decide what feedback you want via a form," }
+  - { t: 588, text: "that information is directly sent from the form to the Microsoft SQL database, and it's in Fabric. And I can do anything else I want within Fabric." }
+  - { t: 598, text: "And this is the really important story here around why we to use Fabric much, because I can use notebooks, I can manipulate that SQL database with push stored procedures," }
+  - { t: 609, text: "I have access to semantic models and building reports, and everything that I need to data engineer on top of that data coming into SQL is exposed to me and easily usable inside Microsoft Fabric." }
+  - { t: 621, text: "anyways, I just wanted to show you and close off this story here. We have fixed our intake form. We know how to do it, and it was related to the permissions that were wrong on the data set." }
+  - { t: 634, text: "With that being said, thank you much for this episode. This was a short cleanup episode from our last week on Friday. If you'd to hear more about what we're doing in Microsoft Fabric," }
+  - { t: 646, text: "fixing things, using agents, let us know in the comments what you would to hear, what you'd to see from us. We're happy to build new training and education about what we're learning and knowledge in that into the community as ." }
+  - { t: 661, text: "Thank you much for paying attention and watching today. We hope you this short and quick episode about fixing the GraphQL error that you appear when you don't have the permissions on your data set." }
+  - { t: 673, text: "Thank you all much, and we'll see you next time. Agent is thinking." }
+
+---
+
+## Summary
+
+Mike records a short cleanup after the live episode 34 demo, where the anonymous Fabric intake form failed with a GraphQL error. The GraphQL item is created behind the scenes when a Fabric app deploys and does not show as its own workspace artifact, which made the failure look mysterious. In the Rayfin schema, the agent's anonymous role had only `create`. That permission set does not work; the working pattern is an array with `read` first, then `create`. After `npx rayfin up` and a signed-out submit, a third test row lands in the Fabric SQL table, and the public form can write into Fabric without a signed-in user.
+
+## Key Takeaways
+
+- ▸ The GraphQL error on an anonymous Fabric app is often a data-role problem, not a missing GraphQL item in the workspace. The endpoint is bundled behind the app.
+- ▸ An anonymous role with only `create` fails. Put both permissions on the role, with `read` first and then `create`.
+- ▸ After changing the Rayfin schema, run `npx rayfin up` so the local bundle is pushed into the service before you retest.
+- ▸ Prove anonymous access from the public app URL while signed out, then confirm the new row in the Fabric SQL table.
+- ▸ Once the form writes to Fabric SQL, the rest of the Fabric stack — notebooks, stored procedures, semantic models, reports — can sit on that same incoming data.
+- ▸ This is the fix for last Friday's live demo, not a new app. The intake form was already built; only the anonymous permissions were wrong.
+
+## Links
+
+- ▸ [Anonymous data access for Fabric apps](https://learn.microsoft.com/en-us/fabric/apps/anonymous-data-access?utm_source=agentic_thinking&utm_medium=website&utm_campaign=20260825)
