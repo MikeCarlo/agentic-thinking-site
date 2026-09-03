@@ -25,7 +25,7 @@ export const GET: APIRoute = async () => {
 
   for (const ep of episodes) {
     const epNum = String(ep.data.episodeNumber).padStart(3, '0');
-    const slug = ep.id.replace(/\/index\.mdx?$/, '').replace(/\.mdx?$/, '');
+    const slug = ep.id;
     const url = `${siteBase}/episodes/${slug}/`;
     lines.push(`- [EP${epNum} · ${ep.data.title}](${url}): ${ep.data.blurb}`);
   }

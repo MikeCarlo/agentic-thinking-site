@@ -9,7 +9,7 @@ const episodes = (await getCollection('episodes'))
   .sort((a, b) => b.data.episodeNumber - a.data.episodeNumber)
   .map((ep) => ({
     ...ep,
-    slug: ep.id.replace(/\/index\.mdx?$/, '').replace(/\.mdx?$/, ''),
+    slug: ep.id,
   }));
 
 const topEpisodes = episodes.slice(0, 4);

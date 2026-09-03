@@ -1,0 +1,374 @@
+---
+title: "Fabric SQL w Anonymous Access"
+episodeNumber: 34
+date: "2026-08-21"
+youtubeId: "l9BPX2T5BRs"
+duration: "1:09:00"
+blurb: "A live Friday demo of Microsoft's new anonymous data access for Fabric apps: Mike and Matthias try to build a public intake form that writes to Fabric SQL, hit a GraphQL error, and compare Grokbot with Claude agent teams along the way."
+tags: ["agentic thinking", "youtube", "fabric apps"]
+chapters:
+  - { t: 0, label: "intro" }
+  - { t: 145, label: "grokbot and claude agent teams" }
+  - { t: 723, label: "starting a fabric app in vs code" }
+  - { t: 1155, label: "anonymous data access docs" }
+  - { t: 1611, label: "prompting the intake form" }
+  - { t: 1916, label: "plan mode and the rayfin schema" }
+  - { t: 2357, label: "npx rayfin up" }
+  - { t: 2570, label: "graphql internal server error" }
+  - { t: 3577, label: "commit often" }
+  - { t: 4115, label: "wrap up" }
+transcript:
+  - { t: 0, text: "thinking. Hello and welcome back to Aented Thinking with Matias and Mike. we are on a Friday and this means demo time. we're going to try and build some demos and things today." }
+  - { t: 13, text: "Real tools that we're going to be using and creating within our agents as . Matias, welcome. Hello. hello." }
+  - { t: 23, text: "great to be back here. Very excited. and really looking forward to your demo. this is going to be a bit of an interesting demo." }
+  - { t: 34, text: "I'll just preface this . We have one maybe two news items we'll go through here at the very beginning and we'll get into the demo." }
+  - { t: 44, text: "the demo for today is Microsoft has released recently anonymous data access in fabric apps. this is going to allow you to be able to allow an anonymous user to access a SQL database via a fabric app." }
+  - { t: 60, text: "lots of cautions here. There's, , this is very very important. This is not removing authentication. It's just giving you an alternative method for letting users that are unauthenticated to talk to your databases and and make data inside them." }
+  - { t: 76, text: "We have an example today. We're going to attempt to build an intake form as a fabric app where a user could go to the website." }
+  - { t: 86, text: "They could enter into the website and then via that website enter in form information, your name, email address, whatever that is. and then it would save that data directly down to the database." }
+  - { t: 99, text: "we're going to see if we can articulate a plan or design around an intake form that is a fabric app that sends data into a SQL database inside fabric." }
+  - { t: 111, text: "that's that's the premise today. I think this is a really cool feature. This is one of these unlocks that have to happen if you're building Azure static web apps." }
+  - { t: 123, text: "This stuff works. you have functions that do this and you can talk to databases and systems that are secure behind the behind the scenes," }
+  - { t: 133, text: "but this is what we need here in Fabric Apps as . that's going to be our demo for today. Before we go there, let's talk about a couple news items." }
+  - { t: 145, text: "Matias and I were just talking about on the phone call. We mentioned it on Tuesday. Grockbot is out. Matias, have you done any more homework or research around Grockbot?" }
+  - { t: 157, text: "I've been finding really fun success and I'm enjoying it working with Grockbot. H I still haven't. I'm afraid. I I I know you're excited." }
+  - { t: 168, text: "and and you've you got your hands dirty on it already. it's on my it's bookmarked and on my It's on the to-do list." }
+  - { t: 178, text: "On my to-do list. Yeah. To go research it a little bit more. Yeah. [laughter] , the the gist of this is it feels an ," }
+  - { t: 190, text: "this week as I've been playing with Grockbot over the weekend and and getting myself started with this, this does come with yet another subscription." }
+  - { t: 200, text: "you need to be on Gro Superheavy to be able to use this subscription and use these bots. But that being said, you're able to build multiple agents in a chat experience." }
+  - { t: 214, text: "It almost feels Telegram with all the different bots that you have and then you can then talk to them directly and give them tasks. You can let them have access to MCP servers." }
+  - { t: 227, text: "They can do work on behalf of you. And I'm actively using it to build net new applications that I need for my business to help me run a support group around some of the software that we've been building." }
+  - { t: 243, text: "it's very interesting to see this collection of agents all working together." }
+  - { t: 248, text: "really the software the I will say this you could do the same thing with potentially Hermes or OpenClaw or even Foundry hosted agents and I I think Matias you were also telling me before Anthropic has their own version of how multi- aents can talk to each other with an at symbol I have not played with the anthropic side but this just feels very easy and simple to get started with and very powerful out of the gate I don't need to turn a bunch of knobs." }
+  - { t: 284, text: "I don't need to learn a bunch of new CLI or commands or at symbols. It just I I tell the main agent, go build something." }
+  - { t: 294, text: "what are your thoughts? What's what's anthropic doing on their side, MS? You seem a little bit more aware of what they have on their side versus what I know about the anthropic side." }
+  - { t: 307, text: "first of all, is it is it self-hosted or is it a managed service? It's a managed service. it's it exists in the XAI cloud, I believe." }
+  - { t: 319, text: "And the nice part about it is that it whatever you do on desktop is automatically mirrored to your phone. if I have multiple bots I need to go talk to on my phone," }
+  - { t: 332, text: "I just pick the bot that I want, talk to it there. And then all the commands, everything it knows how to do is mirrored inside this the desktop application." }
+  - { t: 344, text: "I really do think it it's I'm I'm running a series of agents that all have their own Linux machines attached to them cuz each one gets their own box and you can click into that box and see what the agent's doing." }
+  - { t: 361, text: "if the agent is opening websites, running terminal commands, it's doing inside these VMs as . you can click into them and watch or work with them alongside." }
+  - { t: 373, text: "It's a neat feature. and the last one I haven't touched or tried yet is you can record yourself doing a task on that machine," }
+  - { t: 383, text: "that VM, and the agent will understand what you did and then from that process build out a process that it knows how to do and build something for you there as ." }
+  - { t: 396, text: "it's really interesting. . in in that respect, it's very different from open core Hermes because you don't self-host," }
+  - { t: 406, text: "? and correct you you don't bring your own LLMs or your own subscriptions. You're within a given ecosystem. Correct." }
+  - { t: 416, text: "You're in the the XAI ecosystem. And I don't think there may be ability for you to slightly change some of the models, but I think I'm I'm locked into only the models that it lets me have are the ones I've been using." }
+  - { t: 433, text: "I think they're only Grock models at this point. That's what I'm aware of . ." }
+  - { t: 442, text: "since you were asking about anthropic and claude, , that's where I arguably have the most experience I'm a very heavy user of Claude's agent teams feature which is a bit odd because it is still something you have to explicitly enable as an experimental feature even though it's been around for several months ." }
+  - { t: 465, text: "given couple months should be absolutely given given the crazy cadence at which claw ships new versions practically every day." }
+  - { t: 475, text: "it's very weird that the agent teams feature still has to be enabled as experimental. I don't understand. it is certainly very stable from my practical experience and I never run any significant rost streams without it." }
+  - { t: 492, text: "maybe this could be another one to do a live demo , one of these days and and just show what it looks ." }
+  - { t: 502, text: "[snorts] it's very different from , sub aents which have been around , for much longer. Sub agent means you explicitly define as part of your agent setup a a specialized agents using markdown," }
+  - { t: 516, text: "? you create a markdown file which effectively contains a system prompt for specialized agents. You give them a name, you tell them which permissions they have and all of that." }
+  - { t: 529, text: "you have to do a lot of work up front. have to be very explicit and you have to really think through, how to break down the potential work streams you're expecting and how to create dedicated agents for that." }
+  - { t: 546, text: "it's not easy. that takes a lot of and you have to get it . Claude agent teams are very different." }
+  - { t: 556, text: "It it's the same thing, but Claude creates them on the fly for you. you you throw a substantial problem at your main agent and ask it to create an agent team to solve it and it would then dynamically figure out how to break down the problem," }
+  - { t: 576, text: "how to define relevant special agents how many of them and it would then divide the task create a dedicated prompt for each of those agents and then obviously oversee what they do." }
+  - { t: 590, text: "It's very very powerful and to be frank it's the only way how you can tackle non-trivial problems day. and yeah the the latest claude UI experience also allows you to toggle between those sub agents when when they run to see what they do." }
+  - { t: 611, text: "I think this is almost absolutely worth a a dedicated demo. as I said it's not you need you need to toggle a few things in order to get that to work." }
+  - { t: 628, text: "You need to know exactly how to prompt it but it's very much worth it. that's my most significant practical experience." }
+  - { t: 639, text: "Codeex has something similar. it's less mature. and the the user experience codeex is codeex cursor or is codex openi open sorry gpt." }
+  - { t: 649, text: "Yeah. [clears throat] they have something similar which is also an experimental feature you need to enable. in fact they have two different generations." }
+  - { t: 661, text: "They've got agents v2 and v1. also very powerful but you have fewer levers and fewer config options and you have a lot less visibility." }
+  - { t: 673, text: "yeah also something worthwhile looking at at some point but let's let's look at fabric apps and anonymous access to the underlying data source." }
+  - { t: 685, text: "Yeah, let's try and jump into this one. I'm going to again, this is I've already built an app without using fabric apps. this is my first attempt to do it with using fabric apps," }
+  - { t: 699, text: "which this may in turn not go very . just be aware this we're doing this a live demo. We're going to be working this out as we think about this one." }
+  - { t: 712, text: "and , we're going to attempt to build this out directly using our fabric and environment. with all things, let me go over to my desktop." }
+  - { t: 723, text: "We'll move over there. here we have on my my desktop I have VS Code that's open. it's a blank session. There's no folders attached to it." }
+  - { t: 733, text: "And with all projects that we to do here, I typically to make a folder and then register that folder with an initial commit." }
+  - { t: 744, text: "that way we have some tracking of our files, our records, we can better adjust what's being built here." }
+  - { t: 754, text: "what I'm going to do here is I'm going to grab my SQL anonymous folder and drag it into VS Code. It will then align this folder here directly." }
+  - { t: 766, text: "And in order to initialize the git, I should be able to it's letting me making sure I trust this folder. Yeah, let's trust it. We'll do that." }
+  - { t: 777, text: "it's going to scan for the git repo on this folder. There is none here. Again, I'm going to work on just this locally. I will initialize a repository and then I will quickly make a little readme file here." }
+  - { t: 793, text: "New file. Read me. I guess I should do it all uppercase. That's how they seem to come. readme.md and then I'll just make a little test here." }
+  - { t: 804, text: "we'll have something there. Save that. And this will then get our initial commit made on our branch. click a little note here." }
+  - { t: 814, text: "Great. Done. at least I have some code tracking already built into our project. That's where we're starting from." }
+  - { t: 824, text: "The next part is we need to go build a fabric app. we're going to start up a fabric app and we're going to go use a template from Microsoft." }
+  - { t: 835, text: "what I'm going to do here is I'm going to go bring over my powerbi.com environment and we are in our data app test workspace which has fabric turned on." }
+  - { t: 847, text: "And here we're going to click on a new item. From here we will go find our fabric app. I'll just type in the word app." }
+  - { t: 857, text: "And here's our app preview on the far hand side. We'll click on app preview and we're going to call this intake form." }
+  - { t: 867, text: "that's what we're going to use the app here. We're going to do that and we'll hit create. this should build the the template or the structure here." }
+  - { t: 878, text: "it's going to have a a series of three items here. It's going to ask you what you want to build. We're probably going to start out with a blank app." }
+  - { t: 890, text: "we'll start here. Basic secure app. I think this is what uses the SQL database. If you build a to-do app, it will build a to-do list for you," }
+  - { t: 902, text: "but that to-do list will be wired up to a SQL database. It's a template that they have. And then the data app is connecting to a semantic model." }
+  - { t: 913, text: "Again, something else we're not looking forward to doing. we'll start with the blank app. And it's going to deploy this template into the service here." }
+  - { t: 923, text: "And it will also give me some commands here. And again, you could use this prompt at the beginning. I just haven't found much success with it." }
+  - { t: 934, text: "it seems to give me different answers. instead, I'm going to use these commands here directly where we're going to set up our project by using mpm create and it has an intake form." }
+  - { t: 947, text: "It says template equals a blank app. I know that there are multiple other apps here available to us. I'm going to remove this thing called template blank." }
+  - { t: 959, text: "I'm just going to do the intake form and then call out the workspace name. that's what we'll use here. we'll copy those. We'll go down here to our VS Code." }
+  - { t: 971, text: "We'll open up our command window by control tildy and this will open up our terminal. And here I can just paste this in. And again, I said earlier, I want to remove the template of blank app." }
+  - { t: 986, text: "I'll get rid of that one here. And I think that's all I need to run here. we're going to let the mpm package run inside our folder." }
+  - { t: 996, text: "What this will then do is it will then ask you to install the packaging. yes, I do want to install all the packaging and it should prompt me for something to get started with here." }
+  - { t: 1010, text: "we'll let it think here for just a moment and then we'll be able to we'll open our GitHub copilot agent and then start describing what we want to build here." }
+  - { t: 1022, text: "While it's doing this, you'll notice back on the actual website, we have an official URL that is open. we have a lot of questions about this from people who've been watching these shows in the past." }
+  - { t: 1038, text: "Where does the website go? Where can I get access to the app? you can the apps are getting published and if you are building the app inside Fabric," }
+  - { t: 1050, text: "this URL is publicly available. It can be accessed anywhere. but there is a requirement for being able to log in securely. but what we're doing today is we're going to be not removing the security layer," }
+  - { t: 1064, text: "but instead we're going to be adding a an anonymous data layer. we we can enter data into the application and save it without having to have someone signed in." }
+  - { t: 1076, text: "All . let that move over here. . it's already asking me down here. It's it's done its installation." }
+  - { t: 1086, text: "It's asking me would you to use a template? Let me move the screen over here just slightly people can read the text here a bit better." }
+  - { t: 1098, text: "Great. it's it's initialized the template and we can use our command keys or arrow keys here to pick a template here." }
+  - { t: 1108, text: "I'm going to start from use a template I believe and then we can pick a blank app barebones app react vit signin routing placeholder bar and no data layer." }
+  - { t: 1120, text: ". this is a data layer built with data analytics app based on your data in fabric. A to-do app a basic to-do app." }
+  - { t: 1130, text: "I think I just want the data app is what I want here. We'll see. what? I'm going to we're going to try it real easy here." }
+  - { t: 1142, text: "We'll go very basic. Let's start with just the Barebones blank app. All . we're going to start with the the Barebones blank app. And to be clear about what feature we're following here." }
+  - { t: 1155, text: "The feature that we're following here, this is the documentation officially from Microsoft. And , this is the page. page and I'll put this here in the chat window as just in case you wanted to see this link." }
+  - { t: 1170, text: "This is also in the description of the video as . This is anonymous data access for a fabric app. It will expose data operations to users who are not officially signed in." }
+  - { t: 1183, text: "whenever you build an app as of I think about a week ago this feature did not exist. you were not able to go to an application and talk to or enter data into a SQL database without being officially signed in through the fabric app." }
+  - { t: 1202, text: "This feature is allowing the anonymous role to be added to that. you'll see there's some lot more documentation down here, but the thing I want to point out is later on down inside the the the details here." }
+  - { t: 1217, text: "This is the data definition. And this I think is really important to call out. This is combining an anonymous role and authenticated roles into the same application." }
+  - { t: 1228, text: "And then notice here they're defining this entity and then there is an role of anonymous and there's another one for authenticated. And once you define the role, you're able to define the data level access that they have." }
+  - { t: 1242, text: "for example, an anonymous user could read data from the SQL database that we're building, but they could not create a record, update a record, or delete a record." }
+  - { t: 1253, text: "That's only for authenticated users. that you have roles, you can align your application based on those roles, whether you're read or create or update." }
+  - { t: 1264, text: "What we want to do is we're going to do read and create via the anonymous role, ? ? we want to be able to let users show up and create a new record in our database." }
+  - { t: 1279, text: "The other thing they call out here as , if you want multiple access roles for a single role, either anonymous or authenticated, you add those permissions inside braces, ?" }
+  - { t: 1290, text: "Create, update, delete. That's just an array of objects that you're passing in there. And then the data table down below is the information that is required or not required for your data table." }
+  - { t: 1303, text: "this is a blog post table with different ids, titles, content, and strings. That's how I read that. . I'll move this away." }
+  - { t: 1313, text: "That is the documentation that we're building. . that we've moved forward here. this is something you can take this a different way." }
+  - { t: 1324, text: "One pattern that I'm finding that I'm liking more recently is yes, we made the intake form. We do have to change directory here. You can change directory here directly in the command line or you can close down VS code and come back into it." }
+  - { t: 1342, text: "I'm just going to change it here in the directory line. CD intake form this. that we have we're in that new folder, we can run and I forgot to move this back over again." }
+  - { t: 1357, text: "let me pull this back over you can see the code we're writing. There we go. CD intake form is what we ran. And then the next command we're going to run here is we're going to go mpm rundev." }
+  - { t: 1372, text: "And then this will oops mpm rundev. And then we'll be able to spin up the Rayfin app and start having it run here locally on our machine." }
+  - { t: 1383, text: "while that gets started, we probably need to start talking to our agent and asking the agent to build something inside intake form." }
+  - { t: 1393, text: "I'm going to hit control shift I. We're going to go pull open our agent here and we're going to today we're going to use GitHub copilot." }
+  - { t: 1404, text: "And because we're doing a bit something a bit more complicated, I'm going to just burn the tokens for everyone here. because we can we're going to use Opus 4.6." }
+  - { t: 1416, text: "and we'll go down that route. All . our local host is running. I can click on this and there we go. we can see here in my VS Code browser, we already have a blank app with a signin with Microsoft element here." }
+  - { t: 1434, text: "that already exists. we can start talking to our agent to adjust this app in a way that will shape it for what we need to do." }
+  - { t: 1445, text: "let's start with , I'm going to talk to the agent here and give it our overall description of what we're trying to build." }
+  - { t: 1455, text: "Also, I will note here we need to adjust our permissions on this app. Down here at the very bottom, this is the default permissions that we're using on this application." }
+  - { t: 1467, text: "I want to change those over to autopilot cuz I'm going to allow it to just build and build and build. This is a security issue. typically it will ask you to run commands on the regular mode." }
+  - { t: 1481, text: "This is going to allow it to run all the npm payment commands or , PowerShell scripts or whatever it needs to on my machine. This is going to help us move a little bit quicker here." }
+  - { t: 1495, text: "The last thing I'll check on here, I don't think I need any special MCP servers or tools. but if you want to check those as , I usually typically am I'm getting a habit where I check all the configured tools." }
+  - { t: 1511, text: "That's this little icon here before I get a session going. because sometimes you may want an MCP server, you may want to talk to something." }
+  - { t: 1522, text: "If there are skills you're trying to get the agent to use, it will not understand what those MCP servers are used because it's not a part of your library." }
+  - { t: 1533, text: "clicking on this gear, you can see all the different MCP servers that I have. One word of advice here, VS Code team. VS Code team, it'd be really nice if you could make these automatically collapsed or a single button to collapse everything all at once would be great." }
+  - { t: 1553, text: "these are all the different MCP receivers I have installed or put into my program and then I can then use them or not use them as ." }
+  - { t: 1564, text: "the only one that might be relevant here might be the Playright one just because I want the ad the agent to look at my browser window." }
+  - { t: 1575, text: "I might just update this tool and give it the Playright server here as . that way if I share my browser session with the agent, it can run playright against it." }
+  - { t: 1588, text: "I'll just use that as . We'll hit on that. Let me just confirm that those settings took play is there. Yep." }
+  - { t: 1598, text: "Good. . that's all we're going to use today on this blank app that we have. All . next we got to describe what we want." }
+  - { t: 1611, text: "I want to build an intake form that talks to an anonymous SQL database. I'm going to turn on my microphone here and we'll talk to it." }
+  - { t: 1621, text: "Give it a second to start. I want to build a intake form, a web page that can be I framed or embedded into an existing website." }
+  - { t: 1632, text: "This intake form does not need an authenticated user. we want to use the anonymous access for the SQL database in fabric to enter the data into our intake form." }
+  - { t: 1643, text: "For this form, I want to make a single form with known columns. the schema of the form should live inside the SQL database." }
+  - { t: 1653, text: "I can define what input columns I want name, title, email address, and that schema is set inside the form. Then when users enter their data, I want all that data to be stored and submitted directly into the form." }
+  - { t: 1668, text: "For this to work, I want to make sure that this intake form does not require users to be authenticated into the fabric app documentation below." }
+  - { t: 1678, text: "All . this is my initial prompt here. And then what I'll do is I'll go add in the documentation link. one thing I find is very useful here is and I don't have the skill Matis." }
+  - { t: 1694, text: "I probably should add this one. There's an MCPL learn Microsoft MCP learn skill that I should probably add here the MCP can go grab the data from the website." }
+  - { t: 1705, text: "But for , I will put just the web URL of the anonymous data access link. One thing I have found is these agents are trained on data that's not current." }
+  - { t: 1717, text: "sometimes you need to add the current documentation with the feature you want to use the agent can go look up that feature and find it." }
+  - { t: 1727, text: "that's one thing I'm going to add here directly. Anything else you would add here, Matias, in my prompt before I hit go? no." }
+  - { t: 1738, text: "for the purpose of the demo, that's probably fine. what ?" }
+  - { t: 1744, text: "I guess what what I would do differently I would I would I would use the agent to convert my raw prompt the one you just dictated into something that is bit more fleshed out before then gets to work but I was I was hesitating because obviously we we we want to show something that's quite succinct and and completes within the time we have." }
+  - { t: 1773, text: "let's follow some best practice. Yeah, let's do it. here what I'm going to do. I'm going to What do you think about this?" }
+  - { t: 1783, text: "I'm going to take this information again, very random prompt. I just spit ideas out here. I'm going to switch my agent over to plan mode and we're going to ask it to plan out what we're doing here first before we have it go." }
+  - { t: 1801, text: "What do you think about that? Yeah. you give it something quite raw and then you say, \"Go off and do some research." }
+  - { t: 1812, text: "figure out how how do you understand my prompt? figure out how what should that translate in terms of technical tasks go and look up documentation and things that and create a spec that you can then implement with a lot less ambiguity." }
+  - { t: 1834, text: "Awesome. while you are talking our agent is then chewing and going ahead. it has explored and fetched the link documentation." }
+  - { t: 1844, text: "the reason I gave it that link it can go in and confirm that our agent can see here. Let me understand the user request." }
+  - { t: 1855, text: "it's trying to do it's checking to say can can we iframe it? Yes. we want to use anonymous check. And then we want to have a schema driven." }
+  - { t: 1867, text: "this is one that's a bit more about my intake form. the idea here is don't build a single intake form that is a single static web app." }
+  - { t: 1878, text: "What if I wanted three or four forms on three different websites, maybe with some different styling? the idea here is I want to be a schemadriven intake form." }
+  - { t: 1890, text: "I could just decide here's the schema for this form and other things that that we want here, ? it collects things name, title, email, and then a submit button." }
+  - { t: 1903, text: "? it did a good job there as . No user authentication required. All . and then it's reviewing some files and after it's done all that," }
+  - { t: 1916, text: "it's coming back here with a plan. here's our plan. Phase one data model. Replace the empty schema with an intake submission. it's talking about schema here." }
+  - { t: 1927, text: "There he goes. remember we looked at the documentation earlier about that roonymous and create. the it's using the anonymous role that we saw earlier in the documentation and the create feature as a single object," }
+  - { t: 1941, text: "not an array of objects. And then it has different field decorators. fine. data service is already enabled. Anonymous role is on the YAML." }
+  - { t: 1951, text: "No changes needed. Great. Phase two. . phase two here it's saying remove the off from the front end." }
+  - { t: 1961, text: ". this is interesting. When you look on the website. Oh, it's already making Did it make changes on things? I thought I had it." }
+  - { t: 1972, text: "Oh, I thought I put it on plan. I must have hit a tab button that let it start doing things. . it's building things on this off page." }
+  - { t: 1984, text: "You can see here, localhost.off. that off page was the landing page of where it tries to put the authentication for that user." }
+  - { t: 1994, text: "this may or may not work very . We may need to keep that off page on the the app. We'll see what it modifies here as ." }
+  - { t: 2005, text: "All . as it's modifying a lot of files here, it's adjusting the schema. Earlier, we talked about the schema that we were showing you with the different anonymous." }
+  - { t: 2016, text: "if we want to go observe this, I believe if I go to the schema, here we go. this is exactly the schema of the SQL database." }
+  - { t: 2027, text: "I've been told this schema of this data table, ? When we're talking to SQL databases here, this is a technology that's been developed by Replet." }
+  - { t: 2038, text: "this is a borrowed technology from Replet where you define the schema as a JSON object or a TypeScript file. From there, it knows how to build all the data schemas inside Microsoft Fabric." }
+  - { t: 2051, text: "let me get rid of that file. Look at that. wow, I'm quite impressed how quickly that went. define the intakes form." }
+  - { t: 2061, text: "Remove the off from the off phase. simplify the bootstrap. Yep. Run the Rayfang client. Yep. Build the intake form." }
+  - { t: 2071, text: "Great. Cleaning up any unused files. Updating some made some tests. Great. Build and verify. a build and verify. I think I gave it what did I give it here?" }
+  - { t: 2085, text: "I gave it the playright. if it's going to be checking some things, it should be checking the verification using playright. It's using ray fan up doing the app roll of anonymous." }
+  - { t: 2098, text: "this went a lot faster than I thought. Oh, I must have accidentally hit start application. that was my fault. I accidentally hit a tab key or something and maybe hit enter and it started the implementation." }
+  - { t: 2113, text: "then it started going through and building everything. All , I think we're there, honestly. I guess the last test of this, we built an intake form." }
+  - { t: 2124, text: "I think the two tests to prove this works would be let's enter some data here and see if this intake form sends data into fabric." }
+  - { t: 2134, text: "It should local run machine, I think. Oh, it's having a little bit of it's fixing some things here. And we should be able to to view those SQL tables inside the portal, ?" }
+  - { t: 2147, text: "Yes, that's true, too. let's while while it's still thinking here, let's go back over to the Azure port, the PowerBI fabric portal." }
+  - { t: 2157, text: "And this is our app, the main page of the app, which we I don't think it's been deployed to yet. we'll wait there. And I'm not sure if Rayen up has worked out as ." }
+  - { t: 2171, text: "let's see if there's anything in here yet. there. intake form app has been developed, we can see that it did come with a SQL database." }
+  - { t: 2182, text: "And if we click into the SQL database, there's a couple things I want to call out here inside this SQL database, it comes with DBO." }
+  - { t: 2192, text: "And it looks we don't have any current tables. it just created the database. My guess is we need to do npx rayen up to push any of the schema changes back into fabric." }
+  - { t: 2206, text: "it just works. one thing I will also call out here inside the SQL databases when you build these, there is a maximum threshold that the SQL database will use while it's creating ," }
+  - { t: 2220, text: "CU usage. And because I just created this intake form SQL database, I to go do these things. By default, the max Vcore limit, meaning the max amount of CPU usage or or cores that it could use at any point in time is 32 virtual cores." }
+  - { t: 2238, text: "If you were running your fabric environments on a smaller fabric environment such as F2 or F4 or F8, this could greatly, if you're hitting the database hard, it could really eat up your database and your your CUS very quickly." }
+  - { t: 2254, text: "for testing purposes or demo things, I to go in here and automatically modify this down to two maximum vores. It seems to be enough to just write a couple records in and out for these demos." }
+  - { t: 2269, text: "Anyways, a word of caution there inside SQL databases in fabric to try and limit the maximum amount of virtual core usage on your SQL databases. let we'll let this think here for a bit." }
+  - { t: 2282, text: "This takes it about a minute or two to really adjust and fix. I will move this out of the way. Let's see where we're at in the app." }
+  - { t: 2294, text: "All , app is ready to be embedded. Oh, great. provides , good. here's what I'm going to do next is I'm going to go back into my terminal." }
+  - { t: 2307, text: "Let me move this back over we can see our terminal again. control tildy to run the terminal. And it does appear that it's running." }
+  - { t: 2317, text: "Let me just add a new terminal here. And in order to we've done some development the code has changed. we can see since we did our intake form all these files have been modified adjusted on our local file repo." }
+  - { t: 2335, text: "But we want to take what we have here and publish this up. I'm going to keep all of my changes. We'll see if this works." }
+  - { t: 2345, text: "all the changes have been kept. Next thing I think would be wise for me to do is make a commit here because I did a commit initially for the project." }
+  - { t: 2357, text: "Here's a second commit. let's just do a feature of add intake form. I'll commit all of my changes here. Stage the changes." }
+  - { t: 2367, text: "We'll commit them here they are checked into our branch. And then we will use the npx ray fin up. This will take the code that we have here, package it and bundle it and send it up into fabric.com." }
+  - { t: 2383, text: "I'm going to hit enter on that. And we had an error. why? Oh, it would be helpful if I was in the directory." }
+  - { t: 2393, text: "I need to go to cd intake form. That's why it didn't work. I can do the npx ray fan up. Great." }
+  - { t: 2403, text: "it found the app in fabric. It's building all the data structures, creating the app, building things locally, pushing the package, and pushing those up." }
+  - { t: 2413, text: "You'll notice here, one of the things that we've talked about in the past here is when the Rayen app builds items, it builds things in the distribution folder, the dist." }
+  - { t: 2425, text: "These, in my my understanding, are the only items are the only artifacts that make it to fabric at this point. index and then these two other files for assets, the CSX and the JSX." }
+  - { t: 2438, text: "if I go back over here to the distribution folder in my VS Code, you'll see that those files exist over here and that and this is what it's bundling." }
+  - { t: 2450, text: "It's building your app into these files and then these are the files that are getting pushed up to the service. looks we are in the Febic portal." }
+  - { t: 2461, text: "Should be good. if we go back over to our powerba.com and fabric portal, I'm going to refresh the page here inside the SQL database and let's see if we get those new tables that we are going to care about." }
+  - { t: 2477, text: "Intake form, dbo, and voila. Look at that. We have an intake submissions. we have a form with columns inside it and it's using ID, email, name, and title." }
+  - { t: 2489, text: "it built exactly what we want. this is a bit hardcoded because this form exists with only these columns. There is no, , dynamic schema." }
+  - { t: 2500, text: "There's no admin page. you could probably go a lot farther with this, but this is a good starting point to at least get the app to build initially what we want." }
+  - { t: 2512, text: "If I click into this page, let's see what we have here. I don't think there's going to be anything here. Select top 1,00 rows. Should be." }
+  - { t: 2523, text: "It's probably going to be blank. Yeah, good. It's blank. let's go back to the app . we're going to go back over to the application itself and we're going to go run it." }
+  - { t: 2537, text: "here it's running inside fabric.com. I'm going to click on this button up here in the hand corner called manage app. And when we go into manage app, we will manage the app." }
+  - { t: 2550, text: "We will click on the URL directly and open this because I want to open this intake form directly from somewhere else. There we go." }
+  - { t: 2560, text: "And then I'm going to do Mike and then I'm going to say CEO and then Mikemail.com looks for me. I'll click submit." }
+  - { t: 2570, text: "Oh, GraphQL errors. Internal server error. we got to figure out why it's not doing that. let's see if we can go talk to our agent here." }
+  - { t: 2582, text: "back to the agent and I will get grab this one. I opened let's just talk to it with my microphone. It's faster." }
+  - { t: 2592, text: "I opened the website using the full URL satin ferry. And when I tried to submit my data into the form, it said GraphQL errors internal service error." }
+  - { t: 2602, text: "And then I'm going to grab the just the error itself and I'm going to put that here as context. And then I'm also going to grab the URL and put this here as ." }
+  - { t: 2616, text: "This is the URL I was using. let's see if it can figure itself out. it may have made a mistake somewhere in the process." }
+  - { t: 2626, text: "And we'll see if it can wire itself up. . the form was deployed correctly to fabric but the anonymous create operation is failing." }
+  - { t: 2636, text: "It's likely because the hosting needs redeploying for the new code. . Maybe the anonymous access in the tenant saying must be enabled." }
+  - { t: 2646, text: ". let's just go check this one as . I do know this is also important as . when you are using the anonymous access feature." }
+  - { t: 2658, text: "This is a hard requirement per the documentation and I'll bring that back up here as . Back in the portal page here, there is this step here." }
+  - { t: 2668, text: "And I think I turned this on, but let's just confirm it. Inside the fabric apps, you need to make sure that this is not disabled, but it is enabled." }
+  - { t: 2679, text: "we're going to search for the word enable anonymous data in the fabric portal. let me go see if I can go find that real quick and bring in my admin portal directly here." }
+  - { t: 2693, text: "let me sign in here on my other screen and we are looking for this phrase of anonymous. here's the feature from the portal." }
+  - { t: 2703, text: "Anonymous access should be improve enabled. I have turned it on. it is enabled and for the entire organization. I will just because I'm lazy for ." }
+  - { t: 2714, text: "I'm going to screenshot that and say I already did it. Back to my agent. Anonymous access has been granted in the admin. I guess what's important to understand here the agent would have made a guess, ?" }
+  - { t: 2728, text: "it because it you described an error there but it didn't really have any data or any any way to diagnose that. it's just guess that it could have been that." }
+  - { t: 2741, text: "clearly it's not. quite useful for you to then feedback know that wasn't a problem. What I'm going to also do here again just in case something didn't get deployed correctly the first time I'm going to do another rayfin up again." }
+  - { t: 2757, text: "I'm going to try and redeploy our code as is. Just do a full rayin up. Also, I was mcking around a little bit with the SQL database switching the vcores." }
+  - { t: 2769, text: "potentially there was some other issue around the vcores. me switching something there as . let's try it again. We have repushed the app." }
+  - { t: 2780, text: "We are back on the intake form. Let me refresh the page. let me do a control I think it's control F5, ? Is that a hard refresh?" }
+  - { t: 2791, text: "Control R. we'll do everything. All , we'll do Mike CEO and then we'll do mike email. I keep doing Gmail. It must be habit at email.com." }
+  - { t: 2802, text: "Still errors. All , we are still getting the error. what we might need to do here as ? we might need to have it add some logging." }
+  - { t: 2815, text: "Oh, it's also trying to redeploy array up as . Yeah, I just did that. add more logging in the error message we can narrow down the issue better." }
+  - { t: 2827, text: "let's add a little bit more logging here directly inside the application we can figure out why it's doing that. Oh, interesting. It's trying to test the anonymous direct access using the API endpoint." }
+  - { t: 2841, text: "Interesting. Running. It's running a curl post directly to the endpoint. . I asked to make a couple changes here." }
+  - { t: 2852, text: "It is changing some intake form page files. also display the error to show the multi-lane details. As a random side note here, look how easy this is to add verbose [laughter] error messaging in the system here." }
+  - { t: 2866, text: "You just tell the agent to add verbose error messaging and it does it. Microsoft, take note, all your error messages could use a little bit of agent help to provide better error messaging as ." }
+  - { t: 2880, text: "because sometimes I feel some of the error messages Microsoft gives us is just very minimal. it has updated the intake form." }
+  - { t: 2890, text: "I will keep the changes. It says redeployed. Built in a couple seconds. Redeploying. It says the backend services were successfully redeployed." }
+  - { t: 2900, text: ". try submitting the form again from Satin Ferry. when it fails, the error pane will show the full error code. GraphQL error details and status." }
+  - { t: 2911, text: "great. That's going to ask me to go into the de intake form. great. share the detailed error message I can pinpoint the exact issue." }
+  - { t: 2923, text: "Great. here's what I'm going to do is I'm going to go into the browser again. This is our intake form. Let's make this a little bit smaller here we can see it on the screen and control shift I inspect." }
+  - { t: 2940, text: "there's our this is my inspector for the website. I can see any networking or graph errors here that is happening. And let me refresh the page." }
+  - { t: 2951, text: "All . initially I can see that the page is rendering everything correctly down below here. the initial render is fine. Again, we'll say Mike CEO and then we'll do mike@mail again at email.com." }
+  - { t: 2965, text: "Submit graph internal server error. . it's still saying the error on the graph and I don't see any errors in the H. That's interesting." }
+  - { t: 2976, text: "I don't see any errors there on the networking tab. It gives me a 200. Check this out. This is cool. I this stuff. it's giving you the mut the mutation form." }
+  - { t: 2989, text: "it shows me the mutation here. it's giving me the error message. Internal server error. this might be a bug on the Microsoft side that's not working." }
+  - { t: 3002, text: "I might have to go file this as a bug cuz I think what we've done here far should be working at this point. the payload is sending the mutation correctly." }
+  - { t: 3014, text: "let me see if I can control a that and we'll give this back to our agent. I am only getting 200s in the browser window." }
+  - { t: 3025, text: "Here is the graphql mutation. Did it show it to me? And then I'll just copy the error response and also send this as this is the error response." }
+  - { t: 3036, text: "we'll see if that if that helps out as . Maybe it's something with the fact that there's an at symbol in my email address potentially." }
+  - { t: 3046, text: "We'll see what the agent can figure out here. It would appear to me though that everything is working correctly as I expect. The form is rendering." }
+  - { t: 3056, text: "Everything seems to be working correctly. The data structure seems to be matching the documentation as . . it's it's saying that it's the the GraphQL is receiving the message, but internally it's erroring." }
+  - { t: 3070, text: "if I go back over to Fabric, just because I want to show you what's going on in the database side. here we are back in Fabric." }
+  - { t: 3081, text: "If I go over to the intake form SQL database, here's the SQL database. And one thing that's a little bit interesting to me here is I don't see where the GraphQL item lives inside this." }
+  - { t: 3095, text: "but let me go back to the data app test workspace. Usually you would see some GraphQL item. one thing I'm I feel I'm missing here is when you create a SQL database with a GraphQL database on top of it," }
+  - { t: 3112, text: "the database typically has a GraphQL item in the workspace. I think maybe the issue here is the GraphQL item from the SQL database has not been created correctly." }
+  - { t: 3124, text: "let me just talk to the agent about that one as . When I go to the the workspace, I don't see an item for the graph QL entity item." }
+  - { t: 3136, text: "Microsoft item in the workspace. When you use SQL with GraphQL, do you need to make a item in the workspace? All , let's see if that Let's see if that helps out steering some of the conversation here." }
+  - { t: 3151, text: "the other thing I'm going to also check out as here is you can in the portal if you want to go find specific items," }
+  - { t: 3161, text: "you can see here we've got a ton of stuff up, databases and whatnot. If you go over to the filter icon on the hand side," }
+  - { t: 3172, text: "the filter icon enables you to highlight specific items here and I can look at all the different items in the workspace and filter them down to specific items." }
+  - { t: 3183, text: "I can see that I do have an app. I do have SQL databases. But in here I don't think I see any GraphQL." }
+  - { t: 3193, text: "That is what I would have expected to see when it made that the grab the , the Rayfen backend bundles its own GraphQL endpoint via the data API bundler." }
+  - { t: 3204, text: "it doesn't need me to access that item. the root issue is the SQL table doesn't exist. Oh, wait a minute." }
+  - { t: 3214, text: "It doesn't exist in the backing database. The dab configure tells GraphQL about the table, but the table itself was never created in the agentic thinking SQL database." }
+  - { t: 3224, text: "Why are you using that thing? not sure. Let me just [snorts] double check something here. confirm you are using the intake form SQL DB." }
+  - { t: 3234, text: "Not sure why it did that. How did it associate itself with a different database? That's odd. . it somehow it wired itself to the wrong database, which is interesting." }
+  - { t: 3247, text: "maybe it was looking at the workspace and found different things. That's odd. . . ." }
+  - { t: 3257, text: "It's trying to rebuild it. . Why is it doing an agentic thinking database? I don't even think I have one in that workspace. Let me double check." }
+  - { t: 3268, text: "Yeah, there's nothing in there that even has that. Oh, it does have one in there. Yep, there is an agentic thinking database. Sorry, I'm just looking inside fabric to see what's inside that database." }
+  - { t: 3282, text: "We might just get rid of it if we don't need it. Yeah, there's nothing in there. . What I find confusing there seems to be conflicting information about authentication on the fabric apps doc site." }
+  - { t: 3297, text: "it says on one page fabric requires authentication to be enabled before you deploy. and then on the anonymous data access page which is what work on it says this is where you don't want to authenticate a user." }
+  - { t: 3313, text: "yes you don't have authentication enabled for this app. I don't quite know how to resolve those two together but maybe there are still some backend issues to sort out." }
+  - { t: 3327, text: "Yeah." }
+  - { t: 3328, text: "let me see if what I would do probably would be to enable authentication and and to get rid of all the anonymous bits just to make sure that this works as an app end to end and then to gradually change those features until you get to a point where it starts breaking again." }
+  - { t: 3351, text: "Good idea. one more thing I want to try one more last item here. The static hosting here was enabled. True." }
+  - { t: 3361, text: "Folder was distribution. The AI agent just added the anonymous access equals true flag here inside the YAML inside the Rayfin app. there may have been something here under the static hosting where this this feature was not set correctly." }
+  - { t: 3376, text: "let's see if that resolves things. And I just did another ray fan up. let's try it one more time here. I think you're , Matias." }
+  - { t: 3387, text: "Somehow it stripped out the authentication thing incorrectly potentially. and that might have broke things. let's go here to refresh the page. Control F5." }
+  - { t: 3397, text: ". Got a new page. CEO Mike at email. ate email.com. Still having the same error. no issues there. I deleted the agentic thinking fabric app." }
+  - { t: 3409, text: "that should no longer be referenced only use the intake form SQL DB. Also I republished using the anonymous access true flag in the ray fin.l ammo and still it did not work." }
+  - { t: 3422, text: "let's see what that does. I think you're . The anonymous access by the way underneath static hosting is not documented at all. maybe that was hallucinated." }
+  - { t: 3433, text: "That could be hallucinated. I would feel that would be under the storage or something that, ? And wouldn't that make more sense to put that under the data enable true dialect and it would be under the data element?" }
+  - { t: 3449, text: "I don't know. It just seems that's not quite . There's not a single key inside that rayfin.l file that has that contains anonymous in in any any context." }
+  - { t: 3461, text: "that whole flavor the only the only place where you specify anonymous access is on the annotation on top of your data model. ?" }
+  - { t: 3472, text: "I don't see anything inside raven.yml to that effect. Do you mind scrolling up to the O section inside? Yes. Yeah. There we go." }
+  - { t: 3483, text: "we've got O enabled. Yeah. . fine. Yeah. that's that's seems correct and ." }
+  - { t: 3493, text: "let me just ask the to your point Matias I what you said there is let me just stop it here. let me just talk to it here." }
+  - { t: 3505, text: "Earlier in the process you removed all the authentication pieces from the main app when we built the basic app. I want you to read those authentication pieces and instead of having the O as a main sign-in screen," }
+  - { t: 3520, text: "I want you to move the O to a header bar on top of the page." }
+  - { t: 3526, text: "back to your point, TS, I want to make sure that I can authenticate or put that authentication back in and let it let's try and get it to work first and then see if we can get the anonymous access to work without it." }
+  - { t: 3544, text: "Yeah, there we go. those files still exist in context. Yep. it's going to back it's going to back and look at the template." }
+  - { t: 3554, text: "one of the mistakes I think I made here Matias just want to call us out for the users watching this one is again one of the reasons why we to set up those initial repos which again I made a mistake there slightly is I made the repo when we made the first part of that app." }
+  - { t: 3577, text: "We should have made a commit as soon as that app was done and authenticated. We should have started there. That should have been my second commit after making the readme file." }
+  - { t: 3589, text: "because then we would have captured a clean state of hey everything's working with the author there. I got a little bit excited and and started prompting away and letting the agent edit things." }
+  - { t: 3602, text: "I think had we done the plan mode Matias and I had not accidentally clicked the implement the mode immediately. we might have been able to get an extra commit in there." }
+  - { t: 3615, text: "I think I accidentally clicked something on the keyboard which might have screwed that up a little bit. but it it should be able to fix these off services hopefully by looking at the template and comparing the base template to what we have here." }
+  - { t: 3634, text: ". And yeah, , after the general learning here always commit often as often as you can every feature just that you'll get burned we just did today." }
+  - { t: 3648, text: "Exactly. . don't don't make huge changes with with hundreds of files and thousands and thousands of lines. and wait before you commit them." }
+  - { t: 3659, text: "divide it up into into smaller chunks. commit frequently. that small steps you can easily navigate through if you ever need to." }
+  - { t: 3670, text: "Yeah, there we it it has moved this to a little header bar here. at least we have the way to authenticate using fabric here as ." }
+  - { t: 3682, text: "Hopefully all this will work. It's going to finish up here and validate and let's Oh no, you haven't deployed yet, ? Not yet." }
+  - { t: 3693, text: "I'm on on the domain. Ied earlier and this is this is testing the fully unauthenticated access to it, ?" }
+  - { t: 3703, text: "yes, I received that exact same form on my browser and I was never prompted to authenticate with your tenant or with your workspace or any of that." }
+  - { t: 3714, text: "currently it's fully public open to hackers . [laughter] yes, but we should after your next deployment we should expect that to change." }
+  - { t: 3726, text: "I'm going to , it's building and verifying. One thing I will I will call here, Matias, you did say that this anonymous access equals true in the YAML file." }
+  - { t: 3737, text: "It's hallucinated. It's a hallucinated. I'm going to get rid it's just missing from the documentation, which may also be the case, but could be the case." }
+  - { t: 3748, text: "Assuming the documentation is correct and complete, it it does not exist. And obviously we don't have a schema document sadly for the YAML file which would obviously tell us whether or not." }
+  - { t: 3761, text: "Yeah, but I'm going to save it without it because the agent made that and we and we think that might have been a hallucination." }
+  - { t: 3771, text: "I'm going to just update the Raven YL to do that specifically we don't have an issue there hopefully. All . it's still running client." }
+  - { t: 3782, text: "It's still doing some editing some files. Still bootstrapping some things. clean build. clean build. it's going to start testing things. Awesome." }
+  - { t: 3792, text: "it thinks it's got a clean build going. because it has a clean build, I will keep my files. whilst we wait, just a curiosity on my end, why did you go for Opus 46?" }
+  - { t: 3807, text: "was was it random choice or do you have a particular reason? of the models that I have to select from, ? I have found that one to be fairly good with code or harder task projects." }
+  - { t: 3822, text: "I have been using Sonnet 5 a lot. Sonet 5 is very reasonable, does a good job. However, sometimes on more complex tasks where there's lots of code, I felt Sonet 5 falls apart for me just slightly." }
+  - { t: 3837, text: "but I have felt Sonnet 5 to be very reasonable as . I wish there was Kimmy 3. I don't know why it's not in my list, but I have been using Kimmy 3 on other tools which I do ." }
+  - { t: 3853, text: "I think that one's pretty . It's not it's not hidden under other models. It could be. I have a ton in here. ." }
+  - { t: 3863, text: ". Yeah, there we go. you've got Kim 3 and also you've got Oppus 5 and and the more recent Oppus version." }
+  - { t: 3873, text: "I'll add just curious because it's it's quite a dated release of Oppus . I'll add the the Kimmy 3 and I could probably unpin that one because if we have Kimmy yeah by the way 27 Kim 27 is substantially cheaper than three." }
+  - { t: 3890, text: "this is Yeah. if you look at it from a cost point of view, it's a it's a totally different tier. It's even though it appears to just be a minor evolution." }
+  - { t: 3904, text: "Great. K3 is is is is in a completely different price bracket . Have you observed this? Do you have a auto at 30% discount?" }
+  - { t: 3915, text: "I never use auto. I need I need control. Auto is never the thing. that's true. no worries. obviously they try to lure you with with that with with that discount," }
+  - { t: 3929, text: "which normally is 10%. seems to be dropped to 30 . But the thing is, , if you if you want success, if you want good results, you need to be very explicit about your model selection." }
+  - { t: 3944, text: "And , I don't want to leave this to some random choice. All . it's doing something here on the bottom. it looks red." }
+  - { t: 3955, text: "That's great. No red, which is good. Yes. I'm also checking here. Why did it It seems it's gotten hung on this command." }
+  - { t: 3966, text: "I don't know why. I'm not sure why that I might kill this terminal. I might just kill this terminal and just have it run it myself." }
+  - { t: 3976, text: ". let me just kill terminal and then I'll just have it stop because I think it's all passing and good." }
+  - { t: 3986, text: "what I will do here is I'll just run my MPX rafen up. I just want to see the command line here. we make sure we got all the Yeah." }
+  - { t: 3998, text: "we're good. We have the intake form. That looks good. And then I will run npxnet. Oh goodness. My terminal is very angry at me ." }
+  - { t: 4009, text: ". NPX Rayen up. There it goes. . Oh, we're starting from scratch. Using project. Interesting. It's It's forgotten your settings." }
+  - { t: 4020, text: "Data app test. Yeah, it seemed to Yeah, overwrite it. Sure, why not? Delete it. Start over. . Thinking should be ." }
+  - { t: 4030, text: "App says it's live. . we're going to go back again. Retry again. Refreshing. Refreshing the page. Oh, interesting." }
+  - { t: 4040, text: ". I I I'm I'm logged in. . A fabric user on your It's interesting. I am clicking login and it it did do a fabric user and it's that is working up top there." }
+  - { t: 4057, text: "let's see if this one is able to send data. Mike. let's just go CEO and then let's just do Mike at Oops." }
+  - { t: 4068, text: "Nope, I don't want that. Mike at Why is it doing that? That's my other tool on my computer acting up. Close that. Mike CEO.com." }
+  - { t: 4078, text: "There we go. Submit. still having an internal service error. . I don't know what it's doing. apparently there must be something wrong with that API or call." }
+  - { t: 4091, text: "there might be a bug going on there. I will circle back on that. But this, I believe, should be working. but for some reason, it is not." }
+  - { t: 4102, text: "Yeah, it's definitely not able to submit it. even even with the signed in user, it's still freaking out and having issues. there must be something issue that's broken there." }
+  - { t: 4115, text: "All , this is hopefully what will work. I we're going to have to leave it because we're at the end of time here. I'm happy to keep going a little bit further." }
+  - { t: 4128, text: "I might even start over again and rebuild it as . if I can solve the problem, I will at least report back or maybe we report back on Tuesday." }
+  - { t: 4138, text: "if we're able to get it resolved and maybe we'll pull this back up. But cool. In general, this is the documentation that should be existing and we are finding some layers of issues around getting the GraphQL to work with an internal server error. There could be a bug. We'll check it out. We'll circle back with Microsoft on that one as . . You learn some things here. some of this agentic coding stuff goes . Some of it doesn't go . This is live. This is live demo for you here. that's that's us building things and stitching things together directly with the agent. All , with that being said, we we thank you for checking out an hour of time with us. Hopefully, you can skim through a couple pieces here and see what works for you. There's also been a number of techniques and tricks and tips that we use around what model we select, how we use MCP tools, , and getting things set up with Ray as . hopefully you found something to learn there as , and we'll report back later on if we were able to get this intake form to work. Matias, thanks for another great conversation and a good demo today. Have a great weekend. I'll see you on Tuesday. You too. And thanks everyone for listening and watching. Thank you all. We'll see you next time." }
+
+---
+
+## Summary
+
+Friday demo night: Mike and Matthias try to build a public intake form as a Fabric app that uses Microsoft's new anonymous data access so an unauthenticated visitor can write name, title, and email into a Fabric SQL database. After a short news pass on Grokbot versus Claude agent teams, Mike scaffolds a repo in VS Code, creates a blank Fabric app, walks the official anonymous-role docs, and lets GitHub Copilot on Opus 4.6 implement a Rayfin schema with an anonymous `create` permission. `npx rayfin up` deploys the app and creates the table, but submitting the public form returns a GraphQL internal server error even after the tenant setting is enabled, extra logging is added, and sign-in is put back on a header. They run out of time with the form still broken, commit to circling back with Microsoft, and call out the lesson of committing after each working step.
+
+## Key Takeaways
+
+- ▸ Anonymous data access on Fabric apps is not "no auth." It is an extra role so unauthenticated users can be granted specific data operations such as read or create.
+- ▸ The docs put `anonymous` and `authenticated` roles on the data entity and let you attach an array of permissions. Mike's target for a public form is read plus create on anonymous.
+- ▸ Paste current Microsoft Learn into the prompt. Agents are trained on stale data and will miss a feature that shipped about a week ago.
+- ▸ Rayfin pushes only the `dist` bundle to Fabric. After schema changes you need `npx rayfin up`, and a new SQL database should have its max vCores turned down for small-capacity demos.
+- ▸ A GraphQL internal server error on submit can persist even with the tenant anonymous setting on and with a signed-in user. The live demo did not isolate whether that was a role bug, a wrong database binding, or a service issue.
+- ▸ Commit after the authenticated template works, before the agent starts editing. One accidental implement click and a missing commit made it hard to walk the change back.
+
+## Links
+
+- ▸ [Anonymous data access for Fabric apps](https://learn.microsoft.com/en-us/fabric/apps/anonymous-data-access?utm_source=agentic_thinking&utm_medium=website&utm_campaign=20260821)

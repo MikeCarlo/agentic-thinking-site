@@ -17,7 +17,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const allEpisodes = (await getCollection('episodes'))
   .sort((a, b) => b.data.episodeNumber - a.data.episodeNumber)
   .map((ep) => ({
-    slug: ep.id.replace(/\/index\.mdx?$/, '').replace(/\.mdx?$/, ''),
+    slug: ep.id,
     title: ep.data.title,
     episodeNumber: ep.data.episodeNumber,
     blurb: ep.data.blurb,

@@ -1,0 +1,274 @@
+---
+title: "The AI Horizon"
+episodeNumber: 33
+date: "2026-08-18"
+youtubeId: "NGcreyNC6-o"
+duration: "53:50"
+blurb: "Mike and Matthias unpack Steve Yegge's Flat Curve Society piece: the discernment horizon, why SaaS is back as tokens get expensive, and why the real bottleneck is token-efficient agent workflows rather than the next model."
+tags: ["agentic thinking", "youtube", "discernment horizon"]
+chapters:
+  - { t: 0, label: "intro" }
+  - { t: 104, label: "the flat curve society and discernment horizon" }
+  - { t: 269, label: "when models outrun review" }
+  - { t: 603, label: "saas comes back as tokens get expensive" }
+  - { t: 1054, label: "grokbot and graphs of agents" }
+  - { t: 1172, label: "cheap frontier models and luna" }
+  - { t: 1603, label: "don't spend tokens on git push" }
+  - { t: 1976, label: "github outage and lost rigor" }
+  - { t: 2664, label: "agent-first git hosting" }
+  - { t: 2760, label: "wrap up" }
+transcript:
+  - { t: 0, text: "thinking. Hello community and welcome back to Agentic Thinking with Matias and Mike. We're here again. We took a little bit of a break, a hiatus a little bit for the last week or ." }
+  - { t: 13, text: "We've been both Matias and I have been on various vacations back and forth. couldn't quite get schedules to align very and I just got tired of doing episodes on my own for a little bit here." }
+  - { t: 28, text: "that being said, we wanted to welcome you all back to Agenda Theory. We're going to jump in, do more episodes. hello Matias, welcome back again." }
+  - { t: 39, text: "How are things going? Yes, how are you? great to be back here. we were just talking before the show even though we've taken a bit of a break." }
+  - { t: 51, text: "Turns out AI world has not, ? we have we have a lot of new stuff to to cover and to talk about which I'm looking forward to." }
+  - { t: 62, text: "But, yeah, definitely commitment that we're going to be more regular again from on. with that being said, we do want to let our main topic." }
+  - { t: 75, text: "I got to give big credit to you, Matias. You found this amazing article. We've been wanting to talk you have been wanting to talk about this for a number of weeks ." }
+  - { t: 88, text: "we just haven't really got it together. and I think is a really appropriate time. This article while being two months old is extremely insightful and looking at this article even more in lie of two months of time." }
+  - { t: 104, text: "this is really applicable today. Matias what's our topic today? What article are we going through here? Yes. mid June, Steve Yak, , posted this article, , ," }
+  - { t: 117, text: "called the flat earth society, if I'm not mistaken, sorry, the flat curve society, which is playing on on the flat earth, , metaphor. it's, , somehow speculative around where the industry is at with respect to AI." }
+  - { t: 131, text: "and it's saying to most mere mortals, , me and you and and possibly some of you out there," }
+  - { t: 141, text: "it appears as if even though we constantly hear about new models and and bigger models and all of that, it appears as if we can't really distinguish them anymore." }
+  - { t: 152, text: "and the article explicitly says to most people what you get from Opus 4.8 as an example feels pretty much the same as get from Fable 5." }
+  - { t: 164, text: "Yeah. Even though Anthropic and and and many others would tell you that they're that there's at least a whole generation between them." }
+  - { t: 176, text: "and he looks into why does it feel that way and he comes up with the concept of the discernment horizon." }
+  - { t: 185, text: "saying we get we've got to a point where modern models are intelligent and good that most people are no longer able to distinguish or even judge their outputs properly because they've gone beyond us." }
+  - { t: 202, text: "And that's effectively where the the flat curve and the ultimately the flat earth metaphor is coming into the picture where he's saying in a way it's similar to everyone seeing a flat horizon when we know that obviously the earth is not flat is not flat but AI is exponentially growing but we can't observe that and yeah what what was your immediate reaction when I when you had a first look at it yeah this is an interesting article one of the main key points of this one let before we maybe I let me get my I give you my quick opinion and then I want to go couple cover a couple little news items here as because there's some other newsy things I want to catch on here before we get going but quick summary before I get there he talks about this idea idea or this concept in what happens when the AI is not safe for you to use or other agencies," }
+  - { t: 269, text: "organizations or government associates say this model is not useful or I'm not going to give Michael access to it, ? They'll give large corporations." }
+  - { t: 279, text: "They'll give security firms access to these more advanced models. Fable, I think, being one of these examples, ? Hey, this thing could do a lot of harm if Michael wanted to be malicious and use the model in a bad way." }
+  - { t: 295, text: "that could be dangerous to public safety things, ? someone is deciding whether or not that model is allowed to be used by me." }
+  - { t: 304, text: "I think maybe the concept here what he's starting to touch on the article is these models are getting good that there the the access to those models are even being restricted and limited by who can touch them." }
+  - { t: 320, text: "And then what happens when the model is smarter than me, ? How do I steer something that is more intelligent than what I can think about?" }
+  - { t: 331, text: "I that was one of the initial thoughts I've had in this concept was these models are getting much better than what I know how to do." }
+  - { t: 342, text: "How can I direct them? How can I tell them when they're wrong? Can I review something that I've never seen before? I can't review a Rust script that an AI has made for me," }
+  - { t: 355, text: "but I can ask it to write a Rust script or a Rust application. I don't know what best practices are. I'm I'm allowing the AI to determine what those things are." }
+  - { t: 367, text: "I can interpolate some things around that, but the AI can do things I can't review at this point. I think maybe that's is part of the horizon he's talking about." }
+  - { t: 379, text: "We're reaching the end of some developers are going to reach their limits on what they know how to do, but the AI can do more than that." }
+  - { t: 390, text: "how do you build systems around that process? Is that maybe what you're see that too in the article as , Matias? yeah." }
+  - { t: 400, text: "it got me thinking I obviously we're talking about this specifically under the umbrella of software development here, ?" }
+  - { t: 410, text: "let's just put that out there very explicitly. Sure. Very clear." }
+  - { t: 416, text: "even though of course LLMs and agents are in in many more domains nowadays but as far as software is concerned if you really think about it it's a very very wide spectrum what do you call software development sure some people get excited when when they wipe code a website that has some some forms and I don't know maybe just place some data in carousel view or something that," }
+  - { t: 446, text: "? That's software and arguably most models are way too intelligent for that stuff, ? they just turn it out without much problem." }
+  - { t: 459, text: "But on the other people work in software and they are very very they're doing a significant research and and trying to expand boundaries of what's possible thinking about I don't know database systems with crazy throughput and the ability to crunch vast amounts data very fast." }
+  - { t: 483, text: "that's the stuff you don't vibe code. That's the stuff. Yes. Which requires a lot of deep understanding not just of software but even of hardware, ?" }
+  - { t: 497, text: "and I just wanted to put that out there because when we're talking about abilities of models and , why , , their abilities need to be expanded over and over again." }
+  - { t: 511, text: "It's more the latter of what I described, not the former. ." }
+  - { t: 516, text: "and it's probably in in in the space where we have really difficult problems to solve where we still very much require new generations of frontier models bigger models and and the the race that we've all been observing for quite a while ." }
+  - { t: 536, text: "But at the same time that is not the day-to-day experience of most people in the world, ? And may maybe we make that distinction." }
+  - { t: 546, text: "Yeah. I I I that idea of what you're you're proposing there's the scientific space and then there's the everyday user developer space." }
+  - { t: 557, text: "And I think a lot of what I see with with AI systems that are coming out. A lot of my day-to-day work can be handled via a via AI." }
+  - { t: 568, text: "And the AI models that are out there are very sufficient, very capable. And , I can build things in minutes versus hours or days or weeks ." }
+  - { t: 579, text: "And just just the very nature of that is helping me , leverage the models that are out there today." }
+  - { t: 588, text: "One other piece of pressure here that I think is made very relevant in the article that I thought was interesting that it was pointed out which was when when we were doing the all you can eat token experience." }
+  - { t: 603, text: "when you can get all you can eat tokens for 200 bucks a month as much as you want heavily subsidized your thirst, hunger, ability, whatever you want to call it, to just build whatever you want or yeah," }
+  - { t: 618, text: "[clears throat] I don't need Salesforce. I'll just rebuild it. I'll just give millions and millions of tokens to an AI and say rebuild the system." }
+  - { t: 628, text: "I don't need to go buy it anymore. I'll spend the money there because the price was 200 bucks a month. the price was low on that that you're , \"Yeah, let's build all the software.\" I think a shift in the community has happened over the last couple months." }
+  - { t: 647, text: "GitHub changing their pricing, anthropic starting to restrict the amount of usage, starting to clamp down on the amount of AI you can consume. And as these models and systems start reducing the amount of tokens you get for very very cheap and increase that price," }
+  - { t: 665, text: "we're software as a service is no longer dead. ?" }
+  - { t: 670, text: "there is some value in I'm going to either run out of tokens or have to use four or five or six different plans to maintain these AIs or or even spend more money on tokens to get these software pieces accomplished." }
+  - { t: 687, text: "there's a natural barrier that's being applied to the tokens that when token prices go up, you stop building much fully completed software and you're just using it for smaller or subset of tasks." }
+  - { t: 700, text: "there's something here inside this that I think is very interesting to unpack in this article as . Would you agree Matias or is there is there a different take you saw on that?" }
+  - { t: 713, text: "too much to unpack here. yes, Steve Yag explicitly talks about how SAS is coming back, ? arguably last year 25 lots of SAS companies were very worried that Claude would eat them all," }
+  - { t: 729, text: "? [laughter] And it was probably really tricky, , for those kinds of business models because decision makers would have been hesitant," }
+  - { t: 740, text: "would have waited, ?" }
+  - { t: 741, text: "It looks this has shifted back because one people have realized as he rightly say AI tokens are not a freef fall but but two and I think that's the point I'm trying I I really want to stress is people have realized you you you don't just oneshot anything non-trivial correct yes the promise that we've been given by the AI providers that you could just very cheaply replace all your SAS software doesn't hold if you want to build something that is substantial and maintainable and and robust a lot of engineering still has to go into that even if you are heavily reliant on AI in in fact almost more engineering has to go into that than when than in the preAI because we are at a point and that that was one of my takeaways where making really good efficient use of AI in engineering is still very very hard." }
+  - { t: 809, text: "yes and that's a point I was I wanted to make here. whilst the article says we in the intelligence we're getting from models is is growing exponentially." }
+  - { t: 822, text: "but it it appears as if we are u flatlining because of our inability to distinguish the outputs from modern models." }
+  - { t: 833, text: "where we really need much more training and expertise and engineering is around how are you token efficient? how do you set up systems that you don't have to handhold your AI agents?" }
+  - { t: 847, text: "how do how do you set up systems that you can give a a more substantial task to an agent and then a loop system or or something that is able to to take that on and deliver something validated and something that's working." }
+  - { t: 868, text: "but that may not have been done in just one turn. It may have needed several hours of multiple agents working together, ? And that that's where we've got the real limitation nowadays in terms of what general average people have tackled in terms of their AI use." }
+  - { t: 889, text: "And that's where the article also says we have a I think I've got a quote here . We have a massive AI training and lit literacy problem ahead of us which is solvable but at this point those complexities have not been tackled by most people." }
+  - { t: 909, text: "I feel the bottleneck is slightly maybe. when as you were talking Matias a couple things come to mind. One is what AI has done is replacing some of what we do with other people and working on a development team." }
+  - { t: 926, text: "? the same problem exists with I have a desire to make a feature an app some something that's producible. ?" }
+  - { t: 936, text: "Whereas before I would hire engineers, there would be a large barrier of cost to that and I would teach them or show them our codebase. I would get standards." }
+  - { t: 947, text: "We would we would build these things as systems that would allow us to be able to ingest features. Someone would manage that feature and then we'd walk it through to succession and it would get built into our application." }
+  - { t: 962, text: "I'm seeing the same problem exist, but we're just doing it with all code. that that [clears throat] same process is being replaced. It's not going away." }
+  - { t: 973, text: "It's not changing. the individuals in your organization that can lead director level stuff of a team of people to build a system that are slightly techn on the technical side but then be able to or that's a whole new skill set ." }
+  - { t: 991, text: "How do you do this? How do you have all the agents run up? one I'm going to blend a little bit of this article with some news that's coming out." }
+  - { t: 1003, text: "There's some things I want to also adjust here and talk about. One of these areas that I'm looking at and we're hearing a lot of this language around building instead of loops with agents," }
+  - { t: 1018, text: "it's graph using graph with agents to help them build systems around that. One of these tools that just came out recently was a new innovation from Cursor." }
+  - { t: 1030, text: "I'm I'm sure you're aware and our audience is aware too. Cursor was recently purchased by XAI. XAI purchased the Curser program and Cursor has produced its brand new product called Grobbot." }
+  - { t: 1043, text: "and it's a series of bots. It feels Telegram and agents and chat all had a program built around that system or that ecosystem." }
+  - { t: 1054, text: "I'm actively testing Grockbot and finding some it's really fun. I'm really enjoying it. but I can , and this is maybe the reason why I'm talking about the article here about the AI horizon," }
+  - { t: 1068, text: "? I can build customized agents and have them communicate to each other and talk to them and build a system around things where I decide what the agent does," }
+  - { t: 1081, text: "give it a very narrow task that limits the amounts of skills it needs, it limits the amount of tools it needs, MCPs, it keeps the context window short and small." }
+  - { t: 1093, text: "It makes it efficient. And then you can talk to that agent and say, \"Hey, I need you to build a solution or do something.\" And then it it executes its task or job and then hands the information or the output back to a manager agent." }
+  - { t: 1111, text: "This is really interesting to me. I I'm finding this incredibly fascinating. and I think this is potentially touching on where this article is going." }
+  - { t: 1121, text: "that's one maybe news item is Have you played with Rockbot, Matias? Is this something on your radar at all? Not currently. I've I've heard about it from you earlier." }
+  - { t: 1133, text: "definitely something to check out . But I I was aware that Grock 4.6 was released recently. Ubot yes and it's also available in GitHub Copilot." }
+  - { t: 1145, text: "they're very fast and bringing new newly released Frontier models in which is great." }
+  - { t: 1151, text: "yeah definitely and also in terms of new model releases I've I've had a look at this earlier in August alone from Chinese labs we've had three major releases we've had GLM53 a few days ago DeepS 4 Pro and Quen 38 Max." }
+  - { t: 1172, text: "GLM is Z AI, Deepseek, Deep Seek and then Quen models are from Alibaba. the fourth one I would mention in that line would be Moonshot." }
+  - { t: 1184, text: "those are the guys behind Kimmy. but Kim is July release. a little earlier, it's not technically that's Kimmy K3 is is the model that you're talking about there." }
+  - { t: 1197, text: "K3. Yeah. Yep. and this is this is another interesting piece. that was what I when I when I gave this article to Mike Rockbot and said," }
+  - { t: 1210, text: "\"Hey, review this article in lie of all these Chinese models that are showing up.\" I I the new GitHub copilot or the the copilot experience with using these models is it tells you how many input tokens and how many output tokens or AI let me say that again not tokens it's AIC's AI credit somethings I don't know what the AIC stands for AI credits whatever that is that you can put your cursor over each one of the different models and see oh if I use opus oh my goodness it's 500 input 2500 output," }
+  - { t: 1249, text: "? It shows you the input, the outputs that you're getting there for each of the models. And you're seeing these new models again." }
+  - { t: 1259, text: "I think there's a Quinn one that I have access to. I to your point, Grock 4.6 is in there as ." }
+  - { t: 1269, text: "You can hover over them and see how efficient Microsoft is releasing some of their own models, the MAI models. ." }
+  - { t: 1278, text: "Microsoft AI, I think that's what MAI stands for, but they're doing their own set of models and there's a MAI codefast 1.1 that's out and you can play with that one and they're giving you a 10% discount they can get you using these models directly from Microsoft." }
+  - { t: 1298, text: "I think these other lowcost models, let's talk about that Horizon again, ? If I don't see much difference between a sonnet and an Opus from my output that I need," }
+  - { t: 1310, text: "why do I need to go buy really expensive models and continue to use them for everything? I'm if I can get, let's call it 95 98% of the performance of these really premier models and use a GLM," }
+  - { t: 1325, text: "a DeepSeek, , or Quinn, ? If those models are out there and I can get almost the same performance for 30% the cost, 40, dude, I'm in." }
+  - { t: 1336, text: "I'm I'm ready. I'm willing to try them. But that seems something that sounds valuable . What are your thinkings, Matias? Do you see this changing the dynamics of token costs and how [snorts] this is going to shift what we do?" }
+  - { t: 1352, text: "there's a really good quote in in the article which I made a note of. it says it's very easy to to teach people how to spend tokens," }
+  - { t: 1364, text: "but it's very hard to teach people how to not spend tokens, ? And [laughter] or as in how to how to be really token efficient." }
+  - { t: 1375, text: "And whilst that sounds quite funny, , it's it couldn't be more true, ?" }
+  - { t: 1381, text: "This is one of the big challenges moving forward from a training point of view assuming you're in a position where you can't just burn money and always throw everything at the most expensive model which I'm assuming is the reality for most of us." }
+  - { t: 1401, text: "learning how to be very efficient and how to route your tasks to the lowest or smallest or cheapest possible model." }
+  - { t: 1411, text: "that is a skill in and of itself and that that's definitely something which would be worth creating a training course for." }
+  - { t: 1422, text: "incidentally on that one since you were mentioning lots of models I've been I've been having very good results with Luna lately." }
+  - { t: 1433, text: "remember OpenAI when when they released their their latest generation of GPT56 models they create published them in a in a family setup where you've got Luna," }
+  - { t: 1448, text: "Terra, and Soul. Luna being what previously used to be Mini or is the Haiku equivalent. And then we've got Terra, which is the set equivalent, and Soul," }
+  - { t: 1460, text: "which is the opposite equivalent, if you want to talk in anthropic terms. and some podcasts ago, I also quoted a massive price cut that OpenAI had made for Luna specifically," }
+  - { t: 1473, text: "which was cut by 80%. Luna 56 is a very very cheap model. yeah, but I have to say this is my default model." }
+  - { t: 1484, text: "I'm currently going to whenever I do something that does not require a huge amount of long horizon reasoning," }
+  - { t: 1493, text: "I wouldn't I wouldn't I wouldn't use Luna to research and plan a massive new feature or or or to to do a a really big review job of of a PR or ." }
+  - { t: 1509, text: "but day-to-day research tasks, day-to-day implementation tasks, assuming that they're speced already. Luna is perfect for that." }
+  - { t: 1519, text: "And it's cheap. if you're on a codec subscription or , sometimes you don't even see your your weekly percentage going down because ," }
+  - { t: 1530, text: "it's it's absolutely minimal in terms of token usage. very very very happy with that and it's that stuff which I think needs to be much more common practice." }
+  - { t: 1544, text: "Exactly. Oh I love this. I put a couple things I I put some notes that Matias is talking about here in the chat window." }
+  - { t: 1555, text: "Luna good for research for minimal coding tasks documentation for Luna 56 is there. I I I snagged that from the open AI developers." }
+  - { t: 1566, text: "You can see how, , what reasoning levels it has, what the speed level it is, and then its price per input or output. two cents input, $120 output." }
+  - { t: 1577, text: "and then it it also handles text and images. all the details you want is in the chat window if you want to go check that out a bit more on your own." }
+  - { t: 1590, text: ". talking love this little talking. Yeah, go ahead. Yeah. Yeah, the article has another example saying sometimes it's good to still do things manually." }
+  - { t: 1603, text: "they give an example git push, ? why if if you if you if you want your latest commits to be pushed to your remote why do you have to give that to your agent," }
+  - { t: 1619, text: "? yes. If it's a simple command that you could just type on the terminal for instance, ? guilty. Guilty because I don't have a terminal, I'm talking to my agent on my phone or I'm talking to the agent directly." }
+  - { t: 1638, text: "I'm guilty of that. I'm guilty of I'm not at my computer to your point, ? If I was on my machine, run the command or just press the button in VS Code," }
+  - { t: 1651, text: "not an issue. But I'm not sometimes. Sometimes I'm walking around or I'm in the airport or I'm traveling with my family, I'll just tell the agent, , push it to me, [laughter] go do it." }
+  - { t: 1665, text: "yeah, I'm guilty of that. of course, ? It's not all or nothing. And and sometimes it's just very convenient. Sometimes you give a really substantial prompt and and then the final line is once you're done with that," }
+  - { t: 1682, text: "push it. And that's , ? But when you're assuming you're not running around on your phone, assuming you're in front of your computer or your laptop and you have straightforward access to your terminal," }
+  - { t: 1699, text: "that's that's the stuff, , where you can save some tokens and obviously that adds up over time. it's not this specific command necessarily, but it's just thinking about it." }
+  - { t: 1713, text: "am I am I being too lazy sometimes? could I could I be using could I be using those tokens for something much more valuable," }
+  - { t: 1724, text: "? I I seeing that because the the truth is I then found myself guilty of of just being too lazy more often than not." }
+  - { t: 1736, text: "The other thing is you you definitely don't want to be in a position where you completely unlearn all technical skills, ?" }
+  - { t: 1746, text: "And in that respect, , in terms of practicing your brain and your memory, it's quite good to occasionally type in a terminal command." }
+  - { t: 1757, text: "We we may we may slightly disagree on this point a little bit. I understand your point and it is a shame to lose my technical skills," }
+  - { t: 1767, text: "but I I'm going to pick on you here you a bit because I I know how great of a coder and developer you are. You've been living and breathing this longer than I've been thinking about code." }
+  - { t: 1781, text: "you're you're an expert in this area and I'm going to give you mad kudos and props to this. But to be honest, a lot of these lightweight low-end task things push to main these things are getting I'm your point is is aptly correct." }
+  - { t: 1800, text: "I'm losing some of the stuff that I used to be doing with code. But what I'm doing is I'm shifting my brain over I feel I'm shifting my brain over to other problems or challenges I'm trying to solve that are not this function won't run." }
+  - { t: 1818, text: "I'm going to focus my effort there. I'm I'm stepping back and saying how would we manage an enterprisegrade semantic model across all the models inside powerba.com." }
+  - { t: 1829, text: "What does that look ? I'm shifting my focus away from maybe these more remedial tasks of day-to-day work and moving more to big architectural decisions and thinking things." }
+  - { t: 1841, text: "yes, I I agree with you. I don't want to lose the technical chops. but I'm also finding my workload shifting much much away from hands- on keyboard things anymore." }
+  - { t: 1853, text: "I'm I'm actively trying to build solutions where I can go for a walk and just talk to my bots and say, \", I want to write a blog post on the course of this 30-minute walk." }
+  - { t: 1867, text: "I want it to grill me about this topic. Hey, here's here's an article Matias gave me. I want to think through this with you. Help me reason through these concepts and the and the thoughts that are coming through this article." }
+  - { t: 1882, text: "I want something to bounce these ideas off of.\" And , I can chew on my ideas a little bit separately. maybe I'm shifting what I work on slightly and not trying to focus much on the technical skills." }
+  - { t: 1898, text: "I don't know. That's just maybe my perspective on things . Sure. Yeah. And I absolutely agree, , with with with the with the principle." }
+  - { t: 1910, text: "yeah, myself, it's probably been 15 months that I haven't written a single line of code. for for real, ?" }
+  - { t: 1920, text: "Yeah. And in I've been writing more than ever, but it's been ideas, plans, specifications, architecture, prompts, feed feedback, you're back in director mode," }
+  - { t: 1934, text: "but you're back but you're back in director mode. You're not codew writing mode. You're in directing mode. You're directing a team of agents to do what you want." }
+  - { t: 1944, text: "And that that was one of your previous jobs was directing a whole bunch of team members to do and that's just shifted from people to a lot of computer systems which is cool." }
+  - { t: 1960, text: "All . I'm going to take a little bit of a turn here a little bit on things. One of the things you called out here Matias in our notes around some of the news articles here." }
+  - { t: 1976, text: "love this article. This was great. GitHub recently took a break, a vacation if you will. Yesterday it was down for multiple hours where GitHub was just crashing and having Matias," }
+  - { t: 1988, text: "I'm assuming you were greatly affected by this. Was this something that impacted you recently? That's why I mentioned it because . I was grounded." }
+  - { t: 1998, text: "No way. I I [clears throat] couldn't even open a repository. oh my goodness on github.com. and looking at GitHub status for this specific incident, it started at 1:40 p.m." }
+  - { t: 2011, text: "UTC in in terms of them publicly acknowledging something and then the resolution message was at 9:15 p.m. UTC. we're talking almost eight hours here which is insane eternity and obviously you can imagine how many how many millions of people and teams would have been impacted by that." }
+  - { t: 2032, text: "absolutely this is this is the stuff that should in a in a preai age was unimaginable. it, , it it could never have happened back then." }
+  - { t: 2044, text: "and nowadays it seems that because companies GitHub and everyone else, they're desperately trying to keep up pace with agents. Things are breaking down." }
+  - { t: 2054, text: "that's the only explanation. there are two things, ? One is obviously we talked about that a while ago. GitHub in particular has seen an incredible increase in terms of load on their system." }
+  - { t: 2069, text: ". You showed some really nice charts on that. I remember exactly. that's one thing but the other thing is engineering rigor I believe has really suffered enormously with because of AI." }
+  - { t: 2084, text: "And I think to close the loop here this is really what what the article is is trying to get at as ." }
+  - { t: 2094, text: ". I want to unpack these. I think these two points you're making is extremely relevant to this article as ." }
+  - { t: 2104, text: "engineering rigor before when I had to ship something and it was a little bit more difficult and I had to review code. I had to go through my own items." }
+  - { t: 2116, text: "I wouldn't be as generous with committing and and and pushing to main . with AI. another part of this I think that's changing here is your your DevOps process." }
+  - { t: 2128, text: "I just talk to an AI and say hey Grockbot I need to build a static web app and it's going to be here here." }
+  - { t: 2138, text: "This is the technology I want. I'm going to use .NET backend. I'm going to use the S SWA. I'm going to build this thing. Boom." }
+  - { t: 2148, text: "And within minutes it's got I have the GitHub actions completed. I have your pipeline. Are you doing tagging? You tell it what type of git style you're going to be using for committing and going into main." }
+  - { t: 2163, text: "It just figures it out and it knows I can describe conceptually what I want and it sets up the entire DevOps process. before that took some effort, some finagling." }
+  - { t: 2175, text: "It it was maybe a bit buggy. I'm making three, four, five commits to main. I'm , \"Oops, my pipeline broke because of some change." }
+  - { t: 2185, text: "It didn't check a build before it ran. My bad. I just had three failures of runners on GitHub and I didn't even know because I'm committing to main seven times a day," }
+  - { t: 2197, text: "eight times a day. I'm just whipping out a feature. Boom, done. Commit it to main looks good. Ship it. that that's to your point, the rigor." }
+  - { t: 2209, text: "I'm not doing as I'm not taking eight or nine or 10 commits all together, stitching them together as one big review and pushing it out the door." }
+  - { t: 2219, text: "I'm committing every little thing I can figure out. And if the color on the button is wrong, if the radius is on the button is wrong," }
+  - { t: 2229, text: "ship it. Just just push it. what do you think? Is this is this something that you're seeing as ? Do you think companies are struggling with this and that's why GitHub potentially is falling over?" }
+  - { t: 2244, text: "I think this is happening because we do not treat AI and agents in the same way we treat or we would have treated employees and engineers in particular." }
+  - { t: 2255, text: "And I think this is this is something to to think about hopefully because ultimately ultimately let's say you onboard a new engineer," }
+  - { t: 2265, text: "? They've got some general experience. you probably hired them because they've worked on the same tech stack before. they've they've solved those kinds of problems." }
+  - { t: 2276, text: "but for them to really come into your team and most importantly be able to contribute to your product they have to go through quite a few learning cycles." }
+  - { t: 2288, text: "they they need to fully understand what's the process you've got established? what are what are the musts and must notss? how do reviews work?" }
+  - { t: 2299, text: "what what is the style we require when it comes to committing and things that? . and that takes time." }
+  - { t: 2309, text: "you don't just get that overnight. I think people have an illusion that with AI agents, you no longer need that." }
+  - { t: 2319, text: "And there's an illusion that you just open up cloud code or codeex or copilot you spend a bit of time writing up a prompt and then it'll do everything for you and it will be perfect and ready to be published." }
+  - { t: 2335, text: "But in reality unless it's something trivial or a hobby thing in reality all the same things still apply that we had with human employees previously." }
+  - { t: 2348, text: "that agent needs to be not necessarily trained but needs to be told very specifically what what are your processes what are your musthaves what what is the required DevOps process you're looking for what is the documentation you're looking for how is this going to be reviewed how do we ensure that changes do not just get pushed push to main and go into production straight away," }
+  - { t: 2379, text: "? all of that should still apply. in reality, obviously u oftenimes it probably doesn't at this point. but this again, , we were talking about a massive need for training nowadays." }
+  - { t: 2395, text: "and this is precisely the area where a whole new training approach is necessary. and in this case it's about tailoring general purpose agents to your specific projects to your specific company context to your specific collaboration style etc etc." }
+  - { t: 2413, text: "none of that is trivial. That that is the new engineering hurdle that we we all need to invest into. That's that's where we need people that that's where that's where we need to hire engineers nowadays." }
+  - { t: 2429, text: "not necessarily writing the code but producing those parameters producing also the verification frameworks validation verification is is is a big concept in the article as yeah sorry a bit longwinded but it's good that that's pretty much what comes to mind here I threw a couple other articles in the chat here as some other things." }
+  - { t: 2457, text: "I found this is again dating itself . I don't know where we're at today." }
+  - { t: 2464, text: "I haven't seen any recent data around this but in April of 2026 I believe his gentleman's name is it was Vlad from the GitHub team showed some graphs around how many pull requests are occurring and this was from 2023 2024 2025 and 2026." }
+  - { t: 2482, text: "2026 has almost doubled the traffic that was done in 2025. it's exponentially growing at this point. that's one thing that's occurring. Then also another gentleman on LinkedIn which is also in the link here as ." }
+  - { t: 2497, text: "I don't don't really know how to say his growth growth I think is how you would say his name but he makes another comment here that I thought was also really relevant which was he's discussing the 4% of all GitHub commits." }
+  - { t: 2514, text: "This is 6 months ago albeit 6 months ago 4% of all commits was 4% was done just by cloud code. 4% of all commits 6 months ago was only cloud code." }
+  - { t: 2526, text: "I can't imagine what this would look . And he his projection was at this pace or projection by the end of 2026 20% of all of daily commits one in five would be made by cloud code." }
+  - { t: 2540, text: "I might even argue it's even higher than that by the end of 2026. We might have to go back and revisit this and see if someone else has done some more statist statistics around this," }
+  - { t: 2554, text: "but this is impressive huge numbers. and and again we're we're changing into an era of things that are again the elbow of the curve is occurring." }
+  - { t: 2564, text: "We're seeing a direct shift in behavior in these platforms. H 4% almost seems quite low to me if you're saying that that's six months ago though." }
+  - { t: 2574, text: ". . it's got to be substantially higher than that. More than . Oh yeah." }
+  - { t: 2584, text: "I would easily say double eight maybe 10% by . But it's that's crazy. that's happening." }
+  - { t: 2592, text: "While this is happening and maybe this was time I maybe this was just spite or someone being funny when GitHub was throwing up and having issues at the same time did you hear about cursor's new git system called origin." }
+  - { t: 2607, text: "Yeah. . Git's throwing up. At around the same time, Curser shows up and says, \"Hey, we've got a brand new system to work with your AI agents to help you manage Git.\" Git is not a proprietary piece of code to GitHub." }
+  - { t: 2625, text: "It's just a system. It it works for people." }
+  - { t: 2629, text: "and their argument here in this article here around cursor is there's a new one called get git sorry it's called cursor origin code or their origin hosting which I found very fun and the play on words was very aptly calling your git management system origin is is great." }
+  - { t: 2649, text: "I thought this was a super good nerdy phrase that was thrown out here. but origin code hosting is available and this is an agent first way of thinking about work trees and git and git integration." }
+  - { t: 2664, text: "The argument being GitHub was primarily made for humans turning AIcentric whereas the other phrase is this is a agent first git management system that's turning humans." }
+  - { t: 2675, text: "in the same vein we should also mention entire entire.io which was founded by the former GitHub CEO Thomas Dormka precisely to build a a a Git and GitHub alternative for AI agents." }
+  - { t: 2690, text: "I'm not sure how far they got in terms of having a product but oh yeah looks you can already install that ." }
+  - { t: 2701, text: "It looks this has been launched. there we go. I haven't I haven't closely followed it for a while but that's definitely something I remembered as you were talking about it." }
+  - { t: 2714, text: "obviously those CI platforms they were conceived and built when everything largely came from human contributors clearly they're not going to be 100% fit for purpose anymore." }
+  - { t: 2728, text: "particularly when it comes to throughput but also the whole question of how reviews are handled and this you were talking about lots of commits going in that's the one thing but who's signing off those commits and who's allowing them to ultimately feed all the way into production that's one that's one of the big challenges nowadays this is interesting And we've already burned through almost 45 minutes of time here." }
+  - { t: 2760, text: "Matias, are there any final thoughts you want to wrap here or should we should we keep going? There's there's definitely more news we can we could keep going with," }
+  - { t: 2772, text: "but I think we've done a pretty good summary of the article and woven in a little bit of news here towards the end of the article and and how this is is handling here." }
+  - { t: 2785, text: "Any final thoughts around the horizon of AI and what's going to happen next? Is this this article is two months old and I feel really timely." }
+  - { t: 2796, text: "my takeaway I remember I I remember I I started off with a quote where in the article it says most people cannot distinguish the output opposite versus fable five." }
+  - { t: 2808, text: ". Yes. And obviously that was meant in a provocative way." }
+  - { t: 2815, text: "I personally would say I cannot either for most of the things I tackle for most of things I work on I've I've switched to to a different setting in my model selection but ultimately my experience as someone who is driving the agent has largely been the same." }
+  - { t: 2839, text: "I almost that I I did some quite intense work with Fable 5 recently and I almost want to say that my experience with Oppus 48 has been better." }
+  - { t: 2851, text: "Yeah. but I'm not in a position where I could fully ground that quantify it. Yeah." }
+  - { t: 2861, text: "And in contrast to the article, I I want to say this experience is not necessarily the discernment horizon. It's more that where we're really lacking is everything around the model." }
+  - { t: 2873, text: "not just harness obviously we talked to harness many times and but also workflows how specifically how you manage to get long horizon tasks implemented by agents particularly in a way where you don't end up having to handhold a particular agent session And I think this is where we have the real struggle and and challenge and limitation nowadays." }
+  - { t: 2900, text: "Not much getting in getting more and more intelligence but more from my point of view getting much better agentic development life cycles and the whole tooling around that in place." }
+  - { t: 2914, text: "And that that would be my one takeaway, but also my somehow counterargument to the article. Interesting. maybe there's something else to also facilitate here around this as ." }
+  - { t: 2928, text: "as you're describing your your your final thoughts here, Matias, I'm thinking to myself, the new measure of success, the new weapon of choice in the business arena will likely be who can wield or generate or get access to creating the best models for their companies." }
+  - { t: 2946, text: "or or or maybe what by this is as you're describing this I'm thinking about anthropic themselves they have data centers they have really smart people and I think they don't write their own code for cloud code and things that are being built they are all of them the whole team is anyone can build a feature anyone can build something in the system and later on the article it starts talking about this area of there are three modes of work If you occasionally use an agent per day," }
+  - { t: 2985, text: "you're doing less than a million tokens per day. You're just occasionally asking it questions. You're a small user, ? Then there's a single user heavily using it, but in a sequential process." }
+  - { t: 2998, text: "I ask it something, it does some work, it comes back me with an answer, ? You're about 4 million tokens per day. And then you move over to the other end where I've got two to four agents running for me consistently all day long." }
+  - { t: 3016, text: "And you're burning 15 to 12 million tokens per day. you have this multi- aent system that's running on behalf of for you companies that can internalize that and run those models for electricity only." }
+  - { t: 3030, text: "I'm thinking to myself, what would what would my world look if I had unlimited tokens and all I had to do was pay electricity bills?" }
+  - { t: 3040, text: "What could I do? How many agents would I This is what Andrew Carpathy Andre Carpathi is talking. He's I run a 100red agents a night." }
+  - { t: 3052, text: "I'm , \"What the heck?\" But they own they own the code. They all they're paying is lease time on machines to run their AIs as much as they want." }
+  - { t: 3063, text: "imagine the the competitive advantage if companies can't just do that, just turn on a machine and run these things at volume with these models. I there's going to be a very strong competitive edge for it." }
+  - { t: 3077, text: "You've got to be able to take these open source models, customize them for what you want, and run them non-stop, as many of them as you need for just the price of electricity." }
+  - { t: 3090, text: "That's that's the next competitive edge on this. That's the next arms race is to get to that level. and I think if you if you really step back," }
+  - { t: 3101, text: "my observation of this is get good at wielding efficient tokens. Yeah. figure out how to take these models and you need to tune them for your work." }
+  - { t: 3112, text: "Having many many models, lots of models running, it's becoming a commodity at this point I think. the next knowledge gap or revolution is going to be around to your point Matias being efficient running many models or multiple agents all at the same time." }
+  - { t: 3130, text: "How do you orchestrate a system together of these things? That's the next nugget. I think the next six months that's it's going to be all about helping companies leverage that and a lot of companies are still trying to figure out how do I turn it on." }
+  - { t: 3148, text: "there's lots of companies in this degree here of starting from nothing to having teams of agents produce valuable work. Yeah." }
+  - { t: 3158, text: "And this is really interesting. we are we are in the center of a revolution. It's exciting to be at the front edge of this." }
+  - { t: 3169, text: "Matias, as always, I love learning from you. I love your perspectives you bring to this. This was a wonderful article you brought today. Super engaging, really good conversation." }
+  - { t: 3179, text: "And as always, I'm challenged. I need to start writing more git commands in my terminal as you have aptly pointed out. I'm going to use it or lose it." }
+  - { t: 3191, text: "I will take that on as some hopefully some effort here running some terminal commands here as . Thank you, Matias. I appreciate it." }
+  - { t: 3201, text: "It was great conversation. And this has been a super fun show. I hope you found some value from this and learning from us. There's a ton of articles in the chat window." }
+  - { t: 3213, text: "underneath the description here, there's a couple articles we didn't even touch on. It's in the description of the video. Also, all the chat window has all the articles that we've been talking about together here on the show." }
+  - { t: 3228, text: "With that being said, thank you all much for joining us for Agent Thinking and we'll see you on Friday. Let us know in the comments what do you want to learn about. We're going to do a demo of something. We don't know what it is yet. let us know in the comments. Give us some feedback. What would you us to see us use or do with agents? set something up, use Grockbot, , have Matias show you something on whatever he's noodling on these days. Something cool over there. let us know in the comments what you'd . Thank you, Matias. All . Thanks everyone. That's been fun. And, , see you next time. We'll see you next time." }
+
+---
+
+## Summary
+
+Back from a short hiatus, Mike and Matthias spend the hour on Steve Yegge's mid-June Flat Curve Society article and the idea of a discernment horizon: modern models look interchangeable to most people even when labs claim a generation of gap, because the outputs have moved past what most of us can reliably judge. Mike connects that to restricted access on the strongest models and the practical problem of steering work you cannot review, while Matthias draws a line between everyday software that current models already crush and the research-grade systems that still need new frontier intelligence. They argue SaaS is back because cheap all-you-can-eat tokens are gone, one-shot replacements do not hold, and the real skill is routing work to cheaper models, building loops that validate instead of hand-holding, and treating agents like new engineers rather than magic. News woven through the conversation includes Grokbot, August releases from Chinese labs, OpenAI's discounted Luna as a default execution model, an eight-hour GitHub outage, Cursor Origin, and Entire as agent-first git hosts.
+
+## Key Takeaways
+
+- ▸ Yegge's discernment horizon says Opus-class and Fable-class outputs already feel the same to most people, even when the labs claim a full generation between them.
+- ▸ The bottleneck is not more raw intelligence. It is token-efficient systems, long-horizon loops, and verification so an agent can finish a substantial task without constant hand-holding.
+- ▸ SaaS is back because heavily subsidized tokens are being clamped and you still cannot one-shot anything non-trivial into a maintainable product.
+- ▸ Route cheap work to cheap models. Matthias is using Luna as a default for well-specced research and implementation, and saving expensive models for planning and hard reviews.
+- ▸ Do not spend tokens on `git push` when you are already at a terminal, and do not treat agents as skip-the-onboarding employees. They still need your process, musts, and review rules.
+- ▸ GitHub's load and an eight-hour outage sit next to a wave of agent commits. Agent-first hosts like Cursor Origin and Entire are showing up because human-era CI was not built for that throughput.
+
+## Links
+
+- ▸ [The Flat Curve Society (Steve Yegge)](https://steve-yegge.medium.com/the-flat-curve-society-36c8b01eb33b?utm_source=agentic_thinking&utm_medium=website&utm_campaign=20260818)
+- ▸ [Claude Opus 5](https://www.anthropic.com/news/claude-opus-5?utm_source=agentic_thinking&utm_medium=website&utm_campaign=20260818)
+- ▸ [Bringing MCP to Claude](https://claude.com/blog/bringing-mcp-2026-07-28-to-claude?utm_source=agentic_thinking&utm_medium=website&utm_campaign=20260818)
