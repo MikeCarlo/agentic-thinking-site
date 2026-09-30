@@ -1,0 +1,498 @@
+---
+title: "The History of VS Code"
+episodeNumber: 37
+date: "2026-09-04"
+youtubeId: "LMZwPfHKg3s"
+duration: "1:23:13"
+blurb: "Mike, Mathias, and Ryan watch the VS Code documentary and pause on Monaco, the open-source launch, extensions, remote development, and the first year of GitHub Copilot."
+tags: ["vs code", "github copilot", "open source", "documentary", "agentic thinking"]
+guest: "Ryan"
+guestRole: "Senior developer"
+guestLinkedIn: "https://www.linkedin.com/in/ryan-bykowski-407a8a68/"
+chapters:
+  - { t: 0, label: "intro" }
+  - { t: 249, label: "why they live in vs code" }
+  - { t: 995, label: "typescript and monaco" }
+  - { t: 1865, label: "a cross-platform editor" }
+  - { t: 2301, label: "open source on github" }
+  - { t: 2619, label: "extensions in their own process" }
+  - { t: 3778, label: "remote development and codespaces" }
+  - { t: 4538, label: "github copilot and gpt-3" }
+  - { t: 4833, label: "wrap up" }
+transcript:
+  - { t: 0, text: "[music] thinking." }
+  - { t: 14, text: "Hello everyone and welcome back to Agentic Thinking with Mike and Matias. With us we have another guest today. Ryan, welcome to the show today. ," }
+  - { t: 24, text: "this is a weird wild episode. We're going to try something brand new. The internet and the technology may totally fall flat on its face. , but we're gonna attempt to do a live viewing of" }
+  - { t: 35, text: "the story of VS Code, a world premiere. myself, Matias, and Ryan, we are all Avid developers. We we have probably spending way too much of our life" }
+  - { t: 46, text: "running around inside VS Code. , and that's what it is for today. Matias, welcome. How you doing? Doing great. , that's a a fun idea. I" }
+  - { t: 56, text: "love VS Code. almost no day where I don't spend any time in it. I'm really excited to see what what they've got to present here. And Ryan, hello. Welcome as ." }
+  - { t: 66, text: "Ryan's on my team. Ryan works for my company. he is my senior developer. just a brief introduction to him, but Ryan is probably the one on of anyone who spent way more hours than on our" }
+  - { t: 78, text: "team inside VS Code. And I Ryan recently, we were just talking about this offline. You're not using VS Code as much as you used to with all these agentic experiences. Yeah." }
+  - { t: 89, text: ". Yeah. , I I love VS Code, too. It's always been one of my most favorite programs to use ever. Yeah. I really the Monaco editor and" }
+  - { t: 99, text: "the multi-edit capabilities. Cursor multicursors. Dude, that looks a rock star. [laughter] Yeah. , yeah, I absolutely love it. It's always on my screen, always up." }
+  - { t: 110, text: "Yep. that being said, let's try this. We're going to try and go over. , we're going to be the talking heads. We're going to do a mystery science theater 3000 type version of this. We'll" }
+  - { t: 120, text: "be the talking heads across the bottom. for those of you who are in the chat or listening to chat as , let us know about the audio quality, if you're hearing things correctly, if things are working properly. , we're" }
+  - { t: 131, text: "going to just test this out and see how this runs. That being said, let's go over and we'll start the show. All , here we go. The talking heads are up. The video is ready to run. And" }
+  - { t: 142, text: "I'm going to hit go on the video here. for those who are listening online, for those of you who are listening online," }
+  - { t: 155, text: "back in the 80s , it feels 80s to me. [laughter]" }
+  - { t: 166, text: "Hi. The reason we build visual studio code from very beginning was a was really connected with a very explicit strategy shift that we have done in developer division. in early days of of" }
+  - { t: 178, text: "Microsoft or throughout most of Steve Bmer's CEO leadership development was really there to service the needs of our platform which at that time really was" }
+  - { t: 188, text: "really Windows and what that meant is that we took a relatively narrow viewpoint which is that if it's not on Windows we didn't care about it if it's not C# or C++ which is really" }
+  - { t: 198, text: "builds Windows application we don't really care about it and the particular pivot we really did in early I remember code is that we realized we had to go embrace every developer." }
+  - { t: 208, text: "It was Windows or nothing that was the only way to think about it. Mission we want to meet developer where they are. Good morning. Good afternoon." }
+  - { t: 218, text: "Good morning. Captions in Germany. Welcome to our planning call. it's I can turn on captions" }
+  - { t: 228, text: "last one of the year. [music] it might be the last one of the year. I I have Does anyone remember when you first used it yet? Just in case there are some leftover things." }
+  - { t: 238, text: "I don't remember when I first started using it. It's been forever. It's a staple. Yeah, probably 12 years ago maybe. You've got it. I was before that using Eclipse cuz I" }
+  - { t: 249, text: "was writing some code on Linux. I was doing C++ and then we sh we shifted it over to VS Code halfway on that project" }
+  - { t: 259, text: "and it used much work. [music] I think I was using Notepad++ before potentially" }
+  - { t: 269, text: "for a [laughter] little bit. . I used to be big on, , big fat Visual Studio. Oh, Visual Studio" }
+  - { t: 281, text: "and then that's where I transitioned out of an interview. and I still have Visual Studio installed, but Great. can't remember last time it great" }
+  - { t: 292, text: "people me too same I've I've I've uninstalled it on my recent machine don't even have it on my computer anymore the very first line of code at Microsoft was written by Bill Gates that was a" }
+  - { t: 302, text: "developer tool but by 2010 something was happening in the developer world and that was because of the web the 2010 along and about 10 years it had gone from being" }
+  - { t: 312, text: "dude that seems not that long ago I'm old that was a long time ago dude years all of a sudden you started to see you know Google Docs, Office 365" }
+  - { t: 324, text: "things were that were not websites anymore full applic you weren't looking to Windows" }
+  - { t: 335, text: "or the desktop [music] and we knew that if we wanted to stay relevant with developers we had to do something we started to put some of our best people on this problem we brought Steve Lucco" }
+  - { t: 347, text: "in to work on a new JavaScript script engine that would change the way anyone out there if you upgrade VS Code to the latest design a new language" }
+  - { t: 358, text: "the link to this particular video here is is going to be in a release note the one thing that was missing that's how I saw about this that's how I heard about it and just around that time" }
+  - { t: 370, text: "amazingly Eric came into our world [music] that looks Switzerland. Yeah, there we" }
+  - { t: 380, text: "go. Oh, there you go. You called it. Nice. he said Eric. . where Eric's from? Yeah. But it did look very southern." }
+  - { t: 390, text: "Yes. Us Americans don't get to know other countries as . , oh, some [laughter] country place over in Europe. Just near my home. You see the the lake of Zurich. Some touristy mountains" }
+  - { t: 403, text: "there. It's us being , \"Oh, that looks Tennessee.\" Goes that. Oh, yeah. That's California and that's why co because you have the nice" }
+  - { t: 413, text: "and also have good Zurich is one of the biggest Google developer hubs outside of the outside of the state I know that" }
+  - { t: 423, text: "yeah cool a significant proportion of the Zurich population gets their income from Google" }
+  - { t: 434, text: "my I don't know I just the feedback loop from developer tools, ? You do something, you use it yourself, your friends use it and other developers" }
+  - { t: 444, text: "which are very I heard about JUnit clients, ? They're zero loyal. They jump around to the best that they . it's really challenging but also" }
+  - { t: 454, text: "very rewarding to work with other developers because when they something they they really do, ? There was the annual Eclipse Conference in" }
+  - { t: 465, text: "San Jose. in Silicon Valley and I thought that's very near to Redmond. we set it up that I spent from there one day in Reman on the" }
+  - { t: 476, text: "Microsoft Compass and I got introduced to the the development leads of developer division and I also got one hour with Bill Gates, ? And we" }
+  - { t: 486, text: "talked and it was great day. , I think there was lots mutual commonality, ? the passion for developer tools which I immediately" }
+  - { t: 496, text: "desensed which I started to miss a little bit at at IBM we immediately connected but what was also very clear I'm" }
+  - { t: 507, text: "not looking for a new job I'm looking for new challenge then Jason Sander he was the head of Delition came to Zurich and he came with the" }
+  - { t: 518, text: "challenge would you be interested in working on online developer tools that run in the browser. Eric was run the browser. Interesting. That's" }
+  - { t: 528, text: "where they were starting from. I didn't know that. Gang of four who'd written this book called design patterns that every engineer would follow. He had built I think six or seven ideas before" }
+  - { t: 540, text: "this. And Eric from day one Eric was [music] I don't want to just take what I know and try to make it fit into the web. I want to build something that's born of the web. And you" }
+  - { t: 550, text: "know away interesting Jason and I as we talked we were hey this is this is the person." }
+  - { t: 562, text: "Yeah, it took me a while to think about it, but it really infected me to to it because I could go back from this outer loop back to the inner loop," }
+  - { t: 573, text: "? Edit, develop, test, debug, whatever, because that's where you are the closest to the developer, ? , I got very excited about this prospect." }
+  - { t: 583, text: "I got very excited about online tools in the browser. The browsers became better. the JavaScript engines became better. V8, Chalkcraft, Spider Monkey, it looked" }
+  - { t: 595, text: "the time was ready. Spider Monkey, I don't even heard of that thing. Tried to work on that that you can have developer tools that only in the browser. that's why I decided to" }
+  - { t: 605, text: "accept the challenge. One screen, one monitor. What the heck?" }
+  - { t: 617, text: "[laughter] Yeah, that doesn't fly for me anymore. [laughter] You can tell you're an old developer when you have one monitor. It's a 24 in." }
+  - { t: 629, text: "And of course, , what did you do then? I thought it's it's a great opportunity to to brush up and learn stuff. , I developed some online tool in the" }
+  - { t: 639, text: "browser, a little playground to run unit tests. I just love testing frameworks and built that, run it, and was great. It was a great confirmation that the time is to try that the new" }
+  - { t: 650, text: "browsers to have for web workers you can do things in the background have HTML 5 with all the powerful support and also what was also interesting what I" }
+  - { t: 660, text: "learned is there is node JavaScript would have been a massive enable in the back end oh that's a good point I guess pre-type" }
+  - { t: 670, text: "in the narrative yeah JavaScript it's the precursor correct Yeah. This made it then. Yeah. I'm really happy about the" }
+  - { t: 681, text: "decision. Microsoft really was careful. They didn't want to get into a into [music] debate with IBM whether I would take the team with me or not. what" }
+  - { t: 691, text: "Microsoft told me once I left I'm not allowed to talk to my team anymore. The thing about Eric is Eric isn't just Eric. It's Eric plus Eric's team. And" }
+  - { t: 704, text: "very early on when we were talking about getting the team started, Eric was very interested in figuring out how he could get the gang back together. The nice thing was we didn't" }
+  - { t: 714, text: "have to do a lot of selling, ? Eric's whole team was in love with Eric and they wanted to work with him. all we had to do was create a Zurich dev center, advertise those and they came." }
+  - { t: 728, text: "One thing I find interesting here is I know iPhone was a big push in a lot of JavaScript stuff. iPhone came out in 2007 and then by 2010 he's talking about JavaScript here being JavaScript" }
+  - { t: 738, text: "coming becoming the wave. Apple made a decision to say look we're only going to be building JavaScript stuff for stuff on their phones and supporting it or something that. That might have been a big tipping point here to" }
+  - { t: 748, text: "really push that language a direction where everyone builds web with that. I do not remember the exact dates. The longest person here that I know is Martin. Martin was a student at Take" }
+  - { t: 761, text: "Five with me. we we most of the people here have a very long relationship together. At the time that Eric left, I was also ready to a new adventure." }
+  - { t: 772, text: "And [music] maybe they're going to make a documentary about us one day. Eric started everyone when Matias was starting to build his own, , whatever software package and Ryan was Mike's" }
+  - { t: 783, text: "friend back in the day. [laughter] it'd be a very short documentary. That's we'll say that [laughter] it has a button click here to apply." }
+  - { t: 793, text: "I just applied as . That's cool. It's cool they had this chemistry a lot of things get done with a good team, ? You work together. you can" }
+  - { t: 803, text: "see it in VS Code it's a good product and I think it's working on it a certainty. browser apps were still pretty early and most people you" }
+  - { t: 814, text: "talk to, they'd be , there's no way you're going to build something that can handle the performance and responsiveness that you need in a developer tool in the browser. Most" }
+  - { t: 824, text: "people thought of browserbased editors as toys, ? we had to give Eric and his team a long runway. The real thing was" }
+  - { t: 834, text: "just treat it as a startup. Treat it as a pure green field. Start experimenting. Deliver something along the way each year and let's see let's see how far it" }
+  - { t: 845, text: "can go, ? Let's see if we can build a a tool that's truly born of the web but but is good enough for everyday needs. What I'm also going to poke at a little" }
+  - { t: 855, text: "fun here. All of us are watching this but we're all probably also watching our bots. , keeping Claude busy on the side here, come over to this [laughter] build conference where they introduce" }
+  - { t: 866, text: "Windows 8 Win 8. And yeah, I got to know eight. I also got to see , this is quite different." }
+  - { t: 877, text: "Oh, yeah. [music] Wasn't this the one that was supposed to be for the It was supposed to be the same on the tablets and the" }
+  - { t: 887, text: "Good morning everybody. This is [clears throat] around Windows phone, ? I hated Windows 8. Hated it. Scared, ? Wow. How can I have success in here?" }
+  - { t: 897, text: "when you have this, we all thought and then Windows 8 tanked and then you guys were just fine. Was that [laughter] before after Windows meant" }
+  - { t: 908, text: "when you have something to hand you can demo I think me was before seven. Seven was a real breakthrough that solved a lot of problems. Eight was a was" }
+  - { t: 919, text: "a minor iteration on top of seven, ? Shenku and also only a small stepping stone towards 10 which was a really really" }
+  - { t: 929, text: "good one was the beginning I would say of Windows ME was 2000, Windows 8 was 2012. sorry totally different timeline. Windows 8 and ME are are" }
+  - { t: 941, text: "touted as the most criticized operating systems. [laughter] I went home with that" }
+  - { t: 951, text: "and this was just a great inspiration for what eventually that's why I had to go from 8 to 10 to distance themselves from it. Exactly. Yes." }
+  - { t: 963, text: ". We're in Redmond . Thought Windows 11 is pretty good. We played and VS day. Yeah. But 11 and 10." }
+  - { t: 973, text: "I showed him it was to find some of the bugs as the code base grew and that's the new hot thing" }
+  - { t: 984, text: "was that Ryan got to be 100,000 line 200,000 lines that how were you going to refactor? How were you going to have control over the interfaces? And that's when we hatched this plan where I" }
+  - { t: 995, text: "would keep driving on the TypeScript compiler prototype and keep and drive it forward. And apparently the VS code project nowadays" }
+  - { t: 1008, text: "the largest TypeScript project. our earliest and best customers completed on how to make it serve their needs and" }
+  - { t: 1020, text: "they got to that large scale project the VS Code one would compile in a more reasonable it was really unclear what the web" }
+  - { t: 1031, text: "speed and they achieved 10x improvement there wow and compiling the VS codebase was a major test, ," }
+  - { t: 1042, text: "whether or not that Go rewrite worked . Interesting. I didn't know that. This is some of the most high taste users, developers who know good software" }
+  - { t: 1054, text: "from bad. [music] Anytime they use anything, their expectations are that they have a code editor that can allow them to work at the speed of thought. they want to be able to go" }
+  - { t: 1065, text: "from their brain down their arms to their fingers without having to think. And they certainly do not want their code editor to get in their way of getting their ideas." }
+  - { t: 1075, text: "I just talked to it. it's just talking to my agent that it does all the work. Whether or not the web would be able that level of interactivity was in question [clears throat]" }
+  - { t: 1085, text: "of VS Code [laughter] Eric, we need a new version for what the team was doing and he took a dependency on it." }
+  - { t: 1095, text: "but it was a mutual whilst we're listening and a mutual pop because the TypeScript team what what are your personal VS what are your favorite VS code features" }
+  - { t: 1107, text: "and it's not a quiz because there's no answer let's [laughter] your favorite VS code features" }
+  - { t: 1117, text: "you could see it was a weekend project I love multicursor and anytime I demo it to any client when I'm doing it at the same the shortcuts there, dude. They think I'm a wizard. And every time I watch" }
+  - { t: 1128, text: "Ryan, I'm not good at that at all. Ryan's incredible at it. And I see him, oh yeah, if you just do this, this, 17 different key commands and boom, boom, boom, he's got 80 cursors across the page and he's" }
+  - { t: 1139, text: "updating all of them at the same time. It's phenomenal and is amazing. that one I it just astounds me every time I use it. . Yeah. I think it's part of the" }
+  - { t: 1151, text: "Monaco editor that they have, ? I mean they built this Monaco editor for VS Code and that thing is being used everywhere too which is neat because" }
+  - { t: 1161, text: "we use it in our products. Yeah. . And that all that multi-cursor stuff I think is embedded into that Monaco editor if you" }
+  - { t: 1172, text: "I I think for me that's a huge part of it. It's just nice to work in an editor that that works you type faster. And once" }
+  - { t: 1182, text: "they had GitHub Copilot have autocomplete mindblowing you type stuff and it would show you what it it's expecting you to" }
+  - { t: 1192, text: "write and you'd be nine times out of 10 it would get it for me. I was whoa that is nuts. All you have to do is tab to complete it. And I think it's gotten a little bit more harder to use where they have" }
+  - { t: 1203, text: "the cuz sometimes I don't want to make the changes and they have that little blue indicator. It says, \"Hey, here's your next change. Here's your next change.\" I think sometimes it's [clears throat] a little too aggressive," }
+  - { t: 1215, text: "? and the project that the team was this thing. Yeah. the editor is my favorite part of it. A code editor. What about you, Matias? What's your favorite piece of this" }
+  - { t: 1225, text: "component that just goes in the browser? And I love VS Code, being able to create a tunnel on any machine and then launch VS Code on any" }
+  - { t: 1237, text: "other machine and connect to that session of where it runs. Yeah. And also how easy that is and how responsive, . And" }
+  - { t: 1247, text: "that's manager in Visual Studio. His name was Chris Das. And Chris had been in tools at at" }
+  - { t: 1257, text: "Microsoft for a long time. He knew everyone. He was just an amazing people person. Mike, , when we had the we had an open claw or a little bit" }
+  - { t: 1268, text: "that was one of the features that I really liked about it where I would remote in what Matias is saying. I would remote into that clawbot which is a Linux" }
+  - { t: 1278, text: "on a different computer. able to just write in VS Code it was my own application on the computer I was using. It was easy and it just felt natural," }
+  - { t: 1288, text: ". Yeah. [music] Killer feature. That was cool. Yeah. Fun times." }
+  - { t: 1299, text: "It [laughter] was funny because I I thought to myself, all , we hired this guy. He was really popular a long time ago. He wrote an awesome book." }
+  - { t: 1309, text: "I think I never read it. And I thought to myself, all , if this guy is just resting on his laurels and is all about the past and this is obviously a whole new format" }
+  - { t: 1320, text: "we're trying today. I was just thinking, to be really it was five minutes. Next time we should have an agent listen" }
+  - { t: 1330, text: "to this in real time with us. And then contribute as . really [laughter] the beginning of another would be bu it and we'll put it in" }
+  - { t: 1340, text: "there. We'll put a little agent, you know, agent notes on the hand side of the screen as we're talking about things. That'd be fun to build me a thing, Matias. We'll put it in the show." }
+  - { t: 1350, text: "He's on it. He's already Fable 5.1. He's Matis is already giving He's wring. Do you need Fable for that? I doubt it. [laughter] Probably not." }
+  - { t: 1361, text: "He's gonna do it in Luna. And there's lots of different products in Microsoft that are are using that today and it's the same editor that" }
+  - { t: 1371, text: "code today and this is in third parties as because it's an open source code and and extensions coming back to favorite features VF code would not be VF code if it weren't for" }
+  - { t: 1381, text: "extension browser% and you highlight some code if it has nice rounded corners that's the first clue that it's the Monaco I love that look at that we did get a letter from" }
+  - { t: 1392, text: "country of Monaco asking for clarification between the code editor and tourism for Monaco. But we didn't think that was that confusing." }
+  - { t: 1403, text: "[laughter] One of the early questions we asked ourselves is hey should we use jQuery or not? That was the de facto framework at the time. Ultimately we chose to write this ourselves just" }
+  - { t: 1415, text: "because it could [music] then be under our control to evolve it and forth. We knew from early on that we have to write really specialized code. if you think about the editor itself," }
+  - { t: 1426, text: "it is full of custom rendering code. We create divs for lines, [music] we create spans for tokens and being able to manually decide each" }
+  - { t: 1436, text: "and every DOM interaction is one of the key things that helps us make rendering very performant. Yeah. there were a lot of interesting challenges. We always knew" }
+  - { t: 1446, text: "that compute intense operations computing squiggles we cannot do in the renderer process. [music] on the renderer thread. the renderer threats" }
+  - { t: 1456, text: "gets all the drawing done. Make sure the cursor blinks and make sure that colorful boxes and letters appear on the screen. And if you saturate that thread with work that you don't see the UI" }
+  - { t: 1466, text: "freezes. This is usually when you resize a window and it doesn't follow up you just see blank space around it. That usually means this Fred is doing something that it shouldn't do, ? Because it's there to just draw." }
+  - { t: 1476, text: "in the early days, we we did some very good decisions we we , never ran long running scripts on the UI thread. But then we were also very careful to be sure that" }
+  - { t: 1487, text: "everything you do in the editor [music] has a runtime cost which is directly proportional with what you're doing. for example, even if you're in a huge file which has , ," }
+  - { t: 1497, text: "millions of lines of code, if you type one keystroke, one character, then you should only pay the cost of, , reacting to that one keystroke. When you're scrolling and you only see 50" }
+  - { t: 1508, text: "lines, we really, really try hard to only render those 50 lines that you have really to see. Makes sense. That's why it's fast. I'd question why you have a million" }
+  - { t: 1519, text: "lines of code in one file, but different problem. Different problem. With agent stuff anymore, you don't even want a big file because agents can't even read the whole thing. Seeing the Monaco editor" }
+  - { t: 1530, text: "running in the browser. You could type. You got some IntelliSense. . , I've got an actual publish that you could" }
+  - { t: 1540, text: "guess how many commits there are currently on the main branch on the VS Code repo. Oh gosh. How many commits? 100,000." }
+  - { t: 1552, text: ". Ryan, we have immediate feedback. I'll go 200,000. Oh jeez. yeah, you are much closer. 164,000." }
+  - { t: 1564, text: "164,000 commits. Jeez. On main. Oh, it's been it's been around for 10 years, whatever it was, ? , next question. How many open" }
+  - { t: 1577, text: "branches are there in GitHub? Oh gosh. Do these include forks of the repo? No, no, no, no. Just just branches. That's the next question. Forks. How" }
+  - { t: 1588, text: "many forks? How many? Probably 500. 500 open branches. Is it that high or is it that is it is am I too low there? I don't even know. I" }
+  - { t: 1599, text: "don't know. The scale in this project the number of branches is a metric for two different things. either sloppiness as in you don't clean" }
+  - { t: 1610, text: "up after yourself or genuine work in progress in parallel, ? , with this one, I think it's probably more towards the ladder." }
+  - { t: 1620, text: "I'm assuming that they're pretty good with their engineering practices. , Mike 500 Ryan, based on that, I would say probably more" }
+  - { t: 1630, text: "50. [laughter] Leading the witness. Leading the witness. . We are orders of magnitude of it's 5,000" }
+  - { t: 1640, text: "branches more than the commits. Wow. I was not I would not expect more comm more more branches than commits but I guess it makes sense. That's much less than the commits." }
+  - { t: 1650, text: "There's 164,000 commits. Only 5,000 branches. That's still a lot of branches though. But it's an open- source project. is it just everybody" }
+  - { t: 1660, text: "everyone's pilot on potentially? I very much doubt that they get a lot of external contributions. Make available under the name as Visual" }
+  - { t: 1671, text: "Studio online Monaco. That's crazy though. How do you manage Scott? How are you, sir? Scott Hanselman. Yeah, something cool. He's a lot less gray hair there. You want to build something very" }
+  - { t: 1681, text: "lightweight? It's Visual Studio light. It's It's very light, fully responsive, and gives you still the comfort of coding, ? Oh, yeah. That's" }
+  - { t: 1691, text: "Monica editor built into Azure functions. I hope was that we get some usage out of that. That scenario was pretty interesting. He also showed Azure websites. That was the early" }
+  - { t: 1702, text: "version of you have to have an Azure website. You have to Yeah. As an Azure website and then eventually you get I used to love that. I used I used a lot to do live edits of" }
+  - { t: 1714, text: "Azure functions. Oh, interesting. In the browser. Yeah. we were not relevant with this web ID under the SCM subdomain web IDE can we just be for" }
+  - { t: 1727, text: "the code name is Kudu and then again I remember that I remember using that too and I'm pretty sure they're still using it" }
+  - { t: 1737, text: "when I moved away from apps and moved into more static web apps when I was doing the app side I was doing some kudu a lot more" }
+  - { t: 1748, text: ". , 42,000 forks since the question came up earlier, but I very much doubt that we can also have a desktop application" }
+  - { t: 1758, text: "using our technology. More than 1% of those are actively just people" }
+  - { t: 1768, text: "creating a fork and then forgetting about it and they're hacking away. Welcome to all my forks. they're using Sublime, they're using open source, they're using git, all these different things. And I had no way to as" }
+  - { t: 1779, text: "Microsoft Visual Studio, I had no way to talk to them. I go in , \"Hey, can I request coolment tool?\" You'd be" }
+  - { t: 1789, text: "two developers trying to work together in the same This is it. This is the live connection stuff. do one is close that Mac, go buy [snorts] a Windows machine, go buy a visual, download five gigs of" }
+  - { t: 1799, text: "stuff, rewrite everything in net and C# blah blah blah blah, ? And and I'd be the kids going to be , \"Yeah, , boomer, just put the headphones on [laughter] just shoe" }
+  - { t: 1809, text: "me away.\" we were irrelevant. And this was the genesis of the idea of building VS Code as a locally installable cross locally installable" }
+  - { t: 1820, text: "tool. that way we could have a conversation with people. that was the beginning then of what became Tino." }
+  - { t: 1834, text: "H I never heard of the Tino project. I took this prototype in Revan. I was able to demonstrate it and I remember the meeting because" }
+  - { t: 1844, text: "I demonstrated on Linux. all of a sudden can build a tool that runs on Linux. Oh my gosh. And we had a lot of cheering going on. Oh great, we can do it. That was in" }
+  - { t: 1855, text: "October. And the cheering got that far that we decided at the next build conference in April. about 6 months" }
+  - { t: 1865, text: "later, we want to announce we have a crossplatform editor that runs on Linux, Mac OS, and Windows and is a new light. Sounds Microsoft. , you made a" }
+  - { t: 1876, text: "prototype. Great. Let's make it a product. In a week, it was not entirely clear that Electron would be the pick. But in terms of what it meant for us, it was not such a big shift away" }
+  - { t: 1887, text: "from what we had already built. , we were building for the web. And Node WebKit and Electron were our web rendering engines that you can install. , in a way, it was" }
+  - { t: 1897, text: "take whatever we have and throw it into Electron and deploy it to users. Electron was really the enab scenarios. We used electron on business ops." }
+  - { t: 1908, text: "Were just using web back then. Yeah. We said we want we haven't touched that project in a while. Spectrum here from lightweight editor. No documentary needed for that one. We want to be close to" }
+  - { t: 1922, text: "from the ID and what we really and we need for this inner loop I mentioned before is bridge language support and debugging." }
+  - { t: 1932, text: "the browser we a little bit early and for us it was just a natural pivot to say then go and go for a more native story which runs on the desktop but use" }
+  - { t: 1942, text: "the same technology. We started this idea crossplatform desktop app in October in April. Wanted to have it done and then of course seeing the demo on Linux" }
+  - { t: 1954, text: "debugging .NET Core app with V real Visual Studio Code was just for us happiness. [applause]" }
+  - { t: 1964, text: "Wow. Scott's back. I feel perhaps I haven't sufficiently blown your mind. why don't we take a moment and switch over" }
+  - { t: 1974, text: "to Ubuntu. I'm on Ubuntu in a net app doing" }
+  - { t: 1985, text: "a debug session. I've got local [music] variables. I've got a call stack. I've got break points. The UI is simple compared to what it is today. Visual Studio." }
+  - { t: 1995, text: "Yeah. It hasn't changed a whole lot. No. that about it though. Yeah. Oh, this is Scott Hansselman's office." }
+  - { t: 2009, text: "You've been there? I'm not very good. No, I think I've recognized it from his videos. [laughter] Not not good at that. Game over. Oh, yeah. I do, too." }
+  - { t: 2020, text: "Dude, documentaries are the best. I made my 17-year-old watch Helvetica. We watched a two-hour documentary about a font. There needs [laughter] to be a" }
+  - { t: 2031, text: "documentary about my code editor. People need to remember that Microsoft of 2010, Microsoft of 2015 was different than Microsoft of 2025. And there was an" }
+  - { t: 2042, text: "expectation that it was Microsoft's way or the highway. It was Windows and our stuff and our code and our our apps. And the idea that someone would bring a" }
+  - { t: 2052, text: "editor, a fully featured code editor crossplatform, a Mac, a Mac on stage at Microsoft Build was unheard of. They could have done April Fools, you can't" }
+  - { t: 2063, text: "release Visual Studio Code. We're not doing it. Yeah, but Macs are everywhere on the Microsoft campus. The limits and they let us they let us do it. And it felt a shift" }
+  - { t: 2074, text: "when they were thinking about names and someone said, \"Let's just call it code.\" I was , \"Who does that? Who who has the audacity to just pick a noun?\" And" }
+  - { t: 2087, text: "not just any noun, but the noun. I thought it was both insane, audacious, and it turned out to be the best choice that they ever could have made to" }
+  - { t: 2097, text: "say, \"Oh, we'll just call it Coke.\" This was a time when a progressive web app, a Chrome, he's a good story that runs within Electron had a limit to its" }
+  - { t: 2108, text: "complexity. I don't think anyone had seen a performant web app that. It was a showcase for Electron. It was a showcase for TypeScript. It was a showcase that a crossplatform app at" }
+  - { t: 2120, text: "that time 10 years ago could do the stuff that it did. That in itself, I think got people interested in the app and made them want to try it. tapping around and you can see I'm" }
+  - { t: 2131, text: "doing the game assets and the code all inside of VS Code. We'll zoom in a little bit. Scroll around. How much is that monitor things left and ?" }
+  - { t: 2142, text: "Oh my goodness. That must be one of the that must be a surface interest we generated with Visual Studio Code and this was overwhelming." }
+  - { t: 2164, text: "This is a pretty good documentary. I'm enjoying this first announce code and I think the hacker news line was via they dropped the code ships cross" }
+  - { t: 2175, text: "platform for Linux and Mac and then he was very hot. What is that showing us? You write beautiful software 100 I think. Oh, I need to move. [laughter]" }
+  - { t: 2188, text: "I'm coming out your way, Matias. And yeah, that is a very we're nowhere near any significant mountains. Yeah," }
+  - { t: 2198, text: "then we all need to move all the way up to Scotland. We had no we were not on GitHub, ? We were on Coplex or whatever. We were we had nothing visibility. What we had" }
+  - { t: 2208, text: "visited back then was user voice which was a tool where people could up and download requests and this went very fast people asked great but we need extensions great" }
+  - { t: 2222, text: "but want to have this being open source and this was clear this is what became the next two goals we have to achieve we need to have an extensibility story and we have to be able to" }
+  - { t: 2233, text: "there it is there's your feature announce extensions are showing up an open source devil we had another intense 6 months ahead of us." }
+  - { t: 2248, text: "There was this one repository that we were not allowed to make public and I of course clicked that button. [laughter] the digital repository was for one minute open source and got I thought I" }
+  - { t: 2259, text: "tried no way really. Yeah, I think it got part and then we had to reach out. For me, open source until then had been, it's just where would you host the code anyway. Yeah, you're just a kid" }
+  - { t: 2270, text: "doing software just put it on source forge maybe. , and when we became open source, the preparation for that it it's interesting. We ended up" }
+  - { t: 2281, text: "going to the code cleaning out a lot of things. I remember I saw a commit where I'm just erasing to-dos. slashtodos and I thought [laughter] I didn't do it" }
+  - { t: 2291, text: "in the last three years. I'm never going to do it. Let's just remove it. the code needs to be a little bit clean. And the decision was made at the time that we wouldn't include any of the history. we would do a little" }
+  - { t: 2301, text: "snapshot of what the code looked on release date. Interesting. We would have Eric put his name behind it. And the very first code in the VS Code open source repo is hello code from Eric where all our work from the past" }
+  - { t: 2314, text: "four years just landed. I think Typescript was already open source at the time, but that was pretty much the only great example from Microsoft. We were really paving a path of going open source as" }
+  - { t: 2326, text: "far as Microsoft is concerned. And what do we do? are we allowed to put the Microsoft name in the source files? Are we allowed to put the branding in there? And it turns out, you" }
+  - { t: 2336, text: "know, after a lot of negotiation, yeah, branding has to be aside, iconography has to be aside. And we came up with this engineering setup. In private you would have icon and whatever license" }
+  - { t: 2348, text: "text and in public all the source code would be in there. For us it was obvious that extensions" }
+  - { t: 2360, text: "must run in a separate process. If an extension has some programming error and for instance just is stuck in a busy loop the extension process is dead. I all these" }
+  - { t: 2372, text: "graphics they're applying between the speaking sessions. It feels very fluid. I and it feels very much in the style of the era that I came from. They're doing a good job with that part." }
+  - { t: 2384, text: "Claude is doing Claude Design did a great job on that. [laughter] who's at fault? Is it the bad driver that crashes Windows or is it Windows that allows to be crashed" }
+  - { t: 2394, text: "this? . You give people a very sharp knife and they cut into their fingers. And this was something that we were we will not do this. And at the time there was also Atom and they" }
+  - { t: 2404, text: "were we the most editor and they were everything that the core Atom developers could do extensions in the Atom ecosystem could do" }
+  - { t: 2414, text: "this code we we did you build anything on atom Brian and this comes with a lot of some people don't us for this but it pays dividends. API becomes API the moment somebody uses it. you cannot say oh" }
+  - { t: 2424, text: "this is API and this is internal API. There's no such thing as internal API. If somebody can call it, they will call it a declared API. And then you can be in the situation where there's an" }
+  - { t: 2435, text: "extension which is very popular uses an API which you don't want to use because you say it's an internal API. Do not use API [music] and they can hold you" }
+  - { t: 2445, text: "hostage. We don't change the API ever. once the API is out, it is out. If you wrote an extension 10 years ago, you can still install it. It will still run." }
+  - { t: 2456, text: "And that's our our guarantee. That's when software gets expensive. The first contribution was there was this big conference. We're" }
+  - { t: 2466, text: "oh we're going open source and then we had Omnish in there and it had this little status when you run it and it's oh getting ready starting running and because my spelling is not great I" }
+  - { t: 2477, text: "had spelled running with three ends and then it took seven minutes and the first open source contribution came along to fix the spelling. first request was a typo and this is how it started." }
+  - { t: 2487, text: "[laughter] Thanks. I'm really happy to be here for this very special moment for our team. I'm here on the Microsoft VS Code GitHub" }
+  - { t: 2499, text: "repository page on the settings page. I'll dive down into the danger make this repository public by [clears throat] just confirming it and" }
+  - { t: 2509, text: "understand what this means. you can all view it and even more important it from on." }
+  - { t: 2521, text: "today we're not opening up just the the core of his Julia code. We also open up some extensions and you saw there all for extensions you want to keep the API simple as possible. If the hurdle is too" }
+  - { t: 2532, text: "high people will not do extensions. What's interesting was people came to us they want to write extensions. It's not that we had to tell them, hey, we have an API." }
+  - { t: 2542, text: "That's when you've got good demand and people are clamoring to build things on top of your tool. You got a good thing when it's when they're asking to build it for you and you don't have to do the work to make it and maintain it. That's cool." }
+  - { t: 2566, text: "The S code came out. I jumped on that really quickly and really liked the editing experience and at that point I found December 2015 the VS Code team" }
+  - { t: 2576, text: "before open source and in the next release in a day or two the patch was you know added in 2015 I just" }
+  - { t: 2586, text: "really became enamored with the product. once they came out with an oh november 2015 ecosystem or architecture was really jumped on the opportunity to to see" }
+  - { t: 2598, text: "you love get lens Matias I was really passionate about pushing the boundaries trying to bend VS code to my are you indifferent about it" }
+  - { t: 2608, text: "I think it's just it's too heavy I would spend an enormous amount of time of nights and then you have to pay for it I can't do without lens really even the free edition is ex" }
+  - { t: 2619, text: "extremely powerful . what do you about it? What is it? The barrier of entry to creating an extension was low. it was the tiniest little bit of SC." }
+  - { t: 2629, text: "He likes to blame me for all my bad code that I write. can publish it, package it together using [laughter] standard tools. We don't work on projects together [laughter] really" }
+  - { t: 2641, text: "straightforward access to commits, branches, remotes, work trees, all in one view, side by side. and then very" }
+  - { t: 2652, text: "nice context menus on each item, you know, for I don't know, rebasing, merging, whatever. ," }
+  - { t: 2664, text: "you don't have to memorize any git CLI commands anymore because every Git feature is exposed visually. You don't" }
+  - { t: 2674, text: "get that out of the box, [clears throat] with the with the You don't get that out of the box. I see what you did there. I think learning the CLI is the way to" }
+  - { t: 2685, text: "go. I think it if you understand what you're doing with the CLI, then you really can't get lost on Git and you understand how it works with committing and and what that means." }
+  - { t: 2696, text: "And I feel sometimes the UID it's it's useful running circuit Python and that code was develop I I feel" }
+  - { t: 2707, text: "using the circuit Python extension I got distracted by him talking about I think he wrote the code for this sword with VS Code [laughter] he did it's a little circuit board a pi" }
+  - { t: 2718, text: "circuit board why do devs get emotionally attached to I I just think understand how it works with my rooming Command lines just help you understand more what the UI" }
+  - { t: 2729, text: "is doing. If you understand it from the command line, you will understand what's happening. Buns brain. you got to invest. Maybe maybe we should take a revisit on" }
+  - { t: 2739, text: "git lens. I don't know. You got to have a great editor. You have a great monitor. It's [laughter] where you spend your time. I'm I'm a very visual guy. If I don't see it presented, it's not" }
+  - { t: 2750, text: "accessible to me, . That's why I don't this whole trend of tuies, , terminal interfaces. I" }
+  - { t: 2761, text: "I don't feel productive in them at all. Interesting. But at the same time, building a gooey equivalent is substantially" }
+  - { t: 2773, text: "makes sense. All of us that that were using other editors , downplayed it. We thought you you can't get us to use another editor. It's" }
+  - { t: 2783, text: "the bar is just high to offer people the value required to switch what they're using every day. But VS Code did that." }
+  - { t: 2796, text: "Wow. This is such a cross national development team. Die hard Sublime Text fan. much that I I even wrote a book about it. I had hundreds of blog posts about it. Oh my" }
+  - { t: 2806, text: "gosh, Sublime Text. And then when VS Code, I looked for it , \"Oh, that nice,\" , and I I used Sublime Tech for maybe another year. ," }
+  - { t: 2817, text: "but every time I went back to try it, I realized , man, this is a much nicer experience. A lot of people who were coming to VS Code were not coming from" }
+  - { t: 2829, text: "an IDE. they were coming from a text editor and and they didn't necessarily know about the IDE features and we kind of got pilledled into being that's" }
+  - { t: 2839, text: "nice. Oh, it knows what my my methods are. It it knows about my codebase and that made a lot of the IDE people really mad because they've" }
+  - { t: 2849, text: "had that for years. , but us text editor kids were , \"Oh man, this is awesome.\" [laughter]" }
+  - { t: 2859, text: "Look up method. Oh my gosh, this is cool. Imagine a world without VS Code because it really made editing such a great experience. much more lightweight than a Visual Studio VS Code every day." }
+  - { t: 2870, text: "Yeah. Oh, 100%. Visual Studio took forever to start to replace it with. It was gigabytes in size just to get it going. extensible really made it" }
+  - { t: 2880, text: "why do I need every version of net installed from the beginning of time on my code interface I don't I don't think I need all that sorry Matias you're going to say" }
+  - { t: 2890, text: "what's really ironic it just occurred to me they they talked much about editing code files and and the value you get from a good" }
+  - { t: 2901, text: "editor and over the last 18 months arguably everyone's ditching it ditch has been ditching it because we no" }
+  - { t: 2912, text: "longer do that , ? We just delegate it to AI agents. Instead, we're editing markdown documents. That's how we communicate back and forth. ," }
+  - { t: 2922, text: "it's very historical what we're currently looking at in the f future generations of developers probably won't even appreciate this. No," }
+  - { t: 2934, text: "in the same way, ? That's what I was telling Mike the other day. I was saying VS Code has" }
+  - { t: 2944, text: "always been one of my favorite tools to use. But I find the only reason I have it open is to just look at the diffs when AI makes the diffs and then" }
+  - { t: 2954, text: "I'm , , this looks good. I'm going to commit it and move forward. The goal sounds a new product we need to make here. your AI and differ tool" }
+  - { t: 2964, text: "all they do have that that's the VS code agents window that's exactly it I I can't get my head it I'm lost in that tool I it" }
+  - { t: 2975, text: "but I'm lost in it I get really lost and I I it's a bit opinionated and the opinions that it's giving me is just I feel I'm I feel clumsy in that new agents window" }
+  - { t: 2988, text: "I find myself continually going back to the regular VS Code experience because probably what I've been looking at for years. I do Cursor's application that they have." }
+  - { t: 2998, text: "All , you're touching on a new thing there. Cursor is making some waves for me, too. I it, too. And they start , you start with the agent application or whatever. It's their equivalent of the VS" }
+  - { t: 3008, text: "Code agents app, ? where you have a prompt and you can start sessions and stuff, but then you can jump it into straight into the IDE, which is" }
+  - { t: 3020, text: "a fork of VS Code . , . Shocker. [laughter] Yeah, it's one of those hundreds of thousands of branches that are pulling off of there. Yeah. , I think . Cursor is one. I" }
+  - { t: 3032, text: "think anti-gravity, which is Google's zed is another one that has been rebuilt on Rust . That's one I'm [clears throat] actively testing . It's neat." }
+  - { t: 3043, text: "I wonder if they imagined the success that it would have when they started. I don't think anyone imagined this as success. It just starts to grow." }
+  - { t: 3053, text: "Yeah. And I think at some point you look back, you're , \"Oh gosh, 5 years later, you're , wow, this is really successful.\" And you just take the next step. I don't know if you plan at day one to think how to make it such" }
+  - { t: 3064, text: "a big success. I do think though the intention for this team to continue to listen to the community and build what the community wanted is the reason why" }
+  - { t: 3074, text: "this is the tool that it is today. the listening, the feedback. I think that's to me if I look at the story that that is the essential thread in this entire story, which is listen to your" }
+  - { t: 3084, text: "community, build what they want. And with AI and dark factories that we can build where we stand up applications and let people comment on" }
+  - { t: 3095, text: "our repos issues and problems and our agents can fix these things. this to me I look at this this just throws fuel on the fire for any application you build moving forward" }
+  - { t: 3106, text: "every app should be built with oh this is how you build apps point blank someone this is really good then we start to think about it what" }
+  - { t: 3116, text: "would be really cool when they turned multi-wind that was also a big deal it took a long time and back I talked about big vs" }
+  - { t: 3126, text: "code sorry big visual studio versus vs heard earlier. , originally being multi multi-wind application used to be the big advantage of traditional" }
+  - { t: 3139, text: "Visual Studio over VS Code that is no longer the case and that really made a big difference which being able to fully leverage multi-creen setups" }
+  - { t: 3150, text: "internal team without that I think may have been a very different reception to plus being fully crossplatform from from the" }
+  - { t: 3161, text: "get-go, ? Big deal. Being very lightweight. and on Windows in particular, you can install and update without elevated" }
+  - { t: 3171, text: "permissions. That's a big deal. Huge environments. Save us a lot of duplication because at the time you can even download the portable" }
+  - { t: 3181, text: "version and just run it without anything anymore. that's it's yeah I've used that a number of times where I've been on lock down machines and I need to just get something to edit" }
+  - { t: 3191, text: "download the portable open it up unzip it boom it work it just works we couldn't do there's that whole principle of letting the IDE call something external" }
+  - { t: 3203, text: "a it doesn't fail and B the Java people can write in Java the JavaScript guys can write in JavaScript the Go can write in Go it allows us to do more with less" }
+  - { t: 3214, text: "that's the big win of LSP. Claude provided native integration," }
+  - { t: 3224, text: "but somehow it's still a bit of a hidden feature. I would have expected a much bigger impact of that" }
+  - { t: 3234, text: "in inside CLA. I'm not quite sure why it hasn't really been that interesting. really good tooling on Eclipse JDT. , can we take" }
+  - { t: 3246, text: "some of that tooling and make that a language server? You could just add an LSP to a cloud development environment and that would give you something good" }
+  - { t: 3257, text: "enough or even in some cases equal to one of the more established ideas. I think from that perspective, it opened" }
+  - { t: 3267, text: "up a number of communities to VS Code." }
+  - { t: 3280, text: "Without VS Code, I think Go wouldn't be adopted this widely. The whole ecosystem was pretty chaotic. Just to be honest, as a language creator, you have to" }
+  - { t: 3291, text: "really work closely with many different parties to ensure that every text editor and every eay has similar feature sets. if you think about the sheer scale of language" }
+  - { t: 3303, text: "integrations that you have to build, the burden is growing over time. It's a lot of work, ? LSP was born to deal with that burden to be" }
+  - { t: 3314, text: "honest. And surprisingly in such a short amount of time language maintainers really really liked it. They were able to provide the" }
+  - { t: 3324, text: "best experience the official experience and was able to ship it across different editors and ease. At some point I think 75% of Go users were using VS Code." }
+  - { t: 3337, text: "it became a canonical experience. VS Code extension put everything together. , you just start there and then inherit all" }
+  - { t: 3347, text: "that knowledge and the correct tooling and the conventions. That is true. , if you think about the old days, 2000s, 2010s, if you wanted to" }
+  - { t: 3359, text: "establish a new programming language or language ecosystem, you would have had to ship a dedicated editor for it, which obviously is hugely expensive" }
+  - { t: 3371, text: "and and and problematic in terms of the language protocol you find interesting in terms of adoption. Whereas nowadays, you language create an LSP for it and" }
+  - { t: 3384, text: "then the whole world already has the editor to to working it. . Interesting. I didn't think of it that way. Success story. They're saying what is it? LSB." }
+  - { t: 3395, text: "Yeah. Server protocol. LSP. Got it. Libraries to make it easy. And then what happened is" }
+  - { t: 3405, text: "the that is is the the the backend interface between the the editor bit in VS code and an" }
+  - { t: 3418, text: "extension that understands a particular language. . Makes sense. all these things you hear it you're oh yeah that makes total sense. why wouldn't you do this?" }
+  - { t: 3428, text: "At the time it was revolutionary. for the longest time the VS Code team was mostly a team in Zurich. We had Chris and a couple of engineers and a" }
+  - { t: 3438, text: "supporting staff in Redmond but for the most part if you needed to get anything done on VS Code you had to be in that room in Zurich. And for a" }
+  - { t: 3448, text: "long time I would ask Eric hey Eric is there someone we can hire after this team twice as much as you're doing." }
+  - { t: 3459, text: "talking about moving to Yeah, I don't know if I'm ready yet. And what I didn't know is he had this one person in mind and that person was Kai Metsel." }
+  - { t: 3470, text: "[music]" }
+  - { t: 3483, text: "Good guy. He's got a dog. [laughter] suspicious. I was Aries intern." }
+  - { t: 3493, text: "that goes many years ago. Then we pretty much went this. we worked together for a while and we didn't work together for a while. Then we worked together. he decided to join Microsoft and then I had an" }
+  - { t: 3504, text: "interview with Microsoft at the time, ? Because do I want to go with him? And my visa situation was then a little bit different and on. But the real killer at the time was that they offered" }
+  - { t: 3515, text: "me a PM job. and because there was no engineering team here [music] it didn't work out and then I went into the startup world went to through an" }
+  - { t: 3525, text: "accelerator all of these kinds of things that were super exciting not super successful but super exciting and then I started looking around and Eric and I" }
+  - { t: 3535, text: "had never really lost contact at some point I I I told him saying oh I'm about to sign over there and I was no" }
+  - { t: 3546, text: "No, no, wait, wait, wait, wait, wait. [music] You you can know it. Here's, you know, I I really want you on on the team and I'm close to to get this all done. And I was , oh, . ," }
+  - { t: 3558, text: "and then I came to Redmond and talk with Shonku and on and that's how I then I came. Wow," }
+  - { t: 3568, text: "what a friendship that can sway that. That's interesting, ? Because direction there. What do you do when you have a team the Zurich team who knew each other already for for" }
+  - { t: 3579, text: "time has built something went through a couple of pivots and you build a new team there are two things that you can do you think for" }
+  - { t: 3589, text: "I'm an ideas guy and I thinking about ideas and new things and having stuff come together but I don't think I understand the gravity of the scale of things that these teams are" }
+  - { t: 3600, text: "building I build stuff for thousands of users, tens of thousands of users if I'm if I'm lucky, ? These guys are building things for millions of users. I think about the" }
+  - { t: 3611, text: "Excel team working on things in Excel and they they I don't know how many users are using Excel. A billion users a seventh of the world's population is using Excel or something" }
+  - { t: 3621, text: "astronomically ridiculous monthly active users. it's in crazy the an insane amount of people. I can't even fathom I don't know what what's what is the user base of VS Code?" }
+  - { t: 3632, text: "What do you think? H what percentage of the world's population uses VS Code? How high do you think that is? Is it a million users? Is it 100 million users? How many users?" }
+  - { t: 3643, text: "I would say tens of millions. What was what was Excel? Microsoft Excel. Last time I heard it was 700 million," }
+  - { t: 3654, text: "but I had to that was years ago. I had to imagine Excel user base monthly active users is a billion is would be my guess. I don't know that could be that could be wrong but" }
+  - { t: 3664, text: "that's just total guess. Do we think it's that that close? I don't know. I'd say it's 100 million. Excited because during my focus on data easy. Yeah, I think . 100 million" }
+  - { t: 3674, text: "users on VS Code and I was using VS [laughter] that I already loved and use every day. Ask the Microsoft models too. I'd be curious the comparison the the my" }
+  - { t: 3685, text: "models see if it gives you a different answer. Reasonable current estimate is 40 million worldwide 35 to 45 million active monthly" }
+  - { t: 3698, text: "users monthly active users. Wow. For two weeks interview I got a job and they have been the team ever since. Totally natural." }
+  - { t: 3709, text: "[laughter] I'm good . This is This is giving very much" }
+  - { t: 3721, text: "this is giving Silicon Valley level vibes to me with the TV show off of HBO. Oh no," }
+  - { t: 3731, text: "that sound is giving PTSD. Which one am I? [clears throat]" }
+  - { t: 3742, text: "oh, I'm guessing the hat. That's the German translation. Of course, we were continually working listening to feedback. But we also saw and observed some users that could not" }
+  - { t: 3755, text: "use VS Code. Data scientists in Python, they had a very beefy machine to do their models. And what they did, they had a separate machine for that. And in order to" }
+  - { t: 3766, text: "develop on it, they would use an SSH connection. Here's your feature, Mathias. Y this is this is your feature. But they cannot use the rich experience of VS Code to develop on this BV" }
+  - { t: 3778, text: "machine. That's even more relevant nowadays, ? Because when you run lots of agent sandboxes in a cloud, you want to be able to log into them at some point" }
+  - { t: 3788, text: "if you want and you can develop from Windows on Linux. But you have the problem when you want to run your program for instance the tools that run" }
+  - { t: 3799, text: "the thing they run on Linux but on the VS code side you have also Python but it's the wrong one or you don't even have it a third scenario is docker" }
+  - { t: 3810, text: "became popular and docker is nice you have a container it's these animations are great you have all the love the animations they've done here developing and building you install in" }
+  - { t: 3820, text: "the this container without having to pollute your machine. It would also be nice if you can develop in it. But again, if all the things is in in a docker container," }
+  - { t: 3831, text: "you cannot easily develop in it, ? Of course, you can use Vim, but you don't get the power from from VS Code. And the last scenario we saw is" }
+  - { t: 3842, text: "enterprises Facebook, they give the developers, they don't want that the developers have the source code on their laptop. the code they work on they also give them development machines in the" }
+  - { t: 3854, text: "cloud that they then connect to and work on. what is missing is this also code spaces to some degree some parts of VS code on the remote" }
+  - { t: 3864, text: "that was released in VS code 135 files are just looked no all the remoting part sorry" }
+  - { t: 3874, text: "as possible as easy as possible we are in 126. there we go. It's been around for a long time. . It's been there for a bit. We started and see what they're doing." }
+  - { t: 3885, text: "They had a 101 that allows them to use Atom in their remote setup." }
+  - { t: 3895, text: "New Clyde was a set of extensions that we installed on top of Atom. they were pretty big and and the way we branded New Clyde was that this is a set of extensions that provided an IDE" }
+  - { t: 3906, text: "experience in Atom. Meta Facebook had always done remote development. What was interesting about Nuclide was we were able to go add" }
+  - { t: 3918, text: "the IDE capabilities, autocomplete, debugging, source control, integration, all those sorts of things to make that work in our environment but remote first cuz everything was" }
+  - { t: 3928, text: "being developed on a dev server. Then what happened I think in maybe it was early 2018 and Adam was still a popular editor but VS Code" }
+  - { t: 3938, text: "really began to hockey stick and Adam flatlined. I think it maybe had around 2 million downloads or 2 million active users at any given point in time and I think VS Code at that" }
+  - { t: 3948, text: "point was maybe around 5 million. If you go to newio came to us the team they had some new ideas. They wanted to do a big story of stuff in Rust and and they're" }
+  - { t: 3959, text: "we're going to beat VS Code on performance in the Z editor these days. Hey, I called it earlier that's a lot of risk for us to take on. But I" }
+  - { t: 3971, text: "would say the real breaking point which we had conjectured would happen is that Microsoft acquired GitHub. If you're not" }
+  - { t: 3981, text: "familiar with this, you will be. It's GitHub. We were really trying to impress upon" }
+  - { t: 3992, text: "them just how much we cared about remote development and the types of changes that were required to support it and how much we had thought about it because they already had this nice separation in" }
+  - { t: 4003, text: "the architecture. They have a a UI process and then they have the extension host process. , they realized that , oh, these two things are we already have these as separate processes" }
+  - { t: 4013, text: "why do they have to be on the same machine? I think we had convinced VS Code at least that hey how about you have this idea of a a virtual document your extension can" }
+  - { t: 4024, text: "provide the functionality that when the user hits save instead of just writing to disk it calls this function from your extension. they still wanted to continue to collaborate with us and we certainly wanted to be able to" }
+  - { t: 4034, text: "use what Microsoft was developing for the remoting protocol in internally. I never knew about side and the meta side together and we made an agreement" }
+  - { t: 4044, text: "where Meta would get this source code and we would be all in on VS Code for remote development and blog post to publicly announce that at some point I think in" }
+  - { t: 4054, text: "maybe it was 2019 I forget. I never heard about this one with Meta jumping in the development of this. I didn't know that either. With VS Code, they had this clear" }
+  - { t: 4065, text: "architecture really a remote architecture. you can install the back end anywhere and the front end runs locally and then they communicate with each other and that is the key to" }
+  - { t: 4077, text: "building a great user interface or user experience with remote development. Codespace is based" }
+  - { t: 4087, text: "to spend configuring a new dev environment. Spin up an IDE of your choosing in the cloud. The VS Code team's original vision was to build a development." }
+  - { t: 4097, text: "I would say this is with code spaces with varying degrees of success. we've had some success with Codespaces, but it also has been a little bit of a headache too in some ways." }
+  - { t: 4107, text: "I think it's been we just don't use it enough. I think it could be more impactful potentially, ? Yeah," }
+  - { t: 4118, text: "because we just do a lot on our machines locally. We've done a little bit of pulling it into code spaces and and leverage them as a team. , everyone's working on the same dev box or dev boxes." }
+  - { t: 4129, text: "Yeah, I think it's because our team is small and it's easy enough for us to pull pull things down and work on our own machine. Yeah. , but if we were spinning up developers," }
+  - { t: 4140, text: "it would be I think we would do this more useful. Also, another advantage we've been getting in our side is we've been leaving Windows and we've been moving to Mac." }
+  - { t: 4150, text: "that's been another one that's been consistency to our development cycle is not doing it on Windows computers. I'm the last hold out on Windows. I'm trying to get off of it as soon as I" }
+  - { t: 4161, text: "can. Use VS Code to develop anything from anywhere. that supported us releasing VS Code for the web or VS Code.dev and also GitHub code spaces since that also has a" }
+  - { t: 4171, text: "component that could run in the browser. You didn't have to worry about installing anything and especially if you're working on a machine a Chromebook or a tablet or even looking at code on your phone. You don't have to" }
+  - { t: 4181, text: "worry of is my machine compatible or it's not compatible and where do I go from there? I have this devcontainer.json file and this one file describes my entire dev environment. All I have to do is say" }
+  - { t: 4191, text: "reopen in container and then instantly it's going to look at that file, pull everything down and I have a development environment that I'm used to. If you've ever started on a new project," }
+  - { t: 4202, text: "maybe you joined a new team, you're on project. Usually one of the first things you have to do is go research. , what dependencies are involved? What versions of languages or tool chains do I need?" }
+  - { t: 4212, text: "you just ask claude. , you don't even need that's what the dev environment would do for you is just you have it set up automatically. anybody who starts just open up" }
+  - { t: 4223, text: "the dev container and everything's installed for youing the dev container CLI specification felt a logical next step. And again, really helping with VS Code to develop anything from" }
+  - { t: 4233, text: "anywhere, but also just helping users be productive with their same applications in any environment, even if that's beyond VS Code. With all our different remote experiences that we've had over" }
+  - { t: 4243, text: "the past several years, we've been able to reach a variety of different kinds of developers or folks who are just learning about code or getting started with coding for the first time, even if they're not developers yet or maybe on a" }
+  - { t: 4253, text: "different path data science or just a hobbyist. I think it's really cool too that we've been able to as we've been expanding VS Code with more functionality, reaching more platforms, all these things, also still" }
+  - { t: 4264, text: "realize the VS Code team's original vision of bringing VS Code to the browser, having a code editor in the browser, seeing how our original architecture decisions supported that all along." }
+  - { t: 4275, text: "This has been really fun. I'm I'm enjoying this thoroughly. I do have some meetings I've got to get to. Matias, I think you also have to go somewhere as . what do you guys say? maybe another five or six minutes of" }
+  - { t: 4285, text: "this and then we'll maybe call it quits and cut it for the day. Sure. I I would vote for jumping forward a little bit because obviously they talk about AI and and co-piloted" }
+  - { t: 4297, text: "would be a shame to miss that. Yeah, let's see if we can not do that. Let's see if I can get the minimize screen here. which section are we talking about there? Which area? there is 113 the AI shift and then" }
+  - { t: 4309, text: "115 GitHub copilot. I guess if you jump to 113. See if I can get there. Let's see if I can get to 113." }
+  - { t: 4319, text: "Yeah, that that should be it. . To merge a pull request. [music] It could fail due to accessibility requirements that are not being met. And then our developers use [music] test" }
+  - { t: 4329, text: "plan items and screen readers to test the features that we've built. The iteration after those features have been introduced. It brings me. She's talking accessibility AI" }
+  - { t: 4340, text: "coming after this one. . , the the shortcut got a little bit ahead of where the section kicks over to. Oh, here we go. That should be AI ." }
+  - { t: 4354, text: "Interesting. I think it's three things that that have helped it become big. First, it's a really good experience. as an" }
+  - { t: 4364, text: "engineer who uses this day-to-day you know this is the prime tool that you use as an engineer and the experience that VS code offers is just really good they just got a lot of things the second I think is exactly this open" }
+  - { t: 4375, text: "ecosystem LSP is good at creating support for a lot of languages that a team even as resourceful and as" }
+  - { t: 4385, text: "staffed as the VS code team would never be able to support and the third I think is the access that that VS code conferred it was not behind a payw You didn't need an MSDN subscription." }
+  - { t: 4395, text: "This is the trick here. Same thing with PowerBI. Honestly, join the fact that you could get it for free and download it. Open source and contribute. The development happens in the open. You can see where things are going." }
+  - { t: 4407, text: "The extension ecosystem that that they created, , allowed everyone to become a part of this of this journey and it wasn't locked down. , I think it's those three things. The experience" }
+  - { t: 4417, text: "is really good. the ecosystem that they created with standards, with LSP, with def container. And the third is the degree of access that they confer to everyone by making it free. Not just as" }
+  - { t: 4428, text: "in free beer, but also as in free thought. Free beer. Is this where we get to AI?" }
+  - { t: 4440, text: "Yeah, there we go. there we go. There it is. The ship, we're there . I can't remember a time in my career where the pace of change" }
+  - { t: 4450, text: "has been fast. There's a lot of AI news, but often there are meaningful nuggets in there of , oh, hey, that's that's a crazy new idea or" }
+  - { t: 4460, text: "that's a crazy improvement that we have to rethink how we're doing things. The idea of having a one-year road map in this time is very difficult. you can have themes that you're shooting" }
+  - { t: 4471, text: "for, but you can't you just don't know where we're going to be six months from . there was a time before and and and after AI or the emergence of AI after we had tripped 10," }
+  - { t: 4482, text: "? We had this it sounds a corporate soundbite customer obsession, but but that's really the thing, ? We we sit on GitHub, we get the issues [music] in, we" }
+  - { t: 4493, text: "look at Twitter, ? and really see pretty much what people are saying [music] and then in next stand up it was oh what can we do about this but then what was that 20" }
+  - { t: 4505, text: "22 co-pilot completions came I think it marked transition for us from a mature market understanding what" }
+  - { t: 4516, text: "people want and need to they don't really know that's a good point. We're we're we're stepping into things that people don't" }
+  - { t: 4527, text: "understand what they need yet. Yeah, very fair. We have to tell users what they want. how do you want to use AI in your coding experience?" }
+  - { t: 4538, text: "we have to build this formulate what it looks . I founded the copilot project while I was working at GitHub. I asked Nat for an introduction to the founders of" }
+  - { t: 4548, text: "OpenAI and very kindly. This was early 2020. They gave us access to what would later become GPT3. H" }
+  - { t: 4560, text: "I remember we we were pretty excited when we first got access and we had a video call where a bunch of us were writing prompts and trying to get answers from them all. We laughed a lot" }
+  - { t: 4571, text: "because it spit out a lot of nonsense. It was clear, [laughter] however, that were the beginnings of code generation capabilities. And , in order to do a proper test, I coded up 50 interview" }
+  - { t: 4584, text: "questions that I used to ask while I was a professor at the University of Oxford, got all of them wrong. All of them. But, if you gave the model a thousand" }
+  - { t: 4595, text: "attempts, eventually it would get it . And in order to make the next step, we created a harness that you" }
+  - { t: 4605, text: "could point at a GitHub repo and it would find functions that have high test coverage and then we blank out the body" }
+  - { t: 4615, text: "of such a function, ask the model to fill in the code itself and then rerun the tests to see whether it got the answer ." }
+  - { t: 4625, text: "And that really surprised me. it got it more than a third of the time. , let's let's race together and" }
+  - { t: 4638, text: "assess whether we can build a a product based on this. GitHub co-pilot went GA within a year. wow June 21 and then GA June 22. It was" }
+  - { t: 4651, text: "almost half a year before when the model gets it wrong for the penalty for that is very low as a user it doesn't bother you when the model" }
+  - { t: 4662, text: "makes a suggestion that's not quite you just keep typing and I have to admit in most annoyed by all these" }
+  - { t: 4674, text: "code [laughter] I didn't really take them seriously normally got in my way yeah it it was not until quite a few years after that when you saw" }
+  - { t: 4685, text: "there's real value here and it it it's really able to infer your" }
+  - { t: 4695, text: "goals and and aims developer the ideal state for you you" }
+  - { t: 4706, text: "know is the the flow state or whatever I don't know if You've seen that movie The Social Network where this guy's fun. I've met him in person. Justin Timberlake's , \"Don't bother him. He's in the flow state.\" ." }
+  - { t: 4717, text: "when you get there though, you don't want to be interrupted because you're holding all of these abstract concepts in your head at the same time. You've built up your own context and you're working from that context. And" }
+  - { t: 4728, text: "guess who else has built up that same context? The AI. And it has this ability to enter the flow state with you. And again, until you experience that, it is really hard to describe. And" }
+  - { t: 4739, text: "I think that's when I realized, oh wow, this is this is way different than anything we've ever seen before. You can think about it as a slider of autonomy for AI that we've all been" }
+  - { t: 4750, text: "working through as an industry is where does this go, ? if if you walk the autonomy thing all the way out, then you get to these proclamations that AI is going to be writing all code" }
+  - { t: 4760, text: "and there will be no more developers, ? that's the full autonomous conclusion. if you go that far. I don't go that far, but there is autonomy that we've been walking out with AI that starts with ask and then" }
+  - { t: 4771, text: "when you move to edits, , we release edits and edits provides more autonomy for the AI. instead of just suggesting code to you, it can write the code for you in your files." }
+  - { t: 4782, text: "And if you keep going, , if you keep sliding, then you playing and an agent mode, the thing [laughter] really has, , I'm just wondering given that we're not going to be able to get a human being," }
+  - { t: 4793, text: "? Maybe maybe we need to move this to another episode because arguably this is the most" }
+  - { t: 4803, text: "interesting thing from an agentic point of view. maybe we do a deep dive on all those final chapters where they talk about GitHub copilot AI show." }
+  - { t: 4813, text: "I love this and and what else VS codes doing around AI. and we do a dedicated episode on it." }
+  - { t: 4823, text: "next week. I I love that idea and we bring Ryan along too and just give our take on this with AI. This is a great point to pause it. I'll pause here." }
+  - { t: 4833, text: "We'll come back over here to our main window. awesome really great documentary. Thought it was very fun. This is very enjoyable. I'm really enjoying and also I would watch this" }
+  - { t: 4843, text: "myself. I think this is much more fun watching it with my three my my favorite friends who write code and do AI things with me. I absolutely love engaging on this topic with you and and doing" }
+  - { t: 4854, text: "this with you as . really cool great documentary. You if you want to go get it I will make sure I copy the link here. You can go watch it . It's still finishing up on GitHub if you want to go check it out" }
+  - { t: 4865, text: "there. It comment is in the comments here. It's also in the video description down below if you want to go check out the video for yourself. , hope you found our Mystery Science Theater 3000" }
+  - { t: 4875, text: "commentary alongside this somewhat additional entertaining to you as . And , , and and hopefully you found that as fun for you as you" }
+  - { t: 4887, text: "listen to us yammer about our memories of working with code. I think one Yeah. one takeaway mo maybe for for me certainly I no" }
+  - { t: 4898, text: "longer just see VS Code as a as a massive repository and as a piece of software that I love and use all the time. This documentary shows it's about people" }
+  - { t: 4910, text: "and teams behind it and many coincidences and relationships, ? and someone saying yes to someone else at the time, ? And I think" }
+  - { t: 4923, text: "it's that's probably a really good reminder as we're trying to delegate more and more stuff to these agents" }
+  - { t: 4933, text: "whatever they are. at the end of the day, successful projects come out of human ideas, relationships, and" }
+  - { t: 4946, text: "plans and and making it happen. cool. Why don't we why don't we leave it on that? That's a great ending. And then" }
+  - { t: 4956, text: "and then next week, promise to everyone, we're going to do a deep dive into AI specifically as far as code's concerned. I love it. That sounds a That" }
+  - { t: 4966, text: "sounds a fair win to me. , thank you all much. We appreciate you listening to this really long episode of Agentic Thinking. It's been an hour and a half almost. I hope you enjoyed this. Thank you much for watching. We'll" }
+  - { t: 4976, text: "see you next time on another Agentic Thinking. Bye everyone. [music]" }
+
+---
+
+## Summary
+
+Mike, Mathias, and Ryan — a senior developer on Mike's team — watch the VS Code documentary together and talk over it. They follow the editor from the TypeScript and Monaco work through the cross-platform Electron app, the open-source launch, and the extension model that kept a bad plugin from freezing the editor. The back half covers remote development and Codespaces, then the 2020 experiments that became GitHub Copilot. They stop before the agent-mode chapters and save that for the next episode.
+
+## Key Takeaways
+
+- ▸ VS Code grew out of the TypeScript compiler work and the Monaco editor, then shipped as a light cross-platform editor on Linux, macOS, and Windows rather than a smaller Visual Studio.
+- ▸ The first commit in the open-source repo is a hello from Erich Gamma's team. Opening the core, and then some extensions, was the culture change that let other people build on the editor.
+- ▸ Extensions run in their own process. A busy loop in a plugin kills that process, not the editor, and the API was kept small so the barrier to publishing one stayed low.
+- ▸ Remote development and Codespaces matter more once agents run in cloud sandboxes: you want the same UI against a machine that is not the laptop, including machines enterprises will not let developers copy source onto.
+- ▸ GitHub Copilot started from early GPT-3 access in 2020. A harness that blanked well-tested functions and reran the tests got the model right more than a third of the time, and the product went GA about a year after the June 2021 preview.
+- ▸ They treat the documentary as a people story. Successful projects still come from relationships and someone saying yes, which is the reminder they want in view while more of the typing moves to agents.
+
+## Links
+
+- ▸ [VS Code on YouTube](https://www.youtube.com/@code?utm_source=agentic_thinking&utm_medium=website&utm_campaign=20260904)

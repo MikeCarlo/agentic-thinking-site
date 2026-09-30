@@ -1,0 +1,209 @@
+---
+title: "The History of VS Code now with AI"
+episodeNumber: 38
+date: "2026-09-08"
+youtubeId: "ioqvTaGJJj4"
+duration: "31:11"
+blurb: "Mike, Mathias, and Ryan finish the VS Code documentary on the AI years: Copilot as cruise control, agent mode as self-driving, and why forks like Cursor raised the waterline instead of ending the project."
+tags: ["vs code", "github copilot", "agents", "mcp", "agentic thinking"]
+guest: "Ryan"
+guestRole: "Senior developer"
+guestLinkedIn: "https://www.linkedin.com/in/ryan-bykowski-407a8a68/"
+chapters:
+  - { t: 0, label: "intro" }
+  - { t: 132, label: "the ai half of the documentary" }
+  - { t: 381, label: "why copilot stuck" }
+  - { t: 752, label: "from cruise control to self-driving" }
+  - { t: 854, label: "agent mode skills and mcp" }
+  - { t: 1126, label: "forks and the open editor" }
+  - { t: 1631, label: "wrap up" }
+transcript:
+  - { t: 8, text: "Hello everyone and welcome back to a gentic thinking. We're We're coming back with another episode here. If you were with us on Friday, we did a a new format for us. We haven't really" }
+  - { t: 18, text: "done this before. Microsoft released the announcement of VS Code as a world premiere. 10 years of VS Code. That's been our video last on Friday. I'd to" }
+  - { t: 28, text: "introduce to you Matthias. Hello. Welcome. As always, we're we're doing a gentic thinking together. Hello. [clears throat] How's everyone? Doing . Ryan, also Ryan is on my" }
+  - { t: 39, text: "team. Ryan is also a heavy code developer on my side of things. And I figured since we all are have a various experiences around working with VS Code and interacting with it with we thought" }
+  - { t: 50, text: "we'd continue on with this. The episode was quite long last time. About an hour and 20 minutes or of us talking and going through the episode. We're going to finish off the actual" }
+  - { t: 60, text: "rest of the documentary. But we want to start at this point where AI is introduced. this is VS Code and the AI. And we left" }
+  - { t: 70, text: "it a bit of a cliffhanger, I guess, last time, which was the product team was at this point in time, they were discussing everything they've been building in VS" }
+  - { t: 80, text: "Code was known. They knew how developers worked. They knew how they want to operate. They knew what they wanted to create inside the experience. And for the first time with AI showing up," }
+  - { t: 90, text: "people don't know how to work with it. They don't know what to build. They don't know what UI and interfaces really needed to work with AI effectively on their code. This is all brand new world." }
+  - { t: 100, text: "I think this is what we're going to enter into is how does the product team continue to shape based on this new , to be clear, I have not watched this. This is first time I'm going to watch this for the first time" }
+  - { t: 110, text: "with everyone here. we're going to give our live reaction. Any thoughts, Matthias, before Before we jump in and start doing the actual watch. I genuinely enjoyed the the format" }
+  - { t: 120, text: "on Friday. That , that would the video Microsoft released on VS Code was very thought inspiring and was very done." }
+  - { t: 132, text: "I'm just can't wait to to see the remaining 20 minutes . All , there we go. , we get the last 20 minutes here. we're going to have VS Code with AI. Let's jump" }
+  - { t: 143, text: "on in. let me switch screen share here. we'll switch over to our screen share and I'm going to just confirm that we've got audio here as . if anyone is listening and watching online" }
+  - { t: 154, text: "I will ask you just give us a little note in the comments here to make sure that this audio is working correctly for you. I will hopefully confirm that this is also" }
+  - { t: 166, text: "working here as . And we will also add in the audio from this as . anyway, just give me a confirmation in the chat below that the audio is working when I hit play here." }
+  - { t: 182, text: "I hear you. I can't remember a time in my career where the pace of change has been fast. There's a lot of AI news every day, but often there are" }
+  - { t: 193, text: "meaningful nuggets in there of , oh hey, that's that's a crazy new idea or that's a crazy improvement. That we have to rethink how we're doing things. The idea of having a one-year" }
+  - { t: 203, text: "roadmap in this time is very difficult. you can have themes that you're shooting for, but you can't you you just don't know where we're going to be 6 months from ." }
+  - { t: 213, text: "there was a time before and and and after AI or the emergence of AI. after we had checked in with Eddie we just saw was also" }
+  - { t: 225, text: "culture indicator of how things have changed. , a Google guy being interviewed in theory in front of building and really see pretty much what people are saying and then next stand up" }
+  - { t: 236, text: "it was oh what can we do? That's really true in the culture of what's going on here cuz this is VS Code Universal across any platform, any cloud, or any provider , Microsoft or Google for that matter." }
+  - { t: 247, text: "Yeah, cool. a real transition for us from a mature market understanding what people want and need to" }
+  - { t: 258, text: "they don't really know. Yeah, here's the to the point. I agree with this. People don't know what they want next and everyone's [music] copying the same UI over and" }
+  - { t: 269, text: "over again until someone someone's going to break out something new here that's going to be experientially creative at once. I'm over at the more. I found out the" }
+  - { t: 280, text: "Copilot project while I was working at GitHub. I also asked for an introduction to the founders of OpenAI very kindly. This was early 2020. They" }
+  - { t: 291, text: "gave us access to what would later become GPT-3. I remember we we were pretty excited when we first got access and we had a" }
+  - { t: 302, text: "video call where a bunch of us were writing prompts and trying to get answers from them all. We laughed a lot because it spit out a lot of nonsense. It was clear however that there were the" }
+  - { t: 313, text: "beginnings of code generation capabilities and in order to do a proper test I wrote up 50 interview questions that I" }
+  - { t: 323, text: "used to ask when I was a professor at the University of Oxford. Got all of them wrong. All of them. But if you gave the model a thousand" }
+  - { t: 333, text: "attempts, eventually it would get it . And in order to make the next step, we created a harness that you" }
+  - { t: 343, text: "could point at a GitHub repo and it would find functions that have high test coverage. And then we blank out the body of such a function, ask the" }
+  - { t: 354, text: "model to fill in the code itself, and then rerun the test to see whether it got the answer . And that really surprised me." }
+  - { t: 366, text: "Did that Claude 1 was released on the same day as GPT-4? as good as it was at the time in March 2023. I did not know that. Nowadays they normally chase each other by a few days to release 4, but back then" }
+  - { t: 381, text: "Interesting. I did not remember that part. The reason Copilot was successful was of course partly the amazing models from" }
+  - { t: 391, text: "OpenAI, but it was also the fact that when the model gets it wrong, the penalty for that is very low. As a user, it doesn't bother you when the model" }
+  - { t: 402, text: "makes a suggestion that's not quite . You just keep typing, it doesn't it doesn't get in the way. And this super smooth integration in" }
+  - { t: 414, text: "VS Code is really what made it attractive to use. Yeah, I thought I have to Sorry, go ahead. I just I was saying I thought that was" }
+  - { t: 425, text: "awesome when it would it would auto-complete. It never bothered me when it got it wrong. I would just continue to type and it would eventually get it and keep completing. Yeah." }
+  - { t: 436, text: "ironically I was just going to say the exact opposite. Initially, it's something which which really got in my way and I was looking for ways the ideal state for you, , is" }
+  - { t: 447, text: "the the flow state or whatever, ? Yeah, agreed. I don't think I use auto-complete in the text editor as much anymore. I almost that's almost I'm exclusively just talk to an AI directly" }
+  - { t: 458, text: "and watch it build and then I use diffs. It was revolutionary. Yeah. At the same time you felt This this is where I found a greedy mind" }
+  - { t: 468, text: "I've got a habit of of typing long in a text editor as opposed to the chat window. I've I've got that I'm working in the context a lot." }
+  - { t: 481, text: "This is incredible how it is way different than" }
+  - { t: 495, text: "That's something I've been using in my statement of works when I write for clients. All my statement of works are in markdown in the same folder. And it's a project. And then the auto complete helps me auto" }
+  - { t: 506, text: "complete paragraphs, statements, repeatable project pieces. it's finding patterns when I start talking about we're going to build a Power BI report, it knows how to build a Power BI" }
+  - { t: 516, text: "report because of my other statements of work. This is the power of it, it's looking at my repo and understanding what is similar and helping me generate the words I need for" }
+  - { t: 526, text: "the next contract, which is cool. full autonomy. in that case it's functioning you do as a human being, ? And then as a team we're building these things. You build" }
+  - { t: 536, text: "ask and you're , what if we could do more? you build add-ins and you're what if we could do more? And then you build agent mode, moving more and more, delegating more and more to see what the AI can handle." }
+  - { t: 548, text: "I think the misconception is that GitHub Copilot is something that you just plug into Visual Studio Code and it just kind of hangs out an appendage on the experience and that is not true at all." }
+  - { t: 559, text: "There's no extension, there's no additional added experience. These are just AI features in Visual Studio Code. That's it." }
+  - { t: 572, text: "that only changed recently. many AI product I know that that's been integrated into the main unit. And there was some ? Between engineering and science." }
+  - { t: 583, text: "And in this new world the lines blur. a lot of the way we work with VS Code is we're part of the VS Code team. Especially for" }
+  - { t: 594, text: "experiences next edit suggestions. It's hard to say what is the model, what is the user experience, what's the prompt. I think it's been a lot of learning on both sides of how to build" }
+  - { t: 606, text: "AI native experiences and work with research and engineering together. What's been surprising interesting point. It's probably one of the factors why VS" }
+  - { t: 617, text: "Code is good and successful because if you think about it, the entire VS Code team themselves must be using VS Code to build VS Code. Which" }
+  - { t: 627, text: "means this this is extreme dogfooding, ? Anything they experience during their work on on a , very substantial project" }
+  - { t: 637, text: "as an issue, they can pretty much address straight away. They don't they don't require their customers usually get early access to these models for us to try out. We throw all" }
+  - { t: 647, text: "of the default prompts that we have at the model to see which one works best. I find this is unique to this team cuz if you look at the other teams inside Microsoft, they're building software using other tools Power BI" }
+  - { t: 659, text: "and Fabric. They don't necessarily need to use Power BI and Fabric to build Power BI and Fabric. this is a unique experience of the tool you use to build the tool is" }
+  - { t: 669, text: "the product you're building. sometimes you get in product teams and I've seen this with Microsoft's PMs they build a feature that they themselves are not regularly using." }
+  - { t: 680, text: "Sometimes. this is a different mentality. And , but I would go even further. it's the engineers themselves" }
+  - { t: 690, text: "that have a very deep interest in their product which would not be the case in in the Power BI of Fabric world. You" }
+  - { t: 700, text: "know, the engineers there probably you know, don't use Fabric to run analytics on on any of" }
+  - { t: 711, text: "their own data. , for them this is just a project that they are tasked to work on. Correct. [clears throat] For example, get a faster engine in the" }
+  - { t: 721, text: "car. And yeah, think about it. The you plug a good language server into VS code and your your language support is much" }
+  - { t: 731, text: "better. , you have these kinds of things that make your life easier. But to some degree they are conveniences. And then the very early incarnations of" }
+  - { t: 742, text: "AI in developer tools was cruise control. , you still have to steer. You still have to make sure you set the proper speed. ? And and I think the" }
+  - { t: 752, text: "fundamental change in in cars was when we started thinking about self-driving autonomous cars. And I think the the" }
+  - { t: 762, text: "impact on developer tools is comparable to that step function. The very moment those new models came around, we" }
+  - { t: 773, text: "realized that this is really something that can put you in a position where you no longer are responsible for really writing every single line of code or not" }
+  - { t: 783, text: "even a single line of code anymore. And that is really a a fundamental shift in how you have to think about your job as a software developer." }
+  - { t: 794, text: ". [music] Let's say the last 14 months have been" }
+  - { t: 804, text: "I I mind-boggling. , when you think about this, the last time we talked Last 14 months. It's a year ago." }
+  - { t: 820, text: "For me, it wasn't 14 months. For me, it was December, November of last year. I'm at the 8-month time frame. , I'm a little bit behind where the team is, but my last 8 months, 9 months" }
+  - { t: 830, text: "have been revolutionary in what I'm thinking about nowadays. Yeah. ? And that meant you give a model tools, and the model can decide" }
+  - { t: 842, text: "at which moment it calls those tools. What code, for example, came along. Then after that You told me about that code." }
+  - { t: 854, text: "We introduced agent mode. We started building our own custom models for all of these kinds of things. In June, the event and open-sourced everything that was related" }
+  - { t: 864, text: "to chat. In November, we brought completions into our open-source code base. We brought in instructions. We have standards, pretty much agreement on on skills and how skills" }
+  - { t: 876, text: "should work. We have MCP. ? Just think about the whole MCP story and everything that it covers. I haven't even mentioned the models. 20 months ago, we were talking" }
+  - { t: 886, text: "about GPT-4o and Sonnet 3.5. Today, we're talking about Sol, Opus 5, and Fable, even the mini models, ?" }
+  - { t: 896, text: "Then Google was nowhere, ? we have Gemini 3.1 Pro, Gemini 3.7 Flash. Again, Google was nowhere. we have antigravity, which is yet another VS" }
+  - { t: 906, text: "Code fork. We are in the process of re-evaluating Interesting. I didn't know that was a fork. If what you want to do and not how you want to do it are" }
+  - { t: 916, text: "the most important ingredients, then that needs to take more and more center stage in your tool. And the way that works today is that we talk about" }
+  - { t: 928, text: "that you as a developer manage a set of agents. And that clearly, ? When you think about That's the new future. expressing your ideas, shaping your" }
+  - { t: 938, text: "ideas into more detail, handing it over to agents, then interacting with the agent when needed, and bringing the results of the agent" }
+  - { t: 948, text: "back, , verifying it and bringing it back into the main branch. If those are the most important activities that you perform over the course of the day, then" }
+  - { t: 959, text: "your tool needs to represent this. [music] And we'll look very different, ? You need to be very open-minded. ? it's not cuz he said, \", let the agents do the work and you" }
+  - { t: 970, text: "verify and bring it back into the main branch.\" In fact, this is what the biggest challenge is nowadays just because of the sheer volume of what agents produce, ? Yeah. Yeah." }
+  - { t: 980, text: "For him it was a half sentence, but this is a big problem that we have not solved yet. But it turns out it is. But Yeah, when the agent can change 10,000" }
+  - { t: 990, text: "lines of code in a couple minutes, how do you review that? How do you vet that that's correct and and true? your next bottleneck is really far upstream on testing and accuracy of what the" }
+  - { t: 1001, text: "agent wrote. How do you get the agents to do the verification, make sure that things going into main is good, ? how do you make sure that Yeah. You can remove that stuff from you." }
+  - { t: 1011, text: "what ? That's the next chunk of the problem, ? Exactly. Writing code used to be" }
+  - { t: 1021, text: "the problem. it's reviewing code. Yeah. Which means we haven't really evolved at all. we've just changed We've just shifted the problem." }
+  - { t: 1031, text: "Yeah, exactly. Yeah. But at the same time we also introduced scale that's beyond human. . I keep up on tech in web development" }
+  - { t: 1043, text: "full-time and I have a hard time chasing these things around. that VS Code is used by about 70% of developers according to Stack Overflow" }
+  - { t: 1053, text: "and its dominance Wow. and the quality of what VS Code has put out is one of the reasons why Cursor Windsurf and these other forks, you" }
+  - { t: 1063, text: "know, decided to build on top of it rather than building from scratch. The UI is what made VS Code win at a certain point. And then [music]" }
+  - { t: 1074, text: "the UI limitations are the reason why Cursor and Windsurf are forking it. And [music] it is a hard thing to be able to provide APIs and and UIs for" }
+  - { t: 1085, text: "absolutely everything when we don't know what the future of coding looks . Are we coding in an editor and and this little pop-up is helping us? No. typing into a text box?" }
+  - { t: 1096, text: "No. Or are are we simply just waving our hands around and Yes. wiring into our [clears throat] brains and imagining what these UIs look , we're not there yet." }
+  - { t: 1106, text: "of coding looks But I'm using my voice. I'm using a lot more speech. Iterating on different UIs is certainly a reason why these things have had to fork." }
+  - { t: 1116, text: "the irony is that Visual Studio Code has effectively done research and development for editors. The editor problem has been solved. It's raised" }
+  - { t: 1126, text: "the water level, if you imagine all the boats floating up to the top. [music] And the hard part is done, but that is the game. And otherwise, it's closed source and it's proprietary and Visual" }
+  - { t: 1136, text: "Studio Code just isn't. I understand it from from both aspects. I'm I'm glad that that these editors did that as because you start seeing these features come out" }
+  - { t: 1147, text: "much more quickly. You start seeing bugs being fixed in VS Code much more quickly. that there is more competition, you They went to weekly weekly updates, too." }
+  - { t: 1158, text: "That was a change as , recently. [snorts] baby, I love it. yes, and anti-gravity is a fork of" }
+  - { t: 1169, text: "VS Code, is Cursor, is Vim Serve, ? , I clearly could take the position in saying, \"Hey, the code base we created" }
+  - { t: 1179, text: "is by far the most used developer tool code base out there. And it's true, ?" }
+  - { t: 1189, text: "But how does it make me feel about something anti-gravity? And I have pretty much two ways of thinking through this. One is from a pure product" }
+  - { t: 1201, text: "competitive point of view, ? That the anti-gravity team doesn't have to take care of, ," }
+  - { t: 1211, text: "the details of security exposures in the VS Code code base, and therefore has a cheaper way of creating anti-gravity, ?" }
+  - { t: 1223, text: "And that certainly is true, but at the same point in time, ? I still think about it that folks Cursor and anti-gravity and Vim Serve and on, ? try to" }
+  - { t: 1234, text: "push forward the state of the art, how we develop, ? And , that is not too fundamentally different from why VS Code was open source in the first place. ," }
+  - { t: 1246, text: "I'm Yeah, I I still don't have bad blood with any of the folks. There has always been an incredible amount of competition in the developer" }
+  - { t: 1257, text: "tool space. That has never not been the case, ? When Visual Studio Code came out, at that time Sublime, and there was Atom, and Adobe had Brackets, and there was all of these amazing editor experiences and then since then" }
+  - { t: 1270, text: "you still have extremely popular editors our friends at JetBrains who build incredible products and There's introduced me to a lot of JetBrains stuff. really smart. They know what they're doing. They built an editor from the" }
+  - { t: 1281, text: "ground up. This is a very hard to do. And the space has always been very very competitive. But it's definitely ratcheted up in the last say" }
+  - { t: 1293, text: "12 to 24 months maybe. And I think mostly in the way of forks. And I think again, that's good for developers in the end. As long as developers win, that's" }
+  - { t: 1304, text: "the best possible thing. When you're shipping features in AI in a moment we are, it's really really tempting to just build something and ship it. Just ship it. Just get it out. Just ship it." }
+  - { t: 1314, text: "This is interesting because it feels we're starting to see the moment of VS Code was the leader and the single main branch." }
+  - { t: 1324, text: "And we're getting a whole bunch of branching ideas or thoughts around how code development should work with AI. And we're getting to a place where we're forking" }
+  - { t: 1334, text: "the concept. Forking how developers think they want to run. It's we're experimenting mode. It's all these companies or different people or teams are trying to say, \"We're here to experiment with different ways to develop with AI.\"" }
+  - { t: 1346, text: "And some of these will stick and some of them will just fade out into the distance and they'll be it'll be a project that gets maintained for a couple years and eventually it'll just disappear. And you're going to have this" }
+  - { t: 1357, text: "shift. And then hopefully VS Code will adapt to what developers really want. This is interesting." }
+  - { t: 1367, text: "You're the most popular thing It's an organism. But also It's really easy to get distracted. They make it sound" }
+  - { t: 1378, text: "VS Code in the science. gets you everything for free. But, if you think about that, , if if if you were an org building a" }
+  - { t: 1388, text: "semi-competitive product on top of a VS Code fork, how , that comes with a with a lot of restrictions and constraints" }
+  - { t: 1402, text: "and you maintaining your fork, ? How far can you diverge from main?" }
+  - { t: 1413, text: "And sustain it. is it for you to bring in updates and new changes? do you want to be aligned with where VS" }
+  - { t: 1424, text: "Code is going in the future? Then, you are very constrained with respect to how creative you can be in terms of the architecture. Or" }
+  - { t: 1434, text: "you take your fork and then don't look back and do your own thing from there, ? And both ways have their advantages." }
+  - { t: 1444, text: "it's not a free lunch. And in a way, because it it's it's puts many constraints on you, I'm not sure I that model." }
+  - { t: 1454, text: "Interesting. Someone does the services. In our team, everybody can do anything. when a new discipline comes along AI comes along, we all become AI" }
+  - { t: 1464, text: "engineers. And when I look at back also how we did VS Code, it was continuous incremental improvements. A new challenge came along and then you tried to address it. It was all incremental." }
+  - { t: 1475, text: "You had lots of evolution in there and very little revolution. And we shipped continuously, ? This is the way we do Whatever you have an idea what it would look at the end when they" }
+  - { t: 1486, text: "were Unless it ships, yeah. As things come up, they adjust and they fix problems. First of all, it's the people. You can't have the best process, [music] the most written, fixed, whatever, but" }
+  - { t: 1496, text: "it's the people. And good people enjoy working with good people. It's not people think, , good developers, they or egos, whatever, but" }
+  - { t: 1506, text: "good developers, they love to work with each other. If you see observe how they work together on a on a problem, ? That they just love it. I think it's the people" }
+  - { t: 1516, text: "and that then gives the passion that you have. But first of all, comes the people, ? . How many years have you're saying, Matias. That's . I remember that last time." }
+  - { t: 1532, text: "Are they winding down ? Looks there's one other thing that we could squeeze in. I don't know how to do it if this even makes sense, but" }
+  - { t: 1542, text: "the biggest the biggest thing for me is I don't know." }
+  - { t: 1553, text: "I just want to say, , thank you to the rest of the team for letting me be a part of working on VS Code because over 30-year time frame," }
+  - { t: 1563, text: "this is clearly been the the highlight of of my career. [music] thanks. Wow. you can get that in as a B-roll." }
+  - { t: 1580, text: "Cool. . That's the end of it there. No one made any predictions where it's going because how would anyone know, ? Exactly, . All , we'll cut it there then." }
+  - { t: 1590, text: "We'll cut it there and we'll come back to the the main show. , anyways, good ending here. The AI piece was a little bit underwhelming. I would I hoped they would have talked a little bit about the new AI chat experience and the" }
+  - { t: 1601, text: "standalone GitHub Copilot experience. Those were the two things that they've been cooking on the side here, maybe as a a separate project or trying to reimagine" }
+  - { t: 1611, text: "what what development looks , but love the product. This was a great documentary. I think this was a very fun to watch. And it was really fun to watch with other people who are way" }
+  - { t: 1621, text: "better than code than I am. And listening to you guys think about and unpack how you perceive VS Code in your workflow and what you see doing forward. ," }
+  - { t: 1631, text: "maybe we should just end here on, you know, great documentary, really neat, good things to think about here concept-wise. Any final thoughts, Ryan, as you , ," }
+  - { t: 1642, text: "unpack this documentary? Where do you What's your What's your landing What's your final feeling on this one? Yeah, , I don't know. I I think about the" }
+  - { t: 1652, text: "teams that I've been on and I think about the whole aspect of of it being around the people who are working on a product makes the product. I know that I've experienced that in my my career is the teams that I've" }
+  - { t: 1665, text: "really enjoyed being on and we work really together. We've had successful products. and I think there's a lot of truth in that. And , I'm I'm always going to be a VS Code fan. And I hope" }
+  - { t: 1675, text: "that they stay relevant and and adjust to how AI is changing things. And I think they will. Yeah. Matías, what do you think? What What are your What's your final thought?" }
+  - { t: 1688, text: "I I don't think anyone can doubt that VS Code clearly is an absolute success story, ? They they made some very good decisions there, some very good long-term decisions." }
+  - { t: 1699, text: "going all-in on open source, you know, was a massive culture change, obviously, but it was exactly the thing to do. I can't wait to jump back into my all" }
+  - { t: 1711, text: "my open VS Code sessions and to just enjoy the product. [laughter] I also agree with that one. , great product. I , maybe my my gleaning from this one is if you bring really" }
+  - { t: 1722, text: "smart people who know how to work together, I really the end comment there with anyone can solve any problem anywhere in the code. That makes sense to me, ? Even I think I think limiting specific team members to" }
+  - { t: 1734, text: "certain areas of the project brings a little bit of dull and boredom to getting stuck into I'm just the tester, I'm just the UI, but everyone should be able to to come and" }
+  - { t: 1744, text: "contribute ideas anywhere at any point in the project. I think this makes a lot of sense. And that we have AI to help us build things, this seems much more feasible to us." }
+  - { t: 1755, text: "I don't think there's any reason why we would limit roles of people anymore. You let them build what they need to build. And I I also the idea I think that the last part I think I would maybe glean from this was there really wasn't" }
+  - { t: 1765, text: "an end in sight. There was some definitely milestones along their path, but there wasn't we need VS Code to be the best code editor or the most used" }
+  - { t: 1775, text: "70% of I don't think there was that goal. I think it was just hyper-sensitivity to what our users needing. What do we need? How do we use our own product? I think" }
+  - { t: 1785, text: "the more you can dogfood products that you're working on and building with makes a better product for you long-term. . I love the fact that it's open source. Really that that" }
+  - { t: 1795, text: "they're they're building this way. And if anything, I'm going to try and bring more of those ethos into how we build and how we develop software as . . Awesome. With that being said, thank you all very much for" }
+  - { t: 1805, text: "listening to another episode of Agent Thinking. Sorry for the Sorry for or , let us know in the comments I guess if you this new format. We might We do more of these if they bring out more of these documentary type" }
+  - { t: 1816, text: "things. if you want to watch TV with us [laughter] talk about, let us know in the comments if this was good. Also, every Friday we do some demo. if you would" }
+  - { t: 1828, text: "let us know in the comments below, let us know what you want to see. we'll do some demo, a screen share, something around working with agents or Agent Thinking experiences on top of Microsoft Power BI and Fabric. If" }
+  - { t: 1839, text: "there's something you'd to see, let us know in the comments and that'll help us cater the content for what you want to see on the show. Ryan, thank you much. Matias, as always, it's been a wonderful. We'll see" }
+  - { t: 1849, text: "you all next time. Agent Z Thinker [music]" }
+  - { t: 1862, text: "Agent Z Thinker" }
+
+---
+
+## Summary
+
+Mike, Mathias, and Ryan pick up the VS Code documentary at the AI chapters they paused last episode. The team on screen compares early Copilot to cruise control — you still steer — and the later models to self-driving, where the developer is no longer responsible for every line. They walk through agent mode, custom models, open-sourced chat, skills, and MCP, then the awkward fact that Cursor, Antigravity, and other forks are built on the same open editor. The close is that VS Code won by dogfooding and letting anyone contribute anywhere in the project, which is easier now that agents can help someone step outside a narrow role.
+
+## Key Takeaways
+
+- ▸ Early AI in the editor was cruise control: completions help, and the developer still sets speed and direction. Agent mode is the step change, closer to a self-driving car, because the model chooses when to call tools and can write the code.
+- ▸ The documentary's timeline is compressed. In roughly a year the product moved through agent mode, custom models, open-sourced chat, completions in the open repo, instruction files, skills, and MCP, while the model names went from GPT-4o and Sonnet 3.5 to Sol, Opus 5, and Fable.
+- ▸ Copilot worked in part because the VS Code team dogfooded it on their own large project. Patterns they felt while building the editor showed up as completions for everyone else.
+- ▸ Forks such as Cursor and Antigravity skip some of the security and maintenance cost of the upstream editor, and the panel still treats that competition as useful. Weekly VS Code updates and faster bug fixes are the part developers actually feel.
+- ▸ Open source plus a team that lets anyone touch any part of the product is the decision they want to copy. Agents make that less theoretical, because a person is no longer stuck as only the tester or only the UI owner.
+
+## Links
+
+- ▸ [VS Code on YouTube](https://www.youtube.com/@code?utm_source=agentic_thinking&utm_medium=website&utm_campaign=20260908)

@@ -1,0 +1,407 @@
+---
+title: "VS Code Agent Mode"
+episodeNumber: 39
+date: "2026-09-11"
+youtubeId: "RnhNID6hHNw"
+duration: "1:07:20"
+blurb: "Mike and Mathias set up the VS Code agents window from a clean slate, connect Fabric skills and the Power BI modeling MCP, and stumble onto the new hosted modeling server."
+tags: ["vs code", "mcp", "power bi", "fabric", "agentic thinking"]
+chapters:
+  - { t: 0, label: "intro" }
+  - { t: 120, label: "gpt-6 astra in power bi" }
+  - { t: 248, label: "computer use beside the editor" }
+  - { t: 740, label: "open the agents window" }
+  - { t: 1268, label: "skills plugins and sign-in" }
+  - { t: 2025, label: "fabric and power bi mcp" }
+  - { t: 2888, label: "hosted modeling server" }
+  - { t: 3636, label: "document the model" }
+  - { t: 4011, label: "wrap up" }
+transcript:
+  - { t: 1, text: "thinking." }
+  - { t: 12, text: "Hello everyone and welcome back to Agentic Thinking with Matias and Mike. Hello Matias. How you doing today? Doing great. How are you? I am very excited. The the world of AI" }
+  - { t: 24, text: "is feeling it's ramping up for me. There's many more possibilities. I feel I'm hitting a new learning curve, a new portion. I I'm I'm kicking" }
+  - { t: 34, text: "into a different gear here recently. I've been using quite heavily Grockbot on a lot of things, ? Also getting my hands on a lot more of the cursor harness. using" }
+  - { t: 45, text: "cursor a bit more because that was been recently acquired by XAI. Really liking their p their solution. It's quite impressive. I I feel I've missed out a little bit here on the cursor movement. and starting to get in" }
+  - { t: 56, text: "there. This I think dovetales very . We have a news item here first, but I I do want to call out really what we're going to be doing in this show. we're going to do a live demo of setting up" }
+  - { t: 67, text: "your VS Code, and we're going to set it up using this new feature called agent mode. It's a bit more of a watered down version of what not watered down, it's a bit more of a different ex UI" }
+  - { t: 77, text: "experience. It's focusing more centrally on the AI and talking with your AI agent than it is what we're traditionally used to, which is VS Code talking to files or" }
+  - { t: 87, text: "using files directly and writing code. a text editor with an agent built in. It's shifting the the mindset here. we're going to go through that. We're going to set up our VS Code agent mode" }
+  - { t: 99, text: "for fabric skills skills for fabric using the MCP server for fabric and also the PowerBI remote modeling MCP server" }
+  - { t: 109, text: "and just trying to connect to some data remotely. you can see how to set this up for yourself as . We got some feedback that people would help getting this started. All , before we jump into that, Matias, you" }
+  - { t: 120, text: "have an article for us I'll put in the chat here around Open AI's new feature. Oh yeah. we there was a" }
+  - { t: 130, text: "major news item last week which we haven't even covered yet because we were watching the the VS code story on on YouTube." }
+  - { t: 140, text: "GPT6 was released. They called it GPT Astra model. and OpenAI announced" }
+  - { t: 150, text: "that with that apparently they've achieved AGI. , that's let's not go too much into that. , that's another whole topic," }
+  - { t: 161, text: "but we shared the link to the marketing page for GPT6. Yes. And if you if you go there, it's lots" }
+  - { t: 172, text: "of animated stuff there. , they're using the the universe and and galaxy metaphor a lot. , a little" }
+  - { t: 183, text: "interesting bit I want to share with you specifically. If you scroll down on that page, you they've got some benchmarks there. Yes." }
+  - { t: 193, text: "And more animations and then at some point you're getting to GPT6, Astro computer use capabilities." }
+  - { t: 203, text: "And look at that, they've got PowerBI as one of their highlighted use cases, ? Wow. Competition. And then on the hand" }
+  - { t: 213, text: "side is PowerBI and they make a big deal of oh my goodness. GPT I'm I'm reading here GPT6 Astra builds and refineses dashboards directly in PowerBI a make Microsoft" }
+  - { t: 225, text: "fabric service turning vehicle data into clear comparisons of range price and efficiency and wow there we go. But I think that was very very interesting because" }
+  - { t: 235, text: "obviously there isn't any affiliation otherwise between fabric powerbi and openai quite cool seeing that in such an exposed way" }
+  - { t: 248, text: "I am I'm using cursor a little bit more and with cursor comes with computer use as and this whole idea or concept of computer use there's a share just by getting" }
+  - { t: 260, text: "that agent or that agent experience up and running. You can go into a virtual machine and the and the agent can then pull open the machine. It can open an a piece of software. It can read the UI that's there and then click on" }
+  - { t: 271, text: "buttons and do things for you. I'm finding this to be very powerful for me and this is probably part of my educational learning curve is this whole concept of computer use in concert with" }
+  - { t: 283, text: "agents has been very interesting to me. this is an area that I'm very much exploring into working on how do I use this? What does this mean? I used to do a lot of , I used to dabble in a" }
+  - { t: 295, text: "lot of RPA, robotic process automation. that was using computers to go through a website or a page or click multiple things." }
+  - { t: 305, text: "But as the UI changes, the RPA process fell apart. It wasn't very robust in that way. And there was a lot of I did a lot of programming and clicking on things and trying to get it" }
+  - { t: 315, text: "to to work just . Computer use is totally different. This is a a very big mental shift. You tell an agent, I'm going to give you this website. I'm" }
+  - { t: 325, text: "going to give you this PowerBI desktop and I want you to go build three pages with these kinds of visuals with this data on it. And it just goes out and tries to discover and explore. Maybe it asks some questions. This is really" }
+  - { t: 337, text: "awesome. I really this. , I I can't have to play a little bit of I'm thinking as we as we discuss this a" }
+  - { t: 347, text: "little bit, the whole world is shifting underneath of us a little bit here. and and agent first development patterns and cycles and I no longer want to click buttons. I want to talk to" }
+  - { t: 358, text: "agents. I want them to go do the manual clicking of things to save me time there. , I'm not doing that work. I'm able to focus on other things or produce more stuff. There's this new computer on Linux," }
+  - { t: 369, text: "Omachi. Omari, how do you say it? I'm not sure how to say the word. Omachi, just I'm not sure I can help you. Yeah." }
+  - { t: 379, text: ". Omari is I'm going to go with the name for it. , but it's a Linux machine that's an OS that's built agent first. I have to be very clear" }
+  - { t: 391, text: "I have not played with it but some of my big tech followers that I follow on YouTube they are raving about this absolutely in fascinated with" }
+  - { t: 402, text: "it. Kurt Buer is also raving about Omari and looking at it and saying this is quite impressive. it it feels this is a Linux-based system with bring" }
+  - { t: 415, text: "your agent to it and then your agent just writes code and builds features and it almost feels to me you just get an operating system with you and an agent and you show up and say, \", I" }
+  - { t: 426, text: "need a calculator. Build me a calculator. I need a program that would read DOCX files or I need a program that operates Excel.\" And yes, you could go buy those softwares, but" }
+  - { t: 436, text: "the operating system itself can just create experiences and it's tightly coupled to the OS and what the agent is able to see and do on that operating" }
+  - { t: 447, text: "system for you. I really this mentality and this feels computer use level two, the next level up of what computer use is doing. I'm not tied" }
+  - { t: 457, text: "down to Linux. I'm not tied down to Windows. it's it's an operating system where me and the agent understand there's a human aspect to it and there's an agent aspect to it and this is I" }
+  - { t: 468, text: "think what we're going to see a lot more of here in the near term is more of these tightly integrated systems on top of agent built operating systems I" }
+  - { t: 478, text: "don't know what do you think Matias is this too a far out there am I looking too far ahead is this is this are we doing this today what do you think computer use it is a" }
+  - { t: 490, text: "transitional episode in a way, ? If you're talking about, , my agent can click buttons on behalf of me, it means the agents interact with" }
+  - { t: 501, text: "a human first world, , with with tools and apps that were built for humans, not for agents. , in a" }
+  - { t: 512, text: "way, it's just a a weird translation layer, if you will. if if if the whole world were agent first to begin with as in APIs and CLIs" }
+  - { t: 524, text: "and whatnot we wouldn't really have to talk about it that way. I think it's very exciting as we're as as we're delegating tasks to agents" }
+  - { t: 536, text: "more and more but it's probably not the end game. We're probably going to see a lot more experiences with agent first interfaces and and" }
+  - { t: 549, text: "then and then and then we're going to need agents to tell us what these interfaces show because we won't be able to see it ourselves." }
+  - { t: 559, text: "True. . there we go. That's that's what I think. [laughter] But just another thought in terms of computer use, I I had a very embarrassing episode with" }
+  - { t: 569, text: "respect to computer use. Just earlier today very mundane I had a an agent session go really . ," }
+  - { t: 579, text: "agent gave it a very substantial spec. it it it used an" }
+  - { t: 589, text: "agent team to to build it all and the whole thing crashed miserably. Why? Because I ran out of disc space." }
+  - { t: 599, text: "this at the end of the day all of that is still running on computers and you still have to make sure stuff disk space and memory and whatnot is" }
+  - { t: 610, text: "accounted for. . there you go. This is the second time this is happening to me in four months. I had" }
+  - { t: 620, text: "another episode earlier this year where something was going that it crashed really badly and I had to then repartition discs and" }
+  - { t: 632, text: "make space. yeah, just just a warning note to everyone out there, you know, when things go , it also means your your agents and your processes will" }
+  - { t: 643, text: "produce a lot of data. Make sure you can host them. [laughter] Lessons learned. Yes. , and and maybe to your point as , I this is you're struggling through the same thing" }
+  - { t: 654, text: "that we're seeing GitHub struggling through. GitHub is struggling through a proliferation of more pull requests, a lot more commits, a lot more chatter because the agents can turn things" }
+  - { t: 664, text: "around in minutes whereas people would have to take days to do things or or hours to do things. , there's a lot of systembased things that are not really geared for agents at this point." }
+  - { t: 675, text: "the the speed in which we can generate code, make things, generate net new content, video content, whatever that looks . All of this we thought we were on a big every year, the amount" }
+  - { t: 686, text: "of digital information is doubling because we're on the exponential curve of this. , this is going to even accelerate that even faster because for every one person, we're going to get maybe two, three agents that are all generating their own piles of data and" }
+  - { t: 697, text: "code and outputs, and they can just rip through things much faster than we can. Interesting concept. maybe we should buy some more stock in those disc storage companies because they're" }
+  - { t: 708, text: "going to be needing more disc here pretty soon. Anyways, , let's get on to our main topic. Today is demo day, that's why we are in landscape mode here today. with this, let's jump over to" }
+  - { t: 719, text: "my desktop and we're going to try to go through and set up from a clean slate VS Code and we're going to use this new thing called agent mode and let's show you what that looks . , that being" }
+  - { t: 729, text: "said, let's transition over to my computer. And here we are. We are in VS Code. We are in light mode. I've made it a little bit bigger we can see what's going on here. Let's just first open up" }
+  - { t: 740, text: "this. , this is normal VS Code that we see. And we're going to start over here in the upper hand corner. There's a little new tab here called open in agents. This is the new" }
+  - { t: 751, text: "agents window that has u appeared in your VS code installations. And when you click on this, you get a brand new window. it feels VS Code, but" }
+  - { t: 762, text: "you'll notice it's much more agent agent ccentric in the middle. Let me zoom in here a bit you can see it's a bit bigger here. The agent window is no longer on the hand side. Your changes or your files is on the" }
+  - { t: 773, text: "hand side . you'll see over here in the , this is where your text files or files you're using to edit on code will live. your agent is front and center here in the very" }
+  - { t: 785, text: "middle and then any of your chat history is over here on the lefth hand side. this is your chat history or sessions that you've had communicating with your" }
+  - { t: 795, text: "agent here. You'll also notice down here in the bottom section here there's a whole bunch of other really interesting customizations. when you're working with agents and when you're doing things, it's much more" }
+  - { t: 806, text: "useful to you to have overview and plugins and MCP servers and all these other things that are available to you. This is the information you need to be able to make your harness, your agent" }
+  - { t: 816, text: "more effective. And they're building a dedicated section. I'll move this over here to the you can see it. This is a dedicated section just for your plugins, your MCP servers," }
+  - { t: 827, text: "and skills. And where I spend most of my time is in these two areas. I'm I'm using a lot of MCP servers and I'm using skills and that's what we want to set up today. Any thoughts Matias" }
+  - { t: 837, text: "as we open this up and explore this UI? first of all people need to make sure they've got one of the most recent" }
+  - { t: 847, text: "releases of VS Code installed otherwise they won't see that it's a relatively new feature. I think the main thing to to note here is that" }
+  - { t: 857, text: "the let's say the the the the primary concept is a different one in in VS code classic the primary concept is your workspace a" }
+  - { t: 869, text: "folder with files and and subfolders that you're working on in VS Code you generally open a folder and then all the other panels and windows" }
+  - { t: 881, text: "report the project you're in in this experience the agents window the the primary view is a list" }
+  - { t: 891, text: "of sessions and chats on the left hand side we don't see any in in your view because you don't have any history here but over" }
+  - { t: 904, text: "time you're going to acrewue an overview of agent sessions on exactly in that panel on the left hand side. ," }
+  - { t: 914, text: "and the idea is that you can switch back and forth easily between multiple sessions, potentially even whilst they run, ? and yes those" }
+  - { t: 926, text: "sessions run in a workspace that has files but you'll see that on the hand side as not as your as your primary interface" }
+  - { t: 936, text: "but as as a supporting view if you will. The primary interface is the big one in the middle which is your chat. you put your" }
+  - { t: 946, text: "prompts in there and then you see tool calls and and reasoning and responses from your agent. it's" }
+  - { t: 957, text: "VS Code but reconfigured. everything has a slightly different position but most" }
+  - { t: 968, text: "importantly the the the primary views you're going to work with they are they are in" }
+  - { t: 979, text: "different in in different places. And I want to point this out too. I've been training people on this new UI. , particularly my son. , my son is interested in programming. He's ," }
+  - { t: 989, text: "\"Dad, I I love what you're doing. I love the the coding and the agents. This is exciting to me. I'd love to play with this.\" , we've started working on some side projects together and building some games together and fun things that." }
+  - { t: 999, text: "And I've shown him VS Code. And as a new user, as someone who's never seen a lot of code editing before, he prefers this experience much more. it's more agent" }
+  - { t: 1009, text: "ccentric and the files and the changes that are happening are occurring on the side here. , this is a I think if if you're a new user, this might be a bit more of an appealing UI and interface here. And I think I" }
+  - { t: 1021, text: "want to call out as , Matias, we talked we went to the VS Code documentary, and one of the things they said is they don't know what's next." }
+  - { t: 1031, text: "they have VS Code in its current form, but this is an experiment to understand what do users really want when they're working with agents. I think" }
+  - { t: 1041, text: "we're going to see a lot of changes here. I think this UI is going to be very fluid and and having different features and capabilities very quickly. But this is I think the VS Code team really trying to explore and push out on" }
+  - { t: 1053, text: "what do these things mean. , that being said, let's hard transition into let's start setting things up. We have this open. We have some MPC servers. Let's go set up I think two things that" }
+  - { t: 1064, text: "are important. Let's go set up the fabric MCP server we can talk to fabric.com and then let's also go talk to go get our skills for fabric which is" }
+  - { t: 1074, text: "a repo that gives us a bunch of skills around fabric. let's do that first. to start getting my MCP skills I'll go over here to the lefth hand side over to the whoops MCP servers button. I'll" }
+  - { t: 1086, text: "click on this item over here in the lefth hand side. We'll click on MCP servers and this will then bring us a new settings dialogue box where we can look at what's already installed. Are" }
+  - { t: 1096, text: "there anything available and is there anything featured that we want to add in as an MCP server. if I open up available and then I go down" }
+  - { t: 1108, text: "here and look through our list, we have Markdown, which is a an extension that Microsoft uses. There's a whole bunch of other ones in here as . a lot of really interesting, useful" }
+  - { t: 1119, text: "extensions here that are MC MCP server. there we go. There we go. , let's stop here. We'll take a pause. This is one that we want to use for our setup because we're doing a lot of fabric related building of" }
+  - { t: 1130, text: "things. , I click over here and click install. It will then click a little button. It'll then run the server. it's running . I can turn off these other MPC servers" }
+  - { t: 1141, text: "because I don't need them . This one here is up and running and it is giving a little command here. the UI here is a little toggle on and off and then there is a little ellipsus" }
+  - { t: 1152, text: "here for any additional settings start the server other things as which is interesting because it says stopped and I need to start it maybe. I'll start the server here just that" }
+  - { t: 1163, text: "it's running and it will fire up the MCP server here locally on my machine. , this is the the local one. , not the not the remote MCP server for" }
+  - { t: 1175, text: "fabric. Correct. That's my understanding of how this one is. This is the one that's on the Microsoft marketplace. And when you click on that or you get it, that's where it's coming from. ." }
+  - { t: 1185, text: "I think that one's we it looks it's thinking about starting. We'll see if it gets going here. That's it for this screen. I think that's the only one we want to bring in. You'll notice here if we have" }
+  - { t: 1195, text: "a search option. let's do the PowerBI. Let's see if anything comes up. You'll notice there are no MCP servers that match PowerBI. The reason being is" }
+  - { t: 1205, text: "PowerBI modeling server is not listed under the standard MCP servers. It's listed as a normal extension. Not sure how that listing really got" }
+  - { t: 1215, text: "made, but it's a little bit tricky to set up. we'll set that up in a moment with some custom code here that will show you how that works. All , still thinking about starting. While this is starting, it seems it's" }
+  - { t: 1226, text: "taking quite a while. , we'll come back to that maybe. Let's go over to skills. , and one of the ones I think that's very useful here is an area called skills for fabric. There's a lot" }
+  - { t: 1236, text: "of different places where skills are coming from. Built-in skills directly come from co-pilot. , there's a lot of skills here that are already built in. if there are any extensions you're" }
+  - { t: 1247, text: "using inside your project, there are extensionbased skills that come with this. And then there are custom userbased skills. These are ones that I've prompted at some point in the past" }
+  - { t: 1257, text: "or it's generated those. But you'll notice here those skills are landing in users your username a folder.copilot and in the skills area" }
+  - { t: 1268, text: "there. this is a universal location for my co-pilot on my my PC and under my profile. this is going to load those skills automatically every" }
+  - { t: 1279, text: "time. . let's go find if see if we can go search for something. Let's see if we have skills for fabric. , we don't" }
+  - { t: 1289, text: "seem to have that here. , next step here will be is we probably want to go find the skills for fabric and add that in there as . one last piece of this, I'm going to go over here to" }
+  - { t: 1299, text: "plugins and let's go see if we can find any plugins here for PowerBI. Just double check this one as . PowerBI" }
+  - { t: 1311, text: "Oh, this is interesting. These look skills for fabric . Why is that showing here at Matias? Skills for Fabric is a plug-in" }
+  - { t: 1323, text: "marketplace and it contains a number of plugins including the the PowerBI ones. Yeah, maybe I have to go down here to" }
+  - { t: 1333, text: "the tools. Not sure where I go to. not sure why even where I add these skills for fabric in here. How do I even add that? It looks they were already there" }
+  - { t: 1343, text: "under plugins. I would agree with that. But it was interesting that it didn't let me link it in here or go find the repo, the git repo for skills for" }
+  - { t: 1353, text: "fabric, which I find quite interesting. I would have assumed it would give me a search GitHub for your skills for fabric option." }
+  - { t: 1364, text: "Oh, look. Here we go. fabric skills and then PowerBI authoring skills down here below. Interesting. . what you can't necessarily see is" }
+  - { t: 1375, text: "which particular version you're referring to here. That's something I have a bit of issue with. , it's very blackbox and obviously" }
+  - { t: 1386, text: "those plugins are being iterated over quite nicely and frequently. as a user I would want more visibility into" }
+  - { t: 1396, text: "what particular version is being referenced. That can make a big difference. if anyone from the VS code team listens that's that's my" }
+  - { t: 1407, text: "particular request. Yeah. This is also I don't really understand where this is pulling from. Is this pulling from my local machine or is this pulling from the service or" }
+  - { t: 1417, text: "fabric or VS code or it has it it pulls it from your marketplaces. what I'm assuming is that you have the fabric the skills for fabric repo configured" }
+  - { t: 1430, text: "in your VS code user profile which obviously is is not easily visible but in but in in the legacy VS code" }
+  - { t: 1441, text: "view it you would be able to see it under the extensions panel. I'm I'm going to click this other one here. Install from source and see what that does. Yeah, there we go. this this is where you put a repo in. Yeah." }
+  - { t: 1451, text: ". this is what I'm this is what I'm looking for because this is where I want to go grab skills for fabric and go grab that one directly. . let's go skills for fabric. I'm googling" }
+  - { t: 1461, text: "skills for Microsoftskills for fabric with a dash. here's the web page. Yeah, there we go. it's just a Micros the the URL" }
+  - { t: 1472, text: "specifically is github.com. Microsoftskills forfabric is the exact line. And then do I grab the git or do I grab just the URL or can I do both?" }
+  - { t: 1482, text: "you you c it's even easier. You can only you can just do owner repreo. the whole URL but without github.com. just microsoftskills" }
+  - { t: 1492, text: "forfabric. That is automatically resolved as a GitHub URL. . it's very convenient that. I'll just do Microsoftskills for fabric. Copy that. I'll" }
+  - { t: 1503, text: "[clears throat] go back over here to my agent mode and we'll just go here. Owner repo under the git URL. there it is. Microsoft and in that prompt it was saying this owner repo and it said" }
+  - { t: 1515, text: "get URL or the URL of the actual web. they gave you the three options you can put in there. I didn't catch that. I'm sorry. All . we've added that in there and we will hit enter and we'll see what it does." }
+  - { t: 1526, text: "Yeah. . Trust us plugin. Yes. We will trust things for Microsoft. No problem. here we Oh, you've got choices. Yeah. All . , we can go after the" }
+  - { t: 1537, text: "complete bundle or only the PowerBI authoring. And then these are all the other deprecated aliases that we don't really need anymore. , I'm going to just go with Oops, I hit escape on" }
+  - { t: 1548, text: "that accidentally. Stick out of that mode. Let's just go after skills for fabric. I'll I'll install the complete bundle. We'll see what we get. There we go. We'll hit that button and show up under in Yeah, there we go." }
+  - { t: 1559, text: "Perfect. There we go. it is a correctively installed item. We can see that it is in fact you exclude from profile. Interesting. It feels it's on the" }
+  - { t: 1570, text: "button. That button note seems a little bit weird there. All . You can disable it. You can open the folder or you can uninstall it. there we go. Yeah. Four agents 23 skills. Awesome." }
+  - { t: 1580, text: "Very good. If I click on that, it takes me over to where it's storing it. here we have a version number. Very good. There we go. That's what you're asking for. there's my version number." }
+  - { t: 1590, text: "Here's my skills for fabric. I can see the entire location where it's storing it on my computer. And then here it gives me the different agents that it has. it's telling me that these" }
+  - { t: 1601, text: "agents exist that I can get leverage with copilot. And then these are all the different skills. data bricks migration. If I click on one of these, they look clickable. Let's see. Semantic" }
+  - { t: 1611, text: "model authoring. I'm going down here halfway down the screen. If we click on that, look at that. Trust folder and continue. Sure. Why not? There we go. I'm looking at the skill" }
+  - { t: 1621, text: "directly. And this is exactly what Microsoft has written inside that skill for us and for our agents to go look at. Again, feedback would be lovely if they" }
+  - { t: 1631, text: "render the markdown here rather than showing you the raw markdown contents. Correct. Does that mean you can edit this though?" }
+  - { t: 1642, text: "can I edit? Can I edit? They make it look editable, but it's not really editable here, which is . Fine. [laughter] Which makes sense. Which makes this case even stronger that" }
+  - { t: 1653, text: "it should be rendered nicely, ? Agree. And double down on that point. Yes, exactly . . , we've got two things I think running . , if I go back to MCP servers, let's see if it" }
+  - { t: 1663, text: "installed our server. , we have installed multiples . , one is not happy. It's still not happy. Let's start the server. still not quite working yet. , notice" }
+  - { t: 1675, text: "here by adding that skills, we by default I believe got the MCP modeling server which I believe is not in the MCCP list. But because we added" }
+  - { t: 1686, text: "the skills for fabric, this one automatically got added as . , let's try and start that one. Let's see if that server will start. And hopefully these will turn on and get going." }
+  - { t: 1699, text: "Not sure why they're having issues getting going here, but I might need maybe a restart of my VS Code instance for some reason. you installed Fabric Skills, ?" }
+  - { t: 1710, text: "Yeah, there we go. , let me You're mirroring what I'm doing on your side. Let me if you open up this link, which I've just putting into our private chat." }
+  - { t: 1721, text: "that's where you can see what's in that particular plugin. And you can see that it contains an MCP.json" }
+  - { t: 1731, text: "file which defines amongst others the PowerBI modeling MCP. that's how you're getting it." }
+  - { t: 1743, text: "Aha, there it is there. the MCP modeling server there is there. And that's how you're getting that definition directly inside our code. Awesome. this is inside the skills" }
+  - { t: 1753, text: "for fabric. When I clicked the install everything, this is what was happening. Also, but be aware that this this is a remote MCP server. This is not the one you were probably thinking about and" }
+  - { t: 1765, text: "this I'm misunderstanding this because that would be a local MCP server, ? interesting that this is called PowerBI modeling MCP. let's see. lots of things that appear to" }
+  - { t: 1777, text: "confuse us at this point. That's why we're doing this. , we we felt this was a need and to explain everything and go through it. That's why we're doing this. . still feels it's starting. Let" }
+  - { t: 1788, text: "me close this out. . I'm going to assume that those things are working. let me give one other note here around this UI. When you open up this UI, if you have a folder attached, this" }
+  - { t: 1799, text: "UI does to attach itself to folders inside your computer. What you can do is you can select where does this session run on your machine. what I did is" }
+  - { t: 1809, text: "made a demo folder. If I move this over here to the left, you'll see here I have a demo folder on my desktop. And by creating that folder, I was able to go in here, select this option, and" }
+  - { t: 1821, text: "using local files, I can then select, and you won't be able to see this because our heads are in the way here. move ourselves over the way here. If I click that again, you'll see" }
+  - { t: 1831, text: "here there's a select item down at the bottom. that's what I used here to select that folder and that's why that is showing demo one here in the folders" }
+  - { t: 1841, text: "area. that means when we're working with the agent, if we ask it to create files, if it's generating things or content, it will put those items directly in that folder. And that folder" }
+  - { t: 1851, text: "is also listed here on the hand side. that's my file folder called demo one. if we had it asked it to make a readme file or a hello in a readme file, that's where it would put that information." }
+  - { t: 1862, text: ". And you can also open a terminal inside that folder by clicking on the plus icon there. this one here. There we" }
+  - { t: 1872, text: "got that wrong. Sorry. Control ty I think is what it is on this one. . You can still do it. It's just down below. control ty is the command to bring that up down below at the bottom" }
+  - { t: 1883, text: "here. again, as I said before, , this doesn't add at all any substantial new features. It just rearranges and and represents" }
+  - { t: 1894, text: "what we already know from classic VS code. One thing, this is a very neat trick here. you notice that there's a lefthand panel on the lefth hand side" }
+  - { t: 1904, text: "here. this is the lefth hand pane. We have our chat area here in the middle. We have a files area and we have our terminal window at the bottom. There is a really interesting feature that just showed up. I , I think this is just" }
+  - { t: 1915, text: "a very cool UI. There's a left bar here you can grab and drag. There's a bottom bar here you can drag. If you put your cursor in the corner here, I didn't know" }
+  - { t: 1925, text: "this. I just stumbled across this yesterday. If you click that, you can grab two the the corner of that and move multiple windows at the same time," }
+  - { t: 1935, text: "which is pretty crazy. I've never seen that before in a UI. That was new to me. I didn't maybe there's other UIs that do this, but that was a really neat feature by grabbing that" }
+  - { t: 1945, text: "corner that triple point and it it drags multiple windows, which I thought was pretty cool. Anyways, neat feature there. , didn't see that one coming. Thought that was cool. All I'm amazed by simple things. I" }
+  - { t: 1958, text: "think we've got stuff installed. Mathias, Matias, let's say we go after something that's in powerb.com. , I'm thinking here we go after a semantic model that" }
+  - { t: 1968, text: "potentially lives In powerbi.com let's try that. I have over here at powerbi.tips I have our learn fabric workspace" }
+  - { t: 1982, text: "and inside that workspace we have a number of models. I have this model here ktoso 1000 or a batting data set that I worked on with Tommy a number of a number of years last year I think. But" }
+  - { t: 1993, text: "we can go after this. , we need the name of the workspace called learn fabric and we also need the name of the data set. Let's go see if we can use our fabric MCP server andor our" }
+  - { t: 2005, text: "PowerBI modeling MPC server to go talk to these things. , let's set that up next. Moving this out of the way, we'll go" }
+  - { t: 2015, text: "over here and we're going to say I want do they have the talking button? Let's use it. Let's use the typing button here." }
+  - { t: 2025, text: "Give it a second here while it renders the chat experience. I'd to use the fabric MCP modeling" }
+  - { t: 2037, text: "server and I'd to connect to the learn fabric workspace and list the items that are in the workspace that are semantic models." }
+  - { t: 2051, text: "All . that looks correct. One other thing I will note here is I need to I found in the past I to give it an identity especially when I have you know two browsers or two tenants that" }
+  - { t: 2061, text: "are going on here. I'll give it a little extra context here. Use the mic at PowerBI.tips email as authentication" }
+  - { t: 2073, text: "to we'll just say that we'll see what that does. All . let let it chew on it." }
+  - { t: 2083, text: "Oh, and I said the MCP modeling server. I don't know if I I might have screwed it up there by saying modeling server. I might have just need to say the fabric MCP server. . , it's going through and this" }
+  - { t: 2094, text: "is again we're looking at things here in a terminal interface or or the sorry the chat experience is front and center, ? It's showing us different" }
+  - { t: 2105, text: "things here directly in this folder area. All , this is good. , let me change the default permissions to allow all it can do a little bit more on its own. And I'm going to say allow here. It's going to run some commands." }
+  - { t: 2116, text: "It's going to try to go get some things here. . , it did need to change the Azure CLI account. That's why I , for" }
+  - { t: 2128, text: "note here, , when I work in multiple tenants, I have Mike at Carlo Consultants and I have a a mic at PowerBI tips. when I switch different tenant contexts, , I find it's very" }
+  - { t: 2138, text: "useful to tell the agent of how you want to connect to things because then it will then do the proper login as . It wants the device code from you , which means you're going to have to go" }
+  - { t: 2148, text: "to login microsoft.com-device. I don't really that it's doing that but ." }
+  - { t: 2160, text: "Yeah, there we go. it's telling you that's what it wants. All . , it's forcing me to log in there. I am using all my passwords on" }
+  - { t: 2171, text: "the other area. Here to get logged in. Signing in via my browser." }
+  - { t: 2183, text: "Give it a second here while I find all the different passwords that we need to use. Goodness gracious. I've got many" }
+  - { t: 2194, text: "emails going on these days. There we go. Excellent." }
+  - { t: 2212, text: "Oh, can't cancel that. I don't want that . just continue. ," }
+  - { t: 2224, text: "I think it's signed in. You may close this window. Great. Signed in." }
+  - { t: 2238, text: "it's going through continually thinking about more things here. Reading the terminal window." }
+  - { t: 2250, text: "and we can see what the terminal window is doing. , every one of these commands or these additional command items here, you can click on them and it will then expand a little bit of the terminal" }
+  - { t: 2261, text: "window and show you what's happening inside the terminal window, which is neat. All , let's see what else we got going on here. It's still reading the" }
+  - { t: 2271, text: "terminal. Also, you did not explicitly select a model. , it's using auto selection. I think I saw a note earlier. It went for" }
+  - { t: 2281, text: "GPT55 for that prompt. , yes, if you want to be explicit, that's where you would go. Correct. That's the button we have selected" }
+  - { t: 2291, text: "there. And this is also giving you, if you click on this option, it's giving you, if you put it on auto, it's giving you a discount on credits as you use it. Let's turn sign in again here. All" }
+  - { t: 2301, text: "great. Let's see if I can get that to sign in one more time. It's having trouble getting the" }
+  - { t: 2311, text: "tenant and login ID corrected here. Not sure what it's doing there." }
+  - { t: 2321, text: "I think we just discovered a very interesting new feature that I had was not aware of. Apparently, there is a cloud hosted" }
+  - { t: 2332, text: "instance of the PowerBI modeling server, which is the one we saw when we looked at that MCP.json file. you can there's a note about it in the release" }
+  - { t: 2344, text: "notes for version 0.3.14. but I had no awareness that this" }
+  - { t: 2354, text: "existed and the Microsoft repo for the modeling server has absolutely no mention of it whatsoever. That one only" }
+  - { t: 2364, text: "speaks about the npm local server that we are familiar with. very interesting how they how they sneaked" }
+  - { t: 2374, text: "a major development in here. Yeah, they're they're pushing out changes quite fast and not a lot of announcement on that one though. There" }
+  - { t: 2384, text: "was lot wasn't a lot of fanfare there. Maybe that's going to be announced later this month. but nonetheless," }
+  - { t: 2394, text: "it's in a public space here. We just seen it, , publicly on GitHub," }
+  - { t: 2406, text: "we can talk about it. All , I'm looking here at the CLI. It still keeps struggling here on this" }
+  - { t: 2416, text: "account. , let me just see if I can get the login to work on a command terminal here separately to see if I can get it to force it. For some reason, it's still" }
+  - { t: 2427, text: "picking up the wrong tenant. , I'm going to go to a command line here on a separate screen here and see why it's seemingly failing on things. , I have a lot of account accounts attached to" }
+  - { t: 2437, text: "this email address. , let me see if I can get that to work here. All . ," }
+  - { t: 2447, text: "yep. , I have a different window. Let's go after this one." }
+  - { t: 2469, text: "know why it's having such a hard time getting through this reasoning on the CLI login" }
+  - { t: 2485, text: "in a multi-tenant setup. authentication normally gets quite confusing." }
+  - { t: 2497, text: "All . All . If you encounter your problem, that's another learning here I guess, ? when it comes to OOTH authentication for MCP servers, there" }
+  - { t: 2507, text: "should be a substantially better user experience. Ideally, one that's supported through the UI." }
+  - { t: 2517, text: "Yeah, let's see if I can. , I'm saying try again. I authenticated this folder with a CLI in a different folder here. let's see if I can get it to stop that and just go." }
+  - { t: 2536, text: "what I had to do here promising we've got we've got things showing up . , it has a listing of models. , . , here's what how I did to fix this, ? Just because I was" }
+  - { t: 2546, text: "multi-tenant here. I went over to a different browser window. I typed in a login on a different browser window and went through the authentication using my mic at PowerBI tips off flow on" }
+  - { t: 2557, text: "a separate screen. , that's that's how I got to this step here. , to get through this hurdle here, and again, if you are working on multiple tenants or if you have a customer, if you're a consultant, you may have this multiple tenant challenge." }
+  - { t: 2568, text: "calling off the email address and what tenant you're looking to use for these MCP servers will be useful, but you also will need to be able to sign in on a terminal just to verify that it" }
+  - { t: 2579, text: "is in fact working correctly. , good. this means what we're doing here is I don't know which tool did it use here. let me ask I'll" }
+  - { t: 2589, text: "ask it here. , which MCP did you use to get these models?" }
+  - { t: 2601, text: "I'm hoping it used the fabric one. Yeah, there we go. Yes. All . Good. , it uses the fabric rest API through the Azure CLI." }
+  - { t: 2611, text: "Oh, and there we go. It did not use an MCP server at all. It used the skill which tells it to use the rest API directly. It did make the API call and it did show" }
+  - { t: 2622, text: "exactly the list of items there which is cool. . Excellent. we're connected. We are able to see" }
+  - { t: 2632, text: "things. Let's see if we can then prompt it again to use the MCP modeling server to go after this particular model. let's let me I'll talk to it again." }
+  - { t: 2643, text: "Using the PowerBI MCP modeling server, connect to the data set named batting data set in the workspace named learn" }
+  - { t: 2654, text: "fabric. I have the word data set inside the name of this. I know in the fact for a fact it does get stuck around some of" }
+  - { t: 2665, text: "this. you'll notice here at the bottom, I'm putting quotation marks around the word batting data set specifically. to give it a little bit more context" }
+  - { t: 2675, text: "that I'm asking for the specific model, the data set named this. And then I'm also going to do the same thing for learn fabric. that's another" }
+  - { t: 2685, text: "piece here, the workspace. I'm going to also put quotation marks around that just because I want to make sure that it really is clear about what's going on there. All , that being said, I'm going to hit enter on this one. And" }
+  - { t: 2697, text: "we will let it chew and reason about this one next. I don't know why that keeps going off." }
+  - { t: 2709, text: ". it's going. I asked it to you. one of the things that's" }
+  - { t: 2719, text: "important to do here, I specifically asked it to use the PowerBI MCP modeling server. this is a key call out here. When you're using these modeling servers, it's very important that you're being explicit about what you're" }
+  - { t: 2730, text: "asking the agent to use. You, the user, need to tell it what tool it needs to go grab, especially when there's potentially multiple tools that could get to the same answer. I'm I'm" }
+  - { t: 2741, text: "directly calling this out. And what it's doing is it's going through it's searching the MCP JSON files and looking for that specific configuration it can go ahead and directly use it." }
+  - { t: 2753, text: "it's doing some commands here. it's looking for some stuff. It looks it's slightly struggling here" }
+  - { t: 2764, text: "on getting that tool running. Oh, interesting. , it found the fabric MCP server," }
+  - { t: 2775, text: "but there are no PowerBI modeling data set commands in there, which would make sense because that's a different MCP server. this might be the part, Matias, where we need to go in and just" }
+  - { t: 2785, text: "physically tell it where is the MCP PowerBI model MCP server. We might have to find that. Oh, , it's still thinking. Hang on. It found references to PowerBI PowerBI modeling MCP" }
+  - { t: 2797, text: "repository. It's doing a little bit of searching for us. Oh, maybe it'll get there." }
+  - { t: 2808, text: "Oh, it found the official Oh, this is interesting. , this is neat watching it think through this stuff. I found the official MCP. , I think" }
+  - { t: 2818, text: "what you're observing here is the fact that we just turned this MCP modeling server on for the first time. We just installed the fabric skills for the first time. It's trying to make sure it" }
+  - { t: 2828, text: "registers the things that it needs to in order to see these objects and starts physically the server the agent can see it." }
+  - { t: 2840, text: "All . It's still not quite catching the fact that that server is running. I think Matias, this might be the idea here. When we're in this MCP installed area, it definitely has the fabric MCP" }
+  - { t: 2850, text: "server running. . This other PowerBI Molly MC. , . Interesting. When I hit start earlier today, it did not have this authentication required item here." }
+  - { t: 2862, text: "this is new. , and let me help the agent here out a little bit where I'm going to sign in here and see if that helps out a bit. , I'm going to sign in Mike at PowerBI.tips" }
+  - { t: 2876, text: "here. And hopefully that will prompt a window or some popup window here to authenticate me that it knows what to do." }
+  - { t: 2888, text: "This also is the brand new hosted PowerBI modeling server. Oh, this is never before seen. This is brand new. Absolutely. we just stumbled into this one." }
+  - { t: 2899, text: "great. Oh, we're lighting up. , everything's running . Interesting. great. this new PowerBI MCP" }
+  - { t: 2909, text: "modeling server is on and running. What shows up when you click on the three dots there? Can can we inspect it in any way in terms of metadata?" }
+  - { t: 2920, text: "Show plugin. no, that's a plugin. Y is anything we get to see for the server specific? Maybe you could ask in the" }
+  - { t: 2930, text: "chat which tools that server exposes and then we'll know. . . , which tools does the" }
+  - { t: 2941, text: "PowerBI modeling MCP server also in your chat? It appears to have made some other MCP connection. , I'm" }
+  - { t: 2952, text: "not sure whether that's used the one. No, that did not use the one you configured. This is look it's found the npx" }
+  - { t: 2962, text: "local MCP server version and it looks it's managed to run that. we things get a" }
+  - { t: 2973, text: "little bit confusing first of all it figured out yes it figured out the the local modeling server you authenticated to the to the new hosted" }
+  - { t: 2984, text: "modeling server we need to make sure we don't have too much confusion with respect to the various tools that are available Yeah." }
+  - { t: 2999, text: ". I think it's also not helping that both MCP servers are called the same, ? They're both called PowerBI modeling MCP server. One would be better called remote" }
+  - { t: 3009, text: "PowerBI modeling server remote. One would be called maybe PowerBI modeling server. , I'm going to go back up here. I'm going to see if we can" }
+  - { t: 3020, text: "I'm going to stop this session. I think maybe we stop this session. I'll stop this one, close down this VS Code and come back into it. And maybe we can just start a new chat session here." }
+  - { t: 3030, text: "One, we can show how the new chat session works. We'll first confirm all the MCP servers are running correctly as we expect them to because the MPX thing is probably running anyway. , by closing" }
+  - { t: 3040, text: "this session down, we'll stop all MCP servers. , let me stop this here. Stop here. Let me close this out. Oh, and there's another authentication screen and more. Let's try and" }
+  - { t: 3051, text: "authenticate everything here. let me close this out for and let's go over to regular VS Code and I will shut this down as . , I'm going to fully clear out everything that nothing's connected. , let me" }
+  - { t: 3062, text: "also close my terminal here. I don't need that anymore either. And we will come back into VS Code. The reason I'm doing this is because I want a clean cut of the servers that are running and I want to really look at" }
+  - { t: 3073, text: "what's happening when I use this agent mode and how do I this is the old session. Everything's interrupted and done." }
+  - { t: 3083, text: "I'm going to start a brand new chat session. , we're start with a clean slate here. Let me zoom in a bit here it's bigger for people to see. Great. All . Then over here on the lefth hand side, we'll go down to our" }
+  - { t: 3094, text: "MCP servers. This is where we're going to go check to make sure everything's signed in and running. And then we'll ask the same command again and we'll see how good it does the second time through. , first things first, MCP" }
+  - { t: 3105, text: "servers. , we have multiple installed. And I'm going to start specifically the ones that we want to use. And I'm going to use only the fabric one. , this will get fabric" }
+  - { t: 3116, text: "items. , let's start the server. Start server. And this may start. It may fail and ask me to sign in again. which I would expect it to do and I'll hear and I'll start the server as ." }
+  - { t: 3129, text: "This may be a feedback item for the team at the VS Code team is if these extensions require signin. I would have" }
+  - { t: 3139, text: "expected them to have you sign in during the startup process or having the the tool note that hey this is a a signin required. it may be starting" }
+  - { t: 3149, text: "these and it may have to fail first to know how to sign in. I'm not sure what it's doing there. Why don't you close that customizations window and go back into it because then it may tell you that it's waiting" }
+  - { t: 3160, text: "for authentication. . Definitely room for improvement here in terms of" }
+  - { t: 3170, text: "UX. I have a lot of custom agents at our disposal. . They're not duplicated as , which is not great. I believe this is probably because we had the npx and the other one" }
+  - { t: 3181, text: "installed for some reason. that might be another one that's causing some challenge here. I'm not seeing anything else here. if you don't mind going Yeah, if you" }
+  - { t: 3191, text: "don't mind going back there. Hopefully this tells you. No, it's still saying starting." }
+  - { t: 3207, text: "Show output. I asked it to show the output or show the configuration. it's going to a folder here." }
+  - { t: 3217, text: "it's showing me the MCP server option. not doing too much here." }
+  - { t: 3227, text: "Settings. Show output. There is no output coming out or the terminal. I don't know what it's doing. It's it's got into a a mode where" }
+  - { t: 3237, text: "it's hanging. It's it's look It's it's looking for unauthentication step, but it's [clears throat] not prompting me to sign in, which is interesting." }
+  - { t: 3248, text: "I'm going to punt here for a bit. I'm going to go over to regular VS Code. I'm going to go click on the extensions here, and I'm going to go see" }
+  - { t: 3258, text: "what we get here on this side. All . , we have only two MCP" }
+  - { t: 3268, text: "servers installed. That doesn't seem . We do have fabric skills. That seems to be installed. That seems to be correct. yeah, it look it looks it's not" }
+  - { t: 3279, text: "quite communicating correctly. There's some bugs here, I think. [snorts] What a shame. , yeah, it felt that could have been." }
+  - { t: 3289, text: "Let me check my profiles here. Maybe for some reason I don't have the profile attached and maybe that's what's causing issues." }
+  - { t: 3301, text: "Let's get rid of that. this feels a little bit more filled out, but we still have a lot of things that" }
+  - { t: 3311, text: "are not installed. . , I'm not sure what it's doing there. It feels it's struggling on this part of the step here." }
+  - { t: 3322, text: "I thought getting a clean start here would be nice and nice and useful here, but I guess not. Still staying stopped." }
+  - { t: 3347, text: "we we might have to go into debug mode here with our agent and say why can't I get my PowerBI modeling MCP" }
+  - { t: 3357, text: "installed server working and we'll see what it can do. All . ," }
+  - { t: 3376, text: "yeah, it's it's definitely not able to find and get this thing working. [clears throat] It may only work in" }
+  - { t: 3387, text: "conjunction with the skills. because the I think the guilds contain explicit instructions how to authenticate and maybe that's something which the" }
+  - { t: 3398, text: "model needs to trigger rather than in this case your IDE because that's how we got it to work in the previous" }
+  - { t: 3408, text: "session after a bit of trial and error interactively from within the session. Yeah. Yeah. , maybe let's let's try" }
+  - { t: 3418, text: "that. Maybe here's what we'll try. I'll try to see if I can get it to I'm going to prompt it to say let's use the MCMP modeling server but using the plugin called Fabric Skills. , let's" }
+  - { t: 3428, text: "just give it some more context there. great. Help me debug" }
+  - { t: 3439, text: "signing into the plug-in fabric skills. I want to use the PowerBI modeling MCP" }
+  - { t: 3450, text: "within this skill, but I'm having issues authenticating my email address. All . And let me just put my email" }
+  - { t: 3460, text: "address here that way it can see what we're looking for. All . Let's see if let's see how it will do there." }
+  - { t: 3471, text: "we'll let the agent to figure. , another technique I think I would maybe point out here is, , as you get into some of these things and things get stuck. There's a lot of potential connection pieces and servers that need" }
+  - { t: 3481, text: "to run. The agent should understand how to run most of these things. It understands what MCPs are. It understands how to connect to them and it can go through and help you hopefully the way these are built. There are some" }
+  - { t: 3491, text: "instructions on there on how to run them. , a lot of times even my developers, I'll ask my developers for help or assistance around things. They'll say, \"Oh, just go ask the agent. Go ask the agent how to install it. ask" }
+  - { t: 3501, text: "the agent how to build something. , a lot of times I'm using the agent to potentially help me debug and set up some of these tools as , which I find is fairly useful. , additionally," }
+  - { t: 3512, text: "just another technique you can throw in your cap while I'm working with agents. Yeah, this feels familiar. I feel it's doing the same search for these" }
+  - { t: 3523, text: "different credential items." }
+  - { t: 3533, text: "I [snorts] just found myself trying to scroll up in your screen. Very That's amazing. That's when you've been working with an agent too long, ? Yeah. [laughter]" }
+  - { t: 3543, text: "All . , the Azure CLI and authentication is working. The fabric access is working. The PowerBI model MCP is registered but has zero active connections. All . , . ." }
+  - { t: 3554, text: "it's saying here to trust to use against the a the fabric semantic model we need to use connected fabric. . Yeah. .3 seems very promising, ?" }
+  - { t: 3564, text: "Yes. I want I want to tell it use.3. Yeah. Yeah. [clears throat] Yeah. let's try three and then I will give it the information" }
+  - { t: 3574, text: "that it needs. . in here we need the workspace name, the semantic model name and optionally the tenant name. I know we don't need that. I'm going to give it the workspace name. workspace" }
+  - { t: 3584, text: "name and we know this is going to be I'll use my quotes here learn fabric and then we know the model name and model name is going to be" }
+  - { t: 3596, text: "batting data set those two items. that we have those two prompts in there we'll hit send and let's see if it can be smart enough" }
+  - { t: 3606, text: "to go use that login to go connect. I'll try. , great. what we've done here is we've catered it to use the connect fabric option" }
+  - { t: 3616, text: "operation and there we go. . authentication for my PowerBI tips is working and the MCP is . Perfect." }
+  - { t: 3626, text: "And we can see information. Great. . We did it. We got this one working . All . Awesome. that we're here, we can we can have it do other kinds of things as . , I'm going to have it quickly just go" }
+  - { t: 3636, text: "into that data set and make some very basic documentation as a markdown and mermaid document and I'll have it put it in our folder here. Very good. Would you mind also asking it" }
+  - { t: 3648, text: "which tools that MCP server exposes? Yes, let's do that first. What tools does the PowerBI modeling MCP" }
+  - { t: 3658, text: "server use? I'll let it do that and then I'm going to prompt up our next prompt here as . I'd you to build documentation off" }
+  - { t: 3670, text: "of the batting data set. I'd to see a list of all tables and a mermaid diagram showing relationships between the tables" }
+  - { t: 3681, text: "and add documentation about measures. we'll pause there. Let's look at what it responded with. its response here is these are all the" }
+  - { t: 3692, text: "different options connection operations you can do modeling things table operations column doing things with all the things in the model calculation" }
+  - { t: 3702, text: "groups user hierarchies calc calendar options. Yeah, looks good to me. Very cool. those are exactly" }
+  - { t: 3713, text: "the same ones that we know from the local MCP server. , it really appears they've taken that one and they're hosting it on the HTTP" }
+  - { t: 3725, text: "endpoint. That's exciting. . All . , we're going to let it just go do a little bit of research here, and we're going to ask it to go build something. Oh, I should probably also tell it where to put the information." }
+  - { t: 3735, text: "put this information in the , demo one folder. That way, it knows where to present things. All , we'll hit send." }
+  - { t: 3747, text: "One thing, Matias, I feel I'm finding a lot more. While I still do a lot of typing on my keyboard during my workday, especially when I want to give longer prompts with more commands about" }
+  - { t: 3757, text: "specific things, I'm slowing down my thoughts and I'm using a lot more of the talking button, the microphone to talk to the agent and let it transcribe what I'm saying. ," }
+  - { t: 3767, text: "sometimes I just need to talk out. I'm a big out loud thinker, as you can tell. I talk a lot. , [laughter] sometimes I just need to think out loud and then I'll put a a draft of a prompt down by" }
+  - { t: 3777, text: "just talking it out loud and then I'll come back and maybe I edit a little bit with my text or or typing things. I find that's fairly useful for getting my knowledge brain information out into the" }
+  - { t: 3787, text: "agent fairly quickly and that way I don't lose concepts or ideas. I don't have to mull over every word I'm saying. I just let it go. Wow. , we've got" }
+  - { t: 3797, text: "some documentation. what you'll notice, I wanted to do this you could see what's happening in the hand side of the window here, ? we have a folder" }
+  - { t: 3807, text: "called demo. It's it has a series of files in here. in here, this is a weird layout of this, but . here is the folder. Here's the folder. And" }
+  - { t: 3820, text: "then expanded down, here's the actual data set in markdown. If I click on that, we can see it's rendering pretty print of that data set for me. here's the actual rendered information." }
+  - { t: 3832, text: "Very simple data model. We have people and we have batting and then there's a single relationship between them. this is a very simple model. but it's going through it's writing out all the columns for us. it's giving us" }
+  - { t: 3845, text: "columns, data types, what is other stuff here? Summarize by string format. . , it's giving a a nice documentation. Write out folder" }
+  - { t: 3855, text: "display folder if it's in one. Here's some of the batting information. . And then it writes out the measures that are in there and gives you" }
+  - { t: 3866, text: "those as . . , that's pretty straightforward. All . With that, I think we're at a" }
+  - { t: 3876, text: "place here where we can say demo complete. we were able to get some of the items to work. , skills for fabric is your key entry point that we were using here to get into" }
+  - { t: 3886, text: "everything. And man, boy, do I not that list of files over there. That doesn't seem to be very don't really love that. This is what I would expect. , anyways," }
+  - { t: 3896, text: "there's my files list. We have our main chat window. And if we go back over to our customizations on the lefth hand side here down to plugins, MCP servers" }
+  - { t: 3906, text: "and skills. When we look at this, we can then verify that in fact we are running and those servers are installed and running . those servers are up and running on our machine and we can" }
+  - { t: 3918, text: "then go use them to talk directly to fabric. All , I think this is a good enough overview. Any anything Matis that you would call out here or note before we wrap it for today?" }
+  - { t: 3928, text: "[clears throat] as we've seen, there's room for improvement in in terms of the tooling, ? but" }
+  - { t: 3938, text: "at the end of the day it wasn't too hard getting to a setup that we can use moving forward, ? I would hope that if you were to come" }
+  - { t: 3949, text: "back to that project tomorrow, you wouldn't have to go through lots of rigma roll. Yeah, exactly . And that's the" }
+  - { t: 3959, text: "I feel we're in the early stages of how these tools are all working and we're still trying to refine the experience and get the signins working correctly and how does this all work. I would probably also argue I'm a very" }
+  - { t: 3970, text: "unique unicorn in the fact that I have many tenants I work with and even in my own business I have two tenants that I work with. Matias, you may have the same, but I would argue many organizations are not managing" }
+  - { t: 3980, text: "multi-tenant environments. part of what you saw here today with us struggling was me negotiating the different tenant structure as . if you use that great this demo" }
+  - { t: 3991, text: "supports that as . With that being said, thank you very much for listening and watching our demo today around VS Code agent mode. That's the introduction to how to use it, how to get started" }
+  - { t: 4001, text: "with it, and how to get your PowerBI MCP modeling server running as as your skills for fabric loaded and potentially other MCP servers as ." }
+  - { t: 4011, text: "All , with that being said, thank you all much, Matias. Appreciate it. This was a great demo. Thanks for the help on getting me through these hurdles and getting things signed in. We appreciate it. And with that being said," }
+  - { t: 4021, text: "we'll see you all next time. Yeah. Thanks very much. Bye-bye. [music]" }
+
+---
+
+## Summary
+
+Mike and Mathias open with OpenAI's GPT-6 Astra page, including a public demo that builds a Power BI dashboard, then spend the hour setting up VS Code from a clean install. The new agents window puts the chat in the center, files on the side, and plugins, MCP servers, and skills in their own section. They connect Fabric skills and the Power BI modeling MCP, fight device-code sign-in, and find a hosted modeling server they had not seen before. The episode is the setup path they wished they had when listeners asked how to start.
+
+## Key Takeaways
+
+- ▸ GPT-6 Astra's marketing page calls out Power BI computer use: the model builds and refines a dashboard in the Fabric service, which is the first time they have seen that product featured this prominently by OpenAI.
+- ▸ The agents window is a separate VS Code surface, opened from "Open in Agents." The agent sits in the middle, editable files move to the side, and session history stays on the left.
+- ▸ Plugins, MCP servers, and skills get their own pane because that is the configuration that makes the harness useful. Skills under the user profile load automatically, and pinning a skill version matters when the instructions change.
+- ▸ A clean setup still dies on sign-in. Device-code login, trusting a plugin, and an MCP that asks for auth again in a new folder are the friction they want the VS Code team to smooth out.
+- ▸ While connecting the Power BI modeling MCP to a batting dataset, the agent surfaces a hosted remote modeling server. That server, plus Fabric skills that already know how to authenticate, is the path they use to document the model as markdown and Mermaid.
+- ▸ Mike is shifting more of the prompting to the microphone so he can slow the request down and say the specific workspace, dataset, and output instead of typing a short prompt the agent has to guess from.
+
+## Links
+
+- ▸ [GPT-6 Astra](https://openai.com/index/gpt-6-astra/?utm_source=agentic_thinking&utm_medium=website&utm_campaign=20260911)
+- ▸ [VS Code agents window](https://code.visualstudio.com/docs/agents/run/agents-window?utm_source=agentic_thinking&utm_medium=website&utm_campaign=20260911)

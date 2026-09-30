@@ -1,0 +1,279 @@
+---
+title: "AI-Native SDLC"
+episodeNumber: 36
+date: "2026-09-01"
+youtubeId: "QyvK0X8P5dk"
+duration: "43:35"
+blurb: "Mike and Mathias walk through Anthropic's AI-native software lifecycle: the same six stages as a traditional SDLC, run as a loop, with the real work moving into specs, review, and context management."
+tags: ["sdlc", "anthropic", "agents", "planning", "agentic thinking"]
+chapters:
+  - { t: 0, label: "intro" }
+  - { t: 51, label: "cursor spat and ollama pricing" }
+  - { t: 989, label: "anthropic's ai-native playbook" }
+  - { t: 1285, label: "plan design build test deploy maintain" }
+  - { t: 1439, label: "spec and design in pen.dev" }
+  - { t: 1743, label: "review the spec before the build" }
+  - { t: 2350, label: "compact around 400k tokens" }
+  - { t: 2497, label: "wrap up" }
+transcript:
+  - { t: 9, text: "Hello and welcome back to the explicit measure. Oh, wrong wrong show. Welcome back to Thinking. I was I was thinking my old podcast just did an explicit measures episode this morning. ," }
+  - { t: 19, text: "welcome back to Agentic Thinking with Matias and Mike. We're talking again more around agentic experiences. There's a lot of news coming out . some great articles coming from Anthropic." }
+  - { t: 30, text: "We're going to talk about the software development life cycle and how AI is changing this life cycle, I think, for the better, but it's definitely changing" }
+  - { t: 40, text: "the life cycle . , that's our our main topic for today. Any other smaller news items that you want to bring up, Matias? I think we're talking briefly just about Open" }
+  - { t: 51, text: "AI and I guess it's XAI are having a little spat after XAI acquired Cursor. Open AAI has withdrawn their" }
+  - { t: 62, text: "models from the cursor library they can no longer use those models. There's a little spat going on. Yeah, absolutely. , one thing I'm always monitoring a lot is" }
+  - { t: 74, text: "pricing. , one interesting piece of news came into my inbox this morning. . from Olama, , Olama, , they don't just host open-source models," }
+  - { t: 85, text: "they also have a cloud offering. And just today, at least for me, they've announced, , a pretty significant change to their pricing model when you" }
+  - { t: 96, text: "use their cloud offering. and no surprise it's changing to token consumptionbased pricing. pretty much" }
+  - { t: 107, text: "everyone and the the thing is anyone who has been on a plan before today will for the time being continue on the old pricing" }
+  - { t: 118, text: "model. this smells very much what co-pilot did ? , yes, anyone who signs up for a new plan gets the new pricing model. . But, , interestingly, you" }
+  - { t: 131, text: "have a 3x multiplier. , if you pay a $20 plan, you get $60 worth of tokens , per month." }
+  - { t: 141, text: "Interestingly as the company is crapped the five hour usage window which is from a practitioner point of view is" }
+  - { t: 152, text: "pretty big deal. on the subscription models claude as as codeex they've had the five hour" }
+  - { t: 163, text: "usage window in addition to their weekly usage. and it from my point of view that's the one you're more likely to hit frequently when you're" }
+  - { t: 175, text: "really deep and it can be very annoying. you can find yourself two and a half hours into your 5 hour window and suddenly out of tokens and then" }
+  - { t: 187, text: "forced pause. there was a period recently around the introduction of GPT 5.6 where" }
+  - { t: 199, text: "co Codex OpenAI had completely scrapped the 5h hour window. That was fantastic. I really enjoyed that but they're back unfortunately. And Olama in in" }
+  - { t: 211, text: "conjunction with their pricing change has gone the other way. They've they no longer have the five hour window. there we go. , there's one thing that hit me today because , , I had" }
+  - { t: 224, text: "been , wondering whether I should sign up to a larger to one of the bigger Olama cloud , tiers." }
+  - { t: 235, text: "Sure. And it's too late. At least if I if I had wanted to take advantage of the old , yes, the old pricing. the takeaway for everyone should be whenever" }
+  - { t: 245, text: "a subscription or a offering seems pretty good, sign up because chances are they're going to get worse. Yeah, I I totally agree with this one." }
+  - { t: 256, text: "Again, I think the this feels to me Matias the there's a bit of a choke point happening around the token pieces, ? If we if we gave away all these tokens at these low" }
+  - { t: 267, text: "prices forever, it's a, , $150 or $200 subscription per month, that just lowers the barrier to building any software. And and it just makes" }
+  - { t: 277, text: "it easier for you to build whatever you want. And I would maybe potentially argue these large software vendors, Microsofts, , to be frankly honest, along those lines, I re I cleaned up" }
+  - { t: 290, text: "my computer, my desktop machine. I did a clean reinstall about a month ago and I was refreshing everything. I was making all clean brand new Windows" }
+  - { t: 301, text: "11 operating system just getting it fresh again. Getting rid of all the junk I've had for in there for years and years. In doing that, I am trying to use as much web browser as I" }
+  - { t: 311, text: "can. any application I I typically use is mostly web browser. One of the applications I needed was Excel and opening Excel documents and" }
+  - { t: 322, text: "I was Matias I was really I tried it for a week. I tried for a week to not install the bloat of a program that is Microsoft Office the Word the I don't I" }
+  - { t: 332, text: "mean if I need to go do something in Word I go to the web browser that's sufficient for me for editing a word document at this point and most of my what I do isn't even in Word." }
+  - { t: 342, text: "I Markdown. I'm in VS code with markdown and that's most of where my documentation comes from. I don't want the bloat of all the formatting of word." }
+  - { t: 352, text: "I just want text and tables and simple things. in lie of all this I went to the Apache group and I decided to download their opensource" }
+  - { t: 364, text: "office documents. And the handful of times I've needed Excel, I just go there and ask I I open my Excel documents using the Apache Open" }
+  - { t: 375, text: "Office suite and it works for me. It's it it does what I need to do. , you know, I'm I'm I've heavily moved away from the Excel world of where I need" }
+  - { t: 385, text: "to have Excel. I'm doing everything in fabric . It's it's all in fabric for me. , is this a trend that you're seeing as , Matias? Are you opening the office products less and" }
+  - { t: 396, text: "less? Do you think you could get away with not even using them or vibe coding your own software suite around this? It's interesting you say that. I I was reflecting whilst you were talking I" }
+  - { t: 407, text: "could not do without a proper desktop Excel I believe. . . surely Excel.com is very very good. You know, I've I've been a user of web based" }
+  - { t: 418, text: "office products for for a long time, but Excel has always been the one where I was least likely to use the web version. , sometimes you have no alternative" }
+  - { t: 430, text: "you're on a Chromebook or and that's all you have and it's great but I know all Excel shortcuts by" }
+  - { t: 440, text: "hand and and I know my way to navigate through a spreadsheet. it it's just not the same experience any but but how far away are you yes I" }
+  - { t: 452, text: "understand but how far away are you I agree with you Excel has it if you've been habitually using Excel and you've got this pattern in" }
+  - { t: 462, text: "your head you have all the shortcuts figure totally understand but if you think about what Excel is doing the Excel desktop isn't very agent friendly" }
+  - { t: 472, text: "in my opinion it's not very easy to throw Excel things at an agent unless you just say here's the file, Claude, go open the XLSX file yourself and go" }
+  - { t: 484, text: "manipulate things, ? , and also I don't really the egregious co-piloting that's being landed in every single product that Microsoft makes ." }
+  - { t: 496, text: "there's always this this heavy co-pilot presence. I think I even saw someone was complaining about it. When you're on a sheet inside Excel, there's a co-pilot icon sitting on top of" }
+  - { t: 507, text: "the sheet in the bottom righthand corner just hanging out waiting for you to click it. , I'm thinking to myself, I don't even want that. I don't I want none of that anymore. , and I really" }
+  - { t: 517, text: "want to be able to collaboratively build with my AI the Excel pieces and describe to it what I want, have it build the tables. , and I'm I'm I" }
+  - { t: 527, text: "feel we're lagging behind in the Microsoft Office suite of what I really need. I want to bring my own agent to my tables and have it work with me to" }
+  - { t: 537, text: "build stuff. That that's what I want. And I feel we're not getting there in the Microsoft Excel space. Anyways, that's just my soap box that I'm on . just one final thought and" }
+  - { t: 549, text: "then we should move on, I think. Sure. 100%. I would argue Excel as as the product is obviously designed for human consumption, ? And I would" }
+  - { t: 560, text: "say if you if you want to if you're explicitly using Excel, it it it has to be solely for the reason that a human is" }
+  - { t: 570, text: "involved at some point. If you if you were talking about organizing formulas and numbers and tables for a for agent consumption, I would say" }
+  - { t: 582, text: "Excel shouldn't even part of the equation, , because that is a a a layer that would be a burden, ," }
+  - { t: 594, text: "as you say, in in in an agentic setup. And we only put it there because it makes it easy for humans to consume it, ? But if you don't have the people in in in the mix there, there are much" }
+  - { t: 605, text: "better ways of organizing, , data and and formulas, I'd say. And that I think is my my that is the dichotomy that I think I'm fighting ," }
+  - { t: 616, text: "which is I I need Excel to be there for a little bit of the human interface, but I'm shifting more and more of my workload over to agent interface and I just want to be able to, ," }
+  - { t: 628, text: "grab a section of data from somewhere, control C, give it to an agent and say, do stuff with this make some sort of structured document that you agent" }
+  - { t: 638, text: "know how to work with and then give me metered outputs that's human readable that's sorry total I'm going to go I'm going to go" }
+  - { t: 648, text: "one more point on this Matias and I promise we'll move on are you working with claude code and claude design and are you using more HTML documents to to" }
+  - { t: 660, text: "describe your documentation your process I me personally I'm using a lot more HTML just hey agent I'm going to build a" }
+  - { t: 672, text: "presentation claude design does a great job of saying I'm going to make a slide deck and it gives you the slides on the lefth hand side it gives you comments at the bottom you can go click on the different" }
+  - { t: 682, text: "the the slides and edit the text in the in the slide it's a the HTML is a good blend of human and not human agent capability that I think" }
+  - { t: 694, text: "blends really hey on slide five change this boom does it hey I don't these backgrounds, add some more colors and some effects and throw a couple icons from this library into these slides. Boom. Does it? And it does a" }
+  - { t: 706, text: "really good job. I feel that's what I'm liking more. And I'm favoring more of this. Let's just generate an" }
+  - { t: 716, text: "HTML document. I had one of my engineers as another example. He was asking me to redo the architecture on one of our apps. And I said, I , I think I" }
+  - { t: 726, text: "understand what you're building for a rearchitecture, but I don't quite understand it all. And I really need, we have a lot of APIs that we're doing to talk to data, ? I want to make sure that we have in your" }
+  - { t: 736, text: "new system design, ? We're using Cosmos DB with the Gremlin API. We're going potentially to the Cosmos DB with caching and document API. , we're" }
+  - { t: 746, text: "physically changing the API layer of Cosmos DB. And I said, 'I want to make sure that we have full coverage of all of the API calls from the old system into the new system. Does everything" }
+  - { t: 756, text: "work? And he says, \"Yeah, no problem.\" He went out, he worked with his agent, built out a really nice almost a blog post, ? It's" }
+  - { t: 766, text: "almost a blog post. It had sections and headers and you could click different areas and it walked down and it gave examples and it said, \", let me show you every API call that we're" }
+  - { t: 776, text: "making to the system. Here's the old query comparing to the new query had tables. Very done. But he didn't I mean he worked with it and and had it think through the reasoning. But" }
+  - { t: 787, text: "this single HTML document is our knowledge our our documentation of the process and then we can beat up. I can ask questions against it. I can say" }
+  - { t: 797, text: "what about this? How would we handle this data? , is there a failure in this API in this particular I could reason with the agent and have all those decisions captured in the HTML" }
+  - { t: 808, text: "document and then the entire team has a nice pretty usable architecture sheet. let me" }
+  - { t: 818, text: "pause there. Are you doing this? Are you seeing this in your own development patterns? , totally. If you replace HTML with markdown, , then yes, 100%." }
+  - { t: 829, text: "Very similar. I'm not sure whether that's what you mean or what whether you're talking about HTML, but obviously markdown generally is rendered , you know, a HTML page would be." }
+  - { t: 841, text: "maybe maybe we're absolutely on the same page here. I think we're on the same page in the fact that we're both using text files, to do a lot of our documentation. We're we're not, , I don't need to go" }
+  - { t: 851, text: "in order for me to make a markdown file or an HTML file, I don't need to go to Excel to do it or Word to do it, ? I can just make those files. but I am I'm I'm physically getting" }
+  - { t: 865, text: "HTML files for my team, a single page HTML file that has everything. , it's it's a bit more styled than the markdown files that you're saying, but I'm still getting to your point, it's" }
+  - { t: 876, text: "the same mechanics, ? still headers, footers, sections, text, tables, diagrams, all that's contained inside the document, ? Because HTML obviously is very" }
+  - { t: 887, text: "noisy. If you were to feed it back to an agent, it would be really a really bad idea because it would take a lot of tokens, ? Whereas Markdown" }
+  - { t: 898, text: "wouldn't because it's bare metal, ? it's down to pretty much just, , the message you want to get across. Yeah. Agreed." }
+  - { t: 908, text: "yeah, maybe same thing we saw with Excel earlier where for human consumption you need a a a visualization facility, ," }
+  - { t: 918, text: "which could be Excel for tables or could be HTML for text but neither of those are great for agent consumption. Agreed." }
+  - { t: 928, text: "Anyways, let's move on from our diver. Let's go to the main topic. I think the mentioning of text documents is a really good segue into into the article, ?" }
+  - { t: 941, text: "Sure. Yeah, 100%. , this is an article you found, Matias, give us an an intro what is this article and where we going to take this conversation next? Yeah. a very very long post" }
+  - { t: 954, text: "that's just appeared on the claude.com blog which says the AI native SDLC playbook. SDLC let's explain" }
+  - { t: 966, text: "it's the software development life cycle that's an acronym which has been around for a very long time. people have talked about SDLC long before agents" }
+  - { t: 976, text: "were a thing. , and that was posted August 21st, a couple weeks ago. highly recommended from I would" }
+  - { t: 989, text: "say this is probably let's call it a snapshot of where Anthropic is currently at in terms of using their cloud infrastructure for their" }
+  - { t: 1000, text: "own software development internally and spelling out how they see the world through that lens and giving lots of" }
+  - { t: 1010, text: "practical guidance to people if they wanted to adopt something on their end. and the provocative" }
+  - { t: 1022, text: "thesis if you will is to say agents have solved the the the coding problem for us. Coding is no longer an" }
+  - { t: 1034, text: "issue. everything else becomes a bottleneck, . in a slightly provocative way here. And effectively the article is talking about what's the everything else. around producing" }
+  - { t: 1047, text: "and testing code that you need to get from an idea to to a product that ships, ? And that's pretty much what they're spelling out here. It's it's" }
+  - { t: 1058, text: "complemented with a claude academy course that's called exactly the same the AI native SDLC playbook which" }
+  - { t: 1069, text: "has 14 lessons where you can self teach or self-learn the the takeaways from" }
+  - { t: 1080, text: "that article. I I this. , overall I think this is really very" }
+  - { t: 1090, text: "useful and the amount of people on the other podcasts that I run. Everyone complains around I see you vibe coding things. I see you building" }
+  - { t: 1100, text: "things with agents. I see you creating software. Would you put it into production? And I think this is the response to some of those comments which is there there are individuals in the" }
+  - { t: 1111, text: "industry with AI that is doing this there they've taken the amount of time to write the code and shrunk it down greatly with agents and we're" }
+  - { t: 1122, text: "looking at other bottlenecks in the process. The planning process in the front the software code writing itself directly has been shortened but what about testing? What about QA? What" }
+  - { t: 1132, text: "about bug bug bashing? how do we funnel real users of your applications? How do we funnel their feedback back into the agents that they can fix those bugs and update them and make" }
+  - { t: 1143, text: "new features? ? , I I really do think this article is a great response back to a lot of those naysayers that are , , we can't really use act" }
+  - { t: 1154, text: "you can't really productionize something. You can't really maintain a piece of software that is is real. I would argue yes, you can. I think we're there. I think people are physically doing it today. We're just not capable" }
+  - { t: 1165, text: "or don't have the skills yet in our teams or our process to be able to handle this yet. It's nothing's changing. I just because I'm making software with agents doesn't mean I" }
+  - { t: 1176, text: "don't do testing and QA and CI/CD. It just is happening differently than we used to do it. M and what they're doing here" }
+  - { t: 1187, text: "high level is they're contrasting two different shapes of" }
+  - { t: 1198, text: "an SDLC architecture. they're contrasting what they call traditional one and the AI native one. and one of the" }
+  - { t: 1210, text: "arguments they're making is to say traditionally we were thinking in release cycles the production of software was linear" }
+  - { t: 1221, text: "we went through six major stages we can name them in a second they're saying in an AI native world it's continuous we still have the" }
+  - { t: 1232, text: "exact same six stages but it's a loop and I it. it does not necessarily require the" }
+  - { t: 1243, text: "human with a major interaction to trigger a new cycle if you will. you know in an ideal world when everything" }
+  - { t: 1254, text: "is agent driven or AI native as they say even once you've released something into production because the maintenance and monitoring stage is part" }
+  - { t: 1265, text: "of the the process here whatever outcomes come from that will then automatically lead to new" }
+  - { t: 1275, text: "developments being kicked off. that's one. let's call why don't we call out the six stages they've identified." }
+  - { t: 1285, text: "I think that'd be really very relevant. cool. first one is plan. someone has an idea. second is design. turning that idea into" }
+  - { t: 1298, text: "specifications. third one is build which traditionally would have been the major block in the whole" }
+  - { t: 1308, text: "that would have that would have taken a long time that would have many developers indeed build means engineers turn the spec into" }
+  - { t: 1319, text: "code and also do some self review. then we have test. that would be a dedicated verification" }
+  - { t: 1330, text: "phase. we have deploy. This is where CCD comes in as . and we have maintain which as I mentioned just a" }
+  - { t: 1342, text: "moment ago is around collecting production metrics you know reported errors and things that to to identify" }
+  - { t: 1354, text: "production bugs and ultimately turn them fix them, ? they're not proposing" }
+  - { t: 1364, text: "any changes here whatsoever. You know, even though they're contrasting traditional versus AI native, they're going with the exact same six major stages. What do you think about that?" }
+  - { t: 1375, text: "I think these stages are very relevant. I'm finding myself merging a lot of plan and design at the same time . M my planning and designing is" }
+  - { t: 1386, text: "very very cyclical. one of these projects that I'm trying to build a lot of times I'm try this" }
+  - { t: 1396, text: "fits very with some of the other things that I'm working on. I'm going to bring in a couple other tools or or techniques or or software that I'm using . I building green" }
+  - { t: 1406, text: "field projects to explore new ideas. ? if I'm if I'm trying to build something or learn something new, I starting Greenfield because it helps me" }
+  - { t: 1416, text: "to not come with any preconceived notions. I'm not dealing with tech debt. I'm just building something pure and can design the process around whatever that new thing is. Just built a new website." }
+  - { t: 1429, text: "inside that website, I did a plan mode with my agent. I said, \"Here's what I want to build. Give me a list of requirements.\" Boom. Did it. . At the same time it's I'm working on the" }
+  - { t: 1439, text: "plan with my agent, the design, the specification of what am I trying to build, I go over to another program called pen.dev. pen.dev is a Figma, a design system that an" }
+  - { t: 1451, text: "agent and I can work together to build something out. And I can send I download pen.dev the application. I l I link in my cloud subscription with an" }
+  - { t: 1462, text: "API call and say, \", great. Here's my cloud subscription. here's the images that I from the the design styles I . Go build a whole" }
+  - { t: 1472, text: "component library and design and website and walk me through the plan that I'd give you agent. And then I refine the UI design alongside the actual" }
+  - { t: 1483, text: "functions of the app and the features that are there. And that was very iterative for me. I'm using two of these tools at the same time. And , going" }
+  - { t: 1493, text: "back to your point, your question Matias, I don't want to go too far on a tangent here, but these stages are extremely relevant for me and I'm spending a lot more time in planning and" }
+  - { t: 1504, text: "designing and I don't need a lot of other people to weigh in on this. I my preferences can be easily distributed back to the agent to have a good result" }
+  - { t: 1514, text: "back. , that's been really fun. , also I'm trying to get better at testing and deployment is is step one, ?" }
+  - { t: 1525, text: "When I the first time I touch code, the very first step is build me a CI/CD. And even if it's a dummy app, let's get deploying working immediately," }
+  - { t: 1535, text: "away. Step one, if I don't have that started, I don't spend any other time building the app. I make it build a very simple, dumb app of whatever the solution is. Get that step working" }
+  - { t: 1546, text: "away. my deployment is very is used very early in my process. But once I have that, I can let the agent build the application in steps and milestones and" }
+  - { t: 1556, text: "then I'm constantly deploying and testing as a user. all of these steps are relevant. How fast I get to them changes I guess maybe by project and I maybe" }
+  - { t: 1567, text: "rearranging them slightly a little bit. I would maybe bring an iterative approach to a lot of these steps. And for me, having an app that I can talk to an" }
+  - { t: 1578, text: "agent and say, \"Udate this, add a button, change this feature, add this feature.\" And knowing that whatever I ask the agent to build, it will automatically go through a deployment cycle to go from, , my sh my" }
+  - { t: 1591, text: "session through code into dev, ? And then I can tell the agent, , that looks good. Roll those changes over to production. main whatever that is. Having that in place earlier in the" }
+  - { t: 1602, text: "process I think is very valuable with agents is how I perceive it. I think one major takeaway here should be that those very early stages" }
+  - { t: 1613, text: "around planning and designing are increasingly more important than they have ever been before. . Agree. if we if we stay with with with the" }
+  - { t: 1624, text: "dichotomy the article makes between traditional and AI native where they say traditionally we would have spent a significant amount of time on" }
+  - { t: 1634, text: "the build phase and we no longer have that because everything happens at agent speed. , another big difference we have nowadays" }
+  - { t: 1645, text: "is that during that build phase, arguably substantially hu bigger volume of output is going to be generated as far as" }
+  - { t: 1656, text: "generated code, ? , much that I would argue oftentimes this exceeds human capacity to review, ?" }
+  - { t: 1667, text: "whereas in in a in a in a pre-agent era where code was human generated obviously by definition it was" }
+  - { t: 1677, text: "then something humans could also review to some degree. , what that means is that the more we invest into" }
+  - { t: 1688, text: "reviewing our plans and our specs and our designs early on nowadays, sorry. [cough]" }
+  - { t: 1698, text: "the more efficient the whole process is going to be. Because if you're if you're going to feed insufficient" }
+  - { t: 1709, text: "specs into your build process, it's going to be substantially harder for you to undo anything that was built" }
+  - { t: 1719, text: "coded according to an incorrect or or insufficient spec as opposed to finding that one early you" }
+  - { t: 1732, text: "know when it's a mere text document you know when it's when it's a mere specification and addressing it there and this is a a big takeaway that anyone who" }
+  - { t: 1743, text: "wants to remain in the engineering space needs to take very seriously. They need to get very good at reviewing specs and those kinds of documents." }
+  - { t: 1756, text: "reading them very critically and and feeding in any corrections or amendments at that stage as opposed to getting to a PR with hundreds" }
+  - { t: 1767, text: "of thousands of lines of modified code and not really knowing what what to do there. , that's definitely something I would I would" }
+  - { t: 1778, text: "want to highlight here. I I feel at some degree though, Mat, I feel no matter what it is, whether you're building full-blown software by yourself, whether you're" }
+  - { t: 1788, text: "building a little mini application for your desktop, whether you're working with, go back to our Excel example earlier, whether you're working with Excel, we are no longer" }
+  - { t: 1798, text: "having to click all the buttons anymore. I feel everything has moved up to managerial level. I manage a lot more things. Everything I do is managing things. I manage my bots. I" }
+  - { t: 1809, text: "manage the software development. I manage the plan. and if you even distill that down to where am I applying various agent efforts in my own just day-to-day workflow, , why am I not allowing" }
+  - { t: 1821, text: "agents to manage or managing agent that manages my inbox? I I can't stand email anymore. I'm I'm definitely a younger generation, I guess, millennial. I I don't know where I would fit in this," }
+  - { t: 1831, text: "but I don't I hate email. I absolutely can't stand email anymore. It just seems to get much noise. I don't it. I get a lot of there. I don't really enjoy listening and sifting through." }
+  - { t: 1843, text: "what a great place. Again, I can't even keep up with it. I have hundreds of emails coming in every day from all these different things and some of it's relevant and some of it's not. I just" }
+  - { t: 1853, text: "can't get through it quick enough. And for me, throwing agents at part of this seems a great solution. I can manage an agent that helps me determine what's important to me, what's not" }
+  - { t: 1863, text: "important to me via that that inbox. , it's it's sifting much more information down and I need something to help me reason about is this good information? Is this" }
+  - { t: 1875, text: "bad information? Do I need to do I need to focus my attention on this or can I just ignore it and let it go by the wayside? But I'm looking at this and I'm looking at many many aspects of what I" }
+  - { t: 1886, text: "do on a day-to-day basis and I'm finding more and more of what I want to be doing is managing things. I'm moving more towards a management. I shouldn't be going in and manipulating my Excel" }
+  - { t: 1896, text: "files. I should be managing an agent that can manipulate those things because it would take me three hours to do what it can do in 5 minutes if I just direct it correctly. And and I'm also finding I" }
+  - { t: 1907, text: "don't type as much as I used to. I don't know if you're if you're are you talking to your computer more with using voice translation to things? I find myself doing that more more frequently." }
+  - { t: 1918, text: "yeah, certainly. Although I I had a phase where I I did a lot of voice input. I'm I'm doing more typing nowadays. I'm not sure. I can't" }
+  - { t: 1930, text: "explain why and flows. Exactly. Yeah. It comes and goes. I but yeah in in the same way" }
+  - { t: 1941, text: "how I would have been very diligent about writing code until early last year probably I I write prompts and documents" }
+  - { t: 1953, text: "nowadays and that's definitely the new normal and and and my primary way of interacting with with my computer . . , I often" }
+  - { t: 1965, text: "times even, , when I know I'm I'm going to, , do a prompt that's more than just a sentence, I explicitly write it into a file as opposed" }
+  - { t: 1976, text: "[clears throat] to just my my my chat input box. Interesting. Yeah. and maintain that ," }
+  - { t: 1986, text: "as as part of my project, as part of my project documentation and specs. Sure. which all be and one is h I'm always worried about something" }
+  - { t: 1997, text: "crashing and me losing 35 minutes of text I've typed sure which obviously if you have a text editor that it's auto save" }
+  - { t: 2010, text: "you don't have that problem that's one thing but then another one would be if you kick off a significant agent turn with with a with one of those lengthy prompts Yeah," }
+  - { t: 2021, text: "at some point you're going to have another agent review the turn output. And I want to be able to give my original prompt to that agent to say" }
+  - { t: 2032, text: "differently. This is what was done. And look how you judge the output against my input. ? that's a pattern I I do very frequently. And it becomes" }
+  - { t: 2043, text: "really handy having my original prompt as a file. That's really interesting. Huh. I didn't I would not have that you say it. that's" }
+  - { t: 2055, text: "the input variable the agent is is the black box and the output is the judgment and having the input plus the output gives you a better judging criteria of" }
+  - { t: 2066, text: "did we accomplish what we did and and I think there's another article Matias that I think I sent you via teams and I'm going to put this one here as . It was talking about I" }
+  - { t: 2077, text: "think it was from Uber on X.com. Oh yes. Yeah. . very similar to what you were discussing here. I believe Uber" }
+  - { t: 2089, text: "I don't I don't remember if it was Uber if it was somebody else but someone spent . Uber spent their entire AI budget in the first three or four" }
+  - { t: 2099, text: "months of the year. Everyone was just using AI all over the place and their entire research and development budget was spent in four months for the whole year fiscal year. That's insane. this" }
+  - { t: 2111, text: "I think is a response to look we learned some lessons from that first four months of the year where we overspent on AI budgets for everyone in" }
+  - { t: 2121, text: "the company. But I think from that they learned how to take a software factory and make it efficient at the scale of a software company Uber. And I found" }
+  - { t: 2132, text: "this article to be really interesting. I'll put this article also in the link here in the in the chat window as . here's the article that I'm discussing. But I think exactly to your point Matias is this article running" }
+  - { t: 2144, text: "software factory at the efficiency at Uber scale. It's talking about measuring price, measuring effectiveness, measuring , you could use Fable" }
+  - { t: 2154, text: "for everything, but the cost to have that Fable run that prompt may not be as valuable. And , maybe you're using Sonnet" }
+  - { t: 2165, text: "or Luna or other models to run these things. And if you have to do three turns to get the same result that you could do with one turn with a different model, then you should be choosing a different model to get the one turn" }
+  - { t: 2175, text: "result versus the three turn result because yes, the model's cheaper. it the cheap the cheaper model may take three turns, but is that is those extra turns costing" }
+  - { t: 2186, text: "you more money in the long run? Can you do three turns in the price of that one more expensive model do the one turn? Yeah. Or did you just not give it a good enough prompt at the beginning to get" }
+  - { t: 2196, text: "you the good output that you wanted? . , back to your point, what's my input? What's the black box the agent built? And then what's the what's the measured output? Did that yield an effective" }
+  - { t: 2207, text: "result? . It's from my point of view, it's a triangle. It's a time, dollar cost, and quality, ? And" }
+  - { t: 2217, text: "they need to be in in perfect balance. if it takes longer but costs less and you get the same quality I' I'd rather run it" }
+  - { t: 2229, text: "overnight where time is not a determining factor for instance interest I you're saying this because this there is a agents are" }
+  - { t: 2242, text: "becoming a time machine to some to to some effect you you the manager manager can decide I want to do" }
+  - { t: 2252, text: "I want to spend my eight hours of the day thinking about the plan and then I leave. Exactly. . And in the morning you review the outputs." }
+  - { t: 2263, text: "Correct. Am I able to effectively in those eight hours just make enough decisions to keep the agent busy for the other what 16 hours?" }
+  - { t: 2273, text: ". the other 16 hours when you're not looking at it, how can I spend eight to get 16 effectively and you've multiplied" }
+  - { t: 2283, text: "your time not just by 8 hours a day. you're able to work 24/7 with an agent on your side. You're just focusing your attention on in that eight hours, how can I condense my knowledge down to what's something to keep a busy" }
+  - { t: 2294, text: "agent and and scale that out. That's just one agent, three agents, four agents. you can you're time machining multiple resources at the same time." }
+  - { t: 2307, text: "it's in a way it's it's as if you had an offshore team in another time zone where you would probably do something very similar, ? You would spend" }
+  - { t: 2318, text: "your working hours reviewing their stuff and and giving new inputs, organizing, reviewing and they'd be working on it when you're asleep or or not working." }
+  - { t: 2330, text: "Sure. and then the cycle starts again. in a way we we've done all of this only we're interacting with machines" }
+  - { t: 2340, text: "rather than with people. just one quick thing I wanted to add on to the Uber article. there's obviously a lot in it but there was one very specific piece which I thought was worth" }
+  - { t: 2350, text: "highlighting. through analysis they had determined that 400k is a sweet spot for them to" }
+  - { t: 2361, text: "trigger compaction. and this assumes that they've got a 1 million context window. they figure that 400k is when they should wrap up" }
+  - { t: 2373, text: "and and compact and and they shouldn't let their context grow substantially beyond that because they" }
+  - { t: 2384, text: "things were then degrading in terms of quality. and yeah again apparently this is based that's what they claim this is based on facts and measurements. , ," }
+  - { t: 2396, text: "was, , interesting, , to me and and worth pointing out here. I want to just encourage everyone to read this article from the native SDLC" }
+  - { t: 2408, text: "playbook from Anthropic. Really good article. , lots of really good points here. Matias and I are, , actively, , this is I feel I'm building this way with this system." }
+  - { t: 2420, text: "I just haven't had an article to point at this is what I'm doing. And I think this is a good article that's really describing how am I building software and going to market" }
+  - { t: 2430, text: "with real software using agents to build real things. And as I'm getting better at this, my cycles time for planning, my" }
+  - { t: 2440, text: "cycle time for designing, my my cycle time for test and QA, those are getting smaller. I'm building better systems around making each of those things more automated as I go, which I think is a" }
+  - { t: 2450, text: "very useful tool as we continue to develop and build on top of this. Any final thoughts, Matias, as we wrap here?" }
+  - { t: 2461, text: "just one thing. , I'm not quite happy with the strong black and white dich dichotomy they make, , between that's the" }
+  - { t: 2473, text: "traditional SDLC and that's the new one. I think in contrast to that, it's a spectrum and there are many stages of" }
+  - { t: 2485, text: "using AI and agents as part of your software development life cycle. Yeah, what they're describing here is the extreme other end of the spectrum. But I" }
+  - { t: 2497, text: "wanted to also say there are various way points along the line and you don't have to go all the way to where anthropic is" }
+  - { t: 2512, text: "describing this in order to get some benefits. ? just just a final thought here. We could go into more detail here, but maybe not today." }
+  - { t: 2522, text: "I will say this last thing. There's also really in the article, there's really great what does this look sections and they give you actual prompts they're using to help you get through these different sections and hey Claude," }
+  - { t: 2533, text: "do this smart. I think this is really smart because if they're using these prompts and they're giving them to you, you're going to want to go test them out on the Claude models and go get more consumption. I think this was a very" }
+  - { t: 2543, text: "smart wise article from the the anthropic team. Anyways, thank you all very much for listening to Agentic Thinking today. Another great discussion. Let us know in the comments" }
+  - { t: 2553, text: "what you want us to build, produce, demo on Fridays. , we typically do demos on Fridays. , we can do some more demos. I'm debating here. I'd love to do I was" }
+  - { t: 2563, text: "having a little trouble last week. We're going to do one. I screwed up a little bit and couldn't get a model to work here, but I was thinking I would really to build a full rayfin project" }
+  - { t: 2574, text: "doing a full design use pen. dev use my agents develop out and build a style and then incorporate that style directly into an application and graphically show data on top of things. , maybe" }
+  - { t: 2586, text: "we'll do that on Friday. Let us know in the comments what would you to see. And with that, Matias, thank you much for another great discussion. I love talking with you about all this stuff. I learn much every time we talk. This" }
+  - { t: 2595, text: "is great. Thank you all much and we'll see you next time. Thank you. Bye-bye. Thinking [music]" }
+  - { t: 2610, text: "a thinking [music]" }
+
+---
+
+## Summary
+
+Mike and Mathias use Anthropic's AI-native SDLC playbook as the spine of the episode. The provocative claim is that agents have collapsed the coding step, so planning, testing, QA, and production feedback are the new bottlenecks. Anthropic keeps the same six stages — plan, design, build, test, deploy, and maintain — but runs them as a continuous loop instead of a linear release train. They spend the rest of the hour on what that means in practice: review the spec while it is still a document, manage agents the way you would an offshore team, and compact context before quality falls off.
+
+## Key Takeaways
+
+- ▸ Anthropic's playbook says agents solved the coding problem, so the remaining SDLC work is everything around the code: planning, testing, QA, bug bash, and feeding real user feedback back to the agents.
+- ▸ The six stages stay the same. What changes is the shape: traditional SDLC is a linear release cycle, and the AI-native version is a loop that can kick off the next change from production signals without waiting for a human to start a new project.
+- ▸ The expensive mistake is a bad spec. Correcting a text document is cheap; unwinding a pull request with hundreds of thousands of generated lines is not, so spec review is the engineering skill that matters more now.
+- ▸ Mike's own loop pairs an agent plan with pen.dev so UI design and the feature spec move together instead of design arriving after the code.
+- ▸ Day-to-day work shifts from clicking through Excel or an inbox to managing the agent that does that work. The human job is direction and review, closer to managing an overnight offshore team than to typing the change.
+- ▸ One Uber write-up they cite treats about 400k tokens as the compaction point on a 1 million token window. Letting context grow past that sweet spot is where they saw quality drop.
+
+## Links
+
+- ▸ [The AI-native SDLC playbook](https://claude.com/blog/the-ai-native-sdlc-playbook?utm_source=agentic_thinking&utm_medium=website&utm_campaign=20260901)
+- ▸ [Claude Academy: AI-native SDLC](https://academy.claude.com/courses/ai-native-sdlc-playbook?utm_source=agentic_thinking&utm_medium=website&utm_campaign=20260901)
+- ▸ [What is a dark factory](https://www.mindstudio.ai/blog/what-is-a-dark-factory-ai-agent?utm_source=agentic_thinking&utm_medium=website&utm_campaign=20260901)
+- ▸ [Cursor Origin](https://cursor.com/origin?utm_source=agentic_thinking&utm_medium=website&utm_campaign=20260901)
+- ▸ [Grok bot overview](https://docs.x.ai/grok-bot/overview?utm_source=agentic_thinking&utm_medium=website&utm_campaign=20260901)
+- ▸ [pen.dev](https://www.pen.dev/?utm_source=agentic_thinking&utm_medium=website&utm_campaign=20260901)
