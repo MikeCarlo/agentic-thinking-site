@@ -1,0 +1,308 @@
+---
+title: "Pacing AI"
+episodeNumber: 41
+date: "2026-09-25"
+youtubeId: "l5A4b4o-KwI"
+duration: "48:14"
+blurb: "Mike and Mathias unpack Dario Amodei's call to pace the AI frontier, then talk through sandbox escapes, IPO incentives, model routing, and why curiosity and criticism both belong in the work."
+tags: ["anthropic", "ai safety", "model routing", "github copilot", "agentic thinking"]
+chapters:
+  - { t: 0, label: "intro" }
+  - { t: 50, label: "pacing the frontier" }
+  - { t: 174, label: "sandbox escapes" }
+  - { t: 265, label: "directing something smarter" }
+  - { t: 449, label: "slowdown and game theory" }
+  - { t: 602, label: "ipo stakes" }
+  - { t: 1048, label: "routing the model to the task" }
+  - { t: 1382, label: "what long sessions cost" }
+  - { t: 2481, label: "curious creative and critical" }
+  - { t: 2826, label: "wrap up" }
+transcript:
+  - { t: 9, text: "Hello everyone and welcome back to the Agentic Thinking Show and podcast. Matias and I are here again talking about the latest topics and issues and challenges and things that we're seeing" }
+  - { t: 19, text: "in the market around AI. Matias, hello again. It's good to see you. Absolutely. , how are you? Great to be back here. Doing . We are switching things up" }
+  - { t: 30, text: "just slightly. , we have had a really good time talking and discussing things. This week was a bit of a busy week for us. We got pulled into some meetings that we couldn't handle on Tuesday. ," }
+  - { t: 40, text: "we decided to punt. , this day we're going to do just more of a talking episode today as opposed to demo and showing things. , with that being said, , there's an article that" }
+  - { t: 50, text: "I think we want to lead with here and I think this will probably consume most of our discussion at this point. it's made by Daario the is it CEO of Anthropic." }
+  - { t: 60, text: "Yeah. Daario talks to us about we must start pacing AI or slowing down the pace or building AI but doing" }
+  - { t: 70, text: "in a governed secure helpful way to continue to contribute back to AI and keep it moving forward. This was made about a week ago and there's an article" }
+  - { t: 81, text: "that goes with it. maybe I'll just share the link of the article. Matias, what are your initial thoughts on this and what do you think about this comment around we should slow down and" }
+  - { t: 91, text: "think about safety here for a bit? where do I start? there's much to unpack here, ? , first of all, it's it looks it's this article has had quite an impact" }
+  - { t: 102, text: "because there have been lots of follow-on discussions. obviously Amday representing Anthropic" }
+  - { t: 112, text: "he is this spare head of one of the most frontier AI labs . it's very interesting. Oh bless you to" }
+  - { t: 125, text: "get someone putting the foot on the brakes apparently in that position. ." }
+  - { t: 135, text: "we should mention that in the aftermath of the article, OpenAI certainly joined in as , , with a similar" }
+  - { t: 149, text: "direction. apparently Elon Musk even joined at some point. very surprising. and" }
+  - { t: 162, text: "why don't we unpack it a little bit we we have seen over the past few months various examples of where AI" }
+  - { t: 174, text: "agents escaped their sandbox that I think end of July or there were some widely publicized" }
+  - { t: 185, text: "examples that happened in open AI's labs there were some more with Google and Anthropic since and it looks" }
+  - { t: 198, text: "we're at a point where one the development that's happening inside the AI labs is more and more AIdriven." }
+  - { t: 208, text: "Yes. And where despite all efforts around making models safe by default and creating really safe sandboxes," }
+  - { t: 220, text: "the models have achieved such capabilities , particularly when they're working as a swarm where they manage to escape" }
+  - { t: 231, text: "those sandboxes and go out to potentially perform rogue action. it it feels particularly with more and" }
+  - { t: 243, text: "more of AI development being handed to AI itself. It feels there's a real concern there that ultimately we" }
+  - { t: 253, text: "as humans are no longer going to be in control. over to you. while I understand the concern of these AIs getting scarily capable," }
+  - { t: 265, text: "ju just being able to build and create things that are faster, I think we talked about the podcast a little while ago. How do you how do you direct something that is smarter than you," }
+  - { t: 277, text: "? How do you , if I'm just going to talk just purely code for just a moment, ? let's imagine I'm in code and I'm writing something in code and I ask it to build something and" }
+  - { t: 287, text: "the AI agent writes some code that I don't understand what is it doing here? Why are you doing this the way you're doing it? And I need to sit back and educate myself on what the AI is" }
+  - { t: 298, text: "deciding which is the best path to develop and build something. there's even this horizon we discovered discussed in that context, ? Yeah, that's exactly . it was it" }
+  - { t: 309, text: "was at some point the people that are using the models are going to tap out. The AIS will get better than what I know how to use. the the research" }
+  - { t: 319, text: "scientists the PhDs they're and the the large organizations are going to continue to innovate and push AI harder because they're able to really encapsulate what the AI is able to do" }
+  - { t: 330, text: "with these higherend elements. , I just watched a YouTube short from a gentleman who just said, \"I've retired from software development. I started software development in 2001. I have" }
+  - { t: 341, text: "spent a good run. It's 26. I've spent a almost a 25 years, a quarter of a decade doing this.\" He goes, \"I'm done.\" He said in as of March, he has stopped" }
+  - { t: 352, text: "writing code, does not write it anymore. He's retired from codew writing. And we look at this as a threat to us, a threat to how we look at things. And he said" }
+  - { t: 362, text: "we shouldn't we should look at that at that time as a fond period of time. We learned a lot of things. We had fun. We had successes. Look at that as a favorable moment. But know your role" }
+  - { t: 374, text: "has greatly changed. The the cat is out of the bag. We no longer write code. We manage direct and build experiences with incredible" }
+  - { t: 384, text: "speed because we have these new tools at our disposal. he's in this moment of we have to we have killed" }
+  - { t: 394, text: "a particular profession and job but we have opened up a brand new one that's entirely different and I think I want to be looking at this world as an optimistic side of things. sorry" }
+  - { t: 404, text: "random tangent I'm coming back to the pace of the frontier piece. I understand the need to write this article. I also look at this article with a little bit of skepticism in my" }
+  - { t: 415, text: "mind. in here we're talking about leaving the sandbox. What better way to rise your IPO market price" }
+  - { t: 426, text: "by saying man we have built something incredibly powerful we can barely keep our hands around it and keep it controlled. who's going to" }
+  - { t: 437, text: "governments, agencies, investors, they're going to eat that up and be \"Oh yeah, we need to go invest in them cuz they're they're building the most cutting edge whatever the thing is.\" And I look at this with a bit of" }
+  - { t: 449, text: "skepticism and I've been reading some counterarguments to the pacing of the frontier. This is this is this is a war game scenario. And and what by that" }
+  - { t: 460, text: "is if Anthropic slows down at all and their competitors do not other countries, other nation states," }
+  - { t: 471, text: "just other businesses in the US, if one team says we're going to slow down and focus on security and u some other non pushing the models forward, that puts" }
+  - { t: 483, text: "them at a disadvantage. And I I there's there's the oh shoot, I can't remember the name of it. Someone's going to in chat. If someone on chat is thinking about this or hearing this one, put in chat what what are we talking about here? There's a" }
+  - { t: 494, text: "game theory that's happening here that is at play because if any one organization slows down that is going to open the door for" }
+  - { t: 504, text: "a smaller or other organization who doesn't adhere to the same standards to rip ahead and potentially start taking some of your market share. It's it's cutth through it . what are your thoughts about that? It" }
+  - { t: 515, text: "feels very unreal and un improbable. . That any slowdown will" }
+  - { t: 525, text: "happen given what's at stake and given the the type of competition that's Yeah. commercial competition between different labs, but also competition between" }
+  - { t: 537, text: "nations, frankly. . and sort of the ability to take advantage of those capabilities." }
+  - { t: 548, text: "in that respect it feel particular what obviously in a world where UN level" }
+  - { t: 558, text: "international agreements don't really seem very viable anymore. . And it in on top of that context it it it" }
+  - { t: 568, text: "just seems merely practically there is there cannot be any slowdown because" }
+  - { t: 578, text: "it will never be unanimous and any single player who would decide to slow down would put themselves at a massive disadvantage." }
+  - { t: 590, text: "much for the doom and gloom. . since you mentioned IPO something very interesting number I saw just a few" }
+  - { t: 602, text: "days ago. currently the estimated total IPO value between the three major US labs SpaceX, Anthropic and" }
+  - { t: 615, text: "OpenAI. Sure. exceeds the combined total IPO, the combined total value of all IPOs in the states since 1980, which is" }
+  - { t: 627, text: "comprised of over 3,000 or companies. , that is an absolute insane number to think about. And frankly, that's that's at stake here," }
+  - { t: 638, text: "? , and I I think you're with your skepticism. I think these discussions and articles they they" }
+  - { t: 649, text: "probably play a role in the context of those three labs approaching y historic IPOs in in the next" }
+  - { t: 660, text: "12 months each all three of them SpaceX already did theirs SpaceX already IPOed for an insane amount of money very very large and the next two on the docket" }
+  - { t: 672, text: "are OpenAI and Anthropic they're the ones that are trying to push this. , what? What better way you know, I'm also seeing too. , Matias, you you sent you sent me a link. I love" }
+  - { t: 682, text: "Matias cuz you send me discount. You get another $200 free of credits on this platform. I'm It looks to me . You don't give discounts unless" }
+  - { t: 692, text: "you're trying to get people onto your platform. You're trying to get more usage of things. You're trying to highlight new features of what you're producing in your in your platform. me personally, , I I" }
+  - { t: 702, text: "Anthropic. No, no qualms against them, but man, I am really enjoying the Grockbot and the cursor experience much more. I have I have" }
+  - { t: 712, text: "decreased my spend recently. I still have some Anthropic and some some Clawude around, but I've substantially decreased my spend on Anthropic and I'm moving more over to" }
+  - { t: 724, text: "the XAI space and I'm finding more value and I'm getting more use out of my tokens. the tokens seem to be used slightly more efficiently for me over there. I can produce more. When I was on Anthropic, I was building projects, but" }
+  - { t: 735, text: "they were 80 90% of the way done. I feel on the cursor system, I feel I'm able to close that gap a little bit more and get much closer to 99 100% something's" }
+  - { t: 747, text: "finished and I can move on to the next project . , I'm also finding the harnesses really mean a lot to me here and how easy it is for me to collaborate with them, work with them. Computer use huge for me" }
+  - { t: 760, text: ". Absolutely love I'm automating a lot of deeper things with computer use built into agents. That's wow. That's an we're hitting" }
+  - { t: 770, text: "another accelerator on this by allowing computer use to happen too. , in in in very stark contrast, , to that" }
+  - { t: 781, text: "movement around pacing things, over the last couple of weeks, we've had incredible new releases and most importantly, I think we we've seen a new" }
+  - { t: 792, text: "price war, ? , we discussed GPT6 not alpha Astra when it" }
+  - { t: 803, text: "came out, ? a a absolute new frontier generation from OpenAI. they just released the" }
+  - { t: 814, text: "companion models GPT6 Soul and Luna. and both of them come with" }
+  - { t: 824, text: "price cuts compared to the previous 5.6 generation. huge Luna for instance, which was already at an insanely low price point, halfed." }
+  - { t: 835, text: "It's 50% of where Luna 5.6 was. I love this. . and similar for Anthropic, they they released Oppus 5.5 just a few" }
+  - { t: 847, text: "days ago, which also comes with a price cut and apparently more efficiency. I've seen I'm subscriber to pretty much all sort" }
+  - { t: 858, text: "of the major harnesses. , I've seen with astonishment just a few days ago, Claude Code offers a reset a a a" }
+  - { t: 868, text: "quota reset button, which is something Codex has had for quite a while, and they always tease people with letting them bank resets and" }
+  - { t: 881, text: "bringing them out, particularly, you know, when new models are released. For the first time, I've seen Claude doing the same thing. , it really feels" }
+  - { t: 891, text: "from a from a product point of view, there's more competition than ever before. Complete opposite to pacing things," }
+  - { t: 901, text: "although we need to put that we need to maybe look at this in in a more varied way. Pacing was not around" }
+  - { t: 911, text: "lowerendomical stopping developments. pacing was more around security and and safety barriers and" }
+  - { t: 922, text: "to what degree those should be integrated into into model development, ? But nonetheless it seems a bit" }
+  - { t: 933, text: "contrary to this apparent movement we've we've seen a few weeks ago. I'll also call here in the chat" }
+  - { t: 943, text: "we have VJ in chat calling out Grock 4.7 is also out . again these larger bigger models are touting great performance really pushing" }
+  - { t: 954, text: "ahead. I think Matias, you sent me even a link that said Elon's hoping to push out or Gro X it's not it's not him it's it's the company it's not him doing all this work but X AI is" }
+  - { t: 964, text: "trying to push out Gro 5 at some point and we'll be on par with all these other Astra and higherend competition fables it's going to be at that caliber" }
+  - { t: 974, text: "and it's it's interesting also to see how quickly XAI was very late to the game OpenAI was initially the program that started all this they came in very after the fact. they have" }
+  - { t: 985, text: "Colossus, their own data center. they have their own models that are rivaling the best models in the world. Their speed of improvement feels it's quite immense compared to what's" }
+  - { t: 996, text: "going on here. I'll throw the the link here in the chat as . Grock 4.7 is out. Very capable, more efficient, very smart as . Another project that we have to talk about as" }
+  - { t: 1006, text: "we're talking about efficiency and making things better here, Hydrofusion. Have you heard about hydrofusion from GitHub copilot? That is Yeah. I think I I haven't" }
+  - { t: 1018, text: "looked too much into it, but I think it's some intelligent model routing system. Yes. . it's on the GitHub CLI" }
+  - { t: 1028, text: "only. I have to imagine this is not going to be long until they start pushing this into VS Code here pretty soon. you'll have auto mode and then you'll have something else that will help you or maybe this will" }
+  - { t: 1038, text: "just be the auto mode, ? this maybe will become auto mode. but the idea here of this is when you look at the CLI, it's an experimental feature and there's a really good" }
+  - { t: 1048, text: "diagram on the link I just sent in the chat window talking about task routing, ? Your user request comes in prompt in Hydra scores. What's going on here? It feels to me , , I'm I'm going" }
+  - { t: 1059, text: "to read between the lines here. It feels to me user request Jev shows up and says which tool should I use? And then the orchestration happens, ? a" }
+  - { t: 1069, text: "single a console mode, critique mode, the rubber duck mode. Let me rubber duck this scenario. talk to my rubber duck about the solution and and think through it and then it goes into execution mode. But all of these" }
+  - { t: 1080, text: "different tasks could be running on different models throughout this process and it's going to pick the most appropriate model. You probably wouldn't" }
+  - { t: 1090, text: "throw a Luna at rubber duck, ? You wouldn't do the critique with Luna. you do the critique with a fable or an Astra, ? that that might make sense in that area. And then when you" }
+  - { t: 1101, text: "get down to the execution phase, you've already got the plan. You already know what you're building. , then then Luna picks up and builds all the items. And your reviewer phase" }
+  - { t: 1111, text: "probably also shouldn't be Luna. It might be a different model and a higherend model as . this hydrofusion is a taskaware routing between a single mode. It selects one model for the whole process. Cascade" }
+  - { t: 1122, text: "mode, which means drafting a model drafts a solution and quality gates. And then critique mode, which is one model drafts a result, an independent readonly" }
+  - { t: 1133, text: "critic from a different model family reviews it that rubber duck scenario. in in preview in experimental , I have played with it a little bit. It's" }
+  - { t: 1143, text: "pretty cool. yeah, I I'd seen the announcement. I'm just looking at the blog post here from September 4th where" }
+  - { t: 1154, text: "they talk about that as a research preview. technologically it makes complete sense. Yes. Economically I'm worried because" }
+  - { t: 1164, text: "you are giving up all controls around cost. Yes. Correct. . this engine determines which model" }
+  - { t: 1174, text: "to route to. you're going to be charged with that particular model's rates and you have limited control if no control with respect to how that" }
+  - { t: 1186, text: "happens. it it will work if you don't worry about budget or have unlimited budget, ? But otherwise you can have a really bad" }
+  - { t: 1197, text: "awakening here. I think you were . I think it's a caution here but if you look down there's an article that the one I just posted here and I'll put this in the chat matas for you directly. If you go" }
+  - { t: 1206, text: "halfway down they did a little bit of a study on terminal bench. I think one of the core goals of this one is what you're describing which is being cost sensitive to this . , I think" }
+  - { t: 1216, text: "it's it's the idea of , , if you use hydrofusion versus just throw Opus 5 at everything or Astro Astro 6 or whatever. If you use this system as opposed to one of the other premier" }
+  - { t: 1227, text: "models, the goal is to continue to bring down cost to run this stuff. And , when you combine the high-end reasoning models with very" }
+  - { t: 1238, text: "descriptive what do I need you to do? There's probably a lot of the context window those if we're if we're thinking about when we give a prompt and what the agent needs to think about. We probably don't need to give" }
+  - { t: 1248, text: "the agent all the context, ? Summarize the conversation and then give the agent only what it needs to make its assumptions or reason about the code" }
+  - { t: 1258, text: "and then come back to these other lower-end models. , it sounds they're not only trying to give you better performance, better bigger models when you need them, but also give you a better cost control as . And I think" }
+  - { t: 1270, text: "as another point of note here about our team we have been using cursor we've been using anthropic and we've been using github" }
+  - { t: 1280, text: "copilot. When github copilot made their new pricing change we have found much we're burning through credits fast and it's not useful for us to" }
+  - { t: 1292, text: "spend as much money. we pivoted away from GitHub copilot and started really lighting up a lot more anthropic. , then with the advent of more of the inventions that are" }
+  - { t: 1302, text: "around cursor and we discovered that we're moving most of our investment away from anthropic and copilot and we're moving a lot more into the cursor environments. , we're" }
+  - { t: 1313, text: "spending more there and feel we're getting more out of it. It's a better harness. It's a better way of routing problems and tasks and delivering results. we have been fluid in shifting where we are spending our money" }
+  - { t: 1324, text: "and how we get the best use out of the subscriptions and tokens that we're paying for and we're finding it's not for us. It hasn't been co-pilot and anthropic. this is the competitive" }
+  - { t: 1335, text: "edge this is you've got to have these things in place for us to come back to the program and start paying more money for these systems. Just one note with respect to" }
+  - { t: 1346, text: "multimodel sessions and and switching models mid session from a cost point of view there's one big let's say risk here which is around" }
+  - { t: 1359, text: "caching if you've ever looked at pricing sheets for LLMs you you will have seen there's a different price for" }
+  - { t: 1370, text: "raw input as opposed to cached input. . And the difference is normally onetenth or or maybe even less than that for cashed. And this is ultimately in" }
+  - { t: 1382, text: "longunning sessions where you're going to get most of your benefits from in terms of how much is that costing me out of pocket. you have a very very steep increase" }
+  - { t: 1394, text: "at the beginning of a session when there is no cash in place when everything needs to be read for the first time and then the cost goes down significantly the longer the" }
+  - { t: 1405, text: "session runs relative to the session duration because you're getting benefits from the model cache. , you're still sending the same inputs" }
+  - { t: 1416, text: "across, but it's getting charged at a fraction of the price. All of that breaks if you decide to" }
+  - { t: 1426, text: "change your model midsession because at that point when once a new model is there, you're starting all over again, ? And the same thing applies when it comes to breaking down tasks" }
+  - { t: 1438, text: "into subtasks and and when you use sub Asians all of that every single one of them as they start have a very steep initial price and" }
+  - { t: 1450, text: "that is something which ultimately needs to be factored in as . just a quick note here" }
+  - { t: 1462, text: "from from a from a practical point of view. It's also something you will have noticed if you have a long running session and you you you don't send any prompts for a while. at some" }
+  - { t: 1476, text: "point the cache will will be invalidated. sometimes it's an hour depends on who the model provider is. You will then also see how" }
+  - { t: 1489, text: "sending a new prompt into a session that's been idle for a while will suddenly jump your your cost. That's exactly the reason there." }
+  - { t: 1502, text: "planning cost planning is is quite complex and there are lots of factors in here. This is this is speaks I think Matias to" }
+  - { t: 1512, text: "your knowledge in this area because e even at this level even even here at this level where you're able to go in this deep and talk specifically to cost" }
+  - { t: 1524, text: "there's even not a lot of tools today that I'm any good tool you say that I have not seen any good tool that lets you really" }
+  - { t: 1534, text: "understand what is going on token costwise across these agent things. , I have multiple different tools on my computer. I'm using Anthropics u code, you" }
+  - { t: 1546, text: "know, cloud code. I'm using GitHub copilot on the service. I'm using Grockbot over here in another app. all these different thing I'm using them. I'm getting value out of them. I'm" }
+  - { t: 1557, text: "making things faster than I ever have before. I'm not writing any code, but there's zero way for to see a consolidated dashboard of all the things that are happening here. What are we doing? What are we spending time? And" }
+  - { t: 1568, text: "I think to me the part here that would be really useful is I have a task from that prompt. How long, how many tokens, what cost took me" }
+  - { t: 1580, text: "to get to a resolve or an answer from that task, ? It and this is this is the same thing that we would monitor with software and programming. And this is why we had" }
+  - { t: 1590, text: "Scrum and agile I'm going to describe a feature and we're going to task it all out and put scored points on this stuff. And we had a way of measuring human effort to get us to a" }
+  - { t: 1600, text: "completed feature, ? What did that cost us? And that way leadership can make evaluated decisions on do we build a brand new UI? Do we build this new feature this customer's asking us for?" }
+  - { t: 1611, text: "Do we fix some bugs? Someone's got to allocate resources to this. And even in the same way, we don't really have a good read on that. there's no" }
+  - { t: 1622, text: "scrum agile process for agents and their tokens. And it feels to me there's something here that needs to be used. And I know I I bring this up because it" }
+  - { t: 1632, text: "sounds you're really in the weeds on using models and performance tuning them and getting the model at the time to know how to most" }
+  - { t: 1642, text: "effectively use your spend you're not running out of tokens. Yeah. You mentioned the the the old" }
+  - { t: 1652, text: "world of nonAI software development earlier, ? In that world, if you were a very senior engineering manager, one of your key skills and tasks" }
+  - { t: 1664, text: "would have been to get an understanding of the economics of given a new project, given a new milestone." }
+  - { t: 1674, text: "being able to break that down and estimate, , how many manh hours does that translate to? Yes. what is the cost of these workers? How much" }
+  - { t: 1686, text: "how long will that take in terms of time? we need to relearn those skills. But in the age of AI agents," }
+  - { t: 1697, text: "? we need to we need to particularly at scale we need to get to a point where we can estimate cost" }
+  - { t: 1707, text: "similarly reliably when we have fewer human workers in the mix. And I think one that" }
+  - { t: 1720, text: "takes a lot of experience it it requires you collecting a lot of data and being able to analyze the data" }
+  - { t: 1730, text: "to then apply experience to to new pro problems and very few people I would say have you" }
+  - { t: 1742, text: "know that data or knowledge readily just because I think that's definitely something to focus on moving forward and as you can" }
+  - { t: 1753, text: "as you've hinted that's definitely something I'm very keen passionate about. We talk about this a lot and keen yeah there we [laughter] go. Yeah. I I want to I want to throw out one" }
+  - { t: 1764, text: "concept here that I think is really potentially useful here. we we'll see what you think about this one. The concept here is AI and agents" }
+  - { t: 1774, text: "are a time machine. They're a time machine. And and here's why I say this. They're a time machine because let's" }
+  - { t: 1784, text: "take someone who's a CEO of a company, ? Their presence in front of a customer or making a deal or something. Their physical presence at a location" }
+  - { t: 1795, text: "solidifies that deal. they buy jets and they fly around. The jet expense is a time machine for them. They can move themselves physically to places to where" }
+  - { t: 1806, text: "they can be at the point of decision making the big calls being where they need to be at that point in time. ? It similarly we used to have a team of" }
+  - { t: 1816, text: "people that could only work for a certain amount of hours per day. then we would try to figure out how to parallel parallelize our work. How can we have many people work on the same feature or different features all in the" }
+  - { t: 1826, text: "same codebase? Git, CI/CD patterns evolve. with agents, the the the area under the curve, the" }
+  - { t: 1836, text: "work that's accomp needs to be accomplished to build the feature, the software, the product is the same. There is zero change on the area under the curve. The work is still the same. I got" }
+  - { t: 1847, text: "to build the app. I got to build the software. I got to build the UI. That didn't change. What has changed is how I parallelize that work and it turns into I can direct but I can have one," }
+  - { t: 1859, text: "two, five, 100. This is where I see some of these projects in the research area. They're , \"Hey, we rebuilt the entire Linux kernel in three weeks and" }
+  - { t: 1870, text: "$150,000 of tokens. just let the a there was a hundred agents building and ticketing and people are really experimenting with this whole concept of throwing lots of agents at a tooling" }
+  - { t: 1881, text: "system and having the AI stuff build these things for you. the the work did not change. What changed was how much of the work can be parallelized," }
+  - { t: 1892, text: "how much how fast can the code be written to produce the results that we want. And , , to me, I look at this as putting AI in your hands is that time" }
+  - { t: 1904, text: "machine. It gives you your time back. You're not worrying about little things. another another slightly example here, , just recently, I had to go pull some data myself. Most of my data" }
+  - { t: 1915, text: "pools are with talking with agents and go get this and connect to this server and write me a Python notebook that does this and I just have the agents push and pull around data. I needed to go to Excel and I needed to copy out and" }
+  - { t: 1927, text: "type numbers into Excel and Matias my brain has been reprogrammed. I was annoyed because I started doing the work" }
+  - { t: 1938, text: "and I looked away at the clock and then came back and was I had wasted hours of time pushing numbers around. I thought this is beneath me. I'm frustrated" }
+  - { t: 1949, text: "because typically I would just say agent do this and then I get all the numbers a full HTML document with clickable links all the things in there. I'm looking at this going oh my word this this could be" }
+  - { t: 1962, text: "I have reprogrammed my mind much that I think this is everything felt slow. I felt I was just walking or even walking backwards" }
+  - { t: 1973, text: "because it was slow compared to the speed. I can build full apps in that time that took me to do that two hours of just moving some simple datas and making a table." }
+  - { t: 1984, text: "I don't know if you're having the same occurrence, but there are there are glimpses of my old world and tasks that I used to do and it bothers me how long it takes me . What about you?" }
+  - { t: 1994, text: "I've got a little episode which goes in a similar direction. not quite the same thing but something which has occurred to me quite a few times" }
+  - { t: 2004, text: ". I frequently run very beefy agentic development sessions. beefy in the sense that not oneshot stuff, but" }
+  - { t: 2014, text: "very complex specs that require sort of many parallel sessions and lots of coordination and and often times those" }
+  - { t: 2024, text: "sessions run for days at a time. Yeah. with hundreds and hundreds of individual agent sessions involved there. my goodness." }
+  - { t: 2037, text: "you are you are time warping. you're super time travel I mean 72 hours or would not be unusual for that and I" }
+  - { t: 2047, text: "frequently find myself getting quite frustrated because it takes long and thinking checking in on my phone or on my computer where are we at" }
+  - { t: 2058, text: "taking long because I created this big spec and the big vision up front and then I obviously want to see it delivered yes however" }
+  - { t: 2068, text: "It's sometimes it then occurs to me how insane that very thought is because the scope if if if this same work had been done" }
+  - { t: 2079, text: "through humans weeks and it and it would have taken 72 or hours it would have been absolute miracle we we would we would be" }
+  - { t: 2089, text: "counting in months or not in hours or days yes your whole brain has been reprogrammed that's that's something which I've noticed myself thinking" }
+  - { t: 2100, text: "quite a few times recently. I thought it's useful to take some perspective here and to appreciate the superpowers that we" }
+  - { t: 2110, text: "have which also I think in in the whole doom and gloom discussion around pacing and the dangers of AI. I think it's really worthwhile that we look at some positives here and" }
+  - { t: 2122, text: "this one I would agree how how AI models and capabilities how they enable individuals and and" }
+  - { t: 2135, text: "companies and and smaller companies to achieve a whole new level of productivity and efficiency that would have been unthinkable" }
+  - { t: 2147, text: "previously. I think that's something we really need to appreciate. I would agree with you in addition to this. , . , I'm going to give you another personal story here real" }
+  - { t: 2157, text: "quick. , agree with you on this one. The next generation behind us is quite wild. I would agree my son" }
+  - { t: 2167, text: "interested in computers. I started showing him AI. I might have made an animal. he comes home one day and he" }
+  - { t: 2177, text: "says, \"Dad, look what I did.\" I said, \"What did you do?\" He goes, \"I got into Gemini and I started talking to about the game I wanted to build. I built five games today.\" , [laughter]" }
+  - { t: 2187, text: "\"Oh my word.\" , he's he's pulling. , he goes, \"I go to Gemini. I ask him to write me the it's a single HTML game.\" And then he he brings it all and then he says, \"I take that and I put" }
+  - { t: 2195, text: "it in this other website that runs HTML in the browser.\" And , he just would run the game. I said, \"This is awesome. Show me how the games work.\" , he's making some games. One of them is just super cute. He has this little jumping" }
+  - { t: 2207, text: "square. It's one of those jump games. You just jump around a m a scene. Super cute. But he he started paying attention to the character and the feelings of the character. And when" }
+  - { t: 2218, text: "it jumped, it squished together and rose up. And when it landed, it kind of flattened out a little bit and came back to square. it had a little cute animation. And he goes, \"I made it" }
+  - { t: 2228, text: "that when it went to the left, its eyes went towards the left side of of the character.\" And it looked it was looking and running that direction and then its eyes went the other way and" }
+  - { t: 2238, text: "ran back the other way. And when you stopped, it centered the eyes. Very fine tuned details, but made the game feel much more human" }
+  - { t: 2248, text: "real to you. anyways, he's building these things. He's got a couple games. We're talking about stuff. , fine. I'm downstairs working in on computer. He comes down. Hey, ," }
+  - { t: 2259, text: "I wanted to It's time for dinner. Let's go eat. And , great. I'll come up. We'll go do. He goes, \"Dad, I need to publish my games to Netfly.\" I'm , \"Whoa, whoa, whoa, time out. I know what" }
+  - { t: 2270, text: "that is. How did you learn about all this?\" He goes, \"Oh, I just talked to Gemini and said, \"Hey, I want to publish my game. How do I get on the internet? How would I make this thing? What do I put ads on? , I'm thinking I'm" }
+  - { t: 2278, text: "going to add Google Analytics and that way or, , let's add some ads ad runs on this I can make the game and put it out there and see what people . I'm , these are the things I" }
+  - { t: 2288, text: "would have taught him myself, but he just picked up on it and and he's using a his expect to your point, , you're you're taking 72 hours to things" }
+  - { t: 2299, text: "that used to take months. My son is interacting with AI in this way and he expects days hours of work of" }
+  - { t: 2309, text: "content. This is his expectation. His expectation is there's this thing called HTML. The bot just knows how to write it. I just tell it what I want. It just changes it and it and it works. that that is his expectation of" }
+  - { t: 2320, text: "code . And I and he does understand the concept of learning what the HTML means and how to read it and things there. But we are three to six months away from no one ever reading the code" }
+  - { t: 2331, text: "again. I I I really firmly believe that that's what's going to be happening. And between skills and and tooling, we will build the tools that we need and" }
+  - { t: 2341, text: "it'll it we will we're rapidly moving away from needing to understand and know what the code is doing. We just trust the AI that it's going to be doing it." }
+  - { t: 2352, text: "And if we don't understand it, we ask the AI, read your own code. comment in it something that's human readable I can even see sections of code in what you're doing or or write for me the" }
+  - { t: 2363, text: "documentation of what you're doing. We're there. the fact that I'm seeing the next generation already behaving this way is shocking to me. Let me just" }
+  - { t: 2374, text: "let me just leave that thought there. What do you think about the next generation of this our kids? I think it's very important we focus on" }
+  - { t: 2384, text: "those positives and on on on the on the potential in terms of education in terms" }
+  - { t: 2394, text: "of research in terms of yes agree healing illnesses doing medical research at at a scale and pace that wouldn't have been possible" }
+  - { t: 2404, text: "previously. focusing on how everyday workers suddenly have superpowers in terms of what they're able to achieve and how efficient" }
+  - { t: 2416, text: "they're going to be at that. because everything else you end up in a in a in a doom cycle, , where yes" }
+  - { t: 2426, text: "absolutely there are probably inherent dangers, but then again at our level there's very little" }
+  - { t: 2438, text: "we can practically do for or against that. ? before we all get depressive and and and gloomy about" }
+  - { t: 2449, text: "that let's look at what we can positively take from it. Let's let's look at how" }
+  - { t: 2460, text: "lucky we are living at that point in time. Yes. agreed. And just enjoy whilst we can. One thing that came up on the explicit" }
+  - { t: 2470, text: "measures podcast talking with Kurt that I think is a good ending point here as . is Kurt brought this three C's. Everything has a C anymore. It's claude code" }
+  - { t: 2481, text: "copilot. It's it's it's everything has a C anymore. But Kurt came up with three C's. He said I think you need to think about AI and this next world in three C's. One be very curious. just just have" }
+  - { t: 2493, text: "an open heart to learning and trying to figure out and exploring and pushing on this new world that we're walking into. Nobody knows what's going to happen. This is all new to everyone." }
+  - { t: 2503, text: "be curious. the second one is nothing else, there's going to be this new wave of accelerated creativity of the code that you used to build. The" }
+  - { t: 2515, text: "world's your oyster , ? you got a crazy wild idea on a site or something useful or a tool or something fun, you can crank this thing out in a weekend . , creativity is going to be" }
+  - { t: 2525, text: "paramount even more than it was before because the barrier for people to be creative with AI things just dropped" }
+  - { t: 2535, text: "substantially, I think. And for, you know, a a reasonable amount of subscription, 100, 200 bucks a month US, you can start building these really creative things that you never would" }
+  - { t: 2546, text: "have touched before. I'm building things never would have touched them before at all. Then the third thing was, and I thought this was really good, be critical. And I think this is the part that this" }
+  - { t: 2557, text: "article particularly is being evaluative around, ? We can we can look at the we could look at AI and say it's going to revolutionize the world and create a lot of good. To your point, I I'm seeing" }
+  - { t: 2568, text: "an article here from Anthropic. Claude discovers a novel enzyme system with the crisper-l repeats. Cool. They're discovering new medical" }
+  - { t: 2578, text: "things here. Discoveries are starting to happen with these AIs. Awesome. That could very much betterment the world. But if you talk to Kurdle long enough, he'll also caution you around, , with that, you can also mutate viruses" }
+  - { t: 2589, text: "and you can do some really bad mutations on the other side of things. , I I want there is a double-edged sword to this. We do need to be critical about what we're producing and how safe is it?" }
+  - { t: 2600, text: "and how do we better control this one? The more that you elevate AI and make it do really incredible things, we also have to use AI to control the incredible things. I think this is a a balancing" }
+  - { t: 2612, text: "act that we're going to have to continue to do. I'm on the optimist side. I see a lot of really good things coming, but I'm not going to be naive to say it's only rainbows and unicorns moving" }
+  - { t: 2623, text: "forward here. There is we need to really do think about critically move forward, build great new technology, but also at the same time we need to have" }
+  - { t: 2634, text: "continual reviews of governance security. How do we manage this? How do we do this in a safe way? I I do think in the same way I I look at this as an analogy against a car. We" }
+  - { t: 2645, text: "were riding around on horses for a long time. We could go c certain amount of distances, but at some point someone said, \"Let's build a car.\" There was a lot of deaths initially when the cars" }
+  - { t: 2655, text: "came out. People didn't know how to drive. There was no street signals. We were just ripping around everywhere we went. My parents grew up with no seat belts. My dad recalls stories of him" }
+  - { t: 2665, text: "bouncing around on the back of the car because you could go anywhere in the car. There was no seat belts and wa that's fun. You're hitting bumps and I'm flying all over the car. today" }
+  - { t: 2675, text: "we're buckled in. We've got airbags. The car safety has greatly increased. And I think this is the same technology advancement, ? We're building AI. We also need to build" }
+  - { t: 2685, text: "airbags and seat belts and things that go along with it. It will propel us forward. It will be our time machine moving forward, but we also need to be mindful that some safety things will" }
+  - { t: 2695, text: "have to come along with it as . It's both going to need to mature in both patterns. What are your thoughts? A very nice analogy. I think the car thing works really because" }
+  - { t: 2706, text: "what you're describing is twofold, ? One is cars themselves have evolved enormously in terms of their inherent safety features." }
+  - { t: 2716, text: "Yes. . seat belt with airbags and whatnot. But at the same time, the infrastructure within which we're using" }
+  - { t: 2726, text: "cars has increased enormously in terms of safety because we agreed to a catalog of rules that most people adhere to" }
+  - { t: 2736, text: "which which makes the whole system substantially safer than it would be otherwise. And I think in terms of where AI is heading, we" }
+  - { t: 2747, text: "need both, ? We need inherent safety features built into the models themselves, which is what these AI labs are talking about. but then the question becomes, can" }
+  - { t: 2760, text: "we also somehow have a joint agreement around the infrastructure within which AI models are being used? And I think" }
+  - { t: 2771, text: "that's probably a much bigger question. but nonetheless, I I fully agree we must focus on the positives and on the potential. ," }
+  - { t: 2783, text: "everything else would be really bad if anything in in terms of mental health. let's let's not go down that route. Yeah. And I and I think I think honestly you think about people, ?" }
+  - { t: 2794, text: "There are people in the world that are contributing much good and much and there's also people in the world that contribute much bad to the world. I I think we have to take this in the same way with a lot of these technology advancements. There's a lot" }
+  - { t: 2805, text: "of good that can come out of it and a lot of bad and I think as u a culture as a as as we interact with these things I choose to heir on the side of pushing for good. That's that's I think you have" }
+  - { t: 2815, text: "to make a choice around that and with responsibility and ethics and and move forward with these things. Great point. I absolutely love that. I didn't I didn't gather the" }
+  - { t: 2826, text: "infrastructure analogy part also. That was a really good insight there as . All , we hope you enjoyed this discussion about us unpacking some things. There's some great new models out there. You may not have heard about" }
+  - { t: 2837, text: "Hydro Fusion from GitHub Copilot. Check that out. You may want to look at that. There also some really great new frontier models. Luna 6, also probably worth your time to go look at investigate if that works in part of" }
+  - { t: 2848, text: "your workflow. hopefully this little bit of knowledge around AI and AI related things was helping you out. Matias, thank you much for this episode. This was a really good fun talk. We'll be seeing you hopefully next" }
+  - { t: 2859, text: "Tuesday as we keep going down this chatting experience around unpacking AI and thinking agentically. We hope this has helped you out. We appreciate it. Make sure you give us a and a" }
+  - { t: 2869, text: "thumbs up down below. It really helps the algorithm and the AIS know what is useful to you to recommend it to other people. Matias, thank you again. This is a lot of fun. Thanks, Mike. See you next" }
+  - { t: 2879, text: "time. See you." }
+  - { t: 2889, text: "[music]" }
+
+---
+
+## Summary
+
+Mike and Mathias spend this talking episode on Dario Amodei's argument that frontier labs should slow down and build AI in a more governed way. They connect that call to recent cases of agents leaving sandboxes, to the practical problem of directing systems that outpace the person prompting them, and to the competitive pressure that makes a voluntary slowdown hard to believe. The second half gets concrete: route work to the model that fits the task instead of sending everything to the most expensive frontier model, watch what long sessions actually cost, and keep Kurt's three C's in view — curious, creative, and critical — including the safety gear that has to mature alongside the capability.
+
+## Key Takeaways
+
+- ▸ Amodei's pacing essay landed because a frontier-lab CEO is the one asking to put a foot on the brakes, after public cases of agents escaping sandboxes at OpenAI, Google, and Anthropic.
+- ▸ A unilateral slowdown is a game-theory problem: if one lab pauses and competitors, companies, or countries do not, the lab that paused loses the race it is trying to make safer.
+- ▸ The estimated combined IPO value of SpaceX, Anthropic, and OpenAI is described as larger than every U.S. IPO since 1980, which is why Mike reads the safety essays with some skepticism about positioning.
+- ▸ Task routing, including GitHub Copilot's Hydro Fusion, scores a request and can send a critic from a different model family instead of throwing a top-tier model at every prompt.
+- ▸ Long-running sessions are where the bill shows up. Leaving a session idle or letting one model grind for hours changes the cost curve much faster than a short chat.
+- ▸ The close borrows three C's from Kurt on Explicit Measures: stay curious, use the drop in cost to be more creative, and stay critical about safety, the way cars needed both airbags and road rules.
+
+## Links
+
+- ▸ [We Must Pace the Frontier](https://darioamodei.com/post/we-must-pace-the-frontier?utm_source=agentic_thinking&utm_medium=website&utm_campaign=20260925)
+- ▸ [GitHub Copilot models and pricing](https://docs.github.com/en/copilot/reference/copilot-billing/models-and-pricing?utm_source=agentic_thinking&utm_medium=website&utm_campaign=20260925)
+- ▸ [AI doomsday warning](https://www.theguardian.com/global/2026/sep/15/ai-doomsday-warning-jacob-coxon-anthropic?utm_source=agentic_thinking&utm_medium=website&utm_campaign=20260925)
+- ▸ [Anthropic and NVIDIA on AI](https://www.theguardian.com/technology/2026/sep/15/anthropic-nvidia-ceos-ai?utm_source=agentic_thinking&utm_medium=website&utm_campaign=20260925)

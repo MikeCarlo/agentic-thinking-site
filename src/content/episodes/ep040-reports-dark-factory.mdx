@@ -1,0 +1,281 @@
+---
+title: "Reports Dark Factory"
+episodeNumber: 40
+date: "2026-09-15"
+youtubeId: "Ir_eJB9LvVo"
+duration: "44:16"
+blurb: "Mike and Mathias ask whether Power BI and Fabric reports can run like a lights-out factory, then look at PBIR, Omarchy, and the hot reload Fabric still does not have."
+tags: ["power bi", "fabric", "dark factory", "pbir", "agentic thinking"]
+chapters:
+  - { t: 0, label: "intro" }
+  - { t: 73, label: "what a dark factory is" }
+  - { t: 437, label: "a report factory" }
+  - { t: 643, label: "pbir and tmdl as lego bricks" }
+  - { t: 816, label: "omarchy and skills in the os" }
+  - { t: 1481, label: "linux wsl and local agents" }
+  - { t: 2097, label: "publish then embed" }
+  - { t: 2219, label: "hot reload and incremental publish" }
+  - { t: 2535, label: "wrap up" }
+transcript:
+  - { t: 1, text: "thinking." }
+  - { t: 12, text: "Hello Agentic thinkers and welcome back to Agentic Thinking. We're we're thinking more about agentic systems and design. Matias is with me again. We are here talking about more systems. Hello" }
+  - { t: 22, text: "Matias. How are you doing today? Hello. My favorite time of the week. I always love chatting about AI and everything related. , what do you have on your mind today?" }
+  - { t: 32, text: "I I have a very random topic. , and we'll hopefully tie this into report development and building things with reports. , but that's very you to say that this is one of your fun your" }
+  - { t: 42, text: "more interesting times to talk with people about AI. , everywhere I go anymore, there's usually some rumbling of a conversation around AI. And I" }
+  - { t: 52, text: "really talking with other people about this because it's it's changing how I think. It's changing what I do day-to-day. It's changing the work that I use. , , I really enjoy this and I'm learning a lot from you as . Awesome." }
+  - { t: 62, text: "Very good. Let's talk about a topic here. , I wanna I want to present to you an idea. Matias, I think you you introduced me to the concept. , you you" }
+  - { t: 73, text: "gave it to me initially, which was this a bit broader, but the topic is a dark factory. , and I come from mechanical engineering. That's my" }
+  - { t: 83, text: "background. M and one of my things in mechanical engineering is I'm used to thinking about building a product manufacturing facility that is" }
+  - { t: 94, text: "lights out. There's very little human interaction. It's mostly robotic automation. the machine turns on, it feeds its own material. It it cuts, it builds, it does whatever it needs to do. And it produces" }
+  - { t: 106, text: "a product that goes down a manufacturing line. It you can turn the lights out in the building and run lights out. That's really the idea of a dark factory." }
+  - { t: 116, text: "I there's a concept that you gave me which was a dark factory for software. I had not thought of this. maybe you could touch a little bit of idea here." }
+  - { t: 126, text: "What are you exploring in the dark factory for software? What does this mean? . It's it's something which seems to be getting a lot of traction" }
+  - { t: 137, text: ". when when you you know when I go to AI events locally in London every other one of them people present their latest" }
+  - { t: 149, text: "idea around dark factory or or talk about which dark factories they've played around with and yeah ultimately the idea is to completely" }
+  - { t: 162, text: "hand off software development to some AIdriven machine process, whatever you want to call it. , as opposed to sitting there" }
+  - { t: 173, text: "and writing the prompts and and putting the prompts into your coding agent. , and yeah, dark is you already said it, ? Dark means there are no humans involved, ? You don't need" }
+  - { t: 184, text: "lights, but , factory means you've got some notion of assembly line, , some notion of inputs on one end and" }
+  - { t: 194, text: "outputs on the other end, ? And when it comes to software, inputs obviously would be requirements, bugs, ideas. Outputs would be, ," }
+  - { t: 204, text: "software that runs that you can ship. and from my point of view that is definitely something which goes way beyond harness engineering. , we" }
+  - { t: 215, text: "talked about harnesses a lot. , how important the harness is in terms of being successful with AI and also how a good a engineered harness" }
+  - { t: 228, text: "is arguably a lot more relevant to your success than the model itself. but harness still means you" }
+  - { t: 240, text: "work in turns. , you put a prompt in, then it goes off and works sometimes for hours and it comes back and gives you a response, but also" }
+  - { t: 252, text: "as a side effect, it's it would have created lots and lots of code, ? , yes, dog factory goes substantially beyond that. , you" }
+  - { t: 262, text: "know, that harness process would only be a very small Lego block within within a dark factory. that deserves the notion. And" }
+  - { t: 274, text: "hence you can probably tell it's a very non-trivial engineering problem but the it's coming lots of people" }
+  - { t: 285, text: "lots of big brains are working on it and also the promise is obviously massive I think this is a topic that I've kind of breached a little bit with Tommy at some point and and I think AI the the" }
+  - { t: 297, text: "reasoning capabilities of what AI can do u making those AI elements become party reasoning. And we again we talk about harnesses. Let me let me just tease out here for a bit more of the idea. When" }
+  - { t: 309, text: "I'm building software , I'm talking to an agent. I'm describing the features that I want, maybe even supplying some images or diagrams around the the thing that I'm trying to build, ? I'm still communicating with" }
+  - { t: 319, text: "an agent at the front end of things, but more and more of my workload is becoming automation in a process that factory piece of this. And I think this analogy fits very in this" }
+  - { t: 330, text: "example because more and more I'm getting the letting allowing the agent to be reasoning about the code as it goes through this process. , GitHub has been a staple in what I've been" }
+  - { t: 341, text: "building around this, which is build some software, get a pull request going, have an agent review said pull request, comment on things, make changes, if" }
+  - { t: 351, text: "there's any issues that come up or arise through testing, create new issues in the repo to have yet another round of agents go back through and cycle through fixing those issues and resolving things" }
+  - { t: 363, text: "over and over again. I'm applying our engineers to say what is good standard practices, how do we build UI? What does a component look ? When do we componentize things in the UI versus" }
+  - { t: 374, text: "when do we don't? There's a lot of decisions that the people are still making in part of the process. But at the end of the day, I'm building a manufacturing line, I think, for my" }
+  - { t: 385, text: "software these days, which I think is really exciting. It's bringing to light a lot of new challenges that I haven't thought about before. , how do you do" }
+  - { t: 395, text: "good testing? How do you handle bugs? , what is my feedback system for documenting bugs in a way that an agent can understand what is the bug? I have found in some of" }
+  - { t: 407, text: "my software pieces animations or when you click on something and the screen physically changes to something else is quite difficult to document in a way that the agent is un able to" }
+  - { t: 417, text: "understand before states clicking and then the after state and the the desired outcome of that's hard to put into" }
+  - { t: 427, text: "words or put into images without overrunning your tokens on top of it as . I think there's a there's a lot of interesting things here and I want to maybe if we understand kind" }
+  - { t: 437, text: "of what the software factory is I'm going to propose the weird question Matias are we at a are we looking at the beginning of a report dark factory are" }
+  - { t: 449, text: "we starting are you starting to see can the report or can the PowerBI or the fabric eos can we start peering into fabric or reports and turning them" }
+  - { t: 462, text: "into the dark factory. What are your thoughts on this? Is it are we close? Are we really far away? What do you think here? it depends on scope, ?" }
+  - { t: 474, text: "Oo. Because this if if you're saying, , I've got an existing setup, , with data pipelines and" }
+  - { t: 484, text: "semantic model and I've got reports that are being used and I want to make iterative changes to those reports. . Sure. I would argue we're absolutely there, ? That's that's a trivial problem. That's" }
+  - { t: 494, text: "definitely something we can fully automate today. Yeah. , build on something that's already been engineered. understand how" }
+  - { t: 504, text: "the inner workings of it and then I don't know create a new page or or some some new visuals on top of it. Maybe m maybe even maybe even create" }
+  - { t: 515, text: "some additional measures, , that facilitate what you need, ? that's relatively trivial and you can easily see how you" }
+  - { t: 525, text: "would fully automate that but you real world data analytics problems can" }
+  - { t: 536, text: "go substantially further than that what what if there's a request that requires you to bring in an external data source that" }
+  - { t: 546, text: "you have never looked at for you This is something I know from my own experience. That's that's that's when PowerBI and data analytics in particular in general," }
+  - { t: 557, text: "that's when it gets complicated and because then you it's fun for me. Then you need to explore what's even possible technically. You possibly" }
+  - { t: 567, text: "have to weigh between different options around how you connect to that data source. what does authentication look ? Y do I have some live connection?" }
+  - { t: 577, text: "Do I stage it? If I do stage it, you know, is it is it a secret? , then suddenly you open a massive room of questions and possibilities" }
+  - { t: 590, text: "and it's more complicated than a chess game in a way in terms of the decisions you have to make. You can make lots of bad decisions. , and if you're" }
+  - { t: 600, text: "going that far, I would argue, , that is probably something where you can't just rely on on on a prompt and some LLM figuring it out, ? And" }
+  - { t: 611, text: "in the real world, we're probably somewhere in between those two extreme poles. that's what I would say. I think that's a really good summary of where we're at . I think we're getting a lot of advantages in the, you" }
+  - { t: 622, text: "know, if what you're trying to build, if what the output needs to look , you can fairly articulate it to an AI agent, it can then help you build something along this. One of the things that I think is" }
+  - { t: 633, text: "really pivotal for me here. And I want to I want to really challenge the community here at large to really focus on this one. you really need to really if you don't know or invest some time" }
+  - { t: 643, text: "around learning the PBIR format or the TIMLE format, these are two really powerful innovations that Microsoft has made" }
+  - { t: 653, text: "around the the reporting space for us, ? I'm not aware of a similar format for Tableau reports. I'm not aware of a similar for report format for" }
+  - { t: 665, text: "click reports. They may have them. They may be there in JSON. but the the level of detail that Microsoft I think has gone through to make a system that allows us to then incrementally change" }
+  - { t: 675, text: "and update parts of reports and semantic models I think is really powerful here. And that to me that innovation at the same time of bringing agents to into" }
+  - { t: 687, text: "the world of I don't need to be able to click all the buttons to make new pages. as I can start communicating the things to an agent and it knows how to build stuff I think is very pivotal and I think this is a lot of the" }
+  - { t: 698, text: "fundamental Lego bricks that I think you were discussing earlier Matias is these are the initial pieces of once we get good at this then we can start stepping into bigger and bigger problems I" }
+  - { t: 708, text: "have a I hope I have a vision at some point in the future where we can put a a report in front of someone let them interact with with the report and then let the user ask what about this" }
+  - { t: 719, text: "information how would I add this data to my model and the AI builds a branch a test some hey I I I've made" }
+  - { t: 730, text: "something that you may want to look at I've done a little bit of leg work I've done some research I've done some things I've pulled some of these challenging pieces together and here's a sample of a project you may want to" }
+  - { t: 740, text: "look at let me know give me some feedback I think that development cycle is very exciting to me and seeing how that evolves into our workflows and what tools the community builds I I think" }
+  - { t: 752, text: "what we're stepping into is the community needs to build physical new tools for fabric and PowerBI things systems we can leverage stuff this. I think this is" }
+  - { t: 763, text: "really interesting. I want to transition a little bit here. We're talking to dark factories. We're talking about dark reports. How this potentially could be something here." }
+  - { t: 773, text: "I I I want to pull another concept from another emerging technology that I think is very interesting to think about. Matias, we talked about this concept of" }
+  - { t: 783, text: "a software program called Omari or Omari. I was just on a podcast with Kurt from Data Goblins. He he's a great dude." }
+  - { t: 794, text: "I love I learned much from him. The fact that he's excited about this program makes me excited about the program. if if if a really smart person is saying this is intriguing and" }
+  - { t: 806, text: "mentally stimulating to go test and look at this Omari thing. what let me give you a little a background of what it is what this is and how I I'm learn to be clear I'm not an expert in" }
+  - { t: 816, text: "this. I don't even have it installed on a PC yet but I'm really close to doing it and learning more about it. Marquy is a Linux distribution and the tagline is it's a beautiful, fun," }
+  - { t: 829, text: "and aenic version of Linux. , the idea is you have an agent, you bolt an agent into the system. If you don't, you can customize everything about the operating system and you use agents to help you do" }
+  - { t: 840, text: "that. , I really think this is interesting and I the reason I'm bringing this up is I think David is the David Hansen is the creator of the" }
+  - { t: 850, text: "system and he was describing I saw him on a feed I think it was on LinkedIn or somewhere where he's posting and he made a note that said when you're in the" }
+  - { t: 860, text: "operating system and something fails any app that's running inside there anything you build if something occurs inside the system that fails directly from in the OS you can submit" }
+  - { t: 871, text: "an issue to GitHub. Boom. And your agent can help you. He he made two separate skills that are directly around" }
+  - { t: 881, text: "helping you debug. there's a debug skill and then he has a issue writing skill and both of those skills are packaged with the software. And I while" }
+  - { t: 892, text: "this is an OS, an operating system, I'm stepping back and thinking, huh, I should be doing the same thing for my data pipelines. I should be doing the" }
+  - { t: 902, text: "same thing for fabric reports. I should be doing the same thing for semantic models. , as users interact with these things, we need a skill that" }
+  - { t: 912, text: "says how write up the issue, write up the challenge. What data is missing from the semantic models? And I'm I'm pulling some very I I this concept in this Omari operating" }
+  - { t: 924, text: "system. I really the idea that they're building skills and agents inside the system. But as I'm looking at what's happening here at the operating system level, I'm thinking, man, it would be really nice to have a similar" }
+  - { t: 934, text: "experience over at the PowerBI and data engineering space. let me just pause there. I said a lot of things, Matias. What's your initial reaction to this concept? , I I have to admit I" }
+  - { t: 945, text: "if it weren't for you, I wouldn't have heard of Omar. [laughter] I wouldn't have been playing with it if Kurt hadn't been saying things about . There we go. You got to learn about this stuff. we're both newbies to it. I'm more" }
+  - { t: 958, text: "than you are probably. I'm looking at at at their website omari.org. Yeah. I'm I'm I'm not 100% sure I fully" }
+  - { t: 971, text: "understand what it is and what its purpose is. But what I'm one thing that came to mind was Microsoft's intelligent terminal which they launched" }
+  - { t: 982, text: "a while ago. Yes. which is which is a fork of Windows terminal that has an agent built in where you where it know where the agent knows your terminal" }
+  - { t: 992, text: "context and you can run C-pilot or other agents to help you write there and then" }
+  - { t: 1002, text: "when when you've got troubles with a command or when something breaks or to me it sounds is that but the agent owns the full scope of the OS." }
+  - { t: 1014, text: "It's always there wherever you are in your OS and and because when I look at it on first boot, I'm" }
+  - { t: 1024, text: "just reading from the website on first booty invites you to set up a default agent, ? Yeah. Pick your favorite, sign in, and put it to work on your computer. And then it appears to be supporting all" }
+  - { t: 1035, text: "the major harnesses that we're aware of. that's what it sounds to me. Is that your understanding as ? Yes. And I'm I'm watching" }
+  - { t: 1046, text: "videos on this this morning and yesterday and and in the evenings when I can't shut off my brain. I'm I'm all you need to do is search for one or two things around the operating system and all of a sudden my" }
+  - { t: 1057, text: "feed's inundated with all these really cool people talking about it. Network Chuck, I don't know if you if you follow him on YouTube, but Network Chuck is another really good YouTuber around technology things. I his his" }
+  - { t: 1067, text: "content. He's been traditionally around networking things and and hardware, but he has also jumped into this Omari system. He's this" }
+  - { t: 1077, text: "is the best thing. he's really expressive and and he's really good about educating as as using the system. really this one. also Aaron in the comments here notes here is" }
+  - { t: 1088, text: "the operating system is designed around no mouse support. it it has a mouse, you can use it, but everything is keyboard driven, which I thought was really" }
+  - { t: 1098, text: "unique. , and , not taking your hands off the keyboard. , he he in the demo I'm watching, he talks a lot about the power button. and in Windows, that's the Windows" }
+  - { t: 1108, text: "key. In your Mac, it's the Apple key on the Apple computer. and you hit w the power command and you power command all these different shortcuts across the operating system where it opens windows" }
+  - { t: 1119, text: "up and it it has different workspaces and everything is beautiful and snappy and fast. I it. It's really it's really an interesting project." }
+  - { t: 1129, text: "Anyways, and apparently it runs VS Code, that would be that would be really key for me. [laughter] You got to have that. That's a dead you got to have that one for sure." }
+  - { t: 1140, text: "Yeah, exactly. I'm not going to switch to I don't know Vim or or or something that. Something else. cool. ," }
+  - { t: 1150, text: "cool. , let's let's see where that's heading. , what , you mentioned GitHub issues earlier. , how are they doing ? , they have 2,000" }
+  - { t: 1162, text: "open issues. , definitely yeah, something happening there. And also V4. , yes, if they're using semantic versioning, , hopefully they" }
+  - { t: 1172, text: "are, then obviously that's quite reassuring. And what one of the things I'm I'm kind of again intrigued about this one is I was listening to David , talk about his process. , , less about the" }
+  - { t: 1185, text: "operating system and more maybe about the process of what David's using here. And this is the the part that I think I really want to tease out a bit more, which is David's using the application itself, the the the product," }
+  - { t: 1196, text: "? when you download this and install it, it is the idea is agents are able to then create their own issues. And he even said verbatim, I'm going to fire up a team of agents to go look at" }
+  - { t: 1207, text: "all the issues and pull requests and go diagnose what things are there, how releases are happening. I think this is we're looking at a a lens, a very small" }
+  - { t: 1219, text: "window of what software development will look in the future. I think I think this what we're seeing here is" }
+  - { t: 1231, text: "a movement of of new Lionus let me sorry other random side note I was watching another in a video or an interview of Lionus Lionus is the" }
+  - { t: 1242, text: "inventor of Linux interesting named but Lionus was talking about how hard it is to build an operating system and he goes I wouldn't wish that" }
+  - { t: 1252, text: "pain on anyone because it's tricky and there are bugs all over the place and sometimes you make one change and everything else can break downstream and" }
+  - { t: 1262, text: "it's really hard to make an operating system. Really hard. And and the fact that someone's taking on that challenge in concert with an" }
+  - { t: 1272, text: "entire community behind them to help them find bugs and debug things and fire up a team of agents behind this. To me, this feels the dark factory for operating systems and" }
+  - { t: 1284, text: "I'm very interested in this project to see where it goes. I'm also trying to learn from it to think how if there are any concepts of here that I can use or reuse in fabric and PowerBI as . How" }
+  - { t: 1296, text: "how does this change what I do day-to-day? Does it change anything? And I think it's an interesting project to watch, but I do think this will eventually" }
+  - { t: 1308, text: "start shaping how I build things in the future. . , in what way? , great question. For instance, let's stay with PowerBI" }
+  - { t: 1320, text: "here. What are your thoughts here? two things I I'm going to point out here. I've been one on the explicit metrics podcast for a long time saying" }
+  - { t: 1331, text: "desktop is no longer my go-to tool anymore. even more with the PBIR format. I interacting with a" }
+  - { t: 1342, text: "thinker, another agent alongside me to build stuff, plain and simple. , PowerBI desktop bridge is very intriguing to me. , because PowerBI desktop bridge allows the agent to" }
+  - { t: 1354, text: "modify the PBIR files and then the agent can command the PowerBI desktop application, go refresh yourself. Go get the latest definition of the report and just show me the new objects. Awesome." }
+  - { t: 1365, text: "This also PowerBI desktop gives the agent more eyes into what it just built. the desktop agent can go create a screenshot and bring it to the agent. as I'm seeing these deeper" }
+  - { t: 1376, text: "interactions, , if you had asked me this question in maybe March or February, I was feeling a lot of tension" }
+  - { t: 1386, text: "internally about Microsoft's not getting the game. They don't know what's going on. I I I'm doing all these really wonderful things with agents to build things, but there's nothing equivalent" }
+  - { t: 1397, text: "to let me pull my agents into what I'm building for fabric and PowerBI. And since then, to Microsoft's credit, I think they've embraced us very . I think they're building skills for" }
+  - { t: 1407, text: "fabric, which are super useful for making consistent good-looking reports, talking to the PBIR. , the TIMDLE format very needed. There's a" }
+  - { t: 1418, text: "modeling semantic modeling skill that you threw out your agent and your agent can go talk to the timle and do things there, too. my preferred" }
+  - { t: 1428, text: "method is to try to figure out where can I inject an agent with some chat experience into my development process. I think this is very front and" }
+  - { t: 1439, text: "center. where I think let's to I want to answer your question directly . I went on a tangent there I apologize. I'm going to come back to your question directly. Why does this" }
+  - { t: 1450, text: "why do I think this new Omari thing is changing my pattern of design for building things? I think this there's an implication of" }
+  - { t: 1460, text: "I don't necess I've been tied to Windows my entire PowerBI career. I started using PowerBI in 2015 and because I needed PowerBI desktop from" }
+  - { t: 1470, text: "day one, I've always been Windows guy all the way through. I'm losing out potentially on some other innovative technologies Omari, Linux, other systems. And I to be" }
+  - { t: 1481, text: "clear, I had an old laptop. I stuck Linux on it. I loved it. I thought, \"Wow, it's snappy. It's different.\" I really liked working in the Linux system. I thought this was really interest. I've never spent a lot of time" }
+  - { t: 1492, text: "there. , naivity to me, I have Windows and I do Mac. Those are the two systems that I'm very familiar with. I really liked the the Linux kernel. I thought it was great. , it was doing things different. I wasn't quite familiar with" }
+  - { t: 1502, text: "some of how it updated things. I was weirded out by doing that. But overall, I thought this is cool. I would to be able to present" }
+  - { t: 1512, text: "that same level of interest to PowerBI stuff, fabric things. And that I'm moving more towards web browsers, that I'm moving towards standards and git repos that are" }
+  - { t: 1523, text: "capturing my standards or how the report is being built, I don't necessarily need a Windows computer anymore. And I think this is opening up my eyes or the ability for me to see other systems and" }
+  - { t: 1533, text: "tools that I can still use to achieve the same goals. And that's I I'm really I'm just on the surface of exploring how do I change my build patterns. I" }
+  - { t: 1543, text: "think I think physically the build patterns I'm using dayto-day are changing. I'm [clears throat] I'm a and and one of the things that came up in the conversation this morning with Kurt was be curious, be creative," }
+  - { t: 1556, text: "and be critical of what you're doing. And I thought those three C's were very relevant for me. I'm being very curious about building new pieces of" }
+  - { t: 1567, text: "software. I built a piece of software in Rust for the first time the other day. I don't know Rust. I told my agent, I want to build it in Rust. How did how does it work? It did great. I'm" }
+  - { t: 1578, text: "able to explore and take on larger projects and do them in shorter amounts of time and still deliver value from them. I think that mentality is what's physically changing how I" }
+  - { t: 1589, text: "think about software PowerBI development and fabric development. And I'm just trying to unpack how is that new lessons that I'm learning, how is this going to change what I do day-to-day and are we" }
+  - { t: 1601, text: "looking at a re I think I think at some degree we're going to get a very big shakeup in the data engineering world when agents really start participating" }
+  - { t: 1611, text: "in data engineering not just asking it to make a notebook but really tasking the agent to research something, figure something out go" }
+  - { t: 1622, text: "find my slowly changing there's some really heavy data engineering concepts that I think would be very useful for agents just to go chew through some stuff and use them. Anyways, I I said a lot there." }
+  - { t: 1632, text: "I'm sure you have responses to what I'm talking about. What do you think, Mat? . , . , let's start on the OS question and and Windows versus Linux in particular. my personal experience has been" }
+  - { t: 1644, text: "that in line with moving over to sort of agentic coding and and embracing agentic experiences I've done a very" }
+  - { t: 1655, text: "thorough shift over to WSL. and I'm using hybrid Windows. , I still use Windows" }
+  - { t: 1667, text: "on my machine, , for all the great gooey stuff and all of that, but I use Linux via WSL for everything that's compute and and explicitly" }
+  - { t: 1680, text: "development specific, ? , I don't have a single Windows machine where I don't have a set up WSL and" }
+  - { t: 1690, text: "sometimes even multiple distributions. and and as I said in terms of timelines that" }
+  - { t: 1700, text: "almost completely coincided for me you know with the the rise of coding agents if if anything because" }
+  - { t: 1711, text: "initially there was very limited support for Windows you I I still remember a time when claude code for instance didn't work very on Windows and and they suggested that you" }
+  - { t: 1723, text: "would primarily use it on Linux, ? codeex today is still a real pain in my experience to to get work to" }
+  - { t: 1734, text: "work on Windows as as on Linux. Codex is very heavy on on their sandboxing system and they had" }
+  - { t: 1744, text: "to they the because Windows isn't as suited" }
+  - { t: 1755, text: "to creating a really good sandboxing solution, they had to let's call it implement quite a few hacks to make a sandboxing concept work on" }
+  - { t: 1766, text: "Windows And I current I constantly sort of or at least I have run my my head into the wall there because it it's just not working" }
+  - { t: 1778, text: "as nicely as it does on Linux. But not a problem because I just shifted all my workloads completely over to Linux. just wanted to mention that. I for" }
+  - { t: 1788, text: "me personally I don't see a need at all to abandon Windows because , you know with the Windows WSL combo, you get the best of both. I had" }
+  - { t: 1800, text: "a very very neat experience a few months ago where I had used an Azure hosted VM for quite a while and then I decided" }
+  - { t: 1812, text: "to shift it off the cloud and onto local machines. , it's very convenient that every WSL distro on your machine" }
+  - { t: 1822, text: "comes down to one single file. It's it's a a VHDX virtual disc. Y and I just copied the very very" }
+  - { t: 1834, text: "substantial WSL disc from my Azure VM down to my local PC. I imported it as as another local distro and it just" }
+  - { t: 1844, text: "rocked straight away. was absolutely perfect in terms of being able to even move that around different hosts. if you haven't" }
+  - { t: 1858, text: "looked at it WSL 2 which is the latest version it's it's a a very very engineered system and" }
+  - { t: 1868, text: "particularly in conjunction with VS Code which has native support for it as . you can you can launch a VS Code session from within a WSL folder and then it it it starts VS" }
+  - { t: 1880, text: "Code on Windows but it remotes back into your WSL environment just works very I that you're giving these I" }
+  - { t: 1892, text: "have also played around WSLs what was I doing I was I was building some sort of I think I was trying out Hermes or some agent I was playing with whenever you were we were looking at" }
+  - { t: 1902, text: "open claw or the Hermes agent. This is I think it feels eons ago. I don't even play with them anymore. but these agents that were on a computer, meaning it had full computer" }
+  - { t: 1912, text: "control, everyone was , \"Don't put it on your computer. Don't put it on your regular machine because it can do a bunch of things and move things around and it's just not safe.\" in that situation," }
+  - { t: 1922, text: "you're you're needing to create a virtual sandbox, a box that you put it in, and then you could play with these agents. I was doing a lot of exploration there. I feel I've moved a lot more away from sandboxing" }
+  - { t: 1933, text: "Hermes or Open Claw or using agents there. I'm doing much more cloud-based versions of those systems. , I'm using Grockbot . I'm playing with a lot more with the cursor side of" }
+  - { t: 1945, text: "things. I'm finding immense amount of value in using the cursor harness and playing with that one. I don't use OpenAI's harness and that that's one. What do they call that one again? OpenAI uses" }
+  - { t: 1956, text: "Codex. Codex is their version. I haven't played with that one very much and I I'm hearing a lot of people communicate positive features around codecs. , I haven't that's one I" }
+  - { t: 1966, text: "haven't just explored too much here. and I want to tie this maybe back a little bit. Let's go back to we're talking about really interesting concepts. I the fact that you're using Linux." }
+  - { t: 1977, text: "my workload over the last couple months has been more heavily moving towards a a system that does not need to" }
+  - { t: 1988, text: "rely on Windows. And I'm also seeing I think the Microsoft PowerBI stack is moving also towards more of an open system as . There's a lot more open source. We've got skills for fabric. ," }
+  - { t: 1999, text: "I'm bringing agents into my world to to manipulate files. And I think ambitiously I'm able to take on more experiences" }
+  - { t: 2010, text: "around building custom software that does what I want, ? I'm I'm even contemplating , , what if I really did wanted to build full-blown" }
+  - { t: 2021, text: "PowerBI reports without any desktop at all, only on Omari or Linux, just straight? what does that experience look just as in general? ," }
+  - { t: 2032, text: "and I'm toying with the idea of start a PBIR from scratch with your agent. Tell the agent what you want in your report, let it build some things, ?" }
+  - { t: 2043, text: "your agent can go find semantic models that exist in the service. You can do that in desktop today. , the agent has full awareness of all the different features of your report, knows" }
+  - { t: 2053, text: "how to build the structure based on skills for fabric. That's that's also available and usable today. The one thing I'm getting my a little hung up on is there's no way to render that report" }
+  - { t: 2065, text: "inside Linux unless you're in a browser. I think you you you could potentially simulate what PowerBI desktop is doing with the page" }
+  - { t: 2075, text: "navigation and the bookmarking pieces of this, but why would you want to why not auto have the agent publish that report as a thin report to the" }
+  - { t: 2085, text: "service? . Once it's published, just embed it back into your Linux browser experience. Why? This this whole thing feels to me could live entirely in a browser where" }
+  - { t: 2097, text: "you develop locally with your agent. It builds the files that it needs locally. It publish those files, synchronizes them with the service, and then you're getting back a a live interactive view of the report there. And maybe" }
+  - { t: 2108, text: "the development cycle is a little bit farther apart, ? you're publishing constantly, you're putting things in the service, but I feel that's how I that's the development pattern I'm using more and more with software development." }
+  - { t: 2121, text: "my software development, I'm I'm making a really robust CI/CD pipeline. And yeah, it's not as fast as I normally would. I'm not in software development, you run local host, you" }
+  - { t: 2131, text: "make your software run, you can see your changes immediately. There's things Vit that help you see immediate changes in your UI as you change them, ? don't that's why you use desktop but if" }
+  - { t: 2141, text: "I can be patient a little bit how quickly could I get from files to service to embedded report if that's short if that cycle is short enough" }
+  - { t: 2152, text: "there's a potential for letting that be my development process and then you're operating system or software agnostic if you have a browser you can do the work" }
+  - { t: 2164, text: "anyways I'm just this is what I'm toying with the idea here is Is this even reasonable? Should I even spend my time here? , is this an experiment I should even try? I don't even know. ," }
+  - { t: 2174, text: "if you're if you're in the community and you want to see something this or you want to help me build something this, I'm toying with these ideas. Let me know down in the chats and in the" }
+  - { t: 2184, text: "comments down below if you're interested. What do you think about this concept, Matias? Is this is this real or am I just blowing smoke at this , I think it's completely viable and and feasible for agents to have a" }
+  - { t: 2196, text: "development workspace that they can publish into that they can render and then, , take screenshots and whatnot. That's definitely what I would do as . . I I your mention of Vit. It just" }
+  - { t: 2209, text: "made me think, , obviously vit particularly what you were describing in terms of quick feedback. This is all about hot reloading, ? you make you make a change locally" }
+  - { t: 2219, text: "and VT in conjunction with React usually figures out which particular bit of your JavaScript to" }
+  - { t: 2229, text: "update without having to do full recompile. ? That's the one thing we're really missing in PowerBI if we had hot reload. Yeah. Obviously you" }
+  - { t: 2239, text: "mentioned desktop bridge earlier but desktop bridge pretty much does a full rerender ? It is the complete opposite of Vit in terms of speed and and" }
+  - { t: 2251, text: "responsiveness. But if we, , , just thinking out loud here, if we had hard reload, that would be absolutely also the other thing, which is also missing," }
+  - { t: 2262, text: "hopefully someone from the product team listens, , [laughter] publishing to a workspace, with PBI in particular, currently requires you to, , republish" }
+  - { t: 2275, text: "every single file from your PBIR order structure, which, , for large reports can be hundreds hundreds if not thousands of files very very ineffective particularly when you're" }
+  - { t: 2286, text: "working on just one visual or one page or we desperately need the ability to do incremental publishers through the fabric API I hope that's" }
+  - { t: 2296, text: "coming because it's just really wasteful you're sending more bytes over the wire it also means that the back end on the" }
+  - { t: 2306, text: "fabric side has much more processing to do it's all unnecessary this is where we we we killer" }
+  - { t: 2317, text: "idea love that we can we can produce pretty good agentic experiences already with what we have today but there's there's some great scope here to get things" }
+  - { t: 2328, text: "better as long as Microsoft supports us. Can I ask a question around your partial I one absolutely love the idea of partial publish. I think this is a brilliant idea that you're coming up with. Again, has always been TSI. You're" }
+  - { t: 2340, text: "six steps ahead of wherever I'm at, ? In everything we're doing. I just love it. When , let me ask just a clarifying question around this one. Partial publishing of when I'm doing a" }
+  - { t: 2352, text: "git publish. I'm publishing something to get. I'm not doing a full publish every single time, ? And and to your point around if I have a large project with lots of files in it" }
+  - { t: 2363, text: "using GitHub or a Git enabled project, you're only publishing the changes the changed files up to the service and not the entire everything. Is that a fair statement to say?" }
+  - { t: 2374, text: "Yes. But that's that's a different problem space from what I from what I was describing. . No, understood. But I'm saying there's a there's a parallel. It's a" }
+  - { t: 2384, text: "rhyme. Maybe not the exact same. the rhyming of look, I've got 30 files that make up the PBIR, ? If I change page one and only page one and maybe the visuals on that page" }
+  - { t: 2394, text: "changed, there's no reason I need to go publish all the files for the whole bundle, which is just slower, more files, more network traffic, all the things. I would to be able to say, hey," }
+  - { t: 2404, text: "powerbi.com, I'm going to just give you a handful of new files. You reprocess the whole structure and figure it out it just works. Git already does that, ? if if" }
+  - { t: 2415, text: "you have a project with 15,000 files and you change one line in one file, your commit will just contain that one line with some metadata to" }
+  - { t: 2427, text: "say where that line lives. That's it, ? will be a very very tiny commit but and the same applies if you you" }
+  - { t: 2437, text: "know obviously using PP or but the fabric API which will make those files available to the fabric back end" }
+  - { t: 2448, text: "that ultimately hosts and renders your report definitions that one does not have that facility yet I hope it get it at some point I'm" }
+  - { t: 2459, text: "looking directly at the ideas.p powerbay.com which is taking me to community.fabric.com and looking I'm looking for anything with the word partial" }
+  - { t: 2470, text: "to see if there's anything that in there is showing up and I'm not seeing anything around this idea. ironically" }
+  - { t: 2481, text: "looking at the fabric API they've gone in the opposite direction. they published or they made available bulk import and bulk export endpoints" }
+  - { t: 2493, text: "recently which means doing multiple items at once. But what what I'm asking for is to do less of the to do it piece of an item rather than the entire item. . And that's" }
+  - { t: 2504, text: "what's definitely still . I will try I'll do my best to send an agent write up of this and I'll describe the issue to my agent and have it write up a a potential ideas. I" }
+  - { t: 2516, text: "will try to include that in the chat window or and in the in the notes of this episode. , if you are interested in a partial publish or if you'd to get on the bandwagon of this idea, we'll" }
+  - { t: 2527, text: "throw an idea down here below and hopefully get that created for you as . , you can you can jump on the idea and add your comments why would you use it? How how effective is this? Let Microsoft the product team" }
+  - { t: 2535, text: "know this is a feature that might be useful and you might want to have a a hand in this. , awesome. We've been chitchatting for about 40 minutes here. I think this is about enough time for" }
+  - { t: 2545, text: "our episode. , I just wanted to kind of introduce the concepts of dark factories. I think this is a really rich concept. , with all things in the Agentic Thinking podcast, we do the the" }
+  - { t: 2555, text: "talking part here, but we also do demos on Fridays. , if you let us know in the comments or in the description, , in the chat comments here at the end of the episode, let us know if there's a" }
+  - { t: 2566, text: "demo or a piece of a demo you'd to see for Friday because we'd to step in and do a demo around building something with AI and agentic experiences. clearly you got to show people what Omari looks that" }
+  - { t: 2577, text: "Oh, no. you've challenged me. I got [laughter] to I've got to go spin it up . , . , there goes the rest of my evenings. I'll have to be building Omari on a machine and then seeing how I" }
+  - { t: 2588, text: "can interact with PowerBI with it. , it seems it's all very quick and easy, ? , less than a minute. I'm saying it installs in a minute. , , I have a handful of old Razer gaming" }
+  - { t: 2601, text: "laptops that are laying around from work stuff. I could just spin one up and see how it how it functions. It can't hurt. you can try it. , Matias, thanks for the challenge. Maybe we'll do a a" }
+  - { t: 2611, text: "random demo on Friday around this Omari thing, showing you what it looks and maybe even showing you some build experiences with PowerBI things inside a new operating system. Let us know in the" }
+  - { t: 2622, text: "comments. Do you want to see that? Is that something interesting to you? Matias, as always, thank you much for the conversation today. I really enjoy these I learned much and have much fun discussing AI related things" }
+  - { t: 2633, text: "with you as . Thank you all for paying attention and listening to Agentic Thinking. We'll see you next time. Thanks, Mike. And bye, everyone." }
+  - { t: 2646, text: "[music]" }
+
+---
+
+## Summary
+
+Mike and Mathias take the manufacturing idea of a lights-out factory and ask what the software version looks like, then whether Power BI reports are close to one. Mathias draws a line between a small change on an existing model, which he thinks can be automated today, and a request that pulls in a new data source, where connection, auth, and staging choices are still too open for a single prompt. They spend the rest of the episode on the pieces that would make a report factory real: PBIR and TMDL as editable bricks, Omarchy as an operating system with an agent and debug skills built in, and the missing Fabric equivalents of hot reload and incremental publish.
+
+## Key Takeaways
+
+- ▸ A dark factory is an assembly line with requirements, bugs, and ideas on one end and shippable software on the other, with humans out of the turn-by-turn prompting loop. A harness is only one block inside that line.
+- ▸ Iterating an existing Fabric setup — a new page, a visual, or a measure on a model you already understand — is close to fully automatable. Bringing in a data source you have never seen is not, because auth, live versus staged, and secrets open a much larger decision tree.
+- ▸ PBIR and TMDL are the formats that make incremental report and model edits possible for an agent. Mike's challenge to the community is to learn those formats instead of treating the report as a binary.
+- ▸ Omarchy is a Linux setup with a default agent, keyboard-first use, and packaged skills that file a GitHub issue or debug a failure from inside the OS. The analogy for Fabric is a skill that writes the bug the way an agent can act on it.
+- ▸ Publishing a thin report and embedding it back in the browser can be the dev loop when you are not on Power BI Desktop, but Desktop Bridge still rerenders the whole report. What they want is Vite-style hot reload and incremental PBIR publish so a one-visual change does not upload hundreds of files.
+
+## Links
+
+- ▸ [Software factories](https://addyosmani.com/blog/software-factories/?utm_source=agentic_thinking&utm_medium=website&utm_campaign=20260915)
+- ▸ [Omarchy](https://omarchy.us/?utm_source=agentic_thinking&utm_medium=website&utm_campaign=20260915)
