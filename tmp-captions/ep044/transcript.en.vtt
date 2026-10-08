@@ -1,0 +1,2427 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:10.366 --> 00:00:12.886
+Hello everyone and welcome back to Agentic Thinking.
+
+00:00:12.886 --> 00:00:18.336
+We're once again discussing some more topics around AI, AI systems, how
+
+00:00:18.336 --> 00:00:20.176
+things are working. Matthias, welcome back.
+
+00:00:20.176 --> 00:00:21.096
+It's good to see you again.
+
+00:00:21.656 --> 00:00:22.456
+>> Absolutely.
+
+00:00:22.776 --> 00:00:23.656
+>> More AI.
+
+00:00:24.136 --> 00:00:26.616
+>> Yeah, always great to talk more AI.
+
+00:00:27.336 --> 00:00:30.616
+We, we did a good live reaction show earlier this week.
+
+00:00:30.856 --> 00:00:31.336
+>> Yes.
+
+00:00:31.656 --> 00:00:34.976
+>> Now we can take a slightly different pace and go a bit
+
+00:00:34.976 --> 00:00:36.456
+deeper into things. I hope.
+
+00:00:37.096 --> 00:00:40.656
+>> If you like funny things, if you like nerds nerding out on
+
+00:00:40.656 --> 00:00:43.176
+nerdy stuff, go check out our other video.
+
+00:00:43.176 --> 00:00:45.016
+It's on the channel. I'll make sure I put the link here
+
+00:00:45.016 --> 00:00:46.296
+in the chat window as well.
+
+00:00:46.336 --> 00:00:48.806
+And if you'd like to check us out, we did a Mystery
+
+00:00:48.886 --> 00:00:54.246
+Science Theater 3000 type take on the OpenAI Dev Day announcement.
+
+00:00:54.246 --> 00:00:57.086
+So we sat down on the bottom screen, we commented, we teased,
+
+00:00:57.086 --> 00:01:00.486
+we have some fun while they're they're doing the actual event.
+
+00:01:00.566 --> 00:01:04.206
+So if you find that kind of stuff entertaining and enjoying, we,
+
+00:01:04.206 --> 00:01:05.846
+we did throw some knowledge in there.
+
+00:01:05.846 --> 00:01:09.486
+But it is also more about our initial reactions to their product
+
+00:01:09.486 --> 00:01:12.206
+and their product updates on how they're copying the rest of the
+
+00:01:12.206 --> 00:01:15.966
+industry at this point. So that's kind of how our feel
+
+00:01:15.966 --> 00:01:21.766
+>> was indeed absolutely nothing we hadn't seen under a slightly different product
+
+00:01:21.766 --> 00:01:22.806
+name elsewhere.
+
+00:01:22.806 --> 00:01:26.846
+>> Right, Exactly. Well, in, in lieu of this, Matias, I'll actually throw
+
+00:01:26.846 --> 00:01:28.246
+this one, throw this one out there as well.
+
+00:01:28.326 --> 00:01:31.126
+There was a very funny. I don't know if you saw if
+
+00:01:31.126 --> 00:01:36.286
+you caught it. The OpenAI team announced these things called dots, little
+
+00:01:36.286 --> 00:01:40.296
+agents you can go use. Already there had been an announcement made
+
+00:01:40.296 --> 00:01:43.536
+from Grok or XAI that they had Grokbots.
+
+00:01:43.776 --> 00:01:48.616
+So it's a bot or it's a dot and lo and behold,
+
+00:01:48.616 --> 00:01:52.576
+I don't know if you know this, Xai went out and bought
+
+00:01:52.576 --> 00:02:00.096
+the domain dot.com bought it and then when you go to dot.com
+
+00:02:00.656 --> 00:02:04.416
+it actually routes you over to Grokbot and lets you see all
+
+00:02:04.416 --> 00:02:08.976
+the Grokbots. They took the domain name of dot.com away, they had
+
+00:02:08.976 --> 00:02:12.116
+it, but like they bought it quick, quickly stuck a website behind
+
+00:02:12.116 --> 00:02:14.956
+it and made a whole bunch of Grox behind it to kind
+
+00:02:14.956 --> 00:02:17.836
+of tease, I guess, open AI and copy in their name and
+
+00:02:17.916 --> 00:02:20.396
+their schema, which they look exactly like the same product.
+
+00:02:20.396 --> 00:02:23.196
+Honestly, did you hear about this?
+
+00:02:23.356 --> 00:02:27.276
+>> I did not. But it's hilarious and funny to me.
+
+00:02:27.276 --> 00:02:27.756
+Yeah.
+
+00:02:28.796 --> 00:02:32.356
+>> What happens when billionaires play with money and start, you know, picking
+
+00:02:32.356 --> 00:02:33.596
+at each other with their businesses?
+
+00:02:33.596 --> 00:02:34.316
+Oh my goodness.
+
+00:02:35.516 --> 00:02:39.516
+>> Anyways, reminds me of the old days when Microsoft managed to get.
+
+00:02:43.676 --> 00:02:45.436
+As their landing domain for Net.
+
+00:02:45.436 --> 00:02:46.556
+So that was pretty cool.
+
+00:02:48.396 --> 00:02:52.316
+Sometimes you have to be lucky and quick in the first, right?
+
+00:02:52.636 --> 00:02:56.996
+>> Yes, most certainly. The link, if you want to see that whole
+
+00:02:56.996 --> 00:02:59.756
+video is in the chat window here.
+
+00:02:59.836 --> 00:03:01.756
+I'll put that there for anyone who wants to go check it
+
+00:03:01.756 --> 00:03:05.356
+out on another time. All right, let's talk about our main topic.
+
+00:03:05.436 --> 00:03:08.146
+So main topic for today is Rust.
+
+00:03:08.226 --> 00:03:12.146
+What the heck is Rust? And the reason I think we are
+
+00:03:12.146 --> 00:03:15.106
+bringing this up is if you look at the recent news article,
+
+00:03:15.186 --> 00:03:20.546
+there's a number of different platforms that are rebuilding their infrastructure solely
+
+00:03:20.546 --> 00:03:23.986
+in this new I guess it's a programming language called Rust.
+
+00:03:24.546 --> 00:03:26.786
+GitHub Copilot now runs on Rust.
+
+00:03:27.906 --> 00:03:31.026
+Bun is another program that now runs on Rust.
+
+00:03:31.586 --> 00:03:33.066
+There's a lot of conversation around that.
+
+00:03:33.066 --> 00:03:38.346
+Codex is doing a rewrite in rust, but surprisingly TypeScript 7 is
+
+00:03:38.346 --> 00:03:42.506
+not. Let's unpack this concept. Matthias, you're way better in the coding
+
+00:03:42.506 --> 00:03:44.706
+space that I am. Let's give our audience a little bit of
+
+00:03:44.706 --> 00:03:47.426
+a run up on what the heck is Rust and why do
+
+00:03:47.426 --> 00:03:49.266
+we care about it. Compared to other things,
+
+00:03:51.265 --> 00:03:54.146
+>> it's a programming language relatively young.
+
+00:03:54.866 --> 00:04:01.356
+It went 1.0 in 2015 and was originally developed by Mozilla, still
+
+00:04:01.356 --> 00:04:03.036
+remember that those days.
+
+00:04:05.516 --> 00:04:10.156
+And it basically promises to give you C C performance.
+
+00:04:14.476 --> 00:04:19.836
+Without the disadvantages of hardcore C C.
+
+00:04:21.436 --> 00:04:23.436
+And so the key thing
+
+00:04:25.116 --> 00:04:29.906
+from my point of view is it allows you to produce native
+
+00:04:29.986 --> 00:04:35.666
+binaries on any system you compile for you don't have an intermediary.
+
+00:04:36.146 --> 00:04:48.146
+Most other languages, TypeScript, JavaScript, Python, NET, Java, all of these run
+
+00:04:48.546 --> 00:04:49.266
+on a
+
+00:04:51.106 --> 00:04:54.586
+runtime that does some type of
+
+00:04:57.066 --> 00:05:00.666
+on the fly compilation on the target machine,
+
+00:05:02.266 --> 00:05:04.666
+which makes it very, very portable.
+
+00:05:05.946 --> 00:05:10.026
+But it obviously comes at a huge cost with respect to actually
+
+00:05:10.186 --> 00:05:13.546
+not getting native performance. And Rust does not have that problem.
+
+00:05:14.746 --> 00:05:22.556
+Rust also is very strict from a static typing point of view,
+
+00:05:22.556 --> 00:05:30.476
+which is actually brilliant when it comes to producing huge non trivial
+
+00:05:30.476 --> 00:05:34.076
+code bases. And I think that's the reason those two points together,
+
+00:05:34.716 --> 00:05:37.436
+the static typing strictness as well as the
+
+00:05:39.036 --> 00:05:44.036
+native code combination targets you get, I think that's what makes it
+
+00:05:44.036 --> 00:05:51.926
+particularly interesting nowadays. And obviously one of the big disadvantages a language
+
+00:05:51.926 --> 00:05:54.766
+like Rust or C would have had previously.
+
+00:05:55.966 --> 00:06:00.766
+It's quite complex and difficult for human developers.
+
+00:06:01.726 --> 00:06:06.446
+Writing stuff in Python or TypeScript is substantially easier.
+
+00:06:06.686 --> 00:06:11.246
+But we no longer have that problem now, obviously because humans basically
+
+00:06:11.246 --> 00:06:17.426
+don't write code anymore. And so you know that that problem completely
+
+00:06:17.426 --> 00:06:23.226
+goes away because you pretty much sort of get the code writing
+
+00:06:23.386 --> 00:06:27.666
+expertise for free just by handing stuff out to agents.
+
+00:06:27.666 --> 00:06:29.946
+But you get, you get all the other benefits.
+
+00:06:30.026 --> 00:06:35.226
+So personally, you know, I'm actually producing a lot of my own
+
+00:06:35.226 --> 00:06:38.106
+projects in Rust these days. So I'm really.
+
+00:06:39.156 --> 00:06:39.716
+Oh man,
+
+00:06:41.236 --> 00:06:43.796
+I can't remember the last time I've done anything in.
+
+00:06:43.796 --> 00:06:46.436
+Net, which used to be my big thing.
+
+00:06:46.996 --> 00:06:51.716
+I know by myself, a NET developer that's out of the window.
+
+00:06:54.435 --> 00:06:58.916
+I converted From. NET to TypeScript at some point and now I'm
+
+00:06:58.916 --> 00:07:02.036
+actually even bigger convert to Rust.
+
+00:07:02.676 --> 00:07:07.196
+When I saw, and coming back to the topic here, when I
+
+00:07:07.196 --> 00:07:13.956
+saw this very, very big September blog article about GitHub's Rust migration,
+
+00:07:14.436 --> 00:07:19.716
+I saw lots of common touch points there.
+
+00:07:21.156 --> 00:07:22.676
+>> Let's go a little bit deeper here.
+
+00:07:22.756 --> 00:07:24.756
+Yes, I think there's some really interesting.
+
+00:07:26.356 --> 00:07:29.316
+I feel like there's a couple interesting concepts that we're unpacking here.
+
+00:07:29.716 --> 00:07:34.866
+One is when I don't write code anymore, I'm not really required
+
+00:07:34.866 --> 00:07:38.026
+to like learn a particular language and stick with it anymore.
+
+00:07:38.026 --> 00:07:43.946
+Right. So it's, it's less hard, it's less difficult for me to
+
+00:07:43.946 --> 00:07:45.266
+like pick what's the best solution.
+
+00:07:45.266 --> 00:07:47.226
+There may be some trade offs, there may be some advantages in
+
+00:07:47.226 --> 00:07:49.106
+one language or another. There always is.
+
+00:07:49.426 --> 00:07:50.946
+And how the different languages run.
+
+00:07:51.106 --> 00:07:55.546
+And now you can kind of start without requiring the years of
+
+00:07:55.546 --> 00:07:58.386
+knowledge, of learning, like all the nuances of how Rust works.
+
+00:07:58.766 --> 00:08:01.086
+You can now lean on your agents because they already know how
+
+00:08:01.086 --> 00:08:03.206
+to run it. They already know how to write perfect code.
+
+00:08:03.206 --> 00:08:06.606
+In Rust, the function may not do what you want, but the
+
+00:08:06.606 --> 00:08:08.526
+function will run every single time.
+
+00:08:09.006 --> 00:08:12.286
+There's other concepts here that I think you still have to be
+
+00:08:12.286 --> 00:08:15.566
+mindful of. We're not saying throw out languages and just pick whatever
+
+00:08:15.566 --> 00:08:17.486
+you want and go everything. With Rust, I think we're just saying
+
+00:08:17.486 --> 00:08:21.246
+that the barrier to be able to write in any language is
+
+00:08:21.566 --> 00:08:26.246
+minimal. I was doing an experiment a number of months ago, probably
+
+00:08:26.246 --> 00:08:28.746
+about three months ago now. Just build a project.
+
+00:08:28.746 --> 00:08:30.786
+I just told the agent, hey, I want to build this project.
+
+00:08:31.346 --> 00:08:33.106
+Here's my concept, here's my idea.
+
+00:08:33.586 --> 00:08:37.586
+It was around token generation on my computer, locally on local computer
+
+00:08:37.826 --> 00:08:40.346
+code gen with large language models.
+
+00:08:40.346 --> 00:08:42.746
+I wanted to download models, I wanted to have it run it's
+
+00:08:42.746 --> 00:08:47.706
+terminal command line interface. And I added the simple requirement, write this
+
+00:08:47.706 --> 00:08:50.626
+thing 100% in Rust. I don't want anything else built in anything
+
+00:08:50.626 --> 00:08:52.706
+not Rust. And it said sure.
+
+00:08:53.276 --> 00:08:54.876
+And it did the whole thing.
+
+00:08:55.116 --> 00:08:58.516
+Built the binaries, I had code, I had files I could download.
+
+00:08:58.516 --> 00:09:02.716
+So I was able to actually download the actual executable, run it
+
+00:09:02.716 --> 00:09:05.676
+on my machine and everything ran like Clockwork.
+
+00:09:05.676 --> 00:09:07.476
+Now there could have been things that I should have been looking
+
+00:09:07.476 --> 00:09:10.836
+at and being mindful of, but it was my experiment in can
+
+00:09:10.836 --> 00:09:14.556
+I just describe the system that I desire and then say, oh,
+
+00:09:14.556 --> 00:09:16.796
+by the way, drop it in this type of language?
+
+00:09:16.796 --> 00:09:17.676
+And it did a good job.
+
+00:09:17.836 --> 00:09:21.656
+It didn't take it too long to actually noodle through what I
+
+00:09:21.656 --> 00:09:23.456
+needed to be built inside Rust.
+
+00:09:23.456 --> 00:09:25.456
+Now, side project I put on the shelf.
+
+00:09:25.456 --> 00:09:28.176
+I'm not playing with it right now, but this is, I think,
+
+00:09:28.176 --> 00:09:29.896
+the ease of what we're doing here.
+
+00:09:29.896 --> 00:09:33.416
+So let's unpack. Is there Anything in the GitHub article?
+
+00:09:33.416 --> 00:09:36.496
+So I'll put the GitHub article here in the chat window, which
+
+00:09:36.496 --> 00:09:36.856
+by the
+
+00:09:36.856 --> 00:09:39.056
+>> way, is a gigantic article.
+
+00:09:39.056 --> 00:09:39.536
+>> Huge.
+
+00:09:41.296 --> 00:09:45.096
+>> Give yourself some quiet space and some time to read it or
+
+00:09:45.096 --> 00:09:45.456
+give it
+
+00:09:45.456 --> 00:09:46.816
+>> to your agent and tell it to summarize it.
+
+00:09:47.856 --> 00:09:51.336
+>> Interesting. If you look into the header of the article right at
+
+00:09:51.336 --> 00:09:54.476
+the top, it says 65 minutes reading time.
+
+00:09:54.796 --> 00:09:59.116
+>> Oh, wow. Yeah, it's a bit of a, a mind bender.
+
+00:09:59.276 --> 00:10:02.316
+>> So we're definitely not going to recite it back to you right
+
+00:10:02.316 --> 00:10:02.636
+now.
+
+00:10:03.116 --> 00:10:05.476
+>> Absolutely not. But maybe we can pick out a couple things.
+
+00:10:05.476 --> 00:10:08.676
+Is there anything that specifically Matisse, that stood out to you that
+
+00:10:08.676 --> 00:10:11.516
+you maybe would highlight in here around, you know, part of this
+
+00:10:11.516 --> 00:10:11.836
+process?
+
+00:10:13.276 --> 00:10:19.546
+>> Well, number one, absolutely. How deep and comprehensive this article is and
+
+00:10:22.826 --> 00:10:26.106
+into how much detail they've gone here to explain what they've done.
+
+00:10:26.826 --> 00:10:34.626
+The article is about the GitHub copilot runtime, which is not open
+
+00:10:34.626 --> 00:10:40.266
+source, so it's quite interesting. So they're talking about a project that
+
+00:10:40.266 --> 00:10:44.586
+no one outside of GitHub will ever see in terms of what's
+
+00:10:44.586 --> 00:10:45.866
+actually come out of it. So
+
+00:10:47.546 --> 00:10:51.586
+you can't really test anything they're claiming here.
+
+00:10:52.226 --> 00:10:55.106
+You can't check that it's not an open source project.
+
+00:10:56.866 --> 00:11:04.946
+It also appears as if the human involvement in that conversion project
+
+00:11:05.426 --> 00:11:11.746
+was very, very limited. So the author, Stephen, appears to have run
+
+00:11:11.746 --> 00:11:14.946
+the whole project more or less on his own.
+
+00:11:14.946 --> 00:11:18.216
+And then he gives credit to a handful of people who made
+
+00:11:18.216 --> 00:11:23.736
+some contributions. Everything else seems to have been agent driven, including I
+
+00:11:23.736 --> 00:11:26.816
+think somewhere, if I don't,
+
+00:11:29.536 --> 00:11:32.896
+if I'm remember correctly, I, I, I have.
+
+00:11:33.376 --> 00:11:37.776
+Yeah, there we go. 830,000 lines of, of, of Rust code came
+
+00:11:37.776 --> 00:11:39.696
+out of it. Yeah, yeah.
+
+00:11:41.376 --> 00:11:45.266
+Plus almost half a million lines of Rust unit.
+
+00:11:46.466 --> 00:11:51.226
+So we're talking, you know, a pretty very, very substantial project in
+
+00:11:51.226 --> 00:11:54.386
+terms of quantity. And
+
+00:11:57.186 --> 00:12:01.266
+it's been going on, according to the article since May.
+
+00:12:03.586 --> 00:12:08.466
+And they give, you know, all the reasons why they've done that
+
+00:12:10.716 --> 00:12:11.016
+and
+
+00:12:12.556 --> 00:12:17.116
+obviously one of the main drivers, so they've come from a TypeScript
+
+00:12:17.756 --> 00:12:23.076
+code base and one of the main drivers really was that they
+
+00:12:23.076 --> 00:12:31.116
+wanted the Copilot engine to be as portable as possible, but also
+
+00:12:31.996 --> 00:12:35.276
+as performant as possible and they want to be able to embed
+
+00:12:35.276 --> 00:12:37.966
+it into all kinds of other products.
+
+00:12:39.246 --> 00:12:43.166
+And so that embedding story in particular, if you, if you were
+
+00:12:43.166 --> 00:12:46.766
+relying on a TypeScript code base, would require for you to have
+
+00:12:46.766 --> 00:12:51.486
+some sort of node or JavaScript runtime embedded there, which is obviously
+
+00:12:51.486 --> 00:12:56.206
+not ideal. Ideal, if you're thinking, I don't know, Excel or desktop
+
+00:12:56.206 --> 00:12:57.806
+or stuff like that. Right, yes.
+
+00:12:58.606 --> 00:13:03.686
+So being able to actually compile into native code, as I explained
+
+00:13:03.686 --> 00:13:07.326
+in the beginning, you know, makes a massive difference in addition to
+
+00:13:07.326 --> 00:13:09.696
+all the performance benefits you're going to get from that.
+
+00:13:09.696 --> 00:13:13.136
+>> Interesting. Yeah, this is really neat because this is.
+
+00:13:13.456 --> 00:13:15.256
+So I'm going to project a little bit here.
+
+00:13:15.256 --> 00:13:16.896
+This is totally speculation at this point.
+
+00:13:16.896 --> 00:13:23.696
+Right. This step needs to happen before the announcement of now the
+
+00:13:23.696 --> 00:13:29.456
+new unified co pilot like experience that Microsoft is touting.
+
+00:13:30.016 --> 00:13:33.296
+And you know, so the, the term co pilot is I think
+
+00:13:33.296 --> 00:13:35.456
+very overweighted just in general. Right.
+
+00:13:35.986 --> 00:13:38.746
+I go to Microsoft 365. I hear the word copilot, I go
+
+00:13:38.746 --> 00:13:42.386
+to fabric, I hear the word copilot, I hear GitHub and I
+
+00:13:42.386 --> 00:13:46.946
+hear the word copilot. While these are the same words, Matthias, you
+
+00:13:46.946 --> 00:13:50.586
+and I know behind the scenes, the bits that run each of
+
+00:13:50.586 --> 00:13:54.626
+those in portable places, they're all different.
+
+00:13:54.866 --> 00:13:56.466
+It's all different fractured code bases.
+
+00:13:56.706 --> 00:13:58.906
+I liken the analogy. For those of you who are in the
+
+00:13:58.906 --> 00:14:02.226
+data science or the Power BI world, it's like Power Query.
+
+00:14:02.666 --> 00:14:05.706
+Power Query has three different layers of bits right now.
+
+00:14:05.866 --> 00:14:08.946
+One layer of bits is in Excel, one layer of bits is
+
+00:14:08.946 --> 00:14:12.346
+in Power BI Desktop. Another layer of bits is in power bi.com
+
+00:14:12.666 --> 00:14:14.426
+they all have. It's the same product.
+
+00:14:14.586 --> 00:14:18.666
+You still say Power Query in all instances, but they all are
+
+00:14:18.666 --> 00:14:22.306
+slightly, a little bit different. Some of them have had newer updates,
+
+00:14:22.306 --> 00:14:27.866
+some of them have not. I think this is maybe an attempt
+
+00:14:27.866 --> 00:14:32.396
+to say, look, now that we have this ultra portable framework that
+
+00:14:32.396 --> 00:14:35.476
+has been rebuilt off of TypeScript, we've removed some dependencies.
+
+00:14:35.636 --> 00:14:37.556
+It's now a self compiled binary.
+
+00:14:37.636 --> 00:14:39.396
+We can just lift it everywhere we want.
+
+00:14:39.556 --> 00:14:44.715
+To me this feels like a precursor to hey, let's announce a
+
+00:14:44.715 --> 00:14:47.836
+unified copilot experience where we're using all the best things that came
+
+00:14:47.836 --> 00:14:51.156
+from GitHub Copilot and now we're putting it anywhere in the Organization.
+
+00:14:52.756 --> 00:14:58.026
+This feels like it fits with the story, the broader story of
+
+00:14:58.186 --> 00:15:01.226
+build once, reuse everywhere. And I think this is what we're going
+
+00:15:01.226 --> 00:15:04.146
+to continue to see is I even see it in my own
+
+00:15:04.146 --> 00:15:07.786
+software right now. Everything I'm thinking about and maybe a part of
+
+00:15:07.786 --> 00:15:10.106
+this article that's, that's pulled out here that I think is important
+
+00:15:10.986 --> 00:15:16.106
+is one, there's a human role to software development, right?
+
+00:15:16.426 --> 00:15:20.026
+The architecture tests, how do you migrate?
+
+00:15:20.916 --> 00:15:23.476
+When do you tell agents to stop doing something and start doing
+
+00:15:23.476 --> 00:15:29.196
+something else? The direction piece here, that still is paramount in what
+
+00:15:29.196 --> 00:15:30.756
+they're doing with this rust rebuild.
+
+00:15:31.316 --> 00:15:36.076
+And that human role, I believe, is what I'm using now more
+
+00:15:36.076 --> 00:15:41.356
+in my software. I'm looking more comprehensively across multiple products, multiple pieces,
+
+00:15:41.356 --> 00:15:45.156
+and saying, I think I see the same thing being used multiple
+
+00:15:45.156 --> 00:15:49.286
+times. For example, my ui, I build lots of workloads in fabric,
+
+00:15:49.286 --> 00:15:52.086
+I build apps and websites. But I want all of it to
+
+00:15:52.086 --> 00:15:54.126
+feel the same. I want to look the same.
+
+00:15:54.366 --> 00:15:56.886
+So I'm stopping building the individual product.
+
+00:15:56.886 --> 00:16:00.086
+And I'm starting to say, okay, agents, I need you to help
+
+00:16:00.086 --> 00:16:04.886
+think with me. How do I build reusable components of things as
+
+00:16:04.886 --> 00:16:06.686
+I build software that I'm having fun with?
+
+00:16:07.406 --> 00:16:09.086
+Some of them need to have paywalls.
+
+00:16:09.406 --> 00:16:12.366
+Well, you can build one piece of software with a paywall in
+
+00:16:12.366 --> 00:16:16.556
+it, but what do you need to have that paywall reused in
+
+00:16:16.556 --> 00:16:21.556
+other pieces of software? There's a lot of common structural pieces that
+
+00:16:21.556 --> 00:16:25.316
+you want to reuse or build or enhance so that, you know,
+
+00:16:25.316 --> 00:16:29.076
+today my paywall uses Venmo. Well, maybe I want to add to
+
+00:16:29.076 --> 00:16:33.916
+that PayPal or add to that something new, or maybe Xpay is
+
+00:16:33.916 --> 00:16:34.916
+going to be one you're going to want.
+
+00:16:34.916 --> 00:16:37.636
+Like, I don't know, who knows what the future holds, but I
+
+00:16:37.636 --> 00:16:42.456
+need a package in which I could leverage paywalls across multiple parts
+
+00:16:42.456 --> 00:16:45.936
+of products. So my paywall right now that I'm building on the
+
+00:16:45.936 --> 00:16:48.496
+side is a mix of crypto payments.
+
+00:16:48.496 --> 00:16:51.736
+So you can go buy your things with Solana and you can
+
+00:16:51.736 --> 00:16:55.216
+actually use your wallet to pay for things in real software as
+
+00:16:55.216 --> 00:16:57.896
+well as, okay, well, maybe you want to use Venmo instead, right?
+
+00:16:57.896 --> 00:17:01.176
+So pick, pick your payment provider and you can pay for things
+
+00:17:01.176 --> 00:17:04.776
+both ways, fully realizing that today everything's Venmo, but in the future
+
+00:17:04.776 --> 00:17:08.565
+we're going to have a lot more agents, bots, crypto experiences that
+
+00:17:08.565 --> 00:17:09.765
+are going to be paying for things.
+
+00:17:10.165 --> 00:17:11.365
+I want to be prepared for that.
+
+00:17:11.365 --> 00:17:14.805
+I want to have software that can easily adapt to one place
+
+00:17:14.805 --> 00:17:16.965
+or the other. What are Your thoughts on this, Matthias?
+
+00:17:16.965 --> 00:17:17.265
+>> Right.
+
+00:17:17.245 --> 00:17:18.565
+>> Well, what you're seeing as well.
+
+00:17:18.965 --> 00:17:22.725
+>> Yeah, I guess what you're talking about is good old software architecture,
+
+00:17:22.725 --> 00:17:27.165
+right? Thinking about, you know, high level architecture, what am I aiming
+
+00:17:27.165 --> 00:17:33.166
+for? How do I create components that contribute to a bigger system?
+
+00:17:33.486 --> 00:17:37.806
+How do I reuse components? None of that has gone away, right?
+
+00:17:38.046 --> 00:17:43.606
+You know, we may no longer be writing, you know, the individual
+
+00:17:43.606 --> 00:17:46.926
+lines of code, but we still have the job to get things
+
+00:17:46.926 --> 00:17:49.566
+like architecture and vision and
+
+00:17:51.486 --> 00:17:53.406
+to some degree testing, right?
+
+00:17:55.566 --> 00:17:58.406
+If, if I guess from my point of view that's the big
+
+00:17:58.406 --> 00:18:03.596
+difference. But between using agents to produce software and wipe coding, if
+
+00:18:03.596 --> 00:18:08.436
+you're a vibe coder, you don't think about anything like that, right?
+
+00:18:08.516 --> 00:18:11.996
+You just create a big prompt and then you're happy when something
+
+00:18:11.996 --> 00:18:18.476
+comes back. And it may well look pretty, but what kind of
+
+00:18:18.476 --> 00:18:20.436
+lifetime will it have, right?
+
+00:18:23.476 --> 00:18:27.996
+What happens when something breaks or when you want new features?
+
+00:18:27.996 --> 00:18:29.476
+Is that even going to be viable?
+
+00:18:30.566 --> 00:18:35.126
+With good software architecture you don't have those problems, right?
+
+00:18:35.846 --> 00:18:42.486
+This is where you design and build for longevity and maintainability.
+
+00:18:43.286 --> 00:18:44.806
+So that comes to mind and
+
+00:18:46.966 --> 00:18:51.406
+in a way we can say nowadays we should have much more
+
+00:18:51.406 --> 00:18:56.286
+headspace and much more freedom to actually invest in things like architecture
+
+00:18:56.286 --> 00:19:04.606
+and planning because we, we no longer have the burden of writing
+
+00:19:04.606 --> 00:19:06.726
+code. Right. So
+
+00:19:08.566 --> 00:19:11.846
+those should be some of the massive amplifiers that we're actually getting
+
+00:19:11.846 --> 00:19:13.126
+from the agentic world.
+
+00:19:15.286 --> 00:19:18.646
+Something I wanted to point out, if I may, from the article,
+
+00:19:20.486 --> 00:19:22.406
+there are a couple of interesting
+
+00:19:25.456 --> 00:19:30.016
+paragraphs towards the bottom. One of one is a performance comparison.
+
+00:19:30.176 --> 00:19:37.176
+Very, very, very interesting figures. They're comparing the May version of the
+
+00:19:37.176 --> 00:19:42.496
+product, which was basically before the migration to an end of August
+
+00:19:42.496 --> 00:19:46.656
+version, which is pretty much where everything is running in rust.
+
+00:19:46.816 --> 00:19:51.216
+So one example here, launch a client, create a session and run
+
+00:19:51.216 --> 00:20:01.826
+one turn before the migration. 5.25 seconds after migration, 18x improvement, 290
+
+00:20:01.826 --> 00:20:02.666
+milliseconds.
+
+00:20:05.226 --> 00:20:12.266
+And then another example, resume a existing session that had 32 turns.
+
+00:20:12.906 --> 00:20:20.836
+May 5.6 seconds. August 21, 20.8 260 milliseconds.
+
+00:20:20.996 --> 00:20:22.436
+So this is what they've achieved.
+
+00:20:22.436 --> 00:20:22.756
+>> Wow.
+
+00:20:22.756 --> 00:20:23.476
+>> Yeah, there we go.
+
+00:20:23.956 --> 00:20:25.476
+>> Those are huge speed improvements.
+
+00:20:25.716 --> 00:20:32.356
+>> Yeah, so that is paints a really nice picture.
+
+00:20:33.796 --> 00:20:36.916
+But the next article is how much did it all cost?
+
+00:20:38.036 --> 00:20:42.076
+Yes, that's a fun one. And I love how they gone into
+
+00:20:42.076 --> 00:20:46.076
+some, some great detail here in terms of doing some analysis on
+
+00:20:46.076 --> 00:20:47.716
+token usage, etc. Etc.
+
+00:20:49.996 --> 00:20:50.296
+So
+
+00:20:51.836 --> 00:20:56.716
+they said the total token spend for all the porting work was
+
+00:20:56.716 --> 00:20:59.756
+136 billion tokens, roughly.
+
+00:21:02.156 --> 00:21:05.436
+>> Out of which you said 146 billion.
+
+00:21:05.836 --> 00:21:09.356
+>> Correct. And then 136 and then
+
+00:21:10.876 --> 00:21:13.196
+130 billion of those were cashed.
+
+00:21:13.196 --> 00:21:14.956
+Remember we mentioned it a few times.
+
+00:21:14.956 --> 00:21:15.356
+>> Yeah.
+
+00:21:15.556 --> 00:21:19.036
+>> The difference between fresh tokens and cash tokens is huge.
+
+00:21:19.036 --> 00:21:21.996
+From a cost point of view, you always want to make sure
+
+00:21:21.996 --> 00:21:26.836
+that caching works as. As well as it possibly can because it
+
+00:21:26.836 --> 00:21:28.996
+will save you enormous amounts of money.
+
+00:21:29.476 --> 00:21:33.956
+So 130 out of 136 billion were cashed.
+
+00:21:34.196 --> 00:21:38.676
+But nonetheless, apparently the monetary bill for all of that came to
+
+00:21:38.676 --> 00:21:46.296
+$120,000, which may seem like a big number, but do think about
+
+00:21:46.536 --> 00:21:52.096
+how much you'd spend on actual developer hours without agents?
+
+00:21:52.096 --> 00:21:52.456
+Right.
+
+00:21:52.936 --> 00:21:54.376
+>> So this is deceiving. I believe.
+
+00:21:54.616 --> 00:21:57.256
+So. You look at the number like, oh, why would you ever
+
+00:21:57.256 --> 00:22:01.176
+spend something like that? Right. Let's put this in perspective.
+
+00:22:01.336 --> 00:22:04.056
+Right. What was the length of this project?
+
+00:22:04.856 --> 00:22:05.256
+Right.
+
+00:22:05.656 --> 00:22:08.276
+>> Yeah. Right. So in three months.
+
+00:22:08.916 --> 00:22:13.396
+>> So three months. Okay, so in three months, full rebuild of something
+
+00:22:13.636 --> 00:22:18.516
+that is creating anywhere between 12 and 21x increase in speed on
+
+00:22:18.516 --> 00:22:22.116
+delivery of results. Right. So three months.
+
+00:22:22.436 --> 00:22:26.276
+If you were going to say no agent, do all of this
+
+00:22:26.276 --> 00:22:30.516
+with a team of engineers. And this is where I think agents
+
+00:22:30.516 --> 00:22:32.596
+make things deceiving. And we've talked about this a little bit.
+
+00:22:32.596 --> 00:22:35.056
+I think, Matthias, is the fact that agents are, are a time
+
+00:22:35.056 --> 00:22:38.496
+machine. The fact that they can parallelize work, the fact that they
+
+00:22:38.496 --> 00:22:40.616
+can work when you're not looking at them, the fact that they're
+
+00:22:40.616 --> 00:22:42.936
+building things outside of your time zone.
+
+00:22:42.936 --> 00:22:45.296
+Like, you're like, I'm going to go to dinner.
+
+00:22:45.296 --> 00:22:46.696
+I'm going to give the agent a task.
+
+00:22:46.696 --> 00:22:47.976
+I'm going to go have dinner and then come back.
+
+00:22:47.976 --> 00:22:51.616
+And like, I'm doing something, but it's actually building something while I'm
+
+00:22:51.696 --> 00:22:53.536
+doing something else. It's a time machine.
+
+00:22:54.096 --> 00:22:57.056
+I would love to understand the area under the curve.
+
+00:22:57.136 --> 00:23:01.266
+Like, this is almost like we need storyboard points to, to see
+
+00:23:01.266 --> 00:23:05.986
+what, like, you know, we can measure real storyboard points loosely in
+
+00:23:05.986 --> 00:23:08.786
+a, in an engineering team and say, okay, this was like, you
+
+00:23:08.786 --> 00:23:12.666
+know, 300,000 storyboard points of what work was being done.
+
+00:23:12.666 --> 00:23:16.026
+Right. If we had to put that against a real team, that's
+
+00:23:16.346 --> 00:23:20.586
+25 engineers working for, you know, six months to a year.
+
+00:23:20.666 --> 00:23:24.026
+Do this. So we don't have the numbers to quantify this.
+
+00:23:24.026 --> 00:23:27.876
+If you start pulling the numbers, that actually would have taken a
+
+00:23:27.876 --> 00:23:31.156
+team of engineers to handwrite all this code without any agents.
+
+00:23:31.636 --> 00:23:33.716
+We're probably talking millions of dollars.
+
+00:23:33.956 --> 00:23:34.516
+>> Yeah.
+
+00:23:34.676 --> 00:23:36.236
+>> Tens of millions, maybe. With all that.
+
+00:23:36.236 --> 00:23:37.236
+>> Certainly not three months.
+
+00:23:38.916 --> 00:23:41.796
+>> And the time compression. Yeah. So you're getting two bonuses here.
+
+00:23:41.796 --> 00:23:43.916
+You're getting a really fast delivery of something.
+
+00:23:43.916 --> 00:23:47.836
+You're getting a single engineer that is able to architect and direct.
+
+00:23:47.836 --> 00:23:51.036
+So there's. There's no. Matias, I don't think we should write it
+
+00:23:51.036 --> 00:23:54.346
+this way because I think the architecture should be A and you're
+
+00:23:54.346 --> 00:23:56.626
+like, no, architecture should be B.
+
+00:23:56.626 --> 00:23:59.226
+Because of my experience. Right. There's none of that.
+
+00:23:59.226 --> 00:24:02.226
+There's one guy at the top saying, this is the architecture.
+
+00:24:02.546 --> 00:24:04.986
+Figure it out. We're just going to go that direction.
+
+00:24:04.986 --> 00:24:10.426
+So there's a huge amount of friction, political noise that's being removed
+
+00:24:10.426 --> 00:24:12.266
+from the system because we build.
+
+00:24:12.266 --> 00:24:16.546
+We build what's right here. This is wild, in my opinion.
+
+00:24:16.866 --> 00:24:19.666
+So I want to focus on the area under the curve.
+
+00:24:20.016 --> 00:24:22.016
+The area under the curve did not change.
+
+00:24:23.056 --> 00:24:26.496
+The work acquired over time did not change.
+
+00:24:26.896 --> 00:24:29.616
+It's just the fact that we were able to spend a hundred
+
+00:24:29.616 --> 00:24:32.976
+thousand dollars in tokens again would be, I think, peanuts compared to
+
+00:24:32.976 --> 00:24:37.016
+an actual team to get the area of that work completed in
+
+00:24:37.016 --> 00:24:38.976
+a shorter amount of time as well.
+
+00:24:39.136 --> 00:24:41.296
+And this is the part that I think is wild to me.
+
+00:24:41.696 --> 00:24:47.586
+Our minds are having to rethink what does creation of things look
+
+00:24:47.586 --> 00:24:51.746
+like, because that area or the amount of work.
+
+00:24:52.946 --> 00:24:57.506
+How would you say this units of work per hour is like
+
+00:24:57.666 --> 00:25:01.346
+10x100x of where we were previously?
+
+00:25:01.986 --> 00:25:05.506
+Would you agree with this? Is this conceptually the right direction of
+
+00:25:05.506 --> 00:25:06.706
+what I should be thinking about here?
+
+00:25:07.506 --> 00:25:13.226
+>> Totally. I mean, I'm personally experiencing that quite real time vividly at
+
+00:25:13.226 --> 00:25:18.456
+the moment where I'm continuously running into severe hardware limitations.
+
+00:25:18.536 --> 00:25:21.976
+You know, I've got a system that is actually so good at
+
+00:25:22.136 --> 00:25:28.056
+parallelizing that I desperately need to add more hardware to my sort
+
+00:25:28.056 --> 00:25:31.976
+of built Love IT engine
+
+00:25:34.216 --> 00:25:34.616
+because
+
+00:25:36.296 --> 00:25:40.896
+my agent constantly tells me how it's being throttled through cpu, disk
+
+00:25:40.896 --> 00:25:42.806
+and memory constraints.
+
+00:25:43.126 --> 00:25:43.686
+>> Wow.
+
+00:25:44.326 --> 00:25:47.846
+>> So, yeah, that is absolutely true.
+
+00:25:47.926 --> 00:25:51.486
+And it's, it's a. It's a very nice problem to have because
+
+00:25:51.486 --> 00:25:53.126
+unfortunately, it's something I can address.
+
+00:25:53.206 --> 00:25:54.326
+Right. But
+
+00:25:56.086 --> 00:26:01.046
+again, it just shows we certainly live in different times nowadays.
+
+00:26:02.726 --> 00:26:06.086
+Anything else comes to mind as far as that one is concerned?
+
+00:26:06.646 --> 00:26:07.926
+>> No, I think I'm good on this one.
+
+00:26:08.096 --> 00:26:11.256
+Okay, this one's good. There's really neat article, really like, what's going
+
+00:26:11.256 --> 00:26:13.296
+on there. Happy that there's a great improvement in performance.
+
+00:26:13.696 --> 00:26:15.376
+But this is not one company doing this one.
+
+00:26:15.376 --> 00:26:15.936
+There's more.
+
+00:26:16.256 --> 00:26:19.536
+>> Yeah. So the other one I wanted to add into the mix
+
+00:26:19.536 --> 00:26:23.536
+here, BUN was rewritten in Rust.
+
+00:26:23.935 --> 00:26:29.216
+You see, there's a real theme here that was announced in July,
+
+00:26:29.536 --> 00:26:32.656
+so early summer, earlier this year.
+
+00:26:33.216 --> 00:26:35.736
+>> What is bun? Let's talk about what is BUN so people can
+
+00:26:35.736 --> 00:26:38.286
+understand. I got another framework, but like what is bun?
+
+00:26:38.606 --> 00:26:43.326
+>> Right? So bun is an alternative JavaScript runtime.
+
+00:26:44.526 --> 00:26:46.526
+So it's an alternative to node.
+
+00:26:49.486 --> 00:26:51.886
+In fact, it's actually more than just a runtime.
+
+00:26:51.886 --> 00:26:56.886
+BUN is also a package manager and a test runner.
+
+00:26:56.886 --> 00:27:04.566
+So BUN is basically. BUN replaces NODE and NPM and VITE in
+
+00:27:04.566 --> 00:27:07.126
+a way, or VTest, let's say VTest.
+
+00:27:09.686 --> 00:27:13.086
+If you think you don't need Node, you don't need npm, you
+
+00:27:13.086 --> 00:27:17.286
+don't need vtest, because you've got this alternative system that is basically
+
+00:27:17.286 --> 00:27:22.086
+all of that. And basically BUN implements the
+
+00:27:24.086 --> 00:27:27.686
+node APIs, but
+
+00:27:30.326 --> 00:27:34.276
+in a sort of, they would claim better and faster way.
+
+00:27:36.036 --> 00:27:36.436
+And
+
+00:27:38.436 --> 00:27:42.116
+earlier this year they decided to rewrite the whole thing in Rust.
+
+00:27:42.516 --> 00:27:45.196
+I think the reasons for that are pretty clear based on what
+
+00:27:45.196 --> 00:27:51.636
+we said earlier. And BUN became very, very well known and popular
+
+00:27:51.876 --> 00:27:56.956
+for one reason I would say in, in, in, in circles, you
+
+00:27:56.956 --> 00:28:00.906
+know, where people wouldn't have been aware of it already because CLAUDE
+
+00:28:00.906 --> 00:28:07.706
+code, the Claude CLI was built on top of BUN from the
+
+00:28:07.706 --> 00:28:11.426
+beginning. And so this is actually how many people
+
+00:28:13.266 --> 00:28:18.546
+have heard of BUN if they hadn't already.
+
+00:28:20.466 --> 00:28:23.786
+And so you won't be surprised to Hear that in December 25,
+
+00:28:23.786 --> 00:28:29.136
+Anthropic actually acquired Bunch. You know, it was a relatively small community
+
+00:28:29.616 --> 00:28:34.496
+driven project, Anthropic, you know, that's when they had loads of money
+
+00:28:34.496 --> 00:28:36.016
+to spend from all the
+
+00:28:37.936 --> 00:28:45.176
+VC money they'd collected. Given that they had such a massive dependency
+
+00:28:45.176 --> 00:28:48.656
+on bun, you know, for, for their Claude cli.
+
+00:28:49.536 --> 00:28:53.976
+They just acquired the whole thing, it looks like, I mean, to
+
+00:28:53.976 --> 00:28:56.836
+me, as someone who is been following the BUN project for a
+
+00:28:56.836 --> 00:29:03.876
+while, it looks like they've had certainly substantially less frequent releases since.
+
+00:29:03.876 --> 00:29:08.676
+So it's a bit sad. But the, the Rust rewrite was certainly
+
+00:29:08.676 --> 00:29:12.716
+a big one. And again, we've got an article from the BUN
+
+00:29:12.716 --> 00:29:16.636
+block in the show Notes here where they talk about that rewrite
+
+00:29:16.716 --> 00:29:17.116
+and
+
+00:29:20.236 --> 00:29:24.326
+apparently. So that's actually, that's. That's a rewrite from Zigzag, which is
+
+00:29:24.326 --> 00:29:28.366
+yet another language also quite sort of close to C
+
+00:29:29.886 --> 00:29:32.886
+Z from my point of view, definitely a bit more of an
+
+00:29:32.886 --> 00:29:33.886
+obscure language.
+
+00:29:35.726 --> 00:29:37.246
+So that's where they've come from.
+
+00:29:38.766 --> 00:29:42.446
+And yeah, if you want to see more about it in terms
+
+00:29:42.446 --> 00:29:48.286
+of stats and performance improvements and all of that, look at the
+
+00:29:48.446 --> 00:29:51.966
+article we've provided here. So ever since v1.4,
+
+00:29:54.056 --> 00:29:57.816
+bun is written in Rust and
+
+00:29:59.976 --> 00:30:05.076
+another project I Thought would be quite useful to share is TypeScript
+
+00:30:05.196 --> 00:30:05.736
+7.
+
+00:30:06.456 --> 00:30:09.736
+>> Oh, okay. So. So everything up to this point, we've been talking
+
+00:30:09.736 --> 00:30:12.976
+about everyone moving to Rust. Rust is like, oh, let's go do
+
+00:30:12.976 --> 00:30:15.376
+everything in Rust. Thorough agents at it build things.
+
+00:30:15.376 --> 00:30:21.376
+Okay, TypeScript 7 did any vowel against Rust and they chose not
+
+00:30:21.376 --> 00:30:22.296
+to use it. So
+
+00:30:23.976 --> 00:30:26.656
+this is good to understand why you didn't do something just as
+
+00:30:26.656 --> 00:30:27.976
+well as why you did do something.
+
+00:30:27.976 --> 00:30:30.056
+So what's the converse of this?
+
+00:30:30.296 --> 00:30:31.256
+What did they pick?
+
+00:30:32.456 --> 00:30:36.296
+>> So TypeScript went with go instead of Rust.
+
+00:30:38.376 --> 00:30:41.616
+So just to understand the context here.
+
+00:30:41.616 --> 00:30:45.106
+Right, so famously Typescript
+
+00:30:46.786 --> 00:30:53.426
+has always been built in Typescript all the way up to V6.
+
+00:30:54.306 --> 00:30:59.666
+So ever since at the very beginning, I mean, obviously there's a
+
+00:30:59.666 --> 00:31:03.986
+hen and egg problem here, but at some point they had a
+
+00:31:03.986 --> 00:31:09.986
+sort of very minimal TypeScript compiler and then they used that one
+
+00:31:10.426 --> 00:31:13.386
+to then actually build the TypeScript project itself.
+
+00:31:14.106 --> 00:31:18.066
+Sounds weird, right? And so presumably the compiler itself would always have
+
+00:31:18.066 --> 00:31:21.946
+been slightly ahead of the main version of the project.
+
+00:31:22.026 --> 00:31:24.026
+Right. And
+
+00:31:25.946 --> 00:31:33.626
+that became a real bottleneck actually, in terms of the compiler performance.
+
+00:31:34.906 --> 00:31:41.876
+Because, you know, whilst TypeScript as a language is incredibly developer friendly
+
+00:31:42.036 --> 00:31:44.036
+and flexible and very
+
+00:31:45.636 --> 00:31:55.396
+good because of its typing constructs, it's not really
+
+00:31:57.076 --> 00:32:02.736
+great for performance, particularly when you're talking multimillion lines of code code,
+
+00:32:02.736 --> 00:32:09.696
+project. And so they ran into some real performance
+
+00:32:11.536 --> 00:32:15.816
+constraints when it comes to compiling projects like VS code, for instance,
+
+00:32:15.816 --> 00:32:18.495
+versus code. Obviously TypeScript code base.
+
+00:32:18.496 --> 00:32:24.176
+Millions and millions of lines of code that compiling vs code before
+
+00:32:24.256 --> 00:32:27.776
+v7 used to take a big machine.
+
+00:32:27.776 --> 00:32:28.656
+And a lot of time
+
+00:32:31.146 --> 00:32:34.426
+they had to make a call at some point to give up
+
+00:32:34.666 --> 00:32:40.106
+that very neat foundation of saying TypeScript is using TypeScript to build
+
+00:32:40.106 --> 00:32:45.626
+itself and to actually go and build the TypeScript compiler and something
+
+00:32:45.626 --> 00:32:51.706
+else. There's a very nice interview, you can watch that on YouTube
+
+00:32:52.986 --> 00:32:58.106
+with Anderson, the creator of TypeScript who talks all about the.
+
+00:32:58.986 --> 00:32:59.866
+The V7
+
+00:33:01.626 --> 00:33:07.306
+conversion, you know, how they achieved more than 10x improvement, how they
+
+00:33:07.306 --> 00:33:10.946
+used the versus code code base in particular, you know, as a
+
+00:33:10.946 --> 00:33:12.586
+significant benchmark there.
+
+00:33:14.266 --> 00:33:19.546
+And so he was asked how did they end up with Go?
+
+00:33:20.276 --> 00:33:26.076
+And he very clearly says Rust was a serious contender and definitely
+
+00:33:26.076 --> 00:33:26.756
+something they
+
+00:33:28.836 --> 00:33:35.876
+looked at. But so his main argument, I'm paraphrasing it, but he's
+
+00:33:35.876 --> 00:33:42.316
+basically saying they didn't. They wanted to port the TypeScript code base,
+
+00:33:42.316 --> 00:33:46.916
+they didn't want to rewrite it, they wanted, they wanted to go
+
+00:33:46.996 --> 00:33:50.476
+to a different language, but they wanted to go to a language
+
+00:33:50.476 --> 00:33:54.306
+that in terms of sort of the, the primitives of the language
+
+00:33:54.306 --> 00:33:57.946
+and sort of the similar. The philosophy of it and, and the
+
+00:33:57.946 --> 00:34:05.786
+semantics was really close to Typescript and Rust is not that, you
+
+00:34:05.786 --> 00:34:08.346
+know, whereas Go on the other hand is.
+
+00:34:08.506 --> 00:34:11.466
+And so he basically said going to go.
+
+00:34:12.506 --> 00:34:15.146
+They didn't quite get exactly the same
+
+00:34:17.905 --> 00:34:23.425
+performance improvements that hypothetically they would have achieved with Rust, but they
+
+00:34:23.425 --> 00:34:28.945
+had the massive advantage of being able to do a port, you
+
+00:34:28.945 --> 00:34:33.825
+know, where basically you do a syntactic conversion of your code base
+
+00:34:34.865 --> 00:34:37.665
+instead of a complete semantic rewrite of it.
+
+00:34:37.825 --> 00:34:45.346
+And as you can imagine, you know, that ultimately is a very
+
+00:34:45.426 --> 00:34:48.226
+sort of pragmatic way of deciding that.
+
+00:34:49.426 --> 00:34:55.506
+And yeah, if you want Anders to explain in his words, which
+
+00:34:55.506 --> 00:35:00.306
+are substantially better than mine, go and watch that video there.
+
+00:35:01.586 --> 00:35:04.906
+>> My brain hears this stuff and this is very intriguing to me.
+
+00:35:04.906 --> 00:35:08.186
+I'm very interested in this. While I don't do code, I'm very
+
+00:35:08.186 --> 00:35:12.666
+interested in the architecture decisions and why we do things and how
+
+00:35:12.666 --> 00:35:14.226
+long it takes things to get done.
+
+00:35:14.546 --> 00:35:17.306
+That stuff is very applicable and I think very useful for us
+
+00:35:17.306 --> 00:35:20.226
+to study. Right. What these really smart teams are doing and just
+
+00:35:20.386 --> 00:35:24.146
+to unpack what they're doing. One of the things that makes me
+
+00:35:24.386 --> 00:35:29.386
+really so one in this TypeScript 7 article, there's some beautiful, some
+
+00:35:29.386 --> 00:35:34.466
+beautiful diagrams showing you how much faster it is versus TypeScript 6
+
+00:35:34.546 --> 00:35:36.786
+versus TypeScript 7. So definitely check out the article.
+
+00:35:37.186 --> 00:35:39.026
+That's the one I just recently posted here.
+
+00:35:39.616 --> 00:35:41.456
+You definitely want to work on this one.
+
+00:35:41.856 --> 00:35:43.136
+One of the things I'll notice here.
+
+00:35:43.376 --> 00:35:47.856
+Let's talk about VS code. And it's 2.3 million lines of code
+
+00:35:48.336 --> 00:35:50.656
+to make it right. I just want to unpack that for a
+
+00:35:50.656 --> 00:35:50.976
+minute.
+
+00:35:52.736 --> 00:35:57.376
+Whatever machine they're using, it compiled in 125 seconds before.
+
+00:35:58.176 --> 00:36:01.696
+Now it's in 10.6 seconds to compile now.
+
+00:36:02.416 --> 00:36:07.146
+So this is an 11, almost 11.9 to be precise, but almost
+
+00:36:07.146 --> 00:36:11.586
+a 12x speed increase. Now I'm going to pick on you a
+
+00:36:11.586 --> 00:36:13.466
+bit here, Matthias, because I think this is a good point to
+
+00:36:13.466 --> 00:36:17.626
+talk about. When you have big projects, when you have lots of
+
+00:36:17.626 --> 00:36:22.066
+code running, the amount of time it takes the code to compile
+
+00:36:23.026 --> 00:36:25.266
+basically turns into real dollars.
+
+00:36:27.186 --> 00:36:30.106
+This is because a lot of my development cycle, and I believe
+
+00:36:30.106 --> 00:36:35.006
+yours is too, is now running inside GitHub and GitHub has runners,
+
+00:36:35.006 --> 00:36:39.206
+and runners are action based. I commit something to my main branch.
+
+00:36:39.606 --> 00:36:42.926
+I'm ready to compile some code, I'm ready to produce the output
+
+00:36:42.926 --> 00:36:45.286
+of whatever the thing is, doesn't really matter.
+
+00:36:46.086 --> 00:36:49.125
+I'm building a static website and I have a whole bunch of
+
+00:36:49.125 --> 00:36:53.590
+pages on this. If I can get the code to compile 5%,
+
+00:36:53.782 --> 00:36:59.526
+10% faster. The more we work with agents, the more commits we're
+
+00:36:59.526 --> 00:37:03.646
+making to code. So, so what's happening right now, and the theory
+
+00:37:03.646 --> 00:37:07.206
+I think is what's going on here is the volume of creation
+
+00:37:07.526 --> 00:37:12.726
+with agents is rapidly increasing. We've seen this with GitHub's usage through
+
+00:37:12.726 --> 00:37:15.286
+the roof, like everyone's building code.
+
+00:37:15.926 --> 00:37:18.526
+My GitHub if your GitHub page, right?
+
+00:37:18.526 --> 00:37:20.966
+So on your GitHub page you have all these little like the
+
+00:37:20.966 --> 00:37:23.086
+square graph, right? It's every day.
+
+00:37:23.086 --> 00:37:25.766
+How many commits have you made or changes of code?
+
+00:37:26.416 --> 00:37:30.576
+My graph, all the old code that I did in 2015, actually
+
+00:37:30.576 --> 00:37:33.216
+even earlier 2016, probably like January.
+
+00:37:33.936 --> 00:37:36.416
+Those colors look almost dark now.
+
+00:37:37.616 --> 00:37:43.776
+My GitHub illustration now is very green, very bright green.
+
+00:37:43.776 --> 00:37:48.216
+Because the amount of code I'm pushing directly to GitHub has greatly
+
+00:37:48.216 --> 00:37:50.416
+improved, greatly sped up with agents.
+
+00:37:51.866 --> 00:37:55.226
+There's a couple compounding factors. More code is being written than ever.
+
+00:37:56.026 --> 00:37:58.026
+More commits are happening than ever.
+
+00:37:59.786 --> 00:38:01.626
+If you combine those two together.
+
+00:38:02.586 --> 00:38:05.626
+More actions, more time, more computers are running.
+
+00:38:06.106 --> 00:38:09.546
+We know in the data space that storage is cheap.
+
+00:38:09.706 --> 00:38:11.866
+Storing the files on GitHub is almost nothing.
+
+00:38:12.186 --> 00:38:16.106
+But compute is expensive. Anytime I want to spin up a vm,
+
+00:38:16.106 --> 00:38:20.416
+a machine, an action that's spending real money, and we only get,
+
+00:38:20.416 --> 00:38:22.856
+as a GitHub user, a certain amount of minutes before you have
+
+00:38:22.856 --> 00:38:25.336
+to start paying for them, it costs you real money.
+
+00:38:25.656 --> 00:38:28.456
+You know, you've hit your threshold this month.
+
+00:38:28.456 --> 00:38:32.816
+Me personally, I set an upper limit threshold for the Carlo Solutions
+
+00:38:32.816 --> 00:38:36.216
+organization On how many GitHub action minutes I needed.
+
+00:38:36.456 --> 00:38:38.576
+We ran into that, we ran into the limit and I had
+
+00:38:38.576 --> 00:38:42.736
+to up the limit because we're doing so much more production of
+
+00:38:42.736 --> 00:38:46.996
+work across my team that I need more minutes of actions to
+
+00:38:46.996 --> 00:38:48.876
+continue to compile code.
+
+00:38:51.036 --> 00:38:55.836
+This is, I think, a real concept and I really like improvements
+
+00:38:55.836 --> 00:39:03.196
+like this where we're ripping out 10x20x25x time of code compilation need.
+
+00:39:03.756 --> 00:39:05.356
+Because this turns into real money.
+
+00:39:05.436 --> 00:39:08.036
+And if you're on an old code base, this is going to
+
+00:39:08.036 --> 00:39:10.476
+encourage you to move from six to seven.
+
+00:39:11.196 --> 00:39:15.076
+Because if you have a lot of code lines in Typescript, this
+
+00:39:15.076 --> 00:39:17.516
+is real money that you're leaving on the table at this point.
+
+00:39:17.756 --> 00:39:21.196
+>> Right. Ultimately, it's about feedback loops.
+
+00:39:22.476 --> 00:39:26.116
+If you're in a code base and you make a change, you
+
+00:39:26.116 --> 00:39:29.676
+want to be able to get feedback from the system with respect
+
+00:39:29.756 --> 00:39:30.156
+to
+
+00:39:32.156 --> 00:39:35.396
+does it compile, does it pass my tests?
+
+00:39:35.396 --> 00:39:40.946
+Right? Yes. If running your Test Suite takes 25 minutes each time
+
+00:39:42.146 --> 00:39:43.266
+you're not going to have
+
+00:39:45.586 --> 00:39:48.866
+a good experience there, you're going to wait ages.
+
+00:39:48.866 --> 00:39:51.266
+That's been true forever. Right.
+
+00:39:53.186 --> 00:39:58.146
+When humans were writing code and you had a poor build system
+
+00:39:58.306 --> 00:40:03.756
+or a slow developer machine and you had to wait ages, it
+
+00:40:03.836 --> 00:40:08.516
+really impacted your productivity. The same is true with agents, but even
+
+00:40:08.516 --> 00:40:09.516
+more so because
+
+00:40:11.436 --> 00:40:16.996
+you usually have multiple of them going at once, right.
+
+00:40:16.996 --> 00:40:19.676
+Rather than just one at a time.
+
+00:40:20.956 --> 00:40:23.516
+So absolutely, very true. And
+
+00:40:25.116 --> 00:40:29.116
+that also. So, yeah, so that's one thing.
+
+00:40:29.276 --> 00:40:30.956
+So being able to actually get
+
+00:40:33.116 --> 00:40:37.836
+something to compile and tell you whether or not it compiles is
+
+00:40:37.836 --> 00:40:42.676
+one step. By the way, this is also where language servers come
+
+00:40:42.676 --> 00:40:43.916
+in, right? LSP
+
+00:40:46.796 --> 00:40:51.756
+a big deal inside the VS code ecosystem, where you've got language
+
+00:40:51.756 --> 00:40:55.436
+servers running in the background that basically are able to
+
+00:40:58.566 --> 00:40:58.866
+understand
+
+00:41:01.686 --> 00:41:08.006
+files containing code semantically and in particular they are able to understand
+
+00:41:08.166 --> 00:41:12.326
+snippets of them rather than an entire code base at once.
+
+00:41:13.366 --> 00:41:19.646
+You know the language server protocol and the language server ecosystem VS
+
+00:41:19.646 --> 00:41:23.006
+code is addressing directly that issue.
+
+00:41:23.006 --> 00:41:26.656
+It's. It's there to give you very quick feedback, right?
+
+00:41:27.056 --> 00:41:27.536
+>> Yes.
+
+00:41:27.616 --> 00:41:32.416
+>> You've. You made modifications to a particular function.
+
+00:41:35.296 --> 00:41:38.336
+The language server is able to
+
+00:41:39.856 --> 00:41:46.576
+give you immediate feedback even if the project itself doesn't build, right?
+
+00:41:47.136 --> 00:41:50.056
+>> Yes, correct. You don't want to get the build time to find
+
+00:41:50.056 --> 00:41:52.766
+there's a problem. You want to find the problem much earlier in
+
+00:41:52.766 --> 00:41:55.686
+the process. And I'm going to maybe ask a question here because
+
+00:41:55.686 --> 00:41:58.806
+I don't understand this one or know about this one language server
+
+00:41:58.806 --> 00:42:05.526
+protocol, the lsps that is that now being exposed directly to agentic
+
+00:42:05.526 --> 00:42:09.686
+development experiences like particularly so like, you know, as the agent is
+
+00:42:09.686 --> 00:42:15.046
+writing its own code inside your code base, those LSP notifications or
+
+00:42:15.046 --> 00:42:18.436
+things that's coming back to the agent and say, hey, you wrote
+
+00:42:18.436 --> 00:42:21.676
+a function, it's not real, the syntax is wrong.
+
+00:42:22.156 --> 00:42:24.876
+Then the agent is immediately picking that up and then able to.
+
+00:42:24.876 --> 00:42:26.716
+Oh yes, you're right, I'll fix the thing.
+
+00:42:29.596 --> 00:42:35.836
+>> CLAUDE code added. I'm just quickly googling it here while some talking.
+
+00:42:36.716 --> 00:42:40.756
+They added native support for LSP a long time ago.
+
+00:42:40.756 --> 00:42:42.196
+>> Yes, exactly.
+
+00:42:42.196 --> 00:42:43.836
+>> That is something which is in the harness.
+
+00:42:45.886 --> 00:42:48.606
+But I am here. There we go.
+
+00:42:48.926 --> 00:42:52.046
+So I can see an article which is dated June 26th
+
+00:42:54.926 --> 00:43:02.806
+>> as a version 2.047 Claude code has native server language server protocol
+
+00:43:02.806 --> 00:43:06.166
+support, which is good. But this is my point that my point
+
+00:43:06.166 --> 00:43:10.246
+is more and more software development tooling is now being geared more
+
+00:43:10.246 --> 00:43:12.126
+towards the agent. How does the agent see this?
+
+00:43:13.026 --> 00:43:14.186
+How does the agent write things?
+
+00:43:14.186 --> 00:43:17.186
+And then all These other Stan, like we would still use it
+
+00:43:17.186 --> 00:43:19.146
+like humans would still look at it in VS code and say,
+
+00:43:19.146 --> 00:43:21.946
+oh, there's now a red squiggly line under this function because something
+
+00:43:21.946 --> 00:43:25.426
+wasn't defined correctly or you added a parameter that doesn't need to
+
+00:43:25.426 --> 00:43:27.746
+be there or just syntactically, something was wrong.
+
+00:43:29.426 --> 00:43:33.266
+We need to see that. But now, more importantly, the agents also
+
+00:43:33.346 --> 00:43:34.546
+need to see that as well.
+
+00:43:34.946 --> 00:43:37.266
+>> If you think about this architecturally, right.
+
+00:43:37.826 --> 00:43:43.656
+Without that, your LLM obviously does next token prediction, right.
+
+00:43:43.656 --> 00:43:49.776
+When it looks at some code, it basically ultimately does pattern matching
+
+00:43:49.776 --> 00:43:54.416
+and tries to figure out given sort of a vast amount of
+
+00:43:55.216 --> 00:43:56.496
+learned examples,
+
+00:44:03.296 --> 00:44:12.146
+How is your code snippet most likely to modify to sort of
+
+00:44:12.146 --> 00:44:15.306
+match some of the good examples that they've learned from.
+
+00:44:15.306 --> 00:44:22.346
+Right. Whereas using an LSP adds a level of semantics that the
+
+00:44:22.346 --> 00:44:26.106
+LLM per se does not have at all, even though it always
+
+00:44:26.746 --> 00:44:28.746
+appears to us if there's intelligence.
+
+00:44:28.746 --> 00:44:33.956
+Right. But the sort of bringing an LSP into the mix would
+
+00:44:33.956 --> 00:44:39.996
+be able to identify, for instance, this particular token happens to be
+
+00:44:40.476 --> 00:44:44.956
+a function name. And ASP can know that, but an LLM cannot.
+
+00:44:44.956 --> 00:44:45.356
+Right?
+
+00:44:45.356 --> 00:44:45.836
+>> Yes.
+
+00:44:45.996 --> 00:44:46.796
+>> So stuff like that.
+
+00:44:46.796 --> 00:44:50.596
+>> Exactly. It's like an additional layer of context you're giving to the
+
+00:44:50.596 --> 00:44:54.796
+agent as it's building things. And as I unpack some of this,
+
+00:44:55.356 --> 00:45:00.426
+I'm having an aha moment here around like okay one, all this
+
+00:45:00.426 --> 00:45:04.266
+makes sense. But you know, when large language models are trying to
+
+00:45:04.266 --> 00:45:08.986
+write you functions, it's statistically I think the term would be is
+
+00:45:08.986 --> 00:45:10.306
+like you're regressing to the mean.
+
+00:45:11.506 --> 00:45:14.826
+You're going to like the most common function that you're trying to
+
+00:45:14.826 --> 00:45:18.746
+write. And this is brings the phrase to my mind like nothing's
+
+00:45:18.746 --> 00:45:22.026
+new under the sun. Right. There's every function I need to write
+
+00:45:22.026 --> 00:45:25.426
+in my program. Someone has probably already written a similar like function
+
+00:45:25.666 --> 00:45:29.486
+in some other program and in some other language that is the
+
+00:45:29.486 --> 00:45:32.126
+ideal or the most performant way to write that function.
+
+00:45:32.126 --> 00:45:35.526
+So large language models are just trying to regress to what is
+
+00:45:35.526 --> 00:45:39.326
+the most common observation that I see about your particular function.
+
+00:45:39.326 --> 00:45:44.286
+So nothing's unique. But now the LSP being part of this pattern,
+
+00:45:44.846 --> 00:45:46.726
+you don't need to regress to the mean.
+
+00:45:46.726 --> 00:45:49.526
+You can build what you need to build and get the syntax
+
+00:45:49.526 --> 00:45:53.326
+right. So it's almost like a good.
+
+00:45:54.066 --> 00:45:57.146
+This feels like a harness, major harness improvement.
+
+00:45:57.146 --> 00:45:57.746
+>> Oh yeah.
+
+00:45:58.466 --> 00:46:00.826
+>> To allow the agent to not have to be so rigid around
+
+00:46:00.826 --> 00:46:04.706
+regressing to the same function that everyone writes over and over again.
+
+00:46:04.786 --> 00:46:07.746
+Now we can be a bit more creative and still get the
+
+00:46:07.746 --> 00:46:09.186
+right output that we desire.
+
+00:46:10.626 --> 00:46:15.906
+>> What I find very interesting though is as we're talking about this
+
+00:46:16.066 --> 00:46:22.476
+and how coding agent harnesses and LSPs or should be, you know,
+
+00:46:22.876 --> 00:46:25.676
+theoretically a very, very good combo.
+
+00:46:26.316 --> 00:46:32.036
+Weirdly enough, one, I don't think the announcement of CLAUDE code adding
+
+00:46:32.036 --> 00:46:38.556
+native LSP support has been received as big as it should be,
+
+00:46:38.796 --> 00:46:43.116
+nor does it appear to be as big a feature even today
+
+00:46:44.236 --> 00:46:46.476
+as it should be, given what we just said.
+
+00:46:46.696 --> 00:46:46.996
+>> Right.
+
+00:46:47.176 --> 00:46:52.296
+>> If you Google CLAUDE and lsp, you're not even going to find
+
+00:46:53.096 --> 00:46:56.976
+any top hits that go directly to the CLAUDE code documentation, for
+
+00:46:56.976 --> 00:47:00.376
+instance. So it's a bit of a weird one, which I can't
+
+00:47:00.376 --> 00:47:03.336
+really make sense of. Maybe some smarter people can comment on that.
+
+00:47:05.016 --> 00:47:09.136
+It feels like it would be a perfect match, but somehow it's
+
+00:47:09.136 --> 00:47:15.046
+not. Maybe we're missing something here in terms of harness development.
+
+00:47:15.126 --> 00:47:19.166
+Or maybe the LLMs are so good now that the extra help
+
+00:47:19.166 --> 00:47:20.966
+from LSP is no longer needed.
+
+00:47:22.006 --> 00:47:25.526
+>> Who knows? Or maybe we didn't even know, like, you know, Right.
+
+00:47:25.846 --> 00:47:29.366
+Yeah, we, we're just talking heads at this point, looking at observations
+
+00:47:29.366 --> 00:47:31.646
+of like, how we see and how we're interacting with agents in
+
+00:47:31.646 --> 00:47:32.886
+the world here and what we're building.
+
+00:47:33.606 --> 00:47:34.886
+And again, we all have different.
+
+00:47:35.046 --> 00:47:39.676
+Everyone's going to have different degrees of, of use and discoverability what's
+
+00:47:39.676 --> 00:47:42.316
+going on here. So I hope you enjoyed this discussion.
+
+00:47:42.316 --> 00:47:43.956
+I think this is a probably a good moment here to kind
+
+00:47:43.956 --> 00:47:46.236
+of like wrap and kind of wind down here a little bit.
+
+00:47:46.236 --> 00:47:47.756
+I think we had some really good discussion.
+
+00:47:48.636 --> 00:47:52.756
+I'm very encouraged by seeing software being entirely rewritten in these new
+
+00:47:52.756 --> 00:47:56.796
+languages. That's very exciting to me, seeing other companies do this at
+
+00:47:56.796 --> 00:48:00.236
+scales that I'm not able to do myself personally in my company,
+
+00:48:00.236 --> 00:48:02.916
+I'm not going to spend $100,000 on any kind of rewrite of
+
+00:48:02.916 --> 00:48:07.686
+software. But I think this is starting to set patterns in the
+
+00:48:07.766 --> 00:48:11.526
+cost and rewrite world that now we're able to observe.
+
+00:48:11.526 --> 00:48:15.686
+Like this is possible. You know, you, you build an app today
+
+00:48:15.766 --> 00:48:18.966
+on a framework that is what you make the best decisions around
+
+00:48:19.286 --> 00:48:23.246
+today. This really drops the barrier for you.
+
+00:48:23.246 --> 00:48:30.496
+Well, to me, it minimizes the risk of picking the wrong language
+
+00:48:30.496 --> 00:48:31.856
+to start with on a project.
+
+00:48:32.416 --> 00:48:35.816
+You can build a project. Let's say we build, go for a
+
+00:48:35.816 --> 00:48:39.136
+couple years. AI is just going to get better and maybe you
+
+00:48:39.136 --> 00:48:40.496
+decide at some point in the future.
+
+00:48:40.496 --> 00:48:43.136
+No, we should have gone and gone down the rust route.
+
+00:48:43.296 --> 00:48:47.616
+That's what we wanted. Okay, put Matias on it for three weeks
+
+00:48:48.336 --> 00:48:52.576
+and, and spend, you know, 50,000 in tokens and get the rewrite.
+
+00:48:52.576 --> 00:48:56.576
+Okay, not a problem. Does this also mean at some point in
+
+00:48:56.576 --> 00:48:58.906
+the future where we say, well, we think it's going to be
+
+00:48:58.906 --> 00:49:01.546
+these three languages. We narrow down three languages that we like the
+
+00:49:01.546 --> 00:49:05.186
+best. Okay, great. Build all three at the same time.
+
+00:49:05.346 --> 00:49:08.826
+And then you evaluate and monitor performance of all three at the
+
+00:49:08.826 --> 00:49:12.706
+same time. The lower you bring the barrier of cost down and
+
+00:49:12.706 --> 00:49:16.626
+the shorter you bring the time down, that just means less risk
+
+00:49:16.946 --> 00:49:21.186
+to you as you build. The thing is how I'm perceiving it
+
+00:49:22.306 --> 00:49:25.526
+anyways. That being said, Matias, this has been a great conversation.
+
+00:49:25.606 --> 00:49:28.206
+I have many points I'm going to have to chew on and
+
+00:49:28.206 --> 00:49:31.366
+think about now. We hope you enjoyed this conversation as well.
+
+00:49:31.766 --> 00:49:36.166
+This show is highly technical, so if you haven't learned this already,
+
+00:49:36.406 --> 00:49:38.646
+we're going to talk about things that are deep and things that
+
+00:49:38.646 --> 00:49:40.326
+are, that are at the high level.
+
+00:49:40.326 --> 00:49:44.286
+But, but there needs to be some level of forum, public communication
+
+00:49:44.286 --> 00:49:45.646
+forum around this kind of topic.
+
+00:49:45.646 --> 00:49:49.646
+I think this is relevant banter that we should educate ourselves on.
+
+00:49:49.646 --> 00:49:52.026
+Like we need like, like this kind of language.
+
+00:49:52.026 --> 00:49:54.706
+So if there's other topics that you like, if there's other things
+
+00:49:54.706 --> 00:49:56.666
+that are interesting to you, please let us know down in the
+
+00:49:56.666 --> 00:49:59.066
+comments if you found this content valuable.
+
+00:49:59.066 --> 00:50:01.106
+We really appreciate it. If you give us a thumbs up, just
+
+00:50:01.106 --> 00:50:03.066
+let us know with some feedback there.
+
+00:50:03.066 --> 00:50:04.666
+We'd love to have a thumbs up on the video.
+
+00:50:04.826 --> 00:50:07.186
+It helps us know that this is content that you like.
+
+00:50:07.186 --> 00:50:10.186
+We'll continue making it. You don't, that's fine, no problem.
+
+00:50:10.346 --> 00:50:12.466
+We can, you know, don't give us a thumbs up.
+
+00:50:12.466 --> 00:50:14.986
+But if you also want to be notified of any new updates
+
+00:50:14.986 --> 00:50:18.696
+or conversations we're having between this or explicit measures or any other
+
+00:50:18.696 --> 00:50:20.936
+content, there's also a subscribe button.
+
+00:50:20.936 --> 00:50:22.056
+We'd love you to hit that as well.
+
+00:50:22.216 --> 00:50:25.176
+Matias, thank you so much. Another great conversation.
+
+00:50:25.176 --> 00:50:27.936
+This has been wonderful. We'll see you all next time.
+
+00:50:27.936 --> 00:50:28.456
+>> Thank you.
+
+00:50:35.176 --> 00:50:38.136
+>> Hopefully my surprise will work. It's been a little slow to play
+
+00:50:38.136 --> 00:50:40.296
+here. Let's see if it'll see if it'll run here.
+
+00:50:46.626 --> 00:50:47.026
+Maybe
+
+00:50:50.706 --> 00:50:52.706
+come on app, figure yourself out
+
+00:50:53.986 --> 00:50:56.466
+>> the suspense is killing me.
+
+00:50:57.506 --> 00:50:59.986
+>> I've been trying to add music at the end of our videos.
+
+00:51:13.846 --> 00:51:22.246
+>> Sam.
+
+00:51:42.176 --> 00:51:50.856
+Monday memo says accelerate burn the tokens don't you hesitate Dashboards watching
+
+00:51:50.856 --> 00:51:56.336
+every prompt you send Use too little and you're at the end
+
+00:51:56.416 --> 00:52:05.546
+Secret agents, secret agents Building systems in the basement Secret age agents
+
+00:52:05.786 --> 00:52:10.986
+under the radar Just trying not to get the paper.
+
+00:52:16.666 --> 00:52:19.146
+Tuesday memo flips the script again
+
+00:52:20.665 --> 00:52:26.346
+Talking budgets bleeding cut it then Same old boss with a brand
+
+00:52:26.346 --> 00:52:34.516
+new fear Yesterday's hero is old over here Secret agents Secret agents
+
+00:52:35.076 --> 00:52:43.716
+Building systems in the basement Secret agents under the radar Just trying
+
+00:52:44.036 --> 00:52:45.796
+not to get up the paper
+
+00:52:48.596 --> 00:52:55.316
+so we spit up tools they never blessed Shadow stack to survive
+
+00:52:55.316 --> 00:53:00.516
+the test by sea for Claude when the gate gets closed by
+
+00:53:00.516 --> 00:53:06.316
+sea for Grok when the path gets froze More tokens, less tokens
+
+00:53:06.316 --> 00:53:13.756
+make up your mind where solving work they leave behind unsanctioned Ain't
+
+00:53:13.756 --> 00:53:19.516
+the dream we chose it's the only way the deadline goes.
+
+00:53:35.976 --> 00:53:43.656
+Business users in a quiet war sanction path don't open anymore if
+
+00:53:43.656 --> 00:53:49.496
+the company can't decide the lane Secret agents keep us in the
+
+00:53:49.496 --> 00:53:59.226
+game Secret agents, Secret agents Building systems in the basement Secret agents
+
+00:53:59.466 --> 00:54:06.826
+under the radar Just trying not to get the paper Secret agents.
+
+00:54:12.986 --> 00:54:14.426
+Under the radar.
+
+00:54:23.026 --> 00:54:42.000
+Sam.

@@ -1,0 +1,69 @@
+{
+  "id": "Nw-IrAZp7FQ",
+  "title": "Rayfin Hot new Features - 043 Agentic Thinking",
+  "fulltitle": "Rayfin Hot new Features - 043 Agentic Thinking",
+  "description": "Table API\nhttps://learn.microsoft.com/en-us/fabric/onelake/table-apis/read-table-data-rest-api\n\nFunctions\nhttps://learn.microsoft.com/en-us/fabric/apps/functions\n\nNew Connectors\nhttps://learn.microsoft.com/en-us/fabric/apps/connectors\n\nFollow Us\nMathias: https://www.linkedin.com/in/mthierba/\nMike: https://www.linkedin.com/in/michaelcarlo/\nChris: https://www.linkedin.com/in/crandycodes/",
+  "upload_date": "20261002",
+  "release_date": "20261001",
+  "timestamp": 1790931414,
+  "duration": 2457,
+  "duration_string": "40:57",
+  "tags": [],
+  "categories": [
+    "Entertainment"
+  ],
+  "channel": "Power BI Tips",
+  "channel_id": "UCPwPrIpZwlfIKcoUpRwl9OQ",
+  "channel_url": "https://www.youtube.com/channel/UCPwPrIpZwlfIKcoUpRwl9OQ",
+  "uploader": "Power BI Tips",
+  "uploader_id": "@PowerBITips",
+  "uploader_url": "https://www.youtube.com/@PowerBITips",
+  "webpage_url": "https://www.youtube.com/watch?v=Nw-IrAZp7FQ",
+  "thumbnail": "https://i.ytimg.com/vi/Nw-IrAZp7FQ/maxresdefault.jpg",
+  "was_live": true,
+  "live_status": "was_live",
+  "chapters": [
+    {
+      "start_time": 0,
+      "title": "Introduction to Rayfin",
+      "end_time": 120
+    },
+    {
+      "start_time": 120,
+      "title": "New platform capabilities",
+      "end_time": 465
+    },
+    {
+      "start_time": 465,
+      "title": "Refined development flow",
+      "end_time": 699
+    },
+    {
+      "start_time": 699,
+      "title": "Agentic UI and workflow",
+      "end_time": 1018
+    },
+    {
+      "start_time": 1018,
+      "title": "Custom DevOps processes",
+      "end_time": 1375
+    },
+    {
+      "start_time": 1375,
+      "title": "Advanced integration",
+      "end_time": 1534
+    },
+    {
+      "start_time": 1534,
+      "title": "Build vs. buy strategies",
+      "end_time": 2153
+    },
+    {
+      "start_time": 2153,
+      "title": "Closing thoughts",
+      "end_time": 2457
+    }
+  ],
+  "language": "en-US",
+  "original_url": "https://www.youtube.com/watch?v=Nw-IrAZp7FQ"
+}
