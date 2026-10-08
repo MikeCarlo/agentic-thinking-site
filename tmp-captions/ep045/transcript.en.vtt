@@ -1,0 +1,1770 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:08.432 --> 00:00:11.952
+Hello everyone and welcome back to Agentic Thinking with Mike and Matthias.
+
+00:00:11.952 --> 00:00:14.432
+We're back again for another great topic.
+
+00:00:14.922 --> 00:00:16.762
+We're going to talk about some news items today.
+
+00:00:17.402 --> 00:00:21.242
+The main topic for day is the Vibe coding trap.
+
+00:00:21.722 --> 00:00:23.962
+Did you know that you were walking into a trap when you
+
+00:00:23.962 --> 00:00:26.842
+were building Vibe coding things? I think this is a relevant article.
+
+00:00:27.482 --> 00:00:32.362
+This is about AI and how it's potentially bankrupting early startups.
+
+00:00:32.362 --> 00:00:33.402
+So this is an interesting article.
+
+00:00:33.402 --> 00:00:34.762
+We're going to kind of unpack this today.
+
+00:00:35.002 --> 00:00:36.202
+Matthias, how are you doing?
+
+00:00:36.522 --> 00:00:37.482
+>> I'm doing great
+
+00:00:39.642 --> 00:00:40.042
+and
+
+00:00:41.822 --> 00:00:45.902
+yeah, excited to see what we come up with here.
+
+00:00:47.742 --> 00:00:49.422
+We may well have different opinions.
+
+00:00:49.422 --> 00:00:50.462
+Let's see what happens.
+
+00:00:51.022 --> 00:00:55.262
+>> That makes just for good tv, you have different opinions about things.
+
+00:00:55.262 --> 00:00:58.382
+So let's step into this one.
+
+00:00:58.382 --> 00:01:01.382
+So without a whole bunch of ado here, let's just go into
+
+00:01:01.382 --> 00:01:04.462
+the main topic here, which is this article which I will put.
+
+00:01:04.462 --> 00:01:07.842
+It's a Medium article and Matthias, I don't get to see all
+
+00:01:07.842 --> 00:01:10.762
+of the article because it is a subscriber only article here.
+
+00:01:11.082 --> 00:01:12.682
+So if you want to go check this out, this is on
+
+00:01:12.682 --> 00:01:15.082
+Medium is the article that we're kind of reviewing here, so you
+
+00:01:15.082 --> 00:01:17.962
+should go check it out. The article is in the description, it's
+
+00:01:17.962 --> 00:01:19.722
+also in the chat window as well here.
+
+00:01:20.362 --> 00:01:23.202
+And I'm going to lead you, Matthias, to kind of give us
+
+00:01:23.202 --> 00:01:26.202
+a little bit of a runup here on what's in the article
+
+00:01:27.162 --> 00:01:29.722
+and why is this topic coming up now?
+
+00:01:29.722 --> 00:01:32.202
+What's happening with startups with AI?
+
+00:01:33.252 --> 00:01:34.532
+What's the trend here that's happening?
+
+00:01:34.772 --> 00:01:35.812
+Go ahead and take it away.
+
+00:01:36.052 --> 00:01:39.172
+>> Yeah, so I found that article and I thought that would be
+
+00:01:39.172 --> 00:01:42.772
+a great one for us to go through because it's opinionated.
+
+00:01:43.812 --> 00:01:47.092
+It resonates with me basically saying
+
+00:01:50.852 --> 00:01:57.812
+businesses building on top of Vibe coded software and wipe coded products
+
+00:01:58.532 --> 00:02:01.932
+apparently increasingly find themselves in quite a pickle.
+
+00:02:01.932 --> 00:02:03.092
+You know, they
+
+00:02:04.892 --> 00:02:09.532
+definitely manage very well to, you know, to produce hype and to,
+
+00:02:10.012 --> 00:02:16.572
+to, to deliver and ship something that may well look appealing.
+
+00:02:17.132 --> 00:02:23.292
+But when it comes to actually building a business on top of
+
+00:02:23.852 --> 00:02:25.292
+such a software,
+
+00:02:27.852 --> 00:02:33.112
+there may well be some traps, some bigger ones, some, some smaller
+
+00:02:33.112 --> 00:02:37.512
+ones. And the article has a few very nice examples, you know,
+
+00:02:37.512 --> 00:02:44.672
+around database corruption, missing database indexes, about
+
+00:02:47.472 --> 00:02:53.392
+massive waste of tokens for AI applications, you know, when, when they
+
+00:02:53.392 --> 00:02:57.152
+don't really engineer what they're actually sending back to the LLMs.
+
+00:02:58.352 --> 00:03:02.332
+And plus obviously a number of security
+
+00:03:03.932 --> 00:03:05.372
+issues, you know,
+
+00:03:07.372 --> 00:03:07.772
+around
+
+00:03:11.372 --> 00:03:14.891
+protecting, you know, anything you, you put put out as, as a
+
+00:03:14.891 --> 00:03:22.732
+public website or so. So obviously some of the Stories are pretty
+
+00:03:24.012 --> 00:03:25.292
+drastic and,
+
+00:03:27.492 --> 00:03:29.172
+you know, probably represent
+
+00:03:30.772 --> 00:03:37.652
+extreme poor and bad examples. But nonetheless, I think there's a lot
+
+00:03:37.652 --> 00:03:41.732
+here to unpack in terms of our own experiences as well.
+
+00:03:42.132 --> 00:03:45.012
+What have we seen, how do we feel about it?
+
+00:03:46.452 --> 00:03:52.862
+And also, is it right to think of a dichotomy of vibe
+
+00:03:52.862 --> 00:03:58.142
+coding on one end of the spectrum versus, I don't know, engineering
+
+00:03:58.142 --> 00:04:00.502
+software engineering on the other end of the spectrum?
+
+00:04:00.502 --> 00:04:02.702
+So I'll leave it here for now.
+
+00:04:03.182 --> 00:04:05.462
+>> Yeah. So this is interesting to me.
+
+00:04:05.462 --> 00:04:08.982
+I believe. So Microsoft did a very cool demo, I think in
+
+00:04:08.982 --> 00:04:13.502
+the March timeframe. They had some users on a stage and they're
+
+00:04:13.502 --> 00:04:16.062
+kind of talking about like, you know, how do we apply AI,
+
+00:04:16.382 --> 00:04:19.582
+where do we apply it in our report writing or data engineering
+
+00:04:19.582 --> 00:04:23.002
+process? What is this? What does AI look like in the hands
+
+00:04:23.002 --> 00:04:27.402
+of a new engineer versus a seasoned engineer, which one would win?
+
+00:04:27.562 --> 00:04:31.402
+And so they kind of pitted these AI pieces so a novice
+
+00:04:31.402 --> 00:04:34.842
+engineer with AI in their hands and said, hey, go build this
+
+00:04:34.842 --> 00:04:37.842
+report, go build this data. It's up to you to use the
+
+00:04:37.842 --> 00:04:41.522
+AI with you to go build something the business may want.
+
+00:04:41.522 --> 00:04:46.092
+And then they gave the same task to an engineer who, who
+
+00:04:46.092 --> 00:04:49.252
+knows the program, knows how to build things, and said, go build
+
+00:04:49.252 --> 00:04:52.692
+this equivalent information. So you got these kind of two worlds of
+
+00:04:52.772 --> 00:04:55.172
+novice with AI and expert without.
+
+00:04:56.052 --> 00:04:59.492
+And so they did this kind of demo of between.
+
+00:04:59.572 --> 00:05:01.332
+Okay, we're going to give you two report pages.
+
+00:05:01.332 --> 00:05:03.372
+Which one was built by the AI, which one was built by
+
+00:05:03.372 --> 00:05:07.012
+the person, which one was built by the novice or the expert.
+
+00:05:07.012 --> 00:05:08.852
+And so it was really interesting to watch.
+
+00:05:09.492 --> 00:05:13.412
+It was somewhat hard to determine in certain scenarios, other places it
+
+00:05:13.412 --> 00:05:14.932
+was very clear which one was which.
+
+00:05:16.082 --> 00:05:18.722
+But at the end of the day, they were trying to bring
+
+00:05:18.722 --> 00:05:22.802
+the parallel that bringing AI to a novice user helps you build
+
+00:05:22.802 --> 00:05:27.442
+incredible things much faster. But you lose some of that expertise, that
+
+00:05:27.442 --> 00:05:32.722
+knowledge around the experts in this space, which is throttling capacity management
+
+00:05:33.362 --> 00:05:35.962
+using only the amount of information you need, things that you kind
+
+00:05:35.962 --> 00:05:38.562
+of learn the hard way of building them on your own.
+
+00:05:38.802 --> 00:05:43.152
+And so when you give AI to an expert who, who's a
+
+00:05:43.152 --> 00:05:48.712
+really good developer, you actually get a compounding effect of really good
+
+00:05:48.712 --> 00:05:51.272
+output from them. They're able to work faster.
+
+00:05:51.512 --> 00:05:54.792
+All these edge cases. And I think partly to this article, which
+
+00:05:54.792 --> 00:06:01.632
+is, right, it's alluding to, I believe, partly here around the single,
+
+00:06:01.632 --> 00:06:04.792
+you know, it's the millionaire solopreneur, right?
+
+00:06:05.432 --> 00:06:08.672
+I'm a single shop, I'm building my app, I'm developing it, and
+
+00:06:08.672 --> 00:06:10.552
+then I just launched it on Production day.
+
+00:06:11.112 --> 00:06:13.832
+And it goes well until the SQL database falls over.
+
+00:06:13.832 --> 00:06:16.552
+It goes well until the API starts throttling.
+
+00:06:16.552 --> 00:06:19.552
+And all these users who are now trying to use your app,
+
+00:06:19.552 --> 00:06:23.912
+it's actually falling over. So had you been an engineer designing this,
+
+00:06:24.152 --> 00:06:26.352
+you probably would have gotten to the same end result for an
+
+00:06:26.352 --> 00:06:30.072
+app, but your infrastructure on the backend side would use some caching.
+
+00:06:30.072 --> 00:06:34.552
+There'd be different API patterns, there might be different architectural decisions that
+
+00:06:34.552 --> 00:06:36.952
+was being made to scale this to high volume.
+
+00:06:37.822 --> 00:06:38.942
+Let me just pause right there.
+
+00:06:39.742 --> 00:06:42.502
+Is this kind of where you feel this article is going, Matthias,
+
+00:06:42.502 --> 00:06:45.822
+or is there a different vibe that this article is pushing in?
+
+00:06:49.662 --> 00:06:50.062
+>> Well,
+
+00:06:51.742 --> 00:06:56.382
+okay, so one thought that I just had as you were talking,
+
+00:06:56.382 --> 00:07:01.422
+and I think that's actually where the article is going, I'm not
+
+00:07:01.422 --> 00:07:07.642
+decided yet. And maybe we can discuss that whether there actually is
+
+00:07:07.642 --> 00:07:10.522
+a really strict distinction between
+
+00:07:12.362 --> 00:07:17.562
+sort of a seasoned engineer architecting something and then building a system
+
+00:07:17.722 --> 00:07:21.402
+with the help of AI on the one hand, as opposed to,
+
+00:07:21.802 --> 00:07:25.882
+you call it a novice user or sort of someone who doesn't
+
+00:07:25.882 --> 00:07:28.842
+approach that from an engineering standpoint and who basically
+
+00:07:30.422 --> 00:07:32.262
+gives all the powers to the AI.
+
+00:07:32.502 --> 00:07:34.662
+Basically, Vibe codes the whole thing, right?
+
+00:07:34.742 --> 00:07:36.342
+AI makes the decisions.
+
+00:07:38.262 --> 00:07:40.902
+The article obviously says if it's the latter,
+
+00:07:42.662 --> 00:07:46.102
+you're bound to get into some trouble.
+
+00:07:46.822 --> 00:07:51.662
+You know, maybe minor, maybe major, may be so bad that ultimately
+
+00:07:51.662 --> 00:07:56.532
+it bankrupts your business because, you know, you may well have launched
+
+00:07:57.172 --> 00:08:00.492
+well, but you haven't been able to then actually scale the thing
+
+00:08:00.492 --> 00:08:05.492
+or secure it or make it as cost efficient as it should
+
+00:08:05.492 --> 00:08:06.452
+be. Right.
+
+00:08:08.132 --> 00:08:13.332
+So what I'm wondering now is if we're saying there is this
+
+00:08:13.332 --> 00:08:21.222
+inherent danger and threat and challenge from wipe coding, is that something
+
+00:08:21.222 --> 00:08:25.342
+which is just a matter of time in the sense that, you
+
+00:08:25.342 --> 00:08:30.782
+know, as new generations of models come out and as the tools
+
+00:08:30.782 --> 00:08:35.022
+we're using to do the vibe coding get better is, you know,
+
+00:08:35.022 --> 00:08:43.462
+are we just waiting for some iteration of AI where those problems
+
+00:08:43.462 --> 00:08:48.462
+no longer exist? Or do we genuinely or always will have a
+
+00:08:48.462 --> 00:08:55.142
+distinction where AI and LLM driven development can only go so far?
+
+00:08:55.142 --> 00:08:59.342
+And we will always need, you know, for something that's really thorough
+
+00:08:59.342 --> 00:09:03.982
+and scalable and secure and solid, will we always need
+
+00:09:05.502 --> 00:09:08.622
+a well trained, well experienced engineer there?
+
+00:09:08.622 --> 00:09:13.342
+Right. I think ultimately that's the big question we're faced with today.
+
+00:09:13.662 --> 00:09:16.862
+And I'm not sure I'm keen to hear what you think, but
+
+00:09:17.022 --> 00:09:20.042
+I'm not sure anyone has a definitive answer yet.
+
+00:09:21.962 --> 00:09:25.762
+>> Let me add a parallel of something I've heard messaging messaged over
+
+00:09:25.762 --> 00:09:31.242
+the last couple months. Let Me see, I may take a tangent
+
+00:09:31.242 --> 00:09:32.722
+here, Matias. This may not be a tangent.
+
+00:09:32.722 --> 00:09:36.842
+I don't know. There are some really strong experts in the Power
+
+00:09:36.842 --> 00:09:37.562
+BI community,
+
+00:09:39.402 --> 00:09:44.752
+namely SQL BI and Tabular Editor, which I think are very great
+
+00:09:45.232 --> 00:09:50.432
+teams of people, extremely smart individuals, no discrete to any other acumen
+
+00:09:50.432 --> 00:09:52.912
+in the Power BI data modeling in space.
+
+00:09:54.112 --> 00:10:00.432
+I feel like I've watched a shift occur where and I don't
+
+00:10:00.432 --> 00:10:03.592
+think they were saying, to be very clear, these teams of people
+
+00:10:03.592 --> 00:10:06.512
+were not saying no, don't use AI.
+
+00:10:06.992 --> 00:10:11.672
+I think the initial rounds of AI interaction from Tabular Editor and
+
+00:10:11.672 --> 00:10:13.392
+SQL BI were like, look, hold off.
+
+00:10:14.182 --> 00:10:17.622
+The models are not quite good enough to handle what we're trying
+
+00:10:17.622 --> 00:10:19.542
+to do. There still needs to be a human in the loop.
+
+00:10:19.862 --> 00:10:23.862
+Don't just brain dump and let the AI try to build decks
+
+00:10:24.102 --> 00:10:27.102
+and models and everything just willy nilly.
+
+00:10:27.102 --> 00:10:30.822
+Right? So I think that part was clear.
+
+00:10:31.382 --> 00:10:34.222
+But I feel like recently, in the last two to three weeks
+
+00:10:34.222 --> 00:10:40.752
+I've seen an immense amount of recommunication around those teams now shifting
+
+00:10:40.752 --> 00:10:44.072
+heavily into using AI. Tabular Editor is now coming out with a
+
+00:10:44.072 --> 00:10:48.632
+CLI tool that's helping it become much more capable for building tymdal
+
+00:10:48.632 --> 00:10:52.912
+and semantic models using agents. Much more structured information.
+
+00:10:53.072 --> 00:10:58.392
+So the Tabular Editor team has built a harness around agents that
+
+00:10:58.392 --> 00:11:01.232
+are making it very friendly to model development.
+
+00:11:01.712 --> 00:11:05.202
+I think this is something they had to do because Power BI
+
+00:11:05.202 --> 00:11:07.082
+had come out with the MCP modeling server.
+
+00:11:07.482 --> 00:11:10.402
+Why would we need Tabular Editor if you have an MCP modeling
+
+00:11:10.402 --> 00:11:12.202
+server and I can talk to an agent directly?
+
+00:11:12.202 --> 00:11:14.202
+We've done this on the show, We've done a number of demos
+
+00:11:14.202 --> 00:11:17.082
+here of talking to the agent model and say, build me a
+
+00:11:17.082 --> 00:11:19.482
+diagram, change these measures, group these things together.
+
+00:11:19.882 --> 00:11:22.602
+Why do I want to go talk to another third party tool
+
+00:11:22.762 --> 00:11:25.162
+where I can directly talk to an agent, have it done faster,
+
+00:11:25.482 --> 00:11:26.922
+not having to click any buttons.
+
+00:11:27.242 --> 00:11:29.842
+I think there's been a shift here where these teams have had
+
+00:11:29.842 --> 00:11:33.832
+to greatly adapt this one. I'm now seeing advertising from Marco Russo
+
+00:11:33.832 --> 00:11:37.032
+and SQL BI saying, hey, we're now going to teach you how
+
+00:11:37.032 --> 00:11:39.712
+to use DAX with agents. How does agents write dax?
+
+00:11:39.712 --> 00:11:42.152
+What do we need to communicate to an agent so that it's
+
+00:11:42.152 --> 00:11:46.592
+good at writing dax? These were not messages I was seeing three
+
+00:11:46.592 --> 00:11:51.032
+months ago, four months ago. And so all what I'm trying to
+
+00:11:51.032 --> 00:11:53.272
+say here and maybe bringing it back to your point here around
+
+00:11:53.272 --> 00:11:56.992
+like where are things going? The models are getting much better.
+
+00:11:57.622 --> 00:12:00.982
+The harnesses that people are developing are getting much more capable.
+
+00:12:01.382 --> 00:12:04.982
+The large language models can Hallucinate can do weird things.
+
+00:12:06.022 --> 00:12:09.142
+But what you want is you want a very accurate system around
+
+00:12:10.102 --> 00:12:14.262
+a harness, wrangling that large language model to allow it to reason,
+
+00:12:14.262 --> 00:12:16.342
+to allow it to build things that are useful.
+
+00:12:16.502 --> 00:12:18.022
+But it needs to be able to test.
+
+00:12:18.342 --> 00:12:21.862
+It needs to have specifications. These have linting built into it.
+
+00:12:21.942 --> 00:12:26.072
+Did it even write the right syntax that goes into the DAX
+
+00:12:26.072 --> 00:12:30.352
+statement or not? Right. So these are things, I think, that are
+
+00:12:30.672 --> 00:12:33.232
+trying to be organized in the community right now.
+
+00:12:33.232 --> 00:12:37.952
+And we're seeing a shift where more and more experts are adopting
+
+00:12:37.952 --> 00:12:41.592
+AI and building tools around it, which is making it more useful
+
+00:12:41.592 --> 00:12:45.072
+for everyone. So now back to this point here.
+
+00:12:45.072 --> 00:12:46.352
+This is where we are today.
+
+00:12:47.952 --> 00:12:51.272
+I think these models are going to continue to get better.
+
+00:12:51.272 --> 00:12:54.122
+The harnesses will continue to get more capable.
+
+00:12:54.282 --> 00:12:57.602
+People are going to continue to build better tools that are going
+
+00:12:57.602 --> 00:13:00.282
+to enable better usage of this moving forward.
+
+00:13:00.282 --> 00:13:03.962
+And so while I think we're going to have some users here.
+
+00:13:04.442 --> 00:13:06.362
+Right. I'm going to rapidly build an app.
+
+00:13:06.682 --> 00:13:11.082
+It may fall over, it may break on the back end.
+
+00:13:11.882 --> 00:13:15.602
+Okay. Shame on me. I'm a new user to Vibe coding this
+
+00:13:15.602 --> 00:13:18.922
+whole application thing. But it doesn't take long for you to realize,
+
+00:13:18.922 --> 00:13:24.322
+oh, it wasn't that the AI couldn't build, was more that your
+
+00:13:24.322 --> 00:13:28.122
+prompts and what you described to the AI was insufficient.
+
+00:13:29.082 --> 00:13:34.762
+And I think that's much more of the scenario here, which is
+
+00:13:35.002 --> 00:13:40.682
+we just have people not being able to prompt correctly into the
+
+00:13:40.682 --> 00:13:42.922
+AI to get out what they want.
+
+00:13:43.962 --> 00:13:47.962
+And I know this because, Matthias, you're putting me to shame.
+
+00:13:48.682 --> 00:13:51.282
+I'm doing a certain amount of programming and Vibe coding and building
+
+00:13:51.282 --> 00:13:53.802
+apps, and I probably wouldn't call it Vibe code anymore.
+
+00:13:54.042 --> 00:13:56.322
+I would really want to call it, like, agentically coding, because I
+
+00:13:56.322 --> 00:13:57.562
+kind of know what I want to build.
+
+00:13:58.282 --> 00:14:02.762
+But, Matthias, you're building things well above my pay grade, way better
+
+00:14:02.762 --> 00:14:06.002
+than what I'm doing. Much more elaborate and complex.
+
+00:14:06.002 --> 00:14:07.962
+But you're using agents to do a lot of the development.
+
+00:14:08.602 --> 00:14:12.282
+But that's because your system that you've been working on and developing
+
+00:14:12.282 --> 00:14:16.542
+is just so well done. And it's incredible, like, what it can
+
+00:14:16.542 --> 00:14:20.502
+do. And so I think the more the general population and public
+
+00:14:20.662 --> 00:14:25.262
+starts learning what this looks like in people, building programs and applications
+
+00:14:25.262 --> 00:14:29.062
+that help this to become more real, it's just going to shift
+
+00:14:29.062 --> 00:14:33.502
+my work away from clicking buttons and moving things around to describing
+
+00:14:33.502 --> 00:14:36.262
+things to an agent and having it pair program, or pair build
+
+00:14:36.262 --> 00:14:38.502
+with me alongside here. So let me just pause.
+
+00:14:38.502 --> 00:14:39.902
+I'm gonna just leave that thought there for a moment.
+
+00:14:39.902 --> 00:14:40.622
+What do you think about that?
+
+00:14:40.622 --> 00:14:43.382
+Is that, is that alignment with where you're thinking things are going
+
+00:14:43.452 --> 00:14:43.752
+to.
+
+00:14:46.562 --> 00:14:50.482
+>> Okay, so I think one thing we can take for granted is
+
+00:14:50.802 --> 00:14:56.522
+today, with the harnesses and models we have available to us, you
+
+00:14:56.522 --> 00:15:01.762
+can build very, very, very substantial, complex
+
+00:15:03.522 --> 00:15:09.772
+tools and software applications. Right. If.
+
+00:15:10.492 --> 00:15:11.532
+Right. Big. If
+
+00:15:14.252 --> 00:15:15.772
+you know what to ask for.
+
+00:15:17.612 --> 00:15:19.852
+If you basically do
+
+00:15:21.452 --> 00:15:26.252
+a fair amount of the architecture upfront and then feed that into
+
+00:15:26.252 --> 00:15:28.812
+the prompt. As you just said,
+
+00:15:30.332 --> 00:15:33.132
+prompting is what it's all about.
+
+00:15:35.422 --> 00:15:37.182
+Yes, but
+
+00:15:39.342 --> 00:15:42.702
+are we ever going to get to a point where you're going
+
+00:15:42.702 --> 00:15:47.982
+to get similar outputs from an AI without having to do that
+
+00:15:48.062 --> 00:15:51.742
+kind of upfront work? That's really what I wonder about.
+
+00:15:51.902 --> 00:15:56.902
+Right. Because that would basically mean that we no longer have a
+
+00:15:56.902 --> 00:15:59.822
+wipe coding trap to go back to the article.
+
+00:15:59.982 --> 00:16:04.882
+Right. And so I don't think we will ever get there.
+
+00:16:07.602 --> 00:16:11.802
+If you want to believe all the big players and the anthropics
+
+00:16:11.802 --> 00:16:17.082
+and openais in this world who want to sell you their tokens
+
+00:16:17.082 --> 00:16:22.242
+for lots of money, obviously they make you believe that you just
+
+00:16:22.242 --> 00:16:27.962
+do voice input to a dot or a bot or whatever you
+
+00:16:27.962 --> 00:16:32.382
+want to call it, and then they build the next million dollar
+
+00:16:32.382 --> 00:16:36.182
+business for you. Yes. Without you holding any hands.
+
+00:16:36.182 --> 00:16:40.982
+Right. Yeah. I am very, very, very skeptical about that.
+
+00:16:42.182 --> 00:16:42.582
+But
+
+00:16:44.262 --> 00:16:49.422
+on the other hand, I'm extremely excited about the capabilities we have
+
+00:16:49.422 --> 00:16:51.462
+with the current generation of models,
+
+00:16:53.542 --> 00:16:59.752
+you know, allowing you to actually build, architect and build very substantial
+
+00:17:00.152 --> 00:17:01.592
+systems and applications
+
+00:17:04.072 --> 00:17:10.472
+for very, very cheap and very, very quickly, you know, so.
+
+00:17:12.472 --> 00:17:16.312
+Yeah. Do you just pushing it back to you.
+
+00:17:16.312 --> 00:17:19.352
+Do you think I'm wrong with my skepticism?
+
+00:17:19.592 --> 00:17:22.792
+Do you think this is just a matter of evolution?
+
+00:17:26.142 --> 00:17:29.542
+>> I, I think we're in the middle of the evolution process of
+
+00:17:29.542 --> 00:17:32.742
+this. Right. I, I think if we look at, if I look
+
+00:17:32.742 --> 00:17:35.502
+at where things have come from January till now,
+
+00:17:37.022 --> 00:17:41.462
+in January through maybe March, I was doing a lot of experimentation.
+
+00:17:41.462 --> 00:17:45.102
+I was building very small, rough versions of applications.
+
+00:17:46.622 --> 00:17:49.622
+I feel like now I'm spending a lot more time polishing and
+
+00:17:49.622 --> 00:17:53.752
+getting something that was way closer to a real production item that
+
+00:17:53.752 --> 00:17:55.752
+I would want to put my name on and put out the
+
+00:17:55.752 --> 00:17:57.152
+door as branded items.
+
+00:18:00.672 --> 00:18:04.272
+I only see this progression moving further towards.
+
+00:18:04.352 --> 00:18:07.712
+It's going to get more capable, we're going to get better models,
+
+00:18:08.032 --> 00:18:11.152
+we're going to get more use out of these models for us
+
+00:18:11.152 --> 00:18:14.592
+as we build things. So I feel like the progression is moving
+
+00:18:14.592 --> 00:18:18.272
+towards. In the same way I made the analogy on the Explicit
+
+00:18:18.272 --> 00:18:22.602
+Measures podcast, in the same way that Power BI reports were democratized
+
+00:18:22.602 --> 00:18:26.682
+for the Business user, the BI team, we're democratizing application and app
+
+00:18:26.682 --> 00:18:29.242
+development by using agents to do the same thing.
+
+00:18:30.122 --> 00:18:33.882
+I don't have to go into a Power BI report and ask
+
+00:18:33.882 --> 00:18:35.481
+or figure out how to write D3.
+
+00:18:36.922 --> 00:18:38.442
+The visuals all run on D3.
+
+00:18:38.442 --> 00:18:41.002
+I just take for granted that there's a framework around it.
+
+00:18:41.002 --> 00:18:43.922
+And when I click the button to make a bar chart, boom,
+
+00:18:43.922 --> 00:18:46.322
+bar chart shows up, I drag my fields, boom.
+
+00:18:46.322 --> 00:18:49.402
+It all maps together. Someone spent a lot of work around this
+
+00:18:49.722 --> 00:18:51.882
+to make it an easy experience to use.
+
+00:18:52.042 --> 00:18:56.042
+They democratize all the code that was required to write that.
+
+00:18:57.002 --> 00:19:02.082
+In the same way, I see agents being that Power BI like
+
+00:19:02.082 --> 00:19:04.442
+tool that democratizes the app.
+
+00:19:07.802 --> 00:19:12.502
+Because some users are able to build apps and scale them in
+
+00:19:12.502 --> 00:19:17.502
+systems, right? You may not be able to and that I think
+
+00:19:17.502 --> 00:19:22.342
+that's more of a limitation on your knowledge around what does an
+
+00:19:22.342 --> 00:19:26.302
+at scale app look like? How do you communicate to the edit?
+
+00:19:26.302 --> 00:19:28.822
+So you know, for example, when you're doing a planning mode around
+
+00:19:28.822 --> 00:19:30.742
+what your app may be or what design you may be building,
+
+00:19:30.742 --> 00:19:32.502
+you say, look, I need this app to be able to be
+
+00:19:32.502 --> 00:19:35.582
+scalable, right? So some of the prompt that I should be presenting
+
+00:19:35.582 --> 00:19:37.542
+to it is this app needs to be scalable.
+
+00:19:37.882 --> 00:19:40.482
+It needs to have these types of design features on the back
+
+00:19:40.482 --> 00:19:45.562
+end. You can describe more of those features, the AI will return.
+
+00:19:45.722 --> 00:19:49.442
+Hey Matthias, for building your app, did you know you need a
+
+00:19:49.442 --> 00:19:54.001
+redis cache? If you don't understand what a redis cache is and
+
+00:19:54.001 --> 00:19:57.802
+why that helps your SQL Server not fall over or your API
+
+00:19:58.122 --> 00:20:02.442
+not throttle because you're hitting the same request over and over again.
+
+00:20:02.762 --> 00:20:06.792
+If you don't understand that, then how can you tell it, yes,
+
+00:20:06.792 --> 00:20:09.112
+I need it or no I don't, right?
+
+00:20:09.752 --> 00:20:10.152
+>> You.
+
+00:20:10.392 --> 00:20:14.152
+>> Now what is really is interesting here is you can say things
+
+00:20:14.152 --> 00:20:16.872
+like you, you have to learn how to use language of like,
+
+00:20:17.272 --> 00:20:20.392
+you know, I'm going to have again, it's, it's good, clear requirements,
+
+00:20:20.471 --> 00:20:22.792
+right? When I'm building the app, I got to be able to
+
+00:20:22.792 --> 00:20:24.952
+tell my, even my developers today, right?
+
+00:20:24.952 --> 00:20:27.312
+If I told you, Matias, I'm going to Build app for 10
+
+00:20:27.312 --> 00:20:30.872
+people, you would have in your mind a certain kind of architecture.
+
+00:20:31.532 --> 00:20:33.932
+And then you would ask me questions around like, well, how often
+
+00:20:34.252 --> 00:20:35.772
+is the data going to be accessed?
+
+00:20:35.772 --> 00:20:37.252
+How much data are we accessing?
+
+00:20:37.252 --> 00:20:39.132
+Is this just a little bit or a lot of bit, right?
+
+00:20:39.292 --> 00:20:41.772
+That will change part of how you design the solution.
+
+00:20:42.012 --> 00:20:44.252
+But you already know this because of your historical experience.
+
+00:20:44.252 --> 00:20:47.732
+You've gone into these problems and ran into a wall and how
+
+00:20:47.732 --> 00:20:51.932
+to solve it. The AI knows how to solve these problems.
+
+00:20:52.412 --> 00:20:54.892
+I'm just not telling it the right requirements.
+
+00:20:55.372 --> 00:20:57.772
+And so I think that's where things for me, I'm like, I'm
+
+00:20:57.772 --> 00:21:00.882
+looking at this now and saying, I think the AIs now are
+
+00:21:01.122 --> 00:21:04.122
+really good and they can outbuild what I am aware of or
+
+00:21:04.122 --> 00:21:08.362
+what I'm knowledgeable about. And so now I have to direct the
+
+00:21:08.362 --> 00:21:09.042
+agents. And
+
+00:21:10.722 --> 00:21:12.962
+one area that I'm going to say is very hard to do,
+
+00:21:12.962 --> 00:21:14.242
+and even I struggle with this
+
+00:21:16.402 --> 00:21:20.842
+sometimes My team asks me questions from the AI because they'll talk
+
+00:21:20.842 --> 00:21:23.282
+to it and they'll have an answer and they'll respond back.
+
+00:21:24.002 --> 00:21:29.202
+It gives you two options that are very close in capability.
+
+00:21:30.262 --> 00:21:35.062
+Right. How do I have a preference to push the AI one
+
+00:21:35.062 --> 00:21:36.822
+direction versus another?
+
+00:21:37.062 --> 00:21:38.022
+>> Right, right.
+
+00:21:38.822 --> 00:21:42.102
+>> What, what knowledge or background information do I have that helps me
+
+00:21:42.102 --> 00:21:43.942
+design the solution for what I want?
+
+00:21:43.942 --> 00:21:47.222
+And so sometimes the AI will come back to you with two
+
+00:21:47.222 --> 00:21:50.182
+choices that are probably both good in their own right.
+
+00:21:50.662 --> 00:21:55.582
+But maybe a downstream design solution feature that you want to build
+
+00:21:55.582 --> 00:21:58.262
+may conflict with these two items or this decision point.
+
+00:21:58.522 --> 00:22:02.842
+Right. And. And that's where I think the expertise of the expert
+
+00:22:02.842 --> 00:22:05.722
+starts coming into play. You're able to kind of zoom out a
+
+00:22:05.722 --> 00:22:06.882
+little bit more, look a bit.
+
+00:22:06.882 --> 00:22:09.802
+A bit of a big picture, figure out what's going on, and
+
+00:22:09.802 --> 00:22:12.922
+then zoom into the very specific details of what the agent's asking
+
+00:22:12.922 --> 00:22:16.762
+for and then catering your prompt better to what they need.
+
+00:22:17.722 --> 00:22:20.482
+I'm hearing you say yes, so it, it feels like maybe this
+
+00:22:20.482 --> 00:22:23.802
+is something you've encountered with your agents where it's giving you two
+
+00:22:23.802 --> 00:22:25.402
+good options, but you got to pick one.
+
+00:22:25.642 --> 00:22:28.042
+>> Oh, yeah, yeah. That's definitely something which resonates.
+
+00:22:29.562 --> 00:22:31.002
+Generally you get more than two.
+
+00:22:32.282 --> 00:22:40.042
+And I generally, my experience, you generally have a recommendation as well.
+
+00:22:40.362 --> 00:22:41.802
+When there are choices to make.
+
+00:22:43.002 --> 00:22:51.362
+Oftentimes the agent highlights what they would recommend, but I recognize what
+
+00:22:51.362 --> 00:22:51.882
+you say.
+
+00:22:53.962 --> 00:22:58.642
+Oftentimes I would then push back and say, can you present the
+
+00:22:58.642 --> 00:23:01.802
+options in a different language? Can you dumb it down?
+
+00:23:02.362 --> 00:23:04.642
+Or can you explain what the impact will be?
+
+00:23:04.642 --> 00:23:09.402
+You know, things like that, and that normally actually helps.
+
+00:23:10.202 --> 00:23:14.282
+Or another way to go would be for me to say,
+
+00:23:16.042 --> 00:23:20.132
+I don't care. I've put you in charge of delivering this goal.
+
+00:23:20.532 --> 00:23:24.452
+You make the call. As long as you achieve the strategic goals
+
+00:23:24.452 --> 00:23:27.532
+I set out with you in the beginning, you are free to
+
+00:23:27.532 --> 00:23:30.932
+do whatever you want. You know, so that would be another approach.
+
+00:23:31.412 --> 00:23:35.452
+I think ultimately it's about being selective.
+
+00:23:35.452 --> 00:23:41.892
+You know, what component do you care so deeply about that you
+
+00:23:41.892 --> 00:23:45.532
+get very hands on and that you get very involved with the
+
+00:23:45.532 --> 00:23:53.472
+architecture and what component doesn't need that where you basically where you
+
+00:23:53.472 --> 00:23:57.152
+can afford to hand it off to an agent in terms of
+
+00:23:57.152 --> 00:23:58.472
+making decisions. Right.
+
+00:23:58.552 --> 00:24:03.392
+>> That's interesting. I like that idea of like there are definitely parts
+
+00:24:03.392 --> 00:24:06.592
+of the application or whatever you're building where you're going to be
+
+00:24:06.592 --> 00:24:08.912
+very stringent on. Like it has to be this way.
+
+00:24:08.912 --> 00:24:10.152
+This is the vision I have.
+
+00:24:10.632 --> 00:24:14.952
+>> Yeah. Like, you know, identity authentication, payments, you know.
+
+00:24:15.552 --> 00:24:15.872
+>> Yes.
+
+00:24:16.832 --> 00:24:19.952
+>> You know, that kind of sort of hard currency stuff.
+
+00:24:20.032 --> 00:24:22.512
+Yes. But do not mess it up.
+
+00:24:23.152 --> 00:24:27.552
+UX or Docs or.
+
+00:24:31.552 --> 00:24:35.312
+Yeah, anything. Anything that's sort of more cosmetic rather than
+
+00:24:37.552 --> 00:24:41.232
+ultimately it's, you know, again, coming back to the article which obviously
+
+00:24:41.232 --> 00:24:45.962
+says if you're just wipe coding, you may well be able to
+
+00:24:45.962 --> 00:24:49.402
+start a business, but you know, don't be surprised if it goes
+
+00:24:49.402 --> 00:24:53.162
+bankrupt. Right. At the end of the day it's, it's, it's a
+
+00:24:53.162 --> 00:25:00.722
+risk assessment. Right. And you want to think about what's the risk
+
+00:25:01.442 --> 00:25:04.642
+of the AI getting this particular piece wrong.
+
+00:25:05.522 --> 00:25:10.362
+If, if that's a risk you're not willing to accept, then you
+
+00:25:10.362 --> 00:25:13.482
+better get more hands on here and you better get more involved.
+
+00:25:13.562 --> 00:25:13.962
+Right.
+
+00:25:14.202 --> 00:25:16.842
+>> I like that part. Yes. I think it's a good, I think
+
+00:25:16.842 --> 00:25:20.962
+it's a good litmus test of like, you know, if the AI
+
+00:25:20.962 --> 00:25:22.362
+broke this part, would it be a problem?
+
+00:25:22.362 --> 00:25:25.282
+So again, to this article going back maybe here a little bit
+
+00:25:25.282 --> 00:25:28.002
+to this one and talking more about it, which is, you know,
+
+00:25:28.002 --> 00:25:32.322
+where does the artist, where does the, the author here start picking
+
+00:25:32.322 --> 00:25:35.092
+on, hey, where should we be putting our pressure?
+
+00:25:35.092 --> 00:25:38.492
+Right? Some of our pressure should be on like the database design,
+
+00:25:38.572 --> 00:25:43.452
+the API design, telling the agent to build tests around high volume
+
+00:25:43.772 --> 00:25:47.052
+capacity. Right. I mean this is, these are part of the techniques
+
+00:25:47.052 --> 00:25:51.372
+I think that we would apply here and from those techniques that
+
+00:25:51.372 --> 00:25:54.572
+would then elevate more of our design.
+
+00:25:54.732 --> 00:25:58.732
+Right. We can still rely on the agent to build it, but
+
+00:25:59.062 --> 00:26:02.582
+telling it better requirements will change the design so that it is
+
+00:26:03.142 --> 00:26:06.022
+using caching. It is not letting the SQL database fall over.
+
+00:26:06.022 --> 00:26:09.342
+And maybe to some degree here, unless there's, I mean most of
+
+00:26:09.342 --> 00:26:09.862
+this is,
+
+00:26:13.862 --> 00:26:16.182
+I feel like most of this is fixable.
+
+00:26:17.222 --> 00:26:20.022
+Like if you, if you did go down the route and you're
+
+00:26:20.022 --> 00:26:22.462
+gonna, you're gonna burn some users and you know, the people are
+
+00:26:22.462 --> 00:26:24.892
+gonna adopt the app and the app starts crashing, okay, fine.
+
+00:26:26.162 --> 00:26:29.762
+There's very little that you can do that is unrecoverable.
+
+00:26:30.722 --> 00:26:33.522
+At least quickly building through okay.
+
+00:26:33.602 --> 00:26:37.522
+Hey, agent. My SQL database is falling over for these reasons.
+
+00:26:37.922 --> 00:26:41.281
+What's going on? That's a really good.
+
+00:26:41.682 --> 00:26:44.242
+Now that you know the problem, you go back to the agent
+
+00:26:44.242 --> 00:26:48.442
+and say, build the monitoring, build the error messaging that we need
+
+00:26:48.442 --> 00:26:51.602
+build. And you can rapidly iterate through these problems.
+
+00:26:51.602 --> 00:26:53.802
+And so while it was quick to build the app, you also
+
+00:26:53.802 --> 00:26:56.122
+have another agent. I think people forget this.
+
+00:26:56.442 --> 00:27:01.642
+There's an assistant that's there to help you debug them too, and
+
+00:27:01.642 --> 00:27:05.682
+figure out better architectures. And as fast as it was to create
+
+00:27:05.682 --> 00:27:09.522
+the original app, you probably could recode that with another agent to
+
+00:27:09.522 --> 00:27:09.962
+fix it.
+
+00:27:11.962 --> 00:27:16.562
+>> Most of it is recoverable, except for one thing, and that's very.
+
+00:27:16.562 --> 00:27:17.962
+>> I want to say, security here.
+
+00:27:18.042 --> 00:27:19.002
+>> No, no.
+
+00:27:19.162 --> 00:27:19.602
+>> Okay.
+
+00:27:19.602 --> 00:27:20.362
+>> Business model.
+
+00:27:20.892 --> 00:27:21.212
+>> Oh.
+
+00:27:21.212 --> 00:27:25.252
+>> If you made assumptions and launched a business, you know, with.
+
+00:27:25.252 --> 00:27:27.972
+With a. So with a pricing model or so.
+
+00:27:27.972 --> 00:27:31.052
+Or with certain sort of contract types.
+
+00:27:31.292 --> 00:27:34.852
+Yeah. And then it turns out that is never going to be
+
+00:27:34.852 --> 00:27:35.452
+profitable.
+
+00:27:35.852 --> 00:27:36.212
+>> Yeah.
+
+00:27:36.212 --> 00:27:39.532
+>> You're in the pickle. And the article has some examples for that
+
+00:27:39.532 --> 00:27:41.012
+as well. Right. That's a great.
+
+00:27:41.012 --> 00:27:43.612
+That's something you can't really recover from
+
+00:27:43.852 --> 00:27:47.572
+>> if you're charging too little for the app you're using in.
+
+00:27:47.572 --> 00:27:50.352
+The app is very expensive. It'll never work.
+
+00:27:51.312 --> 00:27:57.152
+>> Which, if you don't mind, leads us quite nicely to open AI,
+
+00:27:57.392 --> 00:28:03.312
+which we covered last week because they've just had a similar realization.
+
+00:28:03.552 --> 00:28:05.032
+You know, they've. They've had a.
+
+00:28:05.032 --> 00:28:08.592
+A $200 max subscription.
+
+00:28:08.832 --> 00:28:09.312
+>> Yeah.
+
+00:28:09.712 --> 00:28:13.152
+>> For a long time. Which they put on pause at some point.
+
+00:28:15.402 --> 00:28:22.402
+And last week they launched a new 500 plan, you know, bigger
+
+00:28:22.402 --> 00:28:25.242
+than any of their. Of their competitors.
+
+00:28:25.482 --> 00:28:33.082
+Yeah. And they also brought back the 200 plan, but with substantially
+
+00:28:33.562 --> 00:28:37.802
+reduced quotas in. In within the tour.
+
+00:28:37.802 --> 00:28:39.482
+Sorry, I think I'm about to.
+
+00:28:40.622 --> 00:28:43.262
+Good. Sorry, I was. Didn't want to sneeze into the microphone.
+
+00:28:45.982 --> 00:28:50.502
+So they got a lot of heat for that from people who.
+
+00:28:50.502 --> 00:28:54.702
+Who were on the $200 plan suddenly being told, well, you can
+
+00:28:54.702 --> 00:28:58.502
+stay on it, but we're reducing what you're getting out of it
+
+00:28:58.502 --> 00:28:59.822
+by 50% or so.
+
+00:29:01.342 --> 00:29:03.102
+It's definitely not going down very well.
+
+00:29:03.102 --> 00:29:06.462
+But that is an example where something like that happened.
+
+00:29:06.632 --> 00:29:11.672
+And obviously we've seen that with respect to the cost of using
+
+00:29:11.672 --> 00:29:12.552
+AI getting
+
+00:29:14.152 --> 00:29:18.792
+increasing continuously. That's something we talked about a few times.
+
+00:29:19.832 --> 00:29:25.152
+June 26th was a big deal when Copilot completely changed their pricing
+
+00:29:25.152 --> 00:29:25.592
+model.
+
+00:29:27.112 --> 00:29:31.272
+Companies like that can get away with that to some degree, but
+
+00:29:32.472 --> 00:29:35.362
+you are small business. May not be.
+
+00:29:37.282 --> 00:29:43.722
+>> This, I think, is way more impactful because now that you have
+
+00:29:43.722 --> 00:29:44.022
+this,
+
+00:29:45.842 --> 00:29:49.362
+I feel like they're slowly cooking the frog here in this example,
+
+00:29:49.762 --> 00:29:53.682
+right? You're, you're getting value at 40 bucks a month.
+
+00:29:53.682 --> 00:29:56.602
+Okay, great. We're, we're starting to throttle you.
+
+00:29:56.602 --> 00:29:57.642
+We're starting to get some limitations.
+
+00:29:57.642 --> 00:29:59.282
+You're getting too many tokens used, right?
+
+00:29:59.442 --> 00:30:01.842
+Okay, well we're going to move you up to like $100 a
+
+00:30:01.842 --> 00:30:04.312
+month plan. Okay, great. Now everyone starts doing $100 a month plans.
+
+00:30:04.702 --> 00:30:07.462
+Okay. And then we have this transition to.
+
+00:30:07.462 --> 00:30:11.222
+Okay, well in the business world, right, we're going to transition you
+
+00:30:11.222 --> 00:30:14.302
+away from monthly user plans and we're going to transition you into
+
+00:30:15.182 --> 00:30:16.422
+pay as you go kind of plan.
+
+00:30:16.422 --> 00:30:19.062
+So now there's this whole new realm of pay as you go
+
+00:30:19.062 --> 00:30:23.142
+and tokens become more important. And now we're getting even more premier
+
+00:30:23.142 --> 00:30:26.302
+models. And so now we've gone from 200amonth all the way up
+
+00:30:26.302 --> 00:30:30.762
+to 500amonth for these plans. And you know, if you're a team
+
+00:30:30.762 --> 00:30:34.322
+of three people, okay, 200 to 500, yes, it's a hit on
+
+00:30:34.322 --> 00:30:38.122
+your business line. But if you're providing value and adding value from
+
+00:30:38.122 --> 00:30:39.842
+that, okay, not that major of a hit.
+
+00:30:40.402 --> 00:30:45.802
+If you're a Microsoft, if you're a SAP, if you're a big
+
+00:30:45.802 --> 00:30:48.162
+organization and you're trying to, and you're trying to figure out how
+
+00:30:48.162 --> 00:30:52.802
+to go from $200 per user to $500 per user to get
+
+00:30:52.802 --> 00:30:55.442
+them to do what they're doing and you're cheapening out some of
+
+00:30:55.442 --> 00:30:58.302
+these lower end plans and they're getting less tokens, they can't get
+
+00:30:58.302 --> 00:31:01.142
+things done. You're starting to feel a pinch.
+
+00:31:02.342 --> 00:31:05.222
+This is boiling the frog. We're starting to bring the price level
+
+00:31:05.622 --> 00:31:10.422
+up for these higher amounts. And so the more you increase the
+
+00:31:10.422 --> 00:31:14.702
+price on these plans to get more tokens out of them, I
+
+00:31:14.702 --> 00:31:17.942
+think the harder people are going to search for optimization,
+
+00:31:19.782 --> 00:31:24.352
+doing things efficiently, picking the right model for the right solution.
+
+00:31:24.752 --> 00:31:28.152
+You know, this is what brings to mind the hydrofusion that, that
+
+00:31:28.152 --> 00:31:31.752
+GitHub is coming out with. So hydrofusion is going to be Microsoft
+
+00:31:31.752 --> 00:31:34.752
+solution to this, which is picking the right model mid prompt.
+
+00:31:34.752 --> 00:31:39.312
+How do you pass context to agents or different models when they
+
+00:31:39.312 --> 00:31:42.992
+need to be in Hydrofusion? So these are, these are areas that
+
+00:31:42.992 --> 00:31:46.992
+I think are going to be more important moving forward.
+
+00:31:52.902 --> 00:31:54.582
+>> Yeah, sorry, just got distracted.
+
+00:31:55.462 --> 00:31:56.102
+>> No worries.
+
+00:31:58.582 --> 00:32:01.542
+Do you have the 500amonth open AI plan?
+
+00:32:01.542 --> 00:32:02.662
+Are you needing that one?
+
+00:32:03.942 --> 00:32:05.942
+>> I don't know. I don't need that.
+
+00:32:10.582 --> 00:32:14.872
+I use a combination of plans from different providers and
+
+00:32:17.592 --> 00:32:24.392
+I use Some very sort of dynamic routing, let's put it that
+
+00:32:24.392 --> 00:32:29.272
+way, when it comes to choosing the right provider, the right model,
+
+00:32:29.352 --> 00:32:30.952
+the right effort level.
+
+00:32:32.632 --> 00:32:35.592
+Yeah, that definitely took a lot of engineering and
+
+00:32:37.272 --> 00:32:42.052
+experimentation as well because I don't like wasting money.
+
+00:32:42.052 --> 00:32:43.012
+You know, I'd,
+
+00:32:44.772 --> 00:32:48.732
+I'd, I'd rather keep the bill low, so.
+
+00:32:48.732 --> 00:32:53.012
+Absolutely no. I never even got to the 200 plan either.
+
+00:32:53.492 --> 00:32:54.372
+I don't need it.
+
+00:32:58.372 --> 00:33:03.892
+They've also had, interestingly, you know, ever since the
+
+00:33:05.972 --> 00:33:09.572
+big announcements from open air last week, interestingly, they've had
+
+00:33:11.582 --> 00:33:15.182
+quite some trouble regarding performance in particular.
+
+00:33:16.062 --> 00:33:21.262
+You know, it's definitely something which I've been following quite closely because
+
+00:33:21.262 --> 00:33:23.902
+I actually use codecs and open AI.
+
+00:33:24.222 --> 00:33:24.622
+>> Sure.
+
+00:33:24.702 --> 00:33:27.142
+>> A lot of my day work, if
+
+00:33:27.142 --> 00:33:28.622
+>> they go down, you can't use them.
+
+00:33:28.782 --> 00:33:29.662
+You're seeing that.
+
+00:33:30.382 --> 00:33:37.342
+>> I've definitely noticed massive performance degradations with respect to
+
+00:33:39.092 --> 00:33:44.052
+speed and with respect to, you know, token flow.
+
+00:33:45.252 --> 00:33:51.412
+Not necessarily around quality. Although. Although, you know, if you go online
+
+00:33:52.052 --> 00:33:58.412
+you'll find quite a few people who claim that anything below Astra
+
+00:33:58.412 --> 00:34:01.652
+is no longer as smart as it used to be.
+
+00:34:02.132 --> 00:34:04.212
+I can't really judge that. I.
+
+00:34:05.182 --> 00:34:10.822
+It's not necessarily my own experience, but there have been quite a
+
+00:34:10.822 --> 00:34:17.422
+few outages where mid session models suddenly report that they're at capacity
+
+00:34:17.582 --> 00:34:21.342
+and basically you need to retry and things like that.
+
+00:34:23.182 --> 00:34:25.742
+It's not looking great, let's put it that way.
+
+00:34:26.222 --> 00:34:26.702
+>> Yeah,
+
+00:34:29.262 --> 00:34:32.022
+it feels like when these large models are announced and everyone gets
+
+00:34:32.022 --> 00:34:35.622
+really excited about these new things, there's this level of usage that
+
+00:34:35.622 --> 00:34:39.481
+happens, spike of usage that happens here that really pushes people over
+
+00:34:39.481 --> 00:34:43.241
+the hill. So we hope open I, open AI can kind of
+
+00:34:43.241 --> 00:34:46.481
+figure themselves out here. So one interesting article today.
+
+00:34:46.481 --> 00:34:48.441
+Go check out the article if you can on medium.
+
+00:34:48.441 --> 00:34:53.681
+It's really good. It's written by Abdul and I recommend go reading
+
+00:34:53.681 --> 00:34:57.641
+that one. The Vibe coding trap why AI generated MVPs are quietly
+
+00:34:57.641 --> 00:35:02.521
+bankrupting early stage startups. So there's some definitely considerations there as you
+
+00:35:02.521 --> 00:35:04.921
+educate yourself on how you build apps and build things there.
+
+00:35:05.572 --> 00:35:08.172
+That also being said, thank you Matias for a great conversation around
+
+00:35:08.172 --> 00:35:12.852
+OpenAI and what's happening with their world and how we're seeing and
+
+00:35:12.852 --> 00:35:15.652
+using AI in our workflows day to day.
+
+00:35:15.972 --> 00:35:18.692
+That being said, thank you all so much and we'll end here
+
+00:35:18.772 --> 00:35:23.252
+with a little treat for everyone as we end our episode today.
+
+00:35:23.332 --> 00:35:25.012
+Thank you all and we'll see you next time.
+
+00:35:25.092 --> 00:35:26.292
+>> Thank you and thanks everyone.
+
+00:35:47.392 --> 00:35:51.392
+>> Jack from Finance builds his first report at night.
+
+00:35:54.992 --> 00:35:59.242
+Experts might but his team sees the light.
+
+00:36:01.482 --> 00:36:07.082
+Five minutes to wow when the room starts to leave.
+
+00:36:09.242 --> 00:36:11.322
+Power be I rising
+
+00:36:13.162 --> 00:36:14.842
+from the ground unseen.
+
+00:36:21.642 --> 00:36:24.302
+One shore before the tower bow.
+
+00:36:29.492 --> 00:36:31.812
+Jack from fin is pouring joy into.
+
+00:36:50.222 --> 00:36:53.582
+Talk about crease can take a year to land.
+
+00:36:57.822 --> 00:37:01.342
+Bottom up. Belief it's right in someone's head.
+
+00:37:03.822 --> 00:37:05.422
+A colleague shares a fire,
+
+00:37:07.662 --> 00:37:09.262
+the spark goes wild.
+
+00:37:11.662 --> 00:37:13.502
+Adoption isn't force,
+
+00:37:15.102 --> 00:37:16.782
+it's arising time.
+
+00:37:41.192 --> 00:37:41.992
+Power now.
+
+00:37:50.712 --> 00:37:55.272
+They said Surprise would choose another name
+
+00:37:58.392 --> 00:38:03.192
+but the people on the desk still played the game
+
+00:38:06.232 --> 00:38:08.232
+because the two felt close
+
+00:38:10.212 --> 00:38:12.132
+because the wind fell near
+
+00:38:13.892 --> 00:38:14.772
+bottom up
+
+00:38:16.692 --> 00:38:18.932
+that's how the truth appears.
+
+00:38:21.012 --> 00:38:24.452
+Don't wait for the mandate from a distant floor.
+
+00:38:25.092 --> 00:38:28.612
+Start with the person who needed one door.
+
+00:38:29.012 --> 00:38:33.372
+Give them five minutes and a reason to believe the rest of
+
+00:38:33.372 --> 00:38:36.142
+the company love us to breathe.
+
+00:38:36.702 --> 00:38:40.062
+There's a night festival the base under my chest.
+
+00:38:40.702 --> 00:38:43.822
+Think of Jack and how the quiet ones progress.
+
+00:39:27.962 --> 00:39:54.002
+Sam.
+
+00:40:02.392 --> 00:40:03.592
+>> Agency thinking,
+
+00:40:09.592 --> 00:40:10.952
+>> Agency thinking.
