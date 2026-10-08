@@ -1,0 +1,317 @@
+---
+title: "Everything in RUST"
+episodeNumber: 44
+date: "2026-10-02"
+youtubeId: "WXiY2YEpraI"
+duration: "54:42"
+blurb: "Mike and Mathias unpack why GitHub Copilot, Bun, and Codex are moving to Rust while TypeScript 7 went to Go. They cover native binaries, an agent-driven port, the token bill, and why faster compiles turn into money once agents multiply commits."
+tags: ["rust", "github copilot", "typescript", "bun", "agents"]
+chapters:
+  - { t: 0, label: "intro" }
+  - { t: 176, label: "what rust is for" }
+  - { t: 441, label: "agents write the hard language" }
+  - { t: 569, label: "the copilot runtime rewrite" }
+  - { t: 1173, label: "tokens, cost, and time" }
+  - { t: 1573, label: "bun's rewrite from zig" }
+  - { t: 1805, label: "typescript 7 chose go" }
+  - { t: 2166, label: "compile time is money" }
+  - { t: 2469, label: "language servers and agents" }
+  - { t: 2843, label: "wrap up" }
+transcript:
+  - { t: 10, text: "Hello everyone and welcome back to Agentic Thinking. We're once again discussing some more topics around AI, AI systems, how things are working. Matthias, welcome back." }
+  - { t: 20, text: "It's good to see you again. Absolutely. More AI. Yeah, always great to talk more AI. We, we did a good live reaction show earlier this week." }
+  - { t: 30, text: "Yes. we can take a slightly different pace and go a bit deeper into things. I hope. If you funny things, if you nerds nerding out on" }
+  - { t: 40, text: "nerdy stuff, go check out our other video. It's on the channel. I'll make sure I put the link here in the chat window as . And if you'd to check us out, we did a Mystery Science Theater 3000 type take on the OpenAI Dev Day announcement." }
+  - { t: 54, text: "we sat down on the bottom screen, we commented, we teased, we have some fun while they're they're doing the actual event. if you find that stuff entertaining and enjoying, we," }
+  - { t: 64, text: "we did throw some knowledge in there. But it is also more about our initial reactions to their product and their product updates on how they're copying the rest of the industry at this point. that's how our feel" }
+  - { t: 75, text: "was indeed absolutely nothing we hadn't seen under a slightly different product name elsewhere. Exactly. , in, in lieu of this, Matias, I'll throw" }
+  - { t: 86, text: "this one, throw this one out there as . There was a very funny. I don't know if you saw if you caught it. The OpenAI team announced these things called dots, little" }
+  - { t: 96, text: "agents you can go use. Already there had been an announcement made from Grok or XAI that they had Grokbots. it's a bot or it's a dot and lo and behold," }
+  - { t: 108, text: "I don't know if this, Xai went out and bought the domain dot.com bought it and then when you go to dot.com" }
+  - { t: 120, text: "it routes you over to Grokbot and lets you see all the Grokbots. They took the domain name of dot.com away, they had it, but they bought it quick, quickly stuck a website behind" }
+  - { t: 132, text: "it and made a whole bunch of Grox behind it to kind of tease, I guess, open AI and copy in their name and their schema, which they look exactly the same product. Honestly, did you hear about this?" }
+  - { t: 143, text: "I did not. But it's hilarious and funny to me. Yeah. What happens when billionaires play with money and start, , picking at each other with their businesses?" }
+  - { t: 153, text: "Oh my goodness. Anyways, reminds me of the old days when Microsoft managed to get." }
+  - { t: 163, text: "As their landing domain for Net. that was pretty cool. Sometimes you have to be lucky and quick in the first, ? Yes, most certainly. The link, if you want to see that whole" }
+  - { t: 176, text: "video is in the chat window here. I'll put that there for anyone who wants to go check it out on another time. All , let's talk about our main topic. main topic for today is Rust." }
+  - { t: 188, text: "What the heck is Rust? And the reason I think we are bringing this up is if you look at the recent news article, there's a number of different platforms that are rebuilding their infrastructure solely" }
+  - { t: 200, text: "in this new I guess it's a programming language called Rust. GitHub Copilot runs on Rust. Bun is another program that runs on Rust." }
+  - { t: 211, text: "There's a lot of conversation around that. Codex is doing a rewrite in rust, but surprisingly TypeScript 7 is not. Let's unpack this concept. Matthias, you're way better in the coding" }
+  - { t: 222, text: "space that I am. Let's give our audience a little bit of a run up on what the heck is Rust and why do we care about it. Compared to other things, it's a programming language relatively young." }
+  - { t: 234, text: "It went 1.0 in 2015 and was originally developed by Mozilla, still remember that those days." }
+  - { t: 245, text: "And it promises to give you C C performance. Without the disadvantages of hardcore C C." }
+  - { t: 261, text: "And the key thing from my point of view is it allows you to produce native binaries on any system you compile for you don't have an intermediary." }
+  - { t: 276, text: "Most other languages, TypeScript, JavaScript, Python, NET, Java, all of these run" }
+  - { t: 288, text: "on a runtime that does some type of on the fly compilation on the target machine," }
+  - { t: 302, text: "which makes it very, very portable. But it obviously comes at a huge cost with respect to not getting native performance. And Rust does not have that problem." }
+  - { t: 314, text: "Rust also is very strict from a static typing point of view, which is brilliant when it comes to producing huge non trivial" }
+  - { t: 330, text: "code bases. And I think that's the reason those two points together, the static typing strictness as as the native code combination targets you get, I think that's what makes it" }
+  - { t: 344, text: "particularly interesting nowadays. And obviously one of the big disadvantages a language Rust or C would have had previously." }
+  - { t: 355, text: "It's quite complex and difficult for human developers. Writing stuff in Python or TypeScript is substantially easier." }
+  - { t: 366, text: "But we no longer have that problem , obviously because humans don't write code anymore. And that that problem completely" }
+  - { t: 377, text: "goes away because you pretty much get the code writing expertise for free just by handing stuff out to agents." }
+  - { t: 387, text: "But you get, you get all the other benefits. personally, , I'm producing a lot of my own projects in Rust these days. I'm really." }
+  - { t: 399, text: "Oh man, I can't remember the last time I've done anything in. Net, which used to be my big thing. I know by myself, a NET developer that's out of the window." }
+  - { t: 414, text: "I converted From. NET to TypeScript at some point and I'm even bigger convert to Rust. When I saw, and coming back to the topic here, when I" }
+  - { t: 427, text: "saw this very, very big September blog article about GitHub's Rust migration, I saw lots of common touch points there." }
+  - { t: 441, text: "Let's go a little bit deeper here. Yes, I think there's some really interesting. I feel there's a couple interesting concepts that we're unpacking here. One is when I don't write code anymore, I'm not really required" }
+  - { t: 454, text: "to learn a particular language and stick with it anymore. . it's, it's less hard, it's less difficult for me to pick what's the best solution." }
+  - { t: 465, text: "There may be some trade offs, there may be some advantages in one language or another. There always is. And how the different languages run. And you can start without requiring the years of" }
+  - { t: 475, text: "knowledge, of learning, all the nuances of how Rust works. You can lean on your agents because they already know how to run it. They already know how to write perfect code. In Rust, the function may not do what you want, but the" }
+  - { t: 486, text: "function will run every single time. There's other concepts here that I think you still have to be mindful of. We're not saying throw out languages and just pick whatever you want and go everything. With Rust, I think we're just saying" }
+  - { t: 497, text: "that the barrier to be able to write in any language is minimal. I was doing an experiment a number of months ago, probably about three months ago . Just build a project." }
+  - { t: 508, text: "I just told the agent, hey, I want to build this project. Here's my concept, here's my idea. It was around token generation on my computer, locally on local computer code gen with large language models." }
+  - { t: 520, text: "I wanted to download models, I wanted to have it run it's terminal command line interface. And I added the simple requirement, write this thing 100% in Rust. I don't want anything else built in anything" }
+  - { t: 530, text: "not Rust. And it said sure. And it did the whole thing. Built the binaries, I had code, I had files I could download. I was able to download the actual executable, run it" }
+  - { t: 542, text: "on my machine and everything ran Clockwork. there could have been things that I should have been looking at and being mindful of, but it was my experiment in can I just describe the system that I desire and then say, oh," }
+  - { t: 554, text: "by the way, drop it in this type of language? And it did a good job. It didn't take it too long to noodle through what I needed to be built inside Rust. side project I put on the shelf." }
+  - { t: 565, text: "I'm not playing with it , but this is, I think, the ease of what we're doing here. let's unpack. Is there Anything in the GitHub article? I'll put the GitHub article here in the chat window, which" }
+  - { t: 576, text: "by the way, is a gigantic article. Huge. Give yourself some quiet space and some time to read it or give it to your agent and tell it to summarize it." }
+  - { t: 587, text: "Interesting. If you look into the header of the article at the top, it says 65 minutes reading time. Oh, wow. Yeah, it's a bit of a, a mind bender." }
+  - { t: 599, text: "we're definitely not going to recite it back to you . Absolutely not. But maybe we can pick out a couple things. Is there anything that specifically Matisse, that stood out to you that you maybe would highlight in here around, , part of this" }
+  - { t: 611, text: "process? number one, absolutely. How deep and comprehensive this article is and" }
+  - { t: 622, text: "into how much detail they've gone here to explain what they've done. The article is about the GitHub copilot runtime, which is not open" }
+  - { t: 634, text: "source, it's quite interesting. they're talking about a project that no one outside of GitHub will ever see in terms of what's" }
+  - { t: 644, text: "come out of it. you can't really test anything they're claiming here. You can't check that it's not an open source project." }
+  - { t: 656, text: "It also appears as if the human involvement in that conversion project was very, very limited. the author, Stephen, appears to have run" }
+  - { t: 671, text: "the whole project more or less on his own. And then he gives credit to a handful of people who made some contributions. Everything else seems to have been agent driven, including I" }
+  - { t: 683, text: "think somewhere, if I don't, if I'm remember correctly, I, I, I have." }
+  - { t: 693, text: "Yeah, there we go. 830,000 lines of, of, of Rust code came out of it. Yeah, yeah. Plus almost half a million lines of Rust unit." }
+  - { t: 706, text: "we're talking, , a pretty very, very substantial project in terms of quantity. And" }
+  - { t: 717, text: "it's been going on, according to the article since May. And they give, , all the reasons why they've done that" }
+  - { t: 730, text: "and obviously one of the main drivers, they've come from a TypeScript code base and one of the main drivers really was that they" }
+  - { t: 743, text: "wanted the Copilot engine to be as portable as possible, but also as performant as possible and they want to be able to embed" }
+  - { t: 755, text: "it into all kinds of other products. And that embedding story in particular, if you, if you were relying on a TypeScript code base, would require for you to have" }
+  - { t: 766, text: "some node or JavaScript runtime embedded there, which is obviously not ideal. Ideal, if you're thinking, I don't know, Excel or desktop" }
+  - { t: 776, text: "or stuff that. , yes. being able to compile into native code, as I explained in the beginning, , makes a massive difference in addition to" }
+  - { t: 787, text: "all the performance benefits you're going to get from that. Interesting. Yeah, this is really neat because this is. I'm going to project a little bit here. This is totally speculation at this point. . This step needs to happen before the announcement of the" }
+  - { t: 803, text: "new unified co pilot experience that Microsoft is touting. And , the, the term co pilot is I think" }
+  - { t: 813, text: "very overweighted just in general. . I go to Microsoft 365. I hear the word copilot, I go to fabric, I hear the word copilot, I hear GitHub and I hear the word copilot. While these are the same words, Matthias, you" }
+  - { t: 826, text: "and I know behind the scenes, the bits that run each of those in portable places, they're all different. It's all different fractured code bases." }
+  - { t: 836, text: "I liken the analogy. For those of you who are in the data science or the Power BI world, it's Power Query. Power Query has three different layers of bits . One layer of bits is in Excel, one layer of bits is" }
+  - { t: 848, text: "in Power BI Desktop. Another layer of bits is in power bi.com they all have. It's the same product. You still say Power Query in all instances, but they all are" }
+  - { t: 858, text: "slightly, a little bit different. Some of them have had newer updates, some of them have not. I think this is maybe an attempt to say, look, that we have this ultra portable framework that" }
+  - { t: 872, text: "has been rebuilt off of TypeScript, we've removed some dependencies. It's a self compiled binary. We can just lift it everywhere we want. To me this feels a precursor to hey, let's announce a" }
+  - { t: 884, text: "unified copilot experience where we're using all the best things that came from GitHub Copilot and we're putting it anywhere in the Organization. This feels it fits with the story, the broader story of" }
+  - { t: 898, text: "build once, reuse everywhere. And I think this is what we're going to continue to see is I even see it in my own software . Everything I'm thinking about and maybe a part of this article that's, that's pulled out here that I think is important" }
+  - { t: 910, text: "is one, there's a human role to software development, ? The architecture tests, how do you migrate?" }
+  - { t: 920, text: "When do you tell agents to stop doing something and start doing something else? The direction piece here, that still is paramount in what they're doing with this rust rebuild." }
+  - { t: 931, text: "And that human role, I believe, is what I'm using more in my software. I'm looking more comprehensively across multiple products, multiple pieces," }
+  - { t: 941, text: "and saying, I think I see the same thing being used multiple times. For example, my ui, I build lots of workloads in fabric, I build apps and websites. But I want all of it to" }
+  - { t: 952, text: "feel the same. I want to look the same. I'm stopping building the individual product. And I'm starting to say, , agents, I need you to help think with me. How do I build reusable components of things as" }
+  - { t: 964, text: "I build software that I'm having fun with? Some of them need to have paywalls. you can build one piece of software with a paywall in it, but what do you need to have that paywall reused in" }
+  - { t: 976, text: "other pieces of software? There's a lot of common structural pieces that you want to reuse or build or enhance that, , today my paywall uses Venmo. , maybe I want to add to" }
+  - { t: 989, text: "that PayPal or add to that something new, or maybe Xpay is going to be one you're going to want. I don't know, who knows what the future holds, but I need a package in which I could leverage paywalls across multiple parts" }
+  - { t: 1002, text: "of products. my paywall that I'm building on the side is a mix of crypto payments. you can go buy your things with Solana and you can use your wallet to pay for things in real software as" }
+  - { t: 1015, text: "as, , , maybe you want to use Venmo instead, ? pick, pick your payment provider and you can pay for things both ways, fully realizing that today everything's Venmo, but in the future we're going to have a lot more agents, bots, crypto experiences that" }
+  - { t: 1028, text: "are going to be paying for things. I want to be prepared for that. I want to have software that can easily adapt to one place or the other. What are Your thoughts on this, Matthias? . what you're seeing as ." }
+  - { t: 1038, text: "Yeah, I guess what you're talking about is good old software architecture, ? Thinking about, , high level architecture, what am I aiming for? How do I create components that contribute to a bigger system?" }
+  - { t: 1053, text: "How do I reuse components? None of that has gone away, ? we may no longer be writing, , the individual" }
+  - { t: 1063, text: "lines of code, but we still have the job to get things architecture and vision and to some degree testing, ?" }
+  - { t: 1075, text: "If, if I guess from my point of view that's the big difference. But between using agents to produce software and wipe coding, if you're a vibe coder, you don't think about anything that, ?" }
+  - { t: 1088, text: "You just create a big prompt and then you're happy when something comes back. And it may look pretty, but what" }
+  - { t: 1098, text: "lifetime will it have, ? What happens when something breaks or when you want new features? Is that even going to be viable?" }
+  - { t: 1110, text: "With good software architecture you don't have those problems, ? This is where you design and build for longevity and maintainability." }
+  - { t: 1123, text: "that comes to mind and in a way we can say nowadays we should have much more headspace and much more freedom to invest in things architecture" }
+  - { t: 1136, text: "and planning because we, we no longer have the burden of writing code. ." }
+  - { t: 1148, text: "those should be some of the massive amplifiers that we're getting from the agentic world. Something I wanted to point out, if I may, from the article," }
+  - { t: 1160, text: "there are a couple of interesting paragraphs towards the bottom. One of one is a performance comparison." }
+  - { t: 1170, text: "Very, very, very interesting figures. They're comparing the May version of the product, which was before the migration to an end of August" }
+  - { t: 1182, text: "version, which is pretty much where everything is running in rust. one example here, launch a client, create a session and run one turn before the migration. 5.25 seconds after migration, 18x improvement, 290" }
+  - { t: 1201, text: "milliseconds. And then another example, resume a existing session that had 32 turns." }
+  - { t: 1212, text: "May 5.6 seconds. August 21, 20.8 260 milliseconds. this is what they've achieved." }
+  - { t: 1222, text: "Wow. Yeah, there we go. Those are huge speed improvements. Yeah, that is paints a really nice picture." }
+  - { t: 1233, text: "But the next article is how much did it all cost? Yes, that's a fun one. And I love how they gone into some, some great detail here in terms of doing some analysis on" }
+  - { t: 1246, text: "token usage, etc. Etc. they said the total token spend for all the porting work was" }
+  - { t: 1256, text: "136 billion tokens, roughly. Out of which you said 146 billion. Correct. And then 136 and then" }
+  - { t: 1270, text: "130 billion of those were cashed. Remember we mentioned it a few times. Yeah. The difference between fresh tokens and cash tokens is huge. From a cost point of view, you always want to make sure" }
+  - { t: 1281, text: "that caching works as. As as it possibly can because it will save you enormous amounts of money. 130 out of 136 billion were cashed." }
+  - { t: 1294, text: "But nonetheless, apparently the monetary bill for all of that came to $120,000, which may seem a big number, but do think about" }
+  - { t: 1306, text: "how much you'd spend on actual developer hours without agents? . this is deceiving. I believe. . You look at the number , oh, why would you ever" }
+  - { t: 1317, text: "spend something that? . Let's put this in perspective. . What was the length of this project? . Yeah. . in three months." }
+  - { t: 1328, text: "three months. , in three months, full rebuild of something that is creating anywhere between 12 and 21x increase in speed on" }
+  - { t: 1338, text: "delivery of results. . three months. If you were going to say no agent, do all of this with a team of engineers. And this is where I think agents" }
+  - { t: 1350, text: "make things deceiving. And we've talked about this a little bit. I think, Matthias, is the fact that agents are, are a time machine. The fact that they can parallelize work, the fact that they can work when you're not looking at them, the fact that they're" }
+  - { t: 1360, text: "building things outside of your time zone. you're , I'm going to go to dinner. I'm going to give the agent a task. I'm going to go have dinner and then come back. And , I'm doing something, but it's building something while I'm" }
+  - { t: 1371, text: "doing something else. It's a time machine. I would love to understand the area under the curve. this is almost we need storyboard points to, to see" }
+  - { t: 1381, text: "what, , , we can measure real storyboard points loosely in a, in an engineering team and say, , this was , you know, 300,000 storyboard points of what work was being done." }
+  - { t: 1392, text: ". If we had to put that against a real team, that's 25 engineers working for, , six months to a year. Do this. we don't have the numbers to quantify this." }
+  - { t: 1404, text: "If you start pulling the numbers, that would have taken a team of engineers to handwrite all this code without any agents. We're probably talking millions of dollars. Yeah." }
+  - { t: 1414, text: "Tens of millions, maybe. With all that. Certainly not three months. And the time compression. Yeah. you're getting two bonuses here. You're getting a really fast delivery of something. You're getting a single engineer that is able to architect and direct." }
+  - { t: 1427, text: "there's. There's no. Matias, I don't think we should write it this way because I think the architecture should be A and you're no, architecture should be B. Because of my experience. . There's none of that." }
+  - { t: 1439, text: "There's one guy at the top saying, this is the architecture. Figure it out. We're just going to go that direction. there's a huge amount of friction, political noise that's being removed" }
+  - { t: 1450, text: "from the system because we build. We build what's here. This is wild, in my opinion. I want to focus on the area under the curve." }
+  - { t: 1460, text: "The area under the curve did not change. The work acquired over time did not change. It's just the fact that we were able to spend a hundred thousand dollars in tokens again would be, I think, peanuts compared to" }
+  - { t: 1472, text: "an actual team to get the area of that work completed in a shorter amount of time as . And this is the part that I think is wild to me. Our minds are having to rethink what does creation of things look" }
+  - { t: 1487, text: "because that area or the amount of work. How would you say this units of work per hour is" }
+  - { t: 1497, text: "10x100x of where we were previously? Would you agree with this? Is this conceptually the direction of what I should be thinking about here?" }
+  - { t: 1507, text: "Totally. , I'm personally experiencing that quite real time vividly at the moment where I'm continuously running into severe hardware limitations." }
+  - { t: 1518, text: "I've got a system that is good at parallelizing that I desperately need to add more hardware to my sort" }
+  - { t: 1528, text: "of built Love IT engine because my agent constantly tells me how it's being throttled through cpu, disk" }
+  - { t: 1540, text: "and memory constraints. Wow. yeah, that is absolutely true. And it's, it's a. It's a very nice problem to have because" }
+  - { t: 1551, text: "unfortunately, it's something I can address. . But again, it just shows we certainly live in different times nowadays." }
+  - { t: 1562, text: "Anything else comes to mind as far as that one is concerned? No, I think I'm good on this one. this one's good. There's really neat article, really , what's going on there. Happy that there's a great improvement in performance." }
+  - { t: 1573, text: "But this is not one company doing this one. There's more. Yeah. the other one I wanted to add into the mix here, BUN was rewritten in Rust." }
+  - { t: 1583, text: "You see, there's a real theme here that was announced in July, early summer, earlier this year." }
+  - { t: 1593, text: "What is bun? Let's talk about what is BUN people can understand. I got another framework, but what is bun? ? bun is an alternative JavaScript runtime." }
+  - { t: 1604, text: "it's an alternative to node. In fact, it's more than just a runtime. BUN is also a package manager and a test runner." }
+  - { t: 1616, text: "BUN is . BUN replaces NODE and NPM and VITE in a way, or VTest, let's say VTest." }
+  - { t: 1629, text: "If you think you don't need Node, you don't need npm, you don't need vtest, because you've got this alternative system that is all of that. And BUN implements the" }
+  - { t: 1644, text: "node APIs, but in a , they would claim better and faster way." }
+  - { t: 1656, text: "And earlier this year they decided to rewrite the whole thing in Rust. I think the reasons for that are pretty clear based on what we said earlier. And BUN became very, very known and popular" }
+  - { t: 1671, text: "for one reason I would say in, in, in, in circles, you know, where people wouldn't have been aware of it already because CLAUDE code, the Claude CLI was built on top of BUN from the" }
+  - { t: 1687, text: "beginning. And this is how many people have heard of BUN if they hadn't already." }
+  - { t: 1700, text: "And you won't be surprised to Hear that in December 25, Anthropic acquired Bunch. , it was a relatively small community driven project, Anthropic, , that's when they had loads of money" }
+  - { t: 1714, text: "to spend from all the VC money they'd collected. Given that they had such a massive dependency" }
+  - { t: 1725, text: "on bun, , for, for their Claude cli. They just acquired the whole thing, it looks , , to me, as someone who is been following the BUN project for a" }
+  - { t: 1736, text: "while, it looks they've had certainly substantially less frequent releases since. it's a bit sad. But the, the Rust rewrite was certainly" }
+  - { t: 1748, text: "a big one. And again, we've got an article from the BUN block in the show Notes here where they talk about that rewrite and" }
+  - { t: 1760, text: "apparently. that's , that's. That's a rewrite from Zigzag, which is yet another language also quite close to C Z from my point of view, definitely a bit more of an" }
+  - { t: 1772, text: "obscure language. that's where they've come from. And yeah, if you want to see more about it in terms" }
+  - { t: 1782, text: "of stats and performance improvements and all of that, look at the article we've provided here. ever since v1.4," }
+  - { t: 1794, text: "bun is written in Rust and another project I Thought would be quite useful to share is TypeScript" }
+  - { t: 1805, text: "7. Oh, . . everything up to this point, we've been talking about everyone moving to Rust. Rust is , oh, let's go do everything in Rust. Thorough agents at it build things." }
+  - { t: 1815, text: "TypeScript 7 did any vowel against Rust and they chose not to use it. this is good to understand why you didn't do something just as" }
+  - { t: 1826, text: "as why you did do something. what's the converse of this? What did they pick? TypeScript went with go instead of Rust." }
+  - { t: 1838, text: "just to understand the context here. famously Typescript has always been built in Typescript all the way up to V6." }
+  - { t: 1854, text: "ever since at the very beginning, , obviously there's a hen and egg problem here, but at some point they had a very minimal TypeScript compiler and then they used that one" }
+  - { t: 1870, text: "to then build the TypeScript project itself. Sounds weird, ? And presumably the compiler itself would always have been slightly ahead of the main version of the project." }
+  - { t: 1882, text: ". And that became a real bottleneck , in terms of the compiler performance." }
+  - { t: 1894, text: "Because, , whilst TypeScript as a language is incredibly developer friendly and flexible and very" }
+  - { t: 1905, text: "good because of its typing constructs, it's not really" }
+  - { t: 1917, text: "great for performance, particularly when you're talking multimillion lines of code code, project. And they ran into some real performance" }
+  - { t: 1931, text: "constraints when it comes to compiling projects VS code, for instance, versus code. Obviously TypeScript code base. Millions and millions of lines of code that compiling vs code before" }
+  - { t: 1944, text: "v7 used to take a big machine. And a lot of time they had to make a call at some point to give up" }
+  - { t: 1954, text: "that very neat foundation of saying TypeScript is using TypeScript to build itself and to go and build the TypeScript compiler and something" }
+  - { t: 1965, text: "else. There's a very nice interview, you can watch that on YouTube with Anderson, the creator of TypeScript who talks all about the." }
+  - { t: 1978, text: "The V7 conversion, , how they achieved more than 10x improvement, how they used the versus code code base in particular, , as a" }
+  - { t: 1990, text: "significant benchmark there. And he was asked how did they end up with Go?" }
+  - { t: 2000, text: "And he very clearly says Rust was a serious contender and definitely something they looked at. But his main argument, I'm paraphrasing it, but he's" }
+  - { t: 2015, text: "saying they didn't. They wanted to port the TypeScript code base, they didn't want to rewrite it, they wanted, they wanted to go" }
+  - { t: 2026, text: "to a different language, but they wanted to go to a language that in terms of the, the primitives of the language and the similar. The philosophy of it and, and the" }
+  - { t: 2037, text: "semantics was really close to Typescript and Rust is not that, you know, whereas Go on the other hand is." }
+  - { t: 2048, text: "And he said going to go. They didn't quite get exactly the same performance improvements that hypothetically they would have achieved with Rust, but they" }
+  - { t: 2063, text: "had the massive advantage of being able to do a port, you know, where you do a syntactic conversion of your code base" }
+  - { t: 2074, text: "instead of a complete semantic rewrite of it. And as you can imagine, , that ultimately is a very" }
+  - { t: 2085, text: "pragmatic way of deciding that. And yeah, if you want Anders to explain in his words, which" }
+  - { t: 2095, text: "are substantially better than mine, go and watch that video there. My brain hears this stuff and this is very intriguing to me. I'm very interested in this. While I don't do code, I'm very" }
+  - { t: 2108, text: "interested in the architecture decisions and why we do things and how long it takes things to get done. That stuff is very applicable and I think very useful for us to study. . What these really smart teams are doing and just" }
+  - { t: 2120, text: "to unpack what they're doing. One of the things that makes me really one in this TypeScript 7 article, there's some beautiful, some beautiful diagrams showing you how much faster it is versus TypeScript 6" }
+  - { t: 2134, text: "versus TypeScript 7. definitely check out the article. That's the one I just recently posted here. You definitely want to work on this one. One of the things I'll notice here. Let's talk about VS code. And it's 2.3 million lines of code" }
+  - { t: 2148, text: "to make it . I just want to unpack that for a minute. Whatever machine they're using, it compiled in 125 seconds before." }
+  - { t: 2158, text: "it's in 10.6 seconds to compile . this is an 11, almost 11.9 to be precise, but almost a 12x speed increase. I'm going to pick on you a" }
+  - { t: 2171, text: "bit here, Matthias, because I think this is a good point to talk about. When you have big projects, when you have lots of code running, the amount of time it takes the code to compile" }
+  - { t: 2183, text: "turns into real dollars. This is because a lot of my development cycle, and I believe yours is too, is running inside GitHub and GitHub has runners," }
+  - { t: 2195, text: "and runners are action based. I commit something to my main branch. I'm ready to compile some code, I'm ready to produce the output of whatever the thing is, doesn't really matter." }
+  - { t: 2206, text: "I'm building a static website and I have a whole bunch of pages on this. If I can get the code to compile 5%, 10% faster. The more we work with agents, the more commits we're" }
+  - { t: 2219, text: "making to code. , what's happening , and the theory I think is what's going on here is the volume of creation with agents is rapidly increasing. We've seen this with GitHub's usage through" }
+  - { t: 2232, text: "the roof, everyone's building code. My GitHub if your GitHub page, ? on your GitHub page you have all these little the square graph, ? It's every day." }
+  - { t: 2243, text: "How many commits have you made or changes of code? My graph, all the old code that I did in 2015, even earlier 2016, probably January." }
+  - { t: 2253, text: "Those colors look almost dark . My GitHub illustration is very green, very bright green." }
+  - { t: 2263, text: "Because the amount of code I'm pushing directly to GitHub has greatly improved, greatly sped up with agents. There's a couple compounding factors. More code is being written than ever." }
+  - { t: 2276, text: "More commits are happening than ever. If you combine those two together. More actions, more time, more computers are running." }
+  - { t: 2286, text: "We know in the data space that storage is cheap. Storing the files on GitHub is almost nothing. But compute is expensive. Anytime I want to spin up a vm," }
+  - { t: 2296, text: "a machine, an action that's spending real money, and we only get, as a GitHub user, a certain amount of minutes before you have to start paying for them, it costs you real money. you've hit your threshold this month." }
+  - { t: 2308, text: "Me personally, I set an upper limit threshold for the Carlo Solutions organization On how many GitHub action minutes I needed. We ran into that, we ran into the limit and I had" }
+  - { t: 2318, text: "to up the limit because we're doing much more production of work across my team that I need more minutes of actions to continue to compile code." }
+  - { t: 2331, text: "This is, I think, a real concept and I really improvements this where we're ripping out 10x20x25x time of code compilation need." }
+  - { t: 2343, text: "Because this turns into real money. And if you're on an old code base, this is going to encourage you to move from six to seven. Because if you have a lot of code lines in Typescript, this" }
+  - { t: 2355, text: "is real money that you're leaving on the table at this point. . Ultimately, it's about feedback loops. If you're in a code base and you make a change, you" }
+  - { t: 2366, text: "want to be able to get feedback from the system with respect to does it compile, does it pass my tests? ? Yes. If running your Test Suite takes 25 minutes each time" }
+  - { t: 2382, text: "you're not going to have a good experience there, you're going to wait ages. That's been true forever. ." }
+  - { t: 2393, text: "When humans were writing code and you had a poor build system or a slow developer machine and you had to wait ages, it" }
+  - { t: 2403, text: "really impacted your productivity. The same is true with agents, but even more because you usually have multiple of them going at once, ." }
+  - { t: 2416, text: "Rather than just one at a time. absolutely, very true. And that also. , yeah, that's one thing." }
+  - { t: 2429, text: "being able to get something to compile and tell you whether or not it compiles is one step. By the way, this is also where language servers come" }
+  - { t: 2442, text: "in, ? LSP a big deal inside the VS code ecosystem, where you've got language servers running in the background that are able to" }
+  - { t: 2458, text: "understand files containing code semantically and in particular they are able to understand" }
+  - { t: 2468, text: "snippets of them rather than an entire code base at once. the language server protocol and the language server ecosystem VS" }
+  - { t: 2479, text: "code is addressing directly that issue. It's. It's there to give you very quick feedback, ? Yes. You've. You made modifications to a particular function." }
+  - { t: 2495, text: "The language server is able to give you immediate feedback even if the project itself doesn't build, ?" }
+  - { t: 2507, text: "Yes, correct. You don't want to get the build time to find there's a problem. You want to find the problem much earlier in the process. And I'm going to maybe ask a question here because I don't understand this one or know about this one language server" }
+  - { t: 2518, text: "protocol, the lsps that is that being exposed directly to agentic development experiences particularly , , as the agent is" }
+  - { t: 2529, text: "writing its own code inside your code base, those LSP notifications or things that's coming back to the agent and say, hey, you wrote a function, it's not real, the syntax is wrong." }
+  - { t: 2542, text: "Then the agent is immediately picking that up and then able to. Oh yes, you're , I'll fix the thing. CLAUDE code added. I'm just quickly googling it here while some talking." }
+  - { t: 2556, text: "They added native support for LSP a long time ago. Yes, exactly. That is something which is in the harness. But I am here. There we go." }
+  - { t: 2568, text: "I can see an article which is dated June 26th as a version 2.047 Claude code has native server language server protocol" }
+  - { t: 2582, text: "support, which is good. But this is my point that my point is more and more software development tooling is being geared more towards the agent. How does the agent see this?" }
+  - { t: 2593, text: "How does the agent write things? And then all These other Stan, we would still use it humans would still look at it in VS code and say, oh, there's a red squiggly line under this function because something" }
+  - { t: 2601, text: "wasn't defined correctly or you added a parameter that doesn't need to be there or just syntactically, something was wrong. We need to see that. But , more importantly, the agents also" }
+  - { t: 2613, text: "need to see that as . If you think about this architecturally, . Without that, your LLM obviously does next token prediction, ." }
+  - { t: 2623, text: "When it looks at some code, it ultimately does pattern matching and tries to figure out given a vast amount of" }
+  - { t: 2635, text: "learned examples, How is your code snippet most likely to modify to" }
+  - { t: 2652, text: "match some of the good examples that they've learned from. . Whereas using an LSP adds a level of semantics that the" }
+  - { t: 2662, text: "LLM per se does not have at all, even though it always appears to us if there's intelligence. . But the bringing an LSP into the mix would" }
+  - { t: 2673, text: "be able to identify, for instance, this particular token happens to be a function name. And ASP can know that, but an LLM cannot." }
+  - { t: 2684, text: "? Yes. stuff that. Exactly. It's an additional layer of context you're giving to the agent as it's building things. And as I unpack some of this," }
+  - { t: 2695, text: "I'm having an aha moment here around one, all this makes sense. But , when large language models are trying to write you functions, it's statistically I think the term would be is" }
+  - { t: 2708, text: "you're regressing to the mean. You're going to the most common function that you're trying to write. And this is brings the phrase to my mind nothing's" }
+  - { t: 2718, text: "new under the sun. . There's every function I need to write in my program. Someone has probably already written a similar function in some other program and in some other language that is the" }
+  - { t: 2729, text: "ideal or the most performant way to write that function. large language models are just trying to regress to what is the most common observation that I see about your particular function." }
+  - { t: 2739, text: "nothing's unique. But the LSP being part of this pattern, you don't need to regress to the mean. You can build what you need to build and get the syntax" }
+  - { t: 2749, text: ". it's almost a good. This feels a harness, major harness improvement. Oh yeah. To allow the agent to not have to be rigid around" }
+  - { t: 2760, text: "regressing to the same function that everyone writes over and over again. we can be a bit more creative and still get the output that we desire." }
+  - { t: 2770, text: "What I find very interesting though is as we're talking about this and how coding agent harnesses and LSPs or should be, ," }
+  - { t: 2782, text: "theoretically a very, very good combo. Weirdly enough, one, I don't think the announcement of CLAUDE code adding" }
+  - { t: 2792, text: "native LSP support has been received as big as it should be, nor does it appear to be as big a feature even today" }
+  - { t: 2804, text: "as it should be, given what we just said. . If you Google CLAUDE and lsp, you're not even going to find any top hits that go directly to the CLAUDE code documentation, for" }
+  - { t: 2816, text: "instance. it's a bit of a weird one, which I can't really make sense of. Maybe some smarter people can comment on that. It feels it would be a perfect match, but somehow it's" }
+  - { t: 2829, text: "not. Maybe we're missing something here in terms of harness development. Or maybe the LLMs are good that the extra help" }
+  - { t: 2839, text: "from LSP is no longer needed. Who knows? Or maybe we didn't even know, , , . Yeah, we, we're just talking heads at this point, looking at observations" }
+  - { t: 2849, text: "of , how we see and how we're interacting with agents in the world here and what we're building. And again, we all have different. Everyone's going to have different degrees of, of use and discoverability what's" }
+  - { t: 2859, text: "going on here. I hope you enjoyed this discussion. I think this is a probably a good moment here to kind of wrap and wind down here a little bit. I think we had some really good discussion. I'm very encouraged by seeing software being entirely rewritten in these new" }
+  - { t: 2872, text: "languages. That's very exciting to me, seeing other companies do this at scales that I'm not able to do myself personally in my company, I'm not going to spend $100,000 on any rewrite of" }
+  - { t: 2882, text: "software. But I think this is starting to set patterns in the cost and rewrite world that we're able to observe. this is possible. , you, you build an app today" }
+  - { t: 2895, text: "on a framework that is what you make the best decisions around today. This really drops the barrier for you. to me, it minimizes the risk of picking the wrong language" }
+  - { t: 2910, text: "to start with on a project. You can build a project. Let's say we build, go for a couple years. AI is just going to get better and maybe you decide at some point in the future." }
+  - { t: 2920, text: "No, we should have gone and gone down the rust route. That's what we wanted. , put Matias on it for three weeks and, and spend, , 50,000 in tokens and get the rewrite." }
+  - { t: 2932, text: "not a problem. Does this also mean at some point in the future where we say, , we think it's going to be these three languages. We narrow down three languages that we the best. , great. Build all three at the same time." }
+  - { t: 2945, text: "And then you evaluate and monitor performance of all three at the same time. The lower you bring the barrier of cost down and the shorter you bring the time down, that just means less risk" }
+  - { t: 2956, text: "to you as you build. The thing is how I'm perceiving it anyways. That being said, Matias, this has been a great conversation. I have many points I'm going to have to chew on and" }
+  - { t: 2968, text: "think about . We hope you enjoyed this conversation as . This show is highly technical, if you haven't learned this already, we're going to talk about things that are deep and things that" }
+  - { t: 2978, text: "are, that are at the high level. But, but there needs to be some level of forum, public communication forum around this topic. I think this is relevant banter that we should educate ourselves on." }
+  - { t: 2989, text: "we need , this language. if there's other topics that you , if there's other things that are interesting to you, please let us know down in the comments if you found this content valuable." }
+  - { t: 2999, text: "We really appreciate it. If you give us a thumbs up, just let us know with some feedback there. We'd love to have a thumbs up on the video. It helps us know that this is content that you . We'll continue making it. You don't, that's fine, no problem." }
+  - { t: 3010, text: "We can, , don't give us a thumbs up. But if you also want to be notified of any new updates or conversations we're having between this or explicit measures or any other content, there's also a subscribe button." }
+  - { t: 3020, text: "We'd love you to hit that as . Matias, thank you much. Another great conversation. This has been wonderful. We'll see you all next time. Thank you." }
+  - { t: 3035, text: "Hopefully my surprise will work. It's been a little slow to play here. Let's see if it'll see if it'll run here." }
+  - { t: 3046, text: "Maybe come on app, figure yourself out the suspense is killing me." }
+  - { t: 3057, text: "I've been trying to add music at the end of our videos." }
+  - { t: 3073, text: "Sam." }
+  - { t: 3102, text: "Monday memo says accelerate burn the tokens don't you hesitate Dashboards watching every prompt you send Use too little and you're at the end" }
+  - { t: 3116, text: "Secret agents, secret agents Building systems in the basement Secret age agents under the radar Just trying not to get the paper." }
+  - { t: 3136, text: "Tuesday memo flips the script again Talking budgets bleeding cut it then Same old boss with a brand" }
+  - { t: 3146, text: "new fear Yesterday's hero is old over here Secret agents Secret agents Building systems in the basement Secret agents under the radar Just trying" }
+  - { t: 3164, text: "not to get up the paper we spit up tools they never blessed Shadow stack to survive" }
+  - { t: 3175, text: "the test by sea for Claude when the gate gets closed by sea for Grok when the path gets froze More tokens, less tokens" }
+  - { t: 3186, text: "make up your mind where solving work they leave behind unsanctioned Ain't the dream we chose it's the only way the deadline goes." }
+  - { t: 3215, text: "Business users in a quiet war sanction path don't open anymore if the company can't decide the lane Secret agents keep us in the" }
+  - { t: 3229, text: "game Secret agents, Secret agents Building systems in the basement Secret agents" }
+  - { t: 3239, text: "under the radar Just trying not to get the paper Secret agents." }
+  - { t: 3252, text: "Under the radar." }
+  - { t: 3263, text: "Sam." }
+
+---
+
+## Summary
+
+Mike and Mathias start from the OpenAI Dev Day reaction show, then spend the episode on Rust. Mathias explains why a 2015 Mozilla language, native binaries and strict types, suddenly fits a world where agents write the code humans used to avoid. They go through GitHub's Copilot runtime port from TypeScript, the token bill, Bun's rewrite from Zig after Anthropic's acquisition, and why TypeScript 7 went to Go instead. Mike ties the speedups back to GitHub Actions minutes, and Mathias closes on language servers as semantic feedback the model does not have on its own.
+
+## Key Takeaways
+
+- ▸ Rust compiles to a native binary with no runtime and strict static types. Mathias's point is that agents remove the old reason to avoid it: humans no longer have to write the hard code.
+- ▸ GitHub's Copilot runtime port is not open source. The article credits one author, Stephen, plus a handful of people, with agents doing the rest: about 830,000 lines of Rust and almost half a million lines of unit tests, underway since May.
+- ▸ They left TypeScript so the engine can embed in products like Excel without shipping a Node runtime. One cited turn went from 5.25 seconds to 290 milliseconds. Resuming a 32-turn session went from 5.6 seconds to about 260 milliseconds.
+- ▸ The port spent about 136 billion tokens, roughly 130 billion of them cached, for a bill around $120,000 over three months. Mike's read is that a human team would have taken longer and cost far more, because agents compress the same work into less calendar time.
+- ▸ Bun, the JavaScript runtime, package manager, and test runner Claude Code was built on, was acquired by Anthropic and rewritten from Zig. As of v1.4 it is Rust.
+- ▸ TypeScript 7 stopped compiling itself in TypeScript and went to Go, not Rust. Anders Hejlsberg's reason, as Mathias relays it, is that Go was close enough to port rather than semantically rewrite. VS Code's roughly 2.3 million lines dropped from about 125 seconds to 10.6 seconds, and that compile time is GitHub Actions money once agents multiply commits.
+
+## Links
+
+- ▸ [GitHub Copilot to Rust](https://github.blog/ai-and-ml/generative-ai/migrating-the-github-copilot-runtime-to-rust-using-copilot/?utm_source=agentic_thinking&utm_medium=website&utm_campaign=20261002)
+- ▸ [Rust and Rewrites](https://thenewstack.io/github-copilot-anthropic-rust-migration/?utm_source=agentic_thinking&utm_medium=website&utm_campaign=20261002)
+- ▸ [Bun in Rust](https://bun.com/blog/bun-in-rust?utm_source=agentic_thinking&utm_medium=website&utm_campaign=20261002)
+- ▸ [Codex in Rust](https://github.com/openai/codex?utm_source=agentic_thinking&utm_medium=website&utm_campaign=20261002)
+- ▸ [TypeScript not in Rust](https://devblogs.microsoft.com/typescript/announcing-typescript-7-0/?utm_source=agentic_thinking&utm_medium=website&utm_campaign=20261002)
+- ▸ [Creator of TypeScript: Why We Chose Go For Our Rewrite](https://youtu.be/rX9kkMonrG8?utm_source=agentic_thinking&utm_medium=website&utm_campaign=20261002)
+- ▸ [Creator of TypeScript: 10x Faster Typescript, Why AI Won't Replace SWEs](https://www.youtube.com/watch?v=cywK3XYYJ2o&utm_source=agentic_thinking&utm_medium=website&utm_campaign=20261002)
