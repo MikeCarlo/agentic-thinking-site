@@ -1,0 +1,236 @@
+---
+title: "The Vibe Coding Trap"
+episodeNumber: 45
+date: "2026-10-06"
+youtubeId: "4YvZKxlTNco"
+duration: "40:16"
+blurb: "Mike and Mathias review a Medium article on AI-generated MVPs that ship fast and then fail on scale, security, or cost. They argue the models keep improving, but requirements, architecture, and which risks you accept still decide whether a startup survives."
+tags: ["vibe coding", "agents", "startups", "openai", "harnesses"]
+chapters:
+  - { t: 0, label: "intro" }
+  - { t: 58, label: "the medium article" }
+  - { t: 243, label: "novice with ai versus expert" }
+  - { t: 411, label: "will models close the trap" }
+  - { t: 610, label: "tabular editor and harnesses" }
+  - { t: 826, label: "prompting is the architecture" }
+  - { t: 1443, label: "what you keep hands-on" }
+  - { t: 1628, label: "the unrecoverable business model" }
+  - { t: 1671, label: "openai plans and the price climb" }
+  - { t: 2079, label: "wrap up" }
+transcript:
+  - { t: 8, text: "Hello everyone and welcome back to Agentic Thinking with Mike and Matthias. We're back again for another great topic. We're going to talk about some news items today. The main topic for day is the Vibe coding trap." }
+  - { t: 21, text: "Did that you were walking into a trap when you were building Vibe coding things? I think this is a relevant article. This is about AI and how it's potentially bankrupting early startups." }
+  - { t: 32, text: "this is an interesting article. We're going to unpack this today. Matthias, how are you doing? I'm doing great and yeah, excited to see what we come up with here." }
+  - { t: 47, text: "We may have different opinions. Let's see what happens. That makes just for good tv, you have different opinions about things. let's step into this one." }
+  - { t: 58, text: "without a whole bunch of ado here, let's just go into the main topic here, which is this article which I will put. It's a Medium article and Matthias, I don't get to see all of the article because it is a subscriber only article here." }
+  - { t: 71, text: "if you want to go check this out, this is on Medium is the article that we're reviewing here, you should go check it out. The article is in the description, it's also in the chat window as here. And I'm going to lead you, Matthias, to give us" }
+  - { t: 83, text: "a little bit of a runup here on what's in the article and why is this topic coming up ? What's happening with startups with AI?" }
+  - { t: 93, text: "What's the trend here that's happening? Go ahead and take it away. Yeah, I found that article and I thought that would be a great one for us to go through because it's opinionated." }
+  - { t: 103, text: "It resonates with me saying businesses building on top of Vibe coded software and wipe coded products" }
+  - { t: 118, text: "apparently increasingly find themselves in quite a pickle. they definitely manage very to, , to produce hype and to," }
+  - { t: 130, text: "to deliver and ship something that may look appealing. But when it comes to building a business on top of" }
+  - { t: 143, text: "such a software, there may be some traps, some bigger ones, some, some smaller" }
+  - { t: 153, text: "ones. And the article has a few very nice examples, , around database corruption, missing database indexes, about" }
+  - { t: 167, text: "massive waste of tokens for AI applications, , when, when they don't really engineer what they're sending back to the LLMs." }
+  - { t: 178, text: "And plus obviously a number of security issues, , around" }
+  - { t: 191, text: "protecting, , anything you, you put put out as, as a public website or . obviously some of the Stories are pretty" }
+  - { t: 204, text: "drastic and, probably represent extreme poor and bad examples. But nonetheless, I think there's a lot" }
+  - { t: 217, text: "here to unpack in terms of our own experiences as . What have we seen, how do we feel about it? And also, is it to think of a dichotomy of vibe" }
+  - { t: 232, text: "coding on one end of the spectrum versus, I don't know, engineering software engineering on the other end of the spectrum? I'll leave it here for ." }
+  - { t: 243, text: "Yeah. this is interesting to me. I believe. Microsoft did a very cool demo, I think in the March timeframe. They had some users on a stage and they're" }
+  - { t: 253, text: "talking about , , how do we apply AI, where do we apply it in our report writing or data engineering process? What is this? What does AI look in the hands" }
+  - { t: 263, text: "of a new engineer versus a seasoned engineer, which one would win? And they pitted these AI pieces a novice engineer with AI in their hands and said, hey, go build this" }
+  - { t: 274, text: "report, go build this data. It's up to you to use the AI with you to go build something the business may want. And then they gave the same task to an engineer who, who" }
+  - { t: 286, text: "knows the program, knows how to build things, and said, go build this equivalent information. you got these two worlds of novice with AI and expert without." }
+  - { t: 296, text: "And they did this demo of between. we're going to give you two report pages. Which one was built by the AI, which one was built by the person, which one was built by the novice or the expert." }
+  - { t: 307, text: "And it was really interesting to watch. It was somewhat hard to determine in certain scenarios, other places it was very clear which one was which. But at the end of the day, they were trying to bring" }
+  - { t: 318, text: "the parallel that bringing AI to a novice user helps you build incredible things much faster. But you lose some of that expertise, that knowledge around the experts in this space, which is throttling capacity management" }
+  - { t: 333, text: "using only the amount of information you need, things that you kind of learn the hard way of building them on your own. And when you give AI to an expert who, who's a" }
+  - { t: 343, text: "really good developer, you get a compounding effect of really good output from them. They're able to work faster. All these edge cases. And I think partly to this article, which" }
+  - { t: 354, text: "is, , it's alluding to, I believe, partly here around the single, it's the millionaire solopreneur, ?" }
+  - { t: 365, text: "I'm a single shop, I'm building my app, I'm developing it, and then I just launched it on Production day. And it goes until the SQL database falls over. It goes until the API starts throttling." }
+  - { t: 376, text: "And all these users who are trying to use your app, it's falling over. had you been an engineer designing this, you probably would have gotten to the same end result for an" }
+  - { t: 386, text: "app, but your infrastructure on the backend side would use some caching. There'd be different API patterns, there might be different architectural decisions that was being made to scale this to high volume." }
+  - { t: 397, text: "Let me just pause there. Is this where you feel this article is going, Matthias, or is there a different vibe that this article is pushing in?" }
+  - { t: 411, text: "one thought that I just had as you were talking, and I think that's where the article is going, I'm not" }
+  - { t: 421, text: "decided yet. And maybe we can discuss that whether there is a really strict distinction between" }
+  - { t: 432, text: "a seasoned engineer architecting something and then building a system with the help of AI on the one hand, as opposed to, you call it a novice user or someone who doesn't" }
+  - { t: 445, text: "approach that from an engineering standpoint and who gives all the powers to the AI. Vibe codes the whole thing, ? AI makes the decisions." }
+  - { t: 458, text: "The article obviously says if it's the latter, you're bound to get into some trouble. maybe minor, maybe major, may be bad that ultimately" }
+  - { t: 471, text: "it bankrupts your business because, , you may have launched but you haven't been able to then scale the thing or secure it or make it as cost efficient as it should" }
+  - { t: 485, text: "be. . what I'm wondering is if we're saying there is this inherent danger and threat and challenge from wipe coding, is that something" }
+  - { t: 501, text: "which is just a matter of time in the sense that, you know, as new generations of models come out and as the tools we're using to do the vibe coding get better is, ," }
+  - { t: 515, text: "are we just waiting for some iteration of AI where those problems no longer exist? Or do we genuinely or always will have a" }
+  - { t: 528, text: "distinction where AI and LLM driven development can only go far? And we will always need, , for something that's really thorough" }
+  - { t: 539, text: "and scalable and secure and solid, will we always need a trained, experienced engineer there? . I think ultimately that's the big question we're faced with today." }
+  - { t: 553, text: "And I'm not sure I'm keen to hear what you think, but I'm not sure anyone has a definitive answer yet. Let me add a parallel of something I've heard messaging messaged over" }
+  - { t: 565, text: "the last couple months. Let Me see, I may take a tangent here, Matias. This may not be a tangent. I don't know. There are some really strong experts in the Power" }
+  - { t: 576, text: "BI community, namely SQL BI and Tabular Editor, which I think are very great teams of people, extremely smart individuals, no discrete to any other acumen" }
+  - { t: 590, text: "in the Power BI data modeling in space. I feel I've watched a shift occur where and I don't" }
+  - { t: 600, text: "think they were saying, to be very clear, these teams of people were not saying no, don't use AI. I think the initial rounds of AI interaction from Tabular Editor and" }
+  - { t: 611, text: "SQL BI were , look, hold off. The models are not quite good enough to handle what we're trying to do. There still needs to be a human in the loop. Don't just brain dump and let the AI try to build decks" }
+  - { t: 624, text: "and models and everything just willy nilly. ? I think that part was clear. But I feel recently, in the last two to three weeks" }
+  - { t: 634, text: "I've seen an immense amount of recommunication around those teams shifting heavily into using AI. Tabular Editor is coming out with a" }
+  - { t: 644, text: "CLI tool that's helping it become much more capable for building tymdal and semantic models using agents. Much more structured information. the Tabular Editor team has built a harness around agents that" }
+  - { t: 658, text: "are making it very friendly to model development. I think this is something they had to do because Power BI had come out with the MCP modeling server. Why would we need Tabular Editor if you have an MCP modeling" }
+  - { t: 670, text: "server and I can talk to an agent directly? We've done this on the show, We've done a number of demos here of talking to the agent model and say, build me a diagram, change these measures, group these things together." }
+  - { t: 679, text: "Why do I want to go talk to another third party tool where I can directly talk to an agent, have it done faster, not having to click any buttons. I think there's been a shift here where these teams have had" }
+  - { t: 689, text: "to greatly adapt this one. I'm seeing advertising from Marco Russo and SQL BI saying, hey, we're going to teach you how to use DAX with agents. How does agents write dax?" }
+  - { t: 699, text: "What do we need to communicate to an agent that it's good at writing dax? These were not messages I was seeing three months ago, four months ago. And all what I'm trying to" }
+  - { t: 711, text: "say here and maybe bringing it back to your point here around where are things going? The models are getting much better. The harnesses that people are developing are getting much more capable." }
+  - { t: 721, text: "The large language models can Hallucinate can do weird things. But what you want is you want a very accurate system around a harness, wrangling that large language model to allow it to reason," }
+  - { t: 734, text: "to allow it to build things that are useful. But it needs to be able to test. It needs to have specifications. These have linting built into it. Did it even write the syntax that goes into the DAX" }
+  - { t: 746, text: "statement or not? . these are things, I think, that are trying to be organized in the community . And we're seeing a shift where more and more experts are adopting" }
+  - { t: 757, text: "AI and building tools around it, which is making it more useful for everyone. back to this point here. This is where we are today." }
+  - { t: 767, text: "I think these models are going to continue to get better. The harnesses will continue to get more capable. People are going to continue to build better tools that are going" }
+  - { t: 777, text: "to enable better usage of this moving forward. And while I think we're going to have some users here. . I'm going to rapidly build an app. It may fall over, it may break on the back end." }
+  - { t: 791, text: ". Shame on me. I'm a new user to Vibe coding this whole application thing. But it doesn't take long for you to realize, oh, it wasn't that the AI couldn't build, was more that your" }
+  - { t: 804, text: "prompts and what you described to the AI was insufficient. And I think that's much more of the scenario here, which is" }
+  - { t: 815, text: "we just have people not being able to prompt correctly into the AI to get out what they want. And I know this because, Matthias, you're putting me to shame." }
+  - { t: 828, text: "I'm doing a certain amount of programming and Vibe coding and building apps, and I probably wouldn't call it Vibe code anymore. I would really want to call it, , agentically coding, because I know what I want to build." }
+  - { t: 838, text: "But, Matthias, you're building things above my pay grade, way better than what I'm doing. Much more elaborate and complex. But you're using agents to do a lot of the development." }
+  - { t: 848, text: "But that's because your system that you've been working on and developing is just done. And it's incredible, , what it can do. And I think the more the general population and public" }
+  - { t: 860, text: "starts learning what this looks in people, building programs and applications that help this to become more real, it's just going to shift my work away from clicking buttons and moving things around to describing" }
+  - { t: 873, text: "things to an agent and having it pair program, or pair build with me alongside here. let me just pause. I'm gonna just leave that thought there for a moment. What do you think about that? Is that, is that alignment with where you're thinking things are going" }
+  - { t: 883, text: "to. I think one thing we can take for granted is today, with the harnesses and models we have available to us, you" }
+  - { t: 896, text: "can build very, very, very substantial, complex tools and software applications. . If." }
+  - { t: 910, text: ". Big. If what to ask for. If you do" }
+  - { t: 921, text: "a fair amount of the architecture upfront and then feed that into the prompt. As you just said, prompting is what it's all about." }
+  - { t: 935, text: "Yes, but are we ever going to get to a point where you're going to get similar outputs from an AI without having to do that" }
+  - { t: 948, text: "upfront work? That's really what I wonder about. . Because that would mean that we no longer have a wipe coding trap to go back to the article." }
+  - { t: 959, text: ". And I don't think we will ever get there. If you want to believe all the big players and the anthropics" }
+  - { t: 971, text: "and openais in this world who want to sell you their tokens for lots of money, obviously they make you believe that you just" }
+  - { t: 982, text: "do voice input to a dot or a bot or whatever you want to call it, and then they build the next million dollar" }
+  - { t: 992, text: "business for you. Yes. Without you holding any hands. . Yeah. I am very, very, very skeptical about that." }
+  - { t: 1002, text: "But on the other hand, I'm extremely excited about the capabilities we have with the current generation of models," }
+  - { t: 1013, text: "allowing you to build, architect and build very substantial systems and applications" }
+  - { t: 1024, text: "for very, very cheap and very, very quickly, , . Yeah. Do you just pushing it back to you." }
+  - { t: 1036, text: "Do you think I'm wrong with my skepticism? Do you think this is just a matter of evolution?" }
+  - { t: 1046, text: "I, I think we're in the middle of the evolution process of this. . I, I think if we look at, if I look at where things have come from January till ," }
+  - { t: 1057, text: "in January through maybe March, I was doing a lot of experimentation. I was building very small, rough versions of applications. I feel I'm spending a lot more time polishing and" }
+  - { t: 1069, text: "getting something that was way closer to a real production item that I would want to put my name on and put out the door as branded items." }
+  - { t: 1080, text: "I only see this progression moving further towards. It's going to get more capable, we're going to get better models, we're going to get more use out of these models for us" }
+  - { t: 1091, text: "as we build things. I feel the progression is moving towards. In the same way I made the analogy on the Explicit Measures podcast, in the same way that Power BI reports were democratized" }
+  - { t: 1102, text: "for the Business user, the BI team, we're democratizing application and app development by using agents to do the same thing. I don't have to go into a Power BI report and ask" }
+  - { t: 1113, text: "or figure out how to write D3. The visuals all run on D3. I just take for granted that there's a framework around it. And when I click the button to make a bar chart, boom," }
+  - { t: 1123, text: "bar chart shows up, I drag my fields, boom. It all maps together. Someone spent a lot of work around this to make it an easy experience to use. They democratize all the code that was required to write that." }
+  - { t: 1137, text: "In the same way, I see agents being that Power BI tool that democratizes the app." }
+  - { t: 1147, text: "Because some users are able to build apps and scale them in systems, ? You may not be able to and that I think" }
+  - { t: 1157, text: "that's more of a limitation on your knowledge around what does an at scale app look ? How do you communicate to the edit? for example, when you're doing a planning mode around" }
+  - { t: 1168, text: "what your app may be or what design you may be building, you say, look, I need this app to be able to be scalable, ? some of the prompt that I should be presenting to it is this app needs to be scalable." }
+  - { t: 1177, text: "It needs to have these types of design features on the back end. You can describe more of those features, the AI will return. Hey Matthias, for building your app, did you need a" }
+  - { t: 1189, text: "redis cache? If you don't understand what a redis cache is and why that helps your SQL Server not fall over or your API not throttle because you're hitting the same request over and over again." }
+  - { t: 1202, text: "If you don't understand that, then how can you tell it, yes, I need it or no I don't, ? You. what is really is interesting here is you can say things" }
+  - { t: 1214, text: "you, you have to learn how to use language of , I'm going to have again, it's, it's good, clear requirements, ? When I'm building the app, I got to be able to tell my, even my developers today, ?" }
+  - { t: 1224, text: "If I told you, Matias, I'm going to Build app for 10 people, you would have in your mind a certain architecture. And then you would ask me questions around , , how often" }
+  - { t: 1234, text: "is the data going to be accessed? How much data are we accessing? Is this just a little bit or a lot of bit, ? That will change part of how you design the solution. But you already know this because of your historical experience." }
+  - { t: 1244, text: "You've gone into these problems and ran into a wall and how to solve it. The AI knows how to solve these problems. I'm just not telling it the requirements." }
+  - { t: 1255, text: "And I think that's where things for me, I'm , I'm looking at this and saying, I think the AIs are really good and they can outbuild what I am aware of or what I'm knowledgeable about. And I have to direct the" }
+  - { t: 1268, text: "agents. And one area that I'm going to say is very hard to do, and even I struggle with this sometimes My team asks me questions from the AI because they'll talk" }
+  - { t: 1280, text: "to it and they'll have an answer and they'll respond back. It gives you two options that are very close in capability." }
+  - { t: 1290, text: ". How do I have a preference to push the AI one direction versus another? . What, what knowledge or background information do I have that helps me" }
+  - { t: 1302, text: "design the solution for what I want? And sometimes the AI will come back to you with two choices that are probably both good in their own . But maybe a downstream design solution feature that you want to build" }
+  - { t: 1315, text: "may conflict with these two items or this decision point. . And. And that's where I think the expertise of the expert starts coming into play. You're able to zoom out a" }
+  - { t: 1325, text: "little bit more, look a bit. A bit of a big picture, figure out what's going on, and then zoom into the very specific details of what the agent's asking for and then catering your prompt better to what they need." }
+  - { t: 1337, text: "I'm hearing you say yes, it, it feels maybe this is something you've encountered with your agents where it's giving you two good options, but you got to pick one. Oh, yeah, yeah. That's definitely something which resonates." }
+  - { t: 1349, text: "Generally you get more than two. And I generally, my experience, you generally have a recommendation as ." }
+  - { t: 1360, text: "When there are choices to make. Oftentimes the agent highlights what they would recommend, but I recognize what" }
+  - { t: 1371, text: "you say. Oftentimes I would then push back and say, can you present the options in a different language? Can you dumb it down?" }
+  - { t: 1382, text: "Or can you explain what the impact will be? things that, and that normally helps. Or another way to go would be for me to say," }
+  - { t: 1396, text: "I don't care. I've put you in charge of delivering this goal. You make the call. As long as you achieve the strategic goals I set out with you in the beginning, you are free to" }
+  - { t: 1407, text: "do whatever you want. , that would be another approach. I think ultimately it's about being selective. what component do you care deeply about that you" }
+  - { t: 1421, text: "get very hands on and that you get very involved with the architecture and what component doesn't need that where you where you" }
+  - { t: 1433, text: "can afford to hand it off to an agent in terms of making decisions. . That's interesting. I that idea of there are definitely parts" }
+  - { t: 1443, text: "of the application or whatever you're building where you're going to be very stringent on. it has to be this way. This is the vision I have. Yeah. , , identity authentication, payments, ." }
+  - { t: 1455, text: "Yes. that hard currency stuff. Yes. But do not mess it up. UX or Docs or." }
+  - { t: 1471, text: "Yeah, anything. Anything that's more cosmetic rather than ultimately it's, , again, coming back to the article which obviously" }
+  - { t: 1481, text: "says if you're just wipe coding, you may be able to start a business, but , don't be surprised if it goes bankrupt. . At the end of the day it's, it's, it's a" }
+  - { t: 1493, text: "risk assessment. . And you want to think about what's the risk of the AI getting this particular piece wrong." }
+  - { t: 1505, text: "If, if that's a risk you're not willing to accept, then you better get more hands on here and you better get more involved. . I that part. Yes. I think it's a good, I think" }
+  - { t: 1516, text: "it's a good litmus test of , , if the AI broke this part, would it be a problem? again, to this article going back maybe here a little bit to this one and talking more about it, which is, ," }
+  - { t: 1528, text: "where does the artist, where does the, the author here start picking on, hey, where should we be putting our pressure? ? Some of our pressure should be on the database design," }
+  - { t: 1538, text: "the API design, telling the agent to build tests around high volume capacity. . this is, these are part of the techniques I think that we would apply here and from those techniques that" }
+  - { t: 1551, text: "would then elevate more of our design. . We can still rely on the agent to build it, but telling it better requirements will change the design that it is" }
+  - { t: 1563, text: "using caching. It is not letting the SQL database fall over. And maybe to some degree here, unless there's, most of this is," }
+  - { t: 1573, text: "I feel most of this is fixable. if you, if you did go down the route and you're gonna, you're gonna burn some users and , the people are gonna adopt the app and the app starts crashing, , fine." }
+  - { t: 1586, text: "There's very little that you can do that is unrecoverable. At least quickly building through . Hey, agent. My SQL database is falling over for these reasons." }
+  - { t: 1597, text: "What's going on? That's a really good. that the problem, you go back to the agent and say, build the monitoring, build the error messaging that we need" }
+  - { t: 1608, text: "build. And you can rapidly iterate through these problems. And while it was quick to build the app, you also have another agent. I think people forget this. There's an assistant that's there to help you debug them too, and" }
+  - { t: 1621, text: "figure out better architectures. And as fast as it was to create the original app, you probably could recode that with another agent to fix it." }
+  - { t: 1631, text: "Most of it is recoverable, except for one thing, and that's very. I want to say, security here. No, no. . Business model. Oh." }
+  - { t: 1641, text: "If you made assumptions and launched a business, , with. With a. with a pricing model or . Or with certain contract types." }
+  - { t: 1651, text: "Yeah. And then it turns out that is never going to be profitable. Yeah. You're in the pickle. And the article has some examples for that as . . That's a great." }
+  - { t: 1661, text: "That's something you can't really recover from if you're charging too little for the app you're using in. The app is very expensive. It'll never work." }
+  - { t: 1671, text: "Which, if you don't mind, leads us quite nicely to open AI, which we covered last week because they've just had a similar realization." }
+  - { t: 1683, text: "they've. They've had a. A $200 max subscription. Yeah. For a long time. Which they put on pause at some point." }
+  - { t: 1695, text: "And last week they launched a new 500 plan, , bigger than any of their. Of their competitors." }
+  - { t: 1705, text: "Yeah. And they also brought back the 200 plan, but with substantially reduced quotas in. In within the tour." }
+  - { t: 1717, text: "Sorry, I think I'm about to. Good. Sorry, I was. Didn't want to sneeze into the microphone. they got a lot of heat for that from people who." }
+  - { t: 1730, text: "Who were on the $200 plan suddenly being told, , you can stay on it, but we're reducing what you're getting out of it by 50% or ." }
+  - { t: 1741, text: "It's definitely not going down very . But that is an example where something that happened. And obviously we've seen that with respect to the cost of using" }
+  - { t: 1751, text: "AI getting increasing continuously. That's something we talked about a few times. June 26th was a big deal when Copilot completely changed their pricing" }
+  - { t: 1765, text: "model. Companies that can get away with that to some degree, but you are small business. May not be." }
+  - { t: 1777, text: "This, I think, is way more impactful because that you have this, I feel they're slowly cooking the frog here in this example," }
+  - { t: 1789, text: "? You're, you're getting value at 40 bucks a month. great. We're, we're starting to throttle you. We're starting to get some limitations. You're getting too many tokens used, ?" }
+  - { t: 1799, text: "we're going to move you up to $100 a month plan. , great. everyone starts doing $100 a month plans. . And then we have this transition to. in the business world, , we're going to transition you" }
+  - { t: 1811, text: "away from monthly user plans and we're going to transition you into pay as you go plan. there's this whole new realm of pay as you go and tokens become more important. And we're getting even more premier" }
+  - { t: 1823, text: "models. And we've gone from 200amonth all the way up to 500amonth for these plans. And , if you're a team of three people, , 200 to 500, yes, it's a hit on" }
+  - { t: 1834, text: "your business line. But if you're providing value and adding value from that, , not that major of a hit. If you're a Microsoft, if you're a SAP, if you're a big" }
+  - { t: 1845, text: "organization and you're trying to, and you're trying to figure out how to go from $200 per user to $500 per user to get them to do what they're doing and you're cheapening out some of" }
+  - { t: 1855, text: "these lower end plans and they're getting less tokens, they can't get things done. You're starting to feel a pinch. This is boiling the frog. We're starting to bring the price level" }
+  - { t: 1865, text: "up for these higher amounts. And the more you increase the price on these plans to get more tokens out of them, I think the harder people are going to search for optimization," }
+  - { t: 1879, text: "doing things efficiently, picking the model for the solution. this is what brings to mind the hydrofusion that, that GitHub is coming out with. hydrofusion is going to be Microsoft" }
+  - { t: 1891, text: "solution to this, which is picking the model mid prompt. How do you pass context to agents or different models when they need to be in Hydrofusion? these are, these are areas that" }
+  - { t: 1902, text: "I think are going to be more important moving forward." }
+  - { t: 1912, text: "Yeah, sorry, just got distracted. No worries. Do you have the 500amonth open AI plan? Are you needing that one?" }
+  - { t: 1923, text: "I don't know. I don't need that. I use a combination of plans from different providers and" }
+  - { t: 1937, text: "I use Some very dynamic routing, let's put it that way, when it comes to choosing the provider, the model," }
+  - { t: 1949, text: "the effort level. Yeah, that definitely took a lot of engineering and experimentation as because I don't wasting money." }
+  - { t: 1962, text: "I'd, I'd rather keep the bill low, . Absolutely no. I never even got to the 200 plan either." }
+  - { t: 1973, text: "I don't need it. They've also had, interestingly, , ever since the" }
+  - { t: 1985, text: "big announcements from open air last week, interestingly, they've had quite some trouble regarding performance in particular." }
+  - { t: 1996, text: "it's definitely something which I've been following quite closely because I use codecs and open AI. Sure. A lot of my day work, if" }
+  - { t: 2007, text: "they go down, you can't use them. You're seeing that. I've definitely noticed massive performance degradations with respect to" }
+  - { t: 2019, text: "speed and with respect to, , token flow. Not necessarily around quality. Although. Although, , if you go online" }
+  - { t: 2032, text: "you'll find quite a few people who claim that anything below Astra is no longer as smart as it used to be." }
+  - { t: 2042, text: "I can't really judge that. I. It's not necessarily my own experience, but there have been quite a few outages where mid session models suddenly report that they're at capacity" }
+  - { t: 2057, text: "and you need to retry and things that. It's not looking great, let's put it that way. Yeah," }
+  - { t: 2069, text: "it feels when these large models are announced and everyone gets really excited about these new things, there's this level of usage that happens, spike of usage that happens here that really pushes people over" }
+  - { t: 2079, text: "the hill. we hope open I, open AI can figure themselves out here. one interesting article today. Go check out the article if you can on medium. It's really good. It's written by Abdul and I recommend go reading" }
+  - { t: 2093, text: "that one. The Vibe coding trap why AI generated MVPs are quietly bankrupting early stage startups. there's some definitely considerations there as you educate yourself on how you build apps and build things there." }
+  - { t: 2105, text: "That also being said, thank you Matias for a great conversation around OpenAI and what's happening with their world and how we're seeing and using AI in our workflows day to day." }
+  - { t: 2115, text: "That being said, thank you all much and we'll end here with a little treat for everyone as we end our episode today. Thank you all and we'll see you next time." }
+  - { t: 2125, text: "Thank you and thanks everyone." }
+  - { t: 2147, text: "Jack from Finance builds his first report at night. Experts might but his team sees the light." }
+  - { t: 2161, text: "Five minutes to wow when the room starts to leave. Power be I rising" }
+  - { t: 2173, text: "from the ground unseen. One shore before the tower bow." }
+  - { t: 2189, text: "Jack from fin is pouring joy into." }
+  - { t: 2210, text: "Talk about crease can take a year to land. Bottom up. Belief it's in someone's head." }
+  - { t: 2223, text: "A colleague shares a fire, the spark goes wild. Adoption isn't force," }
+  - { t: 2235, text: "it's arising time." }
+  - { t: 2261, text: "Power . They said Surprise would choose another name" }
+  - { t: 2278, text: "but the people on the desk still played the game because the two felt close" }
+  - { t: 2290, text: "because the wind fell near bottom up that's how the truth appears." }
+  - { t: 2301, text: "Don't wait for the mandate from a distant floor. Start with the person who needed one door. Give them five minutes and a reason to believe the rest of" }
+  - { t: 2313, text: "the company love us to breathe. There's a night festival the base under my chest. Think of Jack and how the quiet ones progress." }
+  - { t: 2367, text: "Sam." }
+  - { t: 2402, text: "Agency thinking, Agency thinking." }
+
+---
+
+## Summary
+
+Mike and Mathias review a Medium article, The Vibe Coding Trap, about startups that ship an AI-generated MVP and then get into trouble. Mathias lists the article's examples: database corruption, missing indexes, wasted tokens, and security holes on a public site. Mike answers with a Microsoft demo that pitted a novice using AI against an expert, and with the recent shift at Tabular Editor and SQLBI toward agent harnesses. They disagree, productively, on whether a later model closes the trap. Mathias does not think the upfront architecture goes away. They end on the one failure an agent cannot patch after launch: a price or contract that was never going to be profitable, with OpenAI's $200 and $500 plans as the fresh example.
+
+## Key Takeaways
+
+- ▸ The article's trap is a product that looks shipped and then fails the unglamorous parts: indexes, token cost, and security. Mathias treats the stories as extremes, and still worth unpacking against their own builds.
+- ▸ Mike's Microsoft demo is the split he keeps using. A novice with AI can look close to an expert. An expert with AI compounds, because they already know caching, capacity, and the API shape a high-volume app needs.
+- ▸ Mathias asks the question the article leaves open: do better models erase the trap, or does a trained engineer stay necessary for something scalable and secure? He is skeptical that talking to a bot builds the next business with nobody holding it.
+- ▸ Mike's counterexample is Tabular Editor and SQLBI. He heard them keep a human in the loop, then watched them ship agent tooling once Power BI's modeling MCP made a third-party modeler optional. A lot of "the AI failed" is a missing requirement.
+- ▸ Mathias will hand an agent a component he does not care about, and stay hands-on for identity, authentication, and payments. If you cannot accept the AI getting that piece wrong, get closer to it.
+- ▸ A crashed SQL database is usually recoverable: send the agent back with the failure. A business model priced too low for the tokens it burns is not. OpenAI pausing the $200 plan, launching a $500 plan, and cutting quotas on the $200 plan is the example they use, next to the June 26 Copilot pricing change.
+
+## Links
+
+- ▸ [The Vibe Coding Trap](https://levelup.gitconnected.com/the-vibe-coding-trap-why-ai-generated-mvps-are-quietly-bankrupting-early-stage-startups-f6d06065348e?utm_source=agentic_thinking&utm_medium=website&utm_campaign=20261006)

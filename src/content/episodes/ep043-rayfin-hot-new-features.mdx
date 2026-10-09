@@ -1,0 +1,247 @@
+---
+title: "Rayfin Hot new Features"
+episodeNumber: 43
+date: "2026-10-01"
+youtubeId: "Nw-IrAZp7FQ"
+duration: "40:57"
+blurb: "Chris Anderson, a PM from Microsoft, walks through the Rayfin features that landed around FabCon: connectors, functions, secrets, and a lighter local dev flow built for coding agents. He and Mike then look at a GitHub Copilot demo and why Fabric apps change the build-versus-buy decision."
+tags: ["rayfin", "microsoft fabric", "functions", "connectors", "github copilot"]
+guest: "Chris Anderson"
+guestRole: "PM from Microsoft"
+guestLinkedIn: "https://www.linkedin.com/in/crandycodes/"
+chapters:
+  - { t: 0, label: "intro" }
+  - { t: 111, label: "connectors, secrets, and functions" }
+  - { t: 474, label: "lighter local dev for agents" }
+  - { t: 683, label: "github copilot desktop demo" }
+  - { t: 937, label: "a custom azure devops board" }
+  - { t: 1283, label: "backend functions and entra" }
+  - { t: 1502, label: "build versus buy" }
+  - { t: 1879, label: "shadow it and quickbooks" }
+  - { t: 2044, label: "wrap up" }
+transcript:
+  - { t: 5, text: "Agent thinking, Agent." }
+  - { t: 20, text: "Foreign. Ladies and gentlemen, welcome back to Agentic Thinking with me. I have a personal friend, an expert that you got to need" }
+  - { t: 31, text: "to hear out. This is a PM from Microsoft around Ray Fin Apps. Chris Anderson, welcome to the show. I'm very happy to have you here. People. I'm going to tell you , you're going to." }
+  - { t: 42, text: "Your. Your mind is going to be blown. For us poor Americans who couldn't get over to fabcon, we're kind of , what's the content? What's going on? We don't know what's happening. I've got the, the creator and, and" }
+  - { t: 52, text: "PM of what's going on here. Chris, welcome to the show. Hey Mike. Thanks man. That intro music, I don't know, I was just. All , ready to go, all made by AI." }
+  - { t: 62, text: "everything we do is AI related . Just make it fun, enjoyable. Chris, tell us a bit about what you do and let's, let's dive in. I'm really excited. You already knew. I was wicked excited at Ignite when I made the announcement." }
+  - { t: 76, text: "Number one fan, baby. This, this is the future here. Number one fan. And there has been some major announcements at fabcon that I. We need to review functions. We've got secrets, we've got something with copilot going on." }
+  - { t: 89, text: "I. I need to download what's going on with this, this fabric app thing. I think we've just turned a curve here in my opinion. , this is going to be fun to build." }
+  - { t: 101, text: "It's going to be highly impactful and I don't think anyone's going to want to build anything other than these things moving forward because this is just going to be cool. Anyways, take it away. What's going on, Chris?" }
+  - { t: 111, text: "What are we announcing here? What's new? Is it just funny? It's , oh, we're going to use this for everything. Because in my head I'm , oh, these are all the things that we still need to get. the, the, the biggest ones are, , the connectors that" }
+  - { t: 126, text: "we supported and then the. We had a what I'm going to call a primitive connector to semantic model that we shipped with at build. But this is what I'm going to call a true V1 of that connector model. And that really means that we can support" }
+  - { t: 142, text: "a lot more scenarios for not just how you use it, but also where you use it and how you develop against it and it's a lot more controlled. And I'll show you a little bit about that." }
+  - { t: 153, text: "Then the plan is for those connectors to continue to expand. And it allows you to again, safely control access to data, resources and things that. It's set up for you to be able" }
+  - { t: 165, text: "to control whether that you're connecting as the user who's using the application or able to connect as effectively an item identity, a service identity of some kind. And sure, ooh, scenarios" }
+  - { t: 179, text: "where you want a service principal to act as effectively the auth people are connecting to that really set up a lot of those things to be able to happen with this new model. it's, it's really a great foundation for we want" }
+  - { t: 190, text: "to go especially, but it also just delivers on what we really wanted it to be in the first place where, you know, you don't compromise on the local dev experiences and stuff" }
+  - { t: 200, text: "that. Awesome. The other big one is functions, obviously. you don't always want all of your code running in the front end for all different kinds of reasons." }
+  - { t: 211, text: "Your browser can only make many outbound requests at a time. For example, you might have things that are secrets that you don't want to expose to the client in the first place. And lo and behold, we have secrets and functions, finally." }
+  - { t: 223, text: "you cannot just have a backend function, but you can also use a backend function to Talk to your OpenAI key or whatever it is that you want to go through to be able to do major." }
+  - { t: 233, text: "I think this one here, the community is going to absolutely love this feature community. Pay attention to this one. Functions are going to be your new best friend underneath the hood of the apps. every time I'm building a static web app," }
+  - { t: 244, text: "every time I'm building an application, there's a whole pile of APIs and functions and things happening behind the scenes. It's not just a GraphQL. if you build on top of a SQL database, you get a GraphQL that talks to" }
+  - { t: 255, text: "the app and it's all secured inside the Microsoft wheelhouse. But there are things, , I'm going to push a couple ideas here. You're going to want to build a, , I've" }
+  - { t: 265, text: "entered some data, I want to refresh a pipeline. you need an API call back to fabric to say, run this pipe or run this function and load this data. I believe also with functions, we get the ability, that a" }
+  - { t: 277, text: "lakehouse is exposed to us, we can also make a function, snag a file, upload something, put an image in, and those can be stored directly down into the lakehouse in the files area." }
+  - { t: 289, text: ". there's another new connector here. We're not just talking about semantic models and SQL databases. We're doing semantic models, SQL databases, data warehouse and Lakehouse as" }
+  - { t: 300, text: "all certified, let's call connectors. . It's just going to work, ? things. Yeah. And , we also have, I think this also got announced and if not, I don't think I'm spoiling anything" }
+  - { t: 311, text: "because hey, as long as you say it, I can't say anything. It's all you, man. The code is. You can find this out and customers have. And then they raised the ticket on us when they got the feature available. good." }
+  - { t: 321, text: "true first class storage support, , built on top of OneLake is also coming. Not in the version that launched, but in probably 137." }
+  - { t: 332, text: ". Nearly made it. that'll allow you to have this first class , , , file interface. if you want to go through there and allow people to upload custom files, all those things." }
+  - { t: 343, text: "Yeah, sure. It has the nice Rafin abstraction on those things and then it's really easy to describe these things. And the SDK is all nice. Yep. Then it's in onelake and you can do what you want with" }
+  - { t: 353, text: "it in OneLake. Just data is just a database and you can do what you want with the database. And this is by design a lot of these things that we're doing. we want you to have, , be able to" }
+  - { t: 363, text: "talk to your functions, talk to your underlying database, talk to your storage directly. Because if for some reason you're ever tired of, the limitations that BAZ is, , by design are giving. Because we want you to have on Rails experience," }
+  - { t: 376, text: "you can always just go around us and talk to other learning things yourselves and come up with your own REST API and all that. We want you to be free to solve your problem. Yes, please. I wish. Chris, you missed the mark for me" }
+  - { t: 389, text: "a little bit. I needed you to build this about one and a half years earlier. The only reason, because I needed it because I built my website on GitHub pages and having your public facing" }
+  - { t: 402, text: "blog site would be awesome to land it inside fabric. And then I could get , you want to upload something, I want to have extra stuff or content downloadable for my site. All of that can just live directly inside fabric and I don't" }
+  - { t: 414, text: "have to leave fabric for anything. this is, I don't think people understand how important all of these Features are here and I think it's going to take a bit, a couple time, a little bit of time, some months" }
+  - { t: 426, text: "for the community to get up to speed on what's going on, why this is important. And I'm already seeing incredible things being built. NJ park is one of the communities from mpps and he's built" }
+  - { t: 437, text: "every other day he's building some other frickin 3D Lego thing that he's building and what is this guy doing? He's got bodies with human anatomy and organs. He's , I built a Ray Fin app and it's just amazing." }
+  - { t: 449, text: "I'm , this guy is on another level. I absolutely love it. I think it's cool. With that being said, I know you've got some demo pieces. Let's see what you've got cooking here. And you're going to show us something interesting that we haven't really" }
+  - { t: 461, text: "experienced before when building with apps. let me just jump over here to the screen. Let me minimize ourselves here. , bringing up your desktop. You're up. Your screen is there. I can see an amazing teamwork app." }
+  - { t: 474, text: "I guess it's on the hand side there. What's going on here? Yeah, some of the other, a little bit below the headline announcements that we had is that we completely redid how our local" }
+  - { t: 486, text: "dev experience works. if you ever grabbed the project locally and you looked at it, we had these instructions to run NPM run device and that orchestrated a rafin up command and a vite command and it was strung together within your own application space" }
+  - { t: 499, text: "and it was fine. But one of the big issues that would happen there is that if you were trying to load the local dev" }
+  - { t: 509, text: "experience inside of a embedded WebKit browser, which is what your copilots and your VS codes, your non true browsers are doing." }
+  - { t: 519, text: "Most corporate auth doesn't random WebKit browsers, it turns out, your login would get hung up, pop ups wouldn't happen. There was a whole lot of hassle. And then of course a lot of these things also don't keep" }
+  - { t: 530, text: "a local memory around for good reason. You don't want all your random local hosts sharing random local memory. But that also means that you do a refresh and you get logged out and you got to log back in" }
+  - { t: 541, text: "again. And that means that the agent's trying to do things automated for you, was constantly prompting you to go and hit the login button and follow the prompts. We did a bunch of investments into" }
+  - { t: 556, text: "the copilot plugin that we've got on awesome Copilot. you can find that inside of your GitHub Copilot app. We've also got plugins for all the other major coding harnesses out there and available as . This uses this universal template kind" }
+  - { t: 570, text: "of by default that comes with a lot of extra context and skills about how all these things work. And it's designed to know, oh, I'm running an agentic harness and here's how I should behave then it uses a new command on" }
+  - { t: 582, text: "our cli. If you go and run your Rafen H, you'll go through there and see this. If they're 1.3.6 version, we have Rafen dev for the really cool people who are playing around with" }
+  - { t: 592, text: "our feature flags and stuff. We used to have dev only for this local docker based development which is cool for its own purposes but broadly overkill for a lot of the people who are using" }
+  - { t: 605, text: "fabric and a lot of our users that we have today. We wanted a lighter weight local dev experience. What this does is it spins up a vite plugin still. It spins up a proxy server within that vite plugin and it" }
+  - { t: 618, text: "will spin up functions code running locally as . you can attach debuggers, etc. To that one as and rapidly. Your agent can write code, you can write code and see those changes immediately." }
+  - { t: 630, text: "Then when you are running in this model, we will use your RAF and CLI's auth context to automatically log you in if you want to be able to test that locally." }
+  - { t: 640, text: "But the default setting is that it's going to just log you in automatically using your RAF and CLI context. Sick again, the amount of work that you've done to reduce friction" }
+  - { t: 651, text: "for us developers and talking with these things. we were just before this, two hours before this, a customer said hey, what's up with this Ray Fin thing? I'm let's build one. we spent two hours ripping" }
+  - { t: 662, text: "through the code and let's fire up your agent here and it's fixing things and ripping stuff out. We got menus and within 30, 45 minutes we had a full blown. They have an input system that they need to get" }
+  - { t: 674, text: "done. We, we stubbed out at least a piece of a POC within 30 minutes and we're ready to go. And already here you're showing me that there's already a full app here you've got running that's on the hand side." }
+  - { t: 683, text: "this is all copilot is what we're looking at here, ? Yes, exactly. this is the GitHub Copilot desktop app. Super nice experience for your more vibe coding" }
+  - { t: 696, text: "development flows. Yes, obviously you can still see your files and all those things in here. It's got a really nice experience for anyone who hasn't tried it yet with just opening up in VS code and it can . Oh, nice agent sessions." }
+  - { t: 707, text: "Between VS code in here and your cli you can pick which UX works best for you at the moment. I this. It's running the actual local dev tools and stuff that locally" }
+  - { t: 718, text: "here though I think this is not the session it's using . It must have started a different background session. Then you've got the ability to host these canvases" }
+  - { t: 729, text: "browser and then you can do these custom canvases which I've got a couple of these that we're not going to jump into . But that allows you to create a custom little local web app GitHub pages but with some of" }
+  - { t: 742, text: "the back end running locally to your project or generally useful across projects if you want to build something. We've got some prototypes. Wow. Ray Fin Canvas we can officially support which would have all your" }
+  - { t: 756, text: "different deployments that we're aware of and their status of things and what branches they're on. we'd really to improve that visual aspect of seeing where everything is at and what stage things are on. But that's." }
+  - { t: 767, text: "This is incredible. one I, I have felt for a while Microsoft in general is, has been behind in the agentic development and what we're trying to build and this feels we've just pulled forward really fast and we're there" }
+  - { t: 780, text: "we're thinking about ways the creator agent. I keep calling it the creator agent but I know this is probably not the term but it's, it's. We want agents to help us build things. Build things that run on commodity hardware, build things that run apps" }
+  - { t: 793, text: "that run in a repeatably deterministic way. This is my app. It runs every single time, authors the same. It's not this weird fuzzy thing that I'm trying to chat to and get a consistent answer out of it." }
+  - { t: 804, text: "This gives me the same report page view visuals every single time. This is good. And I will say the universal template. One of the things that I'm really happy about that because I" }
+  - { t: 814, text: "know that a lot of people are going to be using Rafen, for things Et cetera, as much as possible. We don't want creating a whole bunch of debt that needs to" }
+  - { t: 824, text: "get cleaned up. A lot of what's in that template is skills around what good web development patterns look . The hope there is that even if not all of our users" }
+  - { t: 834, text: "are considering themselves professional web developers, we've left them in a really good place with the agent following really good patterns for how to structure your react projects. What are how to maintain and check accessibility." }
+  - { t: 848, text: "If I were to scan through here, you'd see it doing accessibility checks as I was building up the application, making sure that the colors that it chose weren't awful for that purposes. There's a lot of things that agents really help make possible that" }
+  - { t: 861, text: "would otherwise just end up being we keep you two on the Rails. This is a really nice balance of we're keeping you on the Rails from a service perspective, but from a presentation layer we" }
+  - { t: 871, text: "can really let you go go free, , as free as you want to go. One of the things I want to also point out here, if you're using this, I love this, just click and select things." }
+  - { t: 881, text: "rather than what component I'm talking to oh yeah, label and the filter form, I can just. It'll reference this and I can tell it to go and change something about it." }
+  - { t: 891, text: "this is a direct feature. there was one feature that I liked a lot which this is a. Something I saw with some early agentic coding. It was called Agentation, which was the." }
+  - { t: 901, text: "It had a little icon and you could click into it and it would then highlight all the divs around the page. And this also, I believe it's also a function of VS code. Absolutely love it. And it's. It's sending enough information where that" }
+  - { t: 915, text: "position is, what it's labeled as, how it gets to the page just enough the agent knows what to fix. it's not digging through and searching for a hundred of things in the code. You're very ." }
+  - { t: 927, text: "You can be very pointed around the very specific thing that you're looking for. Exactly. Amazing. Then I think one other thing that we announced functions obviously but" }
+  - { t: 937, text: "one of the things that can get missed there is that one of those connectors that supported via the functions piece to Azure DevOps there's some constraints around how authentication works there going to get" }
+  - { t: 951, text: "loosened over time as we figure out the ways of making sure that everything stays completely on the Rails. But we were able to release it with Enough constraints to" }
+  - { t: 963, text: "make sure that we weren't going to be totally surprised. And what I have here is I've got a little hide filters, things you don't see our real actual backlog. One of them on there is , build more stuff for Mike" }
+  - { t: 974, text: "because he needs help with all these Rafin things. There's a decent number of your feature requests in this pile here. All . But the, , we have, , , just" }
+  - { t: 987, text: "every team does probably, , we've got regular scrums, we go through status on things, we're tracking things that are GA required, we triage things that don't have labels and all that kind" }
+  - { t: 997, text: "of stuff. And , sure, we've built a bunch of, queries and ADO and we've tried to optimize this within the Azure DevOps experience. And honestly, it's, , it's pretty good. But what's awesome about, , this new world that" }
+  - { t: 1010, text: "we're in and what Rafen really enables is that I can build stuff which is optimized for how our team wants to work. what are the. This is it. I need to go , , I can't see a random" }
+  - { t: 1020, text: "query and then also see a Gantt chart in the same view in ado, but I can go there and just tell co here, build it. We'll go through there and pull in beta and build it all for me." }
+  - { t: 1030, text: "Yeah, 100%. And this is the stuff this is. You don't get a colored. Go get a gradient colored bar inside Power Bi desktop. you maybe can do it." }
+  - { t: 1042, text: "You might be writing a whole bunch of HTML. You're still probably going to invoke some agent to help you get some cool stuff this. But , I see your bars here. Again, I'm going to be nitpicky here, ?" }
+  - { t: 1050, text: "You've got bars with square ends on the left, rounded edges on the top. , dude, the limit is what's inside your head and how to get" }
+  - { t: 1061, text: "stuff out of here. One. This is polished. Looks really good. Love the color schema that you're picking and you're building here. this Gantt chart with dots, targets, things" }
+  - { t: 1071, text: "track on track. This is finessed. I can click on this and it brings me to the work item. Yes." }
+  - { t: 1081, text: "Think of the DAX expressions here, ? Oh, yeah, this would be horrendous. I would never. Yes, but, but you're building. this is bringing the App data." }
+  - { t: 1091, text: "much closer directly to what you're building in the data data or the semantic world data. And the fact that you're able to bolt this on, I can't. my team has working, has been" }
+  - { t: 1101, text: "working in DevOps. We love working in GitHub for our internal projects. Man, I don't DevOps anymore." }
+  - { t: 1111, text: "The fact that I get a DevOps at least a DevOps MCP server, , I'm happy . The fact that you gave me way better. I can rip out tasks, I can have stuff made a lot faster. I'm using a whole bunch more MCP" }
+  - { t: 1122, text: "stuff with my agents inside, inside DevOps. I'm not negative against it, but I'm just saying, any tools that we're able to build that has tighter integration to" }
+  - { t: 1132, text: "agents and talking and doing things, I fully imagine here. you're talking about grooming things down here. There's no reason why you can't hook up a foundry to the back end of this and say, hey, by the way, if a" }
+  - { t: 1144, text: "customer comes in here or a business user wants to come in and say, I want to ask questions about this, or I wanted to add new tickets items directly here. You could tell that information to Foundry, Foundry can come back and" }
+  - { t: 1156, text: "you can directly start moving things back to DevOps. This is the custom of the process. This is powerful. Yeah. I certainly think that getting official support for" }
+  - { t: 1170, text: "agents as a primitive to Rafin is the thing that we are trying to make happen as quickly as we can. Because for the exact scenario that you were just talking about, I've got this lovely thing here and I've built some nice." }
+  - { t: 1183, text: "Let me switch it to a me view here. I've got this feature here and if I want to move it to execution, we've got this rule here that says that for execution, I've got to fill in all these fields." }
+  - { t: 1194, text: "But it would be awesome if I could just have a quick voice to text or something that. Target is this. Yeah. And tell it to , guess the answer to these" }
+  - { t: 1205, text: "things based of what I've been doing. And , the agents running inside of the app here, you know, quickly enter these things for me and move it on. Because, , obviously in Scrum, what we care about is" }
+  - { t: 1215, text: "moving through as quickly as we can and, , trying to maximize the time that we're saving for conversations and not spending much of time, , talking about which fields need to be filled incorrectly. That's waste of our time. Agents are way Smarter to figure this" }
+  - { t: 1227, text: "and it. You could also use things grill me. ? This would be another great one of these opportunities. hey, I want to get. I have a new issue. Here's when it's due. And this also would allow us to be able to be in" }
+  - { t: 1238, text: "we are best spent being the human part of things. . We need to talk to others, we need to relate to them. We need to have to have the conversation More and more I'm finding I need to. I need transcripts, I need summaries." }
+  - { t: 1249, text: "All of those need to turn into details work that we're going to track. I don't need to be involved in all that. Copilot does a great job summarizing my meeting notes. Shove it in here. Just make, hey look, go through my meeting," }
+  - { t: 1260, text: "add all the stuff that I care about or here's my meeting notes. Boom, make tickets for me. That's the stuff. This is huge. We do have a custom agent for our team which does all those things for us." }
+  - { t: 1270, text: "Oh nice. That's all custom that we've built but our goal is to be able to run everything that on an actual fabric hosted Rafen app." }
+  - { t: 1283, text: "That's amazing. One of the things we can you said with functions, it's all just code. Here's the actual code here. Yeah, let's see. This is that with 1.3.6 the new default template that we've got" }
+  - { t: 1299, text: "moves to this multi package thing. if you are trying to do code reuse and stuff that, it's a lot easier to do that than it was before. it's much more modern JavaScript project format here my functions" }
+  - { t: 1312, text: "package and inside of here I've got my function app. Then you can see here that there's a specific library here that we've got for handling all the ado logic that the agent wrote." }
+  - { t: 1324, text: "I don't have all my logic in a single file we do for Python functions. You can break it up how you want to. Then there is some generated code here for the secrets typing" }
+  - { t: 1335, text: "pieces and then there is some generated code here for the the public API surface area. I'm hoping to get at least this part not needing to be generated every single time that you start" }
+  - { t: 1348, text: "again. Secrets is always going to need to be generated because it's remote. Your secrets are defined by what's there on the target you're pointing at. That will generate it occasionally." }
+  - { t: 1359, text: "Awesome. It's back end code. You can do whatever you want inside of here you can talk to whatever random third party APIs. We don't have a plugin yet for talking to GitHub for example." }
+  - { t: 1370, text: "And I was working through how can I go through there and pull the GitHub issues that we've got also into this. Oh yeah, because there's a whole public issues that's on top of things and you want to have them." }
+  - { t: 1380, text: "Yeah, that makes total sense here. Merge all that data back into your ado. And yeah, I was working in a different branch on what function would I add for those things. I needed to go through there and Register a new GitHub app" }
+  - { t: 1392, text: "that would have the permissions and all that stuff. It's all possible. Some really interesting things have also happened. Jacob Knightley, ? Yes." }
+  - { t: 1402, text: "Yeah, awesome guy, very awesome. He figured out that he could create a custom Enter app and use a Rafin app as thing you log into. you don't have to" }
+  - { t: 1413, text: "create a custom Enter app for your thing, but you could and then pass that token down into your function and have your function just call arbitrary things that your entrapp is scoped to." }
+  - { t: 1423, text: "obviously that's not easy. I'm not going to call that done. We're not going to develop any more features for racing. Truly what you were saying, there is truth to what you said" }
+  - { t: 1434, text: "of you can do anything as long as you're willing to maybe do a little bit of extra work on getting your own permissions and storing your own secrets, et cetera. For some of the things that we don't have out of the" }
+  - { t: 1443, text: "box support for connecting to today, but you really are open to doing almost anything. Talking to foundries is entirely possible assuming that you" }
+  - { t: 1453, text: "have the custom Entra app to have permission to go talk to your foundry models, et cetera. if you're really excited about doing this, the sky's the limit. And then our hope here is that we'll keep rapidly adding new" }
+  - { t: 1467, text: "connectors and keep on adding some of these new capabilities that it just works out of the box. Our goal is that Ray Fin up just works and that you're not having to go through there and run around and figure out" }
+  - { t: 1479, text: "a whole bunch of configuration when you have to go and talk to your security team eventually. If you want to have a business critical application, we want as much as possible for Rafin to be self describing and your security" }
+  - { t: 1492, text: "team to have confidence that the sandbox that your tenant admin settings are enforcing the things you can streamline a lot of those review processes as ." }
+  - { t: 1502, text: "I think there's a part of this where I'm looking at this going. There's this idea of the custom harness, the custom process, the custom app. More and more organizations are finding this, ." }
+  - { t: 1512, text: "I can build very comprehensive, very useful tools. I don't need to go buy a bunch of software that's doing all this stuff for me. I need a great surface area of APIs and bots that are smart that can figure out how" }
+  - { t: 1526, text: "to weed those APIs together. And then we build the front end again, going back to the graph, whatever we want to do, we can build anything . We can have anything as we can dream" }
+  - { t: 1536, text: "it. We can start crafting the process around the app we have the process that's our ip. And as a company, this allows us to craft an experience around it that makes it easier to use." }
+  - { t: 1546, text: "Amazing. I think what's, , what's really cool here is that, , when you're trying to talk about , do I buy software? Do I build software? , before you would , ," }
+  - { t: 1556, text: "try to guess how much it was going to cost you to build it, and then guess how much it was going to, you know, take to maintain it. And then, , try to compare that against procuring something and have a whole procurement process" }
+  - { t: 1567, text: "depending on what your company's policies are. Sure. And with agents, I think that there's definitely a, , building something is relatively cheap , building it for real, supporting it," }
+  - { t: 1579, text: "all those kinds of things are still valid concerns. it goes beyond just software. sometimes you need to have specific legal and compliance expertise on things that, , when you're working with vendors who specialize in" }
+  - { t: 1592, text: "those things, it's still just economically better to work with them. But one of the issues that I sometimes have when I have to work with a different piece of software which is optimized around" }
+  - { t: 1604, text: "how they manage the data and stuff that. They're not necessarily selling how good their visuals or experiences are. They're selling the true business problem they're trying to solve, which is" }
+  - { t: 1614, text: "often about their data or how they're processing data, et cetera. And Rafin and this model of , , let me build my own front end on top of this" }
+  - { t: 1626, text: "SaaS layer. It's super powerful because I can bring in all those sasses together. I said, I was trying to bring GitHub into this. We have a semantic model inside of fabric for all of our" }
+  - { t: 1639, text: "deployment pipelines and where the trains are and stuff. And, and I want to be able to see this full nature of these are the items, these are the trains they're targeting. This is when that train is leaving. Here's all the things that are in this train and that" }
+  - { t: 1652, text: "all in a single pane of glass. And , Rafen makes that super easy to do thanks to agents making that really easy to build once the data is made available in a secure way. And that, that's what Rafen's trying." }
+  - { t: 1664, text: "Rayfin and Fabric apps is trying to solve is make the data available in a secure way. That is for the agent to then, , build whatever you want to dream up, add your fancy particle visuals to your site." }
+  - { t: 1676, text: "All. All the silly things you want to go and do. Yeah. Gosh. I think you've talked with Ben. Ben has some of the, the funnest apps where he's just always adding, yes, surprising." }
+  - { t: 1686, text: "You got to look something crazy things all the time. This is. And this is, this is exciting where we're in such a neat world . I, I do want to be mindful of your time, Chris. You're a very busy person." }
+  - { t: 1697, text: "You, I saw your backlog. There's many things for you to knock out done. I don't want to delay you from getting great new features out the door, but I do want to say a heartfelt thank you for. This was the very last minute we were" }
+  - { t: 1709, text: "talking Tuesday. I said with this work, we , yeah, let's do something calendar. I'm extremely excited about Rayfin. Rayfin is going to be a very critical tool in your tool" }
+  - { t: 1719, text: "stack. When you're talking about fabric and Power bi. This does not directly replace only Power BI reports. I think there's still a place and time for those things as . But this is going to be a huge advantage for organizations." }
+  - { t: 1731, text: "And the one friction that I think you're speaking to here is anymore as a, as a business owner, as a person who consults with companies, I really don't. I get impatient with other companies" }
+  - { t: 1746, text: "and how hard it is to get their data out of the systems. And there's this idea of , I've already built the software. I'm already going to use GitHub, I'm going to use" }
+  - { t: 1756, text: "DevOps. it's there. That's where the data works. That's where everyone is understanding. I get it. There's a, there's a, a critical mass that I'm not going to move. But if I'm a smaller business, if I'm a newer company," }
+  - { t: 1766, text: "if I'm evaluating net new software that I'm thinking about creating, I'm being really, I'm watching Ray Fin very closely because I really do believe that the advantage of not only being able to customize" }
+  - { t: 1779, text: "the app to your work process, you get a major benefit by. It's just in fabric. You got all the tables, there's no data, extra access. It all lives in fabric." }
+  - { t: 1789, text: "And I think this factor alone is enough to push every business. They must go look at fabric apps specifically for this data is in the same place. Everyone can touch it." }
+  - { t: 1800, text: "That's huge. I think, I think that, , if you look through the history of the cloud and how that, , how the business has evolved and grown in the space, you had" }
+  - { t: 1812, text: "this element, , credit to Salesforce where they were disruptive by just, , having one of those first big enterprise sasses. And you were seeing organizations, , shadow it" }
+  - { t: 1823, text: "adopt this stuff because it was much more productive and they enabled that pattern really easily. Yeah, definitely remember having a Salesforce here at Microsoft that's already paid with their amex until they got caught" }
+  - { t: 1834, text: "for it. They couldn't figure out how to run Dynamics at the time and then. , exactly is great . But , there was disruptive moment that was, that was happening." }
+  - { t: 1845, text: "And I do think that this ability to , you know, build whatever you want to with custom data if you want, bring in, , some of your existing data if you need" }
+  - { t: 1855, text: "to and that every combination therein, , , do I want to combine my analytics visuals with my transactional data, all that kind of stuff. you are really more free to do that by" }
+  - { t: 1868, text: "with less effort and , less safety concerns. again, you should still have processes for anything super critical but there should be a lot more streamlined with, with the" }
+  - { t: 1879, text: "constraints that we've got is, is the hope. And I, I do wonder whether this is , you know, the start of a new shadow IT era where oh, you make it really hard." }
+  - { t: 1891, text: "Don't say that bad word. And , the CRM or, . Yeah, these different kinds of things. people build their own, , versions of those software that" }
+  - { t: 1902, text: "you were , that's the thing. Procurement process is the number one thing that blocks most people from being able to go and get the software that they need. And a lot of companies still, Microsoft is Not necessarily an exception" }
+  - { t: 1913, text: "in all cases. . And if I've got the choice of, , going through this long procurement process and having to deal with all these extra hassles and all that, versus just build weekend what I" }
+  - { t: 1924, text: "need in weekends. Yeah. that is interesting. , I think it's disruptive and I think that it definitely will make, , assuming" }
+  - { t: 1936, text: "that, that we. We do see people doing more of that, you're going to have to see businesses respond by making their APIs more available to be accessed in this way." }
+  - { t: 1946, text: "Yes. To think of themselves not much as a, hey, we own your experience and your life for this particular part of the world, but hey, we're enabling you to solve a problem alongside everything" }
+  - { t: 1956, text: "else. , I think very possible that you , you know, start to see those big major shifts. We're probably already seeing some of those big, major shifts. I'm going to, I'm going to give you a really, a tangible" }
+  - { t: 1968, text: "example audience here. I use QuickBooks for my business to send out invoices and manage things. They don't have an MCP server built into their service. Shocker. ?" }
+  - { t: 1978, text: "We're QuickBooks. You don't. We don't bend to your will. You bend to our will. . And I'm actively looking at , , that. I pay a lot of money to you guys and yet you don't give me what I need to do to ," }
+  - { t: 1989, text: "write my statements of work. And I should be able to talk to an agent and say, hey, bot, that we get these dot things from which I think the bot dot things that are out there, it's hilarious. They're just." }
+  - { t: 2000, text: "These guys are just poking at each other at this point. But, but that being said, I want to just go talk to my agent and be , hey, look, I've got this new customer. Draft up my, my statement of work." }
+  - { t: 2010, text: "Go make the, the. The estimate. This is what I want in it. these are the things that we're need to be building. Tommy on the podcast for explicit measures. He's got an entire sales team built out as bots, getting and" }
+  - { t: 2022, text: "looking for leads and finding things and scraping and dude, I'm telling you, we are in a such a exciting time to be in this creation space. it's not going to take our jobs." }
+  - { t: 2033, text: "It's definitely not. It's way less. , can you. It's way more. Should you. These days. Yes, exactly. . with that being said, I really want to thank you for your time. This has been wonderful." }
+  - { t: 2044, text: "We could chit chat and talk about how exciting this is over and over again. Stay tuned if you Chris's comments, if you the demo he showed here. If you seeing some of the things behind Rafen, let us" }
+  - { t: 2054, text: "know in the comments. What did you ? What do you want to see more of? I will also give some big kudos here. Chris, you have been busy. I go to the Rafen templates" }
+  - { t: 2064, text: "and there used to be three or four of them. I see 10 of them. You've been busy creating a lot of extra templates here to leave and a bunch of them piled up. I burned through those when I got back." }
+  - { t: 2076, text: "Yeah. Also call out the the Rafin GitHub issues , are more and more love and I expect there to be a big surprise there very, very soon for what's available on that repo beyond what's" }
+  - { t: 2089, text: "currently there. All , stay tuned. Definitely. If you have feature requests and stuff that listening stop by the Microsoft Rafin repo in addition to the awesome Rafin which" }
+  - { t: 2104, text: "has got all the great templates. But that Rafin repo is a great place to file your feature requests, ask questions and the it was a little bit cold because I think I was" }
+  - { t: 2115, text: "on there wasn't as much attention on that as there should have been. But I'm back baby. we're ready to go. I love it. I love it." }
+  - { t: 2125, text: "both links to both awesome Rafin is in the chat window as and I've also put in here also the ray fin directly and I'll make sure I add those to the show notes under the description as you get that ." }
+  - { t: 2135, text: "make sure you give us a thumbs up. If you this content, let us know. It's easy, it's free. You can already hit the thumbs up that helps other people hear and find this as . Chris, thank you much. And with everyone else here, I'm going" }
+  - { t: 2147, text: "to leave you with an AI song as we wrap for this session. Thank you all much. I'll see you in the future. Thanks Chris. Thanks." }
+  - { t: 2174, text: "Who you are shows up and every field you choose and the colors that you favor and the truth you use." }
+  - { t: 2188, text: "Power Be I eye isn't just a place to click. It's a mirror of the person behind the tree." }
+  - { t: 2200, text: "Your identity, your identity. Your identity. Not just what you build." }
+  - { t: 2212, text: "It's who you mean to be. Your identity." }
+  - { t: 2245, text: "Some of us are builders chasing perfect form. Some of us storytellers keeping numbers warm." }
+  - { t: 2259, text: "Some of us are guardians of the single soul all of us are feeling? Fingerprint inside the course?" }
+  - { t: 2271, text: "Your identity? Your identity? Predicting the world to see? Your identity? Your identity? Just what you build Is who you mean" }
+  - { t: 2284, text: "to be? In your identity?" }
+  - { t: 2318, text: "does who you are?" }
+  - { t: 2329, text: "Stay close to the reason that you started this identity Is louder than the featureless? Don't trade your voice on someone else's char?" }
+  - { t: 2339, text: "Don't hide your crap behind a borrowed heart? Boys feel human when the driver rises? Because somebody honest put their soul inside?" }
+  - { t: 2356, text: "Standing in the glow of a four on the floor? Night? I remember why? Built when the patch feel ? Power be holds a piece of me?" }
+  - { t: 2367, text: "And a piece of my? My identity? Your identity?" }
+  - { t: 2395, text: "You." }
+  - { t: 2421, text: "Better." }
+  - { t: 2446, text: "Sam." }
+
+---
+
+## Summary
+
+Mike brings on Chris Anderson, a PM from Microsoft on Rayfin, to catch up people who missed FabCon. Chris walks through a real v1 of the connector model, covering semantic models, SQL, the warehouse, and the lakehouse, with access either as the signed-in user or as an item identity. Functions and secrets finally give apps a backend, so keys and API calls stay off the browser. They then look at the 1.3.6 local dev flow and the GitHub Copilot plugin, which uses the Rayfin CLI's auth so agents are not stuck on a login prompt. Chris shows a custom Azure DevOps board his team built, and they close on when to build instead of buy, and on the shadow-IT pressure that shows up when procurement is slow.
+
+## Key Takeaways
+
+- ▸ The new connector model is the v1 Chris wanted at Build: semantic models, SQL, warehouse, and lakehouse, with the app connecting as the user or as a service identity.
+- ▸ Functions and secrets keep OpenAI keys and other backend work off the client, including a call back into Fabric to refresh a pipeline or drop a file in the lakehouse. First-class OneLake file storage was not in the version that launched. Chris put it at probably 137.
+- ▸ Rayfin dev in 1.3.6 runs Vite, a proxy, and functions locally, and signs the session in from the CLI so embedded Copilot and VS Code browsers stop prompting for login.
+- ▸ The universal template ships skills for React structure and accessibility so an agent does not leave a pile of cleanup for people who are not professional web developers.
+- ▸ Azure DevOps is reachable from functions, with auth constraints still in place. Chris's team uses that to build the Gantt and status views ADO does not put on one screen.
+- ▸ Agents make a first version cheap, but support, legal, and compliance still count. Rayfin's bet is a front end on data that is already in Fabric, which is also why a slow procurement process pushes people to build their own.
+
+## Links
+
+- ▸ [Table API](https://learn.microsoft.com/en-us/fabric/onelake/table-apis/read-table-data-rest-api?utm_source=agentic_thinking&utm_medium=website&utm_campaign=20261001)
+- ▸ [Functions](https://learn.microsoft.com/en-us/fabric/apps/functions?utm_source=agentic_thinking&utm_medium=website&utm_campaign=20261001)
+- ▸ [New Connectors](https://learn.microsoft.com/en-us/fabric/apps/connectors?utm_source=agentic_thinking&utm_medium=website&utm_campaign=20261001)
