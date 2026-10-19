@@ -1,0 +1,244 @@
+---
+title: "Skills Vault"
+episodeNumber: 46
+date: "2026-10-08"
+youtubeId: "ux8DXPKb75A"
+duration: "41:41"
+blurb: "Tommy Puglia demos Skill Vault, his free open source tool for keeping agent skills in sync across Claude Code, Claude Desktop, Cursor, Copilot, and Notion. Mike and Tommy also talk about building agent tools data first, CLI second, and UI last."
+tags: ["skills", "skill vault", "agents", "claude", "notion", "open source"]
+guest: "Tommy Puglia"
+guestLinkedIn: "https://www.linkedin.com/in/tommypuglia/"
+chapters:
+  - { t: 0, label: "intro" }
+  - { t: 70, label: "why skills drift between agents" }
+  - { t: 258, label: "a ui for humans, a cli for agents" }
+  - { t: 334, label: "data first, cli second, ui third" }
+  - { t: 681, label: "the skill vault assistant" }
+  - { t: 798, label: "claude desktop and notion skills sync" }
+  - { t: 1182, label: "microsoft skills and the 300 line guidance" }
+  - { t: 1288, label: "auto tagging and adopting from github" }
+  - { t: 1922, label: "finding hyperframes skills" }
+  - { t: 2126, label: "wrap up" }
+transcript:
+  - { t: 12, text: "Hello everyone and welcome back to Agentic Thinking. With this time, Tommy and Mike. We just did a podcast and we're back again. Tommy has been showing me and demoing to me this" }
+  - { t: 24, text: "thing called Skills Vault, which is something that you've been working on, Tommy. It's a project, it's open source, it is on Tommy's GitHub page under PugliaBI. And Tommy, you're finding immense value in sharing your skills" }
+  - { t: 35, text: "across multiple different systems. Where do they go? How do you synchronize them? When you change one, how do it's different? A whole bunch of just challenges with moving skills across" }
+  - { t: 45, text: "and between agents. that's what we're going to dive in today. Tommy's going to give us a demo of how he's using agents and particularly his tool that is free. You can go download it today." }
+  - { t: 55, text: "The link will be in the description. I will also put the link here as in the chat in case you want to check it out. But there's this thing called the Skills Vault and let's dive in. Tommy, give us an overview." }
+  - { t: 65, text: "What the heck is the Skills Vault you speak of and walk us through what you're doing. Yeah, let's start with what it is. Skill Vault is a place to manage and sync" }
+  - { t: 75, text: "your skills across devices and tool. Agentic, tooling, cloud, desktop, Claude Code, notion, cursor, whatever uses" }
+  - { t: 85, text: "skills using the Skill Vault to keep them in sync and also manage them as . And much more. And Mike, where this really comes from is the fact that I was getting frustrated because" }
+  - { t: 98, text: "I found that every agent wants his own skills, ? You have a design skill or Deneb skill or visuals. And one Claude Desktop doesn't have a folder in" }
+  - { t: 108, text: "your local machine, it syncs it on your account. that's a problem. But if I'm on my desktop and I'm using Claude Code with a skill, let's say maybe the skill is also updated on GitHub." }
+  - { t: 119, text: "Maybe I sync that skill. There's many places where skills can drift shift from what was the most recent skill or design or update. How do I know if the skills for fabric were" }
+  - { t: 129, text: "updated? If I make my own skill, how do I make sure that it's also on my other computer I can be in sync? And especially for your own user created skills, that's where" }
+  - { t: 140, text: "a lot of the problems really come from. And again, it's really four areas. You have your standard skills, but there's always drift. And how do you know what's been changed." }
+  - { t: 153, text: "This is something, a really important part here, ? You're not trying to work with all the agents together in one place, but sometimes you, you switch between them, ? I'm working in Claude." }
+  - { t: 163, text: "I'm. I'm doing some work with Claude today and maybe that for whatever reason, I ran out of tokens or hit my max. , great. I need to transition over to a potentially another agent. I'm going to move into GitHub," }
+  - { t: 172, text: "Copilot, or let's say I'm working in git.com GitHub.com and I need to use an agent that is copilot. How do I make sure that those agents have those" }
+  - { t: 182, text: "shared knowledge and skills? Again, the business logic, I think what you're describing here, Tommy, lives in those skills 100%. And I think again, the biggest thing too is if I'm in one harness and I'm , update the skill" }
+  - { t: 195, text: "or create a skill, I want to make sure it's synced everywhere, not have a copy. And that's really where the idea came from. Also, if I want to edit a skill and what we have, Mike, is what again we call Skill Vault." }
+  - { t: 207, text: "And what it is is a repository that you can set wherever you want to save your skills that stores it in one place and it pushes the skills" }
+  - { t: 217, text: "to the correct location using system linking or junctions in Windows. it's Windows only, but it can work pretty with Linux. saving the skill updates the" }
+  - { t: 228, text: "vault. If you make a change in Skill Vault automatically without even having to push, it's automatically pushed through linking the folder also too. It can do much more" }
+  - { t: 241, text: "than just simply pushing those files. It can keep it in Git as . There's two different ways to do this. There's a tool, a visual tool application. There's also a command line tool as ." }
+  - { t: 253, text: "you can even use any agentic tool to kind of keep things in sync as . This is important, Tommy. This is a great example. We just talked about this in the podcast. This is a good example of you need people to" }
+  - { t: 266, text: "look at things, humans need to be able to observe this, but you also need agents to observe things. And the most, the easiest, I think for developers is there's always a a minimal web app" }
+  - { t: 277, text: "that you can look at with some buttons you can click. But then there's also needs to be a CLI or some API surface layer that gives the agents the same access. And you describe how the API" }
+  - { t: 287, text: "works, what data is contained there. that way when the agent shows up it can understand what, why these. Exactly, exactly. The other part too is I love the" }
+  - { t: 299, text: "application version of this to really manage it. on the app itself and we'll go through everything, we have a status to see the health, what things are drifted apart, where are skills and where" }
+  - { t: 310, text: "you can set your own targets. For example, Claude, code, cursor, copilot, what skills are not there yet and what do I need to push to?" }
+  - { t: 320, text: "And I have a ton of actions that we can do, hey, push those skills or even restore them again. Every command in here is synced to a command line CLI command. any agent tool you need to" }
+  - { t: 333, text: "do as . Let me ask a question here, Tommy. When you were building this project, did you start with the CLI first? Yeah. And then it was all CLI at the beginning. And the only reason I think this is interesting is" }
+  - { t: 344, text: "I think many projects should start with the CLI and the data first, first as part of the project. And I'm finding the same pattern. if I start with the ui, great. But then I have a hard time going back from" }
+  - { t: 355, text: "the UI into , , make all these actions in the UI usable for the user. In a cli, it seems a bit more clunky. I, when I'm agentically developing things, I start with" }
+  - { t: 366, text: "what data do I care about. In this example, I'm having skills that live in these different places. , Agent, go research all the different skills and how I get access to them or where can I create them and return them." }
+  - { t: 378, text: "Get and post. , great. build a CLI tool around that, all the actions you're going to do, and then you can think about the workflow first. I cannot agree with that more." }
+  - { t: 389, text: "it's, it's workflow first of what I need to do to make this thing work. And then, , great. that I understand the workflows, I come back and then build the ui. I feel the progression with agentic development cycles" }
+  - { t: 402, text: "start with first, data second, CLI third, build the ui. And that allows the design also to be much, much" }
+  - { t: 414, text: "more logical when you have those commands. Love it. One of the things I love as is where do your skills live? Where are all the targets that you have? What a cool graphic, Tommy." }
+  - { t: 425, text: "This is great. Look at this one. I love it. And you can see I'm searching all my skills that have visual in it. And I can say, , is it in, Is it in Claude? Is it in cursor?" }
+  - { t: 435, text: "Is it in copilot? Is it in A set folder because maybe I have skills for certain folders that I want to push and sync. Sure. I'm able to see where skills live in" }
+  - { t: 445, text: "search by the name description or the content in the skill as . There's one of the things that I was really important from a syncing point of view because" }
+  - { t: 455, text: "there's a difference between source control and git and also just pushing and pulling skills. Let's say I'm in Claude Desktop or Claude Code and I'm , , what, I need to update" }
+  - { t: 465, text: "the skill to do X, Y and Z. how do I make sure that then the other skills are also updated? And I have an approval to make sure we can sync them either individually." }
+  - { t: 475, text: "I can select multiple or have them all pushed. there's this idea of pushing and pulling the skills. a skill that's maybe missing a target or that they drifted. I can pull skills into the skill vault." }
+  - { t: 487, text: "if something's in one of the harnesses but not in the skill vault, then we can do a pulse of saying that's the source of truth. Two other things that we're going to talk about too," }
+  - { t: 497, text: "that one of my favorite is promoting a skill, but mostly adopting a skill. And I'm going to be just preview that later. I just want to give you that little seed there because it's one of my favorite parts" }
+  - { t: 507, text: "of skill vault. Again, you could bring in the skills you already have with the adopt feature. This is cool. Maybe I have skills in a different target on my folder." }
+  - { t: 517, text: "Maybe in their different provider that I just integrated. Maybe I have a repo of skills that I saved. Or even if I want to adopt skills from a git repo online, it can clone and save that git" }
+  - { t: 530, text: "repo mike and this is really cool because it will clone the repo and find skill, harvest the repo for skills that are in it. What's really cool and I'll showcase this." }
+  - { t: 540, text: "But when you adopt them, it remembers the git repo. let's say skills for fabric, ? what if they make an update to all the report skills? Do I have to reclone the repo and" }
+  - { t: 552, text: "readopt them? Nope. Get skill vault syncs every more every time you open it and looks at all the skills associated with where it came from to say, oh, this" }
+  - { t: 563, text: "has been updated in the repo, , in the, in the. And we can clone it back in one of my favorite features. But we'll showcase that. To be clear here you can go make a git" }
+  - { t: 574, text: "repo directly. And this is just all works with it as you're individually working skills, all those skills can come back to that central place exactly of checking things in" }
+  - { t: 587, text: "commits, main branches, dev branches, all of the approval process can then live in the git repo. . And anytime a skill that I adopted from a" }
+  - { t: 597, text: "clone from Microsoft, I can see where it came in. But Mike, I want to be able to look at the skill or maybe even edit myself I can go into an individual skill, create a new skill" }
+  - { t: 609, text: "myself or even edit the raw markdown file or the files and see all the different associated files and references in that skill as . Nice. And we what I'll show is have version history," }
+  - { t: 621, text: "which is one of my favorite things as . We can rename things, edit whatever we want and just read the skill. This seems interesting Tommy, because this brings up a point around. I know that there are skills here that Microsoft" }
+  - { t: 631, text: "is providing skills for fabric. But I do know there's also other individuals across the ecosystem Kurt who's building his own CLI MCP server and groups of skills. This also feels a really" }
+  - { t: 643, text: "useful way of grabbing other community based skills, sucking them out together and describing , hey, what's the difference between this skill and the other skill? Which skill works better for me in this workflow?" }
+  - { t: 654, text: "And maybe you amalgamate two different skills into something that's more useful to you on what you're doing here. Again, this all starts with can you get all the skills in the same place?" }
+  - { t: 665, text: "Yeah, and that's a huge part of this as . And Mike, finally the reason why I messaged you again is I was realizing through some of this is cool," }
+  - { t: 675, text: "but I'm it would be even cool anything we talked super cool and this is a super cool. there's a custom agent here with its own skills that can do really anything you want that specified." }
+  - { t: 688, text: "hey, there's a conflict, it looks for things for you to say, we found that there's some integrity issues, there's some updates available because again, maybe I, maybe Kurt updated his repo and I've synced that skill." }
+  - { t: 700, text: "I'm , oh shoot, I need to look at that. Or there's a conflict. You edited Kurt's skill, He just made a push. What do you want to do? It can make those changes for you. Great. And also you're using using the agent reasoning to" }
+  - { t: 712, text: "logic over what did your change do? What the change do? Do you want to merge the two changes? Yeah, that's really good. Tommy, I that idea. The agent in the assistant has five sub agents and" }
+  - { t: 724, text: "there's a total of 10 skills running skill Vault in the assistant. Sweet. I would expect nothing less. More skills for skills. Yeah, exactly. It, it was confusing for Claude Code when" }
+  - { t: 735, text: "I was developing that in, in this agent. again, you'll show us how to do this too, Tommy, what assistant can you bring? This is a, what you're building here is" }
+  - { t: 745, text: "you're building a harness, ? That is next to your application, ? your custom harness. what can we bring to that? Can I bring any large language model to that?" }
+  - { t: 756, text: "it's just Claude, but I'll, I, I can configure to update and stay with Claude. Stay with Claude for , I'd say, until you get a feature request. here's what I'm going to recommend to the community." }
+  - { t: 767, text: "Community, go check out the Skills Vault. If you need another agent, a provider that's not just Claude or Anthropica, give Tommy an issue." }
+  - { t: 777, text: "Tommy, don't do any actions, don't change anything until you go to Tommy's GitHub and you, you use the tool. And if you use the tool and you need a different provider other than Claude, let Tommy know in" }
+  - { t: 787, text: "the issues of his GitHub and I'll, I'll put that link here as in case you want to. Again, only real requests only don't, don't submit a request if you haven't used the tool." }
+  - { t: 798, text: ". Please. One of the big things, Mike, is Claude Desktop. I love Claude Cowork, which is part of claudesa. But there's other, perplexity as Skills." }
+  - { t: 809, text: "There's other places where it doesn't have a local folder on your machine where it stores the skills. And Cloud updated this probably in the beginning of the year, where before Claude Desktop and Claude Code had the" }
+  - { t: 820, text: "same library. That's no longer the case. You need to update and package a skill to Cloud Desktop. Yes. initially I built in Skill Vault back in the" }
+  - { t: 830, text: "beginning of the year, a way to package the skill and save on your machine, then you can push it back. That was cool. But one of the things I added, and again, this is for your Notion users out" }
+  - { t: 840, text: "there. Notion has a thing called the Notion Skills library and it uses a Notion Skills API. And using the Notion mcp, I realized for Claude Desktop" }
+  - { t: 852, text: "and Claw and for Notion, I can use that to sync Skills I don't have to repackage it. Let's say Claude Desktop updates It it's not available anywhere except for in cloud account." }
+  - { t: 863, text: "Also having Skills in Notion is great as another API connected to other things that maybe exist outside of your Skill Vault or locally." }
+  - { t: 873, text: "this can push and pull our skills, including the folder manager, the folders, the scripts and the files into Notion. that way I can maybe push all" }
+  - { t: 883, text: "my things into Notion. That's the default place I go to a different device or I go to Figma and say use the Notion, MCP and sync. Push these skills in." }
+  - { t: 893, text: "Sure. that's one of my favorite things. yeah, those are the main things I think Mike. Really that's the biggest things. It's super easy. You clone it NPM you need and" }
+  - { t: 904, text: "or can use PIP for just the Python, but it's NPM run dev or NPM install and you're on your way. Nice, I that a lot. All , let's do a real demo." }
+  - { t: 915, text: "this is all the slide of what it does, the feature overview. that we know why we need it, how to get started with it. Tommy, show us some, let's go some action demo here. All , let me pull it up here and" }
+  - { t: 928, text: "we'll push that down and we should go to my browser working exit full screen." }
+  - { t: 939, text: "let's go to Skill Vault. I have to save on my browser. And Mike, what we have here is all my skills. I have a dashboard view that shows you what is missing from the target and these different providers." }
+  - { t: 951, text: "The first thing we want to know is our settings. If you're just starting from the first time, we want to go to our settings on the hand side over here. This is important because this allows us to" }
+  - { t: 962, text: "see what providers are already configured, such as your cloud desktop cursor copilot. But you'll notice here I have two other folders I'm going to add another location where maybe" }
+  - { t: 972, text: "I have a project that I have skills in or a different provider. All I have to do is say add provider. Yeah, this is interesting. you're talking about, for example here I have a whole bunch of GitHub projects on" }
+  - { t: 983, text: "my computer and where I've been storing. A lot of my skills have been inside that project, inside the repo. . I have a, you know, cloud folder or I'll have an agent folder or" }
+  - { t: 993, text: "a GitHub folder. . And those are, those are project specific skills that are inside a single project. But I do have projects where I'm doing the same repo. But I need the same skill across both repos." }
+  - { t: 1005, text: ". I don't really know if they're in sync or not. And this is the way to do it. for example, I have these two different projects for my blog and also for the demos that I do" }
+  - { t: 1015, text: "for Northside Baseball. I can change. I need a place first. The vault path is the main part where. Where are my skills being saved? And I can change that folder location." }
+  - { t: 1025, text: "It could be anywhere on my computer. I have a private repo that saves all my skills in. that's. That has the repository. I have a default of what are the default push" }
+  - { t: 1036, text: "targets whenever I have a new skill or update or where is it default going to get synced to. these are the universal ones. How many versions do I want to keep? And then if I'm using Notion or if I'm using" }
+  - { t: 1048, text: "the Notion skills, I connect directly to Notion here. It would open the oauth login. you have that synced up and then we can link the skills as ." }
+  - { t: 1058, text: "If there's something that looks to see broken, I can run the audit here. let's go to our skills mike and there's a few views here. in the skill vault. let's dive into the different areas here." }
+  - { t: 1070, text: "The first is our main menu on the top. We can see we can do a lot of things. I can create one, I can import skills, whether it's from a zip file or from a different location." }
+  - { t: 1081, text: "I can sync to Notion. yeah, really quick. Tommy, you're doing. Do you have zoom it on your computer? Yes, I do. Do you mind just going a quick zoom in of. You're putting your cursor there. Can you just do a quick zoom in on the" }
+  - { t: 1092, text: "things that you're talking about? These are on the upper hand corner. It's a little hard to see on the screen because I'm Windows sharing. what I'm going to do here is let me stop sharing here. I'm going to read with the window or with the entire screen." }
+  - { t: 1103, text: "That's why. , I was zooming in and yeah, it wasn't showing on the feed here. thank you. Yeah, we got it. Yep. , perfect. Skills, adopt updates. You can add new skills." }
+  - { t: 1115, text: "There we go. You can auto tag and I have the search bar here. I can search for any skill with any name. what I'm going to do here is let's say I want to see all my power bi authoring" }
+  - { t: 1127, text: "skills. And Mike, I can see here the authoring cli. The consumption cli. Let's go to the power BI report offering what I can see here." }
+  - { t: 1137, text: "I'll go back to main screen here I see the files updated when it was the last time it was updated. How did it come in? Where the path is? I can see the different targets. Maybe I don't want this pointing to prompting bi." }
+  - { t: 1149, text: "I'm going to remove that. it's no longer going to sync with prompting bi. It's going to remove it from that location. Sorry, really quick note here. Tommy, you've got two cursors on the screen." }
+  - { t: 1159, text: "Do you see two cursors on your screen or not? I do, which is strange. . we don't. we got one. Thanks. Zoomit. , . What are you doing? Probably a setting and Zoomit good" }
+  - { t: 1171, text: "to go. Keep going. We have. I'm removing here I can see all the files. You can see that Microsoft does not mess around when it comes to references for skills. Oh, yes." }
+  - { t: 1181, text: "Yeah. And I, I'm not sure exactly why they're doing that, but I believe there's a lot of information they're trying to pack into a single skill. I think they're trying to route the agent to the" }
+  - { t: 1191, text: "knowledge, inside references I can go get additional details or information around what's going on. But they are quite verbose and , this is," }
+  - { t: 1201, text: "this is without having. let me quick soapbox here. I believe some of these skills are very complicated because it's not a harness. The harness can do" }
+  - { t: 1211, text: "some of this stuff for it automatically by picking a tool or using a subset of skills. They've done a lot of this work where they're just grabbing everything and putting it into one massive skill." }
+  - { t: 1222, text: "The general guidance I've heard from Anthropic is these skill MD files should be less than 300 lines. And a lot of the stuff that comes out of Microsoft isn't that small." }
+  - { t: 1232, text: "They are not following that practice. No, it is adding value. I will say that is adding value to me. I can use them, but I think it just means they're a little bit more token heavy than others." }
+  - { t: 1244, text: "And you can see here they have for most of the cards for, for cards they have the Card Visual Report Guide, what a template looks , what the JSON is. And this is great." }
+  - { t: 1255, text: "You can see I can ask AI. I can push the skill to different targets, automatic, manually. Again, I have it on auto. If there's new updates, I can pull it, I can" }
+  - { t: 1265, text: "rename it and that's looking at an entire skill. , the problem is I have a lot of skills, Mike. I have 257 skills in the skill vault," }
+  - { t: 1275, text: "and that's a problem. I would love a better way to organize this. And I have a few different views. I can see them as a gallery. I can see them based on topics tagged or again." }
+  - { t: 1286, text: "But what I'm going to do is I'm going to auto tag my skill. Skills. I want to choose skills that are not tagged. And I'm going to suggest tags with Claude and it's" }
+  - { t: 1297, text: "going to go through. Wait, is this using the Claude Decision API? Is this Jev going on here? It's saying, here's the classifications I want. Which ones best fit these classifications." }
+  - { t: 1307, text: "Tommy, I love it. This is Jev, but the CLAUDE version of it. This is classification super fast, super cheap. Love it. you can see what the tags are. We'll go ahead and apply those tags." }
+  - { t: 1317, text: "Wow. Again, I can also filter based on a tag as . And those tags are things that you just said. I designed these tags. These are tags that you care about. This is what you think. Exactly. that's where that grouping feature is, where I" }
+  - { t: 1329, text: "can say here, , I want to see all my skills that have audio in it. For example, wow. Or automation. And I can see. I can see the ones again if I just want to see the ones that have" }
+  - { t: 1339, text: "semantic modeling. Here's all my semantic model skills. And some of these may be old. If I want to remove one, I can easily remove it as . All , that's the first thing." }
+  - { t: 1350, text: "Let's go to adding a new skill to the Skill Vault. Mike, I just found a really neat skill here called logo design. Because what?" }
+  - { t: 1360, text: "For Skill Vault, I want a new logo. Oh, I don't care. , update that. and I this skill here. 2000 stars. Pretty great. A lot of different parts of" }
+  - { t: 1371, text: "this. what I'm going to do is, , I'm going to go ahead and I'm going to copy the link here. Yep. I'm gonna go back to Skill Vault and I'm gonna" }
+  - { t: 1381, text: "go to adopt here. I can. I have a repo on my machine that has a ton of repo folders in it. I have other. Other repository." }
+  - { t: 1392, text: "Other repos just for skills. Yep. . I can browse this and I can see all the different skills that are in there, whether they've been updated or not. That takes a little to do." }
+  - { t: 1404, text: "But what I'm going to do is I'm going to go ahead and I'm going to go to GitHub. URL, I'm going to add in the logo design skill and I'm going to clone and scan it." }
+  - { t: 1415, text: "this is cloning, cloning their repo into your phone folder on your computer, saying, here's a bunch of skills that I think I may need. It's taking a copy of their code, bringing it down to your machine. On your computer." }
+  - { t: 1428, text: ". let's try that one more time. Oh, here we go. We're good. All , let's go ahead and scan that repo and I can see here, it should find for me," }
+  - { t: 1438, text: "here's that logo design skill. Yep. Wow. I can just select it or not. And I'm going to go ahead and adopt it. Yep. Once it's adopted, it's going to pull on the" }
+  - { t: 1448, text: "information here. then it's going to go look through that skill. Yeah. Yep. And if I go here and I type in logo design, we may have to refresh this." }
+  - { t: 1460, text: "Oh, . We may have to refresh this once." }
+  - { t: 1470, text: "Should be there. let's try that one more time. we should have logo design, clone and scan." }
+  - { t: 1480, text: "Easy fix. Just telling. Easy fix. Yeah, just telling. this is a great one. let's. what, let's go to the agent Mike. I'm going to start a new chat here" }
+  - { t: 1490, text: "with my agent because let's say I do have this error here. . it does say it's in here and my agent can help me whenever I find errors. you can see on the bottom . I'm gonna say, yeah, I just tried to import and" }
+  - { t: 1503, text: "stop this in ensure it is in my skill vault." }
+  - { t: 1513, text: "That's going to go ahead and run. And that also carries what? Yeah, how close? It's using skills. It's running commands. Tommy, your eight, your assistant here." }
+  - { t: 1525, text: "What framework are you using for your assistant? Did you build all that custom or did you go use a framework from it? No, it's all custom. it's best practices. It was somewhat based on what Alex Powers build for" }
+  - { t: 1536, text: "fabric task flows. this is cool. I this. Your. Your output of the assistant here is really good. And you. And because he Alex's architecture would" }
+  - { t: 1546, text: "have an agent and sub agents and skills that they can apply. You can see it got the skill. Perfect. Y looks it was adopted. There's no errors. It's only in the vault." }
+  - { t: 1557, text: "let's go back to our skills here and I'm going to say it's vault only. Oh. that maybe the filter was. Was not seeing it." }
+  - { t: 1567, text: "let's go and if we can find. Look, there we go. There it is. It's there. . It was there the whole time. what I want to do, Mike, is I want to push this. I want to push this to all my different. it's only in the vault, meaning" }
+  - { t: 1578, text: "if I go to Claude Desktop, I'm , it's not going to find it. Exactly. It's not going to find it. that's really where I think this becomes incredibly powerful." }
+  - { t: 1589, text: "Again, Claude Code has a location, I don't need it in this project and I don't. what, I'll use it in north side. I'll go ahead and allow this to push here." }
+  - { t: 1602, text: "we'll go ahead and click on push. And again, the important distinction here, Mike, is it's not pushing a copy of the file, it's a linked version." }
+  - { t: 1613, text: "anytime I were to update the skill in the Skill Vault, it's an automatic. It's not. There's two different versions of it. my logo design is here." }
+  - { t: 1624, text: "And as I'm going through Mike, I know that Pbir, there's been a few updates that Kurt has made to his PBIR skill, which I also have in here." }
+  - { t: 1636, text: "And I can see here it's been updated two days ago. , I can see all the updates that I've done in the Skill vault for Kurt's skill and I" }
+  - { t: 1646, text: "see it was updated from Source. We updated from Notion. There's a Notion edit. There's an external edit that I made as . all the. I can see the versions here and" }
+  - { t: 1656, text: "I can always even restore a version. I've adopted a skill. It's in here. I want to push it to Notion I can in a sense have it in my library. I'm going to go ahead and push to" }
+  - { t: 1668, text: "Notion. Is going to check Notion and using the Notion Skills API and it'll tell me if there's a warning. Let's go ahead and let's just find the logo design" }
+  - { t: 1678, text: "here, which I think I just found. let's just add Logo design in here and I don't think I need any others ." }
+  - { t: 1688, text: "I'm just going to remove that. let's push the selected. That is going to get pushed to notion. that's going to be in the Notion Skills library. I can go to Claude Desktop and say to sync" }
+  - { t: 1698, text: "that skill in. Let's talk A little more about the assistant because the assistant has a lot of other features it can do. I was just a chat, but I'm going to go to the suggestions and" }
+  - { t: 1711, text: "we're going to go, we're going to clear everything here. We're going to start a new chat and you can see here, if I start the chat, I can see the new chat and I can see that some" }
+  - { t: 1722, text: "skills lost their source, some there's a conflict, there's updates available. I can go here and see all the skills with a current update, open the updates and" }
+  - { t: 1733, text: "I'm going to apply this with AI. When I hover over, I can see all the skills and these are coming from Skills for Fabric that it looks Microsoft updated the Skills for Fabric repo." }
+  - { t: 1743, text: "those in the repo in the actual remote are different here. let's apply those with AI. We'll go ahead and do this." }
+  - { t: 1753, text: "It's going to apply the necessary sub agent, load those Skills Sync from GitHub Again, this is really important because once you clone a repo, most people, when you clone" }
+  - { t: 1763, text: "a skill, you will have that stale version of that skill. That's always been my biggest issue. I have the ability whenever I've cloned a repo to say, oh my gosh, guess what?" }
+  - { t: 1775, text: "Kurt made an update. I want that latest update in my skill repo. Yeah. And that's exactly what we have going on here. this is just again what I how I manage" }
+  - { t: 1785, text: "all my skills. If I went on my different, different computer, I can use Skill Vault to sync everything. And again using the notion Skills API Claude Desktop has" }
+  - { t: 1796, text: "can use the Skills API as . Or even I created a skill for Skill Vault in here as . , let's go here, we'll take a look at that. The skill I call the Skill Vault" }
+  - { t: 1810, text: "bridge and this syncs everything together as . I can be in Claude Desktop or another harness and command it. Hey, go get the latest skills or go find this skill from this." }
+  - { t: 1822, text: ". The skill I think it knows has. It has context awareness of the Skill Vault. Exactly. knows how to update itself wherever you go. Wow, that's pretty cool, Tommy. Exactly. This is getting to be very meta at this level." }
+  - { t: 1833, text: "It's a bit meta. And again and finally the last part, if you are doing different devices, let's say it's everyone on your team that you saved it from, you can see all their different devices and you can even" }
+  - { t: 1844, text: "sync from that particular device. I'll save a snapshot here everyone will have the latest updates sync. It would just say where is a smart sync? And we'll go ahead and we can run" }
+  - { t: 1855, text: "selected here. It'll let me know that everything works or doesn't work here. everything's running. that is Skill Vault, Mike, super excited about this" }
+  - { t: 1865, text: "skill. Is there anything you want to see or any questions that you have? I think, I think at this point I'm going to probably kick the screen share away here. This is amazing, Tommy. It looks really good." }
+  - { t: 1875, text: "I'm very impressed with how this helps. This is a real problem that we're trying to figure out as team members across. again, thinking about what you develop locally, those skills" }
+  - { t: 1885, text: "really impact how good or efficient you're becoming. But then everything feels it's shifting sand underneath your legs. With the skills, you're building them, you're improving them," }
+  - { t: 1895, text: "you're finding other people skills, you want to collect them, you want to have a library of skills. How does all of these different aspects really stitch together? And I think this is a really excellent" }
+  - { t: 1906, text: "tool to really explain or show how all the different tools are coming together in a unified system. anyway, I have one more. I have two more features to show you. I. This is the one more thing." }
+  - { t: 1917, text: "All , one more thing. Bonus. All , first, we do have a microphone feature here. I can talk. Gotta have it. the important part. Yep, . But the thing is, Mike, this is all" }
+  - { t: 1929, text: "about skills that you already have. What if you want to find new skills. Mike, what we're going to do here, I'm going" }
+  - { t: 1939, text: "to. Let's take this off. Mike, what's the skill that you would love? I know you do a lot with your logo design or free banners." }
+  - { t: 1949, text: "I need a skill from Hyper Frames. Hyper Frames is a. Is a system that I use that's very useful when it comes to building videos or shorts and things" }
+  - { t: 1959, text: "that. . Hyper Frames is a. Is a system out there, but it has a whole bunch of skills with it. That's really good. I need to find skills for hyperframe. Hyperframe for videos. See what you can find." }
+  - { t: 1972, text: "Find the top ones. . Hyper Frames is made by a team and it runs on your machine, uses your gpu." }
+  - { t: 1984, text: "It helps you render vector graphics and images. And all the shorts that you see that we use on Power bi tips is coming out of that Hyper Frames area. it's looking for those." }
+  - { t: 1995, text: "That's the skills and things that we use to go build on top of that. what it's doing is finding the top stars repos for the hyper frame skills." }
+  - { t: 2006, text: "And you can see it's going through and fetching whether there's skills in it if that repo has it. And then you can directly adopt from the assistant." }
+  - { t: 2017, text: "Amazing. and you can see here. Here's the repos. Let's make it a little larger we see hyper frames. There's 21 folders on their skills." }
+  - { t: 2027, text: "Look. It gives you the number of stars. It's great. Yep. And sorts by star. let's say this student kit. Let's say that we're. No go after the main one. You got to go after the main one. Heygen.com that's the company that made it." }
+  - { t: 2038, text: "let's say you wanted to sync that whenever they updated their skills. Yeah. Let's say let's add to the Skill Vault only not" }
+  - { t: 2050, text: "to production the it. I can either do it through his assistant or I can go to that adopt feature." }
+  - { t: 2060, text: "if I go to adopt dude, I'm going to use the assistant every day. All day, every day. Tommy. I could hear the slow way but I want to just. I don't want to click buttons. Just. Yeah. I can either do it manually or I'm" }
+  - { t: 2071, text: "going to add to the skill vault only here. just both of those work. it's going to run a little slow on the adopt because it's doing one of the commands at a time. I haven't Multitasking CLI commands is still" }
+  - { t: 2084, text: "something I've been working on. you see, here's all the ones I can choose. I'm going to deselect them and if there's duplicates I would group those together. Let's do hypervent, core and cli." }
+  - { t: 2095, text: "Yeah. And there you go. And that is be able to. And then I can adopt those three skills. Cool. They're in my. Then I adopting those skills." }
+  - { t: 2105, text: "I already. I already took them I already synced those. Oh yeah. And there you go. Already in this. They're on the library somewhere is also one of my favorites as . Wow. Pretty cool, Tommy. All . And that. That's the one more thing." }
+  - { t: 2116, text: ". That was the bonus. I thought I wanted to save that in the documentation. In the skill vault Repo there's a getting started guide with all. All links on what you can do as" }
+  - { t: 2126, text: ". Tommy. I'm done clicking buttons on stuff it's everything is read it. Yes. It's agent first , man, it's just agent first. I want the agents to just go ahead and and take a lot of this lightweight work off my plate." }
+  - { t: 2138, text: "Awesome. Very amazing. Cool. Tommy, thank you much for demoing this. This has been a phenomenal demo. If you want to learn more, the information you need around Skills Vault. it's an open source project." }
+  - { t: 2148, text: "Tommy's contributing this back to the community. Go check it out, go download it. You can go check it out today. Currently it's open source. if you have an idea, if you have an improvement, if you fix something in" }
+  - { t: 2159, text: "it, if you want to add another provider, fork it, get a branch going, let Tommy see your changes that you improve it. I have found much value in" }
+  - { t: 2169, text: "working with others through GitHub and I throw a handful of tokens at something. Tommy throws a handful of tokens at something. Both of our ideas combined together makes a much better product. I've been doing a number" }
+  - { t: 2180, text: "of community based projects or projects with other companies where we just both apply our tokens and build something better together between two of our teams. I think this is an incredible pattern and we should" }
+  - { t: 2191, text: "start using this more often. go check out Tommy's repo. It's already there. It's in the description and in the link down below. Thank you all much for hanging out for this quick video and tutorial around Skills Vault." }
+  - { t: 2202, text: "Many more agentic experiences coming. There's a lot of more things that we need to get our head around. that being said, thank you all much. Tommy, thanks for the presentation and we'll leave you with another treat." }
+  - { t: 2213, text: "Here's. Here's a little ear candy for you as we leave again today." }
+
+---
+
+## Summary
+
+Tommy Puglia joins Mike to demo Skill Vault, a free open source project on Tommy's GitHub that keeps agent skills in one place and links them out to every harness that uses them. The problem is drift: Claude Code, Claude Desktop, Cursor, Copilot, project folders, and Notion each want their own copy, and nobody knows which one is current. Skill Vault stores the skills in a single folder or Git repo, pushes them to each target with symbolic links or Windows junctions, keeps version history, and tracks the source repo of any skill you adopt so upstream updates show up later. Tommy walks through settings, auto tagging, adopting a logo design skill from GitHub, pushing skills to the Notion Skills library, and asking the built-in assistant to find Hyperframes skills. Along the way Mike makes the case for building agent tools data first, CLI second, and UI last.
+
+## Key Takeaways
+
+- ▸ Skill drift is the real problem. When you switch from Claude to Copilot because you ran out of tokens, or move between machines and repos, the business logic in your skills has to come with you, and copies fall out of sync fast.
+- ▸ Skill Vault pushes links, not copies. Edit a skill once in the vault and every target sees the change. It is Windows only for now, with both a visual app and a CLI, and every action in the app maps to a CLI command so agents can drive it too.
+- ▸ Mike's build order for agentic tools: start with the data you care about, wrap it in a CLI that covers the workflows, then build the UI. Tommy built Skill Vault the same way, all CLI at the start.
+- ▸ Adopting a skill from a Git repo remembers where it came from. When Microsoft updates the Skills for Fabric repo or Kurt updates his PBIR skill, Skill Vault flags the update, and the assistant can apply it or help resolve a conflict with your own edits.
+- ▸ Claude Desktop no longer shares a skills library with Claude Code, so Tommy syncs skills through the Notion Skills API and the Notion MCP instead of repackaging them by hand.
+- ▸ The assistant is a custom harness built on Claude, with five sub agents and ten skills, loosely based on the architecture Alex Powers built for Fabric task flows. It auto tags Tommy's 257 skills and can search GitHub for new skill repos sorted by stars.
+- ▸ Mike's soapbox: many Microsoft skills are long and reference heavy. They still add value, but the guidance he has heard from Anthropic is to keep a SKILL.md file under 300 lines, so these cost more tokens.
+
+## Links
+
+- ▸ [Skill Vault on GitHub](https://github.com/pugliabi/skill-vault?utm_source=agentic_thinking&utm_medium=website&utm_campaign=20261008)
